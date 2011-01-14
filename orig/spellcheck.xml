@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DCOI xmlns:imdi="http://www.mpi.nl/IMDI/Schema/IMDI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:d-coi="http://lands.let.ru.nl/projects/d-coi/ns/1.0" xsi:schemaLocation="http://lands.let.ru.nl/projects/d-coi/ns/1.0 dcoi.xsd" xml:id="WS-U-E-A-0000018643">
+    <imdi:METATRANSCRIPT Type="SESSION" Version="1" Date="2006-03-31">
+        <imdi:Session>
+            <imdi:Name>NOS Autocues 8 uur Journaal</imdi:Name>
+            <imdi:Title>arveladze</imdi:Title>
+            <imdi:Date>2001-08-04</imdi:Date>
+            <imdi:Description>ID: ac8ujournaal20010804_0003 SUBJECT: arveladze DATE: 2001-08-04 Duration: tTekst="1:29" tBld="1:10" tTotal="2:39" PRES: </imdi:Description>
+            <imdi:MDGroup>
+                <imdi:Location>
+                    <imdi:Continent>Europe</imdi:Continent>
+                    <imdi:Country>The Netherlands</imdi:Country>
+                </imdi:Location>
+                <imdi:Keys/>
+                <imdi:Project>
+                    <imdi:Name>SoNaR</imdi:Name>
+                    <imdi:Title/>
+                    <imdi:Id/>
+                    <imdi:Contact/>
+                    <imdi:Description/>
+                </imdi:Project>
+                <imdi:Collector>
+                    <imdi:Name/>
+                    <imdi:Contact/>
+                    <imdi:Description/>
+                </imdi:Collector>
+                <imdi:Content>
+                    <imdi:Task/>
+                    <imdi:Modalities/>
+                    <imdi:CommunicationContext>
+                        <imdi:Interactivity/>
+                        <imdi:PlanningType/>
+                        <imdi:Involvement/>
+                    </imdi:CommunicationContext>
+                    <imdi:Genre>
+                        <imdi:Interactional/>
+                        <imdi:Discursive/>
+                        <imdi:Performance/>
+                    </imdi:Genre>
+                    <imdi:Languages>
+                        <imdi:Language>
+                            <imdi:Id/>
+                            <imdi:Name>Dutch</imdi:Name>
+                            <imdi:Description>8 uur journaal: News at eight: news readers' autocues produced in-house by the NOS.</imdi:Description>
+                        </imdi:Language>
+                    </imdi:Languages>
+                    <imdi:Keys/>
+                </imdi:Content>
+                <imdi:Participants/>
+            </imdi:MDGroup>
+            <imdi:Resources>
+                <imdi:MediaFile>
+                    <imdi:ResourceLink>ac8ujournaal20010804.xml</imdi:ResourceLink>
+                    <imdi:Size>18936</imdi:Size>
+                    <imdi:Type/>
+                    <imdi:Format/>
+                    <imdi:Quality>Unknown</imdi:Quality>
+                    <imdi:RecordingConditions/>
+                    <imdi:TimePosition Start="Unknown"/>
+                    <imdi:Access>
+                        <imdi:Availability/>
+                        <imdi:Date>2009-04-29</imdi:Date>
+                        <imdi:Owner/>
+                        <imdi:Publisher/>
+                        <imdi:Contact/>
+                        <imdi:Description/>
+                    </imdi:Access>
+                    <imdi:Description/>
+                </imdi:MediaFile>
+                <imdi:AnnotationUnit>
+                    <imdi:ResourceLink/>
+                    <imdi:MediaResourceLink/>
+                    <imdi:Annotator/>
+                    <imdi:Date/>
+                    <imdi:Type/>
+                    <imdi:Format/>
+                    <imdi:ContentEncoding/>
+                    <imdi:CharacterEncoding/>
+                    <imdi:Access>
+                        <imdi:Availability/>
+                        <imdi:Date/>
+                        <imdi:Owner/>
+                        <imdi:Publisher/>
+                        <imdi:Contact/>
+                        <imdi:Description/>
+                    </imdi:Access>
+                    <imdi:LanguageId/>
+                    <imdi:Anonymous>false</imdi:Anonymous>
+                    <imdi:Description/>
+                </imdi:AnnotationUnit>
+                <imdi:Source>
+                    <imdi:Id/>
+                    <imdi:Format/>
+                    <imdi:Quality>Unknown</imdi:Quality>
+                    <imdi:TimePosition Start="Unknown"/>
+                    <imdi:Access>
+                        <imdi:Availability>Sonar.1.NL.001</imdi:Availability>
+                        <imdi:Date>2008-11-06</imdi:Date>
+                        <imdi:Owner/>
+                        <imdi:Publisher>Nederlandse Omroep Stichting (NOS) URL: http://www.nos.nl</imdi:Publisher>
+                        <imdi:Contact/>
+                        <imdi:Description/>
+                    </imdi:Access>
+                    <imdi:Description/>
+                </imdi:Source>
+            </imdi:Resources>
+        </imdi:Session>
+    </imdi:METATRANSCRIPT>
+    <text xml:id="WS-U-E-A-0000018643.text">
+        <body>
+            <div1 xml:id="WS-U-E-A-0000018643.div1.1">
+                <head xml:id="WS-U-E-A-0000018643.head.1">
+                    <s xml:id="WS-U-E-A-0000018643.head.1.s.1">
+                        <w xml:id="WS-U-E-A-0000018643.head.1.s.1.w.1" lexicon="unknown" lexicon-suggestion="empty" errorlist="empty" original="arveladze" correction="spelling">Arveladze</w>
+                    </s>
+                </head>
+                <p xml:id="WS-U-E-A-0000018643.p.1">
+                    <s xml:id="WS-U-E-A-0000018643.p.1.s.1">
+                        <w xml:id="WS-U-E-A-0000018643.p.1.s.1.w.1" lexicon="known" lexicon-suggestion="empty" errorlist="empty">EC</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.1.s.1.w.2" lexicon="known" lexicon-suggestion="empty" errorlist="empty">betekende</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.1.s.1.w.3" lexicon="known" lexicon-suggestion="empty" errorlist="empty">voor</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.1.s.1.w.4" lexicon="known" lexicon-suggestion="empty" errorlist="empty">Ajax</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.1.s.1.w.5" lexicon="known" lexicon-suggestion="empty" errorlist="empty">tot</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.1.s.1.w.6" lexicon="known" lexicon-suggestion="empty" errorlist="empty">nu</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.1.s.1.w.7" lexicon="known" lexicon-suggestion="empty" errorlist="empty">toe</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.1.s.1.w.8" lexicon="known" lexicon-suggestion="empty" errorlist="empty">:</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.1.s.1.w.9" lexicon="known" lexicon-suggestion="empty" errorlist="empty">Europacup</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.1.s.1.w.10" lexicon="known" lexicon-suggestion="empty" errorlist="empty">,</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.1.s.1.w.11" lexicon="known" lexicon-suggestion="empty" errorlist="empty">en</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.1.s.1.w.12" lexicon="known" lexicon-suggestion="empty" errorlist="empty">daar</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.1.s.1.w.13" lexicon="known" lexicon-suggestion="empty" errorlist="empty">hebben</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.1.s.1.w.14" lexicon="known" lexicon-suggestion="empty" errorlist="empty">ze</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.1.s.1.w.15" lexicon="known" lexicon-suggestion="empty" errorlist="empty">er</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.1.s.1.w.16" lexicon="known" lexicon-suggestion="empty" errorlist="empty">vier</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.1.s.1.w.17" lexicon="known" lexicon-suggestion="empty" errorlist="empty">van</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.1.s.1.w.18" lexicon="known" lexicon-suggestion="empty" errorlist="empty">,</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.1.s.1.w.19" lexicon="known" lexicon-suggestion="empty" errorlist="empty">van</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.1.s.1.w.20" lexicon="known" lexicon-suggestion="empty" errorlist="empty">vroeger</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.1.s.1.w.21" lexicon="known" lexicon-suggestion="empty" errorlist="empty">nog</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.1.s.1.w.22" lexicon="known" lexicon-suggestion="empty" errorlist="empty">.</w>
+                    </s>
+                </p>
+                <p xml:id="WS-U-E-A-0000018643.p.2">
+                    <s xml:id="WS-U-E-A-0000018643.p.2.s.1">
+                        <w xml:id="WS-U-E-A-0000018643.p.2.s.1.w.1" lexicon="known" lexicon-suggestion="empty" errorlist="empty">Maar</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.2.s.1.w.2" lexicon="known" lexicon-suggestion="empty" errorlist="empty">EC</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.2.s.1.w.3" lexicon="known" lexicon-suggestion="empty" errorlist="empty">betekent</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.2.s.1.w.4" lexicon="known" lexicon-suggestion="empty" errorlist="empty">ook</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.2.s.1.w.5" lexicon="known" lexicon-suggestion="empty" errorlist="empty">:</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.2.s.1.w.6" lexicon="known" lexicon-suggestion="empty" errorlist="empty">Europese</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.2.s.1.w.7" lexicon="known" lexicon-suggestion="empty" errorlist="empty">Commissie</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.2.s.1.w.8" lexicon="known" lexicon-suggestion="empty" errorlist="empty">,</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.2.s.1.w.9" lexicon="known" lexicon-suggestion="empty" errorlist="empty">en</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.2.s.1.w.10" lexicon="known" lexicon-suggestion="empty" errorlist="empty">daar</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.2.s.1.w.11" lexicon="known" lexicon-suggestion="empty" errorlist="empty">krijgen</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.2.s.1.w.12" lexicon="known" lexicon-suggestion="empty" errorlist="empty">de</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.2.s.1.w.13" lexicon="known" lexicon-suggestion="empty" errorlist="empty">Amsterdammers</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.2.s.1.w.14" lexicon="known" lexicon-suggestion="empty" errorlist="empty">waarschijnlijk</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.2.s.1.w.15" lexicon="known" lexicon-suggestion="empty" errorlist="empty">binnenkort</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.2.s.1.w.16" lexicon="known" lexicon-suggestion="empty" errorlist="empty">mee</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.2.s.1.w.17" lexicon="known" lexicon-suggestion="empty" errorlist="empty">te</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.2.s.1.w.18" lexicon="known" lexicon-suggestion="empty" errorlist="empty">maken</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.2.s.1.w.19" lexicon="known" lexicon-suggestion="empty" errorlist="empty">.</w>
+                    </s>
+                </p>
+                <p xml:id="WS-U-E-A-0000018643.p.3">
+                    <s xml:id="WS-U-E-A-0000018643.p.3.s.1">
+                        <w xml:id="WS-U-E-A-0000018643.p.3.s.1.w.1" lexicon="known" lexicon-suggestion="empty" errorlist="empty">Het</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.3.s.1.w.2" lexicon="known" lexicon-suggestion="empty" errorlist="empty">contract</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.3.s.1.w.3" lexicon="known" lexicon-suggestion="empty" errorlist="empty">van</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.3.s.1.w.4" lexicon="known" lexicon-suggestion="empty" errorlist="empty">Ajax</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.3.s.1.w.5" lexicon="known" lexicon-suggestion="empty" errorlist="empty">met</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.3.s.1.w.6" lexicon="known" lexicon-suggestion="empty" errorlist="empty">Shota</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.3.s.1.w.7" lexicon="known" lexicon-suggestion="empty" errorlist="empty">Arveladze</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.3.s.1.w.8" lexicon="known" lexicon-suggestion="empty" errorlist="empty">loopt</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.3.s.1.w.9" lexicon="known" lexicon-suggestion="empty" errorlist="empty">volgend</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.3.s.1.w.10" lexicon="known" lexicon-suggestion="empty" errorlist="empty">jaar</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.3.s.1.w.11" lexicon="known" lexicon-suggestion="empty" errorlist="empty">af</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.3.s.1.w.12" lexicon="known" lexicon-suggestion="empty" errorlist="empty">.</w>
+                    </s>
+                </p>
+                <p xml:id="WS-U-E-A-0000018643.p.4">
+                    <s xml:id="WS-U-E-A-0000018643.p.4.s.1">
+                        <w xml:id="WS-U-E-A-0000018643.p.4.s.1.w.1" lexicon="known" lexicon-suggestion="empty" errorlist="empty">Volgens</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.4.s.1.w.2" lexicon="known" lexicon-suggestion="empty" errorlist="empty">de</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.4.s.1.w.3" lexicon="known" lexicon-suggestion="empty" errorlist="empty">Europese</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.4.s.1.w.4" lexicon="known" lexicon-suggestion="empty" errorlist="empty">wetgeving</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.4.s.1.w.5" lexicon="known" lexicon-suggestion="empty" errorlist="empty">zou</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.4.s.1.w.6" lexicon="known" lexicon-suggestion="empty" errorlist="empty">de</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.4.s.1.w.7" lexicon="unknown" lexicon-suggestion="empty" errorlist="empty" original="Georgi&amp;quot;er" correction="spelling">Georgiër</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.4.s.1.w.8" lexicon="known" lexicon-suggestion="empty" errorlist="empty">dan</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.4.s.1.w.9" lexicon="known" lexicon-suggestion="empty" errorlist="empty">transfervrij</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.4.s.1.w.10" lexicon="known" lexicon-suggestion="empty" errorlist="empty">kunnen</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.4.s.1.w.11" lexicon="known" lexicon-suggestion="empty" errorlist="empty">vertrekken</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.4.s.1.w.12" lexicon="known" lexicon-suggestion="empty" errorlist="empty">.</w>
+                    </s>
+                </p>
+                <p xml:id="WS-U-E-A-0000018643.p.5">
+                    <s xml:id="WS-U-E-A-0000018643.p.5.s.1">
+                        <w xml:id="WS-U-E-A-0000018643.p.5.s.1.w.1" lexicon="known" lexicon-suggestion="empty" errorlist="empty">Daarom</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.5.s.1.w.2" lexicon="known" lexicon-suggestion="empty" errorlist="empty">wil</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.5.s.1.w.3" lexicon="known" lexicon-suggestion="empty" errorlist="empty">Ajax</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.5.s.1.w.4" lexicon="known" lexicon-suggestion="empty" errorlist="empty">het</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.5.s.1.w.5" lexicon="known" lexicon-suggestion="empty" errorlist="empty">contract</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.5.s.1.w.6" lexicon="known" lexicon-suggestion="empty" errorlist="empty">nu</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.5.s.1.w.7" lexicon="known" lexicon-suggestion="empty" errorlist="empty">verlengen</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.5.s.1.w.8" lexicon="known" lexicon-suggestion="empty" errorlist="empty">en</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.5.s.1.w.9" lexicon="known" lexicon-suggestion="empty" errorlist="empty">de</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.5.s.1.w.10" lexicon="known" lexicon-suggestion="empty" errorlist="empty">spits</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.5.s.1.w.11" lexicon="known" lexicon-suggestion="empty" errorlist="empty">voor</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.5.s.1.w.12" lexicon="known" lexicon-suggestion="empty" errorlist="empty">langere</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.5.s.1.w.13" lexicon="known" lexicon-suggestion="empty" errorlist="empty">tijd</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.5.s.1.w.14" lexicon="known" lexicon-suggestion="empty" errorlist="empty">aan</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.5.s.1.w.15" lexicon="known" lexicon-suggestion="empty" errorlist="empty">zich</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.5.s.1.w.16" lexicon="known" lexicon-suggestion="empty" errorlist="empty">binden</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.5.s.1.w.17" lexicon="known" lexicon-suggestion="empty" errorlist="empty">.</w>
+                    </s>
+                </p>
+                <p xml:id="WS-U-E-A-0000018643.p.6">
+                    <s xml:id="WS-U-E-A-0000018643.p.6.s.1">
+                        <w xml:id="WS-U-E-A-0000018643.p.6.s.1.w.1" lexicon="known" lexicon-suggestion="empty" errorlist="empty">Wanneer</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.6.s.1.w.2" lexicon="known" lexicon-suggestion="empty" errorlist="empty">hij</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.6.s.1.w.3" lexicon="known" lexicon-suggestion="empty" errorlist="empty">dan</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.6.s.1.w.4" lexicon="known" lexicon-suggestion="empty" errorlist="empty">toch</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.6.s.1.w.5" lexicon="known" lexicon-suggestion="empty" errorlist="empty">volgend</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.6.s.1.w.6" lexicon="known" lexicon-suggestion="empty" errorlist="empty">jaar</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.6.s.1.w.7" lexicon="known" lexicon-suggestion="empty" errorlist="empty">weg</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.6.s.1.w.8" lexicon="known" lexicon-suggestion="empty" errorlist="empty">wil</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.6.s.1.w.9" lexicon="known" lexicon-suggestion="empty" errorlist="empty">moet</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.6.s.1.w.10" lexicon="known" lexicon-suggestion="empty" errorlist="empty">dat</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.6.s.1.w.11" lexicon="known" lexicon-suggestion="empty" errorlist="empty">nieuwe</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.6.s.1.w.12" lexicon="known" lexicon-suggestion="empty" errorlist="empty">,</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.6.s.1.w.13" lexicon="known" lexicon-suggestion="empty" errorlist="empty">verlengde</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.6.s.1.w.14" lexicon="known" lexicon-suggestion="empty" errorlist="empty">contract</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.6.s.1.w.15" lexicon="known" lexicon-suggestion="empty" errorlist="empty">worden</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.6.s.1.w.16" lexicon="known" lexicon-suggestion="empty" errorlist="empty">opengebroken</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.6.s.1.w.17" lexicon="known" lexicon-suggestion="empty" errorlist="empty">en</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.6.s.1.w.18" lexicon="known" lexicon-suggestion="empty" errorlist="empty">kan</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.6.s.1.w.19" lexicon="known" lexicon-suggestion="empty" errorlist="empty">Ajax</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.6.s.1.w.20" lexicon="known" lexicon-suggestion="empty" errorlist="empty">wel</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.6.s.1.w.21" lexicon="known" lexicon-suggestion="empty" errorlist="empty">geld</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.6.s.1.w.22" lexicon="known" lexicon-suggestion="empty" errorlist="empty">vragen</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.6.s.1.w.23" lexicon="known" lexicon-suggestion="empty" errorlist="empty">aan</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.6.s.1.w.24" lexicon="known" lexicon-suggestion="empty" errorlist="empty">de</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.6.s.1.w.25" lexicon="known" lexicon-suggestion="empty" errorlist="empty">club</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.6.s.1.w.26" lexicon="known" lexicon-suggestion="empty" errorlist="empty">die</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.6.s.1.w.27" lexicon="known" lexicon-suggestion="empty" errorlist="empty">hem</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.6.s.1.w.28" lexicon="known" lexicon-suggestion="empty" errorlist="empty">zou</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.6.s.1.w.29" lexicon="known" lexicon-suggestion="empty" errorlist="empty">overnemen</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.6.s.1.w.30" lexicon="known" lexicon-suggestion="empty" errorlist="empty">.</w>
+                    </s>
+                </p>
+                <p xml:id="WS-U-E-A-0000018643.p.7">
+                    <s xml:id="WS-U-E-A-0000018643.p.7.s.1">
+                        <w xml:id="WS-U-E-A-0000018643.p.7.s.1.w.1" lexicon="known" lexicon-suggestion="empty" errorlist="empty">Trainer</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.7.s.1.w.2" lexicon="known" lexicon-suggestion="empty" errorlist="empty">Adriaanse</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.7.s.1.w.3" lexicon="known" lexicon-suggestion="empty" errorlist="empty">heeft</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.7.s.1.w.4" lexicon="known" lexicon-suggestion="empty" errorlist="empty">aangekondigd</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.7.s.1.w.5" lexicon="known" lexicon-suggestion="empty" errorlist="empty">dat</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.7.s.1.w.6" lexicon="known" lexicon-suggestion="empty" errorlist="empty">zolang</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.7.s.1.w.7" lexicon="known" lexicon-suggestion="empty" errorlist="empty">Arveladze</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.7.s.1.w.8" lexicon="known" lexicon-suggestion="empty" errorlist="empty">niet</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.7.s.1.w.9" lexicon="known" lexicon-suggestion="empty" errorlist="empty">meewerkt</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.7.s.1.w.10" lexicon="known" lexicon-suggestion="empty" errorlist="empty">hij</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.7.s.1.w.11" lexicon="known" lexicon-suggestion="empty" errorlist="empty">niet</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.7.s.1.w.12" lexicon="known" lexicon-suggestion="empty" errorlist="empty">zal</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.7.s.1.w.13" lexicon="known" lexicon-suggestion="empty" errorlist="empty">spelen</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.7.s.1.w.14" lexicon="known" lexicon-suggestion="empty" errorlist="empty">.</w>
+                    </s>
+                </p>
+                <p xml:id="WS-U-E-A-0000018643.p.8">
+                    <s xml:id="WS-U-E-A-0000018643.p.8.s.1">
+                        <w xml:id="WS-U-E-A-0000018643.p.8.s.1.w.1" lexicon="known" lexicon-suggestion="empty" errorlist="empty">Ajax</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.8.s.1.w.2" lexicon="known" lexicon-suggestion="empty" errorlist="empty">meent</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.8.s.1.w.3" lexicon="known" lexicon-suggestion="empty" errorlist="empty">dat</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.8.s.1.w.4" lexicon="known" lexicon-suggestion="empty" errorlist="empty">een</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.8.s.1.w.5" lexicon="known" lexicon-suggestion="empty" errorlist="empty">dergelijk</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.8.s.1.w.6" lexicon="known" lexicon-suggestion="empty" errorlist="empty">drukmiddel</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.8.s.1.w.7" lexicon="known" lexicon-suggestion="empty" errorlist="empty">best</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.8.s.1.w.8" lexicon="known" lexicon-suggestion="empty" errorlist="empty">is</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.8.s.1.w.9" lexicon="known" lexicon-suggestion="empty" errorlist="empty">geoorloofd</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.8.s.1.w.10" lexicon="known" lexicon-suggestion="empty" errorlist="empty">,</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.8.s.1.w.11" lexicon="known" lexicon-suggestion="empty" errorlist="empty">als</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.8.s.1.w.12" lexicon="known" lexicon-suggestion="empty" errorlist="empty">de</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.8.s.1.w.13" lexicon="known" lexicon-suggestion="empty" errorlist="empty">spits</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.8.s.1.w.14" lexicon="known" lexicon-suggestion="empty" errorlist="empty">zijn</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.8.s.1.w.15" lexicon="known" lexicon-suggestion="empty" errorlist="empty">honorarium</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.8.s.1.w.16" lexicon="known" lexicon-suggestion="empty" errorlist="empty">maar</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.8.s.1.w.17" lexicon="known" lexicon-suggestion="empty" errorlist="empty">krijgt</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.8.s.1.w.18" lexicon="known" lexicon-suggestion="empty" errorlist="empty">.</w>
+                    </s>
+                </p>
+                <p xml:id="WS-U-E-A-0000018643.p.9">
+                    <s xml:id="WS-U-E-A-0000018643.p.9.s.1">
+                        <w xml:id="WS-U-E-A-0000018643.p.9.s.1.w.1" lexicon="known" lexicon-suggestion="empty" errorlist="empty">Maar</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.9.s.1.w.2" lexicon="known" lexicon-suggestion="empty" errorlist="empty">volgens</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.9.s.1.w.3" lexicon="known" lexicon-suggestion="empty" errorlist="empty">deskundige</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.9.s.1.w.4" lexicon="known" lexicon-suggestion="empty" errorlist="empty">juristen</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.9.s.1.w.5" lexicon="known" lexicon-suggestion="empty" errorlist="empty">is</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.9.s.1.w.6" lexicon="known" lexicon-suggestion="empty" errorlist="empty">dat</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.9.s.1.w.7" lexicon="known" lexicon-suggestion="empty" errorlist="empty">een</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.9.s.1.w.8" lexicon="known" lexicon-suggestion="empty" errorlist="empty">onhoudbaar</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.9.s.1.w.9" lexicon="known" lexicon-suggestion="empty" errorlist="empty">standpunt</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.9.s.1.w.10" lexicon="known" lexicon-suggestion="empty" errorlist="empty">.</w>
+                    </s>
+                </p>
+                <p xml:id="WS-U-E-A-0000018643.p.10">
+                    <s xml:id="WS-U-E-A-0000018643.p.10.s.1">
+                        <w xml:id="WS-U-E-A-0000018643.p.10.s.1.w.1" lexicon="known" lexicon-suggestion="empty" errorlist="empty">Volgens</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.10.s.1.w.2" lexicon="known" lexicon-suggestion="empty" errorlist="empty">Molenaar</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.10.s.1.w.3" lexicon="known" lexicon-suggestion="empty" errorlist="empty">,</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.10.s.1.w.4" lexicon="known" lexicon-suggestion="empty" errorlist="empty">zelf</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.10.s.1.w.5" lexicon="known" lexicon-suggestion="empty" errorlist="empty">oud-Ajacied</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.10.s.1.w.6" lexicon="known" lexicon-suggestion="empty" errorlist="empty">,</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.10.s.1.w.7" lexicon="known" lexicon-suggestion="empty" errorlist="empty">wordt</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.10.s.1.w.8" lexicon="known" lexicon-suggestion="empty" errorlist="empty">Arveladze</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.10.s.1.w.9" lexicon="known" lexicon-suggestion="empty" errorlist="empty">daarmee</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.10.s.1.w.10" lexicon="known" lexicon-suggestion="empty" errorlist="empty">in</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.10.s.1.w.11" lexicon="known" lexicon-suggestion="empty" errorlist="empty">een</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.10.s.1.w.12" lexicon="known" lexicon-suggestion="empty" errorlist="empty">dwangpositie</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.10.s.1.w.13" lexicon="known" lexicon-suggestion="empty" errorlist="empty">gemanoeuvreerd</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.10.s.1.w.14" lexicon="known" lexicon-suggestion="empty" errorlist="empty">en</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.10.s.1.w.15" lexicon="known" lexicon-suggestion="empty" errorlist="empty">solliciteert</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.10.s.1.w.16" lexicon="known" lexicon-suggestion="empty" errorlist="empty">Ajax</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.10.s.1.w.17" lexicon="known" lexicon-suggestion="empty" errorlist="empty">zodoende</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.10.s.1.w.18" lexicon="known" lexicon-suggestion="empty" errorlist="empty">ook</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.10.s.1.w.19" lexicon="known" lexicon-suggestion="empty" errorlist="empty">volgens</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.10.s.1.w.20" lexicon="known" lexicon-suggestion="empty" errorlist="empty">de</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.10.s.1.w.21" lexicon="known" lexicon-suggestion="Nederlandse" errorlist="empty" original="nederlandse" correction="spelling">Nederlandse</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.10.s.1.w.22" lexicon="known" lexicon-suggestion="empty" errorlist="empty">wet</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.10.s.1.w.23" lexicon="known" lexicon-suggestion="empty" errorlist="empty">naar</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.10.s.1.w.24" lexicon="known" lexicon-suggestion="empty" errorlist="empty">een</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.10.s.1.w.25" lexicon="known" lexicon-suggestion="empty" errorlist="empty">rode</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.10.s.1.w.26" lexicon="known" lexicon-suggestion="empty" errorlist="empty">kaart</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.10.s.1.w.27" lexicon="known" lexicon-suggestion="empty" errorlist="empty">.</w>
+                    </s>
+                </p>
+                <p xml:id="WS-U-E-A-0000018643.p.11">
+                    <s xml:id="WS-U-E-A-0000018643.p.11.s.1">
+                        <w xml:id="WS-U-E-A-0000018643.p.11.s.1.w.1" lexicon="known" lexicon-suggestion="empty" errorlist="empty">Toch</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.11.s.1.w.2" lexicon="known" lexicon-suggestion="empty" errorlist="empty">valt</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.11.s.1.w.3" lexicon="known" lexicon-suggestion="empty" errorlist="empty">Ajax</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.11.s.1.w.4" lexicon="known" lexicon-suggestion="empty" errorlist="empty">volgens</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.11.s.1.w.5" lexicon="known" lexicon-suggestion="empty" errorlist="empty">de</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.11.s.1.w.6" lexicon="known" lexicon-suggestion="empty" errorlist="empty">kritici</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.11.s.1.w.7" lexicon="known" lexicon-suggestion="empty" errorlist="empty">ook</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.11.s.1.w.8" lexicon="known" lexicon-suggestion="empty" errorlist="empty">wel</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.11.s.1.w.9" lexicon="known" lexicon-suggestion="empty" errorlist="empty">te</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.11.s.1.w.10" lexicon="known" lexicon-suggestion="empty" errorlist="empty">prijzen</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.11.s.1.w.11" lexicon="known" lexicon-suggestion="empty" errorlist="empty">voor</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.11.s.1.w.12" lexicon="unknown" lexicon-suggestion="empty" errorlist="empty" original="affaire-Arveladze" correction="spelling">affaire Arveladze</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.11.s.1.w.13" lexicon="known" lexicon-suggestion="empty" errorlist="empty">.</w>
+                    </s>
+                </p>
+                <p xml:id="WS-U-E-A-0000018643.p.12">
+                    <s xml:id="WS-U-E-A-0000018643.p.12.s.1">
+                        <w xml:id="WS-U-E-A-0000018643.p.12.s.1.w.1" lexicon="known" lexicon-suggestion="empty" errorlist="empty">De</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.12.s.1.w.2" lexicon="known" lexicon-suggestion="empty" errorlist="empty">verwachting</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.12.s.1.w.3" lexicon="known" lexicon-suggestion="empty" errorlist="empty">is</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.12.s.1.w.4" lexicon="known" lexicon-suggestion="empty" errorlist="empty">dat</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.12.s.1.w.5" lexicon="known" lexicon-suggestion="empty" errorlist="empty">bij</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.12.s.1.w.6" lexicon="known" lexicon-suggestion="empty" errorlist="empty">een</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.12.s.1.w.7" lexicon="known" lexicon-suggestion="empty" errorlist="empty">eventueel</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.12.s.1.w.8" lexicon="known" lexicon-suggestion="empty" errorlist="empty">geding</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.12.s.1.w.9" lexicon="known" lexicon-suggestion="empty" errorlist="empty">voor</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.12.s.1.w.10" lexicon="known" lexicon-suggestion="empty" errorlist="empty">de</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.12.s.1.w.11" lexicon="unknown" lexicon-suggestion="empty" errorlist="empty" original="KNVB-arbitragecommissie" correction="original_correct">KNVB-arbitragecommissie</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.12.s.1.w.12" lexicon="known" lexicon-suggestion="empty" errorlist="empty">Ajax</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.12.s.1.w.13" lexicon="known" lexicon-suggestion="empty" errorlist="empty">gedwongen</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.12.s.1.w.14" lexicon="known" lexicon-suggestion="empty" errorlist="empty">zal</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.12.s.1.w.15" lexicon="known" lexicon-suggestion="empty" errorlist="empty">worden</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.12.s.1.w.16" lexicon="known" lexicon-suggestion="empty" errorlist="empty">Arveladze</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.12.s.1.w.17" lexicon="known" lexicon-suggestion="empty" errorlist="empty">weer</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.12.s.1.w.18" lexicon="known" lexicon-suggestion="empty" errorlist="empty">op</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.12.s.1.w.19" lexicon="known" lexicon-suggestion="empty" errorlist="empty">te</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.12.s.1.w.20" lexicon="known" lexicon-suggestion="empty" errorlist="empty">stellen</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.12.s.1.w.21" lexicon="known" lexicon-suggestion="empty" errorlist="empty">.</w>
+                    </s>
+                </p>
+                <p xml:id="WS-U-E-A-0000018643.p.13">
+                    <s xml:id="WS-U-E-A-0000018643.p.13.s.1">
+                        <w xml:id="WS-U-E-A-0000018643.p.13.s.1.w.1" lexicon="known" lexicon-suggestion="empty" errorlist="empty">De</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.13.s.1.w.2" lexicon="known" lexicon-suggestion="empty" errorlist="empty">Europese</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.13.s.1.w.3" lexicon="known" lexicon-suggestion="empty" errorlist="empty">commissie</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.13.s.1.w.4" lexicon="known" lexicon-suggestion="empty" errorlist="empty">kan</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.13.s.1.w.5" lexicon="known" lexicon-suggestion="empty" errorlist="empty">Ajax</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.13.s.1.w.6" lexicon="known" lexicon-suggestion="empty" errorlist="empty">niet</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.13.s.1.w.7" lexicon="known" lexicon-suggestion="empty" errorlist="empty">terugfluiten</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.13.s.1.w.8" lexicon="known" lexicon-suggestion="empty" errorlist="empty">,</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.13.s.1.w.9" lexicon="known" lexicon-suggestion="empty" errorlist="empty">maar</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.13.s.1.w.10" lexicon="known" lexicon-suggestion="empty" errorlist="empty">wel</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.13.s.1.w.11" lexicon="known" lexicon-suggestion="empty" errorlist="empty">verbieden</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.13.s.1.w.12" lexicon="known" lexicon-suggestion="empty" errorlist="empty">in</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.13.s.1.w.13" lexicon="known" lexicon-suggestion="empty" errorlist="empty">de</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.13.s.1.w.14" lexicon="known" lexicon-suggestion="empty" errorlist="empty">toekomst</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.13.s.1.w.15" lexicon="known" lexicon-suggestion="empty" errorlist="empty">nog</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.13.s.1.w.16" lexicon="known" lexicon-suggestion="empty" errorlist="empty" original="een" correction="confusable">eens</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.13.s.1.w.17" lexicon="known" lexicon-suggestion="empty" errorlist="empty">zo</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.13.s.1.w.18" lexicon="known" lexicon-suggestion="empty" errorlist="empty">een</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.13.s.1.w.19" lexicon="known" lexicon-suggestion="empty" errorlist="empty">spelletje</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.13.s.1.w.20" lexicon="known" lexicon-suggestion="empty" errorlist="empty">te</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.13.s.1.w.21" lexicon="known" lexicon-suggestion="empty" errorlist="empty">spelen</w>
+                        <w xml:id="WS-U-E-A-0000018643.p.13.s.1.w.22" lexicon="known" lexicon-suggestion="empty" errorlist="empty">.</w>
+                    </s>
+                </p>
+            </div1>
+        </body>
+    </text>
+</DCOI>

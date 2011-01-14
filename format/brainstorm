@@ -1,0 +1,187 @@
+TiLDE - Tilburg Linguistic Document Enrichment Format
+    
+
+TODO:     
+    - MWU,merge, splits
+    - morph
+    - parser
+    - NER
+
+GOALS:
+
+    - to be used by Frog as primary format, for reading and writing        
+        (maintaining columned format as simplified legacy format only)        
+    - to be used by DutchSemCor
+    - to be used by SoNaR?
+    - to be used for spelling corrections
+        - Martin (TICCL) (pre-tokenisation)
+        - Tanja          (post-tokenisation)
+    - to be used for VU-DNC
+
+
+FEATURES:
+
+    - unique immutable ID for each token, paragraph, sentence etc
+    - One rich single format, making all auxiliary SoNaR formats obsolete: one XML file per document
+    - Support for merges and splits (with complete inclusion of the old situation and new derived IDs!)
+
+    - Extendable with new levels of annotation
+
+    - Easy selection of words:
+        xpath: //w or //w/txt
+    - Easy selection of words with particular attributes:
+
+CHOICES:
+    - pos-modifiers: encode as detailed as possible?
+    - namespace per module?  no   
+        mbpos:pos   mblem:lemma  
+        (pro: modularity, formal elegance  | con: human legibility, parsing with non-namespace aware parsers)
+
+
+LAYOUT ELEMENTS:
+
+div0 - Division level 0 (DCOI)
+    div1
+    head
+    p
+    s
+
+div1 - Division level 1 (DCOI)
+    div2
+    head
+    p
+    s 
+    
+
+div2 - Division level 2 (DCOI)
+    div3
+    head
+    p
+    s
+    
+            
+head - Header (DCOI)
+    t -  Text of paragraph (untokenised, with SC for spelling correction on this level)    
+    s*
+    
+p -  Paragraph (DCOI)
+    t -  Text of paragraph (untokenised, with SC for spelling correction on this level)
+    s*
+
+s - Sentence (DCOI)
+    @xml:id=DOCID.p.Y.s.X
+    t - Untokenised text of the entire sentence
+    w*
+    quote* - Quote
+    
+w - Word Token (DCOI)
+    t -  Text of token
+    @type - type of token (depends on set)
+        ucto defines: WORD, PUNCTUATION, etc..        
+    @space - Space after this word? (default=yes)
+        
+    alt
+
+w-parent - Word Token from a previous version (now merged or split)
+    (takes the same children as w)
+
+
+t - Text content
+    correction (only for p/t s/t)
+    
+    BASIC MARKUP (xhtml compatible):
+    
+        strong - STRONG
+        em - emphatic
+
+    
+alt - Alternative annotation
+    pos,lemma,sense
+    
+
+== ANNOTATIONS ==
+
+COMMON ATTRIBUTES FOR ALL ANNOTATIONS:
+
+    @set                - The tagset used (may be omitted if set in metadata)
+    @annotator          - An ID of the system that produced the result, or an ID/name for the human annotator (may be omitted if set in meta-header)
+    @annotatortype      - 'auto' for automated systems, 'manual' for manual human annotations (may be ommitted if already set in meta-header)
+    @confidence         - A float between 0 and 1.0 indicating the confidence (only if applicable)
+
+    @class               - The type of annotation, possible types depend on @set. This is not used by all annotation elements though.
+        
+
+TOKEN ANNOTATIONS:
+    
+    Token annotations can be applied to:
+        w, w-parent, entity
+    
+
+    pos* - Part-of-Speech tag
+        @set     - Name of the tagset (example: CGN)
+        @class   - The type of PoS tag (according to @set)
+        feat*    - Feature
+            @class   - Feature class (according to @set)
+            @value   - Feature value (according to @set)
+            value    - Human readable description of the feature value                    
+    lemma* - Lemma
+        @class  - The ID of this lemma according to the @set (optional)
+        value   - The lemma
+    sense*
+        @set    - Name of the classification used, example: cornetto
+        @class  - The sense / lexical unit (according to @set)
+        @synset - The synset (optional)
+        value   - A human readable description of the sense
+    lexicon*  - Ties this token to a lexicon
+        @set    - Name of the lexicon
+        @class  - The ID of this type according to the @set (optional)
+        @known  - Is this token known in the lexicon? yes/no
+            suggestion* - A suggestion put forward by the lexicon
+                @confidence (optional)
+                value - (the textual suggestion)
+    correction
+        @set    - Name of the correction set
+        @class  - The type of correction according to the set
+        original - The text content of the token prior to correction
+             t   - The text content of the token after correction (equal to token-element's t if this is the last correction)
+             correction - Corrections can be nested
+                ...
+
+SPAN ANNOTATIONS:
+
+    All may span over a range of one or more consecutive token elements or span elements
+
+    syn - Syntactic unit
+        @set   - Name of the syntactic set
+        @class - Type of syntactic unit according to the @set (example: NP,VP)
+        h      - Spans over the head of a syntactic unit
+        c{1,2} - Spans over the complement of a syntactic unit
+        chunk  - If this unit is a chunk, set to (sequential) chunk number (optional)
+    
+    semrole - Semantic role
+        @set 
+        @class - Type of semantic role
+        
+    
+        
+DEPENDENCY RELATIONS:
+    
+    dep
+    
+            
+                
+ALTERNATIVE ANNOTATIONS:
+
+    alt - Introduces an alternative annotation
+        (children: any token annotation elements)
+    
+    
+SCRAP:
+
+
+                
+1	Dit	dit	[dit]	VNW(aanw,pron,stan,vol,3o,ev)	2	su
+2	is	zijn	[zijn]	WW(pv,tgw,ev)	0	ROOT
+3	een	een	[een]	LID(onbep,stan,agr)	4	det
+4	test	test	[test]	N(soort,ev,basis,zijd,stan)	2	predc
+5	.	.	[.]	LET()	4	punct

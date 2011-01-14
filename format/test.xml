@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="http://ilk.uvt.nl/FoLiA/FoLiA.xsl"?>
+<FoLiA xmlns:imdi="http://www.mpi.nl/IMDI/Schema/IMDI" xmlns="http://ilk.uvt.nl/FoLiA" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:d-coi="http://lands.let.ru.nl/projects/d-coi/ns/1.0" xml:id="WR-P-E-J-0000001137">
+  <text xml:id="TEST-000000001.text">
+    <body>
+      <div0 xml:id="TEST-0000000001.div0.1">
+        <p xml:id="TEST-000000001.p.1">
+            <>Dit is een tesst. Deze test bestaat uit twee zinnen.</t>
+            <s xml:id="TEST-000000001.p.1.s.1">
+                <t>Dit is een tesst.</t>                
+                <w xml:id="TEST-000000001.p.1.s.1.w.1" type="WORD"> <!-- type refers to e.g. ucto token types (optional) -->
+                    <t>Dit</t>                
+                    <pos head="VNW" confidence="0.32" annotator="">
+                        <feat type="" value="aanw" />
+                        <feat type="" value="pron" />
+                        <feat type="" value="stan" />
+                        <feat type="" value="vol" />
+                        <feat type="" value="3o" />
+                        <feat type="number" value="ev" />
+                    </pos>
+                    <lemma>dit</lemma>
+                    
+                    
+                    
+                    <alt xml:id="TEST-000000001.p.1.s.1.w.1.ALT.1"> <!-- alternative (multiple alt elements allowed), grouping things that go together -->
+                        <pos head="VNW" confidence="0.55" system="">
+                        
+                        </pos>
+                    </alt>
+                </w>
+                <!-- -->
+                <w xml:id="TEST-000000001.p.1.s.1.w.4">
+                    <t>test</t>
+                    <!-- NA CORRECTIE: -->
+                    <correction xml:id="TEST-000000001.p.1.s.1.c.1" original="tesst" type="spelling">
+                        <txt>test</txt>
+                        <lexicon name="lexiconX" known="no"><suggestion>test</suggestion></lexicon>
+                    </correction>                    
+                    <!-- VÓÓR CORRECTIE -->
+                    <lexicon name="lexiconX" known="no"><suggestion>test</suggestion></lexicon>
+                </w>
+                
+                
+            <s xml:id="TEST-000000001.p.1.s.2">    
+                <t>Deze test bestaat uit twee zinnen.</t>     
+
+                <!-- .... more --->
+
+                
+            </s>
+        </p>      
+      
+        </p>
+      </div0>
+    </body>
+  </text>
+</FoLiA>
+
+
+
+PoS, Lemma, and Sense-annotation:
+        
+        <w xml:id="TEST-000000001.p.1.s.1.w.1" type="WORD">
+                <t>beelden</t>
+                <pos type="N">
+                    <feat type="number" value="mv" />
+                </pos>
+                <lemma>beeld</lemma>
+                <domain>kunst</domain>
+                <sense xml:id="r_n-6220" synset="d_n-32683">beeldhouwwerk</sense>
+        </w>
+
+
+NER and MWU:
+
+        <entity xml:id="TEST-000000001.p.1.s.1.e.1" type="person">
+            <w xml:id="TEST-000000001.p.1.s.1.w.1" type="WORD">
+                    <t>Maurice</t>
+            </w>        
+            <w xml:id="TEST-000000001.p.1.s.1.w.1" type="WORD">
+                    <t>de</t>
+            </w>
+            <w xml:id="TEST-000000001.p.1.s.1.w.1" type="WORD">
+                    <t>Hond</t>
+            </w>
+        </entity>
+
+Dependencies:
+        
+        <w xml:id="TEST-000000001.p.1.s.1.w.1"><t>ik</t></w>
+        <w xml:id="TEST-000000001.p.1.s.1.w.2">
+            <t>bel</t>
+            <dep type="?" ref="TEST-000000001.p.1.s.1.w.4" />
+        </w>
+        <w xml:id="TEST-000000001.p.1.s.1.w.3"><t>hem</t></w>
+        <w xml:id="TEST-000000001.p.1.s.1.w.4">
+            <t>op</t>
+            <dep type="?" ref="TEST-000000001.p.1.s.1.w.2" />
+        </w>
+    
+                
+Syntactic units
+    
+        <s>
+          <syn type="NP" xml:id="TEST-000000001.p.1.s.1.syn.1">
+            <w><t>De</t></w>
+            <head><w><t>man</t></w></head>
+          </syn>
+          <syn type="VP" xml:id="TEST-000000001.p.1.s.1.syn.2">
+            <head><w><t>aait</t></w></head>
+            <syn type="NP" xml:id="TEST-000000001.p.1.s.1.syn.2_1">
+                <w><t>De</t></w>
+                <h><w><t>hond</t></w></h>
+            </syn>
+          </syn>
+        </s>
+        
+
+
+
+Spelling corrections (OCR corrections) *prior* to tokenisation (ticcl):
+
+        <p xml:id="TEST-000000001.p.1">
+            <t>Dit is een <correction xml:id="TEST-000000001.p.1.c.1" original="tesst">
+                <t>test</t>                
+                <lexicon name="lexiconX" known="no">>
+                    <suggestion>test</suggestion>
+                </lexicon>
+            </correction>. Deze test bestaat uit twee zinnen.</t>            
+        </p>
+        
+Word Merges:
+        
+<w xml:id="document.p.1.s.1.w.1-2">
+    <t>hetgeen</t>
+    <w-parent xml:id="document.p.1.s.1.w.1">
+        <t>het</t>
+        <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.1" original="het geen" type="merge" seqnr="1" total="2">            
+        </correction>
+    </w-parent>
+    <w-parent xml:id="document.p.1.s.1.w.2">
+        <t>geen</t>
+        <correction xml:id="TEST-000000001.p.1.s.1.w.2.c.1" original="het geen" type="merge" seqnr="2" total="2">            
+        </correction>
+    </w-parent>
+    <correction xml:id="TEST-000000001.p.1.s.1.w.1-2.c.1" original="het geen" type="merge" parts="2">
+        <t>hetgeen</t>
+        <lexicon name="lexiconX" known="no"><suggestion>..</suggestion></lexicon>
+    </correction>                    
+</w>         
+
+
+Word Splits:
+
+<w-parent xml:id="document.p.1.s.1.w.1">
+    <t>eraf</t>
+    <w xml:id="document.p.1.s.1.w.1_1">
+        <t>er</t>
+        <correction xml:id="TEST-000000001.p.1.s.1.w.1_1.c.1" original="eraf" type="split" seqnr="1" total="2">
+            <txt>er</txt>
+            <lexicon name="lexiconX" known="no"><suggestion>..</suggestion></lexicon>
+        </correction>                    
+    </w>
+    <w xml:id="document.p1.s1.w.1_2">
+        <t>af</t>
+        <correction xml:id="TEST-000000001.p.1.s.1.w.1_2.c.1" original="eraf" type="split" seqnr="2" total="2">
+            <t>af</t>
+            <lexicon name="lexiconX" known="no"><suggestion>..</suggestion></lexicon>
+        </correction>                  
+    </w>
+    <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.1" type="split" parts="2">
+        <t>er af</t>
+        <lexicon name="lexiconX" known="no"><suggestion>..</suggestion></lexicon>
+    </correction>
+</w-parent>
+
+Sentence Merges:
+
+<s xml:id="document.p.1.s.1-2">
+    <t>Dit is een zin.</t>    
+    <s-parent xml:id="document.p.1.s.1">
+        <t>Dit is</t>
+    </s-parent>
+    <s-parent xml:id="document.p.1.s.2">
+        <t>een zin.</t>
+    </s-parent>
+    <correction xml:id="TEST-000000001.p.1.s.1-2.c.1" original="Dit is een zin." type="merge">
+        <t>hetgeen</t>
+        <lexicon name="lexiconX" known="no"><suggestion>..</suggestion></lexicon>
+    </correction>      
+</s>      
+
+
+Sentence Splits:
+
+
+
+Metadata:
+
+
+<annotations>
+    <token-annotation set="" />
+    <lemma-annotation set="" annotator="" annotatortype="" />
+    <pos-annotation set="" annotator="" />
+    <sense-annotation set="cornetto" annotator="" />
+    <syntax-annotation set="" annotator="" />
+    <entity-annotation set="" annotator="" />
+    <correction-annotation set="" annotator="" />
+    <lexicon-annotation set="" annotator="" />
+</annotations>

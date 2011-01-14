@@ -1,0 +1,127 @@
+\section{Introduction}
+
+
+FoLiA is a Format for Linguistic Annotation, derived from the DCOI\cite{DCOI} format developed at Polderland, and extended for richer annotation at the ILK research group, Tilburg University. Like its predecessor, FoLiA is an inline XML format, suitable for representing corpora and other linguistic texts. Its goal is to unify a variety of linguistic annotation in one single rich format. FoLiA is not tied to any particular annotation standard for its linguistic annotations, instead it seeks to accomodate any desired system or tagset, and so offering maximum flexibility. This also FoLiA makes FoLiA language independent.
+
+XML is an inherently hierarchic format, FoLiA does justice to this by maximally utilising a hierarchic, inline, setup. We inherit from the DCOI format, which is loosely based on a minimal subset of TEI. However, FoLiA is \emph{not} backwards-compatible with DCOI. FoLiA is a very rich format, and it is always fairly easy to convert back to ``less verbose'' formats such as the DCOI format, or plain-text. 
+
+The FoLiA format features the following:
+
+\begin{itemize}
+\item Open-source
+\item XML-based, validation against XML schema.
+\item Full Unicode support; UTF-8 encoded.
+\item Document structure consists of divisions, paragraphs, sentences and words/tokens.
+\item Can encode both tokenised as well as untokenised text + partial reconstructability of untokenised form even after tokenisation.
+\item Support for crude token categories (word, punctuation, number, etc)
+\item Explicit support for encoding quotations
+\item Provenance support for all linguistic annotations: annotator, type (automatic or manual), time.
+\item Support for alternative annotations, optionally with associated confidence values.
+\item Adaptable to different tag-sets.
+\item Support for CMDI Metadata.
+\item Legacy support for IMDI Metadata.
+\end{itemize}
+
+It supports the following linguistic annotations:
+
+\begin{itemize}
+\item Spelling corrections on both a tokenised as well as an untokenised level.
+\item Semantic sense annotation (to be used in DutchSemCor)
+\item Part-of-Speech tags (with features)
+\item Lemmatisation
+\item Morphological Analysis
+\item Multi-word units and Named Entities
+\item Syntactic Parses
+\item Semantic Role Labelling (?)
+\end{itemize}
+
+
+FoLiA support will be incorporated directly into the following ILK sofware:
+
+%This is all very pretentious:
+
+\begin{itemize} 
+\item ucto - A tokeniser which can directly output FoLiA XML 
+\item Frog - A PoS-tagger/lemmatiser/parser suite (the successor of Tadpole), will eventually support reading and writing FoLIA.
+\item CLAM - Computational Linguistics Application Mediator, will eventually have viewers for the FoLiA format.
+\item PyNLPl - Python Natural Language Processing Library, will come with libraries for parsing FoLiA
+\item libfolia? - C++ library for parsing FoLiA (a suggestion)
+\item TiCCL?
+\end{itemize}
+
+For metadata CMDI is preferred, but the user can also choose for another system such as IMDI \cite{IMDI} or the CLAM Metadata format \cite{CLAM}.
+
+\section{Format}
+
+\subsection{Basic Structure}
+
+In FoLiA, each document/text is represented by one XML file. The basic structure of such a FoLiA document is as follows and should always be UTF-8 encoded. An eleborate XSLT stylesheet will be provided in order to be able to instantly view FoLiA documents in any modern web browser.
+
+\begin{verbatim}
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="http://ilk.uvt.nl/FoLiA/FoLiA.xsl"?>
+<FoLiA xmlns="http://ilk.uvt.nl/FoLiA" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:id="example">
+  <metadata> 
+    <annotationlevel>
+    </annotationlevel>
+  </metadata>  
+  <text xml:id="example.text">
+   <gap></gap>
+   <body>
+   </body>
+   <gap></gap>
+  </text>
+</FoLiA>  
+\end{verbatim}
+
+Body contains the to-be-annotated material, more about this later. The gap tags are optional and contain unannotated front matter or back matter.
+
+\subsection{Identifiers}
+
+All elements which describe tokens or a span of tokens have an identifier by which it is uniquely identifiable. This makes refering to any part of a FoLiA document easy and follows the lead of the DCOI format. The identifiers are constructed in the same way as in the DCOI format, thus retaining full compatibility; if a DCOI document is converted to FoLiA, all external references to any entity in these documents will remain intact.
+
+Identifiers in DCOI and FoLiA are cummulative and are indicative of the position of the element within the document; a child element usually takes the ID of its parent, appends its name, a period, and a sequential number. This however only applies to certain primary elements: paragraph elements, sentence elements, and word elements.
+
+The base of all identifiers is that of the document itself, as encoded in \texttt{xml:id} attribute of the root \texttt{FoLiA} element. This is a unique ID by which the document is identifiable. We choose the identifier \emph{example} in the example above. By convention, the XML file should then ideally be named: \texttt{example.xml}.
+
+
+\subsection{Structure elements}
+
+The following elements structure a text.
+
+\begin{tabular}{ll}
+\textbf{Element:}  \texttt{div0} , \texttt{div1}, \texttt{div2} \\
+\hline
+\textbf{Parent:}  & \texttt{body} or \texttt{div$(n-1)$} \\
+\hline
+\textbf{DCOI:}  & yes \\
+\hline 
+\textbf{Description}: & \\
+These are divisions in a document, to be used if a document is structured into multiple levels (chapters,sections, subsection).\end{tabular}
+\hline
+\textbf{Attributes}: & \\
+\emph{xml:id} & ID, relative to the parent text element (not the parent divX element!) \\
+\emph{n} & The number of the chapter, section, subsection in the original document (optional). \\
+\hline
+\textbf{Example}: & \\
+\begin{verbatim}
+<div0 xml:id="DOCID.div0.1" n="1" class="chapter">
+<div1 xml:id="WR-P-E-H-0000000064.div1.1" n="1.4" class="paragraph">
+<div2 xml:id="WR-P-E-H-0000000064.div2.1" n="1.4.2." class="subpara">
+\end{verbatim}
+\end{tabular}
+
+
+\subsection{Content elements}
+
+
+\subsection{Token element}
+
+
+\subsection{Annotation elements}
+
+
+
+
+
+\section{Parsing}

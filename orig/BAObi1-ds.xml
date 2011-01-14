@@ -1,0 +1,194 @@
+<?xml version="1.0"?><?xml-stylesheet href="../highlight-DS.css" type="text/css" ?>
+
+<!DOCTYPE ptext SYSTEM "O:\Onderwijs en Onderzoek\Engels\Metaforenonderzoek\STER\config/ster.dtd">
+<ptext paper="A" ref="BAObi1" reg="news" subgenre="bi" year="1950">
+<header>
+<source></source>
+<section></section>
+<length></length>
+<byline></byline>
+<dateline>2 juli 1951</dateline>
+</header>
+<body>
+<headline>
+<sent id="0">
+<pau>
+    <pw lem="diplomeren" pos="WW(vd,prenom,met-e)" wcat="WW">Gediplomeerde</pw>
+    <pw lem="chauffeur" pos="N(soort,mv,basis)" wcat="N">chauffeurs</pw>
+</pau>
+</sent>
+</headline>
+<br></br>
+<sent id="1">
+<pau>
+    <pw lem="van" pos="VZ(init)" wcat="VZ">Van</pw>
+    <pw lem="ons" pos="VNW(bez,det,stan,vol,1,mv,prenom,met-e,rest)" wcat="VNW">onze</pw>
+    <pw lem="verslaggever" pos="N(soort,ev,basis,zijd,stan)" wcat="N">verslaggever</pw>
+    <pw lem="." pos="LET()" wcat="LET">.</pw>
+</pau>
+</sent>
+<br></br>
+<sent id="2">
+<pau>
+    <pw lem="ROTTERDAM" pos="SPEC(deeleigen)" wcat="SPEC">ROTTERDAM</pw>
+    <pw lem="." pos="LET()" wcat="LET">.</pw>
+</pau>
+</sent>
+<sent id="3">
+<pau>
+    <pw lem="-" pos="LET()" wcat="LET">-</pw>
+</pau>
+</sent>
+<br></br>
+<sent id="4">
+<pau>
+    <pw lem="van" pos="VZ(init)" wcat="VZ">Van</pw>
+    <pw lem="de" pos="LID(bep,stan,rest)" wcat="LID">de</pw>
+    <pw lem="271" pos="TW(hoofd,prenom,stan)" wcat="TW">271</pw>
+    <pw lem="chauffeur" pos="N(soort,mv,basis)" wcat="N">chauffeurs</pw>
+    <pw lem="," pos="LET()" wcat="LET">,</pw>
+    <pw lem="die" pos="VNW(betr,pron,stan,vol,persoon,getal)" wcat="VNW">die</pw>
+    <pw lem="de" pos="LID(bep,stan,rest)" wcat="LID">de</pw>
+    <pw lem="tien" pos="TW(hoofd,prenom,stan)" wcat="TW">tien</pw>
+    <pw lem="examencommissie" pos="N(soort,mv,basis)" wcat="N">examencommissies</pw>
+    <pw lem="van" pos="VZ(init)" wcat="VZ">van</pw>
+    <pw lem="de" pos="LID(bep,stan,rest)" wcat="LID">de</pw>
+    <pw lem="e.V.O." pos="SPEC(afk)" wcat="SPEC">E.V.O.</pw>
+    <pw lem="dit" pos="VNW(aanw,det,stan,prenom,zonder,evon)" wcat="VNW">dit</pw>
+    <pw lem="jaar" pos="N(soort,ev,basis,onz,stan)" wcat="N">jaar</pw>
+    <pw lem="in" pos="VZ(init)" wcat="VZ">in</pw>
+    <pw lem="Zuid" pos="SPEC(deeleigen)" wcat="SPEC">Zuid</pw>
+    <pw lem="Holland" pos="SPEC(deeleigen)" wcat="SPEC">Holland</pw>
+    <pw lem="aan" pos="VZ(init)" wcat="VZ">aan</pw>
+    <pw lem="de" pos="LID(bep,stan,rest)" wcat="LID">de</pw>
+    <pw lem="tand" pos="N(soort,ev,basis,zijd,stan)" wcat="N">tand</pw>
+    <pw lem="hebben" pos="WW(pv,tgw,mv)" subjtense="pres" wcat="WW">hebben</pw>
+    <pw lem="gevoelen" pos="WW(vd,vrij,zonder)" wcat="WW">gevoeld</pw>
+    <pw lem="," pos="LET()" wcat="LET">,</pw>
+    <pw lem="zijn" pos="WW(pv,tgw,mv)" subjtense="pres" wcat="WW">zijn</pw>
+    <pw lem="er" pos="VNW(aanw,adv-pron,stan,red,3,getal)" wcat="VNW">er</pw>
+    <pw lem="138" pos="TW(hoofd,vrij)" wcat="TW">138</pw>
+    <pw lem="in" pos="VZ(init)" wcat="VZ">in</pw>
+    <pw lem="het" pos="LID(bep,stan,evon)" wcat="LID">het</pw>
+    <pw lem="bezit" pos="N(soort,ev,basis,onz,stan)" wcat="N">bezit</pw>
+    <pw lem="van" pos="VZ(init)" wcat="VZ">van</pw>
+    <pw lem="een" pos="LID(onbep,stan,agr)" wcat="LID">een</pw>
+    <pw lem="diploma" pos="N(soort,ev,basis,onz,stan)" wcat="N">diploma</pw>
+    <pw lem="komen" pos="WW(vd,vrij,zonder)" wcat="WW">gekomen</pw>
+    <pw lem="." pos="LET()" wcat="LET">.</pw>
+</pau>
+</sent>
+<sent id="5">
+<pau>
+    <pw lem="het" pos="LID(bep,stan,evon)" wcat="LID">Het</pw>
+    <pw lem="doel" pos="N(soort,ev,basis,onz,stan)" wcat="N">doel</pw>
+    <pw lem="van" pos="VZ(init)" wcat="VZ">van</pw>
+    <pw lem="deze" pos="VNW(aanw,det,stan,prenom,met-e,rest)" wcat="VNW">deze</pw>
+    <pw lem="examen" pos="N(soort,mv,basis)" wcat="N">examens</pw>
+    <pw lem="," pos="LET()" wcat="LET">,</pw>
+    <pw lem="die" pos="VNW(betr,pron,stan,vol,persoon,getal)" wcat="VNW">die</pw>
+    <pw lem="voor" pos="VZ(init)" wcat="VZ">voor</pw>
+    <pw lem="de" pos="LID(bep,stan,rest)" wcat="LID">de</pw>
+    <pw lem="vierde" pos="TW(rang,prenom,stan)" wcat="TW">vierde</pw>
+    <pw lem="keer" pos="N(soort,ev,basis,zijd,stan)" wcat="N">keer</pw>
+    <pw lem="in" pos="VZ(init)" wcat="VZ">in</pw>
+    <pw lem="drie" pos="TW(hoofd,prenom,stan)" wcat="TW">drie</pw>
+    <pw lem="jaar" pos="N(soort,ev,basis,onz,stan)" wcat="N">jaar</pw>
+    <pw lem="worden" pos="WW(pv,verl,mv)" subjtense="past" wcat="WW">werden</pw>
+    <pw lem="afnemen" pos="WW(vd,vrij,zonder)" wcat="WW">afgenomen</pw>
+    <pw lem="," pos="LET()" wcat="LET">,</pw>
+    <pw lem="zijn" pos="WW(pv,tgw,ev)" subjtense="pres" wcat="WW">is</pw>
+    <pw lem="uitsluitend" pos="ADJ(vrij,basis,zonder)" subj="y" subjcat="intens" wcat="ADJ">uitsluitend</pw>
+    <pw lem="vakbekwaam" pos="ADJ(prenom,basis,met-e,stan)" wcat="ADJ">vakbekwame</pw>
+    <pw lem="chauffeur" pos="N(soort,mv,basis)" wcat="N">chauffeurs</pw>
+    <pw lem="van" pos="VZ(init)" wcat="VZ">van</pw>
+    <pw lem="de" pos="LID(bep,stan,rest)" wcat="LID">de</pw>
+    <pw lem="bedrijf" pos="N(soort,mv,basis)" wcat="N">bedrijven</pw>
+    <pw lem="," pos="LET()" wcat="LET">,</pw>
+    <pw lem="die" pos="VNW(betr,pron,stan,vol,persoon,getal)" wcat="VNW">die</pw>
+    <pw lem="hun" pos="VNW(bez,det,stan,vol,3,mv,prenom,zonder,agr)" wcat="VNW">hun</pw>
+    <pw lem="eigen" pos="ADJ(prenom,basis,zonder)" wcat="ADJ">eigen</pw>
+    <pw lem="vervoer" pos="N(soort,ev,basis,onz,stan)" wcat="N">vervoer</pw>
+    <pw lem="verzorgen" pos="WW(inf,vrij,zonder)" wcat="WW">verzorgen</pw>
+    <pw lem="," pos="LET()" wcat="LET">,</pw>
+    <pw lem="op" pos="VZ(init)" wcat="VZ">op</pw>
+    <pw lem="de" pos="LID(bep,stan,rest)" wcat="LID">de</pw>
+    <pw lem="weg" pos="N(soort,ev,basis,zijd,stan)" wcat="N">weg</pw>
+    <pw lem="te" pos="VZ(init)" wcat="VZ">te</pw>
+    <pw lem="hebben" pos="WW(inf,vrij,zonder)" wcat="WW">hebben</pw>
+    <pw lem="." pos="LET()" wcat="LET">.</pw>
+</pau>
+</sent>
+<sent id="6">
+<pau>
+    <pw lem="zij" pos="VNW(pers,pron,nomin,vol,3p,mv)" wcat="VNW">Zij</pw>
+    <pw lem="worden" pos="WW(inf,vrij,zonder)" wcat="WW">worden</pw>
+    <pw lem="na" pos="VZ(init)" wcat="VZ">na</pw>
+    <pw lem="een" pos="LID(onbep,stan,agr)" wcat="LID">een</pw>
+    <pw lem="cursus" pos="N(soort,ev,basis,zijd,stan)" wcat="N">cursus</pw>
+    <pw lem="van" pos="VZ(init)" wcat="VZ">van</pw>
+    <pw lem="zes" pos="TW(hoofd,prenom,stan)" wcat="TW">zes</pw>
+    <pw lem="maanden" pos="N(soort,mv,basis)" wcat="N">maanden</pw>
+    <pw lem="onderzoeken" pos="WW(vd,vrij,zonder)" wcat="WW">onderzocht</pw>
+    <pw lem="op" pos="VZ(init)" wcat="VZ">op</pw>
+    <pw lem="hun" pos="VNW(bez,det,stan,vol,3,mv,prenom,zonder,agr)" wcat="VNW">hun</pw>
+    <pw lem="kennis" pos="N(soort,ev,basis,zijd,stan)" wcat="N">kennis</pw>
+    <pw lem="van" pos="VZ(init)" wcat="VZ">van</pw>
+    <pw lem="motortechniek" pos="N(soort,ev,basis,zijd,stan)" wcat="N">motortechniek</pw>
+    <pw lem="," pos="LET()" wcat="LET">,</pw>
+    <pw lem="verkeersveiligheid" pos="N(soort,ev,basis,zijd,stan)" wcat="N">verkeersveiligheid</pw>
+    <pw lem="en" pos="VG(neven)" wcat="VG">en</pw>
+    <pw lem="transportbekwaamheid" pos="N(soort,ev,basis,zijd,stan)" wcat="N">transportbekwaamheid</pw>
+    <pw lem="." pos="LET()" wcat="LET">.</pw>
+</pau>
+</sent>
+<sent id="7">
+<pau>
+    <pw lem="de" pos="LID(bep,stan,rest)" wcat="LID">De</pw>
+    <pw lem="diploma" pos="N(soort,mv,basis)" wcat="N">diploma's</pw>
+    <pw lem="worden" pos="WW(pv,verl,mv)" subjtense="past" wcat="WW">werden</pw>
+    <pw lem="zaterdagavond" pos="N(soort,ev,basis,zijd,stan)" wcat="N">Zaterdagavond</pw>
+    <pw lem="uitreiken" pos="WW(vd,vrij,zonder)" wcat="WW">uitgereikt</pw>
+    <pw lem="tijdens" pos="VZ(init)" wcat="VZ">tijdens</pw>
+    <pw lem="een" pos="LID(onbep,stan,agr)" wcat="LID">een</pw>
+    <pw lem="bijeenkomst" pos="N(soort,ev,basis,zijd,stan)" wcat="N">bijeenkomst</pw>
+    <pw lem="in" pos="VZ(init)" wcat="VZ">in</pw>
+    <pw lem="de" pos="LID(bep,stan,rest)" wcat="LID">de</pw>
+    <pw lem="cantine" pos="N(soort,ev,basis,zijd,stan)" wcat="N">cantine</pw>
+    <pw lem="van" pos="VZ(init)" wcat="VZ">van</pw>
+    <pw lem="Van" pos="SPEC(deeleigen)" wcat="SPEC">Van</pw>
+    <pw lem="Nelle" pos="SPEC(deeleigen)" wcat="SPEC">Nelle</pw>
+    <pw lem="," pos="LET()" wcat="LET">,</pw>
+    <pw lem="te" pos="VZ(init)" wcat="VZ">te</pw>
+    <pw lem="Rotterdam" pos="SPEC(deeleigen)" wcat="SPEC">Rotterdam</pw>
+    <pw lem="." pos="LET()" wcat="LET">.</pw>
+</pau>
+</sent>
+<sent id="8">
+<pau>
+    <pw lem="de" pos="LID(bep,stan,rest)" wcat="LID">De</pw>
+    <pw lem="chauffeur" pos="N(soort,ev,basis,zijd,stan)" wcat="N">chauffeur</pw>
+    <pw lem="A." pos="SPEC(deeleigen)" wcat="SPEC">A.</pw>
+    <pw lem="Blankenstein" pos="SPEC(deeleigen)" wcat="SPEC">Blankenstein</pw>
+    <pw lem="," pos="LET()" wcat="LET">,</pw>
+    <pw lem="uit" pos="VZ(init)" wcat="VZ">uit</pw>
+    <pw lem="Vlaardingen" pos="SPEC(deeleigen)" wcat="SPEC">Vlaardingen</pw>
+    <pw lem="," pos="LET()" wcat="LET">,</pw>
+    <pw lem="zijn" pos="WW(pv,verl,ev)" subjtense="past" wcat="WW">was</pw>
+    <pw lem="met" pos="VZ(init)" wcat="VZ">met</pw>
+    <pw lem="29" pos="TW(hoofd,prenom,stan)" wcat="TW">29</pw>
+    <pw lem="punt" pos="N(soort,mv,basis)" wcat="N">punten</pw>
+    <pw lem="," pos="LET()" wcat="LET">,</pw>
+    <pw lem="op" pos="VZ(init)" wcat="VZ">op</pw>
+    <pw lem="een" pos="LID(onbep,stan,agr)" wcat="LID">een</pw>
+    <pw lem="maximum" pos="N(soort,ev,basis,onz,stan)" wcat="N">maximum</pw>
+    <pw lem="van" pos="VZ(init)" wcat="VZ">van</pw>
+    <pw lem="dertig" pos="TW(hoofd,prenom,stan)" wcat="TW">dertig</pw>
+    <pw lem="," pos="LET()" wcat="LET">,</pw>
+    <pw lem="de" pos="LID(bep,stan,rest)" wcat="LID">de</pw>
+    <pw lem="goed" pos="ADJ(nom,sup,met-e,zonder-n,stan)" wcat="ADJ">beste</pw>
+    <pw lem="." pos="LET()" wcat="LET">.</pw>
+</pau>
+</sent>
+</body>
+</ptext>

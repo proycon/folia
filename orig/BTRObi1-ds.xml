@@ -1,0 +1,246 @@
+<?xml version="1.0"?><?xml-stylesheet href="../highlight-DS.css" type="text/css" ?>
+
+<!DOCTYPE ptext SYSTEM "O:\Onderwijs en Onderzoek\Engels\Metaforenonderzoek\STER\config/ster.dtd">
+<ptext paper="TR" ref="BTRObi1" reg="news" subgenre="bi" year="1950">
+<header>
+<source></source>
+<section></section>
+<length></length>
+<byline></byline>
+<dateline>3 april 1950</dateline>
+</header>
+<body>
+<headline>
+<sent id="0">
+<pau>
+    <pw lem="tweetalig" pos="ADJ(vrij,basis,zonder)" wcat="ADJ">Tweetalig</pw>
+    <pw lem="onderwijs" pos="N(soort,ev,basis,onz,stan)" wcat="N">onderwijs</pw>
+    <pw lem="op" pos="VZ(init)" wcat="VZ">op</pw>
+    <pw lem="zeven" pos="TW(hoofd,prenom,stan)" wcat="TW">zeven</pw>
+    <pw lem="friees" pos="ADJ(prenom,basis,met-e,stan)" wcat="ADJ">Friese</pw>
+    <pw lem="school" pos="N(soort,mv,basis)" wcat="N">scholen</pw>
+</pau>
+</sent>
+</headline>
+<br></br>
+<sent id="1">
+<pau>
+    <pw lem="(" pos="LET()" wcat="LET">(</pw>
+    <pw lem="van" pos="VZ(init)" wcat="VZ">Van</pw>
+    <pw lem="ons" pos="VNW(bez,det,stan,vol,1,mv,prenom,met-e,rest)" wcat="VNW">onze</pw>
+    <pw lem="correspondent" pos="N(soort,ev,basis,zijd,stan)" wcat="N">correspondent</pw>
+    <pw lem=")" pos="LET()" wcat="LET">)</pw>
+</pau>
+</sent>
+<br></br>
+<sent id="2">
+<pau>
+    <pw lem="zaterdagmorgen" pos="N(soort,ev,basis,zijd,stan)" wcat="N">Zaterdagmorgen</pw>
+    <pw lem="1" pos="TW(hoofd,vrij)" wcat="TW">1</pw>
+    <pw lem="April" pos="SPEC(deeleigen)" wcat="SPEC">April</pw>
+    <pw lem="hebben" pos="WW(pv,tgw,met-t)" subjtense="pres" wcat="WW">heeft</pw>
+    <pw lem="de" pos="LID(bep,stan,rest)" wcat="LID">de</pw>
+    <pw lem="jeugd" pos="N(soort,ev,basis,zijd,stan)" wcat="N">jeugd</pw>
+    <pw lem="van" pos="VZ(init)" wcat="VZ">van</pw>
+    <pw lem="een" pos="LID(onbep,stan,agr)" wcat="LID">een</pw>
+    <pw lem="zevental" pos="N(soort,ev,basis,onz,stan)" wcat="N">zevental</pw>
+    <pw lem="proefschool" pos="N(soort,mv,basis)" wcat="N">proefscholen</pw>
+    <pw lem="in" pos="VZ(init)" wcat="VZ">in</pw>
+    <pw lem="Friesland" pos="SPEC(deeleigen)" wcat="SPEC">Friesland</pw>
+    <pw lem="voor" pos="VZ(init)" wcat="VZ">voor</pw>
+    <pw lem="het" pos="LID(bep,stan,evon)" wcat="LID">het</pw>
+    <pw lem="eerst" pos="TW(rang,nom,zonder-n)" wcat="TW">eerst</pw>
+    <pw lem="tweetalig" pos="ADJ(prenom,basis,zonder)" wcat="ADJ">tweetalig</pw>
+    <pw lem="onderwijs" pos="N(soort,ev,basis,onz,stan)" wcat="N">onderwijs</pw>
+    <pw lem="genieten" pos="WW(vd,vrij,zonder)" wcat="WW">genoten</pw>
+    <pw lem="." pos="LET()" wcat="LET">.</pw>
+</pau>
+</sent>
+<sent id="3">
+<pau>
+    <pw lem="aan" pos="VZ(init)" wcat="VZ">Aan</pw>
+    <pw lem="de" pos="LID(bep,stan,rest)" wcat="LID">de</pw>
+    <pw lem="bijzonder" pos="ADJ(prenom,basis,met-e,stan)" subj="c" subjcat="intens" wcat="ADJ">bijzondere</pw>
+    <pw lem="laag" pos="ADJ(prenom,comp,met-e,stan)" wcat="ADJ">lagere</pw>
+    <pw lem="school" pos="N(soort,mv,basis)" wcat="N">scholen</pw>
+    <pw lem="te" pos="VZ(init)" wcat="VZ">te</pw>
+    <pw lem="Oudega" pos="SPEC(deeleigen)" wcat="SPEC">Oudega</pw>
+    <pw lem="(" pos="LET()" wcat="LET">(</pw>
+    <pw lem="W." pos="SPEC(deeleigen)" wcat="SPEC">W.</pw>
+    <pw lem=")" pos="LET()" wcat="LET">)</pw>
+    <pw lem="en" pos="VG(neven)" wcat="VG">en</pw>
+    <pw lem="Oosterend" pos="SPEC(deeleigen)" wcat="SPEC">Oosterend</pw>
+    <pw lem="en" pos="VG(neven)" wcat="VG">en</pw>
+    <pw lem="aan" pos="VZ(init)" wcat="VZ">aan</pw>
+    <pw lem="de" pos="LID(bep,stan,rest)" wcat="LID">de</pw>
+    <pw lem="openbaar" pos="ADJ(prenom,basis,met-e,stan)" wcat="ADJ">openbare</pw>
+    <pw lem="te" pos="VZ(init)" wcat="VZ">te</pw>
+    <pw lem="Sexbierum" pos="SPEC(deeleigen)" wcat="SPEC">Sexbierum</pw>
+    <pw lem="," pos="LET()" wcat="LET">,</pw>
+    <pw lem="Opeinde" pos="SPEC(deeleigen)" wcat="SPEC">Opeinde</pw>
+    <pw lem="(" pos="LET()" wcat="LET">(</pw>
+    <pw lem="Sm" pos="SPEC(deeleigen)" wcat="SPEC">Sm</pw>
+    <pw lem="." pos="LET()" wcat="LET">.</pw>
+</pau>
+</sent>
+<sent id="4">
+<pau>
+    <pw lem=")" pos="LET()" wcat="LET">)</pw>
+    <pw lem="," pos="LET()" wcat="LET">,</pw>
+    <pw lem="wommel" pos="N(soort,mv,basis)" wcat="N">Wommels</pw>
+    <pw lem="," pos="LET()" wcat="LET">,</pw>
+    <pw lem="Oldeboorn" pos="SPEC(deeleigen)" wcat="SPEC">Oldeboorn</pw>
+    <pw lem="en" pos="VG(neven)" wcat="VG">en</pw>
+    <pw lem="Menaldum" pos="SPEC(deeleigen)" wcat="SPEC">Menaldum</pw>
+    <pw lem="krijgen" pos="WW(pv,tgw,mv)" subjtense="pres" wcat="WW">krijgen</pw>
+    <pw lem="de" pos="LID(bep,stan,rest)" wcat="LID">de</pw>
+    <pw lem="kind" pos="N(soort,mv,basis)" wcat="N">kinderen</pw>
+    <pw lem="voorlopig" pos="ADJ(vrij,basis,zonder)" wcat="ADJ">voorlopig</pw>
+    <pw lem="bij" pos="VZ(init)" wcat="VZ">bij</pw>
+    <pw lem="wijze" pos="N(soort,ev,basis,zijd,stan)" wcat="N">wijze</pw>
+    <pw lem="van" pos="VZ(init)" wcat="VZ">van</pw>
+    <pw lem="proef" pos="N(soort,ev,basis,zijd,stan)" wcat="N">proef</pw>
+    <pw lem="," pos="LET()" wcat="LET">,</pw>
+    <pw lem="het" pos="LID(bep,stan,evon)" wcat="LID">het</pw>
+    <pw lem="aanvangsonderwijs" pos="N(soort,ev,basis,onz,stan)" wcat="N">aanvangsonderwijs</pw>
+    <pw lem="in" pos="VZ(init)" wcat="VZ">in</pw>
+    <pw lem="de" pos="LID(bep,stan,rest)" wcat="LID">de</pw>
+    <pw lem="moedertaal" pos="N(soort,ev,basis,zijd,stan)" wcat="N">moedertaal</pw>
+    <pw lem="," pos="LET()" wcat="LET">,</pw>
+    <pw lem="om" pos="VZ(init)" wcat="VZ">om</pw>
+    <pw lem="dan" pos="BW()" wcat="BW">dan</pw>
+    <pw lem="in" pos="VZ(init)" wcat="VZ">in</pw>
+    <pw lem="de" pos="LID(bep,stan,rest)" wcat="LID">de</pw>
+    <pw lem="hoog" pos="ADJ(prenom,comp,met-e,stan)" wcat="ADJ">hogere</pw>
+    <pw lem="klasse" pos="N(soort,mv,basis)" wcat="N">klassen</pw>
+    <pw lem="ook" pos="BW()" subj="y" subjcat="modal" subjscat="part" wcat="BW">ook</pw>
+    <pw lem="in" pos="VZ(init)" wcat="VZ">in</pw>
+    <pw lem="het" pos="LID(bep,stan,evon)" wcat="LID">het</pw>
+    <pw lem="Nederlands" pos="SPEC(deeleigen)" wcat="SPEC">Nederlands</pw>
+    <pw lem="te" pos="VZ(init)" wcat="VZ">te</pw>
+    <pw lem="worden" pos="WW(inf,vrij,zonder)" wcat="WW">worden</pw>
+    <pw lem="onderwijzen" pos="WW(vd,vrij,zonder)" wcat="WW">onderwezen</pw>
+    <pw lem="." pos="LET()" wcat="LET">.</pw>
+</pau>
+</sent>
+<sent id="5">
+<pau>
+    <pw lem="men" pos="VNW(pers,pron,nomin,red,3p,ev,masc)" wcat="VNW">Men</pw>
+    <pw lem="hopen" pos="WW(pv,tgw,met-t)" subj="y" subjcat="verbcogn" subjtense="pres" wcat="WW">hoopt</pw>
+    <pw lem="," pos="LET()" wcat="LET">,</pw>
+    <pw lem="dat" pos="VNW(betr,pron,stan,vol,3,ev)" wcat="VNW">dat</pw>
+    <pw lem="daardoor" pos="BW()" wcat="BW">daardoor</pw>
+    <pw lem="," pos="LET()" wcat="LET">,</pw>
+    <pw lem="zoals" pos="VG(onder)" wcat="VG">zoals</pw>
+    <pw lem="ook" pos="BW()" subj="y" subjcat="modal" subjscat="part" wcat="BW">ook</pw>
+    <pw lem="in" pos="VZ(init)" wcat="VZ">in</pw>
+    <pw lem="ander" pos="ADJ(prenom,basis,met-e,stan)" wcat="ADJ">andere</pw>
+    <pw lem="tweetalig" pos="ADJ(prenom,basis,met-e,stan)" wcat="ADJ">tweetalige</pw>
+    <pw lem="gebied" pos="N(soort,mv,basis)" wcat="N">gebieden</pw>
+    <pw lem="(" pos="LET()" wcat="LET">(</pw>
+    <pw lem="Wales" pos="SPEC(deeleigen)" wcat="SPEC">Wales</pw>
+    <pw lem=")" pos="LET()" wcat="LET">)</pw>
+    <pw lem="het" pos="LID(bep,stan,evon)" wcat="LID">het</pw>
+    <pw lem="geval" pos="N(soort,ev,basis,onz,stan)" wcat="N">geval</pw>
+    <pw lem="zijn" pos="WW(pv,verl,ev)" subjtense="past" wcat="WW">was</pw>
+    <pw lem="," pos="LET()" wcat="LET">,</pw>
+    <pw lem="het" pos="LID(bep,stan,evon)" wcat="LID">het</pw>
+    <pw lem="kind" pos="N(soort,ev,basis,onz,stan)" wcat="N">kind</pw>
+    <pw lem="de" pos="LID(bep,stan,rest)" wcat="LID">de</pw>
+    <pw lem="beide" pos="VNW(onbep,grad,stan,prenom,met-e,mv,basis)" wcat="VNW">beide</pw>
+    <pw lem="taal" pos="N(soort,mv,basis)" wcat="N">talen</pw>
+    <pw lem="goed" pos="ADJ(vrij,comp,zonder)" wcat="ADJ">beter</pw>
+    <pw lem="zullen" pos="WW(pv,tgw,ev)" subj="y" subjcat="modal" subjscat="verb" subjtense="pres" wcat="WW">zal</pw>
+    <pw lem="leren" pos="WW(inf,vrij,zonder)" wcat="WW">leren</pw>
+    <pw lem="." pos="LET()" wcat="LET">.</pw>
+</pau>
+</sent>
+<sent id="6">
+<pau>
+    <pw lem="in" pos="VZ(init)" wcat="VZ">In</pw>
+    <pw lem="Wales" pos="SPEC(deeleigen)" wcat="SPEC">Wales</pw>
+    <pw lem="spreken" pos="WW(pv,tgw,met-t)" subjtense="pres" wcat="WW">spreekt</pw>
+    <pw lem="men" pos="VNW(pers,pron,nomin,red,3p,ev,masc)" wcat="VNW">men</pw>
+    <pw lem="sinds" pos="VZ(init)" wcat="VZ">sinds</pw>
+    <pw lem="het" pos="LID(bep,stan,evon)" wcat="LID">het</pw>
+    <pw lem="invoeren" pos="WW(inf,nom,zonder,zonder-n)" wcat="WW">invoeren</pw>
+    <pw lem="van" pos="VZ(init)" wcat="VZ">van</pw>
+    <pw lem="het" pos="LID(bep,stan,evon)" wcat="LID">het</pw>
+    <pw lem="tweetalig" pos="ADJ(prenom,basis,zonder)" wcat="ADJ">tweetalig</pw>
+    <pw lem="onderwijs" pos="N(soort,ev,basis,onz,stan)" wcat="N">onderwijs</pw>
+    <pw lem="goed" pos="ADJ(vrij,comp,zonder)" wcat="ADJ">beter</pw>
+    <pw lem="Engels" pos="SPEC(deeleigen)" wcat="SPEC">Engels</pw>
+    <pw lem="dan" pos="BW()" wcat="BW">dan</pw>
+    <pw lem="vroeger" pos="ADJ(vrij,comp,zonder)" wcat="ADJ">vroeger</pw>
+    <pw lem="." pos="LET()" wcat="LET">.</pw>
+</pau>
+</sent>
+<sent id="7">
+<pau>
+    <pw lem="er" pos="VNW(aanw,adv-pron,stan,red,3,getal)" wcat="VNW">Er</pw>
+    <pw lem="zijn" pos="WW(pv,tgw,ev)" subjtense="pres" wcat="WW">is</pw>
+    <pw lem="een" pos="LID(onbep,stan,agr)" wcat="LID">een</pw>
+    <pw lem="commissie" pos="N(soort,ev,basis,zijd,stan)" wcat="N">commissie</pw>
+    <pw lem="vormen" pos="WW(vd,vrij,zonder)" wcat="WW">gevormd</pw>
+    <pw lem="," pos="LET()" wcat="LET">,</pw>
+    <pw lem="welke" pos="VNW(vb,det,stan,nom,met-e,zonder-n)" wcat="VNW">welke</pw>
+    <pw lem="de" pos="LID(bep,stan,rest)" wcat="LID">de</pw>
+    <pw lem="proefschool" pos="N(soort,mv,basis)" wcat="N">proefscholen</pw>
+    <pw lem="zullen" pos="WW(pv,tgw,ev)" subj="y" subjcat="modal" subjscat="verb" subjtense="pres" wcat="WW">zal</pw>
+    <pw lem="controleren" pos="WW(inf,vrij,zonder)" wcat="WW">controleren</pw>
+    <pw lem="." pos="LET()" wcat="LET">.</pw>
+</pau>
+</sent>
+<sent id="8">
+<pau>
+    <pw lem="verder" pos="ADJ(vrij,comp,zonder)" wcat="ADJ">Verder</pw>
+    <pw lem="zijn" pos="WW(pv,tgw,ev)" subjtense="pres" wcat="WW">is</pw>
+    <pw lem="er" pos="VNW(aanw,adv-pron,stan,red,3,getal)" wcat="VNW">er</pw>
+    <pw lem="voor" pos="VZ(init)" wcat="VZ">voor</pw>
+    <pw lem="deze" pos="VNW(aanw,det,stan,prenom,met-e,rest)" wcat="VNW">deze</pw>
+    <pw lem="school" pos="N(soort,mv,basis)" wcat="N">scholen</pw>
+    <pw lem="een" pos="LID(onbep,stan,agr)" wcat="LID">een</pw>
+    <pw lem="leesmethode" pos="N(soort,ev,basis,zijd,stan)" wcat="N">leesmethode</pw>
+    <pw lem="samenstellen" pos="WW(vd,vrij,zonder)" wcat="WW">samengesteld</pw>
+    <pw lem="," pos="LET()" wcat="LET">,</pw>
+    <pw lem="zodat" pos="VG(onder)" wcat="VG">zodat</pw>
+    <pw lem="de" pos="LID(bep,stan,rest)" wcat="LID">de</pw>
+    <pw lem="kind" pos="N(soort,mv,basis)" wcat="N">kinderen</pw>
+    <pw lem="nu" pos="BW()" subj="y" subjcat="deic" wcat="BW">nu</pw>
+    <pw lem="op" pos="VZ(init)" wcat="VZ">op</pw>
+    <pw lem="de" pos="LID(bep,stan,rest)" wcat="LID">de</pw>
+    <pw lem="schoolbank" pos="N(soort,mv,basis)" wcat="N">schoolbanken</pw>
+    <pw lem="direct" pos="ADJ(vrij,basis,zonder)" wcat="ADJ">direct</pw>
+    <pw lem="de" pos="LID(bep,stan,rest)" wcat="LID">de</pw>
+    <pw lem="hun" pos="VNW(bez,det,stan,vol,3,mv,prenom,zonder,agr)" wcat="VNW">hun</pw>
+    <pw lem="welbekend" pos="ADJ(prenom,basis,met-e,stan)" wcat="ADJ">welbekende</pw>
+    <pw lem="woord" pos="N(soort,mv,basis)" wcat="N">woorden</pw>
+    <pw lem="als" pos="VG(onder)" wcat="VG">als</pw>
+    <DS><pw lem="&quot;" pos="LET()" wcat="LET">"</pw>
+    <pw lem="heit" pos="N(soort,ev,basis,zijd,stan)" wcat="N">heit</pw>
+    <pw lem="&quot;" pos="LET()" wcat="LET">"</pw></DS>
+    <pw lem="en" pos="VG(neven)" wcat="VG">en</pw>
+    <DS><pw lem="&quot;" pos="LET()" wcat="LET">"</pw>
+    <pw lem="mem" pos="N(soort,ev,basis,zijd,stan)" wcat="N">mem</pw>
+    <pw lem="&quot;" pos="LET()" wcat="LET">"</pw></DS>
+    <pw lem="leren" pos="WW(inf,vrij,zonder)" wcat="WW">leren</pw>
+    <pw lem="lezen" pos="WW(inf,vrij,zonder)" wcat="WW">lezen</pw>
+    <pw lem="en" pos="VG(neven)" wcat="VG">en</pw>
+    <pw lem="niet" pos="BW()" wcat="BW">niet</pw>
+    <pw lem="de" pos="LID(bep,stan,rest)" wcat="LID">de</pw>
+    <pw lem="hun" pos="VNW(bez,det,stan,vol,3,mv,prenom,zonder,agr)" wcat="VNW">hun</pw>
+    <pw lem="onbekend" pos="ADJ(prenom,basis,met-e,stan)" wcat="ADJ">onbekende</pw>
+    <pw lem="woord" pos="N(soort,mv,basis)" wcat="N">woorden</pw>
+    <pw lem="als" pos="VG(onder)" wcat="VG">als</pw>
+    <DS><pw lem="&quot;" pos="LET()" wcat="LET">"</pw>
+    <pw lem="vader" pos="N(soort,ev,basis,zijd,stan)" wcat="N">vader</pw>
+    <pw lem="&quot;" pos="LET()" wcat="LET">"</pw></DS>
+    <pw lem="en" pos="VG(neven)" wcat="VG">en</pw>
+    <DS><pw lem="&quot;" pos="LET()" wcat="LET">"</pw>
+    <pw lem="moeder" pos="N(soort,ev,basis,zijd,stan)" wcat="N">moeder</pw>
+    <pw lem="&quot;" pos="LET()" wcat="LET">"</pw></DS>
+    <pw lem="." pos="LET()" wcat="LET">.</pw>
+</pau>
+</sent>
+</body>
+</ptext>
