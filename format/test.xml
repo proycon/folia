@@ -1,30 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="http://ilk.uvt.nl/FoLiA/FoLiA.xsl"?>
 <FoLiA xmlns:imdi="http://www.mpi.nl/IMDI/Schema/IMDI" xmlns="http://ilk.uvt.nl/FoLiA" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:d-coi="http://lands.let.ru.nl/projects/d-coi/ns/1.0" xml:id="WR-P-E-J-0000001137">
+  <metadata>
+    <annotations>
+        <token-annotation set="ucto-tokconfig-nl" annotator="ucto" annotatortype="auto" />
+        <pos-annotation set="CGN" annotator="Frog" annotatortype="auto" />
+        <lemma-annotation annotator="Frog" annotatortype="auto" />    
+        <sense-annotation set="Cornetto" annotator="supwsd1" annotatortype="auto" />    
+        <lexicon-annotation annotator="dict1" annotatortype="auto" />    
+        <lexicon-annotation annotator="dict2" annotatortype="auto" />    
+        <correction-annotation set="corrections1" annotator="correctionsystem1" annotatortype="auto" />    
+        <entity-annotation set="ner1" annotator="ner-1" annotatortype="auto" />    
+    </annotations>
+  </metadata>
   <text xml:id="TEST-000000001.text">
     <body>
       <div0 xml:id="TEST-0000000001.div0.1">
         <p xml:id="TEST-000000001.p.1">
-            <>Dit is een tesst. Deze test bestaat uit twee zinnen.</t>
+            <t>Dit is een tesst. Deze test bestaat uit twee zinnen.</t>
             <s xml:id="TEST-000000001.p.1.s.1">
                 <t>Dit is een tesst.</t>                
-                <w xml:id="TEST-000000001.p.1.s.1.w.1" type="WORD"> <!-- type refers to e.g. ucto token types (optional) -->
+                <w xml:id="TEST-000000001.p.1.s.1.w.1" class="WORD"> <!-- type refers to e.g. ucto token types (optional) -->
                     <t>Dit</t>                
                     <pos head="VNW" confidence="0.32" annotator="">
-                        <feat type="" value="aanw" />
-                        <feat type="" value="pron" />
-                        <feat type="" value="stan" />
-                        <feat type="" value="vol" />
-                        <feat type="" value="3o" />
-                        <feat type="number" value="ev" />
+                        <feat class="" value="aanw" />
+                        <feat class="" value="pron" />
+                        <feat class="" value="stan" />
+                        <feat class="" value="vol" />
+                        <feat class="" value="3o" />
+                        <feat class="number" value="ev" />
                     </pos>
                     <lemma>dit</lemma>
                     
                     
                     
-                    <alt xml:id="TEST-000000001.p.1.s.1.w.1.ALT.1"> <!-- alternative (multiple alt elements allowed), grouping things that go together -->
-                        <pos head="VNW" confidence="0.55" system="">
-                        
+                    <alt xml:id="TEST-000000001.p.1.s.1.w.1.alt.1"> <!-- alternative (multiple alt elements allowed), grouping things that go together -->
+                        <pos head="VNW" confidence="0.21" annotator="B">                        
                         </pos>
                     </alt>
                 </w>
@@ -32,7 +43,7 @@
                 <w xml:id="TEST-000000001.p.1.s.1.w.4">
                     <t>test</t>
                     <!-- NA CORRECTIE: -->
-                    <correction xml:id="TEST-000000001.p.1.s.1.c.1" original="tesst" type="spelling">
+                    <correction xml:id="TEST-000000001.p.1.s.1.c.1" original="tesst" class="spelling">
                         <txt>test</txt>
                         <lexicon name="lexiconX" known="no"><suggestion>test</suggestion></lexicon>
                     </correction>                    
@@ -57,13 +68,12 @@
 </FoLiA>
 
 
-
 PoS, Lemma, and Sense-annotation:
         
-        <w xml:id="TEST-000000001.p.1.s.1.w.1" type="WORD">
+        <w xml:id="TEST-000000001.p.1.s.1.w.1" class="WORD">
                 <t>beelden</t>
-                <pos type="N">
-                    <feat type="number" value="mv" />
+                <pos class="N">
+                    <feat class="number" value="mv" />
                 </pos>
                 <lemma>beeld</lemma>
                 <domain>kunst</domain>
@@ -73,14 +83,14 @@ PoS, Lemma, and Sense-annotation:
 
 NER and MWU:
 
-        <entity xml:id="TEST-000000001.p.1.s.1.e.1" type="person">
-            <w xml:id="TEST-000000001.p.1.s.1.w.1" type="WORD">
+        <entity xml:id="TEST-000000001.p.1.s.1.e.1" class="person">
+            <w xml:id="TEST-000000001.p.1.s.1.w.1" class="WORD">
                     <t>Maurice</t>
             </w>        
-            <w xml:id="TEST-000000001.p.1.s.1.w.1" type="WORD">
+            <w xml:id="TEST-000000001.p.1.s.1.w.1" class="WORD">
                     <t>de</t>
             </w>
-            <w xml:id="TEST-000000001.p.1.s.1.w.1" type="WORD">
+            <w xml:id="TEST-000000001.p.1.s.1.w.1" class="WORD">
                     <t>Hond</t>
             </w>
         </entity>
@@ -90,25 +100,25 @@ Dependencies:
         <w xml:id="TEST-000000001.p.1.s.1.w.1"><t>ik</t></w>
         <w xml:id="TEST-000000001.p.1.s.1.w.2">
             <t>bel</t>
-            <dep type="?" ref="TEST-000000001.p.1.s.1.w.4" />
+            <dep class="?" ref="TEST-000000001.p.1.s.1.w.4" />
         </w>
         <w xml:id="TEST-000000001.p.1.s.1.w.3"><t>hem</t></w>
         <w xml:id="TEST-000000001.p.1.s.1.w.4">
             <t>op</t>
-            <dep type="?" ref="TEST-000000001.p.1.s.1.w.2" />
+            <dep class="?" ref="TEST-000000001.p.1.s.1.w.2" />
         </w>
     
                 
 Syntactic units
     
         <s>
-          <syn type="NP" xml:id="TEST-000000001.p.1.s.1.syn.1">
+          <syn class="NP" xml:id="TEST-000000001.p.1.s.1.syn.1">
             <w><t>De</t></w>
             <head><w><t>man</t></w></head>
           </syn>
-          <syn type="VP" xml:id="TEST-000000001.p.1.s.1.syn.2">
+          <syn class="VP" xml:id="TEST-000000001.p.1.s.1.syn.2">
             <head><w><t>aait</t></w></head>
-            <syn type="NP" xml:id="TEST-000000001.p.1.s.1.syn.2_1">
+            <syn class="NP" xml:id="TEST-000000001.p.1.s.1.syn.2_1">
                 <w><t>De</t></w>
                 <h><w><t>hond</t></w></h>
             </syn>
@@ -135,15 +145,15 @@ Word Merges:
     <t>hetgeen</t>
     <w-parent xml:id="document.p.1.s.1.w.1">
         <t>het</t>
-        <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.1" original="het geen" type="merge" seqnr="1" total="2">            
+        <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.1" original="het geen" class="merge" seqnr="1" total="2">            
         </correction>
     </w-parent>
     <w-parent xml:id="document.p.1.s.1.w.2">
         <t>geen</t>
-        <correction xml:id="TEST-000000001.p.1.s.1.w.2.c.1" original="het geen" type="merge" seqnr="2" total="2">            
+        <correction xml:id="TEST-000000001.p.1.s.1.w.2.c.1" original="het geen" class="merge" seqnr="2" total="2">            
         </correction>
     </w-parent>
-    <correction xml:id="TEST-000000001.p.1.s.1.w.1-2.c.1" original="het geen" type="merge" parts="2">
+    <correction xml:id="TEST-000000001.p.1.s.1.w.1-2.c.1" original="het geen" class="merge" parts="2">
         <t>hetgeen</t>
         <lexicon name="lexiconX" known="no"><suggestion>..</suggestion></lexicon>
     </correction>                    
@@ -156,19 +166,19 @@ Word Splits:
     <t>eraf</t>
     <w xml:id="document.p.1.s.1.w.1_1">
         <t>er</t>
-        <correction xml:id="TEST-000000001.p.1.s.1.w.1_1.c.1" original="eraf" type="split" seqnr="1" total="2">
+        <correction xml:id="TEST-000000001.p.1.s.1.w.1_1.c.1" original="eraf" class="split" seqnr="1" total="2">
             <txt>er</txt>
             <lexicon name="lexiconX" known="no"><suggestion>..</suggestion></lexicon>
         </correction>                    
     </w>
     <w xml:id="document.p1.s1.w.1_2">
         <t>af</t>
-        <correction xml:id="TEST-000000001.p.1.s.1.w.1_2.c.1" original="eraf" type="split" seqnr="2" total="2">
+        <correction xml:id="TEST-000000001.p.1.s.1.w.1_2.c.1" original="eraf" class="split" seqnr="2" total="2">
             <t>af</t>
             <lexicon name="lexiconX" known="no"><suggestion>..</suggestion></lexicon>
         </correction>                  
     </w>
-    <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.1" type="split" parts="2">
+    <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.1" class="split" parts="2">
         <t>er af</t>
         <lexicon name="lexiconX" known="no"><suggestion>..</suggestion></lexicon>
     </correction>
@@ -184,7 +194,7 @@ Sentence Merges:
     <s-parent xml:id="document.p.1.s.2">
         <t>een zin.</t>
     </s-parent>
-    <correction xml:id="TEST-000000001.p.1.s.1-2.c.1" original="Dit is een zin." type="merge">
+    <correction xml:id="TEST-000000001.p.1.s.1-2.c.1" original="Dit is een zin." class="merge">
         <t>hetgeen</t>
         <lexicon name="lexiconX" known="no"><suggestion>..</suggestion></lexicon>
     </correction>      
