@@ -128,7 +128,9 @@ Dependencies:
         </w>
     
                 
-Syntactic units
+Syntactic units and Layers
+
+    OLD:
     
         <s>
           <syn class="NP" xml:id="TEST-000000001.p.1.s.1.syn.1">
@@ -147,38 +149,40 @@ Syntactic units
     De man bijt de hond
     
     <s>
-        <layer type="content">
-            <w></w>
-        </layer>
-        <layer type="syntax">
-           <syn class="S">
-            <syn class="NP">
-                <ref xml:ïd="TEST-000000001.p.1.s.1.w.1" />
-                <ref xml:ïd="TEST-000000001.p.1.s.1.w.2" />
-            </syn>
-            <syn class="VP">
-                <ref xml:ïd="TEST-000000001.p.1.s.1.w.3" />
-                <syn class="NP">
-                    <ref xml:ïd="TEST-000000001.p.1.s.1.w.4" />
-                    <ref xml:ïd="TEST-000000001.p.1.s.1.w.5" />
-                </syn>
-            </syn>
-         </syn>
-        </layer>
-        <layer type="syntax" alternative="1">
-            <syn class="NP" blah="blah">
-                <ref xml:ïd="TEST-000000001.p.1.s.1.w.1" />
-                <ref xml:ïd="TEST-000000001.p.1.s.1.w.2" />
-                <ref xml:ïd="TEST-000000001.p.1.s.1.w.3" />
-            </syn>
-            <syn class="VP">                
-                <syn class="NP">
-                    <ref xml:ïd="TEST-000000001.p.1.s.1.w.4" />
-                    <ref xml:ïd="TEST-000000001.p.1.s.1.w.5" />
-                </syn>
-            </syn>
-        </layer>        
-        <layer type="chunk">
+        <w xml:ïd="TEST-000000001.p.1.s.1.w.1"><t>De</t></w>
+        <w xml:ïd="TEST-000000001.p.1.s.1.w.2"><t>man</t></w>
+        <w xml:ïd="TEST-000000001.p.1.s.1.w.3"><t>bijt</t></w>
+        <w xml:ïd="TEST-000000001.p.1.s.1.w.4"><t>de</t></w>
+        <w xml:ïd="TEST-000000001.p.1.s.1.w.5"><t>hond</t></w>            
+        <syntax>
+           <su class="S">
+            <su class="NP">
+                <c><ref xml:ïd="TEST-000000001.p.1.s.1.w.1" /></c>
+                <h><ref xml:ïd="TEST-000000001.p.1.s.1.w.2" /></h>
+            </su>
+            <su class="VP">
+                <h><ref xml:ïd="TEST-000000001.p.1.s.1.w.3" /></h>
+                <c><su class="NP">
+                    <c><ref xml:ïd="TEST-000000001.p.1.s.1.w.4" /></c>
+                    <h><ref xml:ïd="TEST-000000001.p.1.s.1.w.5" /></h>
+                </su></c>
+            </su>
+         </su>
+        </syntax>
+        <syntax alternative="1">
+                <su class="NP" blah="blah">
+                    <ref xml:ïd="TEST-000000001.p.1.s.1.w.1" />
+                    <ref xml:ïd="TEST-000000001.p.1.s.1.w.2" />
+                    <ref xml:ïd="TEST-000000001.p.1.s.1.w.3" />
+                </su>
+                <su class="VP">                
+                    <su class="NP">
+                        <ref xml:ïd="TEST-000000001.p.1.s.1.w.4" />
+                        <ref xml:ïd="TEST-000000001.p.1.s.1.w.5" />
+                    </su>
+                </su>
+        </syntax>        
+        <chunking>
             <chunk>
                 <ref xml:ïd="TEST-000000001.p.1.s.1.w.1" />
                 <ref xml:ïd="TEST-000000001.p.1.s.1.w.2" />
@@ -188,8 +192,9 @@ Syntactic units
                 <ref xml:ïd="TEST-000000001.p.1.s.1.w.4" />
                 <ref xml:ïd="TEST-000000001.p.1.s.1.w.5" />
             </chunk>
-        </layer>
-        
+        </chunking>
+        <entities>
+        </entities>        
     </s>
 
 

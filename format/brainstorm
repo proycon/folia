@@ -98,6 +98,7 @@ t - Text content
 alt - Alternative annotation
     pos,lemma,sense
     
+    
 
 == ANNOTATIONS ==
 
@@ -113,7 +114,7 @@ COMMON ATTRIBUTES FOR ALL ANNOTATIONS:
 
 TOKEN ANNOTATIONS:
     
-    Token annotations can be applied to:
+    Token annotations are sub-elements of:
         w, w-parent, entity
     
 
@@ -147,11 +148,28 @@ TOKEN ANNOTATIONS:
              correction - Corrections can be nested
                 ...
 
-SPAN ANNOTATIONS:
+LAYER ELEMENTS
 
-    All may span over a range of one or more consecutive token elements or span elements
+    Introduces an offset-based annotation on sentence-level, including at some level ref elements with reference to the original token.
 
-    syn - Syntactic unit
+    (takes all common attributes except for class). Additional attributes:
+            
+        @alternative (int) - Indicate whether this is an alternative annotation (default: 0) (optional)
+
+s
+    syntax
+    chunking
+    entities
+    semroles
+
+
+    Each layer element allows a specific kind of span annotation(s).
+    
+SPAN ANNOTATION:
+
+    All may span over a range of one or more consecutive token elements or span elements, the span is indicated by ref elements.
+
+    su - Syntactic unit
         @set   - Name of the syntactic set
         @class - Type of syntactic unit according to the @set (example: NP,VP)
         h      - Spans over the head of a syntactic unit
@@ -161,27 +179,18 @@ SPAN ANNOTATIONS:
     semrole - Semantic role
         @set 
         @class - Type of semantic role
-        
-    
-        
-DEPENDENCY RELATIONS:
-    
-    dep
     
             
                 
 ALTERNATIVE ANNOTATIONS:
 
+
+  for token annotations:
+  
     alt - Introduces an alternative annotation
         (children: any token annotation elements)
+  
+  for span annotations:
+  
+    create a layer with @alternative=<seqnr>
     
-    
-SCRAP:
-
-
-                
-1	Dit	dit	[dit]	VNW(aanw,pron,stan,vol,3o,ev)	2	su
-2	is	zijn	[zijn]	WW(pv,tgw,ev)	0	ROOT
-3	een	een	[een]	LID(onbep,stan,agr)	4	det
-4	test	test	[test]	N(soort,ev,basis,zijd,stan)	2	predc
-5	.	.	[.]	LET()	4	punct
