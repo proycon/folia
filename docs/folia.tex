@@ -1,9 +1,14 @@
 \section{Introduction}
 
+FoLiA is a Format for Linguistic Annotation, derived from the DCOI\cite{DCOI} format developed at Polderland, and extended for richer annotation at the ILK research group, Tilburg University. The DCOI format is designed and used by the DCOI corpus, as well as by its successor; the SoNaR corpus. 
 
-FoLiA is a Format for Linguistic Annotation, derived from the DCOI\cite{DCOI} format developed at Polderland, and extended for richer annotation at the ILK research group, Tilburg University. The DCOI format is used in the DCOI corpus, as well as its successor; the SoNaR corpus. Like its predecessor, FoLiA is an inline XML format, suitable for representing language resources such as corpora. Its goal is to unify a variety of linguistic annotations in one single rich format, without commiting to any particular standard annotation set. Instead, it seeks to accomodate any desired system or tagset, and so offering maximum flexibility. This makes FoLiA language independent.
+FoLiA is an XML-based annotation format, suitable for representing language resources such as corpora. Its goal is to unify a variety of linguistic annotations in one single rich format, without commiting to any particular standard annotation set. Instead, it seeks to accomodate any desired system or tagset, and so offering maximum flexibility. This makes FoLiA language independent.
+
 
 XML is an inherently hierarchic format, FoLiA does justice to this by maximally utilising a hierarchic, inline, setup. We inherit from the DCOI format, which is loosely based on a minimal subset of TEI. However, FoLiA is \emph{not} backwards-compatible with DCOI. FoLiA is a very rich format, and it is always fairly easy to convert back to ``less verbose'' formats such as the DCOI format, or plain-text. 
+
+However, some linguistic annotations such as syntactic parses are implemented as ``layers'' seperate from the tokenisation, and using a kind of offset notation. This is to provide FoLiA with the necessary flexibility and extensability.
+
 
 The FoLiA format features the following:
 
@@ -18,7 +23,7 @@ The FoLiA format features the following:
 \item Provenance support for all linguistic annotations: annotator, type (automatic or manual), time.
 \item Support for alternative annotations, optionally with associated confidence values.
 \item Adaptable to different tag-sets.
-\item CMDI Metadata
+\item CMDI Metadata or IMDI metadata
 \end{itemize}
 
 It supports the following linguistic annotations:
@@ -31,6 +36,7 @@ It supports the following linguistic annotations:
 \item Morphological Analysis
 \item Multi-word units and Named Entities
 \item Syntactic Parses
+\item Chunking / Shallow Parsing
 \item Semantic Role Labelling (?)
 \end{itemize}
 
@@ -47,7 +53,6 @@ FoLiA support will be incorporated directly into the following ILK sofware:
 \item TiCCL?
 \end{itemize}
 
-For metadata CMDI is used.
 
 \section{Format}
 
@@ -86,7 +91,17 @@ The base of all identifiers is that of the document itself, as encoded in \textt
 
 \subsection{Annotation Levels}
 
-A mandatory part of the metadata is the list of annotation levels, this describes the kinds of annotations that are present in the document. Furthermore, it shows what annotator
+A mandatory part of the metadata is the list of annotation levels, this declares the kinds of annotations that are present in the document, the tagset used, and may declare a default annotator for this type of annotation.
+
+Depending on the nature of the linguistic annotation, it is implemented in one of two ways:
+
+\begin{itemize}
+\item Token annotation - Annotations pertaining to one specific token. These will be elements of the token element. (inline). Linguistic annotations in this category are for example: part-of-speech annotation, lemma annotation, sense annotation, morphological analysis, spelling correction.
+\item Span annotation - Annotations spanning over multiple tokens. Each type of annotation will be in a seperate annotation layer with offset notation. These layers are embedded on the sentence level. Examples of this category are: syntax parsers, chunking, semantic role labelling, named entity annotation, temporal analysis.
+\end{itemize}
+
+
+
 
 FoLiA distinguishes several types of elements:
 
@@ -94,11 +109,6 @@ FoLiA distinguishes several types of elements:
 \item Metadata elements
 \item Metadata elements
 \end{itemize}
-
-\subsection{Sets and classes}
-
-
-
 
 \subsection{Sets and classes}
 

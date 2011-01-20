@@ -28,7 +28,7 @@
                 <t>Dit is een tesst.</t>                
                 <w xml:id="TEST-000000001.p.1.s.1.w.1" class="WORD"> <!-- type refers to e.g. ucto token types (optional) -->
                     <t>Dit</t>                
-                    <pos class="N">
+                    <pos class="N" annotator="Antal" annotatortype="manual">
                         <feat class="ntype" value="soort" />
                         <feat class="number" value="ev" />
                         <feat class="degree" value="basis" />
@@ -96,7 +96,107 @@ PoS, Lemma, and Sense-annotation:
                 </pos>
                 <lemma>beeld</lemma>
                 <domain>kunst</domain>
-                <sense xml:id="r_n-6220" synset="d_n-32683">beeldhouwwerk</sense>
+                <sense set="cornetto" class="r_n-6220" synset="d_n-32683">beeldhouwwerk</sense>
+        </w>
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="http://ilk.uvt.nl/FoLiA/FoLiA.xsl"?>
+<FoLiA xmlns:imdi="http://www.mpi.nl/IMDI/Schema/IMDI" xmlns="http://ilk.uvt.nl/FoLiA" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:d-coi="http://lands.let.ru.nl/projects/d-coi/ns/1.0" xml:id="WR-P-E-J-0000001137">
+  <metadata>
+    <CMD>
+     <annotations>
+        <token-annotation set="ucto-tokconfig-nl" annotator="ucto" annotatortype="auto" />
+        <pos-annotation set="CGN" annotator="Frog" annotatortype="auto" />
+        <lemma-annotation annotator="Frog" annotatortype="auto" />    
+        <sense-annotation set="Cornetto" annotator="supwsd1" annotatortype="auto" />    
+        <lexicon-annotation annotator="dict1" annotatortype="auto" />    
+        <lexicon-annotation annotator="dict2" annotatortype="auto" />    
+        <syntax-annotation annotator="Frog" annotatortype="auto" />
+        <chunk-annotation annotator="mbsp" annotatortype="auto" />
+        <correction-annotation set="corrections1" annotator="correctionsystem1" annotatortype="auto" />    
+        <entity-annotation set="ner1" annotator="ner-1" annotatortype="auto" />    
+     </annotations>
+    </CMD>
+    <imdi:METATRANSCRIPT>
+    </imdi:METATRANSCRIPT>
+  </metadata>
+  <text xml:id="TEST-000000001.text">
+    <body>
+      <div0 xml:id="TEST-0000000001.div0.1">
+        <p xml:id="TEST-000000001.p.1">
+            <t>Dit is een tesst. Deze test bestaat uit twee zinnen.</t>
+            <s xml:id="TEST-000000001.p.1.s.1">
+                <t>Dit is een tesst.</t>                
+                <w xml:id="TEST-000000001.p.1.s.1.w.1" class="WORD"> <!-- type refers to e.g. ucto token types (optional) -->
+                    <t>Dit</t>                
+                    <pos class="N" annotator="Antal" annotatortype="manual">
+                        <feat class="ntype" value="soort" />
+                        <feat class="number" value="ev" />
+                        <feat class="degree" value="basis" />
+                        <feat class="gender" value="zijd" />
+                        <feat class="case" value="stan" />
+                    </pos>
+                    <lemma>dit</lemma>
+                    
+                    
+                    
+                    <alt xml:id="TEST-000000001.p.1.s.1.w.1.alt.1"> <!-- alternative (multiple alt elements allowed), grouping things that go together -->
+                        <pos class="VNW" confidence="0.21" annotator="B">                        
+                        </pos>
+                        <lemma>
+                        </lemma>
+                    </alt>
+                </w>
+                <!-- -->
+                <w xml:id="TEST-000000001.p.1.s.1.w.4">
+                    <t>test</t>
+  
+                    </correction>
+                    <!-- NA CORRECTIE: -->
+                    <correction xml:id="TEST-000000001.p.1.s.1.c.1" original="tesst" class="spelling">
+                        <t>test</t>
+                        <lexicon set="lexiconX" annotator="wopr" known="no" used="yes"><suggestion>test</suggestion></lexicon>                        
+                                        
+                    <!-- VÓÓR CORRECTIE -->                
+                    <lexicon set="lexiconX" known="no"><suggestion>test</suggestion></lexicon>
+                    
+                    <!-- steve playing around (and example completed by Maarten) -->
+                    <correction annotator="tanja" annotatortype="manual" original="tet" class="spelling">
+                        <t>test</t>
+                        <correction annotator="renske" annotatortype="manual" original="tesst" class="spelling">
+                            <t>tet</t>
+                            <lexicon set="lexiconX" annotator="wopr" known="no" used="yes"><suggestion>test</suggestion></lexicon>                        
+                        </correction>
+                    </correction>
+                                            
+                </w>
+                
+                
+            <s xml:id="TEST-000000001.p.1.s.2">    
+                <t>Deze test bestaat uit twee zinnen.</t>     
+
+                <!-- .... more --->
+
+                
+            </s>
+        </p>      
+      
+        </p>
+      </div0>
+    </body>
+  </text>
+</FoLiA>
+
+
+PoS, Lemma, and Sense-annotation:
+        
+        <w xml:id="TEST-000000001.p.1.s.1.w.1" class="WORD">
+                <t>beelden</t>
+                <pos class="N">
+                    <feat class="number" value="mv" />
+                </pos>
+                <lemma>beeld</lemma>
+                <domain>kunst</domain>
+                <sense set="cornetto" class="r_n-6220" synset="d_n-32683">beeldhouwwerk</sense>
         </w>
 
 
@@ -152,8 +252,8 @@ Syntactic units and Layers
         <w xml:ïd="TEST-000000001.p.1.s.1.w.1"><t>De</t></w>
         <w xml:ïd="TEST-000000001.p.1.s.1.w.2"><t>man</t></w>
         <w xml:ïd="TEST-000000001.p.1.s.1.w.3"><t>bijt</t></w>
-        <w xml:ïd="TEST-000000001.p.1.s.1.w.4"><t>de</t></w>
-        <w xml:ïd="TEST-000000001.p.1.s.1.w.5"><t>hond</t></w>            
+        <w xml:ïd="TEST-000000001.p.1.s.1.w.4"><t>De</t></w>
+        <w xml:ïd="TEST-000000001.p.1.s.1.w.5"><t>Hond</t></w>            
         <syntax>
            <su class="S">
             <su class="NP">
@@ -186,6 +286,102 @@ Syntactic units and Layers
             <chunk>
                 <ref xml:ïd="TEST-000000001.p.1.s.1.w.1" />
                 <ref xml:ïd="TEST-000000001.p.1.s.1.w.2" />
+            </chunk>
+            <chunk>
+                <ref xml:ïd="TEST-000000001.p.1.s.1.w.3" />
+            </chunk>
+            <chunk>
+                <ref xml:ïd="TEST-000000001.p.1.s.1.w.4" />
+                <ref xml:ïd="TEST-000000001.p.1.s.1.w.5" />
+
+NER and MWU:
+
+        <entity xml:id="TEST-000000001.p.1.s.1.e.1" class="person">
+            <w xml:id="TEST-000000001.p.1.s.1.w.1" class="WORD">
+                    <t>Maurice</t>
+            </w>        
+            <w xml:id="TEST-000000001.p.1.s.1.w.1" class="WORD">
+                    <t>de</t>
+            </w>
+            <w xml:id="TEST-000000001.p.1.s.1.w.1" class="WORD">
+                    <t>Hond</t>
+            </w>
+        </entity>
+
+Dependencies:
+        
+        <w xml:id="TEST-000000001.p.1.s.1.w.1"><t>ik</t></w>
+        <w xml:id="TEST-000000001.p.1.s.1.w.2">
+            <t>bel</t>
+            <dep class="?" ref="TEST-000000001.p.1.s.1.w.4" />
+        </w>
+        <w xml:id="TEST-000000001.p.1.s.1.w.3"><t>hem</t></w>
+        <w xml:id="TEST-000000001.p.1.s.1.w.4">
+            <t>op</t>
+            <dep class="?" ref="TEST-000000001.p.1.s.1.w.2" />
+        </w>
+    
+                
+Syntactic units and Layers
+
+    OLD:
+    
+        <s>
+          <syn class="NP" xml:id="TEST-000000001.p.1.s.1.syn.1">
+            <w><t>De</t></w>
+            <head><w><t>man</t></w></head>
+          </syn>
+          <syn class="VP" xml:id="TEST-000000001.p.1.s.1.syn.2">
+            <head><w><t>aait</t></w></head>
+            <syn class="NP" xml:id="TEST-000000001.p.1.s.1.syn.2_1">
+                <w><t>De</t></w>
+                <h><w><t>hond</t></w></h>
+            </syn>
+          </syn>
+        </s>
+        
+    De man bijt de hond
+    
+    <s>
+        <w xml:ïd="TEST-000000001.p.1.s.1.w.1"><t>De</t></w>
+        <w xml:ïd="TEST-000000001.p.1.s.1.w.2"><t>man</t></w>
+        <w xml:ïd="TEST-000000001.p.1.s.1.w.3"><t>bijt</t></w>
+        <w xml:ïd="TEST-000000001.p.1.s.1.w.4"><t>De</t></w>
+        <w xml:ïd="TEST-000000001.p.1.s.1.w.5"><t>Hond</t></w>            
+        <syntax>
+           <su class="S">
+            <su class="NP">
+                <c><ref xml:ïd="TEST-000000001.p.1.s.1.w.1" /></c>
+                <h><ref xml:ïd="TEST-000000001.p.1.s.1.w.2" /></h>
+            </su>
+            <su class="VP">
+                <h><ref xml:ïd="TEST-000000001.p.1.s.1.w.3" /></h>
+                <c><su class="NP">
+                    <c><ref xml:ïd="TEST-000000001.p.1.s.1.w.4" /></c>
+                    <h><ref xml:ïd="TEST-000000001.p.1.s.1.w.5" /></h>
+                </su></c>
+            </su>
+         </su>
+        </syntax>
+        <syntax alternative="1">
+                <su class="NP" blah="blah">
+                    <ref xml:ïd="TEST-000000001.p.1.s.1.w.1" />
+                    <ref xml:ïd="TEST-000000001.p.1.s.1.w.2" />
+                    <ref xml:ïd="TEST-000000001.p.1.s.1.w.3" />
+                </su>
+                <su class="VP">                
+                    <su class="NP">
+                        <ref xml:ïd="TEST-000000001.p.1.s.1.w.4" />
+                        <ref xml:ïd="TEST-000000001.p.1.s.1.w.5" />
+                    </su>
+                </su>
+        </syntax>        
+        <chunking>
+            <chunk>
+                <ref xml:ïd="TEST-000000001.p.1.s.1.w.1" />
+                <ref xml:ïd="TEST-000000001.p.1.s.1.w.2" />
+            </chunk>
+            <chunk>
                 <ref xml:ïd="TEST-000000001.p.1.s.1.w.3" />
             </chunk>
             <chunk>
@@ -194,6 +390,10 @@ Syntactic units and Layers
             </chunk>
         </chunking>
         <entities>
+            <entity class="person">
+                <ref xml:ïd="TEST-000000001.p.1.s.1.w.4" />
+                <ref xml:ïd="TEST-000000001.p.1.s.1.w.5" />                
+            </entity>            
         </entities>        
     </s>
 
@@ -268,7 +468,7 @@ Sentence Merges:
     </s-parent>
     <correction xml:id="TEST-000000001.p.1.s.1-2.c.1" original="Dit is een zin." class="merge">
         <t>hetgeen</t>
-        <lexicon name="lexiconX" known="no"><suggestion>..</suggestion></lexicon>
+        <lexicon set="lexiconX" known="no"><suggestion>..</suggestion></lexicon>
     </correction>      
 </s>      
 
