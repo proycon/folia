@@ -1,6 +1,32 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{placeins}
+\usepackage{hyperref}
+\usepackage{supertabular}
+
+\title{FoLiA: Format for Linguistic Annotation \\ \small first proposal}
+\author{Maarten van Gompel \\ ILK Research Group \\ Tilburg center for Cognition and Communication \\ Tilburg University }
+
+\parindent=0pt %no paragraph indentation
+\parskip=12pt %paragraph skip
+
+
+\newenvironment{devnotes}
+{\newpage
+\begin{center}
+    \begin{tabular}[h!]{|p{0.8\textwidth}|}
+    \hline
+    {\bf Development Notes}\\\hline}
+{   \\\hline
+    \end{tabular}
+\end{center}}
+
+\begin{document}
+
 \section{Introduction}
 
-FoLiA is a Format for Linguistic Annotation, derived from the DCOI\cite{DCOI} format developed at Polderland, and extended for richer annotation at the ILK research group, Tilburg University. The DCOI format is designed and used by the DCOI corpus, as well as by its successor; the SoNaR corpus. 
+FoLiA is a Format for Linguistic Annotation, derived from the DCOI\cite{DCOI} format developed at Polderland, and extended for richer annotation at the ILK research group, Tilburg University. The DCOI format is designed for used by the DCOI corpus, as well as by the current incarnation of its successor; the SoNaR corpus. 
 
 FoLiA is an XML-based annotation format, suitable for representing language resources such as corpora. Its goal is to unify a variety of linguistic annotations in one single rich format, without commiting to any particular standard annotation set. Instead, it seeks to accomodate any desired system or tagset, and so offering maximum flexibility. This makes FoLiA language independent.
 
@@ -49,14 +75,23 @@ FoLiA support will be incorporated directly into the following ILK sofware:
 \item Frog - A PoS-tagger/lemmatiser/parser suite (the successor of Tadpole), will eventually support reading and writing FoLIA.
 \item CLAM - Computational Linguistics Application Mediator, will eventually have viewers for the FoLiA format.
 \item PyNLPl - Python Natural Language Processing Library, will come with libraries for parsing FoLiA
-\item libfolia? - C++ library for parsing FoLiA (a suggestion)
-\item TiCCL?
+\item libfolia - C++ library for parsing FoLiA
+\item TiCCL
 \end{itemize}
 
+And it may be used in the following corpora:
 
-\section{Format}
+\begin{itemize} 
+\item SoNaR (yet to be confirmed)
+\item DutchSemCor (based primarily on SoNaR)
+\end{itemize}
 
-\subsection{Basic Structure}
+\begin{devnotes}
+This is all still subject to debate and change and may be a bit pretentious at this stage.
+\end{devnotes}
+
+
+\section{Basic Structure}
 
 In FoLiA, each document/text is represented by one XML file. The basic structure of such a FoLiA document is as follows and should always be UTF-8 encoded. An eleborate XSLT stylesheet will be provided in order to be able to instantly view FoLiA documents in any modern web browser.
 
@@ -64,11 +99,10 @@ In FoLiA, each document/text is represented by one XML file. The basic structure
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="http://ilk.uvt.nl/FoLiA/FoLiA.xsl"?>
 <FoLiA xmlns="http://ilk.uvt.nl/FoLiA" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:id="example">
-  <CMD> 
-    <annotationlevel>
+  <!-- (Here IMDI or CMDI metadata can be inserted) -->
+  <annotations>
       ...
-    </annotationlevel>
-  </CMD>  
+  </annotations>    
   <text xml:id="example.text">
    <gap></gap>
    <body>
@@ -81,7 +115,7 @@ In FoLiA, each document/text is represented by one XML file. The basic structure
 
 Body contains the to-be-annotated material, more about this later. The gap tags are optional and contain unannotated front matter or back matter.
 
-\subsection{Identifiers}
+\section{Identifiers}
 
 All elements which describe tokens or a span of tokens have an identifier by which it is uniquely identifiable. This makes refering to any part of a FoLiA document easy and follows the lead of the DCOI format. The identifiers are constructed in the same way as in the DCOI format, thus retaining full compatibility; if a DCOI document is converted to FoLiA, all external references to any entity in these documents will remain intact.
 
@@ -89,69 +123,198 @@ Identifiers in DCOI and FoLiA are cummulative and are indicative of the position
 
 The base of all identifiers is that of the document itself, as encoded in \texttt{xml:id} attribute of the root \texttt{FoLiA} element. This is a unique ID by which the document is identifiable. We choose the identifier \emph{example} in the example above. By convention, the XML file should then ideally be named: \texttt{example.xml}.
 
-\subsection{Annotation Levels}
+\section{Structure Elements}
 
-A mandatory part of the metadata is the list of annotation levels, this declares the kinds of annotations that are present in the document, the tagset used, and may declare a default annotator for this type of annotation.
+Within the document body, the structure elements div0, div1, div2, etc.. can be used to create divisions and subdivisions, they stem from DCOI and are unmodified in FoLiA. These divisions are not mandatory, but may be used to distinguish extra structure.
 
-Depending on the nature of the linguistic annotation, it is implemented in one of two ways:
+\section{Content Elements}
+
+Content element occur within the body, the following exist:
+
+\begin{itemize}
+\item \texttt{head} - Header
+\item \texttt{p} - Paragraph
+\item \texttt{s} - Sentence
+\item \texttt{w} - Word (token)
+\item \texttt{quote} - Quote
+\end{itemize}
+
+These are typically nested, the word elements describe the actual tokens, including tokens thare are not technically a word. Let's take a look at an example, we have the following text:
+
+
+\begin{verbatim}
+This is a paragraph containing only one sentence.
+
+This is the second paragraph. This one has two sentences.
+\end{verbatim}
+
+In FoLiA XML, this will appear as follows after tokenisation:
+
+
+\begin{verbatim}
+ <p xml:id="TEST.p.1">
+    <s xml:id="TEST.p.1.s.1">        
+        <w xml:id="TEST.p.1.s.1.w.1"><t>This</t></w>
+        <w xml:id="TEST.p.1.s.1.w.2"><t>is</t></w>
+        ...
+        <w xml:id="TEST.p.1.s.1.w.8" space="no"><t>sentence</t></w>
+        <w xml:id="TEST.p.1.s.1.w.9"><t>.</t></w>
+    </s>
+ </p>
+ <p xml:id="TEST.p.2">
+    <s xml:id="TEST.p.2.s.1">
+        <w xml:id="TEST.p.2.s.1.w.1"><t>This</t></w>
+        <w xml:id="TEST.p.2.s.1.w.2"><t>is</t></w>    
+        ..
+        <w xml:id="TEST.p.2.s.1.w.5" space="no"><t>paragraph</t></w>    
+        <w xml:id="TEST.p.2.s.1.w.6"><t>.</t></w>    
+    </s>
+    <s xml:id="TEST.p.2.s.2">
+        <w xml:id="TEST.p.2.s.2.w.1"><t>This</t></w>
+        <w xml:id="TEST.p.2.s.2.w.2"><t>one</t></w>    
+        ..
+        <w xml:id="TEST.p.2.s.2.w.5" space="no"><t>sentences</t></w>    
+        <w xml:id="TEST.p.2.s.2.w.6"><t>.</t></w>    
+    </s>
+ </p>
+\end{verbatim}
+
+
+The deepest content element should always contain a text element (\texttt{t}) which holds the actual textual content. FoLiA may also hold untokenised text, on a paragraph and/or sentence level:
+
+\begin{verbatim}
+ <p xml:id="TEST.p.1">
+    <s xml:id="TEST.p.1.s.1">        
+        <t>This is a paragraph containing only one sentence.</t>
+    </s>
+ </p>
+ <p xml:id="TEST.p.2">
+    <s xml:id="TEST.p.2.s.1">     
+        <t>This is the second paragraph.</t>
+    </s>
+    <s xml:id="TEST.p.2.s.2">     
+        <t>This one has two sentences.</t>
+    </s>    
+ </p>
+\end{verbatim}
+
+Higher level elements \empg{may} also contain a text element even when the deeper element do too. But the sentence/paragraph-level text element should always contain the text \emph{prior} to tokenisation! Note also that the word element has an attribute \texttt{space}, which defaults to yes, and indicates whether a the word was followed space by a space in the \emph{untokenised} original. This allows for partial reconstructability of sentence in its  untokenised form. Reconstructing sentences is generally preferred to grabbing them from the text element at the paragraph or sentence level, as there may be corrections or other changes on the token level. 
+
+The following example shows the maximum amount of redundancy.
+
+\begin{verbatim}
+ <p xml:id="TEST.p.1">
+    <t>This is a paragraph containing only one sentence.</t>
+    <s xml:id="TEST.p.1.s.1">        
+        <t>This is a paragraph containing only one sentence.</t>
+        <w xml:id="TEST.p.1.s.1.w.1"><t>This</t></w>
+        <w xml:id="TEST.p.1.s.1.w.2"><t>is</t></w>
+        ...
+        <w xml:id="TEST.p.1.s.1.w.8" space="no"><t>sentence</t></w>
+        <w xml:id="TEST.p.1.s.1.w.9"><t>.</t></w>
+    </s>
+ </p>
+ <p xml:id="TEST.p.2">
+    <t>This is the second paragraph. This one has two sentences.</t>
+    <s xml:id="TEST.p.2.s.1">
+        <t>This is the second paragraph.</t>
+        <w xml:id="TEST.p.2.s.1.w.1"><t>This</t></w>
+        <w xml:id="TEST.p.2.s.1.w.2"><t>is</t></w>    
+        ..
+        <w xml:id="TEST.p.2.s.1.w.5" space="no"><t>paragraph</t></w>    
+        <w xml:id="TEST.p.2.s.1.w.6"><t>.</t></w>    
+    </s>
+    <s xml:id="TEST.p.2.s.2">
+        <t>This one has two sentences.</t>
+        <w xml:id="TEST.p.2.s.2.w.1"><t>This</t></w>
+        <w xml:id="TEST.p.2.s.2.w.2"><t>one</t></w>    
+        ..
+        <w xml:id="TEST.p.2.s.2.w.5" space="no"><t>sentences</t></w>    
+        <w xml:id="TEST.p.2.s.2.w.6"><t>.</t></w>    
+    </s>
+ </p>
+\end{verbatim}
+
+Also note that the paragraph elements may be omitted if a document is described that does not distinguish paragraphs but only sentences. The IDs change accordingly then. Sentences however should never be omitted, documents can not consist of only tokens!
+
+The content element \texttt{head} is reserved for headers and captions, it behaves similarly to the paragraph element and may hold sentences.
+
+\section{Paradigm \& Terminology}
+
+The FoLiA format has a very uniform setup and its XML notation for annotation follows a generalised paradigm.
+
+First of all, we distinguish two different categories of annotation:
 
 \begin{itemize}
 \item Token annotation - Annotations pertaining to one specific token. These will be elements of the token element. (inline). Linguistic annotations in this category are for example: part-of-speech annotation, lemma annotation, sense annotation, morphological analysis, spelling correction.
 \item Span annotation - Annotations spanning over multiple tokens. Each type of annotation will be in a seperate annotation layer with offset notation. These layers are embedded on the sentence level. Examples of this category are: syntax parsers, chunking, semantic role labelling, named entity annotation, temporal analysis.
 \end{itemize}
 
+Most linguistic annotations are associated with what we call a \textbf{set}, the set determines the vocabulary (the tags) of the annotation. An element of such a set is referred to as a \textbf{class} from the FoLiA perspective. For example, we may have a document with Part-of-Speech annotation according to the CGN set. The CGN set defines classes such as \emph{WW}, \emph{BW}, \emph{ADJ}, \emph{VZ}. FoLiA itself thus never commits to any tagset but leaves you to explicitly define this. 
 
+Any annotation element may have a \texttt{set} attribute (pointing to a URL of the file that defines the set), and \texttt{class} element, that choses a class from the set.
 
+The following example shows a simple Part-of-Speech annotation (without features), but with all annotation attributes according to the FoLiA paradigm:
 
-FoLiA distinguishes several types of elements:
-
-\begin{itemize}
-\item Metadata elements
-\item Metadata elements
-\end{itemize}
-
-\subsection{Sets and classes}
-
-
-
-
-\subsection{Structure elements}
-
-The following elements structure a text.
-
-\begin{tabular}{ll}
-\textbf{Element:}  \texttt{div0} , \texttt{div1}, \texttt{div2} \\
-\hline
-\textbf{Parent:}  & \texttt{body} or \texttt{div$(n-1)$} \\
-\hline
-\textbf{DCOI:}  & yes \\
-\hline 
-\textbf{Description}: & \\
-These are divisions in a document, to be used if a document is structured into multiple levels (chapters,sections, subsection).\end{tabular}
-\hline
-\textbf{Attributes}: & \\
-\emph{xml:id} & ID, relative to the parent text element (not the parent divX element!) \\
-\emph{n} & The number of the chapter, section, subsection in the original document (optional). \\
-\hline
-\textbf{Example}: & \\
 \begin{verbatim}
-<div0 xml:id="DOCID.div0.1" n="1" class="chapter">
-<div1 xml:id="WR-P-E-H-0000000064.div1.1" n="1.4" class="paragraph">
-<div2 xml:id="WR-P-E-H-0000000064.div2.1" n="1.4.2." class="subpara">
+<pos set="http://ilk.uvt.nl/folia/sets/CGN" class="WW" 
+ annotator="Maarten van Gompel" annotatortype="manual" confidence="0.76" />
 \end{verbatim}
-\end{tabular}
+
+The example shows that any annotation element can be enriched with an \texttt{annotator} attribute and an \texttt{annotatortype}. The latter is either ``manual'', for human annotators, or ``auto'' for systems.  The value for \texttt{annotator} is open and should be set to the name or ID of the system or human annotator that made the annotation. Lastly, there is a \texttt{confidence} attribute, set to a floating point value between zero and one, that expresses the confidence the annotator places in his annotation. None of these options is mandatory, except for \texttt{class}, this may be mandatory for some types of annotation (such as \texttt{pos}).
+
+\begin{devnotes}
+In this stage, the sets are not actually defined yet, i.e. the URLs they point to don't exist yet. But the idea is that a set always points to a URL that defines all its classes. The format for this is still to be specified however. For now, ad-hoc sets that will later be defined will do.
+\end{devnotes}
 
 
-\subsection{Content elements}
+\section{Annotation Declarations}
+
+Explicitly referring to a set and annotator in each annotation can be cumbersome, especially in a document with a single set and a single annotator for that type of annotation. This problem can be solved by declaring defaults in the annotation declaration.
+
+The annotation declaration is a mandatory part of the metadata that declares all kinds of annotations types that are present in the document, in addition it may define the tagset used, and may declare a default annotator for this type of annotation. These defaults can always be overriden at the annotation level itself, using the XML attributes \texttt{set}, \texttt{annotator} and \texttt{annotatortype}, as discussed in the previous section. None of the attributes are mandatory in the declaration, though the declarations themselves are; they declare what annotations are to be expected in the document. Having a type of annotation that is not declared is invalid. Do note that if you do not specify a set, annotator or annotatortype in either the declaration or in the annotation elements themselves, they will be left undefined. Not declaring sets is generally a very bad idea.  
+
+Annotations are declared in the \texttt{annotations} block, as shown in the following example:
+
+\begin{verbatim}
+<annotations>
+        <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl" annotator="ucto" annotatortype="auto" />
+        <pos-annotation set="http://ilk.uvt.nl/folia/sets/CGN" annotator="Frog" annotatortype="auto" />
+        <lemma-annotation annotator="Frog" annotatortype="auto" />    
+        <sense-annotation set="http://ilk.uvt.nl/folia/sets/Cornetto" annotator="supwsd1" annotatortype="auto" />    
+</annotations>
+\end{verbatim}
 
 
-\subsection{Token element}
+\section{Token Annotation}
 
 
-\subsection{Annotation elements}
+\subsection{Part of Speech Annotation}
+
+
+\subsection{Lemma Annotation}
+
+\subsection{Morphological Analysis}
+
+\subsection{Morphological Analysis}
+
+
+\subsection{Corrections}
+
+
+\section{Span Annotation}
+
+\subsection{Entities}
+
+\subsection{Syntax}
+
+\subsection{Chunking}
 
 
 
 
 
 \section{Parsing}
+
+
+\end{document}
