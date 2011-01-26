@@ -135,7 +135,7 @@ PoS, Lemma, and Sense-annotation:
                         <feat class="gender" value="zijd" />
                         <feat class="case" value="stan" />
                     </pos>
-                    <lemma>dit</lemma>
+                    <lemma class="dit" />
                     
                     
                     
@@ -150,14 +150,18 @@ PoS, Lemma, and Sense-annotation:
                 <w xml:id="TEST-000000001.p.1.s.1.w.4">
                     <t>test</t>
   
-                    </correction>
+                    
                     <!-- NA CORRECTIE: -->
-                    <correction xml:id="TEST-000000001.p.1.s.1.c.1" original="tesst" class="spelling">
+                    <correction xml:id="TEST-000000001.p.1.s.1.c.1" original="tesst" class="spelling" confidence="0.45">
                         <t>test</t>
-                        <lexicon set="lexiconX" annotator="wopr" known="no" used="yes"><suggestion>test</suggestion></lexicon>                        
+                        <lexicon set="lexiconX" annotator="wopr" annotatortype="auto" known="no" used="yes"><suggestion>test</suggestion></lexicon>                        
+                    </correction>                        
                                         
                     <!-- VÓÓR CORRECTIE -->                
                     <lexicon set="lexiconX" known="no"><suggestion>test</suggestion></lexicon>
+                    
+                    <errorlist set="errorlist" known="yes"><suggestion>test</suggestion></errorlist>
+                                                        
                     
                     <!-- steve playing around (and example completed by Maarten) -->
                     <correction annotator="tanja" annotatortype="manual" original="tet" class="spelling">
@@ -400,12 +404,12 @@ Syntactic units and Layers
 
 
 
-Spelling corrections (OCR corrections) *prior* to tokenisation (ticcl):
+Inline spelling corrections (OCR corrections) *prior* to tokenisation (ticcl):
 
         <p xml:id="TEST-000000001.p.1">
             <t>Dit is een <correction xml:id="TEST-000000001.p.1.c.1" original="tesst">
                 <t>test</t>                
-                <lexicon name="lexiconX" known="no">>
+                <lexicon name="lexiconX" known="no">
                     <suggestion>test</suggestion>
                 </lexicon>
             </correction>. Deze test bestaat uit twee zinnen.</t>            

@@ -1,4 +1,4 @@
-\documentclass[a4paper,12pt]{report}
+\documentclass[a4paper,12pt]{article}
 \usepackage[english]{babel}
 \usepackage{graphicx}
 \usepackage{placeins}
@@ -23,6 +23,9 @@
 \end{center}}
 
 \begin{document}
+
+\tableofcontents
+\titlepage
 
 \section{Introduction}
 
@@ -198,7 +201,7 @@ The deepest content element should always contain a text element (\texttt{t}) wh
  </p>
 \end{verbatim}
 
-Higher level elements \empg{may} also contain a text element even when the deeper element do too. But the sentence/paragraph-level text element should always contain the text \emph{prior} to tokenisation! Note also that the word element has an attribute \texttt{space}, which defaults to yes, and indicates whether a the word was followed space by a space in the \emph{untokenised} original. This allows for partial reconstructability of sentence in its  untokenised form. Reconstructing sentences is generally preferred to grabbing them from the text element at the paragraph or sentence level, as there may be corrections or other changes on the token level. 
+Higher level elements \emph{may} also contain a text element even when the deeper element do too. But the sentence/paragraph-level text element should always contain the text \emph{prior} to tokenisation! Note also that the word element has an attribute \texttt{space}, which defaults to yes, and indicates whether a the word was followed space by a space in the \emph{untokenised} original. This allows for partial reconstructability of sentence in its  untokenised form. Reconstructing sentences is generally preferred to grabbing them from the text element at the paragraph or sentence level, as there may be corrections or other changes on the token level. 
 
 The following example shows the maximum amount of redundancy.
 
@@ -240,6 +243,7 @@ Also note that the paragraph elements may be omitted if a document is described 
 The content element \texttt{head} is reserved for headers and captions, it behaves similarly to the paragraph element and may hold sentences.
 
 \section{Paradigm \& Terminology}
+\label{sec:paradigm}
 
 The FoLiA format has a very uniform setup and its XML notation for annotation follows a generalised paradigm.
 
@@ -288,13 +292,89 @@ Annotations are declared in the \texttt{annotations} block, as shown in the foll
 
 \section{Token Annotation}
 
+Token annotations are annotations that are placed within the word (\texttt{w}) element. They all can take any of the attributes described in section \ref{sec:paradigm}. All token annotations depend on the document being tokenised, i.e. there being a \texttt{token-annotation} declaration and \texttt{w} elements. The declaration can be as follows:
+
+\begin{verbatim}
+<annotations>
+    <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl" annotator="ucto" annotatortype="auto" />
+</annotations>
+\end{verbatim}
+
+Being part of a set, this implies that tokens themselves \emph{may} be assigned a class, as is for example done by the tokeniser \emph{ucto}:
+
+\begin{verbatim}
+<s xml:id="example.p.1.s.1">
+    <w xml:id="example.p.1.s.1.w.1" class="WORD"><t>I</t></w>
+    <w xml:id="example.p.1.s.1.w.2" class="WORD"><t>see</t></w>
+    <w xml:id="example.p.1.s.1.w.3" class="NUMBER"><t>2</t></w>
+    <w xml:id="example.p.1.s.1.w.4" class="WORD" space="no"><t>children</t></w>
+    <w xml:id="example.p.1.s.1.w.5" class="PUNCTUATION"><t>.</t></w>
+</s>
+\end{verbatim}        
+
 
 \subsection{Part of Speech Annotation}
 
+The following example illustrates a simple Part-of-Speech annotation for the Dutch word ``boot'':
+
+\begin{verbatim}
+<w xml:id="example.p.1.s.1.w.2">
+    <t>boot</t>
+    <pos class="N" />
+</w>
+\end{verbatim}
+
+Part-of-Speech annotations may also include extra features, which are explicitly listed and are defined by the set:
+
+\begin{verbatim}
+<w xml:id="example.p.1.s.1.w.2">
+    <t>boot</t>
+    <pos class="N">
+        <feat class="ntype" value="soort" />
+        <feat class="number" value="ev" />
+        <feat class="degree" value="basis" />
+        <feat class="gender" value="zijd" />
+        <feat class="case" value="stan" />
+    </pos>
+</w>
+\end{verbatim}
+
+Whenever Part-of-Speech annotations are used, they should be declared in the \texttt{annotations} block as follows, the set you use may differ and all attributes are optional. Do note the requirement of a \texttt{token-annotation} as well.
+
+\begin{verbatim}
+<annotations>
+    <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl" annotator="ucto" annotatortype="auto" />
+    <pos-annotation set="http://ilk.uvt.nl/folia/sets/CGN" annotator="Frog" annotatortype="auto" />
+</annotations>
+\end{verbatim}
+
+As mentioned earlier, the declaration only sets defaults. They can be overridden in the \texttt{pos} element itself (or any other token annotation element for that matter).
 
 \subsection{Lemma Annotation}
 
-\subsection{Morphological Analysis}
+In the FoLiA paradigm, lemmas are perceived as classes within the set of all possible lemmas. Their annotation is thus as follows:
+
+\begin{verbatim}
+<w xml:id="example.p.1.s.1.w.2">
+    <t>boot</t>
+    <lemma class="boot" />
+</w>
+\end{verbatim}
+
+The declaration is as follows:
+
+\begin{verbatim}
+<annotations>
+    <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl" annotator="ucto" annotatortype="auto" />
+    <lemma-annotation set="http://ilk.uvt.nl/folia/sets/lemmas" annotator="Frog" annotatortype="auto" />
+</annotations>
+\end{verbatim}
+
+
+\subsection{Semantic Sense Annotation}
+
+
+
 
 \subsection{Morphological Analysis}
 
