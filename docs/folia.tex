@@ -1,9 +1,20 @@
-\documentclass[a4paper,12pt]{article}
+\documentclass[a4paper,12pt]{report}
 \usepackage[english]{babel}
 \usepackage{graphicx}
 \usepackage{placeins}
 \usepackage{hyperref}
 \usepackage{supertabular}
+\usepackage{listings}
+\usepackage{color}
+\lstset{% general command to set parameter(s)
+basicstyle=\footnotesize,
+keywordstyle=\color{black}\bfseries\underbar,
+identifierstyle=\color{black}\bfseries\underbar,
+stringstyle=\ttfamily,
+}
+
+
+
 
 \title{FoLiA: Format for Linguistic Annotation \\ \small first proposal}
 \author{Maarten van Gompel \\ ILK Research Group \\ Tilburg center for Cognition and Communication \\ Tilburg University }
@@ -27,7 +38,7 @@
 \tableofcontents
 \titlepage
 
-\section{Introduction}
+\chapter{Introduction}
 
 FoLiA is a Format for Linguistic Annotation, derived from the DCOI\cite{DCOI} format developed at Polderland, and extended for richer annotation at the ILK research group, Tilburg University. The DCOI format is designed for used by the DCOI corpus, as well as by the current incarnation of its successor; the SoNaR corpus. 
 
@@ -89,16 +100,19 @@ And it may be used in the following corpora:
 \item DutchSemCor (based primarily on SoNaR)
 \end{itemize}
 
+To clearly understand this documentation, note that if we speak of ``elements'' or ``attributes'', we refer to XML notation, i.e. XML elements and XML attributes.
+
 \begin{devnotes}
 This is all still subject to debate and change and may be a bit pretentious at this stage.
 \end{devnotes}
 
+\chapter{Format}
 
 \section{Basic Structure}
 
 In FoLiA, each document/text is represented by one XML file. The basic structure of such a FoLiA document is as follows and should always be UTF-8 encoded. An eleborate XSLT stylesheet will be provided in order to be able to instantly view FoLiA documents in any modern web browser.
 
-\begin{verbatim}
+\begin{lstlisting}[language=xml]
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="http://ilk.uvt.nl/FoLiA/FoLiA.xsl"?>
 <FoLiA xmlns="http://ilk.uvt.nl/FoLiA" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:id="example">
@@ -114,7 +128,7 @@ In FoLiA, each document/text is represented by one XML file. The basic structure
    <gap></gap>
   </text>
 </FoLiA>  
-\end{verbatim}
+\end{lstlisting}
 
 Body contains the to-be-annotated material, more about this later. The gap tags are optional and contain unannotated front matter or back matter.
 
@@ -125,6 +139,8 @@ All elements which describe tokens or a span of tokens have an identifier by whi
 Identifiers in DCOI and FoLiA are cummulative and are indicative of the position of the element within the document; a child element usually takes the ID of its parent, appends its name, a period, and a sequential number. This however only applies to certain primary elements: paragraph elements, sentence elements, and word elements.
 
 The base of all identifiers is that of the document itself, as encoded in \texttt{xml:id} attribute of the root \texttt{FoLiA} element. This is a unique ID by which the document is identifiable. We choose the identifier \emph{example} in the example above. By convention, the XML file should then ideally be named: \texttt{example.xml}.
+
+Identifiers are very important are used throughout the FoLiA format, they enable external resources and database to easily point to a specific part of the document or its annotation. FoLiA has been set up in such a way that \emph{identifiers should never ever change}. Once an identifier is assigned, it should never change, re-numbering is strictly prohibited unless you intentionally want to create a new resource and break compatibility with the old one.
 
 \section{Structure Elements}
 
@@ -145,16 +161,16 @@ Content element occur within the body, the following exist:
 These are typically nested, the word elements describe the actual tokens, including tokens thare are not technically a word. Let's take a look at an example, we have the following text:
 
 
-\begin{verbatim}
+\begin{lstlisting}[language=xml]
 This is a paragraph containing only one sentence.
 
 This is the second paragraph. This one has two sentences.
-\end{verbatim}
+\end{lstlisting}
 
 In FoLiA XML, this will appear as follows after tokenisation:
 
 
-\begin{verbatim}
+\begin{lstlisting}[language=xml]
  <p xml:id="TEST.p.1">
     <s xml:id="TEST.p.1.s.1">        
         <w xml:id="TEST.p.1.s.1.w.1"><t>This</t></w>
@@ -180,12 +196,12 @@ In FoLiA XML, this will appear as follows after tokenisation:
         <w xml:id="TEST.p.2.s.2.w.6"><t>.</t></w>    
     </s>
  </p>
-\end{verbatim}
+\end{lstlisting}
 
 
 The deepest content element should always contain a text element (\texttt{t}) which holds the actual textual content. FoLiA may also hold untokenised text, on a paragraph and/or sentence level:
 
-\begin{verbatim}
+\begin{lstlisting}[language=xml]
  <p xml:id="TEST.p.1">
     <s xml:id="TEST.p.1.s.1">        
         <t>This is a paragraph containing only one sentence.</t>
@@ -199,13 +215,13 @@ The deepest content element should always contain a text element (\texttt{t}) wh
         <t>This one has two sentences.</t>
     </s>    
  </p>
-\end{verbatim}
+\end{lstlisting}
 
 Higher level elements \emph{may} also contain a text element even when the deeper element do too. But the sentence/paragraph-level text element should always contain the text \emph{prior} to tokenisation! Note also that the word element has an attribute \texttt{space}, which defaults to yes, and indicates whether a the word was followed space by a space in the \emph{untokenised} original. This allows for partial reconstructability of sentence in its  untokenised form. Reconstructing sentences is generally preferred to grabbing them from the text element at the paragraph or sentence level, as there may be corrections or other changes on the token level. 
 
 The following example shows the maximum amount of redundancy.
 
-\begin{verbatim}
+\begin{lstlisting}[language=xml]
  <p xml:id="TEST.p.1">
     <t>This is a paragraph containing only one sentence.</t>
     <s xml:id="TEST.p.1.s.1">        
@@ -236,7 +252,7 @@ The following example shows the maximum amount of redundancy.
         <w xml:id="TEST.p.2.s.2.w.6"><t>.</t></w>    
     </s>
  </p>
-\end{verbatim}
+\end{lstlisting}
 
 Also note that the paragraph elements may be omitted if a document is described that does not distinguish paragraphs but only sentences. The IDs change accordingly then. Sentences however should never be omitted, documents can not consist of only tokens!
 
@@ -254,16 +270,16 @@ First of all, we distinguish two different categories of annotation:
 \item Span annotation - Annotations spanning over multiple tokens. Each type of annotation will be in a seperate annotation layer with offset notation. These layers are embedded on the sentence level. Examples of this category are: syntax parsers, chunking, semantic role labelling, named entity annotation, temporal analysis.
 \end{itemize}
 
-Most linguistic annotations are associated with what we call a \textbf{set}, the set determines the vocabulary (the tags) of the annotation. An element of such a set is referred to as a \textbf{class} from the FoLiA perspective. For example, we may have a document with Part-of-Speech annotation according to the CGN set. The CGN set defines classes such as \emph{WW}, \emph{BW}, \emph{ADJ}, \emph{VZ}. FoLiA itself thus never commits to any tagset but leaves you to explicitly define this. 
+Most linguistic annotations are associated with what we call a \textbf{set}, the set determines the vocabulary (the tags) of the annotation. An element of such a set is referred to as a \textbf{class} from the FoLiA perspective. For example, we may have a document with Part-of-Speech annotation according to the CGN set. The CGN set defines classes such as \emph{WW}, \emph{BW}, \emph{ADJ}, \emph{VZ}. FoLiA itself thus never commits to any tagset but leaves you to explicitly define this. You can also use multiple tagsets in the same document if so desired, for the same kind of annotation.
 
-Any annotation element may have a \texttt{set} attribute (pointing to a URL of the file that defines the set), and \texttt{class} element, that choses a class from the set.
+Any annotation element may have a \texttt{set} attribute (pointing to a URL of the file that defines the set), and a \texttt{class} attribute, that choses a class from the set.
 
 The following example shows a simple Part-of-Speech annotation (without features), but with all annotation attributes according to the FoLiA paradigm:
 
-\begin{verbatim}
+\begin{lstlisting}[language=xml]
 <pos set="http://ilk.uvt.nl/folia/sets/CGN" class="WW" 
  annotator="Maarten van Gompel" annotatortype="manual" confidence="0.76" />
-\end{verbatim}
+\end{lstlisting}
 
 The example shows that any annotation element can be enriched with an \texttt{annotator} attribute and an \texttt{annotatortype}. The latter is either ``manual'', for human annotators, or ``auto'' for systems.  The value for \texttt{annotator} is open and should be set to the name or ID of the system or human annotator that made the annotation. Lastly, there is a \texttt{confidence} attribute, set to a floating point value between zero and one, that expresses the confidence the annotator places in his annotation. None of these options is mandatory, except for \texttt{class}, this may be mandatory for some types of annotation (such as \texttt{pos}).
 
@@ -280,29 +296,29 @@ The annotation declaration is a mandatory part of the metadata that declares all
 
 Annotations are declared in the \texttt{annotations} block, as shown in the following example:
 
-\begin{verbatim}
+\begin{lstlisting}[language=xml]
 <annotations>
         <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl" annotator="ucto" annotatortype="auto" />
         <pos-annotation set="http://ilk.uvt.nl/folia/sets/CGN" annotator="Frog" annotatortype="auto" />
         <lemma-annotation annotator="Frog" annotatortype="auto" />    
         <sense-annotation set="http://ilk.uvt.nl/folia/sets/Cornetto" annotator="supwsd1" annotatortype="auto" />    
 </annotations>
-\end{verbatim}
+\end{lstlisting}
 
 
 \section{Token Annotation}
 
 Token annotations are annotations that are placed within the word (\texttt{w}) element. They all can take any of the attributes described in section \ref{sec:paradigm}, this has to be kept in mind when reading this section. Moreover, all token annotations depend on the document being tokenised, i.e. there being a \texttt{token-annotation} declaration and \texttt{w} elements. The declaration can be as follows:
 
-\begin{verbatim}
+\begin{lstlisting}[language=xml]
 <annotations>
     <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl" annotator="ucto" annotatortype="auto" />
 </annotations>
-\end{verbatim}
+\end{lstlisting}
 
 Being part of a set, this implies that tokens themselves \emph{may} be assigned a class, as is for example done by the tokeniser \emph{ucto}:
 
-\begin{verbatim}
+\begin{lstlisting}[language=xml]
 <s xml:id="example.p.1.s.1">
     <w xml:id="example.p.1.s.1.w.1" class="WORD"><t>I</t></w>
     <w xml:id="example.p.1.s.1.w.2" class="WORD"><t>see</t></w>
@@ -310,23 +326,23 @@ Being part of a set, this implies that tokens themselves \emph{may} be assigned 
     <w xml:id="example.p.1.s.1.w.4" class="WORD" space="no"><t>children</t></w>
     <w xml:id="example.p.1.s.1.w.5" class="PUNCTUATION"><t>.</t></w>
 </s>
-\end{verbatim}        
+\end{lstlisting}        
 
 
 \subsection{Part of Speech Annotation}
 
 The following example illustrates a simple Part-of-Speech annotation for the Dutch word ``boot'':
 
-\begin{verbatim}
+\begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.2">
     <t>boot</t>
     <pos class="N" />
 </w>
-\end{verbatim}
+\end{lstlisting}
 
 Part-of-Speech annotations may also include extra features, which are explicitly listed and are defined by the set:
 
-\begin{verbatim}
+\begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.2">
     <t>boot</t>
     <pos class="N">
@@ -337,16 +353,16 @@ Part-of-Speech annotations may also include extra features, which are explicitly
         <feat class="case" value="stan" />
     </pos>
 </w>
-\end{verbatim}
+\end{lstlisting}
 
 Whenever Part-of-Speech annotations are used, they should be declared in the \texttt{annotations} block as follows, the set you use may differ and all attributes are optional. In the declaration example here we do as if the annotations were made by the software \emph{Frog}. Do note the requirement of a \texttt{token-annotation} as well.
 
-\begin{verbatim}
+\begin{lstlisting}[language=xml]
 <annotations>
     <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl" annotator="ucto" annotatortype="auto" />
     <pos-annotation set="http://ilk.uvt.nl/folia/sets/CGN" annotator="Frog" annotatortype="auto" />
 </annotations>
-\end{verbatim}
+\end{lstlisting}
 
 As mentioned earlier, the declaration only sets defaults. They can be overridden in the \texttt{pos} element itself (or any other token annotation element for that matter).
 
@@ -354,21 +370,21 @@ As mentioned earlier, the declaration only sets defaults. They can be overridden
 
 In the FoLiA paradigm, lemmas are perceived as classes within the (possibly open) set of all possible lemmas. Their annotation is thus as follows:
 
-\begin{verbatim}
+\begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.2">
     <t>boot</t>
     <lemma class="boot" />
 </w>
-\end{verbatim}
+\end{lstlisting}
 
 And the example declaration:
 
-\begin{verbatim}
+\begin{lstlisting}[language=xml]
 <annotations>
     <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl" annotator="ucto" annotatortype="auto" />
     <lemma-annotation set="http://ilk.uvt.nl/folia/sets/mblem-nl" annotator="Frog" annotatortype="auto" />
 </annotations>
-\end{verbatim}
+\end{lstlisting}
 
 
 \subsection{Semantic Sense Annotation}
@@ -377,53 +393,175 @@ In semantic sense annotation, the classes in most sets will be a kind of lexical
 
 The actual value of the \emph{sense} element can be set to a human-readable description, but this is optional.
 
-\begin{verbatim}
+\begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.2">
     <t>boot</t>
     <sense class="r_n-6220" synset="d_n-32683">beeldhouwwerk</sense>
 </w>
-\end{verbatim}
+\end{lstlisting}
 
 The example declaration is as follows:
 
-\begin{verbatim}
+\begin{lstlisting}[language=xml]
 <annotations>
     <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl" annotator="ucto" annotatortype="auto" />
     <sense-annotation set="http://ilk.uvt.nl/folia/sets/cornetto" />
 </annotations>
-\end{verbatim}
+\end{lstlisting}
 
 \subsection{Domain Tags}
 
 This is a bit of a peculiar token annotation element, in the sense that it is more than just that. It can also be used directly in any of the content elements, such as sentence (\texttt{s}) and  paragraph (\texttt{p}). It can even be used in the \texttt{body} element itself. This annotation defines the domain of the token/content. Example:
 
-\begin{verbatim}
+\begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.2">
     <t>boot</t>
     <domain class="naut">Nautical</domain>
 </w>
-\end{verbatim}
+\end{lstlisting}
 
 The value of the element may optionally be set to a human-readable label for the domain.
 
 The declaration:
 
-\begin{verbatim}
+\begin{lstlisting}[language=xml]
 <annotations>
     <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl" annotator="ucto" annotatortype="auto" />
     <domain-annotation set="http://ilk.uvt.nl/folia/sets/domains-nl" />
 </annotations>
-\end{verbatim}
+\end{lstlisting}
+
+\subsection{Lexical Annotation}
+
+Lexical annotation allows for token to be looked up in a lexicon, the annotation states the presence of this token in a particular lexicon (a particular set), and may offer possible suggestions.
+
+The following example shows a misspelled word, that was not found in the lexicon, and where the lexicon comes with two better suggestions:
+
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.1.s.1.w.1">
+    <t>treee</t>
+    <lexicon set="http://ilk.uvt.nl/folia/sets/lexicon-nl" known="no">
+        <suggestion confidence="0.6">tree</suggestion>
+        <suggestion confidence="0.4">three</suggestion>
+    <lexicon>
+</w>
+\end{lstlisting}
+
+
+As always, the \texttt{confidence} attribute is optional. The class \emph{may} be set to the word-form/lemma as it occurs in the lexicon, this too is optional.
+
+Similar to lexicon, there is also an element for error lists, called \texttt{errorlist}. Whereas a lexicon holds correct word forms, an error list holds common errors and has suggestions for correcting those, and thus is in a certain sense the reverse of a lexicon. Note the fact that the \texttt{known} attribute in particular is inversed:
+
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.1.s.1.w.1">
+    <t>treee</t>
+    <errorlist set="http://ilk.uvt.nl/folia/sets/errorlist-nl" known="yes">    
+        <suggestion confidence="0.6">tree</suggestion>
+        <suggestion confidence="0.4">three</suggestion>
+    <errorlist>
+</w>
+\end{lstlisting}
+
+The declaration:
+
+\begin{lstlisting}[language=xml]
+<annotations>
+    <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl" annotator="ucto" annotatortype="auto" />
+    <lexicon-annotation set="http://ilk.uvt.nl/folia/sets/lexicon-nl" />
+    <errorlist-annotation set="http://ilk.uvt.nl/folia/sets/errorlist-nl" />
+</annotations>
+\end{lstlisting}
+
+If multiple lexica, i.e. multiple sets, are used, simply declare without a default set attribute, but explictly set it for each \texttt{lexicon} element. This is a general principle that applies to all kind of annotations:
+
+\begin{lstlisting}[language=xml]
+<annotations>
+    <lexicon-annotation />
+</annotations>
+\end{lstlisting}
 
 \subsection{Corrections}
 
+Spelling corrections, or other kind of corrections can be annotated using the \texttt{correction} element. Note the difference between for example lexical annotation and corrections; lexical annotation offers merely suggestions, it does not indicate actual correction of the token. The \texttt{correction} element does. It can be applied as a token annotation element as in the following example, which shows a spelling correction of the misspelled word ``treee'' to its corrected form ``tree''.
 
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.1.s.1.w.1">
+    <t>tree</t>
+    <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.1" class="spelling">
+        <t>tree</t>
+        <original>
+            <t>treee</t>
+        </original>
+    </correction>
+</w>
+\end{lstlisting}
+
+Note that all corrections may carry an ID. Within the \texttt{correction} there should be a text )\texttt{t}) element with the token content after correction. The token prior to correction is recorded in the \texttt{original} element, which also has a \texttt{t} element. The class indicates the kind of correction, according to the set used. 
+
+Whilst it may seem redundant to specify the token content both under the word element (\texttt{w}), and the \texttt{correction} element, and to list the original so verbosely rather than in a mere attribute, there is a good reason for this: corrections can be nested and we want to retain a full back-log. The following example illustrates the word `treee` that has been first mis-corrected to ``three'' and subsequenly corrected again to ``tree'':
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.1.s.1.w.1">
+    <t>tree</t>
+    <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.2" class="spelling" annotator="Jane Doe" annotatortype="manual" confidence="1.0">
+        <t>tree</t>
+        <original>
+            <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.1" class="spelling" annotator="John Doe" annotatortype="manual" confidence="0.6">
+                <t>three</t>
+                <original>
+                    <t>treee</t>
+                </original>
+            </correction>
+        </original>
+    </correction>
+</w>
+\end{lstlisting}
+
+Corrections are fairly complex token annotations, they may be corrections \emph{over} other token annotations rather than simply the token content as in the prior two examples. The next example corrects a part-of-speech tag; in such cases, there is no \texttt{t} element in the correction, but simply another token annnotation element, or group thereof!
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.1.s.1.w.1">
+    <t>tree</t>
+    <pos class="n" />
+    <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.1">
+        <pos class="n" />
+        <original>
+            <pos class="v" />
+        </original>
+    </correction>
+    
+</w>    
+\end{lstlisting}
+
+Again, there is a small level of necessary redundancy, the corrected element is within the \texttt{correction} element as well as the \texttt{w} element. Furthermore, if these two \texttt{pos} elements would differ, than the FoLiA notation would be invalid.
+
+The \texttt{lexicon} and \texttt{errorlist} elements have some special behaviour when combined with \texttt{correction}. On any of the \texttt{suggestion} elements of these, the attribute \texttt{used=yes} can be set to indicate that the lexical suggestion was indeed used as the basis of the correction.
+
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.1.s.1.w.1">
+    <t>tree</t>
+    <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.1" class="spelling">
+        <t>tree</t>
+        <original>
+            <t>treee</t>
+            <lexicon set="http://ilk.uvt.nl/folia/sets/lexicon-nl" known="no">
+                <suggestion confidence="0.6" used="yes">tree</suggestion>
+                <suggestion confidence="0.4">three</suggestion>
+            </lexicon>    
+        </original>        
+    </correction>
+</w>
+\end{lstlisting}
 
 
 \subsection{Morphological Analysis}
 
 \begin{devnotes}
-Still to be done..
+Still to be done.. The \texttt{morphemes} and \texttt{morpheme} elements will be reserved for this.
 \end{devnotes}
 
 
@@ -431,41 +569,224 @@ Still to be done..
 
 The FoLiA format does not just allow for a single ``favoured'' annotation per token, in addition it allows for the recording of alternative annotations. Alternative token annotations are grouped within one or more \texttt{alt} elements. If multiple annotations are grouped together under the same \texttt{alt} element, then they are deemed dependent and form an alternative as a group.
 
-Each alternative has an ID. In the following example we see the Dutch word ``bank'' in the sense of a sofa, alternatively we see two alternative annotations with a different sense and domain.
+Each alternative has a unique identifier, formed in the already familiar fashion. In the following example we see the Dutch word ``bank'' in the sense of a sofa, alternatively we see two alternative annotations with a different sense and domain.
 
-\begin{verbatim}
+\begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.1">
     <t>bank</t>
     <domain class="furniture" />
     <sense class="r_n-5918" synset="d_n-21410" annotator="John Doe" annotatortype="manual" confidence="1.0">zitmeubel</sense>
-    <alt xml:id="example.p.1.s.1.w.1.ALT.1">
+    <alt xml:id="example.p.1.s.1.w.1.alt.1">
         <domain class="finance" />
         <sense class="r_n-5919" synset="d_n-27025" annotator="Jane Doe" annotatortype="manual" confidence="0.6">geldverlenende instelling</sense>        
     </alt>
-    <alt xml:id="example.p.1.s.1.w.1.ALT.2">
+    <alt xml:id="example.p.1.s.1.w.1.alt.2">
         <domain class="geology" />
         <sense class="r_n-5920" synset="d_n-38257" annotator="Jim Doe" annotatortype="manual" confidence="0.1">zandbank</sense>        
     </alt>    
 </w>
-\end{verbatim}
-
-
-
+\end{lstlisting}
 
 
 \section{Span Annotation}
 
+Not all annotations can be realised as token annotations. Some typically span multiple tokens. For these we introduce a kind of offset notation in separate \emph{annotation layers}. These annotation layers are embedded at the sentence level, \emph{after} the word tokens. Within these layers, references are made to these word tokens. Each annotation layer is specific to a kind of span annotation.
+
+The layer elements themselves do \emph{never} may take the \texttt{set}, \texttt{annotator}, \texttt{annotatortype}, or \texttt{confidence} attributes. Which introduces the defaults for all the span annotations under it. They in turn may of course always chose to override this.
+
 \subsection{Entities}
+
+Named entities or other multi-word units can be encoded in the \texttt{entities} layer. Below is an example of a full sentence in which one name is tagged, each entity should have a unique identifier.
+
+
+\begin{lstlisting}[language=xml]
+<s xml:id="example.p.1.s.1">
+  <t>The Dalai Lama greeted him.</t>
+  <w xml:id="example.p.1.s.1.w.1"><t>The</t></w>
+  <w xml:id="example.p.1.s.1.w.2"><t>Dalai</t></w>
+  <w xml:id="example.p.1.s.1.w.3"><t>Lama</t></w>
+  <w xml:id="example.p.1.s.1.w.4"><t>greeted</t></w>
+  <w xml:id="example.p.1.s.1.w.5"><t>him</t></w>
+  <w xml:id="example.p.1.s.1.w.6"><t>.</t></w>
+  <entities>
+    <entity xml:id="example.p.1.s.1.e.1" class="name">
+        <ref xml:id="example.p.1.s.1.w.2" />
+        <ref xml:id="example.p.1.s.1.w.3" />
+    </entity>
+  </entities>
+</w>
+\end{lstlisting}
+
+Note that elements that are not part of any span annotation need never be included in the layer.
 
 \subsection{Syntax}
 
+A very typical form of span annotation is syntax annotation. This is done within the \texttt{syntax} layer at introduces a nested hierarchy of syntactic unit (\texttt{su}) elements. Each syntactic unit should have a unique identifier. Within the syntactic unit, a distinction \emph{may} be made between the head of the unit (\texttt{h}), and its complement (\texttt{comp}), this is not mandatory.
+
+\begin{lstlisting}[language=xml]
+<s xml:id="example.p.1.s.1">
+  <t>The Dalai Lama greeted him.</t>
+  <w xml:id="example.p.1.s.1.w.1"><t>The</t></w>
+  <w xml:id="example.p.1.s.1.w.2"><t>Dalai</t></w>
+  <w xml:id="example.p.1.s.1.w.3"><t>Lama</t></w>
+  <w xml:id="example.p.1.s.1.w.4"><t>greeted</t></w>
+  <w xml:id="example.p.1.s.1.w.5"><t>him</t></w>
+  <w xml:id="example.p.1.s.1.w.6"><t>.</t></w>
+  <syntax>
+    <su xml:id="example.p.1.s.1.su.1" class="s">     
+     <su xml:id="example.p.1.s.1.su.1_1" class="np">    
+        <su xml:id="example.p.1.s.1.su.1_1" class="np">
+          <comp>
+            <su xml:id="example.p.1.s.1.su.1_1_1" class="det">
+                <ref xml:id="example.p.1.s.1.w.1" />       
+            </su>
+          </comp>
+          <h>
+            <su xml:id="example.p.1.s.1.su.1_1_2" class="pn">
+                <ref xml:id="example.p.1.s.1.w.2" />
+                <ref xml:id="example.p.1.s.1.w.3" />        
+            </su>
+          </h>          
+        </su>
+     </su>
+     <su xml:id="example.p.1.s.1.su.1_2" class="vp"> 
+        <h>
+            <su xml:id="example.p.1.s.1.su.1_1_1" class="v">
+                <ref xml:id="example.p.1.s.1.w.4" />       
+            </su>
+        </h>
+        <comp>
+            <su xml:id="example.p.1.s.1.su.1_1_2" class="pron">
+                <ref xml:id="example.p.1.s.1.w.5" />       
+            </su>
+        </comp>
+     </su>    
+    </su>
+  </syntax>
+</s>
+\end{lstlisting}
+
+Just to prevent any misunderstanding, the classes depend on the set used, so you can use whatever system of syntactic annotation you desire. Moreover, any of the \texttt{su} elements can have the common attributes \texttt{annotator}, \texttt{annotatortype} and \texttt{confidence}.
+
+The declaration:
+
+\begin{lstlisting}[language=xml]
+<annotations>
+    <syntax-annotation set="http://ilk.uvt.nl/folia/sets/syntax-nl" />
+</annotations>
+\end{lstlisting}
+
+
 \subsection{Chunking}
 
+Unlike a full syntax parse, chunking is not nested. The layer for this type of linguistic annotation is predictably called \texttt{chunking}, the span annotation element itself is \texttt{chunk}.
+
+\begin{lstlisting}[language=xml]
+<s xml:id="example.p.1.s.1">
+  <t>The Dalai Lama greeted him.</t>
+  <w xml:id="example.p.1.s.1.w.1"><t>The</t></w>
+  <w xml:id="example.p.1.s.1.w.2"><t>Dalai</t></w>
+  <w xml:id="example.p.1.s.1.w.3"><t>Lama</t></w>
+  <w xml:id="example.p.1.s.1.w.4"><t>greeted</t></w>
+  <w xml:id="example.p.1.s.1.w.5"><t>him</t></w>
+  <w xml:id="example.p.1.s.1.w.6"><t>.</t></w>
+  <chunking>
+    <chunk xml:id="example.p.1.s.1.chunk.1">       
+        <ref xml:id="example.p.1.s.1.w.1" />       
+        <ref xml:id="example.p.1.s.1.w.2" />       
+        <ref xml:id="example.p.1.s.1.w.3" />        
+    </chunk>
+    <chunk xml:id="example.p.1.s.1.chunk.2">       
+        <ref xml:id="example.p.1.s.1.w.4" />
+    </chunk>
+    <chunk xml:id="example.p.1.s.1.chunk.3">       
+        <ref xml:id="example.p.1.s.1.w.5" />
+        <ref xml:id="example.p.1.s.1.w.6" />
+    </chunk>    
+  </chunking>
+</s>
+\end{lstlisting}
+
+
+The declaration:
+
+\begin{lstlisting}[language=xml]
+<annotations>
+    <chunking-annotation set="http://ilk.uvt.nl/folia/sets/syntax-nl" />
+</annotations>
+\end{lstlisting}
 
 
 
+\subsection{Semantic roles}
 
-\section{Parsing}
+\begin{devnotes}
+Still to be done.. The \texttt{semroles} layer and \texttt{semrole} span annotation element will be reserved for this.
+\end{devnotes}
+
+\subsection{Alterative Span Annotations}
+
+With token annotations one could specify an unbounded number of alternative annotations. This is possible for span annotations as well, but due to its different nature of span annotations this happens in a slightly different way.
+
+Where we used \texttt{alt} for token annotations, we now use \texttt{altlayers} for span annotations. Under this element several alternative layers can be presented. Analagous to \texttt{alt}, any layers grouped together are assumed somehow dependent. Multiple \texttt{altlayers} can be added to introduce independent alternatives. Each alternative should be associated with a unique identifier, which uses ``alt'' rather than ``altlayers''. 
+
+Below is an example a sentence that is chunked in two ways:
+
+\begin{lstlisting}[language=xml]
+<s xml:id="example.p.1.s.1">
+  <t>The Dalai Lama greeted him.</t>
+  <w xml:id="example.p.1.s.1.w.1"><t>The</t></w>
+  <w xml:id="example.p.1.s.1.w.2"><t>Dalai</t></w>
+  <w xml:id="example.p.1.s.1.w.3"><t>Lama</t></w>
+  <w xml:id="example.p.1.s.1.w.4"><t>greeted</t></w>
+  <w xml:id="example.p.1.s.1.w.5"><t>him</t></w>
+  <w xml:id="example.p.1.s.1.w.6"><t>.</t></w>
+  <chunking>
+    <chunk xml:id="example.p.1.s.1.chunk.1">       
+        <ref xml:id="example.p.1.s.1.w.1" />       
+        <ref xml:id="example.p.1.s.1.w.2" />       
+        <ref xml:id="example.p.1.s.1.w.3" />        
+    </chunk>
+    <chunk xml:id="example.p.1.s.1.chunk.2">       
+        <ref xml:id="example.p.1.s.1.w.4" />
+    </chunk>
+    <chunk xml:id="example.p.1.s.1.chunk.3">       
+        <ref xml:id="example.p.1.s.1.w.5" />
+        <ref xml:id="example.p.1.s.1.w.6" />
+    </chunk>    
+  </chunking>
+  <altlayers xml:id="example.p.1.s.1.alt.1">
+       <chunking annotator="John Doe" annotatortype="manual" confidence="0.0001">
+        <chunk xml:id="example.p.1.s.1.alt.1.chunk.1">       
+            <ref xml:id="example.p.1.s.1.w.1" />       
+            <ref xml:id="example.p.1.s.1.w.2" />                       
+        </chunk>
+        <chunk xml:id="example.p.1.s.1.alt.1.chunk.2">       
+            <ref xml:id="example.p.1.s.1.w.3" />  
+            <ref xml:id="example.p.1.s.1.w.4" />
+        </chunk>
+        <chunk xml:id="example.p.1.s.1.alt.1.chunk.3">       
+            <ref xml:id="example.p.1.s.1.w.5" />
+            <ref xml:id="example.p.1.s.1.w.6" />
+        </chunk>    
+      </chunking>   
+  </altlayers>
+</s>
+\end{lstlisting}
+
+The support for alternatives and the fact that multiple layers (including those of different types) can not be nested in a single inline structure, should make clear why FoLiA uses a stand-off notation alongside an inline notation. 
+
+\section{Merging and splitting tokens}
+
+
+
+\section{Corrections prior to tokenisation}
+
+
+
+\chapter{Parsing \& Querying}
+
+
 
 
 \end{document}

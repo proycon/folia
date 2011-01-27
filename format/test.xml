@@ -152,9 +152,12 @@ PoS, Lemma, and Sense-annotation:
   
                     
                     <!-- NA CORRECTIE: -->
-                    <correction xml:id="TEST-000000001.p.1.s.1.c.1" original="tesst" class="spelling" confidence="0.45">
+                    <correction xml:id="TEST-000000001.p.1.s.1.c.1" class="spelling" confidence="0.45">
                         <t>test</t>
-                        <lexicon set="lexiconX" annotator="wopr" annotatortype="auto" known="no" used="yes"><suggestion>test</suggestion></lexicon>                        
+                        <original>
+                            <t>tesst</t>
+                            <lexicon set="lexiconX" annotator="wopr" annotatortype="auto" known="no" used="yes"><suggestion>test</suggestion></lexicon>                        
+                        </original>
                     </correction>                        
                                         
                     <!-- VÓÓR CORRECTIE -->                
@@ -164,12 +167,17 @@ PoS, Lemma, and Sense-annotation:
                                                         
                     
                     <!-- steve playing around (and example completed by Maarten) -->
-                    <correction annotator="tanja" annotatortype="manual" original="tet" class="spelling">
+                    <correction annotator="tanja" annotatortype="manual" class="spelling">
                         <t>test</t>
-                        <correction annotator="renske" annotatortype="manual" original="tesst" class="spelling">
-                            <t>tet</t>
-                            <lexicon set="lexiconX" annotator="wopr" known="no" used="yes"><suggestion>test</suggestion></lexicon>                        
-                        </correction>
+                        <original>
+                            <correction annotator="renske" annotatortype="manual" class="spelling">
+                                <t>tet</t>
+                                <original>
+                                    <t>tesst</t>
+                                    <lexicon set="lexiconX" annotator="wopr" known="no" used="yes"><suggestion>test</suggestion></lexicon>                        
+                                </original>
+                            </correction>
+                        </original>
                     </correction>
                                             
                 </w>
@@ -328,22 +336,7 @@ Dependencies:
                 
 Syntactic units and Layers
 
-    OLD:
-    
-        <s>
-          <syn class="NP" xml:id="TEST-000000001.p.1.s.1.syn.1">
-            <w><t>De</t></w>
-            <head><w><t>man</t></w></head>
-          </syn>
-          <syn class="VP" xml:id="TEST-000000001.p.1.s.1.syn.2">
-            <head><w><t>aait</t></w></head>
-            <syn class="NP" xml:id="TEST-000000001.p.1.s.1.syn.2_1">
-                <w><t>De</t></w>
-                <h><w><t>hond</t></w></h>
-            </syn>
-          </syn>
-        </s>
-        
+
     De man bijt de hond
     
     <s>
@@ -355,15 +348,15 @@ Syntactic units and Layers
         <syntax>
            <su class="S">
             <su class="NP">
-                <c><ref xml:ïd="TEST-000000001.p.1.s.1.w.1" /></c>
+                <comp><ref xml:ïd="TEST-000000001.p.1.s.1.w.1" /></comp>
                 <h><ref xml:ïd="TEST-000000001.p.1.s.1.w.2" /></h>
             </su>
             <su class="VP">
                 <h><ref xml:ïd="TEST-000000001.p.1.s.1.w.3" /></h>
-                <c><su class="NP">
-                    <c><ref xml:ïd="TEST-000000001.p.1.s.1.w.4" /></c>
+                <comp><su class="NP">
+                    <comp><ref xml:ïd="TEST-000000001.p.1.s.1.w.4" /></comp>
                     <h><ref xml:ïd="TEST-000000001.p.1.s.1.w.5" /></h>
-                </su></c>
+                </su></comp>
             </su>
          </su>
         </syntax>
