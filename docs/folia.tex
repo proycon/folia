@@ -115,7 +115,8 @@ In FoLiA, each document/text is represented by one XML file. The basic structure
 \begin{lstlisting}[language=xml]
 <?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet type="text/xsl" href="http://ilk.uvt.nl/FoLiA/FoLiA.xsl"?>
-<FoLiA xmlns="http://ilk.uvt.nl/FoLiA" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:id="example">
+<FoLiA xmlns="http://ilk.uvt.nl/FoLiA"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:id="example">
   <!-- (Here IMDI or CMDI metadata can be inserted) -->
   <annotations>
       ...
@@ -278,7 +279,8 @@ The following example shows a simple Part-of-Speech annotation (without features
 
 \begin{lstlisting}[language=xml]
 <pos set="http://ilk.uvt.nl/folia/sets/CGN" class="WW" 
- annotator="Maarten van Gompel" annotatortype="manual" confidence="0.76" />
+ annotator="Maarten van Gompel" annotatortype="manual"
+ confidence="0.76" />
 \end{lstlisting}
 
 The example shows that any annotation element can be enriched with an \texttt{annotator} attribute and an \texttt{annotatortype}. The latter is either ``manual'', for human annotators, or ``auto'' for systems.  The value for \texttt{annotator} is open and should be set to the name or ID of the system or human annotator that made the annotation. Lastly, there is a \texttt{confidence} attribute, set to a floating point value between zero and one, that expresses the confidence the annotator places in his annotation. None of these options is mandatory, except for \texttt{class}, this may be mandatory for some types of annotation (such as \texttt{pos}).
@@ -298,10 +300,13 @@ Annotations are declared in the \texttt{annotations} block, as shown in the foll
 
 \begin{lstlisting}[language=xml]
 <annotations>
-        <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl" annotator="ucto" annotatortype="auto" />
-        <pos-annotation set="http://ilk.uvt.nl/folia/sets/CGN" annotator="Frog" annotatortype="auto" />
+        <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl" 
+          annotator="ucto" annotatortype="auto" />
+        <pos-annotation set="http://ilk.uvt.nl/folia/sets/CGN" 
+          annotator="Frog" annotatortype="auto" />
         <lemma-annotation annotator="Frog" annotatortype="auto" />    
-        <sense-annotation set="http://ilk.uvt.nl/folia/sets/Cornetto" annotator="supwsd1" annotatortype="auto" />    
+        <sense-annotation set="http://ilk.uvt.nl/folia/sets/Cornetto"
+         annotator="SupWSD1" annotatortype="auto" />    
 </annotations>
 \end{lstlisting}
 
@@ -312,7 +317,8 @@ Token annotations are annotations that are placed within the word (\texttt{w}) e
 
 \begin{lstlisting}[language=xml]
 <annotations>
-    <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl" annotator="ucto" annotatortype="auto" />
+    <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl"
+      annotator="ucto" annotatortype="auto" />
 </annotations>
 \end{lstlisting}
 
@@ -359,8 +365,10 @@ Whenever Part-of-Speech annotations are used, they should be declared in the \te
 
 \begin{lstlisting}[language=xml]
 <annotations>
-    <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl" annotator="ucto" annotatortype="auto" />
-    <pos-annotation set="http://ilk.uvt.nl/folia/sets/CGN" annotator="Frog" annotatortype="auto" />
+    <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl" 
+     annotator="ucto" annotatortype="auto" />
+    <pos-annotation set="http://ilk.uvt.nl/folia/sets/CGN" 
+     annotator="Frog" annotatortype="auto" />
 </annotations>
 \end{lstlisting}
 
@@ -381,8 +389,10 @@ And the example declaration:
 
 \begin{lstlisting}[language=xml]
 <annotations>
-    <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl" annotator="ucto" annotatortype="auto" />
-    <lemma-annotation set="http://ilk.uvt.nl/folia/sets/mblem-nl" annotator="Frog" annotatortype="auto" />
+    <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl" 
+     annotator="ucto" annotatortype="auto" />
+    <lemma-annotation set="http://ilk.uvt.nl/folia/sets/mblem-nl"
+     annotator="Frog" annotatortype="auto" />
 </annotations>
 \end{lstlisting}
 
@@ -404,7 +414,8 @@ The example declaration is as follows:
 
 \begin{lstlisting}[language=xml]
 <annotations>
-    <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl" annotator="ucto" annotatortype="auto" />
+    <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl"
+     annotator="ucto" annotatortype="auto" />
     <sense-annotation set="http://ilk.uvt.nl/folia/sets/cornetto" />
 </annotations>
 \end{lstlisting}
@@ -426,7 +437,8 @@ The declaration:
 
 \begin{lstlisting}[language=xml]
 <annotations>
-    <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl" annotator="ucto" annotatortype="auto" />
+    <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl"
+     annotator="ucto" annotatortype="auto" />
     <domain-annotation set="http://ilk.uvt.nl/folia/sets/domains-nl" />
 </annotations>
 \end{lstlisting}
@@ -468,7 +480,8 @@ The declaration:
 
 \begin{lstlisting}[language=xml]
 <annotations>
-    <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl" annotator="ucto" annotatortype="auto" />
+    <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl"
+     annotator="ucto" annotatortype="auto" />
     <lexicon-annotation set="http://ilk.uvt.nl/folia/sets/lexicon-nl" />
     <errorlist-annotation set="http://ilk.uvt.nl/folia/sets/errorlist-nl" />
 </annotations>
@@ -506,10 +519,12 @@ Whilst it may seem redundant to specify the token content both under the word el
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.1">
     <t>tree</t>
-    <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.2" class="spelling" annotator="Jane Doe" annotatortype="manual" confidence="1.0">
+    <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.2" class="spelling" 
+      annotator="Jane Doe" annotatortype="manual" confidence="1.0">
         <t>tree</t>
         <original>
-            <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.1" class="spelling" annotator="John Doe" annotatortype="manual" confidence="0.6">
+            <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.1" class="spelling"
+               annotator="John Doe" annotatortype="manual" confidence="0.6">
                 <t>three</t>
                 <original>
                     <t>treee</t>
@@ -558,6 +573,106 @@ The \texttt{lexicon} and \texttt{errorlist} elements have some special behaviour
 \end{lstlisting}
 
 
+
+\subsubsection{Merges and Splits} 
+
+Sometimes, one wants to merge multiple tokens into one single new token, or the other way around; split one token into multiple new ones. The FoLiA format does not allow you to simply create new tokens and reassign identifiers. Identifiers are by definition permanent and should never change, as this would break backward compatibility. So such a change is by definition a correction, and one uses the \texttt{correction} tag to merge and split tokens.
+
+We will first demonstrate a merge of two tokens (``on line'') into one (``online''), the original tokens are always retained as \texttt{w-original} elements. First a peek at the XML prior to merging:
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.1.s.1.w.1">
+    <t>on</t>
+</w>
+<w xml:id="example.p.1.s.1.w.2">
+    <t>line</t>
+</w>                         
+\end{lstlisting}
+
+And after merging:
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.1.s.1.w.1-2">
+    <t>online</t>
+    <correction xml:id="example.p.1.s.1.w.1-2.c.1" class="merge">
+        <original>
+            <w xml:id="example.p.1.s.1.w.1">
+                <t>on</t>
+            </w>
+            <w xml:id="example.p.1.s.1.w.2">
+                <t>line</t>
+            </w>                         
+        </original>
+    </correction>       
+</w>        
+\end{lstlisting} 
+
+
+The new identifier denotes the span of the merge, separated by a hyphen, so we get \texttt{.w.1-2} if we merge from \texttt{.w.1} to \texttt{.w.2}.
+
+Now we will look at a split, the reverse of the above situation. Prior to splitting, assume we have:
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.1.s.1.w.1">
+    <t>online</t>
+</w>                         
+\end{lstlisting}
+
+After splitting:
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.1.s.1.w.1_1">
+    <t>on</t>
+    <correction xml:id="example.p.1.s.1.w.1_1.c.1" class="merge">
+       <original>
+        <w xml:id="example.p.1.s.1.w.1">
+         <t>online</t>
+        </w>       
+       </original>
+    <correction>
+</w>
+<w xml:id="example.p.1.s.1.w.1_2">
+    <t>line</t>
+    <correction xml:id="example.p.1.s.1.w.1_2.c.2" 
+     ref="example.p.1.s.1.w.1_1.c.1" />
+</w>
+\end{lstlisting}
+
+Note the usage of a little bit of stand-off notation here, the second split token has a correction that refers to the same correction as the first one, which contains the original.
+
+The new identifiers represent the index of the new tokens, separated by a underscore, so given \texttt{.w.1}  we get \texttt{.w.1\_1} for the first split result, \texttt{.w.1\_2} for the second, and so on...
+
+
+\subsubsection{Correction prior to tokenisation} 
+
+There is another special use of the correction element. Sometimes corrections/normalisations occur prior to tokenisation, think for example about correction after OCR. To accomodate this, the \texttt{correction} element can be used inline within the text content element (\texttt{t}) of a paragraph or sentence, which is by definition untokenised.
+
+Without correction:
+
+\begin{lstlisting}[language=xml]
+<s xml:id="example.p.1.s.1.w.1">
+    <s>Look at thi.s untokenised sentence.</s>
+</s>            
+\end{lstlisting}
+
+With correction:
+
+\begin{lstlisting}[language=xml]
+<s xml:id="example.p.1.s.1.w.1">
+    <t corrections="yes">Look at <correction xml:id="example.p.1.s.1.c.1"
+     class="ocrcorrection">
+     <t>this</t>
+     <original>
+       <t>thi.s</t>
+     </original></correction> is an untokenised sentence.
+    </t>
+</s>                         
+\end{lstlisting}
+
+Although correction is used inline here, instead of being a normal token annotation, its usage is identical. For clarity's sake, the class of course depend on the set and is as always never predefined in FoLiA itself.
+
+Note that the text element gains an extra mandatory attribute, \texttt{correction} with value \emph{yes} (default if unspecified is no), which signals that there are inline corrections. This is to make the job of parsers easier.
+
 \subsection{Morphological Analysis}
 
 \begin{devnotes}
@@ -575,14 +690,20 @@ Each alternative has a unique identifier, formed in the already familiar fashion
 <w xml:id="example.p.1.s.1.w.1">
     <t>bank</t>
     <domain class="furniture" />
-    <sense class="r_n-5918" synset="d_n-21410" annotator="John Doe" annotatortype="manual" confidence="1.0">zitmeubel</sense>
+    <sense class="r_n-5918" synset="d_n-21410" 
+     annotator="John Doe" annotatortype="manual" 
+     confidence="1.0">zitmeubel</sense>
     <alt xml:id="example.p.1.s.1.w.1.alt.1">
         <domain class="finance" />
-        <sense class="r_n-5919" synset="d_n-27025" annotator="Jane Doe" annotatortype="manual" confidence="0.6">geldverlenende instelling</sense>        
+        <sense class="r_n-5919" synset="d_n-27025"
+         annotator="Jane Doe" annotatortype="manual" 
+         confidence="0.6">geldverlenende instelling</sense>        
     </alt>
     <alt xml:id="example.p.1.s.1.w.1.alt.2">
         <domain class="geology" />
-        <sense class="r_n-5920" synset="d_n-38257" annotator="Jim Doe" annotatortype="manual" confidence="0.1">zandbank</sense>        
+        <sense class="r_n-5920" synset="d_n-38257"
+         annotator="Jim Doe" annotatortype="manual"
+         confidence="0.1">zandbank</sense>        
     </alt>    
 </w>
 \end{lstlisting}
@@ -635,31 +756,31 @@ A very typical form of span annotation is syntax annotation. This is done within
   <syntax>
     <su xml:id="example.p.1.s.1.su.1" class="s">     
      <su xml:id="example.p.1.s.1.su.1_1" class="np">    
-        <su xml:id="example.p.1.s.1.su.1_1" class="np">
-          <comp>
-            <su xml:id="example.p.1.s.1.su.1_1_1" class="det">
-                <ref xml:id="example.p.1.s.1.w.1" />       
-            </su>
-          </comp>
-          <h>
-            <su xml:id="example.p.1.s.1.su.1_1_2" class="pn">
-                <ref xml:id="example.p.1.s.1.w.2" />
-                <ref xml:id="example.p.1.s.1.w.3" />        
-            </su>
-          </h>          
-        </su>
+      <su xml:id="example.p.1.s.1.su.1_1" class="np">
+        <comp>
+          <su xml:id="example.p.1.s.1.su.1_1_1" class="det">
+             <ref xml:id="example.p.1.s.1.w.1" />       
+          </su>
+        </comp>
+        <h>
+          <su xml:id="example.p.1.s.1.su.1_1_2" class="pn">
+             <ref xml:id="example.p.1.s.1.w.2" />
+             <ref xml:id="example.p.1.s.1.w.3" />        
+          </su>
+        </h>          
+       </su>
      </su>
      <su xml:id="example.p.1.s.1.su.1_2" class="vp"> 
-        <h>
-            <su xml:id="example.p.1.s.1.su.1_1_1" class="v">
-                <ref xml:id="example.p.1.s.1.w.4" />       
-            </su>
-        </h>
-        <comp>
-            <su xml:id="example.p.1.s.1.su.1_1_2" class="pron">
-                <ref xml:id="example.p.1.s.1.w.5" />       
-            </su>
-        </comp>
+      <h>
+         <su xml:id="example.p.1.s.1.su.1_1_1" class="v">
+            <ref xml:id="example.p.1.s.1.w.4" />       
+         </su>
+      </h>
+      <comp>
+        <su xml:id="example.p.1.s.1.su.1_1_2" class="pron">
+          <ref xml:id="example.p.1.s.1.w.5" />       
+        </su>
+      </comp>
      </su>    
     </su>
   </syntax>
@@ -756,7 +877,8 @@ Below is an example a sentence that is chunked in two ways:
     </chunk>    
   </chunking>
   <altlayers xml:id="example.p.1.s.1.alt.1">
-       <chunking annotator="John Doe" annotatortype="manual" confidence="0.0001">
+       <chunking annotator="John Doe" 
+        annotatortype="manual" confidence="0.0001">
         <chunk xml:id="example.p.1.s.1.alt.1.chunk.1">       
             <ref xml:id="example.p.1.s.1.w.1" />       
             <ref xml:id="example.p.1.s.1.w.2" />                       
@@ -776,17 +898,12 @@ Below is an example a sentence that is chunked in two ways:
 
 The support for alternatives and the fact that multiple layers (including those of different types) can not be nested in a single inline structure, should make clear why FoLiA uses a stand-off notation alongside an inline notation. 
 
-\section{Merging and splitting tokens}
-
-
-
-\section{Corrections prior to tokenisation}
-
-
 
 \chapter{Parsing \& Querying}
 
-
+\begin{devnotes}
+To be written still...
+\end{devnotes}
 
 
 \end{document}
