@@ -743,7 +743,7 @@ Note that elements that are not part of any span annotation need never be includ
 
 \subsection{Syntax}
 
-A very typical form of span annotation is syntax annotation. This is done within the \texttt{syntax} layer at introduces a nested hierarchy of syntactic unit (\texttt{su}) elements. Each syntactic unit should have a unique identifier. Within the syntactic unit, a distinction \emph{may} be made between the head of the unit (\texttt{h}), and its complement (\texttt{comp}), this is not mandatory.
+A very typical form of span annotation is syntax annotation. This is done within the \texttt{syntax} layer at introduces a nested hierarchy of syntactic unit (\texttt{su}) elements. Each syntactic unit should have a unique identifier.
 
 \begin{lstlisting}[language=xml]
 <s xml:id="example.p.1.s.1">
@@ -756,32 +756,23 @@ A very typical form of span annotation is syntax annotation. This is done within
   <w xml:id="example.p.1.s.1.w.6"><t>.</t></w>
   <syntax>
     <su xml:id="example.p.1.s.1.su.1" class="s">     
-     <su xml:id="example.p.1.s.1.su.1_1" class="np">    
       <su xml:id="example.p.1.s.1.su.1_1" class="np">
-        <comp>
           <su xml:id="example.p.1.s.1.su.1_1_1" class="det">
              <ref xml:id="example.p.1.s.1.w.1" />       
           </su>
-        </comp>
-        <h>
           <su xml:id="example.p.1.s.1.su.1_1_2" class="pn">
              <ref xml:id="example.p.1.s.1.w.2" />
              <ref xml:id="example.p.1.s.1.w.3" />        
-          </su>
-        </h>          
+          </su>         
        </su>
      </su>
      <su xml:id="example.p.1.s.1.su.1_2" class="vp"> 
-      <h>
-         <su xml:id="example.p.1.s.1.su.1_1_1" class="v">
+        <su xml:id="example.p.1.s.1.su.1_1_1" class="v">
             <ref xml:id="example.p.1.s.1.w.4" />       
-         </su>
-      </h>
-      <comp>
+        </su>
         <su xml:id="example.p.1.s.1.su.1_1_2" class="pron">
           <ref xml:id="example.p.1.s.1.w.5" />       
         </su>
-      </comp>
      </su>    
     </su>
   </syntax>
@@ -790,7 +781,10 @@ A very typical form of span annotation is syntax annotation. This is done within
 
 Just to prevent any misunderstanding, the classes depend on the set used, so you can use whatever system of syntactic annotation you desire. Moreover, any of the \texttt{su} elements can have the common attributes \texttt{annotator}, \texttt{annotatortype} and \texttt{confidence}.
 
-The declaration:
+
+The above example illustrated a fairly simple syntactic parse. Dependency parses are possible too. Depencies are listed seperate from the syntax in an extra annotation layer, as shall be explained in the next section.
+
+The declaration is as follows:
 
 \begin{lstlisting}[language=xml]
 <annotations>
@@ -798,6 +792,74 @@ The declaration:
 </annotations>
 \end{lstlisting}
 
+\subsection{Dependency Relations}
+
+Dependency relations are relations between syntactic units (or spans of tokens). This relation is often of a particular class and consists out of a head component and a dependent component. In the sample ``He sees'', there is  syntactic dependency between the two words: ``sees'' is de head, and ``He'' is the dependant, the relation class is something like ``subject'', as the dependant is the subject of the head word. Each dependency relation is explicitly noted.
+
+The lement \texttt{depencies} introduces this annotation layer. Within it, \texttt{dependency} elements describe all dependency pairs. 
+
+In the below example, we show a Dutch sentence parsed with the Alpino Parser, the format of which was also studied in the making of FoLiA. We show not only the dependancy layer, but also the syntax layer. The \texttt{dependency} element makes reference to the syntactic units by means of the \texttt{su} attribute. Additionally, the words they cover are reiterated in the usual fashion. For a better understand, the figure illustrates the syntactic parse with the dependency relations.
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=60.0mm]{alpino.png}
+\end{center}
+\caption{Alpino dependency parse for the Dutch sentence ``De man begroette hem.''}
+\label{fig:arch} 
+\end{figure}
+\FloatBarrier
+
+\begin{lstlisting}[language=xml]
+<s xml:id="example.p.1.s.1">
+  <t>De man begroette hem.</t>
+  <w xml:id="example.p.1.s.1.w.1"><t>De</t></w>
+  <w xml:id="example.p.1.s.1.w.2"><t>man</t></w>
+  <w xml:id="example.p.1.s.1.w.3"><t>begroette</t></w>
+  <w xml:id="example.p.1.s.1.w.4"><t>hem</t></w>
+  <w xml:id="example.p.1.s.1.w.5"><t>.</t></w>
+  <syntax set="http://ilk.uvt.nl/folia/sets/alpino">
+    <su xml:id="example.p.1.s.1.su.1" class="top">     
+        <su xml:id="example.p.1.s.1.su.1_1" class="smain">     
+            <su xml:id="example.p.1.s.1.su.1_1_1" class="np">     
+                <su xml:id="example.p.1.s.1.su.1_1_1_1" class="top" depclass="det">     
+                    <ref xml:id="example.p.1.s.1.w.1" />       
+                </su>
+                <su xml:id="example.p.1.s.1.su.1_1_1_2" class="top" depclass="hd">     
+                    <ref xml:id="example.p.1.s.1.w.2" />
+                </su> 
+            </su>
+            <su xml:id="example.p.1.s.1.su.1_1_2" class="verb" depclass="hd">     
+                <ref xml:id="example.p.1.s.1.w.3" />   
+            </su>
+            <su xml:id="example.p.1.s.1.su.1_1_3" class="pron" depclass="obj1">     
+                <ref xml:id="example.p.1.s.1.w.4" />   
+            </su>
+        </su>
+        <su xml:id="example.p.1.s.1.su.1_2" class="punct" depclass="--">
+            <ref xml:id="example.p.1.s.1.w.5" />               
+        </su> 
+    </su>
+  </syntax>
+  <dependencies>
+    <dependency xml:id="example.p.1.s.1.dependency.1" class="det">
+        <hd su="example.p.1.s.1.su.1_1_1_2">
+           <ref xml:id="example.p.1.s.1.w.2" />   
+        </hd>
+        <dep ref="example.p.1.s.1.su.1_1_1_1">
+            <ref xml:id="example.p.1.s.1.w.1" />   
+        </dep>
+    </dependency>
+    <dependency xml:id="example.p.1.s.1.dependency.2" class="obj1">
+        <hd su="example.p.1.s.1.su.1_1_2">
+            <ref xml:id="example.p.1.s.1.w.3">
+        </hd>
+        <dep su="example.p.1.s.1.su.1_1_3">
+            <ref xml:id="example.p.1.s.1.w.4" />   
+        </dep>
+    </dependency>
+  </dependencies>
+</s>
+\end{lstlisting}
 
 \subsection{Chunking}
 
