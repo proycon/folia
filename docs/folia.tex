@@ -796,7 +796,7 @@ The declaration is as follows:
 
 Dependency relations are relations between syntactic units (or spans of tokens). This relation is often of a particular class and consists out of a head component and a dependent component. In the sample ``He sees'', there is  syntactic dependency between the two words: ``sees'' is de head, and ``He'' is the dependant, the relation class is something like ``subject'', as the dependant is the subject of the head word. Each dependency relation is explicitly noted.
 
-The lement \texttt{depencies} introduces this annotation layer. Within it, \texttt{dependency} elements describe all dependency pairs. 
+The lement \texttt{dependencies} introduces this annotation layer. Within it, \texttt{dependency} elements describe all dependency pairs. 
 
 In the below example, we show a Dutch sentence parsed with the Alpino Parser, the format of which was also studied in the making of FoLiA. We show not only the dependancy layer, but also the syntax layer. The \texttt{dependency} element makes reference to the syntactic units by means of the \texttt{su} attribute. Additionally, the words they cover are reiterated in the usual fashion. For a better understand, the figure illustrates the syntactic parse with the dependency relations.
 
@@ -859,6 +859,15 @@ In the below example, we show a Dutch sentence parsed with the Alpino Parser, th
     </dependency>
   </dependencies>
 </s>
+\end{lstlisting}
+
+The declaration:
+
+\begin{lstlisting}[language=xml]
+<annotations>
+    <syntax-annotation set="http://ilk.uvt.nl/folia/sets/alpino-syntax" /> 
+    <dependency-annotation set="http://ilk.uvt.nl/folia/sets/alpino-dep" />
+</annotations>
 \end{lstlisting}
 
 \subsection{Chunking}
