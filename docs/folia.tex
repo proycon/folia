@@ -16,7 +16,7 @@ stringstyle=\ttfamily,
 
 
 
-\title{FoLiA: Format for Linguistic Annotation \\ \small first proposal}
+\title{FoLiA: Format for Linguistic Annotation \\ \small v0.1 - First proposal}
 \author{Maarten van Gompel \\ ILK Research Group \\ Tilburg center for Cognition and Communication \\ Tilburg University }
 
 \parindent=0pt %no paragraph indentation
@@ -44,13 +44,11 @@ stringstyle=\ttfamily,
 
 FoLiA is a Format for Linguistic Annotation, derived from the DCOI format\cite{DCOI} developed at Polderland, and extended for richer annotation at the ILK research group, Tilburg University. The DCOI format is designed for used by the DCOI corpus, as well as by the current incarnation of its successor; the SoNaR corpus \cite{Oostdijk+08}. 
 
-FoLiA is an XML-based annotation format, suitable for representing language resources such as corpora. Its goal is to unify a variety of linguistic annotations in one single rich format, without committing to any particular standard annotation set. Instead, it seeks to accommodate any desired system or tagset, and so offering maximum flexibility. This makes FoLiA language independent.
+FoLiA is an XML-based\cite{XML} annotation format, suitable for representing written language resources such as corpora. Its goal is to unify a variety of linguistic annotations in one single rich format, without committing to any particular standard annotation set. Instead, it seeks to accommodate any desired system or tagset, and so offering maximum flexibility. This makes FoLiA language independent. Due to its generalised set up, it is easy to extent the FoLiA format to suit your custom needs for linguistic annotation.
 
+XML is an inherently hierarchic format, FoLiA does justice to this by maximally utilising a hierarchic, inline, setup. We inherit from the DCOI format, which posits to be loosely based on a minimal subset of TEI\cite{TEI}. Because of the introduction of a new and broader paradigm, FoLiA is \emph{not} backwards-compatible with DCOI. FoLiA is a very rich format, and it is always fairly easy to convert back to ``less verbose'' formats such as the DCOI format, or plain-text. 
 
-XML is an inherently hierarchic format, FoLiA does justice to this by maximally utilising a hierarchic, inline, setup. We inherit from the DCOI format, which is loosely based on a minimal subset of TEI. However, FoLiA is \emph{not} backwards-compatible with DCOI. FoLiA is a very rich format, and it is always fairly easy to convert back to ``less verbose'' formats such as the DCOI format, or plain-text. 
-
-However, some linguistic annotations such as syntactic parses are implemented as ``layers'' separate from the tokenisation, and using a kind of offset notation. This is to provide FoLiA with the necessary flexibility and extensibility. Inspiration for this was in part by the Kyoto Annotation Format \cite{KYOTO}. 
-
+However, some linguistic annotations such as syntactic parses are implemented as ``layers'' separate from the tokenisation, and using a kind of offset notation. This is to provide FoLiA with the necessary flexibility and extensibility. Inspiration for this was in part obtained from the Kyoto Annotation Format \cite{KYOTO}. 
 
 The FoLiA format features the following:
 
@@ -71,20 +69,19 @@ The FoLiA format features the following:
 It supports the following linguistic annotations:
 
 \begin{itemize}
-\item Spelling corrections on both a tokenised as well as an untokenised level.
-\item Semantic sense annotation (to be used in DutchSemCor)
 \item Part-of-Speech tags (with features)
 \item Lemmatisation
+\item Spelling corrections on both a tokenised as well as an untokenised level.
+\item Semantic sense annotation (to be used in DutchSemCor)
 \item Morphological Analysis
-\item Multi-word units and Named Entities
+\item Named Entities / Multi-word units
 \item Syntactic Parses
-\item Chunking / Shallow Parsing
-\item Semantic Role Labelling (?)
+\item Dependency Relations
+\item Chunking
+\item Semantic Role Labelling
 \end{itemize}
 
 FoLiA support will be incorporated directly into the following ILK sofware:
-
-%This is all very pretentious:
 
 \begin{itemize} 
 \item ucto - A tokeniser which can directly output FoLiA XML 
@@ -261,6 +258,48 @@ The following example shows the maximum amount of redundancy, with text elements
 The paragraph elements may be omitted if a document is described that does not distinguish paragraphs but only sentences. The identifiers of course change accordingly then. Sentences however should never be omitted, documents can never consist of only tokens!
 
 The content element \texttt{head} is reserved for headers and captions, it behaves similarly to the paragraph element and may hold sentences.
+
+
+FoLiA also explicitly support quotes, as demonstrated in the next example, which annotates the following sentence: 
+
+\begin{verbatim}
+He said: ``I do not know . I think you are right. ", and left.
+\end{verbatim}
+
+ A quote may consist out of one or more sentences, by may also consist of mere tokens. The token identifiers in all cases simply follow the sequential numbering of the root sentence, not the embedded sentence.
+
+
+\begin{lstlisting}[language=xml]
+ <s xml:id="example.p.1.s.1">
+  <w xml:id="example.p.1.s.1.w.1" class="WORD"><t>He</t></w>
+  <w xml:id="example.p.1.s.1.w.2" class="WORD"><t>said</t></w>
+  <w xml:id="example.p.1.s.1.w.3" class="PUNCTUATION" space="no"><t>:</t></w>
+  <w xml:id="example.p.1.s.1.w.4" class="PUNCTUATION" space="no"><t>''</t></w>
+  <quote xml:id="example.p.1.s.1.quote.1">
+    <s xml:id="example.p.1.s.1.quote.1.s.1">
+       <w xml:id="example.p.1.s.1.w.5" class="WORD"><t>I</t></w>
+       <w xml:id="example.p.1.s.1.w.6" class="WORD"><t>do</t></w>
+       <w xml:id="example.p.1.s.1.w.7" class="WORD"><t>not</t></w>
+       <w xml:id="example.p.1.s.1.w.8" class="WORD"><t>know</t></w>
+       <w xml:id="example.p.1.s.1.w.9" class="PUNCTUATION" space="no"><t>.</t></w>
+    </s>
+    <s xml:id="example.p.1.s.1.quote.1.s.2">
+       <w xml:id="example.p.1.s.1.w.10" class="WORD"><t>I</t></w>
+       <w xml:id="example.p.1.s.1.w.11" class="WORD"><t>think</t></w>
+       <w xml:id="example.p.1.s.1.w.12" class="WORD"><t>you</t></w>
+       <w xml:id="example.p.1.s.1.w.13" class="WORD"><t>are</t></w>
+       <w xml:id="example.p.1.s.1.w.14" class="WORD"><t>right</t></w>
+    </s>
+  </quote>
+  <w xml:id="example.p.1.s.1.w.15" class="PUNCTUATION" space="no"><t>''</t></w>
+  <w xml:id="example.p.1.s.1.w.16" class="PUNCTUATION"><t>,</t></w>
+  <w xml:id="example.p.1.s.1.w.17" class="WORD"><t>and</t></w>
+  <w xml:id="example.p.1.s.1.w.18" class="WORD"><t>left</t></w>
+  <w xml:id="example.p.1.s.1.w.19" class="PUNCTUATION" space="no"><t>.</t></w>
+ </s>
+\end{lstlisting}
+
+    
 
 \section{Paradigm \& Terminology}
 \label{sec:paradigm}
@@ -491,9 +530,7 @@ The declaration:
 If multiple lexicons, i.e. multiple sets, are used, simply declare without a default set attribute, but explicitly set it for each \texttt{lexicon} element. This is a general principle that applies to all kind of annotations:
 
 \begin{lstlisting}[language=xml]
-<annotations>
-    <lexicon-annotation />
-</annotations>
+<lexicon-annotation />
 \end{lstlisting}
 
 \subsection{Corrections}
@@ -573,7 +610,15 @@ The \texttt{lexicon} and \texttt{errorlist} elements have some special behaviour
 </w>
 \end{lstlisting}
 
+Like everything, corrections have to be declared:
 
+\begin{lstlisting}[language=xml]
+<annotations>
+    <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl" 
+     annotator="ucto" annotatortype="auto" />
+    <correction-annotation set="http://ilk.uvt.nl/folia/sets/corrections" />
+</annotations>
+\end{lstlisting}
 
 \subsubsection{Merges and Splits} 
 
@@ -788,6 +833,8 @@ The declaration is as follows:
 
 \begin{lstlisting}[language=xml]
 <annotations>
+    <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl" 
+     annotator="ucto" annotatortype="auto" />
     <syntax-annotation set="http://ilk.uvt.nl/folia/sets/syntax-nl" />
 </annotations>
 \end{lstlisting}
@@ -796,9 +843,9 @@ The declaration is as follows:
 
 Dependency relations are relations between syntactic units (or spans of tokens). This relation is often of a particular class and consists out of a head component and a dependent component. In the sample ``He sees'', there is  syntactic dependency between the two words: ``sees'' is de head, and ``He'' is the dependant, the relation class is something like ``subject'', as the dependant is the subject of the head word. Each dependency relation is explicitly noted.
 
-The lement \texttt{dependencies} introduces this annotation layer. Within it, \texttt{dependency} elements describe all dependency pairs. 
+The element \texttt{dependencies} introduces this annotation layer. Within it, \texttt{dependency} elements describe all dependency pairs. 
 
-In the below example, we show a Dutch sentence parsed with the Alpino Parser, the format of which was also studied in the making of FoLiA. We show not only the dependancy layer, but also the syntax layer. The \texttt{dependency} element makes reference to the syntactic units by means of the \texttt{su} attribute. Additionally, the words they cover are reiterated in the usual fashion. For a better understand, the figure illustrates the syntactic parse with the dependency relations.
+In the below example, we show a Dutch sentence parsed with the Alpino Parser \cite{ALPINO}. We show not only the dependency layer, but also the syntax layer. The \texttt{dependency} element always contains one head element (\texttt{hd}) and one dependant element (\texttt{dep}), both can refer to a syntactic units by means of the \texttt{su} attribute. Additionally, the words they cover are reiterated in the usual fashion. For a better understanding, the figure below illustrates the syntactic parse with the dependency relations.
 
 \begin{figure}[h]
 \begin{center}
@@ -821,21 +868,21 @@ In the below example, we show a Dutch sentence parsed with the Alpino Parser, th
     <su xml:id="example.p.1.s.1.su.1" class="top">     
         <su xml:id="example.p.1.s.1.su.1_1" class="smain">     
             <su xml:id="example.p.1.s.1.su.1_1_1" class="np">     
-                <su xml:id="example.p.1.s.1.su.1_1_1_1" class="top" depclass="det">     
+                <su xml:id="example.p.1.s.1.su.1_1_1_1" class="top">     
                     <ref xml:id="example.p.1.s.1.w.1" />       
                 </su>
-                <su xml:id="example.p.1.s.1.su.1_1_1_2" class="top" depclass="hd">     
+                <su xml:id="example.p.1.s.1.su.1_1_1_2" class="top">     
                     <ref xml:id="example.p.1.s.1.w.2" />
                 </su> 
             </su>
-            <su xml:id="example.p.1.s.1.su.1_1_2" class="verb" depclass="hd">     
+            <su xml:id="example.p.1.s.1.su.1_1_2" class="verb">     
                 <ref xml:id="example.p.1.s.1.w.3" />   
             </su>
-            <su xml:id="example.p.1.s.1.su.1_1_3" class="pron" depclass="obj1">     
+            <su xml:id="example.p.1.s.1.su.1_1_3" class="pron">     
                 <ref xml:id="example.p.1.s.1.w.4" />   
             </su>
         </su>
-        <su xml:id="example.p.1.s.1.su.1_2" class="punct" depclass="--">
+        <su xml:id="example.p.1.s.1.su.1_2" class="punct">
             <ref xml:id="example.p.1.s.1.w.5" />               
         </su> 
     </su>
@@ -865,6 +912,8 @@ The declaration:
 
 \begin{lstlisting}[language=xml]
 <annotations>
+    <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl" 
+     annotator="ucto" annotatortype="auto" />
     <syntax-annotation set="http://ilk.uvt.nl/folia/sets/alpino-syntax" /> 
     <dependency-annotation set="http://ilk.uvt.nl/folia/sets/alpino-dep" />
 </annotations>
