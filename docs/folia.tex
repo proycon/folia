@@ -16,7 +16,7 @@ stringstyle=\ttfamily,
 
 
 
-\title{FoLiA: Format for Linguistic Annotation \\ \small v0.1 - First proposal}
+\title{FoLiA: Format for Linguistic Annotation \\ \small v0.1.2}
 \author{Maarten van Gompel \\ ILK Research Group \\ Tilburg center for Cognition and Communication \\ Tilburg University }
 
 \parindent=0pt %no paragraph indentation
@@ -42,13 +42,14 @@ stringstyle=\ttfamily,
 
 \chapter{Introduction}
 
-FoLiA is a Format for Linguistic Annotation, derived from the DCOI format\cite{DCOI} developed at Polderland, and extended for richer annotation at the ILK research group, Tilburg University. The DCOI format is designed for used by the DCOI corpus, as well as by the current incarnation of its successor; the SoNaR corpus \cite{Oostdijk+08}. 
+FoLiA is a Format for Linguistic Annotation, derived from the D-Coi format\cite{DCOI} developed as part of the D-Coi project, by project partner at Polderland Language and Speech Technologies B.V., and extended for richer annotation at the ILK research group, Tilburg University. The D-Coi format is designed for used by the DCOI corpus, as well as by its successor; the SoNaR corpus \cite{Oostdijk+08}. 
 
 FoLiA is an XML-based\cite{XML} annotation format, suitable for representing written language resources such as corpora. Its goal is to unify a variety of linguistic annotations in one single rich format, without committing to any particular standard annotation set. Instead, it seeks to accommodate any desired system or tagset, and so to offer maximum flexibility. This makes FoLiA language independent. Due to its generalised set up, it is easy to extent the FoLiA format to suit your custom needs for linguistic annotation.
 
-XML is an inherently hierarchic format, FoLiA does justice to this by maximally utilising a hierarchic, inline, setup. We inherit from the DCOI format, which posits to be loosely based on a minimal subset of TEI\cite{TEI}. Because of the introduction of a new and broader paradigm, FoLiA is \emph{not} backwards-compatible with DCOI. FoLiA is a very rich format, and it is always fairly easy to convert back to ``less verbose'' formats such as the DCOI format, or plain-text. This may entail some loss of information if the simpler format has no provisions for particular types of information specified in the FoLiA format. 
+XML is an inherently hierarchic format. FoLiA does justice to this by maximally utilising a hierarchic, inline, setup. We inherit from the DCOI format, which posits to be loosely based on a minimal subset of TEI\cite{TEI}. Because of the introduction of a new and broader paradigm, FoLiA is \emph{not} backwards-compatible with D-Coi, i.e. validators for D-Coi will not accept FoLiA XML. It is however easy to convert FoLiA to less complex or verbose formats such as the D-Coi format, or plain-text. Converters will be provided. This may entail some loss of information if the simpler format has no provisions for particular types of information specified in the FoLiA format. 
 
-However, some linguistic annotations such as syntactic parses are implemented as ``layers'' separate from the tokenisation, and using a kind of offset notation. This is to provide FoLiA with the necessary flexibility and extensibility. Inspiration for this was in part obtained from the Kyoto Annotation Format \cite{KYOTO}. 
+
+In contrast to the D-Coi format, the FoLiA format introduces annotation layers separate from the token-based skeleton structure, to capture structured linguistic annotations such as syntactic parses. This is to provide FoLiA with the necessary flexibility and extensibility. Inspiration for this was in part obtained from the Kyoto Annotation Format \cite{KYOTO}. 
 
 The FoLiA format features the following:
 
@@ -63,7 +64,7 @@ The FoLiA format features the following:
 \item Provenance support for all linguistic annotations: annotator, type (automatic or manual), time.
 \item Support for alternative annotations, optionally with associated confidence values.
 \item Adaptable to different tag-sets.
-\item CMDI Metadata or IMDI metadata
+\item Agnostic with regard to metadata. CMDI is recommended, but alternatives like IMDI can also be used.
 \end{itemize}
 
 It supports the following linguistic annotations:
@@ -71,15 +72,24 @@ It supports the following linguistic annotations:
 \begin{itemize}
 \item Part-of-Speech tags (with features)
 \item Lemmatisation
-\item Spelling corrections on both a tokenised as well as an untokenised level.
-\item Semantic sense annotation (to be used in DutchSemCor)
-\item Morphological Analysis
+\item Spelling corrections on both a tokenised as well as an untokenised level
+\item Lexical semantic sense annotation (to be used in DutchSemCor)
 \item Named Entities / Multi-word units
 \item Syntactic Parses
 \item Dependency Relations
 \item Chunking
-\item Semantic Role Labelling
 \end{itemize}
+
+In later stages, the following may be added:
+
+\begin{itemize}
+\item Morphological Analysis
+\item Semantic Role Labelling
+\item Co-reference
+\item Topic Segmentation
+\item Authorship Attribution
+\end{itemize}
+
 
 FoLiA support will be incorporated directly into the following ILK sofware:
 
@@ -129,7 +139,7 @@ In FoLiA, each document/text is represented by one XML file. The basic structure
 </FoLiA>  
 \end{lstlisting}
 
-The body contains the to-be-annotated material, more about this later. The gap tags are optional and contain unannotated front matter or back matter. \cite{DCOI}
+The body contains the to-be-annotated material; more about this later. The gap tags are optional and contain unannotated front matter or back matter. \cite{DCOI}
 
 \section{Identifiers}
 
@@ -139,16 +149,16 @@ Identifiers in DCOI and FoLiA are cumulative and are usually formed by appending
 
 The base of all identifiers is that of the document itself, as encoded in \texttt{xml:id} attribute of the root \texttt{FoLiA} element. This is a unique ID by which the document is identifiable. We choose the identifier \emph{example} for all of the examples in this manual. By convention, the XML file should then ideally be named: \texttt{example.xml}.
 
-Identifiers are very important and used throughout the FoLiA format, they enable external resources and database to easily point to a specific part of the document or its annotation. FoLiA has been set up in such a way that \emph{identifiers should never ever change}. Once an identifier is assigned, it should never change, re-numbering is strictly prohibited unless you intentionally want to create a new resource and break compatibility with the old one.
+Identifiers are very important and used throughout the FoLiA format. They enable external resources and database to easily point to a specific part of the document or its annotation. FoLiA has been set up in such a way that \emph{identifiers should never ever change}. Once an identifier is assigned, it should never change, re-numbering is strictly prohibited unless you intentionally want to create a new resource and break compatibility with the old one.
 
 
 \section{Structure Elements}
 
-Within the document body, the structure elements div0, div1, div2, etc.. can be used to create divisions and subdivisions, they stem from DCOI and are unmodified in FoLiA. These divisions are not mandatory, but may be used to mark extra structure.
+Within the document body, the structure elements div0, div1, div2, etc.. can be used to create divisions and subdivisions. They stem from DCOI and are unmodified in FoLiA. These divisions are not mandatory, but may be used to mark extra structure.
 
 \section{Content Elements}
 
-Content elements occur within the body, the following exist:
+Content elements occur within the body. The following exist:
 
 \begin{itemize}
 \item \texttt{head} - Header
@@ -166,7 +176,7 @@ This is a paragraph containing only one sentence.
 This is the second paragraph. This one has two sentences.
 \end{verbatim}
 
-In FoLiA XML, this will appear as follows after tokenisation, some parts have been omitted for the sake of brevity:
+In FoLiA XML, this will appear as follows after tokenisation. Some parts have been omitted for the sake of brevity:
 
 
 \begin{lstlisting}[language=xml]
@@ -200,7 +210,7 @@ In FoLiA XML, this will appear as follows after tokenisation, some parts have be
 
 The deepest content element should always contain a text element (\texttt{t}) which holds the actual textual content. The necessity of having a text element shall become apparent as you progress through this documentation; there can be many different token annotations under a word element (\texttt{w}).
 
-FoLiA is not just a format for holding tokenised text, although tokenisation is a prerequisite for almost all kinds of annotation. But FoLiA can also hold untokenised text, on a paragraph and/or sentence level:
+FoLiA is not just a format for holding tokenised text, although tokenisation is a prerequisite for almost all kinds of annotation. However, FoLiA can also hold untokenised text, on a paragraph and/or sentence level:
 
 \begin{lstlisting}[language=xml]
  <p xml:id="example.p.1">
@@ -255,7 +265,7 @@ The following example shows the maximum amount of redundancy, with text elements
  </p>
 \end{lstlisting}
 
-The paragraph elements may be omitted if a document is described that does not distinguish paragraphs but only sentences. The identifiers of course change accordingly then. Sentences however should never be omitted, documents can never consist of tokens only!
+The paragraph elements may be omitted if a document is described that does not distinguish paragraphs but only sentences. The identifiers of course change accordingly then. Sentences however should never be omitted; documents can never consist of tokens only!
 
 The content element \texttt{head} is reserved for headers and captions, it behaves similarly to the paragraph element and may hold sentences.
 
@@ -311,7 +321,7 @@ The FoLiA format has a very uniform setup and its XML notation for annotation fo
 \item \textbf{Span annotation} - Annotations spanning over multiple tokens. Each type of annotation will be in a seperate \textbf{annotation layer} with offset notation. These layers are embedded on the sentence level. Examples in this category are: syntactic parses, chunking, semantic roles and named entities.
 \end{itemize}
 
-Almost all linguistic annotations are associated with what we shall call a \textbf{set}, the set determines the vocabulary (the tags) of the annotation. An element of such a set is referred to as a \textbf{class} from the FoLiA perspective. For example, we may have a document with Part-of-Speech annotation according to the CGN set. The CGN set defines classes such as \emph{WW}, \emph{BW}, \emph{ADJ}, \emph{VZ}. FoLiA itself thus never commits to any tagset but leaves you to explicitly define this. You can also use multiple tagsets in the same document if so desired, even for the same type of annotation.
+Almost all linguistic annotations are associated with what we shall call a \textbf{set}. The set determines the vocabulary (the tags) of the annotation. An element of such a set is referred to as a \textbf{class} from the FoLiA perspective. For example, we may have a document with Part-of-Speech annotation according to the CGN set. The CGN set defines main tag classes such as \emph{WW}, \emph{BW}, \emph{ADJ}, \emph{VZ}. FoLiA itself thus never commits to any tagset but leaves you to explicitly define this. You can also use multiple tagsets in the same document if so desired, even for the same type of annotation.
 
 Any annotation element may have a \texttt{set} attribute, the value of which points to the URL hosting the file that defines the set, and a \texttt{class} attribute, which selects a class from the set.
 
@@ -334,7 +344,7 @@ In this stage, the sets are not actually defined yet, i.e. the URLs they point t
 
 Explicitly referring to a set and annotator for each annotation element can be cumbersome, especially in a document with a single set and a single annotator for that type particular of annotation. This problem can be solved by declaring defaults in the annotation declaration.
 
-The annotation declaration is a mandatory part of the metadata that declares all the types of annotation that are present in the document, in addition it may define defaults such as the tagset used, a default annotator, and the type of annotator. These defaults can always be overriden at the annotation level itself, using the XML attributes \texttt{set}, \texttt{annotator} and \texttt{annotatortype}, as discussed in the previous section. None of the attributes are mandatory in the declaration, though the declarations themselves are; they declare what annotations are to be expected in the document. Having a type of annotation that is not declared is invalid. Do note that if you do not specify a set, annotator or annotator-type in either the declaration or in the annotation elements themselves, they will be left undefined. Not declaring sets is generally a bad idea.  
+The annotation declaration is a mandatory part of the metadata that declares all the types of annotation that are present in the document. In addition it may define defaults such as the tagset used, a default annotator, and the type of annotator. These defaults can always be overriden at the annotation level itself, using the XML attributes \texttt{set}, \texttt{annotator} and \texttt{annotatortype}, as discussed in the previous section. None of the attributes are mandatory in the declaration, though the declarations themselves are; they declare what annotations are to be expected in the document. Having a type of annotation that is not declared is invalid. Do note that if you do not specify a set, annotator or annotator-type in either the declaration or in the annotation elements themselves, they will be left undefined. Not declaring sets is generally a bad idea.  
 
 Annotations are declared in the \texttt{annotations} block, as shown in the following example. We here define four annotation levels.
 
@@ -437,7 +447,7 @@ And the example declaration:
 \end{lstlisting}
 
 
-\subsection{Semantic Sense Annotation}
+\subsection{Lexical Semantic Sense Annotation}
 
 In semantic sense annotation, the classes in most sets will be a kind of lexical unit ID. In systems that make a distinction between lexical units and synonym sets (synsets), the synset attribute is available for notation of the latter. In systems with only synsets and no other primary form of lexical unit, the class can simply be set to the synset.
 
@@ -445,7 +455,7 @@ The actual value of the \emph{sense} element, ``beeldhouwwerk'', can be set to a
 
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.2">
-    <t>boot</t>
+    <t>beeld</t>
     <sense class="r_n-6220" synset="d_n-32683">beeldhouwwerk</sense>
 </w>
 \end{lstlisting}
@@ -485,7 +495,7 @@ The declaration:
 
 \subsection{Lexical Annotation}
 
-Lexical annotation allows for token to be looked up in a lexicon, the annotation states the presence of this token in a particular lexicon (a particular set), and may offer possible suggestions.
+Lexical annotation allows for token to be looked up in a lexicon. The annotation states the presence of this token in a particular lexicon (a particular set), and may offer possible suggestions.
 
 The following example shows a misspelled word, that was not found in the lexicon, and where the lexicon comes with two better suggestions:
 
@@ -554,7 +564,7 @@ Corrections, including but not limited to spelling corrections, can be annotated
 </w>
 \end{lstlisting}
 
-Note that all corrections must carry an identifier, consisting of the ID of the token with a C, a period and a sequence number appended. Within the \texttt{correction} element there should be a text element (\texttt{t}) containing the token content after correction. The token prior to correction is recorded in the \texttt{original} element, which in turn also has a \texttt{t} element. The class indicates the kind of correction, according to the set used. 
+Note that all corrections must carry an identifier, consisting of the ID of the token with a \emph{c}, a period and a sequence number appended. Within the \texttt{correction} element there should be a text element (\texttt{t}) containing the token content after correction. The token prior to correction is recorded in the \texttt{original} element, which in turn also has a \texttt{t} element. The class indicates the kind of correction, according to the set used. 
 
 Whilst it may seem redundant to specify the token content both under the word element (\texttt{w}), and the \texttt{correction} element, and to list the original so verbosely rather than in a mere attribute, there is a good reason for this: corrections can be nested and we want to retain a full back-log. The following example illustrates the word `treee` that has been first mis-corrected to ``three'' and subsequently corrected again to ``tree'':
 
@@ -593,7 +603,7 @@ Corrections are fairly complex token annotations, they may be corrections \emph{
 </w>    
 \end{lstlisting}
 
-Again, there is a small level of necessary redundancy, the corrected element is within the \texttt{correction} element as well as the \texttt{w} element. Furthermore, if these two \texttt{pos} elements would differ, the FoLiA notation would be invalid.
+Again, there is a small level of necessary redundancy; the corrected element is within the \texttt{correction} element as well as the \texttt{w} element. Furthermore, if these two \texttt{pos} elements would differ, the FoLiA notation would be invalid.
 
 The \texttt{lexicon} and \texttt{errorlist} elements behave in a special manner when combined with \texttt{correction}. On any of the \texttt{suggestion} elements of these, the attribute \texttt{used=yes} can be set to indicate that the lexical suggestion was indeed used as the basis of the correction.
 
@@ -732,7 +742,7 @@ Still to be done.. The \texttt{morphemes} and \texttt{morpheme} elements will be
 
 \section{Alternative Token Annotations}
 
-The FoLiA format does not just allow for a single ``favoured'' annotation per token, in addition it allows for the recording of alternative annotations. Alternative token annotations are grouped within one or more \texttt{alt} elements. If multiple annotations are grouped together under the same \texttt{alt} element, then they are deemed dependent and form an alternative as a group.
+The FoLiA format does not just allow for a single ``favoured'' annotation per token, in addition it allows for the recording of alternative annotations. Alternative token annotations are grouped within one or more \texttt{alt} elements. If multiple annotations are grouped together under the same \texttt{alt} element, then they are deemed dependent and form a single set of alternatives.
 
 Each alternative has a unique identifier, formed in the already familiar fashion. In the following example we see the Dutch word ``bank'' in the sense of a sofa, alternatively we see two alternative annotations with a different sense and domain.
 
@@ -767,7 +777,7 @@ The layer elements themselves may also take the \texttt{set}, \texttt{annotator}
 
 \subsection{Entities}
 
-Named entities or other multi-word units can be encoded in the \texttt{entities} layer. Below is an example of a full sentence in which one name is tagged, each entity should have a unique identifier.
+Named entities or other multi-word units can be encoded in the \texttt{entities} layer. Below is an example of a full sentence in which one name is tagged. Each entity should have a unique identifier.
 
 
 \begin{lstlisting}[language=xml]
@@ -780,7 +790,7 @@ Named entities or other multi-word units can be encoded in the \texttt{entities}
   <w xml:id="example.p.1.s.1.w.5"><t>him</t></w>
   <w xml:id="example.p.1.s.1.w.6"><t>.</t></w>
   <entities>
-    <entity xml:id="example.p.1.s.1.e.1" class="name">
+    <entity xml:id="example.p.1.s.1.e.1" class="person">
         <ref xml:id="example.p.1.s.1.w.2" />
         <ref xml:id="example.p.1.s.1.w.3" />
     </entity>
@@ -831,7 +841,7 @@ A very typical form of span annotation is syntax annotation. This is done within
 Just to prevent any misunderstanding, the classes depend on the set used, so you can use whatever system of syntactic annotation you desire. Moreover, any of the \texttt{su} elements can have the common attributes \texttt{annotator}, \texttt{annotatortype} and \texttt{confidence}.
 
 
-The above example illustrated a fairly simple syntactic parse. Dependency parses are possible too. Depencies are listed separate from the syntax in an extra annotation layer, as shall be explained in the next section.
+The above example illustrated a fairly simple syntactic parse. Dependency parses are possible too. Dependencies are listed separate from the syntax in an extra annotation layer, as shall be explained in the next section.
 
 The declaration is as follows:
 
@@ -840,13 +850,12 @@ The declaration is as follows:
     <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl" 
      annotator="ucto" annotatortype="auto" />
     <syntax-annotation set="http://ilk.uvt.nl/folia/sets/syntax-nl" />
-    <syntax-annotation set="http://ilk.uvt.nl/folia/sets/syntax-nl" />
 </annotations>
 \end{lstlisting}
 
 \subsection{Dependency Relations}
 
-Dependency relations are relations between syntactic units (or spans of tokens). This relation is often of a particular class and consists of a head component and a dependent component. In the sample ``He sees'', there is  syntactic dependency between the two words: ``sees'' is the head, and ``He'' is the dependant, the relation class is something like ``subject'', as the dependant is the subject of the head word. Each dependency relation is explicitly noted.
+Dependency relations are relations between syntactic units (or spans of tokens). This relation is often of a particular class and consists of a head component and a dependent component. In the sample ``He sees'', there is  syntactic dependency between the two words: ``sees'' is the head, and ``He'' is the dependant, and the relation class is something like ``subject'', as the dependant is the subject of the head word. Each dependency relation is explicitly noted.
 
 The element \texttt{dependencies} introduces this annotation layer. Within it, \texttt{dependency} elements describe all dependency pairs. 
 
@@ -926,7 +935,7 @@ The declaration:
 
 \subsection{Chunking}
 
-Unlike a full syntactic parse, chunking is not nested. The layer for this type of linguistic annotation is predictably called \texttt{chunking}, the span annotation element itself is \texttt{chunk}.
+Unlike a full syntactic parse, chunking is not nested. The layer for this type of linguistic annotation is predictably called \texttt{chunking}. The span annotation element itself is \texttt{chunk}.
 
 \begin{lstlisting}[language=xml]
 <s xml:id="example.p.1.s.1">
