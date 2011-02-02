@@ -1,0 +1,165 @@
+\documentclass[compress]{beamer}
+\usepackage{beamerthemeproyxetex}
+
+
+\title{FoLiA: Format for Linguistic Annotation}
+\author{Maarten van Gompel}
+\date{01-02-2011}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{color}
+\lstset{% general command to set parameter(s)
+basicstyle=\footnotesize,
+keywordstyle=\color{black}\bfseries\underbar,
+identifierstyle=\color{black}\bfseries\underbar,
+stringstyle=\ttfamily,
+}
+
+
+\begin{document}
+
+\begin{frame}
+	\titlepage\smallraccoon\ilkuvt
+\end{frame}
+
+\section{Introduction}
+
+\begin{frame}{Introduction}
+
+    \begin{block}{Annotation formats in the field}
+        \begin{itemize}
+            \item Many ad-hoc annotation formats
+            \item Many specialised annotation format
+            \item Many conversions
+            \item De facto-standard for various ILK projects: SoNaR/DCOI
+        \end{itemize}
+    \end{block}
+    
+    \begin{block}{Limits Frog columned format}
+        \begin{itemize}
+            \item Simplistic format, lacking expressiveness of XML
+            \item Six/seven columns currently, covering full screen width
+            \item Lacking even expressiveness to fully output Frog's data!
+        \end{itemize}
+    \end{block}
+
+    \begin{block}{Limits of DCOI}
+        \begin{itemize}
+            \item Not expressive enough for many kinds of annotation (such as sense annotation, correction annotation)
+            \item Can't encode annotators
+            \item Can't encode alternatives
+        \end{itemize}
+    \end{block}
+
+\end{frame}
+
+
+\begin{frame}{Objectives}
+    \begin{block}{Objectives}
+        \textbf{Objectives: Expressability, Extensability, Uniformity}
+        \begin{itemize}
+            \item One generalised rich common XML format, supporting almost all we do at ILK
+            \item Not committing to any particular tagset or language            
+            \item Encoding many different annotation aspects similtaneously in a single file
+            \item Support for sense annotation (DutchSemCor)
+            \item Support for corrections (Vici project Tanja $+$ Ticcl)
+            \item Support for NER (Project Steve)
+            \item Support in Frog for reading and writing this format
+            \item Inter-operability with ISO Data Category Registry
+            \item Founded on the DCOI format (our de-facto standard)
+            \begin{itemize}
+                \item Backwards compatible with regard to identifiers
+            \end{itemize}
+            \item Open source, UTF-8 encoded,
+        \end{itemize}        
+    \end{block}
+\end{frame}
+
+\begin{frame}{Annotations}
+    \begin{block}{Supported Annotations}
+
+    It supports the following linguistic annotations:
+
+    \begin{itemize}
+        \item Part-of-Speech tags (with features)
+        \item Lemmatisation
+        \item Spelling corrections on both a tokenised as well as an untokenised level.
+        \item Semantic sense annotation (to be used in DutchSemCor)
+        \item Morphological Analysis
+        \item Named Entities / Multi-word units
+        \item Syntactic Parses
+        \item Dependency Relations
+        \item Chunking
+        \item Semantic Role Labelling
+        \end{itemize}
+
+    \end{block}
+\end{frame}
+
+\begin{frame}{The Format: Overall skeleton}
+    \begin{lstlisting}[language=xml]
+    <?xml version="1.0" encoding="utf-8"?>
+    <?xml-stylesheet type="text/xsl" href="http://ilk.uvt.nl/FoLiA/FoLiA.xsl"?>
+    <FoLiA xmlns="http://ilk.uvt.nl/FoLiA"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:id="example">
+      <!-- (Here IMDI or CMDI metadata can be inserted) -->
+      <annotations>
+          ...
+      </annotations>    
+      <text xml:id="example.text">
+       <gap></gap>
+       <body>
+         ...
+       </body>
+       <gap></gap>
+      </text>
+    </FoLiA>  
+    \end{lstlisting}
+\end{frame}
+
+
+\begin{frame}{The Format: Content elements}
+    \begin{example}
+     \begin{lstlisting}[language=xml]
+         <p xml:id="TEST.p.1">
+            <t>This is a test. It has two sentences.</t>
+            <s xml:id="TEST.p.1.s.1">        
+                <t>This is a test.</t>
+                <w xml:id="TEST.p.1.s.1.w.1"><t>This</t></w>
+                <w xml:id="TEST.p.1.s.1.w.2"><t>is</t></w>
+                ..
+            </s><s xml:id="TEST.p.1.s.2">        
+                ..
+          </p>                
+     \end{lstlisting}
+    \end{example}
+    \begin{block}
+    \begin{itemize}
+        \item Paragraphs, Sentences, Words/Tokens
+        \item Unique cummulative identifiers
+        \item Text content element hold actual text.
+    \end{itemize}
+    \end{block}
+\end{frame}
+
+
+
+\begin{frame}{Paradigm}
+    \begin{block}
+        \begin{itemize}
+            \item \textbf{Declarations}
+            \item \textbf{Token Annotation}
+            \item \textbf{Span Annotation}
+        \end{itemize}
+    
+        \begin{itemize}
+            \item \textbf{Set} - A particular tagset
+            \item \textbf{Class} - A class in such a set
+            \item \textbf{Annotator} - An open identifier for the user/system who provided the annotation
+            \item \textbf{Annotator type} - ``auto'' or ''manual''
+            \item \textbf{Confidence} - A confidence value between one and zero.
+        \end{itemize}
+            
+    \end{block}
+
+\end{frame}
