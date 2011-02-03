@@ -46,7 +46,7 @@ FoLiA is a Format for Linguistic Annotation, derived from the D-Coi format\cite{
 
 FoLiA is an XML-based\cite{XML} annotation format, suitable for representing written language resources such as corpora. Its goal is to unify a variety of linguistic annotations in one single rich format, without committing to any particular standard annotation set. Instead, it seeks to accommodate any desired system or tagset, and so to offer maximum flexibility. This makes FoLiA language independent. Due to its generalised set up, it is easy to extent the FoLiA format to suit your custom needs for linguistic annotation.
 
-XML is an inherently hierarchic format. FoLiA does justice to this by maximally utilising a hierarchic, inline, setup. We inherit from the DCOI format, which posits to be loosely based on a minimal subset of TEI\cite{TEI}. Because of the introduction of a new and broader paradigm, FoLiA is \emph{not} backwards-compatible with D-Coi, i.e. validators for D-Coi will not accept FoLiA XML. It is however easy to convert FoLiA to less complex or verbose formats such as the D-Coi format, or plain-text. Converters will be provided. This may entail some loss of information if the simpler format has no provisions for particular types of information specified in the FoLiA format. 
+XML is an inherently hierarchic format. FoLiA does justice to this by maximally utilising a hierarchic, inline, setup. We inherit from the D-Coi format, which posits to be loosely based on a minimal subset of TEI\cite{TEI}. Because of the introduction of a new and broader paradigm, FoLiA is \emph{not} backwards-compatible with D-Coi, i.e. validators for D-Coi will not accept FoLiA XML. It is however easy to convert FoLiA to less complex or verbose formats such as the D-Coi format, or plain-text. Converters will be provided. This may entail some loss of information if the simpler format has no provisions for particular types of information specified in the FoLiA format. 
 
 
 In contrast to the D-Coi format, the FoLiA format introduces annotation layers separate from the token-based skeleton structure, to capture structured linguistic annotations such as syntactic parses. This is to provide FoLiA with the necessary flexibility and extensibility. Inspiration for this was in part obtained from the Kyoto Annotation Format \cite{KYOTO}. 
@@ -143,9 +143,9 @@ The body contains the to-be-annotated material; more about this later. The gap t
 
 \section{Identifiers}
 
-Many elements in the FoLiA format specify an identifier by which the element is uniquely identifiable. This makes referring to any part of a FoLiA document easy and follows the lead of the DCOI format. The identifiers are constructed in the same way as in the DCOI format, thus retaining full compatibility if a DCOI document is converted to FoLiA, any external references to any entity in these documents will remain intact.
+Many elements in the FoLiA format specify an identifier by which the element is uniquely identifiable. This makes referring to any part of a FoLiA document easy and follows the lead of the D-Coi format. The identifiers are constructed in the same way as in the D-Coi format, thus retaining full compatibility if a D-Coi document is converted to FoLiA, any external references to any entity in these documents will remain intact.
 
-Identifiers in DCOI and FoLiA are cumulative and are usually formed by appending the elements name, a period, and a sequence number, to the identifier of a parent element higher in the hierarchy.
+Identifiers in D-Coi and FoLiA are cumulative and are usually formed by appending the elements name, a period, and a sequence number, to the identifier of a parent element higher in the hierarchy.
 
 The base of all identifiers is that of the document itself, as encoded in \texttt{xml:id} attribute of the root \texttt{FoLiA} element. This is a unique ID by which the document is identifiable. We choose the identifier \emph{example} for all of the examples in this manual. By convention, the XML file should then ideally be named: \texttt{example.xml}.
 
@@ -154,7 +154,7 @@ Identifiers are very important and used throughout the FoLiA format. They enable
 
 \section{Structure Elements}
 
-Within the document body, the structure elements div0, div1, div2, etc.. can be used to create divisions and subdivisions. They stem from DCOI and are unmodified in FoLiA. These divisions are not mandatory, but may be used to mark extra structure.
+Within the document body, the structure elements div0, div1, div2, etc.. can be used to create divisions and subdivisions. They stem from D-Coi and are unmodified in FoLiA. These divisions are not mandatory, but may be used to mark extra structure.
 
 \section{Content Elements}
 
