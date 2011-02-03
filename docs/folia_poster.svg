@@ -57,7 +57,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
      inkscape:cx="262.78117"
-     inkscape:cy="751.92719"
+     inkscape:cy="186.24176"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -1075,13 +1075,13 @@
     <text
        xml:space="preserve"
        style="font-size:24px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#441650;fill-opacity:1;stroke:none;font-family:Ubuntu-Title;-inkscape-font-specification:Ubuntu-Title Bold"
-       x="505.75748"
+       x="506.76764"
        y="909.62976"
        id="text3798-0-2-8"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3800-3-6-1"
-         x="505.75748"
+         x="506.76764"
          y="909.62976">- annotation layers -</tspan></text>
     <text
        xml:space="preserve"
@@ -1101,31 +1101,33 @@
    style="font-weight:bold"
    id="tspan3221">&lt;w <tspan
    style="font-weight:normal;fill:#0000ff"
-   id="tspan3229">xml:id=&quot;X&quot;</tspan>&gt;</tspan>..<tspan
-   style="font-weight:bold"
-   id="tspan3223">&lt;/w&gt;</tspan>&lt;w&gt;..&lt;/w&gt; ....</tspan><tspan
+   id="tspan3229">xml:id=&quot;X&quot;</tspan>&gt;&lt;t&gt;<tspan
+   style="font-weight:normal;fill:#d40000"
+   id="tspan3292">huizen</tspan>&lt;/t&gt;&lt;/w&gt;....</tspan></tspan><tspan
          sodipodi:role="line"
          x="496.99506"
          y="948.06268"
          id="tspan5768"><tspan
    style="fill:#800080"
-   id="tspan3255">  &lt;syntax&gt;</tspan>...&lt;su&gt;<tspan
+   id="tspan3255">  &lt;syntax&gt;</tspan>...<tspan
    style="font-weight:bold"
-   id="tspan3225">&lt;wref </tspan><tspan
-   style="fill:#0000ff"
-   id="tspan3233">id=&quot;X&quot;</tspan><tspan
+   id="tspan3282">&lt;su</tspan><tspan
+   style="font-style:italic"
+   id="tspan3288"> class=&quot;NP&quot;</tspan><tspan
    style="font-weight:bold"
-   id="tspan3227"> /&gt;</tspan>&lt;/su&gt;...<tspan
-   style="fill:#800080"
-   id="tspan3257">&lt;/syntax&gt;</tspan></tspan><tspan
+   id="tspan3284">&gt;</tspan></tspan><tspan
          sodipodi:role="line"
          x="496.99506"
          y="960.56268"
-         id="tspan5788"><tspan
+         id="tspan3271"><tspan
+   style="font-weight:bold"
+   id="tspan3273">     &lt;wref </tspan><tspan
+   style="fill:#0000ff"
+   id="tspan3233">id=&quot;X&quot;</tspan><tspan
+   style="font-weight:bold"
+   id="tspan3227"> /&gt;&lt;/su&gt;</tspan>...<tspan
    style="fill:#800080"
-   id="tspan3259">  &lt;entities&gt;</tspan> ...<tspan
-   style="fill:#800080"
-   id="tspan3261">&lt;/entities&gt;</tspan></tspan><tspan
+   id="tspan3257">&lt;/syntax&gt;</tspan></tspan><tspan
          sodipodi:role="line"
          x="496.99506"
          y="973.06268"
