@@ -60,7 +60,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
      inkscape:cx="230.27363"
-     inkscape:cy="314.24361"
+     inkscape:cy="133.85194"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -77,7 +77,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -950,7 +950,7 @@
    style="font-style:italic"
    id="tspan5522">manual</tspan>&quot;</tspan><tspan
            style="font-weight:bold"
-           id="tspan5506"></tspan></tspan><tspan
+           id="tspan5506" /></tspan><tspan
          sodipodi:role="line"
          x="29.936924"
          y="813.11194"
@@ -1370,5 +1370,16 @@
          id="tspan3993-3"
          x="574.50604"
          y="399.13336">with  a certain</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:0.56441716;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+       x="25.434628"
+       y="1041.7308"
+       id="text5546-8"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan5548-3"
+         x="25.434628"
+         y="1041.7308">FoLiA development is being funded by CLARIN-NL (www.clarin.nl)</tspan></text>
   </g>
 </svg>
