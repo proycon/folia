@@ -16,7 +16,7 @@ stringstyle=\ttfamily,
 
 
 
-\title{FoLiA: Format for Linguistic Annotation \\ \small v0.1.2}
+\title{FoLiA: Format for Linguistic Annotation \\ \small v0.1.3}
 \author{Maarten van Gompel \\ ILK Research Group \\ Tilburg center for Cognition and Communication \\ Tilburg University }
 
 \parindent=0pt %no paragraph indentation
@@ -493,91 +493,43 @@ The declaration:
 </annotations>
 \end{lstlisting}
 
-\subsection{Lexical Annotation}
-
-Lexical annotation allows for token to be looked up in a lexicon. The annotation states the presence of this token in a particular lexicon (a particular set), and may offer possible suggestions.
-
-The following example shows a misspelled word, that was not found in the lexicon, and where the lexicon comes with two better suggestions:
-
-
-\begin{lstlisting}[language=xml]
-<w xml:id="example.p.1.s.1.w.1">
-    <t>treee</t>
-    <lexicon set="http://ilk.uvt.nl/folia/sets/lexicon-nl" known="no">
-        <suggestion confidence="0.6">tree</suggestion>
-        <suggestion confidence="0.4">three</suggestion>
-    <lexicon>
-</w>
-\end{lstlisting}
-
-
-As always, the \texttt{confidence} attribute is optional. The class \emph{may} be set to the word-form/lemma as it occurs in the lexicon, this too is optional.
-
-Similar to \texttt{lexicon}, there is also an element for error lists, called \texttt{errorlist}. Whereas a lexicon holds correct word forms, an error list holds common errors and has suggestions for correcting those, and thus is in a certain sense the opposite of a lexicon. Note in particular the fact that the \texttt{known} attribute in particular is inverted:
-
-
-\begin{lstlisting}[language=xml]
-<w xml:id="example.p.1.s.1.w.1">
-    <t>treee</t>
-    <errorlist set="http://ilk.uvt.nl/folia/sets/errorlist-nl" known="yes">    
-        <suggestion confidence="0.6">tree</suggestion>
-        <suggestion confidence="0.4">three</suggestion>
-    <errorlist>
-</w>
-\end{lstlisting}
-
-The declaration:
-
-\begin{lstlisting}[language=xml]
-<annotations>
-    <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl"
-     annotator="ucto" annotatortype="auto" />
-    <lexicon-annotation set="http://ilk.uvt.nl/folia/sets/lexicon-nl" />
-    <errorlist-annotation set="http://ilk.uvt.nl/folia/sets/errorlist-nl" />
-</annotations>
-\end{lstlisting}
-
-If multiple lexicons, i.e. multiple sets, are used, simply declare without a default set attribute, but explicitly set it for each \texttt{lexicon} element. This is a general principle that applies to all kind of annotations:
-
-\begin{lstlisting}[language=xml]
-<annotations>
-    <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl"
-     annotator="ucto" annotatortype="auto" />
-    <lexicon-annotation />
-</annotations>
-\end{lstlisting}
-
 \subsection{Corrections}
 
-Corrections, including but not limited to spelling corrections, can be annotated using the \texttt{correction} element. There is a significant difference between for example lexical annotations and these corrections; lexical annotation offers merely suggestions, it does not indicate actual correction of the token. The \texttt{correction} element does. It can be applied as a token annotation element as in the following example, which shows a spelling correction of the misspelled word ``treee'' to its corrected form ``tree''.
+Corrections, including but not limited to spelling corrections, can be annotated using the \texttt{correction} element. It can be applied as a token annotation element as in the following example, which shows a spelling correction of the misspelled word ``treee'' to its corrected form ``tree''.
 
 
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.1">
     <t>tree</t>
     <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.1" class="spelling">
-        <t>tree</t>
+        <new>
+            <t>tree</t>
+        </new>
         <original>
             <t>treee</t>
         </original>
     </correction>
 </w>
-\end{lstlisting}
+\end1{lstlisting}
 
-Note that all corrections must carry an identifier, consisting of the ID of the token with a \emph{c}, a period and a sequence number appended. Within the \texttt{correction} element there should be a text element (\texttt{t}) containing the token content after correction. The token prior to correction is recorded in the \texttt{original} element, which in turn also has a \texttt{t} element. The class indicates the kind of correction, according to the set used. 
+The class indicates the kind of correction, according to the set used. The \texttt{new} elements holds the actual content of the correction. The \texttt{original} element holds the content prior to correction. Note that all corrections must carry an identifier, consisting of the ID of the token with a \emph{c}, a period and a sequence number appended. In this example, what we are correcting is the actual textual content, the text element (\texttt{t}).
 
-Whilst it may seem redundant to specify the token content both under the word element (\texttt{w}), and the \texttt{correction} element, and to list the original so verbosely rather than in a mere attribute, there is a good reason for this: corrections can be nested and we want to retain a full back-log. The following example illustrates the word `treee` that has been first mis-corrected to ``three'' and subsequently corrected again to ``tree'':
+Whilst it may seem redundant to specify the corrected token content both under the word element (\texttt{w}), and the \texttt{new} element, and to list the original so verbosely rather than in a mere attribute, there is a good reason for this: corrections can be nested and we want to retain a full back-log. The following example illustrates the word `treee` that has been first mis-corrected to ``three'' and subsequently corrected again to ``tree'':
 
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.1">
     <t>tree</t>
     <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.2" class="spelling" 
       annotator="Jane Doe" annotatortype="manual" confidence="1.0">
-        <t>tree</t>
+        <new>
+            <t>tree</t>
+        </new>
         <original>
             <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.1" class="spelling"
                annotator="John Doe" annotatortype="manual" confidence="0.6">
-                <t>three</t>
+                <new>
+                    <t>three</t>
+                </new>
                 <original>
                     <t>treee</t>
                 </original>
@@ -587,14 +539,17 @@ Whilst it may seem redundant to specify the token content both under the word el
 </w>
 \end{lstlisting}
 
-Corrections are fairly complex token annotations, they may be corrections \emph{over} other token annotations rather than simply the token content as in the prior two examples. The next example corrects a part-of-speech tag; in such cases, there is no \texttt{t} element in the correction, but simply another token annotation element, or group thereof.
+In the examples above what we corrected was the actual textual content (\texttt{t}). It is however also possible to correct other annotations:
+The next example corrects a part-of-speech tag; in such cases, there is no \texttt{t} element in the correction, but simply another token annotation element, or group thereof.
 
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.1">
     <t>tree</t>
     <pos class="n" />
     <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.1">
-        <pos class="n" />
+        <new>
+            <pos class="n" />
+        </new>
         <original>
             <pos class="v" />
         </original>
@@ -603,33 +558,65 @@ Corrections are fairly complex token annotations, they may be corrections \emph{
 </w>    
 \end{lstlisting}
 
-Again, there is a small level of necessary redundancy; the corrected element is within the \texttt{correction} element as well as the \texttt{w} element. Furthermore, if these two \texttt{pos} elements would differ, the FoLiA notation would be invalid.
+Again, there is a small level of necessary redundancy; the corrected element is within the \texttt{correction/new} element as well as the \texttt{w} element. Furthermore, if these two \texttt{pos} elements would differ, the FoLiA notation would be invalid.
 
-The \texttt{lexicon} and \texttt{errorlist} elements behave in a special manner when combined with \texttt{correction}. On any of the \texttt{suggestion} elements of these, the attribute \texttt{used=yes} can be set to indicate that the lexical suggestion was indeed used as the basis of the correction.
+\subsubsection{Error detection} 
+
+
+Sometimes you want to focus only on error detection rather than correction. The \texttt{errordetection} element is very closely related to the \texttt{correction} element, and serves precisely this purpose; to detect errors rather than correct them. Rather than specify a \texttt{new} element and an \texttt{original} element. The \texttt{errordetection} element provides options (\texttt{option}) for correction.
 
 
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.1">
-    <t>tree</t>
-    <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.1" class="spelling">
-        <t>tree</t>
-        <original>
-            <t>treee</t>
-            <lexicon set="http://ilk.uvt.nl/folia/sets/lexicon-nl" known="no">
-                <suggestion confidence="0.6" used="yes">tree</suggestion>
-                <suggestion confidence="0.4">three</suggestion>
-            </lexicon>    
-        </original>        
-    </correction>
-</w>
+    <t>treee</t>
+    <errordetection class="spelling" annotator="errorlistX" error="yes">
+        <option confidence="0.6"><t>tree</t></option>
+        <option confidence="0.4"><t>three</t></option>
+    </errordetection>
+</w>    
 \end{lstlisting}
 
-Like everything, corrections have to be declared:
+
+The \texttt{error} attribute is set to ``yes'' (which is the default value), and thus marks this as an error of class ``spelling''. We can also imagine it specifically marking something as \emph{not} being an error (in which case class is always redundant), for example due to the occurence of the word according to a lexicon:
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.1.s.1.w.1">
+    <t>tree</t>
+    <errordetection annotator="lexiconX" error="no" />
+</w>    
+\end{lstlisting}
+
+Once a correction is made on the basis of such error detection, the \texttt{correction} element may embed the \texttt{errordetection} element:
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.1.s.1.w.1">
+    <t>tree</t>
+    <correction class="spelling" annotator="John Doe" error="yes">
+        <new>
+            <t>tree</t>
+        </new>
+        <original>
+            <t>treee</t>
+        </original>
+        <errordetection class="spelling" annotator="errorlist" annotatortype="auto" error="yes">
+            <option confidence="0.6" selected="yes"><t>tree</t></option>
+            <option confidence="0.4"><t>three</t></option>
+        </errordetection>            
+    </correction>
+</w>    
+\end{lstlisting}
+
+Interpret the above example as follows. An error was detected by an errorlist script, which provides two suggestions for correction. A human annotator named John Doe made the actual correction on the basis of the suggestion. The \texttt{selected} attribute can be used to designate which of the options was actually used.
+
+For correction elements, there may only be \emph{one} per token, though multiple may be nested as seen. Error detection elements may occur more than once, unbounded.
+
+Like everything, corrections and error detection have to be declared, and have to be declared seperately. Nothing stops you from pointing them both to the same set however:
 
 \begin{lstlisting}[language=xml]
 <annotations>
     <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl" 
      annotator="ucto" annotatortype="auto" />
+    <errordetection-annotation set="http://ilk.uvt.nl/folia/sets/corrections" />
     <correction-annotation set="http://ilk.uvt.nl/folia/sets/corrections" />
 </annotations>
 \end{lstlisting}
@@ -641,64 +628,72 @@ Sometimes, one wants to merge multiple tokens into one single new token, or the 
 We will first demonstrate a merge of two tokens (``on line'') into one (``online''), the original tokens are always retained as \texttt{w-original} elements. First a peek at the XML prior to merging:
 
 \begin{lstlisting}[language=xml]
-<w xml:id="example.p.1.s.1.w.1">
-    <t>on</t>
-</w>
-<w xml:id="example.p.1.s.1.w.2">
-    <t>line</t>
-</w>                         
+<s xml:id="example.p.1.s.1">
+    <w xml:id="example.p.1.s.1.w.1">
+        <t>on</t>
+    </w>
+    <w xml:id="example.p.1.s.1.w.2">
+        <t>line</t>
+    </w>                       
+</s>  
 \end{lstlisting}
 
 And after merging:
 
 \begin{lstlisting}[language=xml]
-<w xml:id="example.p.1.s.1.w.1-2">
-    <t>online</t>
-    <correction xml:id="example.p.1.s.1.w.1-2.c.1" class="merge">
-        <original>
-            <w xml:id="example.p.1.s.1.w.1">
-                <t>on</t>
-            </w>
-            <w xml:id="example.p.1.s.1.w.2">
-                <t>line</t>
-            </w>                         
-        </original>
-    </correction>       
-</w>        
+<s xml:id="example.p.1.s.1">
+ <correction xml:id="example.p.1.s.1.c.1" class="merge">
+    <new>
+        <w xml:id="example.p.1.s.1.w.1-2">        
+            <t>online</t>
+        </w>
+    </new>
+    <original>
+        <w xml:id="example.p.1.s.1.w.1">
+            <t>on</t>
+        </w>
+        <w xml:id="example.p.1.s.1.w.2">
+            <t>line</t>
+        </w>                         
+    </original>
+ </correction>               
+</s>
 \end{lstlisting} 
 
-
-The new identifier denotes the span of the merge, separated by a hyphen, so we get \texttt{.w.1-2} if we merge from \texttt{.w.1} to \texttt{.w.2}.
+Note that the correction element is here a member of the sentence (\texttt{s}), rather than the word token (\texttt{w}) as in all previous examples. The new identifier denotes the span of the merge, separated by a hyphen, so we get \texttt{.w.1-2} if we merge from \texttt{.w.1} to \texttt{.w.2}.
 
 Now we will look at a split, the reverse of the above situation. Prior to splitting, assume we have:
 
 \begin{lstlisting}[language=xml]
-<w xml:id="example.p.1.s.1.w.1">
+<s xml:id="example.p.1.s.1">
+ <w xml:id="example.p.1.s.1.w.1">
     <t>online</t>
-</w>                         
+ </w>                         
+</s>
 \end{lstlisting}
 
 After splitting:
 
 \begin{lstlisting}[language=xml]
-<w xml:id="example.p.1.s.1.w.1_1">
-    <t>on</t>
-    <correction xml:id="example.p.1.s.1.w.1_1.c.1" class="merge">
-       <original>
-        <w xml:id="example.p.1.s.1.w.1">
-         <t>online</t>
-        </w>       
-       </original>
-    <correction>
-</w>
-<w xml:id="example.p.1.s.1.w.1_2">
-    <t>line</t>
-    <correction xml:id="example.p.1.s.1.w.1_2.c.2" 
-     ref="example.p.1.s.1.w.1_1.c.1" />
-</w>
-\end{lstlisting}
 
-Note the usage of a little bit of stand-off notation here, the second split token has a correction that refers to the same correction as the first one, which contains the original.
+<s xml:id="example.p.1.s.1">
+ <correction xml:id="example.p.1.s.1.c.1" class="split">
+    <new>    
+        <w xml:id="example.p.1.s.1.w.1_1">
+            <t>on</t>
+        </w>
+        <w xml:id="example.p.1.s.1.w.1_2">
+            <t>line</t>
+        </w>                        
+    </new>
+    <original>
+        <w xml:id="example.p.1.s.1.w.1">
+            <t>online</t>
+        </w>
+    </original>
+ </correction>               
+</s>
+\end{lstlisting}
 
 The new identifiers represent the index of the new tokens, separated by a underscore, so given \texttt{.w.1}  we get \texttt{.w.1\_1} for the first split result, \texttt{.w.1\_2} for the second, and so on...
 
@@ -721,7 +716,9 @@ With correction:
 <s xml:id="example.p.1.s.1.w.1">
     <t corrections="yes">Look at <correction xml:id="example.p.1.s.1.c.1"
      class="ocrcorrection">
-     <t>this</t>
+     <new>
+        <t>this</t>
+     </new>
      <original>
        <t>thi.s</t>
      </original></correction> untokenised sentence.
@@ -731,7 +728,7 @@ With correction:
 
 Although correction is used inline here, rather than as a normal token annotation, its usage is still identical. For clarity's sake, the class of course depends on the set and is as always never predefined in FoLiA itself.
 
-Note that the text element gains an extra mandatory attribute, \texttt{correction} with value \emph{yes} (default if unspecified is no), which signals that there are inline corrections. This is to make the job of parsers easier.
+Note that the text element gains an extra mandatory attribute, \texttt{correction} with value \emph{yes} (default if unspecified is no), which signals that there are inline corrections \emph{within} the text element. This is to make the job of parsers easier.
 
 \subsection{Morphological Analysis}
 

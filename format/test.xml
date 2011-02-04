@@ -506,3 +506,72 @@ Metadata (CMDI):
 CMDI brainstorm:
 
 component: cmdi-annotationtype !
+
+NEW CORRECTIONS:
+
+    <!-- NA CORRECTIE: -->
+    <correction xml:id="TEST-000000001.p.1.s.1.c.1" annotator="wopr" annotatortype="auto" class="spelling" confidence="0.8">
+        <new>
+            <t>test</t>
+        </new>
+        <original>
+            <t>tesst</t>                            
+        </original>                        
+        <options>
+            <option selected="yes" confidence="0.8"><t>test</t></option>
+            <option confidence="0.1"><t>testen</t></option>
+            <option confidence="0.1"><t>feest</t></option>                            
+        </options>                        
+    </correction>                        
+                      
+                      
+                      
+    <correction xml:id="TEST-000000001.p.1.s.1.c.1" annotator="wopr" annotatortype="auto" class="spelling" confidence="0.45" applied="no">
+        <original>
+            <t>tesst</t>                            
+        </original>                        
+        <options>
+            <option><t>test</t></option>
+            <option><t>testen</t></option>
+            <option><t>feest</t></option>                            
+        </options>
+    </correction>             
+                      
+                 
+                    
+    <correction annotator="tanja" annotatortype="manual" class="spelling">
+        <new>
+            <t>test</t>
+        </new>
+        <original>
+            <correction annotator="renske" annotatortype="manual" class="spelling">
+                <new>
+                    <t>tet</t>
+                </new>
+                <original>
+                    <t>tesst</t>
+                </original>
+            </correction>
+        </original>
+    </correction>         
+                      
+                                           
+    <w xml:id="document.p.1.s.1.w.1-2">
+        <t>hetgeen</t>
+        <w-parent xml:id="document.p.1.s.1.w.1">
+            <t>het</t>
+            <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.1" original="het geen" class="merge" seqnr="1" total="2">            
+            </correction>
+        </w-parent>
+        <w-parent xml:id="document.p.1.s.1.w.2">
+            <t>geen</t>
+            <correction xml:id="TEST-000000001.p.1.s.1.w.2.c.1" original="het geen" class="merge" seqnr="2" total="2">            
+            </correction>
+        </w-parent>
+        <correction xml:id="TEST-000000001.p.1.s.1.w.1-2.c.1" original="het geen" class="merge" parts="2">
+            <t>hetgeen</t>
+            <lexicon name="lexiconX" known="no"><suggestion>..</suggestion></lexicon>
+        </correction>                    
+    </w>                
+                                            
+                                        
