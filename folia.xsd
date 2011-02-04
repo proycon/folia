@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:imdi="http://www.mpi.nl/IMDI/Schema/IMDI" 
+    xmlns="http://ilk.uvt.nl/FoLiA/0.1" targetNamespace="http://ilk.uvt.nl/FoLiA/0.1" elementFormDefault="qualified">
+	<xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2004/10/xml.xsd"/>
+	<xs:import namespace="http://www.mpi.nl/IMDI/Schema/IMDI" schemaLocation="http://www.mpi.nl/IMDI/Schema/IMDI.xsd"/>
+
+	<xs:simpleType name="non-empty-string">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:element name="FoLiA">
+		<xs:annotation>
+			<xs:documentation>FoLiA document. Contains a single document, comprising a metadata and a text element</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+                <xs:element ref="metadata"/>
+				<!--<xs:element ref="imdi:METATRANSCRIPT"/>-->
+				<xs:element ref="text"/>
+			</xs:sequence>
+			<xs:attribute ref="xml:id" use="required"/>
+		</xs:complexType>
+	</xs:element>
+    
+    
+	<xs:element name="text">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="gap" minOccurs="0"/>
+				<xs:element ref="body"/>
+				<xs:element ref="gap" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute ref="xml:id"/>
+		</xs:complexType>
+	</xs:element>    
+    
+	<xs:element name="body">
+		<xs:annotation>
+			<xs:documentation>(text body) contains the whole body of a single unitary text, excluding any front or back matter.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:choice>
+				<xs:element ref="div" maxOccurs="unbounded"/>
+				<xs:element ref="div0" maxOccurs="unbounded"/>
+				<xs:element ref="div1" maxOccurs="unbounded"/>
+                <xs:element ref="p" maxOccurs="unbounded"/>    <!-- FoLiA -->              
+                <xs:element ref="s" maxOccurs="unbounded"/>   <!-- FoLiA -->  
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="gap">
+		<xs:annotation>
+			<xs:documentation>(omitted material) indicates a point where material has been omitted in a transcription, whether for editorial reasons, as part of sampling practice, or because the material is illegible or inaudible.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="desc" minOccurs="0"/>
+				<xs:element name="content" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Optional element that can contain the text that was omitted</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="reason" use="required">
+				<xs:annotation>
+					<xs:documentation>gives the reason for omission.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="irrelevant"/>
+						<xs:enumeration value="table"/>
+						<xs:enumeration value="other language"/>
+						<xs:enumeration value="sampling"/>
+						<xs:enumeration value="illegible"/>
+						<xs:enumeration value="inaudible"/>
+						<xs:enumeration value="cancelled"/>
+						<xs:enumeration value="frontmatter"/>
+						<xs:enumeration value="backmatter"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+            
+            <!-- DCOI 'hand' replaced by FoLiA annotator -->
+            <xs:attributeGroup ref="annotator"/>
+            
+		</xs:complexType>
+	</xs:element>
+    
+    
+	<xs:element name="div">
+		<xs:annotation>
+			<xs:documentation>(text division) contains a subdivision of the front, body, or back of a text.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="head" minOccurs="0"/>
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="div" maxOccurs="unbounded"/>
+					<xs:element ref="gap" minOccurs="0"/>
+					<xs:element ref="p" maxOccurs="unbounded"/>
+                    <xs:element ref="s" maxOccurs="unbounded"/> <!-- FoLiA -->
+				</xs:choice>
+			</xs:sequence>
+			<xs:attributeGroup ref="div.attributes"/>
+		</xs:complexType>
+	</xs:element>
+    
+	<xs:element name="div0">
+		<xs:annotation>
+			<xs:documentation>(level-0 text division) contains the largest possible subdivision of the body
+of a text.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="head" minOccurs="0"/>
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="gap" minOccurs="0"/>
+					<xs:element ref="p" maxOccurs="unbounded"/>
+					<xs:element ref="div1" maxOccurs="unbounded"/>
+                    <xs:element ref="s" maxOccurs="unbounded"/> <!-- FoLiA -->
+				</xs:choice>
+			</xs:sequence>
+			<xs:attributeGroup ref="div.attributes"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="div1">
+		<xs:annotation>
+			<xs:documentation>(level-1 text division) contains a first-level 
+      subdivision of the body of a text (the largest, if div0 is not used, 
+      the second largest if it is).</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="head" minOccurs="0"/>
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="gap" minOccurs="0"/>
+					<xs:element ref="p" maxOccurs="unbounded"/>
+					<xs:element ref="div2" maxOccurs="unbounded"/>
+                    <xs:element ref="s" maxOccurs="unbounded"/> <!-- FoLiA -->
+				</xs:choice>
+			</xs:sequence>
+			<xs:attributeGroup ref="div.attributes"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="div2">
+		<xs:annotation>
+			<xs:documentation>(level-2 text division) contains a second-level 
+      subdivision of the body of a text</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="head" minOccurs="0"/>
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="gap" minOccurs="0"/>
+					<xs:element ref="p" maxOccurs="unbounded"/>
+					<xs:element ref="div3" maxOccurs="unbounded"/>
+                    <xs:element ref="s" maxOccurs="unbounded"/> <!-- FoLiA -->
+				</xs:choice>
+			</xs:sequence>
+			<xs:attributeGroup ref="div.attributes"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="div3">
+		<xs:annotation>
+			<xs:documentation>(level-3 text division) contains a third-level 
+      subdivision of the body of a text</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="head" minOccurs="0"/>
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="gap" minOccurs="0"/>
+					<xs:element ref="p" maxOccurs="unbounded"/>
+					<xs:element ref="div4" maxOccurs="unbounded"/>
+                    <xs:element ref="s" maxOccurs="unbounded"/> <!-- FoLiA -->
+				</xs:choice>
+			</xs:sequence>
+			<xs:attributeGroup ref="div.attributes"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="div4">
+		<xs:annotation>
+			<xs:documentation>(level-4 text division) contains a fourth-level 
+      subdivision of the body of a text</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="head" minOccurs="0"/>
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="gap" minOccurs="0"/>
+					<xs:element ref="p" maxOccurs="unbounded"/>
+					<xs:element ref="div5" maxOccurs="unbounded"/>
+                    <xs:element ref="s" maxOccurs="unbounded"/> <!-- FoLiA -->
+				</xs:choice>
+			</xs:sequence>
+			<xs:attributeGroup ref="div.attributes"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="div5">
+		<xs:annotation>
+			<xs:documentation>(level-5 text division) contains a fifth-level 
+      subdivision of the body of a text</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="head" minOccurs="0"/>
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="gap" minOccurs="0"/>
+					<xs:element ref="p" maxOccurs="unbounded"/>
+					<xs:element ref="div6" maxOccurs="unbounded"/>
+                    <xs:element ref="s" maxOccurs="unbounded"/> <!-- FoLiA -->
+				</xs:choice>
+			</xs:sequence>
+			<xs:attributeGroup ref="div.attributes"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="div6">
+		<xs:annotation>
+			<xs:documentation>(level-6 text division) contains a sixth-level 
+      subdivision of the body of a text</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="head" minOccurs="0"/>
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="gap" minOccurs="0"/>
+					<xs:element ref="p" maxOccurs="unbounded"/>
+					<xs:element ref="div7" maxOccurs="unbounded"/>
+                    <xs:element ref="s" maxOccurs="unbounded"/> <!-- FoLiA -->
+				</xs:choice>
+			</xs:sequence>
+			<xs:attributeGroup ref="div.attributes"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="div7">
+		<xs:annotation>
+			<xs:documentation>(level-7 text division) contains the smallest possible 
+      subdivision of the body of a text</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="head" minOccurs="0"/>
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="gap" minOccurs="0"/>
+					<xs:element ref="p" maxOccurs="unbounded"/>
+                    <xs:element ref="s" maxOccurs="unbounded"/> <!-- FoLiA -->
+				</xs:choice>
+			</xs:sequence>
+			<xs:attributeGroup ref="div.attributes"/>
+		</xs:complexType>
+	</xs:element>
+    
+    
+	<xs:attributeGroup name="div.attributes">
+		<xs:attribute name="n" type="xs:string"/>
+		<xs:attribute name="class" type="xs:string"/> <!-- DCOI: was type -->
+		<xs:attribute ref="xml:id" use="required"/>
+	</xs:attributeGroup>
+    
+    
+    <!-- FoLiA: Annotator -->        
+    <xs:attributeGroup name="annotator">
+        <xs:attribute name="annotator" type="xs:string">
+                <xs:annotation>
+					<xs:documentation>An ID by which the annotator (human or system) is uniquely identifiable.</xs:documentation>
+				</xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="annotatortype">
+                <xs:annotation>
+					<xs:documentation>Nature of the annotator, is it an automatic system or a human annotator?</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="manual"/>
+						<xs:enumeration value="auto"/>
+					</xs:restriction>
+				</xs:simpleType>
+        </xs:attribute>        
+        <xs:attribute name="confidence">
+                <xs:annotation>
+					<xs:documentation>The confidence placed by the annotator in this annotation. A floating point value between zero (no confidence) and 1 (full confidence)</xs:documentation>
+				</xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:float">
+                        <xs:minInclusive value="0.0"/>
+                        <xs:maxInclusive value="1.0"/>
+                    </xs:restriction>
+                </xs:simpleType>
+        </xs:attribute>
+    </xs:attributeGroup>
+    
+    
+
+
+	<xs:element name="head">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="gap" minOccurs="0"/>
+				<xs:element ref="s" minOccurs="0"/>
+			</xs:choice>
+			<xs:attribute ref="xml:id" use="required"/>
+		</xs:complexType>
+	</xs:element>
+    
+	<xs:element name="label">
+		<xs:annotation>
+			<xs:documentation>contains the label associated with an item in a list.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attribute ref="xml:id" use="required"/>
+			<xs:attribute name="n" use="required" type="xs:string"/>
+	</xs:complexType>
+    
+	</xs:element>
+	<xs:element name="item">
+		<xs:annotation>
+			<xs:documentation>contains one component of a list.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType mixed="true">
+			<xs:sequence>
+				<xs:element name="label" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="p" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="gap" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="s" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="n" type="xs:string"/>
+			<xs:attribute ref="xml:id" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="list">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="item" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute ref="xml:id" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="figDesc" type="non-empty-string">
+		<xs:annotation>
+			<xs:documentation>(Description of Figure) contains a brief prose description of the appearance or content
+of a graphic figure, for use when documenting an image without
+displaying it.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="figure">
+		<xs:annotation>
+			<xs:documentation>contains a block containing graphics, illustrations, or figures.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="figDesc" minOccurs="0"/>
+				<xs:element ref="head" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute ref="xml:id" use="required"/>
+			<xs:attribute name="n" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="note">
+		<xs:annotation>
+			<xs:documentation>() contains a note or
+annotation.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType mixed="true">
+			<xs:sequence>
+				<xs:element ref="s"/>
+			</xs:sequence>
+			<xs:attribute ref="xml:id" use="required"/>
+			<xs:attribute name="n" type="xs:string"/>
+			<xs:attribute name="type" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+    
+        
+	<xs:element name="desc">
+		<xs:annotation>
+			<xs:documentation>(description) contains a brief description of the 
+      purpose and application for an element, attribute, or attribute value.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+    
+    
+    
+	<xs:element name="p">
+		<xs:annotation>
+			<xs:documentation>Paragraph element</xs:documentation>
+		</xs:annotation>
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="gap"/>
+				<xs:element ref="list"/>
+				<xs:element ref="figure"/>
+				<xs:element ref="note"/>
+				<xs:element ref="s"/>
+			</xs:choice>
+			<xs:attribute ref="xml:id" use="required"/>
+		</xs:complexType>
+	</xs:element>
+    
+    
+    <xs:group name="annotationlayers">
+        <xs:complexType mixed="true">
+            <xs:choice>
+                <xs:element ref="syntax" />
+                <xs:element ref="chunking" />
+                <xs:element ref="entities" />
+                <xs:element ref="dependencies" />
+            </xs:choice>
+        </xs>
+    </xs:group>
+
+
+
+	<xs:element name="s">
+		<xs:annotation>
+			<xs:documentation>Sentence element. </xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence minOccurs="1" maxOccurs="unbounded">
+				<xs:element ref="w"/>
+				<xs:element ref="correction" minOccurs="0"/>
+                <xs:group ref="annotationlayers"/>
+			</xs:sequence>
+			<xs:attribute ref="xml:id" use="required"/>
+			<xs:attribute name="correction" use="optional">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="splitted"/>
+						<xs:enumeration value="joined"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+    
+    
+    
+	<xs:element name="w">
+		<xs:annotation>
+			<xs:documentation>(description) word annotation after nomalization of the text</xs:documentation>
+		</xs:annotation>
+		<xs:complexType mixed="true">
+			<xs:attribute ref="xml:id" use="required"/>
+            <!-- 
+                    Correction Syntax: DCOI but not FoLiA
+            ----------------------------------------------------
+			<xs:attribute name="correction" use="optional">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="spelling"/>
+						<xs:enumeration value="splitted"/>
+						<xs:enumeration value="missing word"/>
+						<xs:enumeration value="inserted word"/>
+						<xs:enumeration value="joined"/>						
+                        <xs:enumeration value="confusable"/>
+
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+            <xs:attribute name="original" type="xs:string"/>
+			<xs:attribute name="originalref"/>
+            -->
+		</xs:complexType>
+		<xs:key name="word-id">
+			<xs:selector xpath="."/>
+			<xs:field xpath="@xml:id"/>
+		</xs:key>
+		<xs:keyref name="word-id-ref" refer="word-id">
+			<xs:selector xpath="correction"/>
+			<xs:field xpath="@ref"/>
+		</xs:keyref>
+	</xs:element>
+	
+    <!-- 
+            Correction Syntax: DCOI but not FoLiA
+    ----------------------------------------------------    
+    <xs:element name="correction">
+		<xs:annotation>
+			<xs:documentation>Marks the words that originally were marked as part of another sentence, but were corrected afterwards.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="w"/>
+			</xs:sequence>
+			<xs:attribute ref="xml:id" use="required"/>
+		</xs:complexType>
+	</xs:element>
+    -->
+</xs:schema>
