@@ -2,7 +2,6 @@
 <?xml-stylesheet type="text/xsl" href="http://ilk.uvt.nl/FoLiA/FoLiA.xsl"?>
 <FoLiA xmlns:imdi="http://www.mpi.nl/IMDI/Schema/IMDI" xmlns="http://ilk.uvt.nl/FoLiA" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:d-coi="http://lands.let.ru.nl/projects/d-coi/ns/1.0" xml:id="WR-P-E-J-0000001137">
   <metadata>
-    <CMD>
      <annotations>
         <token-annotation set="ucto-tokconfig-nl" annotator="ucto" annotatortype="auto" />
         <pos-annotation set="CGN" annotator="Frog" annotatortype="auto" />
@@ -15,7 +14,8 @@
         <correction-annotation set="corrections1" annotator="correctionsystem1" annotatortype="auto" />    
         <entity-annotation set="ner1" annotator="ner-1" annotatortype="auto" />    
      </annotations>
-    </CMD>
+     <relations>
+     </relations>
     <imdi:METATRANSCRIPT>
     </imdi:METATRANSCRIPT>
   </metadata>
@@ -574,4 +574,45 @@ NEW CORRECTIONS:
         </correction>                    
     </w>                
                                             
-                                        
+           
+           
+           
+<metadata cmdiprofile="">
+    <annotations>
+    
+    </annotations>
+    <relations>
+        <relation type="translation" xml:lang="fr" file="TEST-fr.xml">Titre français</translation>
+        <relation type="previous" file="TEST.xml">
+        <relation type="next" file="TEST.xml">
+    </relations>
+</metadata>           
+           
+
+
+types: 
+    translation
+    previous
+    next
+    first
+    last
+           
+           
+           
+<s xml:id="TEST-000000001.p.1.s.1">
+    <translation xml:lang="fr" ref="TEST-000000001.p.1.s.1" />
+</s>    
+
+
+
+
+
+<FoLiA-xmap>
+    <header>
+        <
+    </header>
+    <map xmlid="TEST.map.1">
+        
+    </map>
+    
+</FoLiA-xmap>

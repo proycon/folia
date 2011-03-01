@@ -125,10 +125,12 @@ In FoLiA, each document/text is represented by one XML file. The basic structure
 <?xml-stylesheet type="text/xsl" href="http://ilk.uvt.nl/FoLiA/FoLiA.xsl"?>
 <FoLiA xmlns="http://ilk.uvt.nl/FoLiA"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:id="example">
-  <!-- (Here IMDI or CMDI metadata can be inserted) -->
-  <annotations>
-      ...
-  </annotations>    
+  <metadata cmdiprofile="">
+      <!-- (Here CMDI metadata can be inserted) -->
+      <annotations>
+          ...
+      </annotations>    
+  </metadata>
   <text xml:id="example.text">
    <gap></gap>
    <body>
@@ -698,6 +700,10 @@ After splitting:
 The new identifiers represent the index of the new tokens, separated by a underscore, so given \texttt{.w.1}  we get \texttt{.w.1\_1} for the first split result, \texttt{.w.1\_2} for the second, and so on...
 
 
+\subsubsection{Swaps}
+
+%TODO
+
 \subsubsection{Correction prior to tokenisation} 
 
 There is another special use of the correction element. Sometimes corrections or normalisations occur prior to tokenisation, think for example about correcting OCR-errors. To accommodate this, the \texttt{correction} element can be used inline within the text content element (\texttt{t}) of a paragraph or sentence, which is by definition untokenised.
@@ -1030,6 +1036,11 @@ Below is an example of a sentence that is chunked in two ways:
 
 The support for alternatives and the fact that multiple layers (including those of different types) cannot be nested in a single inline structure, should make clear why FoLiA uses a stand-off notation alongside an inline notation. 
 
+
+\section{Metadata}
+
+All FoLiA metadata 
+%TODO: Relations
 
 \chapter{Parsing \& Querying}
 
