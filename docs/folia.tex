@@ -564,17 +564,12 @@ Again, there is a small level of necessary redundancy; the corrected element is 
 
 \subsubsection{Error detection} 
 
-
-Sometimes you want to focus only on error detection rather than correction. The \texttt{errordetection} element is very closely related to the \texttt{correction} element, and serves precisely this purpose; to detect errors rather than correct them. Rather than specify a \texttt{new} element and an \texttt{original} element. The \texttt{errordetection} element provides options (\texttt{option}) for correction.
-
+The correction of an error implies the detection of an error. In some cases, detection comes without correction, for instance when the generation of correction suggestions is postponed to a later processing stage. The \texttt{errordetection} element is a very simple element that serves this purpose. It signals the existance of errors, or absence thereof:
 
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.1">
     <t>treee</t>
-    <errordetection class="spelling" annotator="errorlistX" error="yes">
-        <option confidence="0.6"><t>tree</t></option>
-        <option confidence="0.4"><t>three</t></option>
-    </errordetection>
+    <errordetection class="spelling" annotator="errorlistX" error="yes" />
 </w>    
 \end{lstlisting}
 
@@ -588,27 +583,46 @@ The \texttt{error} attribute is set to ``yes'' (which is the default value), and
 </w>    
 \end{lstlisting}
 
-Once a correction is made on the basis of such error detection, the \texttt{correction} element may embed the \texttt{errordetection} element:
+Once a correction is made \emph{on the basis of} one or more kinds of error detection, the \texttt{correction} element directly embeds the \texttt{errordetection} element:
 
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.1">
     <t>tree</t>
-    <correction class="spelling" annotator="John Doe" error="yes">
+    <correction class="spelling" annotator="John Doe">
         <new>
             <t>tree</t>
         </new>
         <original>
             <t>treee</t>
         </original>
-        <errordetection class="spelling" annotator="errorlist" annotatortype="auto" error="yes">
-            <option confidence="0.6" selected="yes"><t>tree</t></option>
-            <option confidence="0.4"><t>three</t></option>
-        </errordetection>            
+        <errordetection class="spelling" annotator="errorlist" annotatortype="auto" error="yes" />
     </correction>
+    <alt xml:id="example.p.1.s.1.w.1.alt.1">
+      <correction class="spelling" annotator="errorlist" confidence="0.4">
+        <new>
+            <t>three</t>
+        </new>
+        <original>
+            <t>treee</t>
+        </original>
+        <errordetection class="spelling" annotator="errorlist" annotatortype="auto" error="yes" />
+      </correction>    
+     </alt>
+     <alt xml:id="example.p.1.s.1.w.1.alt.2">
+      <correction class="spelling" annotator="errorlist" confidence="0.6">
+        <new>
+            <t>tree</t>
+        </new>
+        <original>
+            <t>treee</t>
+        </original>
+        <errordetection class="spelling" annotator="errorlist" annotatortype="auto" error="yes" />
+      </correction>    
+    </alt>
 </w>    
 \end{lstlisting}
 
-Interpret the above example as follows. An error was detected by an errorlist script, which provides two suggestions for correction. A human annotator named John Doe made the actual correction on the basis of the suggestion. The \texttt{selected} attribute can be used to designate which of the options was actually used.
+Interpret the above example as follows. An error was detected by an errorlist script. The errorlist provided two possible corrections, which are registered under alternatives as no final decision was made to apply one. The final correction was left to a human annotator named John Doe, who made the actual correction on the basis of this error detection.
 
 For correction elements, there may only be \emph{one} per token, though multiple may be nested as seen. Error detection elements may occur more than once, unbounded.
 
@@ -623,7 +637,7 @@ Like everything, corrections and error detection have to be declared, and have t
 </annotations>
 \end{lstlisting}
 
-\subsubsection{Merges and Splits} 
+\subsubsection{Merges, Splits and Swaps} 
 
 Sometimes, one wants to merge multiple tokens into one single new token, or the other way around; split one token into multiple new ones. The FoLiA format does not allow you to simply create new tokens and reassign identifiers. Identifiers are by definition permanent and should never change, as this would break backward compatibility. So such a change is therefore by definition a correction, and one uses the \texttt{correction} tag to merge and split tokens.
 
@@ -699,10 +713,77 @@ After splitting:
 
 The new identifiers represent the index of the new tokens, separated by a underscore, so given \texttt{.w.1}  we get \texttt{.w.1\_1} for the first split result, \texttt{.w.1\_2} for the second, and so on...
 
+The same principle as used for merges and splits can also be used for performing ``swap'' corrections:
 
-\subsubsection{Swaps}
+\begin{lstlisting}[language=xml]
 
-%TODO
+<s xml:id="example.p.1.s.1">
+ <correction xml:id="example.p.1.s.1.c.1" class="split">
+    <new>    
+        <w xml:id="example.p.1.s.1.w.2">
+            <t>on</t>
+        </w>
+        <w xml:id="example.p.1.s.1.w.1">
+            <t>line</t>
+        </w>
+    </new>
+    <original>
+        <w xml:id="example.p.1.s.1.w.1">
+            <t>line</t>
+        </w>
+        <w xml:id="example.p.1.s.1.w.2">
+            <t>on</t>
+        </w>
+    </original>
+ </correction>               
+</s>
+\end{lstlisting}
+
+Note that in such a swap situation, the identifiers of the word tokens will appear out of sequence after correction, due to the principle that identifiers never change once set.
+
+
+\subsubsection{Omissions and Insertions}
+
+Omissions, words that are removed in correction, and insertions, words inserted during correction, are dealt with in a way similar to merges, splits and swaps. For omissions, the \texttt{new} element is simply empty. In the following example the word ``the'' was duplicated and removed in correction:
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.1.s.1.w.1">
+    <t>the</t>
+</w>
+<correction xml:id="example.p.1.s.1.c.1" class="duplicate">
+    <new>                        
+    </new>
+    <original>
+        <w xml:id="example.p.1.s.1.w.2">
+            <t>the</t>
+        </w>
+    </original>
+</correction>  
+<w xml:id="example.p.1.s.1.w.3">
+    <t>man</t>
+</w>
+\end{lstlisting}
+
+For insertions, the \texttt{original} element is empty. 
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.1.s.1.w.1">
+    <t>the</t>
+</w>
+<correction xml:id="example.p.1.s.1.c.1" class="duplicate">
+    <new>                            
+        <w xml:id="example.p.1.s.1.w.1_1">
+            <t>old</t>
+        </w>
+    </new>
+    <original>
+    </original>
+</correction>  
+<w xml:id="example.p.1.s.1.w.2">
+    <t>man</t>
+</w>
+\end{lstlisting}
+
 
 \subsubsection{Correction prior to tokenisation} 
 
