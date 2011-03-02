@@ -622,9 +622,7 @@ Once a correction is made \emph{on the basis of} one or more kinds of error dete
 </w>    
 \end{lstlisting}
 
-Interpret the above example as follows. An error was detected by an errorlist script. The errorlist provided two possible corrections, which are registered under alternatives as no final decision was made to apply one. The final correction was left to a human annotator named John Doe, who made the actual correction on the basis of this error detection.
-
-For correction elements, there may only be \emph{one} per token, though multiple may be nested as seen. Error detection elements may occur more than once, unbounded.
+Interpret the above example as follows: An error was detected by an errorlist script. The errorlist provided two possible corrections, which are registered as \emph{alternatives} as at this stage no final decision was made to apply one. Alternatives will be explained in detail in section~\ref{sec:alternatives}.The final correction was left to a human annotator named John Doe, who made the actual correction on the basis of this error detection.
 
 Like everything, corrections and error detection have to be declared, and have to be declared seperately. Nothing stops you from pointing them both to the same set however:
 
@@ -747,10 +745,11 @@ Note that in such a swap situation, the identifiers of the word tokens will appe
 Omissions, words that are removed in correction, and insertions, words inserted during correction, are dealt with in a way similar to merges, splits and swaps. For omissions, the \texttt{new} element is simply empty. In the following example the word ``the'' was duplicated and removed in correction:
 
 \begin{lstlisting}[language=xml]
-<w xml:id="example.p.1.s.1.w.1">
+<s xml:id="example.p.1.s.1">
+ <w xml:id="example.p.1.s.1.w.1">
     <t>the</t>
-</w>
-<correction xml:id="example.p.1.s.1.c.1" class="duplicate">
+ </w>
+ <correction xml:id="example.p.1.s.1.c.1" class="duplicate">
     <new>                        
     </new>
     <original>
@@ -758,19 +757,21 @@ Omissions, words that are removed in correction, and insertions, words inserted 
             <t>the</t>
         </w>
     </original>
-</correction>  
-<w xml:id="example.p.1.s.1.w.3">
+ </correction>  
+ <w xml:id="example.p.1.s.1.w.3">
     <t>man</t>
-</w>
+ </w>
+</s>
 \end{lstlisting}
 
 For insertions, the \texttt{original} element is empty. 
 
 \begin{lstlisting}[language=xml]
-<w xml:id="example.p.1.s.1.w.1">
+<s xml:id="example.p.1.s.1">
+ <w xml:id="example.p.1.s.1.w.1">
     <t>the</t>
-</w>
-<correction xml:id="example.p.1.s.1.c.1" class="duplicate">
+ </w>
+ <correction xml:id="example.p.1.s.1.c.1" class="duplicate">
     <new>                            
         <w xml:id="example.p.1.s.1.w.1_1">
             <t>old</t>
@@ -778,10 +779,11 @@ For insertions, the \texttt{original} element is empty.
     </new>
     <original>
     </original>
-</correction>  
-<w xml:id="example.p.1.s.1.w.2">
+ </correction>  
+ <w xml:id="example.p.1.s.1.w.2">
     <t>man</t>
-</w>
+ </w>
+</s>
 \end{lstlisting}
 
 
@@ -825,6 +827,7 @@ Still to be done.. The \texttt{morphemes} and \texttt{morpheme} elements will be
 
 
 \section{Alternative Token Annotations}
+\label{sec:alternatives}
 
 The FoLiA format does not just allow for a single ``favoured'' annotation per token, in addition it allows for the recording of alternative annotations. Alternative token annotations are grouped within one or more \texttt{alt} elements. If multiple annotations are grouped together under the same \texttt{alt} element, then they are deemed dependent and form a single set of alternatives.
 
