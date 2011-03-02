@@ -87,7 +87,6 @@
 </xsl:template>
 
 <xsl:template match="w">
- <span class="word"><xsl:value-of select="t"/></span>
  <span id="{@xml:id}" class="word">
         <span class="attributes">
                 <span class="wordid"><xsl:value-of select="@xml:id" /></span>
@@ -96,7 +95,7 @@
                         <xsl:apply-templates select="lemma" />                        
                 </dl>
         </span>
-        <xsl:value-of select="."/>
+        <xsl:value-of select="t"/>
  </span>
  <xsl:text> </xsl:text> <!-- TODO: implement @nospace check -->
 </xsl:template>
