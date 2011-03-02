@@ -1039,14 +1039,26 @@ The support for alternatives and the fact that multiple layers (including those 
 
 \section{Metadata}
 
-All FoLiA metadata 
-%TODO: Relations
-
-\chapter{Parsing \& Querying}
 
 \begin{devnotes}
 To be written still...
 \end{devnotes}
+
+%TODO: Relations
+
+\appendix
+\chapter{Common Queries}
+
+Considering the fact that FoLiA is an XML-based format, XPath and its derivatives are the designated tools for searching in a FoLiA document. Some common queries are listed below:
+
+\begin{itemize}
+\item XPath query for all paragraphs: \texttt{/FoLiA/text//p}
+\item XPath query for all sentences: \texttt{/FoLiA/text//s[not(parent::s)}] \emph{Selects only top-level sentences, not sentences embedded within sentences (e.g quotes)}
+\item XPath query for all words: \texttt{/FoLiA/text//w[not(ancestor::original)]} \emph{The conditional clause is required to correctly deal with correction syntax.}
+\item XPath query for all words with lemma X: \\ \texttt{/FoLiA/text//w[not(ancestor::original)]/lemma[@class == "X"]}
+\item XPath query for the text of all words: \\ \texttt{/FoLiA/text//w[not(ancestor::original)]/t/child::text()}
+\end{itemize}
+
 
 
 

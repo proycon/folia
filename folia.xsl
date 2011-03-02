@@ -16,13 +16,37 @@
             </xsl:choose>            
         </head>
         <body>
-            <xsl:apply-templates select="//p" />
+            <xsl:apply-templates select="text" />
         </body>
     </html>
 </xsl:template>
 
+<xsl:template match="text">
+ <div class="text">
+   <xsl:choose>
+   <xsl:when test="body/div">
+    <xsl:apply-templates select="body/div" />
+   </xsl:when>
+   <xsl:when test="body//p">
+    <xsl:apply-templates select="body//p" />
+   </xsl:when>
+   <xsl:when test="body//s">
+    <xsl:apply-templates select="body//s" />
+   </xsl:when> 
+   <xsl:otherwise>
+    <span class="error">No content found in this text!</span>
+   </xsl:otherwise>
+  </xsl:choose>
+ </div>
+</xsl:template>
 
-<xsl:template match="//p">
+<xsl:template match="div">
+ <div class="div">
+  <xsl:apply-templates select="div|p" />
+ </div>
+</xsl:template>
+
+<xsl:template match="p">
  <p>
   <xsl:apply-templates select="s" />
  </p>
@@ -37,6 +61,7 @@
 
 <xsl:template match="w">
  <span class="w"><xsl:value-of select="t"/></span>
+ <xsl:text> </xsl:text> <!-- TODO: implement @nospace check -->
 </xsl:template>
 
 
