@@ -6,6 +6,9 @@
 <xsl:template match="/FoLiA">
     <html>
         <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+            <link rel="stylesheet" href="http://ilk.uvt.nl/folia/folia.css" type="text/css"></link>
+            <script type="text/javascript" src="http://ilk.uvt.nl/folia/jquery-1.4.2.min.js"></script>
             <xsl:choose>
              <xsl:when test="/FoLiA/metadata/imdi:METATRANSCRIPT/imdi:Session/imdi:Title">
                 <title><xsl:value-of select="/FoLiA/metadata/imdi:METATRANSCRIPT/imdi:Session/imdi:Title"/></title>
@@ -28,10 +31,10 @@
     <xsl:apply-templates select="body/div" />
    </xsl:when>
    <xsl:when test="body//p">
-    <xsl:apply-templates select="body//p" />
+    <xsl:apply-templates select="body//p|body//head" />
    </xsl:when>
    <xsl:when test="body//s">
-    <xsl:apply-templates select="body//s" />
+    <xsl:apply-templates select="body//s|body//head" />
    </xsl:when> 
    <xsl:otherwise>
     <span class="error">No content found in this text!</span>
@@ -42,7 +45,7 @@
 
 <xsl:template match="div">
  <div class="div">
-  <xsl:apply-templates select="div|p" />
+  <xsl:apply-templates select="div|p|head" />
  </div>
 </xsl:template>
 
@@ -52,6 +55,12 @@
  </p>
 </xsl:template>
 
+
+<xsl:template match="head">
+ <h1>
+  <xsl:apply-templates select="s" />
+ </h1>
+</xsl:template>
 
 <xsl:template match="s">
  <span class="s">
