@@ -26,7 +26,7 @@
 </xsl:template>
 
 <xsl:template match="//imdi:METATRANSCRIPT">
-    <div class="metadata">
+    <div id="metadata">
         <table>
         <tr><th>Name:</th><td><xsl:value-of select="imdi:Session/imdi:Name"/></td></tr>
         <tr><th>Title:</th><td><strong><xsl:value-of select="imdi:Session/imdi:Title"/></strong></td></tr>
@@ -88,8 +88,25 @@
 
 <xsl:template match="w">
  <span class="w"><xsl:value-of select="t"/></span>
+ <span id="{@xml:id}" class="word">
+        <span class="attributes">
+                <span class="wordid"><xsl:value-of select="@xml:id" /></span>
+                <dl>
+                        <xsl:apply-templates select="pos" />
+                        <xsl:apply-templates select="lemma" />                        
+                </dl>
+        </span>
+        <xsl:value-of select="."/>
+ </span>
  <xsl:text> </xsl:text> <!-- TODO: implement @nospace check -->
 </xsl:template>
 
+<xsl:template match="pos">
+ <dt>PoS</dt><dd><xsl:value-of select="@class"/></dd>
+</xsl:template>
+
+<xsl:template match="lemma">
+ <dt>Lemma</dt><dd><xsl:value-of select="@class"/></dd>
+</xsl:template>
 
 </xsl:stylesheet>
