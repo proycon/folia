@@ -87,7 +87,7 @@
 </xsl:template>
 
 <xsl:template match="w">
- <span class="w"><xsl:value-of select="t"/></span>
+ <span class="word"><xsl:value-of select="t"/></span>
  <span id="{@xml:id}" class="word">
         <span class="attributes">
                 <span class="wordid"><xsl:value-of select="@xml:id" /></span>
