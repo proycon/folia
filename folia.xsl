@@ -19,10 +19,28 @@
             </xsl:choose>            
         </head>
         <body>
+            <xsl:apply-templates select="//imdi:METATRANSCRIPT" />
             <xsl:apply-templates select="text" />
         </body>
     </html>
 </xsl:template>
+
+<xsl:template match="//imdi:METATRANSCRIPT">
+    <div class="metadata">
+        <table>
+        <tr><th>Name:</th><td><xsl:value-of select="imdi:Session/imdi:Name"/></td></tr>
+        <tr><th>Title:</th><td><strong><xsl:value-of select="imdi:Session/imdi:Title"/></strong></td></tr>
+        <tr><th>Date:</th><td><xsl:value-of select="imdi:Session/imdi:Date"/></td></tr>
+        <xsl:if test="//imdi:Source/imdi:Access/imdi:Availability">
+                <tr><th>Availability:</th><td><xsl:value-of select="//imdi:Source/imdi:Access/imdi:Availability"/></td></tr>
+        </xsl:if>
+        <xsl:if test="//imdi:Source/imdi:Access/imdi:Publisher">
+                <tr><th>Publisher:</th><td><xsl:value-of select="//imdi:Source/imdi:Access/imdi:Publisher"/></td></tr>
+        </xsl:if>
+        </table>
+    </div>
+</xsl:template>
+
 
 <xsl:template match="text">
  <div class="text">
