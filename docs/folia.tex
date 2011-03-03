@@ -42,9 +42,9 @@ stringstyle=\ttfamily,
 
 \chapter{Introduction}
 
-FoLiA is a Format for Linguistic Annotation, derived from the D-Coi format\cite{DCOI} developed as part of the D-Coi project, by project partner at Polderland Language and Speech Technologies B.V., and extended for richer annotation at the ILK research group, Tilburg University. The D-Coi format is designed for used by the DCOI corpus, as well as by its successor; the SoNaR corpus \cite{Oostdijk+08}. 
+FoLiA is a Format for Linguistic Annotation, derived from the D-Coi format\cite{DCOI} developed as part of the D-Coi project by project partner at Polderland Language and Speech Technologies B.V. The D-Coi format was designed for use by the DCOI corpus, as well as by its successor; the SoNaR corpus \cite{Oostdijk+08}. Though being rooted in the D-Coi format, the FoLiA format goes a lot further and introduces a rich generalised framework for linguistic annotation. FoLiA is developed at the ILK research group, Tilburg University, and proposed as a CLARIN standard in the TTNWW project.
 
-FoLiA is an XML-based\cite{XML} annotation format, suitable for representing written language resources such as corpora. Its goal is to unify a variety of linguistic annotations in one single rich format, without committing to any particular standard annotation set. Instead, it seeks to accommodate any desired system or tagset, and so to offer maximum flexibility. This makes FoLiA language independent. Due to its generalised set up, it is easy to extent the FoLiA format to suit your custom needs for linguistic annotation.
+FoLiA is an XML-based\cite{XML} annotation format, suitable for representing written language resources such as corpora. Its goal is to unify a variety of linguistic annotations in one single rich format, without committing to any particular standard annotation set. Instead, it seeks to accommodate any desired system or tagset, and so offer maximum flexibility. This makes FoLiA language independent. Due to its generalised set up, it is easy to extent the FoLiA format to suit your custom needs for linguistic annotation.
 
 XML is an inherently hierarchic format. FoLiA does justice to this by maximally utilising a hierarchic, inline, setup. We inherit from the D-Coi format, which posits to be loosely based on a minimal subset of TEI\cite{TEI}. Because of the introduction of a new and broader paradigm, FoLiA is \emph{not} backwards-compatible with D-Coi, i.e. validators for D-Coi will not accept FoLiA XML. It is however easy to convert FoLiA to less complex or verbose formats such as the D-Coi format, or plain-text. Converters will be provided. This may entail some loss of information if the simpler format has no provisions for particular types of information specified in the FoLiA format. 
 
@@ -101,18 +101,9 @@ FoLiA support will be incorporated directly into the following ILK sofware:
 \item libfolia - C++ library for parsing FoLiA
 \end{itemize}
 
-And it may be used in the following corpora:
-
-\begin{itemize} 
-\item SoNaR (yet to be confirmed)
-\item DutchSemCor (based primarily on SoNaR)
-\end{itemize}
+FoLiA will be used in the DutchSemCor project, and will also be proposed for consideration in the SoNaR project.
 
 To clearly understand this documentation, note that when we speak of ``elements'' or ``attributes'', we refer to XML notation, i.e. XML elements and XML attributes.
-
-\begin{devnotes}
-This is all still subject to debate and change and may be a bit pretentious at this stage.
-\end{devnotes}
 
 \chapter{Format}
 
@@ -125,11 +116,11 @@ In FoLiA, each document/text is represented by one XML file. The basic structure
 <?xml-stylesheet type="text/xsl" href="http://ilk.uvt.nl/FoLiA/FoLiA.xsl"?>
 <FoLiA xmlns="http://ilk.uvt.nl/FoLiA"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:id="example">
-  <metadata cmdiprofile="">
-      <!-- (Here CMDI metadata can be inserted) -->
+  <metadata>
       <annotations>
           ...
       </annotations>    
+      <!-- (Here CMDI or IMDI metadata can be inserted) -->
   </metadata>
   <text xml:id="example.text">
    <gap></gap>
@@ -141,7 +132,7 @@ In FoLiA, each document/text is represented by one XML file. The basic structure
 </FoLiA>  
 \end{lstlisting}
 
-The body contains the to-be-annotated material; more about this later. The gap tags are optional and contain unannotated front matter or back matter. \cite{DCOI}
+The body contains the to-be-annotated material; more about this later. The gap tags are optional and contain unannotated front matter or back matter that is skipped in annotation. \cite{DCOI}
 
 \section{Identifiers}
 
@@ -156,7 +147,7 @@ Identifiers are very important and used throughout the FoLiA format. They enable
 
 \section{Structure Elements}
 
-Within the document body, the structure elements div0, div1, div2, etc.. can be used to create divisions and subdivisions. They stem from D-Coi and are unmodified in FoLiA. These divisions are not mandatory, but may be used to mark extra structure.
+Within the document body, the structure element \texttt{div} can be used to create divisions and subdivisions. They stem from D-Coi and are unmodified in FoLiA. These divisions are not mandatory, but may be used to mark extra structure. D-Coi also supported the elements div0, div1, div2, etc.. As \texttt{div} can be nested at will, this provides no extra function, and thus FoLiA only supports \texttt{div}.
 
 \section{Content Elements}
 

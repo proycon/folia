@@ -7,8 +7,8 @@
     <html>
         <head>
             <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-            <link rel="stylesheet" href="http://ilk.uvt.nl/folia/folia.css" type="text/css"></link>
-            <script type="text/javascript" src="http://ilk.uvt.nl/folia/jquery-1.4.2.min.js"></script>
+            <link rel="stylesheet" href="folia.css" type="text/css"></link>
+            <script type="text/javascript" src="jquery-1.4.2.min.js"></script>
             <xsl:choose>
              <xsl:when test="/FoLiA/metadata/imdi:METATRANSCRIPT/imdi:Session/imdi:Title">
                 <title><xsl:value-of select="/FoLiA/metadata/imdi:METATRANSCRIPT/imdi:Session/imdi:Title"/></title>

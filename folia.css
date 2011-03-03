@@ -87,7 +87,7 @@ div.div {
 }
 
 
-rd>.attributes { display: none;  }
+.word>.attributes { display: none; font-size: 12pt; font-weight: normal; }
 .word:hover { 
     text-decoration: underline; 
     z-index: 25
