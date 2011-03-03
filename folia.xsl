@@ -45,14 +45,14 @@
 <xsl:template match="text">
  <div class="text">
    <xsl:choose>
-   <xsl:when test="body/div">
-    <xsl:apply-templates select="body/div" />
+   <xsl:when test="/div">
+    <xsl:apply-templates select="/div" />
    </xsl:when>
-   <xsl:when test="body//p">
-    <xsl:apply-templates select="body//p|body//head" />
+   <xsl:when test="//p">
+    <xsl:apply-templates select="//p|//head" />
    </xsl:when>
-   <xsl:when test="body//s">
-    <xsl:apply-templates select="body//s|body//head" />
+   <xsl:when test="//s">
+    <xsl:apply-templates select="//s|//head" />
    </xsl:when> 
    <xsl:otherwise>
     <span class="error">No content found in this text!</span>
@@ -63,26 +63,26 @@
 
 <xsl:template match="div">
  <div class="div">
-  <xsl:apply-templates select="div|p|head" />
+  <xsl:apply-templates />
  </div>
 </xsl:template>
 
 <xsl:template match="p">
  <p>
-  <xsl:apply-templates select="s" />
+  <xsl:apply-templates />
  </p>
 </xsl:template>
 
 
 <xsl:template match="head">
  <h1>
-  <xsl:apply-templates select="s" />
+  <xsl:apply-templates />
  </h1>
 </xsl:template>
 
 <xsl:template match="s">
  <span class="s">
-  <xsl:apply-templates select="w" />
+  <xsl:apply-templates />
  </span>
 </xsl:template>
 

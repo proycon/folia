@@ -18,8 +18,7 @@
 
 <xsl:template match="dcoi:text">
     <text xml:id="{@xml:id}">        
-        <xsl:apply-templates select="dcoi:gap"/>
-        <xsl:apply-templates select="dcoi:body"/>
+        <xsl:apply-templates />
     </text>
 </xsl:template>
 
@@ -41,10 +40,7 @@
   <xsl:if test="@xml:id">
    <xsl:attribute name="xml:id"><xsl:value-of select="@xml:id" /></xsl:attribute>
   </xsl:if>
-  <xsl:apply-templates select="dcoi:div|dcoi:div0|dcoi:div1|dcoi:div2|dcoi:div3|dcoi:div4|dcoi:div5|dcoi:div6|dcoi:div7"/>
-  <xsl:apply-templates select="dcoi:head" />
-  <xsl:apply-templates select="dcoi:p" />
-  <xsl:apply-templates select="dcoi:s" />
+  <xsl:apply-templates />
  </div>
 </xsl:template>
 
@@ -53,7 +49,7 @@
   <xsl:if test="@xml:id">
    <xsl:attribute name="xml:id"><xsl:value-of select="@xml:id" /></xsl:attribute>
   </xsl:if>
-  <xsl:apply-templates select="dcoi:s" />
+  <xsl:apply-templates />
  </p>
 </xsl:template>
 
@@ -62,7 +58,7 @@
   <xsl:if test="@xml:id">
    <xsl:attribute name="xml:id"><xsl:value-of select="@xml:id" /></xsl:attribute>
   </xsl:if>
-  <xsl:apply-templates select="dcoi:s" />
+  <xsl:apply-templates />
  </head>
 </xsl:template>
 
@@ -71,8 +67,7 @@
   <xsl:if test="@xml:id">
    <xsl:attribute name="xml:id"><xsl:value-of select="@xml:id" /></xsl:attribute>
   </xsl:if>
-  <xsl:apply-templates select="dcoi:s" />
-  <xsl:apply-templates select="dcoi:w" />
+  <xsl:apply-templates />
  </s>
 </xsl:template>
 

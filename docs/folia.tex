@@ -16,7 +16,7 @@ stringstyle=\ttfamily,
 
 
 
-\title{FoLiA: Format for Linguistic Annotation \\ \small v0.1.3}
+\title{FoLiA: Format for Linguistic Annotation \\ \small v0.2}
 \author{Maarten van Gompel \\ ILK Research Group \\ Tilburg center for Cognition and Communication \\ Tilburg University }
 
 \parindent=0pt %no paragraph indentation
@@ -123,16 +123,12 @@ In FoLiA, each document/text is represented by one XML file. The basic structure
       <!-- (Here CMDI or IMDI metadata can be inserted) -->
   </metadata>
   <text xml:id="example.text">
-   <gap></gap>
-   <body>
      ...
-   </body>
-   <gap></gap>
   </text>
 </FoLiA>  
 \end{lstlisting}
 
-The body contains the to-be-annotated material; more about this later. The gap tags are optional and contain unannotated front matter or back matter that is skipped in annotation. \cite{DCOI}
+
 
 \section{Identifiers}
 
@@ -145,20 +141,14 @@ The base of all identifiers is that of the document itself, as encoded in \textt
 Identifiers are very important and used throughout the FoLiA format. They enable external resources and database to easily point to a specific part of the document or its annotation. FoLiA has been set up in such a way that \emph{identifiers should never ever change}. Once an identifier is assigned, it should never change, re-numbering is strictly prohibited unless you intentionally want to create a new resource and break compatibility with the old one.
 
 
-\section{Structure Elements}
+\section{Basic Structural Elements}
 
-Within the document body, the structure element \texttt{div} can be used to create divisions and subdivisions. They stem from D-Coi and are unmodified in FoLiA. These divisions are not mandatory, but may be used to mark extra structure. D-Coi also supported the elements div0, div1, div2, etc.. As \texttt{div} can be nested at will, this provides no extra function, and thus FoLiA only supports \texttt{div}.
-
-\section{Content Elements}
-
-Content elements occur within the body. The following exist:
+Basic structural elements occur within the \texttt{text} element. These are the most basic ones:
 
 \begin{itemize}
-\item \texttt{head} - Header
 \item \texttt{p} - Paragraph
 \item \texttt{s} - Sentence
 \item \texttt{w} - Word (token)
-\item \texttt{quote} - Quote
 \end{itemize}
 
 These are typically nested, the word elements cover the actual tokens. This is the most basic level of annotation; tokenisation. Let's take a look at an example, we have the following text:
@@ -307,14 +297,15 @@ He said: ``I do not know . I think you are right. ", and left.
 \section{Paradigm \& Terminology}
 \label{sec:paradigm}
 
-The FoLiA format has a very uniform setup and its XML notation for annotation follows a generalised paradigm. We distinguish two different categories of annotation:
+The FoLiA format has a very uniform setup and its XML notation for annotation follows a generalised paradigm. We distinguish three different categories of annotation, of which the latter two apply to actual linguistic annotation:
 
 \begin{itemize}
+\item \textbf{Structural annotation} - Annotations marking global structure, such as chapters, sections, subsections, figures, list items, paragraphs, etc...
 \item \textbf{Token annotation} - Annotations pertaining to one specific token. These will be elements of the token element (\texttt{w}) in inline notation. Linguistic annotations in this category are for example: part-of-speech annotation, lemma annotation, sense annotation, morphological analysis, spelling correction. 
 \item \textbf{Span annotation} - Annotations spanning over multiple tokens. Each type of annotation will be in a seperate \textbf{annotation layer} with offset notation. These layers are embedded on the sentence level. Examples in this category are: syntactic parses, chunking, semantic roles and named entities.
 \end{itemize}
 
-Almost all linguistic annotations are associated with what we shall call a \textbf{set}. The set determines the vocabulary (the tags) of the annotation. An element of such a set is referred to as a \textbf{class} from the FoLiA perspective. For example, we may have a document with Part-of-Speech annotation according to the CGN set. The CGN set defines main tag classes such as \emph{WW}, \emph{BW}, \emph{ADJ}, \emph{VZ}. FoLiA itself thus never commits to any tagset but leaves you to explicitly define this. You can also use multiple tagsets in the same document if so desired, even for the same type of annotation.
+Almost all annotations are associated with what we shall call a \textbf{set}. The set determines the vocabulary, the tags or types, of the annotation. An element of such a set is referred to as a \textbf{class} from the FoLiA perspective. For example, we may have a document with Part-of-Speech annotation according to the CGN set (a tagset for Dutch part-of-speech tags). The CGN set defines main tag classes such as \emph{WW}, \emph{BW}, \emph{ADJ}, \emph{VZ}. FoLiA itself thus never commits to any tagset but leaves you to explicitly define this. You can also use multiple tagsets in the same document if so desired, even for the same type of annotation.
 
 Any annotation element may have a \texttt{set} attribute, the value of which points to the URL hosting the file that defines the set, and a \texttt{class} attribute, which selects a class from the set.
 
@@ -353,6 +344,146 @@ Annotations are declared in the \texttt{annotations} block, as shown in the foll
 </annotations>
 \end{lstlisting}
 
+
+
+\section{Structure Annotation}
+
+\subsection{Divisions}
+
+Within the \texttt{text} element, the structure element \texttt{div} can be used to create divisions and subdivisions. Each division may be of a particular \emph{class} pertaining to a \emph{set} defining all possible classes. Divisions and other structural units are often numbered, think of for example chapters and sections. The number, as it was in the source document, can be encoded in the \texttt{n} attribute of the structural annotation element.
+
+Look at the following example, showing a full FoLiA document with structured divisions: 
+
+\begin{lstlisting}[language=xml]
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="http://ilk.uvt.nl/FoLiA/FoLiA.xsl"?>
+<FoLiA xmlns="http://ilk.uvt.nl/FoLiA"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:id="example">
+  <metadata>
+      <annotations>
+          <div-annotation set="http://ilk.uvt.nl/folia/sets/divisions" />
+      </annotations>    
+      <!-- (Here CMDI or IMDI metadata can be inserted) -->
+  </metadata>
+  <text xml:id="example.text">
+     <div class="chapter" n="1">
+        <head><t>Introduction</t></head>
+        <div class="section" n="1">
+            <div class="subsection" n="1.1">
+                <t>In the beginning....</t>
+            </div>
+        </div>
+        ...
+     </div>
+  </text>
+</FoLiA>  
+\end{lstlisting}
+
+If divisions are present, they need to be declared, as can be seen in the metadata. Divisions themselves are never mandatory, you can have a document without any divisions.
+
+Divisions stem from D-Coi and are modified in FoLiA. These divisions are not mandatory, but may be used to mark extra structure. D-Coi supported the elements \texttt{div0}, \texttt{div1}, \texttt{div2}, etc.., but FoLiA only knows a single \texttt{div} element, which can be nested at will and associated with classes. Note that paragraphs, sentences and words have there own explicit tags, as seen earlier, divisions should never be used for marking these, only larger structures can be divisions!
+
+The \texttt{head} element may be used to for the header of any division. It may hold \texttt{s} and \texttt{w} elements (not \texttt{p}).
+
+\subsection{Gaps}
+
+Sometimes there are parts of a document you want to skip and not annotate, but include as is. For this purpose the \texttt{gap} element should be used. Gaps may have a particular class indicating the kind of gap it is. Common omissions are for example front-matter and back-matter.
+
+The D-Coi format pre-defined the following ``reasons'' \cite{DCOI}:
+
+\begin{itemize}
+\item frontmatter
+\item backmatter
+\item illegible
+\item other-language
+\item cancelled
+\item inaudible
+\item sampling
+\end{itemize}
+
+Due to the flexible nature of FoLiA, we don't predefine any classes whatsoever and leave this up to whatever set is declared. The above gives a good indication of what gaps can be used for though. 
+
+The gap element may optionally take two elements:
+
+\begin{enumerate}
+\item \texttt{desc} - holding a substitute that may be shown to the user, describing what has been omitted.
+\item \texttt{content} - The actual raw content of the omission, as it was without further annotations. This is an XML CDATA type element, excluding it from any kind of parsing.
+\end{enumerate}
+
+
+\begin{lstlisting}[language=xml]
+  <text xml:id="example.text">
+     <gap class="frontmatter" annotator="Maarten van Gompel">
+        <desc>This is the cover of the book</desc>
+        <content>
+<![CDATA[        
+    
+            SHOW WHITE AND THE SEVEN DWARFS
+            
+            
+                by the Brothers Grimm
+                
+                    first edition
+                     
+            
+            Copyright(c) blah blah
+]]>
+        </content>
+     </gap>
+     <div class="chapter" n="1">
+        <head><t>Introduction</t></head>
+        <div class="section" n="1">
+            <div class="subsection" n="1.1">
+                <t>In the beginning....</t>
+            </div>
+        </div>
+        ...
+     </div>
+  </text>
+\end{lstlisting}
+
+Gaps have to be declared:
+
+\begin{lstlisting}[language=xml]
+<annotations>
+    <gap-annotation set="http://ilk.uvt.nl/folia/sets/dcoi-gaps" />
+</annotations>
+\end{lstlisting}
+
+\subsection{Lists}
+
+FoLiA, like D-Coi, allows lists to be explicitly marked as shown in the following example:
+
+\begin{lstlisting}[language=xml]
+ <head><t>My grocery list</t></head>
+ <list xml:id="example.list.1">
+   <item xml:id="example.list.1.item.1" n="A"><t>Apples</t></item>
+   <item xml:id=”example.list.1.item.2 n="B”><t>Pears</t></item>
+ </list>
+\end{lstlisting}
+
+The item element may hold sentences \texttt{(s)} and words \texttt{(w)}. The D-Coi format had a \texttt{label} element, this is depricated in favour of the \texttt{n} attribute in the item itself.
+
+Lists, like paragraphs, sentences and headers are content elements that need not be declared and are not associated with a set or class.
+
+\subsection{Figures}
+
+Even figures can be encoded in the FoLiA format, although the actual figure itself can only be included as a mere reference to an external image file, but including such a reference (\texttt{src} attribute) is optional.
+
+\begin{lstlisting}[language=xml]
+ <figure xml:id="example.figure.1" n="1" src="/path/or/url/to/image/file">
+   <desc>A textual description of the figure (Like ALT in HTML)</desc>
+   <caption><t>The caption for the figure</t></caption>
+ </figure>
+\end{lstlisting}
+
+Figures are not declared. The \texttt{caption} element may hold sentences \texttt{(s)} and words \texttt{(w)}.
+
+\subsection{Tables}
+
+\begin{devnotes}
+There is no provision yet for encoding tables. This may be added later.
+\end{devnotes}
 
 \section{Token Annotation}
 
@@ -465,7 +596,7 @@ The example declaration is as follows:
 
 \subsection{Domain Tags}
 
-This is a bit of a peculiar token annotation element, in the sense that it is more than just that. It can also be used directly in any of the content elements, such as sentence (\texttt{s}) and  paragraph (\texttt{p}). It can even be used in the \texttt{body} element itself. This annotation defines the domain of the token/content. Example:
+This is a bit of a peculiar token annotation element, in the sense that it is more than just that. It can also be used directly in any of the content elements, such as sentence (\texttt{s}) and  paragraph (\texttt{p}). It can even be used in the \texttt{text} element itself. This annotation defines the domain of the token/content. Example:
 
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.2">
