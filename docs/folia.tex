@@ -211,7 +211,7 @@ FoLiA is not just a format for holding tokenised text, although tokenisation is 
  </p>
 \end{lstlisting}
 
-Higher level elements \emph{may} also contain a text element even when the deeper element does too. It is important to realise that the sentence/paragraph-level text element always contains the text \emph{prior} to tokenisation! Note also that the word element has an attribute \texttt{space}, which defaults to yes, and indicates whether the word was followed  by a space in the \emph{untokenised} original. This allows for partial reconstructability of the sentence in its  untokenised form. Reconstructing sentences is generally preferred to grabbing them from the text element at the paragraph or sentence level, as there may be corrections on the token level.
+Higher level elements \emph{may} also contain a text element even when the deeper element does too. It is important to realise that the sentence/paragraph-level text element always contains the text \emph{prior} to tokenisation! Note also that the word element has an attribute \texttt{space}, which defaults to yes, and indicates whether the word was followed  by a space in the \emph{untokenised} original. This allows for partial reconstructibility of the sentence in its untokenised form. Reconstructing sentences is generally preferred to grabbing them from the text element at the paragraph or sentence level, as there may be corrections on the token level.
 
 The following example shows the maximum amount of redundancy, with text elements at every level.
 
@@ -350,7 +350,7 @@ Annotations are declared in the \texttt{annotations} block, as shown in the foll
 
 \subsection{Divisions}
 
-Within the \texttt{text} element, the structure element \texttt{div} can be used to create divisions and subdivisions. Each division may be of a particular \emph{class} pertaining to a \emph{set} defining all possible classes. Divisions and other structural units are often numbered, think of for example chapters and sections. The number, as it was in the source document, can be encoded in the \texttt{n} attribute of the structural annotation element.
+Within the \texttt{text} element, the structure element \texttt{div} can be used to create divisions and subdivisions. Each division may be of a particular \emph{class} pertaining to a \emph{set} defining all possible classes. Divisions and other structural units are often numbered, think for example of chapters and sections. The number, as it was in the source document, can be encoded in the \texttt{n} attribute of the structure annotation element.
 
 Look at the following example, showing a full FoLiA document with structured divisions: 
 
@@ -462,7 +462,7 @@ FoLiA, like D-Coi, allows lists to be explicitly marked as shown in the followin
  </list>
 \end{lstlisting}
 
-The item element may hold sentences \texttt{(s)} and words \texttt{(w)}. The D-Coi format had a \texttt{label} element, this is depricated in favour of the \texttt{n} attribute in the item itself.
+The item element may hold sentences \texttt{(s)} and words \texttt{(w)}. The D-Coi format had a \texttt{label} element, this is deprecated in favour of the \texttt{n} attribute in the item itself.
 
 Lists, like paragraphs, sentences and headers are content elements that need not be declared and are not associated with a set or class.
 
