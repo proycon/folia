@@ -5,7 +5,7 @@
     <annotations>
       <token-annotation annotator="ilktok" annotatortype="auto" />
       <pos-annotation set="cgn-combinedtags" annotator="tadpole" annotatortype="auto" />
-      <lemma-annotation set="lemmas-nl" annotator="tadpole" annotatortype="auto" />s
+      <lemma-annotation set="lemmas-nl" annotator="tadpole" annotatortype="auto" />
     </annotations>
     <imdi:METATRANSCRIPT xmlns="http://lands.let.ru.nl/projects/d-coi/ns/1.0" xmlns:d-coi="http://lands.let.ru.nl/projects/d-coi/ns/1.0" Date="2009-01-27" Type="SESSION" Version="1">
     <imdi:Session>
