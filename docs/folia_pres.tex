@@ -163,7 +163,7 @@ stringstyle=\ttfamily,
         \item \textbf{Structure Elements}: Paragraphs, Sentences, Words/Tokens  
         \item More: Division, Head, List, ListItem, Figure, Gap...
         \item Unique identifiers (DCOI style by convention)
-        \item Text element (t) holds actual text.
+        \item Text element (t) holds actual text. May occur untokenised on higher levels as well.
       \end{enumerate}
     \end{block}
 \end{frame}
@@ -178,9 +178,18 @@ stringstyle=\ttfamily,
         
         Three categories of annotation:    
         \begin{itemize}            
-            \item \textbf{Structure Annotation} - Elements denoting document structure (division, paragraphs, lists, etc)
+            \item \textbf{Structure Annotation} - Elements denoting document structure
+            \begin{itemize}
+                \item {\footnotesize E.g: Divisions, Header, Paragraphs, Sentences, Lists, Figures, Gaps }
+            \end{itemize}
             \item \textbf{Token Annotation} - Linguistic Annotations pertaining to a single token (inline annotation)
+            \begin{itemize}
+                \item {\footnotesize E.g: Part of Speech Annotation, Lemma Annotation, Lexical Semantic Sense Annotation }
+            \end{itemize}
             \item \textbf{Span Annotation} - Linguistic Annotations spanning over multiple tokens (standoff annotation)
+            \begin{itemize}
+                \item {\footnotesize E.g: Syntactic Parses, Dependency Relation, Entities/Multi-word Units}
+            \end{itemize}
         \end{itemize}
             
     \end{block}
@@ -193,8 +202,8 @@ stringstyle=\ttfamily,
         FoLiA Attributes common to the paradigm.
         \begin{itemize}
             \item \textbf{ID} - A unique ID for the element
-            \item \textbf{Set} - A particular tagset
-            \item \textbf{Class} - A class in such a set
+            \item \textbf{Set} - Identifier of a particular (tag)set
+            \item \textbf{Class} - One class from the specified set
             \item \textbf{Annotator} - An open identifier for the user/system who provided the annotation
             \item \textbf{Annotator type} - ``auto'' or ''manual''
             \item \textbf{Confidence} - A confidence value between one and zero.
@@ -224,7 +233,8 @@ stringstyle=\ttfamily,
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.2">
     <t>boot</t>
-    <pos set="brown" class="n" />
+    <pos set="brown" class="n" 
+     annotator="Maarten van Gompel" annotatortype="manual" />
     <lemma set="english-lemmas" class="boot" />
 </w>                         
 \end{lstlisting}        
@@ -232,6 +242,103 @@ stringstyle=\ttfamily,
 \end{frame}
 
 
+\begin{frame}[fragile]
+    \begin{block}{Token Annotation}
+        All annotations need to be declared in the metadata:
+        \begin{itemize}
+            \item Default sets and annotator \emph{may} be predefined at this level
+        \end{itemize}
+    \end{block}
+    \begin{example}
+\begin{lstlisting}[language=xml]
+<metadata>
+ <annotations>
+  <token-annotation />
+  <pos-annotation set="brown" annotator="Maarten van Gompel"
+    annotatortype="manual"/>
+  <lemma-annotation />
+ </annotations>
+</metadata>                     
+\end{lstlisting}        
+    \end{example}
+\end{frame}
 
+\subsection{Token Annotation: Alternatives}
+
+
+\begin{frame}[fragile]
+\frametitle{Alternative Token Annotations}
+
+Encodes mutually exclusive alternative annotations. Any annotations that are not alternatives are considered ``selected''.
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.1.s.1.w.2">
+    <t>bank</t>
+    <sense set="wordnet3.0" class="bank%1:17:01:"    
+     annotator="Maarten van Gompel" annotatortype="manual" 
+     confidence="0.8">
+     sloping ground near water</sense>
+    <alt xml:id="example.p.1.s.1.w.2.alt.1">
+     <sense set="wordnet3.0" class="bank%1:14:01:"
+      annotator="WSDsystem" annotatortype="auto" 
+      confidence="0.6">     
+      financial institution</sense> 
+    </alt>
+</w>                         
+
+\end{lstlisting}        
+
+\end{frame}
+
+
+
+\begin{frame}[fragile]
+\frametitle{Alternative Token Annotations}
+
+Annotations of the same type, but different sets need \emph{not} be alternatives.
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.1.s.1.w.2">
+    <t>luid</t>
+    <pos set="brown" class="jj" />
+    <pos set="cgn" class="adj" />
+</w>                         
+\end{lstlisting}        
+
+There can be only one of the same set though, this is illegal and requires usage of  alternatives instead:
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.1.s.1.w.2">
+    <t>luid</t>
+    <pos set="cgn" class="adj" />
+    <pos set="cgn" class="adv" />
+</w>                         
+\end{lstlisting}   
+
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{Complex Token Annotations}
+
+Some annotation types are more complex, as they allow multiple classes, subclasses or classes with key/value pairs. For example, Part-of-Speech annotation enriched with features:
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.1.s.1.w.2">
+    <t>boot</t>
+    <pos set="cgn" class="N">
+        <feat class="ntype" value="soort" />
+        <feat class="number" value="ev" />
+        <feat class="degree" value="basis" />
+        <feat class="gender" value="zijd" />
+        <feat class="case" value="stan" />
+    </pos>
+</w>
+\end{lstlisting}    
+
+\end{frame}
+
+
+\section{Span Annotation}
+
+\subsection{Span Annotation: Alternatives}
 
 \end{document}

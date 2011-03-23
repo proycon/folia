@@ -194,3 +194,31 @@ ALTERNATIVE ANNOTATIONS:
   
     create a layer with @alternative=<seqnr>
     
+
+
+
+
+SECONDARY CLASSES:
+
+<pos class="">
+    <feat class="">
+    <feat class="">
+    <feat class="">
+</pos>
+
+
+<sense class="x" synset="y">    
+</sense>
+
+
+
+SET DEFINITIONS:
+
+
+<FoLiASetDef vocabulary="closed" conceptlink="">
+    <class type="main" xml:id="" conceptlink=""><desc>Human readable description</desc></class>
+    
+    
+    <class type="main" xml:id="N" conceptlink=""><desc>Human readable description</desc><classref xml:id="soort" type="feat" /></class>
+    <class type="feat" xml:id="soort" conceptlink=""><desc>Human readable description</desc></class>
+</FoLiASetDef>
