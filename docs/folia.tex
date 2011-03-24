@@ -999,12 +999,12 @@ Named entities or other multi-word units can be encoded in the \texttt{entities}
   <w xml:id="example.p.1.s.1.w.5"><t>him</t></w>
   <w xml:id="example.p.1.s.1.w.6"><t>.</t></w>
   <entities>
-    <entity xml:id="example.p.1.s.1.e.1" class="person">
-        <ref xml:id="example.p.1.s.1.w.2" />
-        <ref xml:id="example.p.1.s.1.w.3" />
+    <entity xml:id="example.p.1.s.1.entity.1" class="person">
+        <wref xml:id="example.p.1.s.1.w.2" />
+        <wref xml:id="example.p.1.s.1.w.3" />
     </entity>
   </entities>
-</w>
+</s>
 \end{lstlisting}
 
 Note that elements that are not part of any span annotation need never be included in the layer.
@@ -1026,20 +1026,20 @@ A very typical form of span annotation is syntax annotation. This is done within
     <su xml:id="example.p.1.s.1.su.1" class="s">     
       <su xml:id="example.p.1.s.1.su.1_1" class="np">
           <su xml:id="example.p.1.s.1.su.1_1_1" class="det">
-             <ref xml:id="example.p.1.s.1.w.1" />       
+             <wref xml:id="example.p.1.s.1.w.1" />       
           </su>
           <su xml:id="example.p.1.s.1.su.1_1_2" class="pn">
-             <ref xml:id="example.p.1.s.1.w.2" />
-             <ref xml:id="example.p.1.s.1.w.3" />        
+             <wref xml:id="example.p.1.s.1.w.2" />
+             <wref xml:id="example.p.1.s.1.w.3" />        
           </su>         
        </su>
      </su>
      <su xml:id="example.p.1.s.1.su.1_2" class="vp"> 
         <su xml:id="example.p.1.s.1.su.1_1_1" class="v">
-            <ref xml:id="example.p.1.s.1.w.4" />       
+            <wref xml:id="example.p.1.s.1.w.4" />       
         </su>
         <su xml:id="example.p.1.s.1.su.1_1_2" class="pron">
-          <ref xml:id="example.p.1.s.1.w.5" />       
+          <wref xml:id="example.p.1.s.1.w.5" />       
         </su>
      </su>    
     </su>
@@ -1092,39 +1092,39 @@ In the below example, we show a Dutch sentence parsed with the Alpino Parser \ci
         <su xml:id="example.p.1.s.1.su.1_1" class="smain">     
             <su xml:id="example.p.1.s.1.su.1_1_1" class="np">     
                 <su xml:id="example.p.1.s.1.su.1_1_1_1" class="top">     
-                    <ref xml:id="example.p.1.s.1.w.1" />       
+                    <wref xml:id="example.p.1.s.1.w.1" />       
                 </su>
                 <su xml:id="example.p.1.s.1.su.1_1_1_2" class="top">     
-                    <ref xml:id="example.p.1.s.1.w.2" />
+                    <wref xml:id="example.p.1.s.1.w.2" />
                 </su> 
             </su>
             <su xml:id="example.p.1.s.1.su.1_1_2" class="verb">     
-                <ref xml:id="example.p.1.s.1.w.3" />   
+                <wref xml:id="example.p.1.s.1.w.3" />   
             </su>
             <su xml:id="example.p.1.s.1.su.1_1_3" class="pron">     
-                <ref xml:id="example.p.1.s.1.w.4" />   
+                <wref xml:id="example.p.1.s.1.w.4" />   
             </su>
         </su>
         <su xml:id="example.p.1.s.1.su.1_2" class="punct">
-            <ref xml:id="example.p.1.s.1.w.5" />               
+            <wref xml:id="example.p.1.s.1.w.5" />               
         </su> 
     </su>
   </syntax>
   <dependencies>
     <dependency xml:id="example.p.1.s.1.dependency.1" class="det">
         <hd su="example.p.1.s.1.su.1_1_1_2">
-           <ref xml:id="example.p.1.s.1.w.2" />   
+           <wref xml:id="example.p.1.s.1.w.2" />   
         </hd>
         <dep ref="example.p.1.s.1.su.1_1_1_1">
-            <ref xml:id="example.p.1.s.1.w.1" />   
+            <wref xml:id="example.p.1.s.1.w.1" />   
         </dep>
     </dependency>
     <dependency xml:id="example.p.1.s.1.dependency.2" class="obj1">
         <hd su="example.p.1.s.1.su.1_1_2">
-            <ref xml:id="example.p.1.s.1.w.3">
+            <wref xml:id="example.p.1.s.1.w.3">
         </hd>
         <dep su="example.p.1.s.1.su.1_1_3">
-            <ref xml:id="example.p.1.s.1.w.4" />   
+            <wref xml:id="example.p.1.s.1.w.4" />   
         </dep>
     </dependency>
   </dependencies>
@@ -1157,16 +1157,16 @@ Unlike a full syntactic parse, chunking is not nested. The layer for this type o
   <w xml:id="example.p.1.s.1.w.6"><t>.</t></w>
   <chunking>
     <chunk xml:id="example.p.1.s.1.chunk.1">       
-        <ref xml:id="example.p.1.s.1.w.1" />       
-        <ref xml:id="example.p.1.s.1.w.2" />       
-        <ref xml:id="example.p.1.s.1.w.3" />        
+        <wref xml:id="example.p.1.s.1.w.1" />       
+        <wref xml:id="example.p.1.s.1.w.2" />       
+        <wref xml:id="example.p.1.s.1.w.3" />        
     </chunk>
     <chunk xml:id="example.p.1.s.1.chunk.2">       
-        <ref xml:id="example.p.1.s.1.w.4" />
+        <wref xml:id="example.p.1.s.1.w.4" />
     </chunk>
     <chunk xml:id="example.p.1.s.1.chunk.3">       
-        <ref xml:id="example.p.1.s.1.w.5" />
-        <ref xml:id="example.p.1.s.1.w.6" />
+        <wref xml:id="example.p.1.s.1.w.5" />
+        <wref xml:id="example.p.1.s.1.w.6" />
     </chunk>    
   </chunking>
 </s>
@@ -1208,32 +1208,32 @@ Below is an example of a sentence that is chunked in two ways:
   <w xml:id="example.p.1.s.1.w.6"><t>.</t></w>
   <chunking>
     <chunk xml:id="example.p.1.s.1.chunk.1">       
-        <ref xml:id="example.p.1.s.1.w.1" />       
-        <ref xml:id="example.p.1.s.1.w.2" />       
-        <ref xml:id="example.p.1.s.1.w.3" />        
+        <wref xml:id="example.p.1.s.1.w.1" />       
+        <wref xml:id="example.p.1.s.1.w.2" />       
+        <wref xml:id="example.p.1.s.1.w.3" />        
     </chunk>
     <chunk xml:id="example.p.1.s.1.chunk.2">       
-        <ref xml:id="example.p.1.s.1.w.4" />
+        <wref xml:id="example.p.1.s.1.w.4" />
     </chunk>
     <chunk xml:id="example.p.1.s.1.chunk.3">       
-        <ref xml:id="example.p.1.s.1.w.5" />
-        <ref xml:id="example.p.1.s.1.w.6" />
+        <wref xml:id="example.p.1.s.1.w.5" />
+        <wref xml:id="example.p.1.s.1.w.6" />
     </chunk>    
   </chunking>
   <altlayers xml:id="example.p.1.s.1.alt.1">
        <chunking annotator="John Doe" 
         annotatortype="manual" confidence="0.0001">
         <chunk xml:id="example.p.1.s.1.alt.1.chunk.1">       
-            <ref xml:id="example.p.1.s.1.w.1" />       
-            <ref xml:id="example.p.1.s.1.w.2" />                       
+            <wref xml:id="example.p.1.s.1.w.1" />       
+            <wref xml:id="example.p.1.s.1.w.2" />                       
         </chunk>
         <chunk xml:id="example.p.1.s.1.alt.1.chunk.2">       
-            <ref xml:id="example.p.1.s.1.w.3" />  
-            <ref xml:id="example.p.1.s.1.w.4" />
+            <wref xml:id="example.p.1.s.1.w.3" />  
+            <wref xml:id="example.p.1.s.1.w.4" />
         </chunk>
         <chunk xml:id="example.p.1.s.1.alt.1.chunk.3">       
-            <ref xml:id="example.p.1.s.1.w.5" />
-            <ref xml:id="example.p.1.s.1.w.6" />
+            <wref xml:id="example.p.1.s.1.w.5" />
+            <wref xml:id="example.p.1.s.1.w.6" />
         </chunk>    
       </chunking>   
   </altlayers>

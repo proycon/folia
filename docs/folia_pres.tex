@@ -10,7 +10,7 @@
 
 \title{FoLiA: Format for Linguistic Annotation}
 \author{Maarten van Gompel}
-\date{01-02-2011}
+\date{24-03-2011}
 \usepackage{graphicx}
 \usepackage{listings}
 \usepackage{color}
@@ -25,7 +25,7 @@ stringstyle=\ttfamily,
 \begin{document}
 
 \begin{frame}
-	\titlepage %\smallraccoon\ilkuvt
+	\titlepage\smallraccoon\ilkuvt
 \end{frame}
 
 \section{Introduction}
@@ -41,7 +41,11 @@ stringstyle=\ttfamily,
             \item De-facto-standard for various ILK projects: SoNaR/DCOI
         \end{itemize}
     \end{block}
+
+\end{frame}
     
+\begin{frame}
+
     \begin{block}{Limits Tadpole/Frog columned format}
         \begin{itemize}
             \item Simplistic format, lacking expressiveness of XML
@@ -49,7 +53,11 @@ stringstyle=\ttfamily,
             \item Lacking even expressiveness to fully output Frog's data!
         \end{itemize}
     \end{block}
-
+    
+\end{frame}
+    
+    
+\begin{frame}
     \begin{block}{Limits of DCOI}
         \begin{itemize}
             \item Not expressive enough for many kinds of annotation (such as sense annotation, correction annotation)
@@ -57,20 +65,30 @@ stringstyle=\ttfamily,
             \item Can't encode alternatives
         \end{itemize}
     \end{block}
+    
+\end{frame}    
 
-\end{frame}
 
 
 \begin{frame}{Objectives}
-    \begin{block}{Objectives}
+    \begin{block}{Objectives (1/2)}
         \textbf{Objectives: Expressability, Extensability, Uniformity}
         \begin{itemize}        
             \item One generalised rich common XML-based format, supporting almost all we do at ILK
             \item Uniform and consistent paradigm for annotations of various kinds
-            \item Built from a bottom-up application-oriented perspective
+            \item Built from a bottom-up application-oriented perspective            
             \item Not committing to any particular tagset or language            
-            \item Encoding many different annotation aspects similtaneously in a single file
+            \item Encoding many different annotation aspects similtaneously in a single XML file
             \item Support for sense annotation (DutchSemCor)
+        \end{itemize}        
+    \end{block}
+\end{frame}
+            
+
+\begin{frame}{Objectives}
+    \begin{block}{Objectives (2/2)}
+        \textbf{Objectives: Expressability, Extensability, Uniformity}
+        \begin{itemize}                    
             \item Support for complex corrections (Valkuil $+$ Ticcl)
             \item Support for NER (HITIME)
             \item Support in Frog for reading and writing this format            
@@ -83,7 +101,7 @@ stringstyle=\ttfamily,
 \end{frame}
 
 \begin{frame}{Annotations}
-    \begin{block}{Supported Annotations}
+    \begin{block}{Supported Annotations (1/2)}
         FoLiA supports the following linguistic annotations:
         \begin{itemize}
             \item Part-of-Speech tags (with features)
@@ -91,6 +109,16 @@ stringstyle=\ttfamily,
             \item Spelling corrections on both a tokenised as well as an untokenised level.
             \item Domain tagging
             \item Semantic sense annotation (to be used in DutchSemCor)
+        \end{itemize}
+        
+
+    \end{block}
+\end{frame}
+            
+\begin{frame}{Annotations}
+    \begin{block}{Supported Annotations (2/2)}
+        FoLiA supports the following linguistic annotations:
+        \begin{itemize}            
             \item Named Entities / Multi-word units
             \item Syntactic Parses
             \item Dependency Relations
@@ -173,7 +201,7 @@ stringstyle=\ttfamily,
 \section{Paradigm}
 
 \begin{frame}
-    \begin{block}{Paradigm: Amnotation Categories}
+    \begin{block}{Paradigm: Annotation Categories}
             
         
         Three categories of annotation:    
@@ -285,11 +313,28 @@ Encodes mutually exclusive alternative annotations. Any annotations that are not
       financial institution</sense> 
     </alt>
 </w>                         
-
 \end{lstlisting}        
 
 \end{frame}
 
+\begin{frame}[fragile]
+\frametitle{Alternative Token Annotations}
+
+\begin{lstlisting}[language=xml]
+All token annotations grouped as one alternative are considered dependent. Multiple alternatives are always independent:
+
+<w xml:id="example.p.1.s.1.w.2">
+    <t>vlieg</t>
+    <pos class="N" />
+    <lemma class="vlieg" />
+    <alt xml:id="example.p.1.s.1.w.2.alt.1">
+        <pos class="V" />
+        <lemma class="vliegen" />
+    </alt>
+</w>                         
+\end{lstlisting}        
+
+\end{frame}
 
 
 \begin{frame}[fragile]
@@ -305,7 +350,7 @@ Annotations of the same type, but different sets need \emph{not} be alternatives
 </w>                         
 \end{lstlisting}        
 
-There can be only one of the same set though, this is illegal and requires usage of  alternatives instead:
+There can be only one of the same set though, this is illegal and requires usage of alternatives instead:
 
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.2">
@@ -319,7 +364,7 @@ There can be only one of the same set though, this is illegal and requires usage
 \begin{frame}[fragile]
 \frametitle{Complex Token Annotations}
 
-Some annotation types are more complex, as they allow multiple classes, subclasses or classes with key/value pairs. For example, Part-of-Speech annotation enriched with features:
+Some annotation types are more complex, as they allow multiple classes, subclasses or classes with values. For example, Part-of-Speech annotation enriched with features:
 
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.2">
@@ -339,6 +384,303 @@ Some annotation types are more complex, as they allow multiple classes, subclass
 
 \section{Span Annotation}
 
+
+        
+\begin{frame}
+    \begin{block}{Span Annotation}
+        \begin{itemize}
+            \item Token Annotation not sufficient, some annotations span over multiple tokens
+            \item Spanning multiple tokens can produce nesting problems (e.g $A (B C) D$ and $A B (C D)$)                
+            \item \textbf{Solution:} Span Annotation using standoff notation
+            \item \textbf{Applications:} Syntactic Parses, Chunking, Dependency Relations, Entities/Multi-Word Units
+            \item \textbf{Layers:} Each type of span annotation is placed within an \emph{annotation layer}, annotation layers are embedded within \emph{sentences} (\texttt{s))}
+            \item Same paradigm: Set, class, annotator, confidence
+        \end{itemize}        
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+
+
+\begin{lstlisting}[language=xml]
+<s xml:id="example.p.1.s.1">
+  <t>The Dalai Lama greeted him.</t>
+  <w xml:id="example.p.1.s.1.w.1"><t>The</t></w>
+  <w xml:id="example.p.1.s.1.w.2"><t>Dalai</t></w>
+  <w xml:id="example.p.1.s.1.w.3"><t>Lama</t></w>
+  <w xml:id="example.p.1.s.1.w.4"><t>greeted</t></w>
+  <w xml:id="example.p.1.s.1.w.5"><t>him</t></w>
+  <w xml:id="example.p.1.s.1.w.6"><t>.</t></w>
+  <entities>
+    <entity xml:id="example.p.1.s.1.entity.1" class="person">
+        <wref xml:id="example.p.1.s.1.w.2" />
+        <wref xml:id="example.p.1.s.1.w.3" />
+    </entity>
+  </entities>
+</s>
+\end{lstlisting}                    
+
+\end{frame}
+
+\begin{frame}[fragile]
+
+
+\begin{lstlisting}[language=xml]
+<syntax>
+<su xml:id="example.p.1.s.1.su.1" class="s">     
+  <su xml:id="example.p.1.s.1.su.1_1" class="np">
+      <su xml:id="example.p.1.s.1.su.1_1_1" class="det">
+         <wref xml:id="example.p.1.s.1.w.1" />       
+      </su>
+      <su xml:id="example.p.1.s.1.su.1_1_2" class="pn">
+         <wref xml:id="example.p.1.s.1.w.2" />
+         <wref xml:id="example.p.1.s.1.w.3" />        
+      </su>         
+   </su>
+ </su>
+ <su xml:id="example.p.1.s.1.su.1_2" class="vp"> 
+    <su xml:id="example.p.1.s.1.su.1_1_1" class="v">
+        <wref xml:id="example.p.1.s.1.w.4" />       
+    </su>
+    <su xml:id="example.p.1.s.1.su.1_1_2" class="pron">
+      <wref xml:id="example.p.1.s.1.w.5" />       
+    </su>
+ </su>    
+</su>
+</syntax>
+\end{lstlisting}                    
+
+\end{frame}
+
 \subsection{Span Annotation: Alternatives}
+
+        
+\begin{frame}[fragile]
+    \begin{block}{Span Annotation: Alternatives}
+        Q: How to encode alternatives? \\
+        
+        A: Place the annotation layer within the \texttt{altlayers} element.       
+    \end{block}
+    \begin{example}
+        \begin{lstlisting}[language=xml]
+<s xml:id="example.p.1.s.1">
+    <syntax>...</syntax>
+    <altlayers>
+        <syntax>...</syntax>
+    </altlayers>
+</s>
+        \end{lstlisting}
+    \end{example}
+\end{frame}
+
+
+\section{Corrections}
+
+        
+\begin{frame}
+    \begin{block}{Corrections}
+        \begin{itemize}
+            \item Keeping track of corrections (spelling corrections, annotation corrections)
+            \item Important principle: Identifiers \textbf{never} change.
+        \end{itemize}        
+    \end{block}
+\end{frame}
+
+        
+\begin{frame}[fragile]
+\frametitle{Corrections as Token Annotation (1/3)}
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.1.s.1.w.1">
+    <t>tree</t>
+    <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.1" class="spelling">
+        <new>
+            <t>tree</t>
+        </new>
+        <original>
+            <t>treee</t>
+        </original>
+    </correction>
+</w>
+\end{lstlisting}                 
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Corrections as Token Annotation (2/3)}
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.1.s.1.w.1">
+    <t>tree</t>
+    <pos class="n" />
+    <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.1">
+        <new>
+            <pos class="n" />
+        </new>
+        <original>
+            <pos class="v" />
+        </original>
+    </correction>
+    
+</w>    
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Corrections as Token Annotation (3/3)}
+
+\begin{lstlisting}[language=xml]
+    <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.2" class="spelling" 
+      annotator="Jane Doe" annotatortype="manual" confidence="1.0">
+        <new>
+            <t>tree</t>
+        </new>
+        <original>
+            <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.1" class="spelling"
+               annotator="John Doe" annotatortype="manual" confidence="0.6">
+                <new>
+                    <t>three</t>
+                </new>
+                <original>
+                    <t>treee</t>
+                </original>
+            </correction>
+        </original>
+    </correction>
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Corrections of words themselves: Merges}
+
+\begin{lstlisting}[language=xml]
+<s xml:id="example.p.1.s.1">
+ <correction xml:id="example.p.1.s.1.c.1" class="merge">
+    <new>
+        <w xml:id="example.p.1.s.1.w.1-2">    
+            <t>online</t>
+        </w>
+    </new>
+    <original>
+        <w xml:id="example.p.1.s.1.w.1">
+            <t>on</t>
+        </w>
+        <w xml:id="example.p.1.s.1.w.2">
+            <t>line</t>
+        </w>                         
+    </original>
+ </correction>               
+</s>
+\end{lstlisting} 
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Corrections of words themselves: Splits}
+
+\begin{lstlisting}[language=xml]
+<s xml:id="example.p.1.s.1">
+ <correction xml:id="example.p.1.s.1.c.1" class="split">
+    <new>    
+        <w xml:id="example.p.1.s.1.w.1_1">
+            <t>on</t>
+        </w>
+        <w xml:id="example.p.1.s.1.w.1_2">
+            <t>line</t>
+        </w>                        
+    </new>
+    <original>
+        <w xml:id="example.p.1.s.1.w.1">
+            <t>online</t>
+        </w>
+    </original>
+ </correction>               
+</s>
+\end{lstlisting} 
+
+\end{frame}
+
+\section{Working with FoLiA}
+
+\begin{frame}
+\frametitle{Working with FoLiA: Querying with XPath}
+
+    \begin{itemize}
+    \item XPath query for all paragraphs: \texttt{/FoLiA/text//p}
+    \item XPath query for all sentences: \texttt{/FoLiA/text//s[not(parent::s)}] 
+    \item XPath query for all words: \texttt{/FoLiA/text//w[not(ancestor::original)]}
+    \item XPath query for all words with lemma X: \\ \texttt{/FoLiA/text//w[not(ancestor::original)]/lemma[@class == "X"]}
+    \item XPath query for the text of all words: \\ \texttt{/FoLiA/text//w[not(ancestor::original)]/t/child::text()}
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Working with FoLiA: Python Library in PyNLPl}
+
+{
+\footnotesize
+\begin{verbatim}
+import pynlpl.formats.folia as folia
+from fictional import lemmatise
+
+doc = folia.Document(file="/path/to/folia/document.xml")
+for word in doc.words():
+    print "Word: " , str(word)
+    print "PoS: " , word.select(AnnotationType.POS).cls
+    
+    if not word.has(AnnotationType.LEMMA):
+        word.append( Lemma(cls=lemmatise( str(word) ), 
+            annotator="lemmatiserX", annotatortype=AnnotatorType.AUTO) )    
+
+    print "Lemma: " , word.select(AnnotationType.LEMMA).cls   
+                 
+doc.save()    
+\end{verbatim} 
+}
+
+\end{frame}
+
+
+\begin{frame}
+    \begin{block}{Loose ends}
+        \begin{itemize}
+            \item No format defined yet for definition of sets
+            \item Links with ISO Data Category Registry.
+            \item Validation (RelaxNG $+$ Schematron)
+            \item Inclusion of more annotation types            
+            \item Metadata, incorporation of CMDI            
+        \end{itemize}
+    \end{block}
+    
+    \begin{block}{Future}
+        \begin{itemize}
+            \item libfolia: FoLiA $C++$ library
+            \item FoLiA support in Frog
+            \item Converters 
+            \item Visualisation 
+        \end{itemize}
+    \end{block}
+
+\end{frame}
+
+\begin{frame}
+    \begin{block}{Conclusion}
+        \begin{itemize}
+            \item \textbf{Uniformity:} generic framework with simple paradigm, XML based
+            \item \textbf{Expressability:} Ability to encode many kinds of linguistic annotation, including structural annotation, alternatives, and corrections
+            \item \textbf{Expandability:} easy to add new annotations with the same paradigm
+        \end{itemize}
+    \end{block}
+
+
+    \smallraccoon
+
+\end{frame}
+
+
 
 \end{document}
