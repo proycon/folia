@@ -36,7 +36,7 @@ stringstyle=\ttfamily,
         \begin{itemize}
             \item Many ad-hoc and old-style annotation formats (CGN, Tadpole column format) 
             \item Many theoretic and specialised annotation formats with limited scope
-            \item OVerly rich document encoding formats (TEI)
+            \item Overly rich document encoding formats (TEI)
             \item Many conversions needed
             \item De-facto-standard for various ILK projects: SoNaR/DCOI
         \end{itemize}
@@ -208,7 +208,7 @@ stringstyle=\ttfamily,
         \begin{itemize}            
             \item \textbf{Structure Annotation} - Elements denoting document structure
             \begin{itemize}
-                \item {\footnotesize E.g: Divisions, Header, Paragraphs, Sentences, Lists, Figures, Gaps }
+                \item {\footnotesize E.g: Divisions, Header, Paragraphs, Sentences, Lists, Figures, Gaps, Quote }
             \end{itemize}
             \item \textbf{Token Annotation} - Linguistic Annotations pertaining to a single token (inline annotation)
             \begin{itemize}
@@ -320,9 +320,9 @@ Encodes mutually exclusive alternative annotations. Any annotations that are not
 \begin{frame}[fragile]
 \frametitle{Alternative Token Annotations}
 
-\begin{lstlisting}[language=xml]
 All token annotations grouped as one alternative are considered dependent. Multiple alternatives are always independent:
 
+\begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.2">
     <t>vlieg</t>
     <pos class="N" />
@@ -493,7 +493,8 @@ Some annotation types are more complex, as they allow multiple classes, subclass
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.1">
     <t>tree</t>
-    <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.1" class="spelling">
+    <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.1"
+       class="spelling">
         <new>
             <t>tree</t>
         </new>
