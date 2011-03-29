@@ -38,7 +38,7 @@ stringstyle=\ttfamily,
             \item Many theoretic and specialised annotation formats with limited scope
             \item Overly rich document encoding formats (TEI)
             \item Many conversions needed
-            \item De-facto-standard for various ILK projects: SoNaR/DCOI
+            \item De-facto-standards: SoNaR/D-COI and Alpino XML
         \end{itemize}
     \end{block}
 
@@ -49,8 +49,7 @@ stringstyle=\ttfamily,
     \begin{block}{Limits Tadpole/Frog columned format}
         \begin{itemize}
             \item Simplistic format, lacking expressiveness of XML
-            \item Six/seven columns currently, covering full screen width
-            \item Lacking even expressiveness to fully output Frog's data!
+            \item Lacking expressiveness to fully represent Frog's results
         \end{itemize}
     \end{block}
     
@@ -58,9 +57,9 @@ stringstyle=\ttfamily,
     
     
 \begin{frame}
-    \begin{block}{Limits of DCOI}
+    \begin{block}{Limits of D-Coi}
         \begin{itemize}
-            \item Not expressive enough for many kinds of annotation (such as sense annotation, correction annotation)
+            \item Not expressive enough for many kinds of annotation (such as sense annotation, correction annotation, syntactic/dependency parses, etc..)
             \item Can't encode annotators
             \item Can't encode alternatives
         \end{itemize}
@@ -72,13 +71,13 @@ stringstyle=\ttfamily,
 
 \begin{frame}{Objectives}
     \begin{block}{Objectives (1/2)}
-        \textbf{Objectives: Expressability, Extensability, Uniformity}
+        \textbf{Objectives: Expressiveness, Extensibility, Uniformity}
         \begin{itemize}        
-            \item One generalised rich common XML-based format, supporting almost all we do at ILK
+            \item One generalised rich common XML-based format, supporting almost all we do in TTNWW
             \item Uniform and consistent paradigm for annotations of various kinds
             \item Built from a bottom-up application-oriented perspective            
             \item Not committing to any particular tagset or language            
-            \item Encoding many different annotation aspects similtaneously in a single XML file
+            \item Encoding many different annotation aspects simultaneously in a single XML file
             \item Support for sense annotation (DutchSemCor)
         \end{itemize}        
     \end{block}
@@ -87,12 +86,12 @@ stringstyle=\ttfamily,
 
 \begin{frame}{Objectives}
     \begin{block}{Objectives (2/2)}
-        \textbf{Objectives: Expressability, Extensability, Uniformity}
+        \textbf{Objectives: Expressiveness, Extensibility, Uniformity}
         \begin{itemize}                    
             \item Support for complex corrections (Valkuil $+$ Ticcl)
             \item Support for NER (HITIME)
             \item Support in Frog for reading and writing this format            
-            \item Founded on the DCOI format (our de-facto standard)
+            \item Based on the DCOI format (our de-facto standard)
             \item Inter-operability with ISO Data Category Registry
             \item Unicode compliant
             \item Fully open-source
@@ -108,7 +107,7 @@ stringstyle=\ttfamily,
             \item Lemmatisation
             \item Spelling corrections on both a tokenised as well as an untokenised level.
             \item Domain tagging
-            \item Semantic sense annotation (to be used in DutchSemCor)
+            \item Lexical semantic sense annotation (to be used in DutchSemCor)
         \end{itemize}
         
 
@@ -555,7 +554,7 @@ Some annotation types are more complex, as they allow multiple classes, subclass
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Corrections of words themselves: Merges}
+\frametitle{Corrections of run-ons}
 
 \begin{lstlisting}[language=xml]
 <s xml:id="example.p.1.s.1">
@@ -580,7 +579,7 @@ Some annotation types are more complex, as they allow multiple classes, subclass
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Corrections of words themselves: Splits}
+\frametitle{Corrections of splits}
 
 \begin{lstlisting}[language=xml]
 <s xml:id="example.p.1.s.1">
@@ -672,8 +671,8 @@ doc.save()
     \begin{block}{Conclusion}
         \begin{itemize}
             \item \textbf{Uniformity:} generic framework with simple paradigm, XML based
-            \item \textbf{Expressability:} Ability to encode many kinds of linguistic annotation, including structural annotation, alternatives, and corrections
-            \item \textbf{Expandability:} easy to add new annotations with the same paradigm
+            \item \textbf{Expressiveness:} Ability to encode many kinds of linguistic annotation, including structural annotation, alternatives, and corrections
+            \item \textbf{Expandibility:} easy to add new annotations with the same paradigm
         \end{itemize}
     \end{block}
 
