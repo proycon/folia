@@ -301,7 +301,7 @@ The FoLiA format has a very uniform setup and its XML notation for annotation fo
 
 \begin{itemize}
 \item \textbf{Structural annotation} - Annotations marking global structure, such as chapters, sections, subsections, figures, list items, paragraphs, etc...
-\item \textbf{Token annotation} - Annotations pertaining to one specific token. These will be elements of the token element (\texttt{w}) in inline notation. Linguistic annotations in this category are for example: part-of-speech annotation, lemma annotation, sense annotation, morphological analysis, spelling correction. 
+\item \textbf{Token annotation} - Annotations pertaining to one specific token. These will be elements of the token element (\texttt{w}) in inline notation. Linguistic annotations in this category are for example: part-of-speech annotation, lemma annotation, sense annotation, morphological analysis, spelling correction. Some token elements may be used on higher levels (e.g. sentence/paragraph) as well and may then be referred to as \textbf{Extended Token Annotation}
 \item \textbf{Span annotation} - Annotations spanning over multiple tokens. Each type of annotation will be in a seperate \textbf{annotation layer} with offset notation. These layers are embedded on the sentence level. Examples in this category are: syntactic parses, chunking, semantic roles and named entities.
 \end{itemize}
 
@@ -572,6 +572,8 @@ Phonetic annotations can be included as follows. Similarly to lemmas, they may o
 </w>
 \end{lstlisting}
 
+This is an extended token annotation element that can also be used directly on a sentence or paragraph level.
+
 And the example declaration:
 
 \begin{lstlisting}[language=xml]
@@ -607,7 +609,7 @@ The example declaration is as follows:
 
 \subsection{Domain Tags}
 
-This is a bit of a peculiar token annotation element, in the sense that it is more than just that. It can also be used directly in any of the content elements, such as sentence (\texttt{s}) and  paragraph (\texttt{p}). It can even be used in the \texttt{text} element itself. This annotation defines the domain of the token/content. Example:
+This is an extended token annotation element, which means it can also be used directly in any of the content elements, such as sentence (\texttt{s}) and  paragraph (\texttt{p}). It can even be used in the \texttt{text} element itself. This annotation defines the domain of the token of content element. Example:
 
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.2">
@@ -630,7 +632,7 @@ The declaration:
 
 \subsection{Corrections}
 
-Corrections, including but not limited to spelling corrections, can be annotated using the \texttt{correction} element. It can be applied as a token annotation element as in the following example, which shows a spelling correction of the misspelled word ``treee'' to its corrected form ``tree''.
+Corrections, including but not limited to spelling corrections, can be annotated using the \texttt{correction} element. It can be applied as an extended token annotation element as in the following example, which shows a spelling correction of the misspelled word ``treee'' to its corrected form ``tree''.
 
 
 \begin{lstlisting}[language=xml]
@@ -807,7 +809,7 @@ And after merging:
 </s>
 \end{lstlisting} 
 
-Note that the correction element is here a member of the sentence (\texttt{s}), rather than the word token (\texttt{w}) as in all previous examples. The new identifier denotes the span of the merge, separated by a hyphen, so we get \texttt{.w.1-2} if we merge from \texttt{.w.1} to \texttt{.w.2}.
+Note that the correction element, being a kind of extended token annotation, is here a member of the sentence (\texttt{s}), rather than the word token (\texttt{w}) as in all previous examples. The new identifier denotes the span of the merge, separated by a hyphen, so we get \texttt{.w.1-2} if we merge from \texttt{.w.1} to \texttt{.w.2}.
 
 Now we will look at a split, the reverse of the above situation. Prior to splitting, assume we have:
 
@@ -1306,6 +1308,54 @@ Part-of-speech tags are a good example of the scenario outlined above. Part-of-s
     </pos>
 </w>
 \end{lstlisting}
+
+\section{Alignments}
+
+FoLiA provides a facility to align parts of your document with other parts of your document, or even with parts of other FoLiA documents. These are called \emph{alignments} and are implemented using either the \texttt{alignment} element, a form of extended token annotation (that may thus also be applied on other levels such as sentences or paragraphs), or \texttt{complexalignment}, a form of span annotation for more complex word alignments.
+
+Consider the following two aligned sentences from two \emph{distinct} FoLiA documents in different languages:
+
+\begin{lstlisting}[language=xml]
+<s xml:id="example-english.p.1.s.1">
+  <t>The Dalai Lama greeted him.</t>
+  <alignment class="french-translation" target="doc-french.xml">
+        <ref xml:id="doc-french.p.1.s.1.w.1" />
+  </alignment>
+</s>
+
+<s xml:id="example-french.p.1.s.1">
+  <t>Le Dalai Lama le saluait.</t>
+  <alignment class="english-translation" target="doc-english.xml">
+        <aref xml:id="doc-english.p.1.s.1.w.1" />
+  </alignment>
+</s>
+\end{lstlisting}
+
+
+Although the above example has a single alignment reference (\texttt{aref}), it is not forbidden to link to specify multiple references within the \texttt{alignment} block. For more complex alignments however, such as word alignment that including many-to-one, one-to-many or many-to-many alignments, the span annotation element \texttt{complexalignment} may be more suitable. The following example illustrates a many-to-many word-alignment of the word ``Dalai Lama'' from English to French. This takes places within the \texttt{complexalignments} annotation layer.
+
+\begin{lstlisting}[language=xml]
+<s xml:id="example-english.p.1.s.1">
+  <t>The Dalai Lama greeted him.</t>
+  <w xml:id="example-english.p.1.s.1.w.1"><t>The</t></w>
+  <w xml:id="example-english.p.1.s.1.w.2"><t>Dalai</t></w>
+  <w xml:id="example-english.p.1.s.1.w.3"><t>Lama</t></w>
+  <w xml:id="example-english.p.1.s.1.w.4"><t>greeted</t></w>
+  <w xml:id="example-english.p.1.s.1.w.5"><t>him</t></w>
+  <w xml:id="example-english.p.1.s.1.w.6"><t>.</t></w>
+  <complexalignments>
+        ...
+        <complexalignment class="french-translation" target="doc-french.xml">
+            <wref xml:id="example-english.p.1.s.1.w.2">
+            <wref xml:id="example-english.p.1.s.1.w.3">
+            <aref xml:id="example-french.p.1.s.1.w.2">
+            <aref xml:id="example-french.p.1.s.1.w.3">
+        </complexalignment>
+        ...
+  </complexalignments>
+</s>
+\end{lstlisting}
+
 
 
 
