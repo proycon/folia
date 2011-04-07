@@ -561,6 +561,26 @@ And the example declaration:
 </annotations>
 \end{lstlisting}
 
+\subsection{Phonetic Annotation}
+
+Phonetic annotations can be included as follows. Similarly to lemmas, they may often refer to a set with possible open classes.
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.1.s.1.w.2">
+    <t>boot</t>
+    <phon-annotation set="ipa" class="bu:t" />
+</w>
+\end{lstlisting}
+
+And the example declaration:
+
+\begin{lstlisting}[language=xml]
+<annotations>
+    <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl" 
+     annotator="ucto" annotatortype="auto" />
+    <phon-annotation />
+</annotations>
+\end{lstlisting}
 
 \subsection{Lexical Semantic Sense Annotation}
 
@@ -592,7 +612,7 @@ This is a bit of a peculiar token annotation element, in the sense that it is mo
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.2">
     <t>boot</t>
-    <domain class="naut">Nautical</domain>
+    <domain class="naut"><desc>Nautical</desc></domain>
 </w>
 \end{lstlisting}
 
