@@ -1292,9 +1292,11 @@ The classes can be made members of a certain subset, rather than the main set. S
 </X>
 \end{lstlisting}
 
-Optionally, \texttt{X} itself might also be associated with a class, the class in this case would implicitly or explicitly represent all sub-parts, or be the basis upon which redefinement is made.
+Optionally, \texttt{X} itself might also be associated with a class, the class in this case would either represent all sub-parts, \emph{or} be the basis upon which redefinement is made. Which of the two is chosen depends on the set used.
 
-Elements such as the ficticious \texttt{Y} can be implicitly associated with a specific subset.
+FoLiA has a default element \texttt{feat} that can be used instead of \texttt{Y} in the last-mentioned example above, so that no special elements needs to be introduced. This \texttt{feat} element can always be used to freely to associate \texttt{any} additional classes of \emph{any} designed subset with with \emph{any} annotation element !!!
+
+If elements such as the ficticious \texttt{Y} are introduced then they can be implicitly associated with a specific subset:
 
 \begin{lstlisting}[language=xml]
 <X set="a" class="p">
@@ -1314,7 +1316,7 @@ An example of this is seen in the \texttt{sense} element, which takes a \texttt{
 <sense class="p" synset="q" />
 \end{lstlisting}
 
-FoLiA implicitly relates the synset attribute here to the ``synset'' subset of whatever set you defined. Note that any such implicit subset relations need to be defined by the FoLiA standard itself, you can't make up such attributes yourself!
+FoLiA implicitly relates the synset attribute here to the ``synset'' subset of whatever set you defined. Note that any such implicit subset relation needs to be defined by the FoLiA standard itself, you can't just make up such attributes yourself. This section mainly served to gain insight in the advanced aspects of FoLiA, and to be able to suggest additions to it that follow the same principles.
 
 \subsection{Part-of-Speech tags with features}
 \label{sec:posfeat}
@@ -1328,11 +1330,11 @@ Option one:
     <t>boot</t>
     <pos head="N" class="N(soort,ev,basis,zijd,stan)">
         <desc>Noun, singular, neuter</desc>
-        <posfeat subset="ntype" class="soort" />
-        <posfeat subset="number" class="ev" />
-        <posfeat subset="degree" class="basis" />
-        <posfeat subset="gender" class="zijd" />
-        <posfeat subset="case" class="stan" />
+        <feat subset="ntype" class="soort" />
+        <feat subset="number" class="ev" />
+        <feat subset="degree" class="basis" />
+        <feat subset="gender" class="zijd" />
+        <feat subset="case" class="stan" />
     </pos>
 </w>
 \end{lstlisting}
@@ -1346,11 +1348,11 @@ Option two:
     <t>boot</t>
     <pos class="N">
         <desc>Noun, singular, neuter</desc>
-        <posfeat subset="ntype" class="soort" />
-        <posfeat subset="number" class="ev" />
-        <posfeat subset="degree" class="basis" />
-        <posfeat subset="gender" class="zijd" />
-        <posfeat subset="case" class="stan" />
+        <feat subset="ntype" class="soort" />
+        <feat subset="number" class="ev" />
+        <feat subset="degree" class="basis" />
+        <feat subset="gender" class="zijd" />
+        <feat subset="case" class="stan" />
     </pos>
 </w>
 \end{lstlisting}
