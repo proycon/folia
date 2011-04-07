@@ -198,19 +198,45 @@ ALTERNATIVE ANNOTATIONS:
 
 
 
-SECONDARY CLASSES:
+SUBSETS:
 
-<pos class="">
-    <feat class="">
-    <feat class="">
-    <feat class="">
+<pos set="CGN" class="N" classes="N(ev)">
+    <feat subset="gender" class="ev">
 </pos>
 
 
-<sense class="x" synset="y">    
-</sense>
+Human readable description:
+<sense><desc>Blah blah</desc></sense>
+
+Multiple classes:
+
+<XXX set="a">
+    <YY class="x">
+</XXX>
+
+Subsets:
+
+<XXX set="a" [class=""]>
+    <YY subset="b" class="x"/>
+</XXX>
+
+<XXX set="a" [class=""]>
+    <YY subset="b" class="y">
+        <ZZ subset="c" class="z">
+    </YY>
+</XXX>
 
 
+<sense class="x" synset="y"></sense>
+
+
+
+
+
+
+<metadata src="/path/to/cmdi" type="cmdi">
+    
+</metadata>
 
 SET DEFINITIONS:
 

@@ -16,7 +16,7 @@ stringstyle=\ttfamily,
 
 
 
-\title{FoLiA: Format for Linguistic Annotation \\ \small v0.2}
+\title{FoLiA: Format for Linguistic Annotation \\ \small v0.3}
 \author{Maarten van Gompel \\ ILK Research Group \\ Tilburg center for Cognition and Communication \\ Tilburg University }
 
 \parindent=0pt %no paragraph indentation
@@ -319,6 +319,8 @@ The following example shows a simple Part-of-Speech annotation without features,
 
 The example demonstrates that any annotation element can take an \texttt{annotator} attribute and an \texttt{annotatortype}. The latter is either ``manual'' for human annotators, or ``auto'' for automated systems.  The value for \texttt{annotator} is open and should be set to the name or ID of the system or human annotator that made the annotation. Last, there is a \texttt{confidence} attribute which is set to a floating point value between zero and one, the value expresses the confidence the annotator places in his annotation. None of these options are mandatory, only \texttt{class} may be mandatory for some types of annotation, such as \texttt{pos}.
 
+More advanced aspects of the paradigm will introduced later in section \ref{sec:advparadigm}.
+
 \begin{devnotes}
 In this stage, the sets are not actually defined yet, i.e. the URLs they point to don't exist yet. But the idea is that a set always points to a URL that defines all its classes. The format for this is still to be specified however. Links to the ISOCAT Data Category Registry can later be included at that level. For now, ad-hoc sets that will later be defined will do.
 \end{devnotes}
@@ -520,17 +522,17 @@ The following example illustrates a simple Part-of-Speech annotation for the Dut
 </w>
 \end{lstlisting}
 
-Part-of-Speech annotations may also include extra features, which are explicitly listed and are defined by the set:
+Part-of-Speech annotations may also include extra features, which are explicitly listed and are defined by the set, and a particular subset within that set. The use of subset will be further explained in section~\ref{sec:advparadigm}.
 
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.2">
     <t>boot</t>
     <pos class="N">
-        <feat class="ntype" value="soort" />
-        <feat class="number" value="ev" />
-        <feat class="degree" value="basis" />
-        <feat class="gender" value="zijd" />
-        <feat class="case" value="stan" />
+        <posfeat subset="ntype" class="soort" />
+        <posfeat subset="number" class="ev" />
+        <posfeat subset="degree" class="basis" />
+        <posfeat subset="gender" class="zijd" />
+        <posfeat subset="case" class="stan" />
     </pos>
 </w>
 \end{lstlisting}
@@ -575,12 +577,12 @@ And the example declaration:
 
 In semantic sense annotation, the classes in most sets will be a kind of lexical unit ID. In systems that make a distinction between lexical units and synonym sets (synsets), the synset attribute is available for notation of the latter. In systems with only synsets and no other primary form of lexical unit, the class can simply be set to the synset.
 
-The actual value of the \emph{sense} element, ``beeldhouwwerk'', can be set to a human-readable description, but this is optional.
+A human readable description for the \emph{sense} element, ``beeldhouwwerk'', can beplaced inside a \texttt{desc} element, but this is optional.
 
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.2">
     <t>beeld</t>
-    <sense class="r_n-6220" synset="d_n-32683">beeldhouwwerk</sense>
+    <sense class="r_n-6220" synset="d_n-32683"><desc>beeldhouwwerk</desc></sense>
 </w>
 \end{lstlisting}
 
@@ -1241,6 +1243,55 @@ Below is an example of a sentence that is chunked in two ways:
 \end{lstlisting}
 
 The support for alternatives and the fact that multiple layers (including those of different types) cannot be nested in a single inline structure, should make clear why FoLiA uses a stand-off notation alongside an inline notation. 
+
+
+\section{Advanced Paradigm}
+\label{sec:advparadigm}.
+
+We introduced the FoLiA paradigm in section~\ref{sec:paradigm}. Now we will introduce some of the more advanced aspects of the FoLiA paradigm. These are relevant especially if you seek to extend FoLiA with annotations not yet supported.
+
+\subsection{Human readable Descriptions}
+
+Any token annotation element or span annotation element may hold a \texttt{desc} element containing a human readable description for the annotation. An example of this has been already shown for the \texttt{sense} and \texttt{gap} elements.
+
+\subsection{Subsets}
+
+For some annotations, associating a single class from a set is not sufficient. FoLiA provides the option to associate multiple classes, or to associate classes with specific subsets. An example of this was seen in the handling of Part-of-Speech tags with feature information.
+
+Take a look at the following abstract case: \texttt{X} is a fictional token/span annotation. It is associated with two classes. The element \texttt{Y} belongs with \texttt{X}, and is custom to the specific annotation.
+
+\begin{lstlisting}[language=xml]
+<X set="a">
+    <Y class="p">
+    <Y class="q">
+</X>
+\end{lstlisting}
+
+The classes can be made members of a certain subset, rather than the main set. The subsets are assumed to in turn defined by the main set. No special declarations will be necessary.
+
+\begin{lstlisting}[language=xml]
+<X set="a">
+    <Y subset="f" class="p">
+    <Y subset="g" class="q">
+</X>
+\end{lstlisting}
+
+Optionally, \texttt{X} itself can also be associated with a set, as done in the example for part-of-speech tags with features:
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.1.s.1.w.2">
+    <t>boot</t>
+    <pos set="http://ilk.uvt.nl/folia/sets/cgn" class="N">
+        <posfeat subset="ntype" class="soort" />
+        <posfeat subset="number" class="ev" />
+        <posfeat subset="degree" class="basis" />
+        <posfeat subset="gender" class="zijd" />
+        <posfeat subset="case" class="stan" />
+    </pos>
+</w>
+\end{lstlisting}
+
+
 
 
 \section{Metadata}
