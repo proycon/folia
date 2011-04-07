@@ -522,20 +522,9 @@ The following example illustrates a simple Part-of-Speech annotation for the Dut
 </w>
 \end{lstlisting}
 
-Part-of-Speech annotations may also include extra features, which are explicitly listed and are defined by the set, and a particular subset within that set. The use of subset will be further explained in section~\ref{sec:advparadigm}.
 
-\begin{lstlisting}[language=xml]
-<w xml:id="example.p.1.s.1.w.2">
-    <t>boot</t>
-    <pos class="N">
-        <posfeat subset="ntype" class="soort" />
-        <posfeat subset="number" class="ev" />
-        <posfeat subset="degree" class="basis" />
-        <posfeat subset="gender" class="zijd" />
-        <posfeat subset="case" class="stan" />
-    </pos>
-</w>
-\end{lstlisting}
+
+However, for some tagsets simple part-of-speech annotation is not enough; there may for example be features associated with the part of speech tag. We will into this later, in section~\ref{sec:advparadigm}.
 
 Whenever Part-of-Speech annotations are used, they should be declared in the \texttt{annotations} block as follows, the set you use may differ and all attributes are optional. In the declaration example here it is as if the annotations were made by the software \emph{Frog}. Do note the requirement of a \texttt{token-annotation} as well.
 
@@ -1246,7 +1235,7 @@ The support for alternatives and the fact that multiple layers (including those 
 
 
 \section{Advanced Paradigm}
-\label{sec:advparadigm}.
+\label{sec:advparadigm}
 
 We introduced the FoLiA paradigm in section~\ref{sec:paradigm}. Now we will introduce some of the more advanced aspects of the FoLiA paradigm. These are relevant especially if you seek to extend FoLiA with annotations not yet supported.
 
@@ -1256,9 +1245,9 @@ Any token annotation element or span annotation element may hold a \texttt{desc}
 
 \subsection{Subsets}
 
-For some annotations, associating a single class from a set is not sufficient. FoLiA provides the option to associate multiple classes, or to associate classes with specific subsets. An example of this was seen in the handling of Part-of-Speech tags with feature information.
+For some annotations, associating a single class from a set is not sufficient. FoLiA provides the option to associate multiple classes, or to associate classes with specific subsets. 
 
-Take a look at the following abstract case: \texttt{X} is a fictional token/span annotation. It is associated with two classes. The element \texttt{Y} belongs with \texttt{X}, and is custom to the specific annotation.
+Take a look at the following abstract case: \texttt{X} here is a \emph{fictional} token/span annotation. It is associated with two classes. The fictional element \texttt{Y} belongs with \texttt{X}, and is custom to the specific annotation.
 
 \begin{lstlisting}[language=xml]
 <X set="a">
@@ -1276,12 +1265,19 @@ The classes can be made members of a certain subset, rather than the main set. T
 </X>
 \end{lstlisting}
 
-Optionally, \texttt{X} itself can also be associated with a set, as done in the example for part-of-speech tags with features:
+Optionally, \texttt{X} itself can also be associated with a class, the class in this case would have to represent all sub-parts.
+
+\subsection{Part-of-Speech tags with features}
+\label{sec:posfeat}
+
+Part-of-speech tags are a good example of the scenario outlined above. Part-of-speech tags may consist of multiple features, which in turn \emph{may} be associated with specific subsets:
 
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.2">
     <t>boot</t>
-    <pos set="http://ilk.uvt.nl/folia/sets/cgn" class="N">
+    <pos class="N(soort,ev,basis,zijd,stan)">
+        <desc>Noun, singular, neuter</desc>
+        <posfeat subset="head" class="N" />
         <posfeat subset="ntype" class="soort" />
         <posfeat subset="number" class="ev" />
         <posfeat subset="degree" class="basis" />
@@ -1293,8 +1289,8 @@ Optionally, \texttt{X} itself can also be associated with a set, as done in the 
 
 
 
-
 \section{Metadata}
+
 
 
 \begin{devnotes}
