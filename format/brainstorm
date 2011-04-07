@@ -236,7 +236,29 @@ Subsets:
 </alignment>
 
 
-ref
+Phonetic transcription:
+
+<phon set="ipa" class="" />
+
+
+CDA-voorzitter
+
+<subentities>
+    <subentity class="political">
+        <tref>CDA</tref>
+    </subentity>
+    <tref>-voorzitter</tref>
+</subsentities>
+
+<morphology>
+    <morph class="stem">
+        <tref>fiets</tref>
+    </morph>
+    <morph class="ww3pers">
+        <tref>t</tref>
+    </morph>
+</morphology>
+
 
 
 
