@@ -1270,12 +1270,16 @@ Subtoken category combines aspects from both token annotation and span annotatio
     <t>leest</t>
     <lemma class="lezen" />
     <morphology>
-        <mu class="stem">
+        <morpheme>
+            <feat subset="type" class="stem">
+            <feat subset="function" class="lexical">
             <tref offset="0">lees</tref>
-        </mu>
-        <mu class="">
-            <tref offset="0">t</tref>
-        </mu>
+        </morpheme>
+        <morpheme>
+            <feat subset="type" class="affix">
+            <feat subset="function" class="inflexional">
+            <tref offset="4">t</tref>
+        </morpheme>
     </morphology>
 </w>
 \end{lstlisting}
@@ -1366,7 +1370,7 @@ An example of this is seen in the \texttt{sense} element, which takes a \texttt{
 <sense class="p" synset="q" />
 \end{lstlisting}
 
-
+FoLiA implicitly relates the synset attribute here to the ``synset'' subset of whatever set you defined. Note that any such implicit subset relations need to be defined by the FoLiA standard itself, you can't make up such attributes yourself!
 
 \subsection{Part-of-Speech tags with features}
 \label{sec:posfeat}
@@ -1378,9 +1382,8 @@ Option one:
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.2">
     <t>boot</t>
-    <pos class="N(soort,ev,basis,zijd,stan)">
+    <pos head="N" class="N(soort,ev,basis,zijd,stan)">
         <desc>Noun, singular, neuter</desc>
-        <posfeat subset="head" class="N" />
         <posfeat subset="ntype" class="soort" />
         <posfeat subset="number" class="ev" />
         <posfeat subset="degree" class="basis" />
@@ -1389,6 +1392,8 @@ Option one:
     </pos>
 </w>
 \end{lstlisting}
+
+In FoLiA, this attribute \texttt{head} is implicitly associated with the subset ``head'' of whatever set you defined.
 
 Option two:
 
