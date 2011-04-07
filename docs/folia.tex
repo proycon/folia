@@ -303,7 +303,7 @@ The FoLiA format has a very uniform setup and its XML notation for annotation fo
 \item \textbf{Structural annotation} - Annotations marking global structure, such as chapters, sections, subsections, figures, list items, paragraphs, etc...
 \item \textbf{Token annotation} - Annotations pertaining to one specific token. These will be elements of the token element (\texttt{w}) in inline notation. Linguistic annotations in this category are for example: part-of-speech annotation, lemma annotation, sense annotation, morphological analysis, spelling correction. Some token elements may be used on higher levels (e.g. sentence/paragraph) as well and may then be referred to as \textbf{Extended Token Annotation}
 \item \textbf{Span annotation} - Annotations spanning over multiple tokens. Each type of annotation will be in a seperate \textbf{annotation layer} with offset notation. These layers are typically embedded on the sentence level, or possibly also on higher levels (paragraph/division/text) for certain annotation types. Examples in this category are: syntactic parses, chunking, semantic roles and named entities.
-\item \textbg{Subtoken annotation} - This is a type of annotation that has aspects of both token annotation as well as span annotation. The former because is included inline within a token element (\texttt{w}) and describes the token. The latter because is defines a small span \emph{within} the token. Examples in this category are: morphological analysis, named subentities 
+\item \textbf{Subtoken annotation} - This is a type of annotation that has aspects of both token annotation as well as span annotation. The former because is included inline within a token element (\texttt{w}) and describes the token. The latter because is defines a small span \emph{within} the token. Examples in this category are: morphological analysis, named subentities 
 \end{itemize}
 
 Almost all annotations are associated with what we shall call a \textbf{set}. The set determines the vocabulary, the tags or types, of the annotation. An element of such a set is referred to as a \textbf{class} from the FoLiA perspective. For example, we may have a document with Part-of-Speech annotation according to the CGN set (a tagset for Dutch part-of-speech tags). The CGN set defines main tag classes such as \emph{WW}, \emph{BW}, \emph{ADJ}, \emph{VZ}. FoLiA itself thus never commits to any tagset but leaves you to explicitly define this. You can also use multiple tagsets in the same document if so desired, even for the same type of annotation.
@@ -1258,68 +1258,12 @@ The support for alternatives and the fact that multiple layers (including those 
 
 Like token annotations, subannotation layers can be included in \texttt{alt} elements.
 
-\section{Subtoken Annotation}
-
-Subtoken category combines aspects from both token annotation and span annotation. It introduces an annotation layer at the token level, as child of the \texttt{w} element. Within this annotation layer, subtoken annotation elements can be used to annotate parts within the token itself. Whereas span elements use \texttt{wref} to refer to words, subannotation elements use \texttt{tref} to refer to part of the text of the token. All \texttt{Tref} entities carry a mandatory \texttt{offset} attribute identifying offset index in the word's associated text element (\texttt{t}) (zero being right at the start of the text).
-
-\subsection{Morphological Analysis}
-
-
-\begin{lstlisting}[language=xml]
-<w xml:id="example.p.4.s.2.w.4">
-    <t>leest</t>
-    <lemma class="lezen" />
-    <morphology>
-        <morpheme>
-            <feat subset="type" class="stem">
-            <feat subset="function" class="lexical">
-            <tref offset="0">lees</tref>
-        </morpheme>
-        <morpheme>
-            <feat subset="type" class="affix">
-            <feat subset="function" class="inflexional">
-            <tref offset="4">t</tref>
-        </morpheme>
-    </morphology>
-</w>
-\end{lstlisting}
-
-
-\begin{lstlisting}[language=xml]
-<annotations>
-    <morphology-annotation set="http://ilk.uvt.nl/folia/sets/entities" />
-</annotations>
-\end{lstlisting}
-
-\subsection{Named Subentities}
-
-Named entities may sometimes occur as \emph{part} of a token. The \texttt{subentities} annotation layer and the \texttt{subentity} subtoken annotation element can be used for annotating these:  
-
-\begin{lstlisting}[language=xml]
-<w xml:id="example.p.4.s.2.w.4">
-    <t>CDA-voorzitter</t>
-    <subentities>
-        <subentity class="org" annotator="Maarten van Gompel"
-            annotatortype="manual">
-            <tref offset="0">CDA</tref>
-        </subentity>
-    </subentities>
-</w>
-\end{lstlisting}
-
-The declaration:
-
-\begin{lstlisting}[language=xml]
-<annotations>
-    <subentity-annotation set="http://ilk.uvt.nl/folia/sets/entities" />
-</annotations>
-\end{lstlisting}
 
 
 \section{Advanced Paradigm}
 \label{sec:advparadigm}
 
-We introduced the FoLiA paradigm in section~\ref{sec:paradigm}. Now we will introduce some of the more advanced aspects of the FoLiA paradigm. These are relevant especially if you seek to extend FoLiA with annotations not yet supported.
+We introduced the FoLiA paradigm in section~\ref{sec:paradigm}. Now we will introduce some of the more advanced aspects of the FoLiA paradigm. These are relevant especially if you want to submit suggestions for extending the FoLiA format with annotations not yet supported.
 
 \subsection{Human readable Descriptions}
 
@@ -1348,7 +1292,7 @@ The classes can be made members of a certain subset, rather than the main set. S
 </X>
 \end{lstlisting}
 
-Optionally, \texttt{X} itself can also be associated with a class, the class in this case would implicitly or explicitly represent all sub-parts, or be the basis upon which redefinement is made.
+Optionally, \texttt{X} itself might also be associated with a class, the class in this case would implicitly or explicitly represent all sub-parts, or be the basis upon which redefinement is made.
 
 Elements such as the ficticious \texttt{Y} can be implicitly associated with a specific subset.
 
@@ -1410,6 +1354,64 @@ Option two:
     </pos>
 </w>
 \end{lstlisting}
+
+\section{Subtoken Annotation}
+
+Subtoken category combines aspects from both token annotation and span annotation. It introduces an annotation layer at the token level, as child of the \texttt{w} element. Within this annotation layer, subtoken annotation elements can be used to annotate parts within the token itself. Whereas span elements use \texttt{wref} to refer to words, subannotation elements use \texttt{tref} to refer to part of the text of the token. All \texttt{Tref} entities carry a mandatory \texttt{offset} attribute identifying offset index in the word's associated text element (\texttt{t}) (zero being right at the start of the text).
+
+\subsection{Morphological Analysis}
+
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.4.s.2.w.4">
+    <t>leest</t>
+    <lemma class="lezen" />
+    <morphology>
+        <morpheme>
+            <feat subset="type" class="stem">
+            <feat subset="function" class="lexical">
+            <tref offset="0">lees</tref>
+        </morpheme>
+        <morpheme>
+            <feat subset="type" class="suffix">
+            <feat subset="function" class="inflexional">
+            <tref offset="4">t</tref>
+        </morpheme>
+    </morphology>
+</w>
+\end{lstlisting}
+
+
+\begin{lstlisting}[language=xml]
+<annotations>
+    <morphology-annotation set="http://ilk.uvt.nl/folia/sets/entities" />
+</annotations>
+\end{lstlisting}
+
+\subsection{Named Subentities}
+
+Named entities may sometimes occur as \emph{part} of a token. The \texttt{subentities} annotation layer and the \texttt{subentity} subtoken annotation element can be used for annotating these:  
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.4.s.2.w.4">
+    <t>CDA-voorzitter</t>
+    <subentities>
+        <subentity class="org" annotator="Maarten van Gompel"
+            annotatortype="manual">
+            <tref offset="0">CDA</tref>
+        </subentity>
+    </subentities>
+</w>
+\end{lstlisting}
+
+The declaration:
+
+\begin{lstlisting}[language=xml]
+<annotations>
+    <subentity-annotation set="http://ilk.uvt.nl/folia/sets/entities" />
+</annotations>
+\end{lstlisting}
+
 
 \section{Alignments}
 
