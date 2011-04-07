@@ -1,0 +1,6 @@
+0.3:
+	- Introduced 'extended token annotatation' to paradigm
+	- Added support for alignment (and complexalignment)
+	- Support for metadata
+	- Added phonetic annotation
+	- Introduced 'subsets' and changed pos-annotation accordingly
