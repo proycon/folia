@@ -302,7 +302,8 @@ The FoLiA format has a very uniform setup and its XML notation for annotation fo
 \begin{itemize}
 \item \textbf{Structural annotation} - Annotations marking global structure, such as chapters, sections, subsections, figures, list items, paragraphs, etc...
 \item \textbf{Token annotation} - Annotations pertaining to one specific token. These will be elements of the token element (\texttt{w}) in inline notation. Linguistic annotations in this category are for example: part-of-speech annotation, lemma annotation, sense annotation, morphological analysis, spelling correction. Some token elements may be used on higher levels (e.g. sentence/paragraph) as well and may then be referred to as \textbf{Extended Token Annotation}
-\item \textbf{Span annotation} - Annotations spanning over multiple tokens. Each type of annotation will be in a seperate \textbf{annotation layer} with offset notation. These layers are embedded on the sentence level. Examples in this category are: syntactic parses, chunking, semantic roles and named entities.
+\item \textbf{Span annotation} - Annotations spanning over multiple tokens. Each type of annotation will be in a seperate \textbf{annotation layer} with offset notation. These layers are typically embedded on the sentence level, or possibly also on higher levels (paragraph/division/text) for certain annotation types. Examples in this category are: syntactic parses, chunking, semantic roles and named entities.
+\item \textbg{Subtoken annotation} - This is a type of annotation that has aspects of both token annotation as well as span annotation. The former because is included inline within a token element (\texttt{w}) and describes the token. The latter because is defines a small span \emph{within} the token. Examples in this category are: morphological analysis, named subentities 
 \end{itemize}
 
 Almost all annotations are associated with what we shall call a \textbf{set}. The set determines the vocabulary, the tags or types, of the annotation. An element of such a set is referred to as a \textbf{class} from the FoLiA perspective. For example, we may have a document with Part-of-Speech annotation according to the CGN set (a tagset for Dutch part-of-speech tags). The CGN set defines main tag classes such as \emph{WW}, \emph{BW}, \emph{ADJ}, \emph{VZ}. FoLiA itself thus never commits to any tagset but leaves you to explicitly define this. You can also use multiple tagsets in the same document if so desired, even for the same type of annotation.
@@ -1255,6 +1256,61 @@ Below is an example of a sentence that is chunked in two ways:
 
 The support for alternatives and the fact that multiple layers (including those of different types) cannot be nested in a single inline structure, should make clear why FoLiA uses a stand-off notation alongside an inline notation. 
 
+Like token annotations, subannotation layers can be included in \texttt{alt} elements.
+
+\section{Subtoken Annotation}
+
+Subtoken category combines aspects from both token annotation and span annotation. It introduces an annotation layer at the token level, as child of the \texttt{w} element. Within this annotation layer, subtoken annotation elements can be used to annotate parts within the token itself. Whereas span elements use \texttt{wref} to refer to words, subannotation elements use \texttt{tref} to refer to part of the text of the token. All \texttt{Tref} entities carry a mandatory \texttt{offset} attribute identifying offset index in the word's associated text element (\texttt{t}) (zero being right at the start of the text).
+
+\subsection{Morphological Analysis}
+
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.4.s.2.w.4">
+    <t>leest</t>
+    <lemma class="lezen" />
+    <morphology>
+        <mu class="stem">
+            <tref offset="0">lees</tref>
+        </mu>
+        <mu class="">
+            <tref offset="0">t</tref>
+        </mu>
+    </morphology>
+</w>
+\end{lstlisting}
+
+
+\begin{lstlisting}[language=xml]
+<annotations>
+    <morphology-annotation set="http://ilk.uvt.nl/folia/sets/entities" />
+</annotations>
+\end{lstlisting}
+
+\subsection{Named Subentities}
+
+Named entities may sometimes occur as \emph{part} of a token. The \texttt{subentities} annotation layer and the \texttt{subentity} subtoken annotation element can be used for annotating these:  
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.4.s.2.w.4">
+    <t>CDA-voorzitter</t>
+    <subentities>
+        <subentity class="org" annotator="Maarten van Gompel"
+            annotatortype="manual">
+            <tref offset="0">CDA</tref>
+        </subentity>
+    </subentities>
+</w>
+\end{lstlisting}
+
+The declaration:
+
+\begin{lstlisting}[language=xml]
+<annotations>
+    <subentity-annotation set="http://ilk.uvt.nl/folia/sets/entities" />
+</annotations>
+\end{lstlisting}
+
 
 \section{Advanced Paradigm}
 \label{sec:advparadigm}
@@ -1265,11 +1321,12 @@ We introduced the FoLiA paradigm in section~\ref{sec:paradigm}. Now we will intr
 
 Any token annotation element or span annotation element may hold a \texttt{desc} element containing a human readable description for the annotation. An example of this has been already shown for the \texttt{sense} and \texttt{gap} elements.
 
-\subsection{Subsets}
+\subsection{Subsets and multiple classes}
 
 For some annotations, associating a single class from a set is not sufficient. FoLiA provides the option to associate multiple classes, or to associate classes with specific subsets. 
 
-Take a look at the following abstract case: \texttt{X} here is a \emph{fictional} token/span annotation. It is associated with two classes. The fictional element \texttt{Y} belongs with \texttt{X}, and is custom to the specific annotation.
+
+Take a look at the following abstract case: \texttt{X} here is a \emph{fictional} token/span annotation. It is associated with two classes from the same set. The fictional element \texttt{Y} belongs with \texttt{X}, and is custom to the specific annotation.
 
 \begin{lstlisting}[language=xml]
 <X set="a">
@@ -1278,7 +1335,7 @@ Take a look at the following abstract case: \texttt{X} here is a \emph{fictional
 </X>
 \end{lstlisting}
 
-The classes can be made members of a certain subset, rather than the main set. The subsets are assumed to in turn defined by the main set. No special declarations will be necessary.
+The classes can be made members of a certain subset, rather than the main set. Subsets are assumed to in turn defined by the main set. No special declarations will be necessary.
 
 \begin{lstlisting}[language=xml]
 <X set="a">
@@ -1287,12 +1344,36 @@ The classes can be made members of a certain subset, rather than the main set. T
 </X>
 \end{lstlisting}
 
-Optionally, \texttt{X} itself can also be associated with a class, the class in this case would have to represent all sub-parts.
+Optionally, \texttt{X} itself can also be associated with a class, the class in this case would implicitly or explicitly represent all sub-parts, or be the basis upon which redefinement is made.
+
+Elements such as the ficticious \texttt{Y} can be implicitly associated with a specific subset.
+
+\begin{lstlisting}[language=xml]
+<X set="a" class="p">
+    <Y class="q">
+</X>
+\end{lstlisting}
+
+In such cases, if a subset is implied and there can be only one instance, a more common and concise solution would be to add \texttt{Y} as an attribute:
+
+\begin{lstlisting}[language=xml]
+<X set="a" class="p" y="q" />
+\end{lstlisting}
+
+An example of this is seen in the \texttt{sense} element, which takes a \texttt{synset} attribute that is implicitly associated with a subset of synsets.
+
+\begin{lstlisting}[language=xml]
+<sense class="p" synset="q" />
+\end{lstlisting}
+
+
 
 \subsection{Part-of-Speech tags with features}
 \label{sec:posfeat}
 
-Part-of-speech tags are a good example of the scenario outlined above. Part-of-speech tags may consist of multiple features, which in turn \emph{may} be associated with specific subsets:
+Part-of-speech tags are a good example of the scenario outlined above. Part-of-speech tags may consist of multiple features, which in turn \emph{may} be associated with specific subsets. There are two scenarios envisionable, one in which the class of the \texttt{pos} element combines all features, and one in which it is the foundation upon which is expanded. Which one is used is entirely up to the defined set.
+
+Option one:
 
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.2">
@@ -1300,6 +1381,22 @@ Part-of-speech tags are a good example of the scenario outlined above. Part-of-s
     <pos class="N(soort,ev,basis,zijd,stan)">
         <desc>Noun, singular, neuter</desc>
         <posfeat subset="head" class="N" />
+        <posfeat subset="ntype" class="soort" />
+        <posfeat subset="number" class="ev" />
+        <posfeat subset="degree" class="basis" />
+        <posfeat subset="gender" class="zijd" />
+        <posfeat subset="case" class="stan" />
+    </pos>
+</w>
+\end{lstlisting}
+
+Option two:
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.1.s.1.w.2">
+    <t>boot</t>
+    <pos class="N">
+        <desc>Noun, singular, neuter</desc>
         <posfeat subset="ntype" class="soort" />
         <posfeat subset="number" class="ev" />
         <posfeat subset="degree" class="basis" />
