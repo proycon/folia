@@ -227,7 +227,11 @@ Subsets:
 </XXX>
 
 
-<sense class="x" synset="y"></sense>
+<sense class="x">
+    <synset class="y" /oi :>
+</sense>
+
+
 
 
 
@@ -248,7 +252,7 @@ CDA-voorzitter
         <tref>CDA</tref>
     </subentity>
     <tref>-voorzitter</tref>
-</subsentities>
+</subentities>
 
 <morphology>
     <morph class="stem">
@@ -269,10 +273,15 @@ CDA-voorzitter
 SET DEFINITIONS:
 
 
-<FoLiASetDef vocabulary="closed" conceptlink="">
-    <class type="main" xml:id="" conceptlink=""><desc>Human readable description</desc></class>
+<set type="closed" conceptlink="">
+    <class xml:id="" conceptlink="">Human readable description</class>
+    <class xml:id="N" conceptlink="">Human readable description</class>
     
-    
-    <class type="main" xml:id="N" conceptlink=""><desc>Human readable description</desc><classref xml:id="soort" type="feat" /></class>
-    <class type="feat" xml:id="soort" conceptlink=""><desc>Human readable description</desc></class>
-</FoLiASetDef>
+    <subset id="number">
+        <class xml:id="ev" conceptlink="">Enkelvoud</class>
+        <restrict>
+            <constraint class="N" />                
+            <class xml:id="ev" conceptlink="">Human readable description</class>
+        </restrict>
+    </subset>
+</set>
