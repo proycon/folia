@@ -1016,14 +1016,14 @@ Named entities or other multi-word units can be encoded in the \texttt{entities}
   <w xml:id="example.p.1.s.1.w.6"><t>.</t></w>
   <entities>
     <entity xml:id="example.p.1.s.1.entity.1" class="person">
-        <wref xml:id="example.p.1.s.1.w.2" />
-        <wref xml:id="example.p.1.s.1.w.3" />
+        <wref xml:id="example.p.1.s.1.w.2" t="Dalai" />
+        <wref xml:id="example.p.1.s.1.w.3" t="Lama" />
     </entity>
   </entities>
 </s>
 \end{lstlisting}
 
-Note that elements that are not part of any span annotation need never be included in the layer.
+Note that elements that are not part of any span annotation need never be included in the layer. The \texttt{wref} element takes an \emph{optional} \texttt{t} attribute which contains a copy of the text of the word pointed towards. This is to facilitate human readability and prevent the need for resolving words for simple applications in which only the textual content is of interest.
 
 \subsection{Syntax}
 
@@ -1042,20 +1042,20 @@ A very typical form of span annotation is syntax annotation. This is done within
     <su xml:id="example.p.1.s.1.su.1" class="s">     
       <su xml:id="example.p.1.s.1.su.1_1" class="np">
           <su xml:id="example.p.1.s.1.su.1_1_1" class="det">
-             <wref xml:id="example.p.1.s.1.w.1" />       
+             <wref xml:id="example.p.1.s.1.w.1" t="The" />       
           </su>
           <su xml:id="example.p.1.s.1.su.1_1_2" class="pn">
-             <wref xml:id="example.p.1.s.1.w.2" />
-             <wref xml:id="example.p.1.s.1.w.3" />        
+             <wref xml:id="example.p.1.s.1.w.2" t="Dalai" />
+             <wref xml:id="example.p.1.s.1.w.3" t="Lama" />        
           </su>         
        </su>
      </su>
      <su xml:id="example.p.1.s.1.su.1_2" class="vp"> 
         <su xml:id="example.p.1.s.1.su.1_1_1" class="v">
-            <wref xml:id="example.p.1.s.1.w.4" />       
+            <wref xml:id="example.p.1.s.1.w.4" t="greeted" />       
         </su>
         <su xml:id="example.p.1.s.1.su.1_1_2" class="pron">
-          <wref xml:id="example.p.1.s.1.w.5" />       
+          <wref xml:id="example.p.1.s.1.w.5" t="him" />       
         </su>
      </su>    
     </su>
@@ -1108,39 +1108,39 @@ In the below example, we show a Dutch sentence parsed with the Alpino Parser \ci
         <su xml:id="example.p.1.s.1.su.1_1" class="smain">     
             <su xml:id="example.p.1.s.1.su.1_1_1" class="np">     
                 <su xml:id="example.p.1.s.1.su.1_1_1_1" class="top">     
-                    <wref xml:id="example.p.1.s.1.w.1" />       
+                    <wref xml:id="example.p.1.s.1.w.1" t="De" />       
                 </su>
                 <su xml:id="example.p.1.s.1.su.1_1_1_2" class="top">     
-                    <wref xml:id="example.p.1.s.1.w.2" />
+                    <wref xml:id="example.p.1.s.1.w.2" t="man" />
                 </su> 
             </su>
             <su xml:id="example.p.1.s.1.su.1_1_2" class="verb">     
-                <wref xml:id="example.p.1.s.1.w.3" />   
+                <wref xml:id="example.p.1.s.1.w.3" t="begroette" />   
             </su>
             <su xml:id="example.p.1.s.1.su.1_1_3" class="pron">     
-                <wref xml:id="example.p.1.s.1.w.4" />   
+                <wref xml:id="example.p.1.s.1.w.4" t="hem" />   
             </su>
         </su>
         <su xml:id="example.p.1.s.1.su.1_2" class="punct">
-            <wref xml:id="example.p.1.s.1.w.5" />               
+            <wref xml:id="example.p.1.s.1.w.5" t="." />               
         </su> 
     </su>
   </syntax>
   <dependencies>
     <dependency xml:id="example.p.1.s.1.dependency.1" class="det">
         <hd su="example.p.1.s.1.su.1_1_1_2">
-           <wref xml:id="example.p.1.s.1.w.2" />   
+           <wref xml:id="example.p.1.s.1.w.2" t="man" />   
         </hd>
         <dep ref="example.p.1.s.1.su.1_1_1_1">
-            <wref xml:id="example.p.1.s.1.w.1" />   
+            <wref xml:id="example.p.1.s.1.w.1" t="De" />   
         </dep>
     </dependency>
     <dependency xml:id="example.p.1.s.1.dependency.2" class="obj1">
         <hd su="example.p.1.s.1.su.1_1_2">
-            <wref xml:id="example.p.1.s.1.w.3">
+            <wref xml:id="example.p.1.s.1.w.3" t="begroette">
         </hd>
         <dep su="example.p.1.s.1.su.1_1_3">
-            <wref xml:id="example.p.1.s.1.w.4" />   
+            <wref xml:id="example.p.1.s.1.w.4" t="hem" />   
         </dep>
     </dependency>
   </dependencies>
@@ -1173,16 +1173,16 @@ Unlike a full syntactic parse, chunking is not nested. The layer for this type o
   <w xml:id="example.p.1.s.1.w.6"><t>.</t></w>
   <chunking>
     <chunk xml:id="example.p.1.s.1.chunk.1">       
-        <wref xml:id="example.p.1.s.1.w.1" />       
-        <wref xml:id="example.p.1.s.1.w.2" />       
-        <wref xml:id="example.p.1.s.1.w.3" />        
+        <wref xml:id="example.p.1.s.1.w.1" t="The" />       
+        <wref xml:id="example.p.1.s.1.w.2" t="Dalai" />       
+        <wref xml:id="example.p.1.s.1.w.3" t="Lama" />        
     </chunk>
     <chunk xml:id="example.p.1.s.1.chunk.2">       
-        <wref xml:id="example.p.1.s.1.w.4" />
+        <wref xml:id="example.p.1.s.1.w.4" t="greeted" />
     </chunk>
     <chunk xml:id="example.p.1.s.1.chunk.3">       
-        <wref xml:id="example.p.1.s.1.w.5" />
-        <wref xml:id="example.p.1.s.1.w.6" />
+        <wref xml:id="example.p.1.s.1.w.5" t="him" />
+        <wref xml:id="example.p.1.s.1.w.6" t="." />
     </chunk>    
   </chunking>
 </s>
@@ -1224,32 +1224,32 @@ Below is an example of a sentence that is chunked in two ways:
   <w xml:id="example.p.1.s.1.w.6"><t>.</t></w>
   <chunking>
     <chunk xml:id="example.p.1.s.1.chunk.1">       
-        <wref xml:id="example.p.1.s.1.w.1" />       
-        <wref xml:id="example.p.1.s.1.w.2" />       
-        <wref xml:id="example.p.1.s.1.w.3" />        
+        <wref xml:id="example.p.1.s.1.w.1" t="The" />       
+        <wref xml:id="example.p.1.s.1.w.2" t="Dalai" />       
+        <wref xml:id="example.p.1.s.1.w.3" t="Lama" />        
     </chunk>
     <chunk xml:id="example.p.1.s.1.chunk.2">       
-        <wref xml:id="example.p.1.s.1.w.4" />
+        <wref xml:id="example.p.1.s.1.w.4" t="greeted" />
     </chunk>
     <chunk xml:id="example.p.1.s.1.chunk.3">       
-        <wref xml:id="example.p.1.s.1.w.5" />
-        <wref xml:id="example.p.1.s.1.w.6" />
+        <wref xml:id="example.p.1.s.1.w.5" t="him" />
+        <wref xml:id="example.p.1.s.1.w.6" t="." />
     </chunk>    
   </chunking>
   <altlayers xml:id="example.p.1.s.1.alt.1">
        <chunking annotator="John Doe" 
         annotatortype="manual" confidence="0.0001">
         <chunk xml:id="example.p.1.s.1.alt.1.chunk.1">       
-            <wref xml:id="example.p.1.s.1.w.1" />       
-            <wref xml:id="example.p.1.s.1.w.2" />                       
+            <wref xml:id="example.p.1.s.1.w.1" t="The" />       
+            <wref xml:id="example.p.1.s.1.w.2" t="Dalai" />                       
         </chunk>
         <chunk xml:id="example.p.1.s.1.alt.1.chunk.2">       
-            <wref xml:id="example.p.1.s.1.w.3" />  
-            <wref xml:id="example.p.1.s.1.w.4" />
+            <wref xml:id="example.p.1.s.1.w.2" t="Lama" />                       
+            <wref xml:id="example.p.1.s.1.w.4" t="greeted" />
         </chunk>
         <chunk xml:id="example.p.1.s.1.alt.1.chunk.3">       
-            <wref xml:id="example.p.1.s.1.w.5" />
-            <wref xml:id="example.p.1.s.1.w.6" />
+            <wref xml:id="example.p.1.s.1.w.5" t="him" />
+            <wref xml:id="example.p.1.s.1.w.6" t="." />
         </chunk>    
       </chunking>   
   </altlayers>
@@ -1257,8 +1257,6 @@ Below is an example of a sentence that is chunked in two ways:
 \end{lstlisting}
 
 The support for alternatives and the fact that multiple layers (including those of different types) cannot be nested in a single inline structure, should make clear why FoLiA uses a stand-off notation alongside an inline notation. 
-
-Like token annotations, subannotation layers can be included in \texttt{alt} elements.
 
 
 
@@ -1421,26 +1419,29 @@ The declaration:
 
 FoLiA provides a facility to align parts of your document with other parts of your document, or even with parts of other FoLiA documents. These are called \emph{alignments} and are implemented using either the \texttt{alignment} element, a form of extended token annotation (that may thus also be applied on other levels such as sentences or paragraphs), or \texttt{complexalignment}, a form of span annotation for more complex word alignments.
 
-Consider the following two aligned sentences from two \emph{distinct} FoLiA documents in different languages:
+Consider the following two aligned sentences from two \emph{distinct} FoLiA documents in different languages. Note that the \texttt{t} attribute to the \texttt{aref} element is merely optional and is this overhead is added merely to facilitate the job of simple/limited FoLiA parsers.
 
 \begin{lstlisting}[language=xml]
 <s xml:id="example-english.p.1.s.1">
   <t>The Dalai Lama greeted him.</t>
   <alignment class="french-translation" target="doc-french.xml">
-        <ref xml:id="doc-french.p.1.s.1.w.1" />
+        <aref xml:id="doc-french.p.1.s.1" t="Le Dalai Lama le saluait." />
   </alignment>
 </s>
 
 <s xml:id="example-french.p.1.s.1">
   <t>Le Dalai Lama le saluait.</t>
   <alignment class="english-translation" target="doc-english.xml">
-        <aref xml:id="doc-english.p.1.s.1.w.1" />
+        <aref xml:id="doc-english.p.1.s.1" t="The Dalai Lama greeted him." />
+  </alignment>
+  <alignment class="english-translation" target="doc-dutch.xml">
+        <aref xml:id="doc-dutch.p.1.s.1" t="De Dalai Lama begroette hem." />
   </alignment>
 </s>
 \end{lstlisting}
 
 
-Although the above example has a single alignment reference (\texttt{aref}), it is not forbidden to link to specify multiple references within the \texttt{alignment} block. For more complex alignments however, such as word alignment that including many-to-one, one-to-many or many-to-many alignments, the span annotation element \texttt{complexalignment} may be more suitable. The following example illustrates a many-to-many word-alignment of the word ``Dalai Lama'' from English to French. This takes places within the \texttt{complexalignments} annotation layer.
+Although the above example has a single alignment reference (\texttt{aref}), it is not forbidden to link to specify multiple references within the \texttt{alignment} block. For more complex alignments however, such as word alignments that include many-to-one, one-to-many or many-to-many alignments, the span annotation element \texttt{complexalignment} may be more suitable. The following example illustrates a many-to-many word-alignment of the word ``Dalai Lama'' from English to French. This takes places within the \texttt{complexalignments} annotation layer.
 
 \begin{lstlisting}[language=xml]
 <s xml:id="example-english.p.1.s.1">
@@ -1454,10 +1455,10 @@ Although the above example has a single alignment reference (\texttt{aref}), it 
   <complexalignments>
         ...
         <complexalignment class="french-translation" target="doc-french.xml">
-            <wref xml:id="example-english.p.1.s.1.w.2">
-            <wref xml:id="example-english.p.1.s.1.w.3">
-            <aref xml:id="example-french.p.1.s.1.w.2">
-            <aref xml:id="example-french.p.1.s.1.w.3">
+            <wref xml:id="example-english.p.1.s.1.w.2" t="Dalai">
+            <wref xml:id="example-english.p.1.s.1.w.3" t="Lama">
+            <aref xml:id="example-french.p.1.s.1.w.2" t="Dalai">
+            <aref xml:id="example-french.p.1.s.1.w.3" t="Lama">
         </complexalignment>
         ...
   </complexalignments>
