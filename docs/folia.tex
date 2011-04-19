@@ -144,6 +144,7 @@ Identifiers are very important and used throughout the FoLiA format. They enable
 
 
 \section{Basic Structural Elements}
+\label{sec:basics}
 
 Basic structural elements occur within the \texttt{text} element. These are the most basic ones:
 
@@ -213,7 +214,7 @@ FoLiA is not just a format for holding tokenised text, although tokenisation is 
  </p>
 \end{lstlisting}
 
-Higher level elements \emph{may} also contain a text element even when the deeper element does too. It is important to realise that the sentence/paragraph-level text element always contains the text \emph{prior} to tokenisation! Note also that the word element has an attribute \texttt{space}, which defaults to yes, and indicates whether the word was followed  by a space in the \emph{untokenised} original. This allows for partial reconstructibility of the sentence in its untokenised form. Reconstructing sentences is generally preferred to grabbing them from the text element at the paragraph or sentence level, as there may be corrections on the token level.
+Higher level elements \emph{may} also contain a text element even when the deeper element does too. It is very important to realise that the sentence/paragraph-level text element \emph{always} contains the text \emph{prior} to tokenisation! Note also that the word element has an attribute \texttt{space}, which defaults to yes, and indicates whether the word was followed by a space in the \emph{untokenised} original. This allows for partial reconstructibility of the sentence in its untokenised form. See section~\label{sec:textcontent} for a more elaborate overview of this subject.
 
 The following example shows the maximum amount of redundancy, with text elements at every level.
 
@@ -250,12 +251,30 @@ The following example shows the maximum amount of redundancy, with text elements
  </p>
 \end{lstlisting}
 
+It this kind of redundancy is used (it is not mandatory),you may optionally point back to the text content of its parent by specifying the \texttt{offset} attribute:
+
+\begin{lstlisting}[language=xml]
+ <p xml:id="example.p.1">
+    <t>This is a paragraph containing only one sentence.</t>
+    <s xml:id="example.p.1.s.1">        
+        <t offset="0">This is a paragraph containing only one sentence.</t>
+        <w xml:id="example.p.1.s.1.w.1"><t offset="0">This</t></w>
+        <w xml:id="example.p.1.s.1.w.2"><t offset="5">is</t></w>
+        ...
+        <w xml:id="example.p.1.s.1.w.8" space="no"><t offset="40">sentence</t></w>
+        <w xml:id="example.p.1.s.1.w.9"><t offset="48">.</t></w>
+    </s>
+ </p>
+\end{lstlisting}
+
+It gets somewhat more complicated if corrections are involved, consult section~\label{sec:textcontent} for a more in-depth discussion.
+
 The paragraph elements may be omitted if a document is described that does not distinguish paragraphs but only sentences. The identifiers of course change accordingly then. Sentences however should never be omitted; documents can never consist of tokens only!
 
 The content element \texttt{head} is reserved for headers and captions, it behaves similarly to the paragraph element and may hold sentences.
 
 
-FoLiA also explicitly support quotes, as demonstrated in the next example, which annotates the following sentence: 
+FoLiA also explicitly supports quotes, as demonstrated in the next example, which annotates the following sentence: 
 
 \begin{verbatim}
 He said: ``I do not know . I think you are right. ", and left.
@@ -926,6 +945,7 @@ For insertions, the \texttt{original} element is empty.
 
 
 \subsubsection{Correction prior to tokenisation} 
+\label{sec:pretokcorrection}
 
 There is another special use of the correction element. Sometimes corrections or normalisations occur prior to tokenisation, think for example about correcting OCR-errors. To accommodate this, the \texttt{correction} element can be used inline within the text content element (\texttt{t}) of a paragraph or sentence, which is by definition untokenised.
 
@@ -941,7 +961,7 @@ With correction:
 
 \begin{lstlisting}[language=xml]
 <s xml:id="example.p.1.s.1">
-    <t corrections="yes">Look at <correction xml:id="example.p.1.s.1.c.1"
+    <t corrected="inline">Look at <correction xml:id="example.p.1.s.1.c.1"
      class="ocrcorrection">
      <new>
         <t>this</t>
@@ -955,13 +975,7 @@ With correction:
 
 Although correction is used inline here, rather than as a normal token annotation, its usage is still identical. For clarity's sake, the class of course depends on the set and is as always never predefined in FoLiA itself.
 
-Note that the text element gains an extra mandatory attribute, \texttt{correction} with value \emph{yes} (default if unspecified is no), which signals that there are inline corrections \emph{within} the text element. This is to make the job of parsers easier.
-
-\subsection{Morphological Analysis}
-
-\begin{devnotes}
-Still to be done.. The \texttt{morphemes} and \texttt{morpheme} elements will be reserved for this.
-\end{devnotes}
+Note that the text element gains an extra mandatory attribute, \texttt{corrected} with value \emph{inline}, which signals that there are inline corrections \emph{within} the text element. Please see section~\label{sec:textcontent} for a more elaborate discussion on this.
 
 
 \section{Alternative Token Annotations}
@@ -1269,6 +1283,70 @@ We introduced the FoLiA paradigm in section~\ref{sec:paradigm}. Now we will intr
 
 Any token annotation element or span annotation element may hold a \texttt{desc} element containing a human readable description for the annotation. An example of this has been already shown for the \texttt{sense} and \texttt{gap} elements.
 
+\subsection{Text content}
+\label{sec:textcontent}
+
+In section~\ref{sec:basics} we have seen the text content element \texttt{t} used on different levels, and the \texttt{offset} attribute to explicitly link the text between child and parent. As demonstrated between three levels in the following example:
+
+\begin{lstlisting}[language=xml]
+ <p xml:id="example.p.1">
+    <t>Hello. This is a sentence. Bye!</t>
+    <s xml:id="example.p.1.s.1">        
+        <t offset="7">This is a sentence.</t>    
+        <w xml:id="example.p.1.s.1.w.1"><t offset="0">This</t></w>
+        <w xml:id="example.p.1.s.1.w.2"><t offset="5">is</t></w>
+        <w xml:id="example.p.1.s.1.w.3"><t offset="8">a</t></w>
+        <w xml:id="example.p.1.s.1.w.4" space="no"><t offset="10" >sentence</t></w>
+        <w xml:id="example.p.1.s.1.w.5"><t offset="18">.</t></w>
+    </s>
+ </p>
+\end{lstlisting}
+
+We have seen also the space attribute, which is a simpler alternative that can be used to reconstruct the untokenised text if it is not explicitly provided. Allowed values for \texttt{space} are:
+
+\begin{itemize}
+\item ``\texttt{yes}'' or ``\texttt{ }'' (a space) -- This is the default and says that the token is followed by a single space.
+\item ``\texttt{no}'' or ``\texttt{}'' (empty) -- This states that the token is not followed by a space.
+\item any other character or string -- This states that the token is followed by another character or string that acts as a token seperator.
+\end{itemize}
+
+When explicit text content on sentence/paragraph level is provided, offsets can be used. This does imply that there are some challenges to solve. First of all, by default, the offset refers to the direct parent of whatever element the text content (\texttt{t}) is a member of. If a level is missing we have to explicitly specify this reference using the \texttt{ref} attribute. Note that there is no text content for the sentence in the following example, and we refer directly to the paragraph's text.
+
+\begin{lstlisting}[language=xml]
+ <p xml:id="example.p.1">
+    <t>Hello. This is a sentence. Bye!</t>
+    <s xml:id="example.p.1.s.1">        
+        <w xml:id="example.p.1.s.1.w.1"><t ref="example.p.1" offset="7">This</t></w>
+        <w xml:id="example.p.1.s.1.w.2"><t ref="example.p.1" offset="12">is</t></w>
+        <w xml:id="example.p.1.s.1.w.3"><t ref="example.p.1" offset="15">a</t></w>
+        <w xml:id="example.p.1.s.1.w.4" space="no"><t ref="example.p.1" offset="17" >sentence</t></w>
+        <w xml:id="example.p.1.s.1.w.5"><t ref="example.p.1" offset="25">.</t></w>
+    </s>
+ </p>
+\end{lstlisting}
+
+Another challenge is corrections, as they often change the text. The text content element (\texttt{t}) may be used with the \texttt{corrected} attribute set to ``yes'' to state the text \emph{after correction}, in \emph{untokenised} form! As this may changes offsets, the \texttt{newoffset} attribute is used to refer to the offsets in this new corrected text.
+
+\begin{lstlisting}[language=xml]
+ <p xml:id="example.p.1">
+    <t>Hello. This is a sentence. Bye!</t>
+    <t corrected="yes">Hello. This was a sentence. Bye!</t> 
+    <s xml:id="example.p.1.s.1">        
+        <t offset="7">This was a sentence.</t>
+        <t corrected="yes" offset="7" newoffset="7">This was a sentence.</t>        
+        <w xml:id="example.p.1.s.1.w.1"><t offset="0" newoffset="0">This</t></w>
+        <w xml:id="example.p.1.s.1.w.2"><t offset="5" length="2" newoffset="5">was</t><correction>...</correction></w>
+        <w xml:id="example.p.1.s.1.w.3"><t offset="8" newoffset="9">a</t></w>
+        <w xml:id="example.p.1.s.1.w.4" space="no"><t offset="10" newoffset="11">sentence</t></w>
+        <w xml:id="example.p.1.s.1.w.5"><t offset="48">.</t></w>
+    </s>
+ </p>
+\end{lstlisting}
+
+    
+Order matters here, so parsers can always grab the last (\texttt{t}) element to have the most edited version, and the first to have the version closest to the original. The attribute \texttt{newoffset} always refers to the newest text content, whilst \texttt{offset} refers to the most original text content. The \texttt{length} attribute is used to specify the length of the original text prior to correction, as this can no longer be derived automatically, in all other cases it can be omitted.
+
+
 \subsection{Subsets and multiple classes}
 
 For some annotations, associating a single class from a set is not sufficient. FoLiA provides the option to associate multiple classes, or to associate classes with specific subsets. 
@@ -1357,6 +1435,7 @@ Option two:
 </w>
 \end{lstlisting}
 
+
 \section{Subtoken Annotation}
 
 Subtoken category combines aspects from both token annotation and span annotation. It introduces an annotation layer at the token level, as child of the \texttt{w} element. Within this annotation layer, subtoken annotation elements can be used to annotate parts within the token itself. Whereas span elements use \texttt{wref} to refer to words, subannotation elements use \texttt{tref} to refer to part of the text of the token. All \texttt{Tref} entities carry a mandatory \texttt{offset} attribute identifying offset index in the word's associated text element (\texttt{t}) (zero being right at the start of the text).
@@ -1390,7 +1469,7 @@ Subtoken category combines aspects from both token annotation and span annotatio
 </annotations>
 \end{lstlisting}
 
-\subsection{Named Subentities}
+\subsection{Named Entities within a token}
 
 Named entities may sometimes occur as \emph{part} of a token. The \texttt{subentities} annotation layer and the \texttt{subentity} subtoken annotation element can be used for annotating these:  
 
