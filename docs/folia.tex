@@ -1316,11 +1316,21 @@ When explicit text content on sentence/paragraph level is provided, offsets can 
  <p xml:id="example.p.1">
     <t>Hello. This is a sentence. Bye!</t>
     <s xml:id="example.p.1.s.1">        
-        <w xml:id="example.p.1.s.1.w.1"><t ref="example.p.1" offset="7">This</t></w>
-        <w xml:id="example.p.1.s.1.w.2"><t ref="example.p.1" offset="12">is</t></w>
-        <w xml:id="example.p.1.s.1.w.3"><t ref="example.p.1" offset="15">a</t></w>
-        <w xml:id="example.p.1.s.1.w.4" space="no"><t ref="example.p.1" offset="17">sentence</t></w>
-        <w xml:id="example.p.1.s.1.w.5"><t ref="example.p.1" offset="25">.</t></w>
+        <w xml:id="example.p.1.s.1.w.1">
+         <t ref="example.p.1" offset="7">This</t>
+        </w>
+        <w xml:id="example.p.1.s.1.w.2">
+         <t ref="example.p.1" offset="12">is</t>
+        </w>
+        <w xml:id="example.p.1.s.1.w.3">
+         <t ref="example.p.1" offset="15">a</t>
+        </w>
+        <w xml:id="example.p.1.s.1.w.4" space="no">
+         <t ref="example.p.1" offset="17">sentence</t>
+        </w>
+        <w xml:id="example.p.1.s.1.w.5">
+         <t ref="example.p.1" offset="25">.</t>
+        </w>
     </s>
  </p>
 \end{lstlisting}
@@ -1333,12 +1343,25 @@ Another challenge is corrections, as they often change the text and we want this
     <t corrected="yes">Hello. This was a sentence. Bye!</t> 
     <s xml:id="example.p.1.s.1">        
         <t offset="7">This is a sentence.</t>
-        <t corrected="yes" offset="7" newoffset="7">This was a sentence.</t>        
-        <w xml:id="example.p.1.s.1.w.1"><t offset="0" newoffset="0">This</t></w>
-        <w xml:id="example.p.1.s.1.w.2"><t offset="5" length="2" newoffset="5">was</t><correction>...</correction></w>
-        <w xml:id="example.p.1.s.1.w.3"><t offset="8" newoffset="9">a</t></w>
-        <w xml:id="example.p.1.s.1.w.4" space="no"><t offset="10" newoffset="11">sentence</t></w>
-        <w xml:id="example.p.1.s.1.w.5"><t offset="48">.</t></w>
+        <t corrected="yes" offset="7" length="19" newoffset="7">
+        This was a sentence.
+        </t>        
+        <w xml:id="example.p.1.s.1.w.1">
+         <t offset="0" newoffset="0">This</t>
+        </w>
+        <w xml:id="example.p.1.s.1.w.2">
+         <t offset="5" length="2" newoffset="5">was</t>
+         <correction>...</correction>
+        </w>
+        <w xml:id="example.p.1.s.1.w.3">
+         <t offset="8" newoffset="9">a</t>
+        </w>
+        <w xml:id="example.p.1.s.1.w.4" space="no">
+         <t offset="10" newoffset="11">sentence</t>
+        </w>
+        <w xml:id="example.p.1.s.1.w.5">
+         <t offset="48">.</t>
+        </w>
     </s>
  </p>
 \end{lstlisting}
