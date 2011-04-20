@@ -1283,7 +1283,7 @@ We introduced the FoLiA paradigm in section~\ref{sec:paradigm}. Now we will intr
 
 Any token annotation element or span annotation element may hold a \texttt{desc} element containing a human readable description for the annotation. An example of this has been already shown for the \texttt{sense} and \texttt{gap} elements.
 
-\subsection{Text content}
+\subsection{Text content and pre-tokenised text}
 \label{sec:textcontent}
 
 In section~\ref{sec:basics} we have seen the text content element \texttt{t} used on different levels, and the \texttt{offset} attribute to explicitly link the text between child and parent. This is demonstrated on three levels in the following example:
@@ -1310,7 +1310,7 @@ Moreover, we have seen the space attribute, which is a simple alternative that c
 \item any other character or string -- This states that the token is followed by another character or string that acts as a token seperator.
 \end{itemize}
 
-When explicit text content on sentence/paragraph level is provided, offsets can be used. This does imply that there are some challenges to solve. First of all, by default, the offset refers to the direct parent of whatever element the text content (\texttt{t}) is a member of. If a level is missing we have to explicitly specify this reference using the \texttt{ref} attribute. Note that there is no text content for the sentence in the following example, and we refer directly to the paragraph's text.
+When explicit text content on sentence/paragraph level is provided, offsets can be used. This does imply that there are some challenges to solve. First of all, by default, the offset refers to the direct parent of whatever element the text content (\texttt{t}) is a member of. If a level is missing we have to explicitly specify this reference using the \texttt{ref} attribute. Note that there is no text content for the sentence in the following example, and we refer directly to the paragraph's text:
 
 \begin{lstlisting}[language=xml]
  <p xml:id="example.p.1">
@@ -1325,14 +1325,14 @@ When explicit text content on sentence/paragraph level is provided, offsets can 
  </p>
 \end{lstlisting}
 
-Another challenge is corrections, as they often change the text and we want this to reflect back on the untokenised text. The text content element (\texttt{t}) may be used with the \texttt{corrected} attribute set to ``yes'' to state the text \emph{after correction}, in \emph{untokenised} form! As this may changes offsets, the \texttt{newoffset} attribute is used to refer to the offsets in this new corrected text. This text content element does not replace the already existing one, so there can be two with different roles:
+Another challenge is corrections, as they often change the text and we want this to reflect back on the untokenised text. The text content element (\texttt{t}) may be used with the \texttt{corrected} attribute set to ``yes'' to state the text \emph{after correction}, in \emph{untokenised} form! As this may changes offsets, the \texttt{newoffset} attribute is used to refer to the offsets in this new corrected text. This text content element does not replace the already existing one, there can be \emph{one} of each type\footnotesize{Additionally, there can be one where \texttt{corrected} is set to ``inline''}:
 
 \begin{lstlisting}[language=xml]
  <p xml:id="example.p.1">
     <t>Hello. This is a sentence. Bye!</t>
     <t corrected="yes">Hello. This was a sentence. Bye!</t> 
     <s xml:id="example.p.1.s.1">        
-        <t offset="7">This was a sentence.</t>
+        <t offset="7">This is a sentence.</t>
         <t corrected="yes" offset="7" newoffset="7">This was a sentence.</t>        
         <w xml:id="example.p.1.s.1.w.1"><t offset="0" newoffset="0">This</t></w>
         <w xml:id="example.p.1.s.1.w.2"><t offset="5" length="2" newoffset="5">was</t><correction>...</correction></w>
@@ -1344,10 +1344,12 @@ Another challenge is corrections, as they often change the text and we want this
 \end{lstlisting}
 
     
-Order matters here, so parsers can always grab the last (\texttt{t}) element to have the most edited version, and the first to have the version closest to the original. The attribute \texttt{newoffset} always refers to the newest text content, whilst \texttt{offset} refers to the most original text content. The \texttt{length} attribute is used to specify the length of the original text prior to correction, as this can no longer be derived automatically, in all other cases it can be omitted.
 
-For text content (\texttt{t}) in word elements (\texttt{w}) ; these are \emph{by definition} always tokenised \emph{and} corrected.
+Order matters here, so parsers can always grab the last (\texttt{t}) element to have the most edited version, and the first to have the version closest to the original. The attribute \texttt{newoffset} always refers to the newest text content, whilst \texttt{offset} refers to the most original text content. The \texttt{length} attribute is used to specify the length of the original text prior to correction, as this can no longer be derived automatically, in all other cases it can be omitted as it can be derived from the textual content itself.
 
+Text content (\texttt{t}) in word elements (\texttt{w}) are \emph{by definition} a single token \emph{and} corrected.  Text content (\texttt{t}) on a sentence/paragraph/division level is by definition always untokenised, and can be in a state prior to correction, with inline corrections or post-correction. Multiple \texttt{t} elements are allowed only if their value for \texttt{corrected} differs.
+
+Last, but not least; all offset and length attributes are measured in unicode code-points, the first character having index zero. Take special care with combining diacritical marks versus codepoints that directly integrate the diacritical mark.
 
 \subsection{Subsets and multiple classes}
 
