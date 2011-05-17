@@ -323,7 +323,7 @@ The FoLiA format has a very uniform setup and its XML notation for annotation fo
 \begin{itemize}
 \item \textbf{Structural annotation} - Annotations marking global structure, such as chapters, sections, subsections, figures, list items, paragraphs, etc...
 \item \textbf{Token annotation} - Annotations pertaining to one specific token. These will be elements of the token element (\texttt{w}) in inline notation. Linguistic annotations in this category are for example: part-of-speech annotation, lemma annotation, sense annotation, morphological analysis, spelling correction. Some token elements may be used on higher levels (e.g. sentence/paragraph) as well and may then be referred to as \textbf{Extended Token Annotation}
-\item \textbf{Span annotation} - Annotations spanning over multiple tokens. Each type of annotation will be in a seperate \textbf{annotation layer} with offset notation. These layers are typically embedded on the sentence level, or possibly also on higher levels (paragraph/division/text) for certain annotation types. Examples in this category are: syntactic parses, chunking, semantic roles and named entities.
+\item \textbf{Span annotation} - Annotations spanning over multiple tokens. Each type of annotation will be in a separate \textbf{annotation layer} with offset notation. These layers are typically embedded on the sentence level, or possibly also on higher levels (paragraph/division/text) for certain annotation types. Examples in this category are: syntactic parses, chunking, semantic roles and named entities.
 \item \textbf{Subtoken annotation} - This is a type of annotation that has aspects of both token annotation as well as span annotation. The former because is included inline within a token element (\texttt{w}) and describes the token. The latter because is defines a small span \emph{within} the token. Examples in this category are: morphological analysis, named subentities 
 \end{itemize}
 
@@ -671,9 +671,9 @@ Corrections, including but not limited to spelling corrections, can be annotated
 </w>
 \end{lstlisting}
 
-The class indicates the kind of correction, according to the set used. The \texttt{new} elements holds the actual content of the correction. The \texttt{original} element holds the content prior to correction. Note that all corrections must carry an identifier, consisting of the ID of the token with a \emph{c}, a period and a sequence number appended. In this example, what we are correcting is the actual textual content, the text element (\texttt{t}).
+The class indicates the kind of correction, according to the set used. The \texttt{new} elements holds the actual content of the correction. The \texttt{original} element holds the content prior to correction. Note that all corrections must carry a unique identifier. In this example, what we are correcting is the actual textual content, the text element (\texttt{t}).
 
-Whilst it may seem redundant to specify the corrected token content both under the word element (\texttt{w}), and the \texttt{new} element, and to list the original so verbosely rather than in a mere attribute, there is a good reason for this: corrections can be nested and we want to retain a full back-log. The following example illustrates the word `treee` that has been first mis-corrected to ``three'' and subsequently corrected again to ``tree'':
+Whilst it may seem redundant to specify the corrected token content both under the word element (\texttt{w}), and the \texttt{new} element, and to list the original so verbosely rather than in a mere attribute, there is a good reason for this: corrections can be nested and we want to retain a full back-log. The following example illustrates the word ``treee'' that has been first mis-corrected to ``three'' and subsequently corrected again to ``tree'':
 
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.1">
@@ -698,8 +698,7 @@ Whilst it may seem redundant to specify the corrected token content both under t
 </w>
 \end{lstlisting}
 
-In the examples above what we corrected was the actual textual content (\texttt{t}). It is however also possible to correct other annotations:
-The next example corrects a part-of-speech tag; in such cases, there is no \texttt{t} element in the correction, but simply another token annotation element, or group thereof.
+In the examples above what we corrected was the actual textual content (\texttt{t}). It is however also possible to correct other annotations: The next example corrects a part-of-speech tag; in such cases, there is no \texttt{t} element in the correction, but simply another token annotation element, or group thereof.
 
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.1">
@@ -719,7 +718,7 @@ The next example corrects a part-of-speech tag; in such cases, there is no \text
 
 Again, there is a small level of necessary redundancy; the corrected element is within the \texttt{correction/new} element as well as the \texttt{w} element. Furthermore, if these two \texttt{pos} elements would differ, the FoLiA notation would be invalid.
 
-\subsubsection{Error detection} 
+\subsubsection{Error detection and correction with suggestions} 
 
 The correction of an error implies the detection of an error. In some cases, detection comes without correction, for instance when the generation of correction suggestions is postponed to a later processing stage. The \texttt{errordetection} element is a very simple element that serves this purpose. It signals the existance of errors, or absence thereof:
 
@@ -730,7 +729,6 @@ The correction of an error implies the detection of an error. In some cases, det
 </w>    
 \end{lstlisting}
 
-
 The \texttt{error} attribute is set to ``yes'' (which is the default value), and thus marks this as an error of class ``spelling''. We can also imagine it specifically marking something as \emph{not} being an error (in which case class is always redundant), for example due to the occurence of the word according to a lexicon:
 
 \begin{lstlisting}[language=xml]
@@ -740,7 +738,54 @@ The \texttt{error} attribute is set to ``yes'' (which is the default value), and
 </w>    
 \end{lstlisting}
 
-Once a correction is made \emph{on the basis of} one or more kinds of error detection, the \texttt{correction} element directly embeds the \texttt{errordetection} element:
+This kind of error detection is very simple and does not provide actual correction nor suggestions for correction. In some cases, it is desirable to record suggestions for correction, but without making the actual correction.
+
+The correction tag can also be used in such situations in which you want to list suggestions for correction, but not yet commit to any single one. You may for example want to postponed this actual selection to another module or human annotator. Recall that the actual correction is always included in the ``new'' tag, non-comitting suggestions are included in the ``suggestion'' tag. All suggestions may take an ID and may specify an annotator, if no annotator is specified it will be inherited from the \texttt{correction} element itself. Suggestions never take sets or classes by themselves, the class and set pertain to the correction as a whole, and apply to all suggestions within. This implies that you will need multiple correction elements if you want to make suggestions of very distinct types. The following example shows two suggestions for correction:
+ 
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.1.s.1.w.1">
+    <t>treee</t>
+    <correction xml:id="example.p.1.s.1.w.1.c.1"
+       class="spelling" annotator="errorlistX">
+        <suggestion confidence="0.8">
+            <t>tree</t>
+        </suggestion>
+        <suggestion confidence="0.2">
+            <t>three</t>
+        </suggestion>
+    </correction>
+</w>    
+\end{lstlisting}
+
+In the situation above we have a possible correction with two suggestions, none of which has been selected yet. The actual text remains unmodified so there are no \texttt{new} or \texttt{original} tags.
+
+When an actual correction is made, the correction element changes. It may still retain the list of suggestions. In the following example, a human annotator named John Doe took one of the suggestions and made the actual correction:
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.1.s.1.w.1">
+    <t>tree</t>
+    <correction xml:id="example.p.1.s.1.w.1.c.1"
+       class="spelling" annotator="John Doe"
+        annotatortype="human">
+        <new>
+            <t>tree</t>
+        </new>
+        <suggestion annotator="errorlistX" 
+          annotatortype="auto" confidence="0.8">
+            <t>tree</t>
+        </suggestion>
+        <suggestion annotator="errorlistX" 
+          annotatortype="auto" confidence="0.2">
+            <t>three</t>
+        </suggestion>
+        <original>
+            <t>treee</t>
+        </original>
+    </correction>
+</w>    
+\end{lstlisting}
+
+Something similar may happen when a correction is made \emph{on the basis of} one or more kinds of error detection, the \texttt{correction} element directly embeds the \texttt{errordetection} element:
 
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.1">
@@ -754,34 +799,12 @@ Once a correction is made \emph{on the basis of} one or more kinds of error dete
         </original>
         <errordetection class="spelling" annotator="errorlist" annotatortype="auto" error="yes" />
     </correction>
-    <alt xml:id="example.p.1.s.1.w.1.alt.1">
-      <correction class="spelling" annotator="errorlist" confidence="0.4">
-        <new>
-            <t>three</t>
-        </new>
-        <original>
-            <t>treee</t>
-        </original>
-        <errordetection class="spelling" annotator="errorlist" annotatortype="auto" error="yes" />
-      </correction>    
-     </alt>
-     <alt xml:id="example.p.1.s.1.w.1.alt.2">
-      <correction class="spelling" annotator="errorlist" confidence="0.6">
-        <new>
-            <t>tree</t>
-        </new>
-        <original>
-            <t>treee</t>
-        </original>
-        <errordetection class="spelling" annotator="errorlist" annotatortype="auto" error="yes" />
-      </correction>    
-    </alt>
-</w>    
+</w>
 \end{lstlisting}
 
-Interpret the above example as follows: An error was detected by an errorlist script. The errorlist provided two possible corrections, which are registered as \emph{alternatives} as at this stage no final decision was made to apply one. Alternatives will be explained in detail in section~\ref{sec:alternatives}.The final correction was left to a human annotator named John Doe, who made the actual correction on the basis of this error detection.
+In the above example, ``treee'' was detected by an automated error list as being an error, and was corrected to ``tree'' by human annotator John Doe.
 
-Like everything, corrections and error detection have to be declared, and have to be declared seperately. Nothing stops you from pointing them both to the same set however:
+Like everything, corrections and error detection have to be declared, and have to be declared separately. Nothing stops you from pointing them both to the same set however. Suggestions fall under the scope of corrections and need not be declared separately.
 
 \begin{lstlisting}[language=xml]
 <annotations>
@@ -1307,7 +1330,7 @@ Moreover, we have seen the space attribute, which is a simple alternative that c
 \begin{itemize}
 \item ``\texttt{yes}'' or ``\texttt{ }'' (a space) -- This is the default and says that the token is followed by a single space.
 \item ``\texttt{no}'' or ``\texttt{}'' (empty) -- This states that the token is not followed by a space.
-\item any other character or string -- This states that the token is followed by another character or string that acts as a token seperator.
+\item any other character or string -- This states that the token is followed by another character or string that acts as a token separator.
 \end{itemize}
 
 When explicit text content on sentence/paragraph level is provided, offsets can be used. This does imply that there are some challenges to solve. First of all, by default, the offset refers to the direct parent of whatever element the text content (\texttt{t}) is a member of. If a level is missing we have to explicitly specify this reference using the \texttt{ref} attribute. Note that there is no text content for the sentence in the following example, and we refer directly to the paragraph's text:
