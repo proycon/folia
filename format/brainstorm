@@ -273,15 +273,66 @@ CDA-voorzitter
 SET DEFINITIONS:
 
 
-<set type="closed" conceptlink="">
-    <class xml:id="" conceptlink="">Human readable description</class>
+<set xml:id="CGN" type="closed" conceptlink="">
+    
     <class xml:id="N" conceptlink="">Human readable description</class>
     
-    <subset id="number">
-        <class xml:id="ev" conceptlink="">Enkelvoud</class>
-        <restrict>
-            <constraint class="N" />                
-            <class xml:id="ev" conceptlink="">Human readable description</class>
-        </restrict>
+    <subset id="number" conceptlink="">
+        <!-- option 1 -->
+
+        <class xml:id="ev" conceptlink="" label="Human readable description">
+            <constraint>
+                <restrict class="N"> <!-- multiple allowed! -->
+                <restrict subset="ntype" class="cnoun" />
+            </constraint>        
+        </class>
+
+        <!-- option 2 -->
+
+        <constraint xml:id="constraint.1">
+            <restrict class="N"> <!-- multiple allowed! -->
+            <restrict subset="ntype" class="cnoun" />
+        </constraint>
+        
+        <class xml:id="ev" conceptlink="" label="Human readable description">
+            <constraint id="constraint.1" />
+        </class>        
+
     </subset>
 </set>
+
+
+
+<set xml:id="lemmas" type="open">
+    
+</set>
+
+
+
+set
+    @xml:id
+    @label
+    @type
+        - closed
+        - open
+        - mixed (default)
+        
+    
+subset
+    @xml:id
+    @label
+    @type (default: mixed)
+    
+constraint 
+    @xml:id  OR @id (reference)
+    restrict 
+        @class
+        value
+            (text)
+    
+class
+    @xml:id
+    @label
+    constraint
+    
+

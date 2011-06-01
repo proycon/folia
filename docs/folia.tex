@@ -656,10 +656,9 @@ The declaration:
 
 Corrections, including but not limited to spelling corrections, can be annotated using the \texttt{correction} element. It can be applied as an extended token annotation element as in the following example, which shows a spelling correction of the misspelled word ``treee'' to its corrected form ``tree''.
 
-
+%    <t>tree</t>
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.1">
-    <t>tree</t>
     <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.1" class="spelling">
         <new>
             <t>tree</t>
@@ -673,11 +672,10 @@ Corrections, including but not limited to spelling corrections, can be annotated
 
 The class indicates the kind of correction, according to the set used. The \texttt{new} elements holds the actual content of the correction. The \texttt{original} element holds the content prior to correction. Note that all corrections must carry a unique identifier. In this example, what we are correcting is the actual textual content, the text element (\texttt{t}).
 
-Whilst it may seem redundant to specify the corrected token content both under the word element (\texttt{w}), and the \texttt{new} element, and to list the original so verbosely rather than in a mere attribute, there is a good reason for this: corrections can be nested and we want to retain a full back-log. The following example illustrates the word ``treee'' that has been first mis-corrected to ``three'' and subsequently corrected again to ``tree'':
+%Whilst it may seem redundant to specify the corrected token content both under the word element (\texttt{w}), and the \texttt{new} element, and to list the original so verbosely rather than in a mere attribute, there is a good reason for this: corrections can be nested and we want to retain a full back-log. The following example illustrates the word ``treee'' that has been first mis-corrected to ``three'' and subsequently corrected again to ``tree'':
 
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.1">
-    <t>tree</t>
     <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.2" class="spelling" 
       annotator="Jane Doe" annotatortype="manual" confidence="1.0">
         <new>
@@ -703,7 +701,6 @@ In the examples above what we corrected was the actual textual content (\texttt{
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.1">
     <t>tree</t>
-    <pos class="n" />
     <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.1">
         <new>
             <pos class="n" />
@@ -763,7 +760,6 @@ When an actual correction is made, the correction element changes. It may still 
 
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.1">
-    <t>tree</t>
     <correction xml:id="example.p.1.s.1.w.1.c.1"
        class="spelling" annotator="John Doe"
         annotatortype="human">
@@ -789,7 +785,6 @@ Something similar may happen when a correction is made \emph{on the basis of} on
 
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.1">
-    <t>tree</t>
     <correction class="spelling" annotator="John Doe">
         <new>
             <t>tree</t>
