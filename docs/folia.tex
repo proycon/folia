@@ -226,7 +226,7 @@ The following example shows the maximum amount of redundancy, with text elements
         <w xml:id="example.p.1.s.1.w.1"><t>This</t></w>
         <w xml:id="example.p.1.s.1.w.2"><t>is</t></w>
         ...
-        <w xml:id="example.p.1.s.1.w.8" space="no"><t>sentence</t></w>
+        <w xml:id="example.sp.1.s.1.w.8" space="no"><t>sentence</t></w>
         <w xml:id="example.p.1.s.1.w.9"><t>.</t></w>
     </s>
  </p>
@@ -409,6 +409,7 @@ Divisions stem from D-Coi and are modified in FoLiA. These divisions are not man
 
 The \texttt{head} element may be used to for the header of any division. It may hold \texttt{s} and \texttt{w} elements (not \texttt{p}).
 
+
 \subsection{Gaps}
 
 Sometimes there are parts of a document you want to skip and not annotate, but include as is. For this purpose the \texttt{gap} element should be used. Gaps may have a particular class indicating the kind of gap it is. Common omissions are for example front-matter and back-matter.
@@ -473,6 +474,26 @@ Gaps have to be declared:
     <gap-annotation set="http://ilk.uvt.nl/folia/sets/dcoi-gaps" />
 </annotations>
 \end{lstlisting}
+
+\subsection{Whitespace and Linebreaks}
+
+Sometimes you may want to explicitly specify vertical whitespace or line breaks. This can be done using respectively \texttt{whitespace} and \texttt{br}. Both are simple structural elements that need not be declared. Note that using \texttt{p} to denote paragraphs is always strongly preferred over using \texttt{whitespace} to mark their boundaries!
+
+\begin{lstlisting}[language=xml]
+  <text xml:id="example.text">
+    <s xml:id="example.s.1">
+        <w xml:id="example.s.1.w.1">
+        <br />
+        <w xml:id="example.s.1.w.2">
+        <w xml:id="example.s.1.w.3">
+    </s>
+    <whitespace />
+    <s xml:id="example.s.2">
+    </s>
+  </text>
+\end{lstlisting}
+
+The difference between \texttt{br} and \texttt{whitespace} is that the former specifies that only a linebreak was present, not forcing any vertical whitespace, whilst the latter actually generates an empty space, which would comparable to two successive \texttt{br} statements. Both elements can be used inside divisions, paragraphs, and sentences.
 
 \subsection{Lists}
 
@@ -1483,7 +1504,7 @@ Option two:
 
 \section{Subtoken Annotation}
 
-Subtoken category combines aspects from both token annotation and span annotation. It introduces an annotation layer at the token level, as child of the \texttt{w} element. Within this annotation layer, subtoken annotation elements can be used to annotate parts within the token itself. Whereas span elements use \texttt{wref} to refer to words, subannotation elements use \texttt{tref} to refer to part of the text of the token. All \texttt{Tref} entities carry a mandatory \texttt{offset} attribute identifying offset index in the word's associated text element (\texttt{t}) (zero being right at the start of the text).
+Subtoken category combines aspects from both token annotation and span annotation. It introduces an annotation layer at the token level, as child of the \texttt{w} element. Within this annotation layer, subtoken annotation elements can be used to annotate parts within the token itself. Whereas span elements use \texttt{wref} to refer to words, subannotation elements use \texttt{t} to refer to part of the text of the token. Recall that \texttt{t} elements can contain references to higher-level \texttt{t} elements. In such cases, the \texttt{offset} attribute is used to designate the offset index in the word's associated text element (\texttt{t}) (zero being right at the start of the text).
 
 \subsection{Morphological Analysis}
 
@@ -1496,12 +1517,12 @@ Subtoken category combines aspects from both token annotation and span annotatio
         <morpheme>
             <feat subset="type" class="stem">
             <feat subset="function" class="lexical">
-            <tref offset="0">lees</tref>
+            <t offset="0">lees</t>
         </morpheme>
         <morpheme>
             <feat subset="type" class="suffix">
             <feat subset="function" class="inflexional">
-            <tref offset="4">t</tref>
+            <t offset="4">t</t>
         </morpheme>
     </morphology>
 </w>
@@ -1524,7 +1545,7 @@ Named entities may sometimes occur as \emph{part} of a token. The \texttt{subent
     <subentities>
         <subentity class="org" annotator="Maarten van Gompel"
             annotatortype="manual">
-            <tref offset="0">CDA</tref>
+            <t offset="0">CDA</t>
         </subentity>
     </subentities>
 </w>
