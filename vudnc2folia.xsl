@@ -65,12 +65,15 @@
 </xsl:template>
 
 <xsl:template match="sent">
+    <xsl:variable name="sid">
+        <xsl:value-of select="$id" />
+        <xsl:text>.s.</xsl:text>
+        <xsl:value-of select="@id" />
+    </xsl:variable>
     <s>
         <xsl:attribute name="xml:id">
-            <xsl:value-of select="$id" />
-            <xsl:text>.s.</xsl:text>
-            <xsl:value-of select="@id" />
-        </xsl:attribute>
+            <xsl:value-of select="$sid" />
+        </xsl:attribute>        
         <xsl:apply-templates />
     </s>
 </xsl:template>
@@ -80,13 +83,38 @@
 </xsl:template>
 
 <xsl:template match="DS">
+    <xsl:variable name="quoteid">
+        <xsl:value-of select="$sid" />
+        <xsl:text>.quote.</xsl:text>
+        <xsl:number />
+    </xsl:variable>
     <quote>
+        <xsl:attribute name="xml:id">
+            <xsl:value-of select="$quoteid" />
+        </xsl:attribute>      
         <xsl:apply-templates />        
     </quote>
 </xsl:template>
 
 <xsl:template match="pw">
-    <w> <!-- TODO: grab ID of parent -->
+    
+    <w>
+        <xsl:choose>
+        <xsl:when test="parent::DS">
+        <xsl:attribute name="xml:id">
+            <xsl:value-of select="$quoteid" />
+            <xsl:text>.w.</xsl:text>
+            <xsl:number />
+        </xsl:attribute>            
+        </xsl:when>
+        <xsl:otherwise>
+        <xsl:attribute name="xml:id">
+            <xsl:value-of select="$sid" />
+            <xsl:text>.w.</xsl:text>
+            <xsl:number />
+        </xsl:attribute>              
+        </xsl:otherwise>
+        </xsl:choose>
         <t><xsl:value-of select="." /></t>
         <xsl:if test="@pos">
             <pos class="{@pos}" />
