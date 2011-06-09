@@ -74,47 +74,58 @@
         <xsl:attribute name="xml:id">
             <xsl:value-of select="$sid" />
         </xsl:attribute>        
-        <xsl:apply-templates />
+        <xsl:for-each select="pau/*">
+            <xsl:if test="local-name(.) = 'DS'">
+                <xsl:call-template name="quote">
+                    <xsl:with-param name="localid">
+                        <xsl:value-of select="$sid" />
+                        <xsl:text>.quote.</xsl:text>
+                        <xsl:number />                        
+                    </xsl:with-param>
+                </xsl:call-template>
+            </xsl:if>
+            <xsl:if test="local-name(.) = 'pw'">
+                <xsl:call-template name="word">
+                    <xsl:with-param name="localid">
+                        <xsl:value-of select="$sid" />
+                        <xsl:text>.w.</xsl:text>
+                        <xsl:number />                        
+                    </xsl:with-param>
+                </xsl:call-template>
+            </xsl:if>            
+        </xsl:for-each>
     </s>
 </xsl:template>
 
-<xsl:template match="pau">
-    <xsl:apply-templates />
-</xsl:template>
 
-<xsl:template match="DS">
-    <xsl:variable name="quoteid">
-        <xsl:value-of select="$sid" />
-        <xsl:text>.quote.</xsl:text>
-        <xsl:number />
-    </xsl:variable>
+<xsl:template match="quote">
+    <xsl:param name="localid" />
     <quote>
         <xsl:attribute name="xml:id">
-            <xsl:value-of select="$quoteid" />
+            <xsl:value-of select="$localid" />
         </xsl:attribute>      
-        <xsl:apply-templates />        
+        <xsl:for-each select="pw">
+            <xsl:if test="local-name(.) = 'pw'">
+                <xsl:call-template name="word">
+                    <xsl:with-param name="localid">
+                        <xsl:value-of select="$localid" />
+                        <xsl:text>.w.</xsl:text>
+                        <xsl:number />                        
+                    </xsl:with-param>
+                </xsl:call-template>
+            </xsl:if>  
+        </xsl:for-each>
     </quote>
 </xsl:template>
 
-<xsl:template match="pw">
-    
+
+
+<xsl:template name="word">
+    <xsl:param name="localid" />
     <w>
-        <xsl:choose>
-        <xsl:when test="parent::DS">
         <xsl:attribute name="xml:id">
-            <xsl:value-of select="$quoteid" />
-            <xsl:text>.w.</xsl:text>
-            <xsl:number />
-        </xsl:attribute>            
-        </xsl:when>
-        <xsl:otherwise>
-        <xsl:attribute name="xml:id">
-            <xsl:value-of select="$sid" />
-            <xsl:text>.w.</xsl:text>
-            <xsl:number />
-        </xsl:attribute>              
-        </xsl:otherwise>
-        </xsl:choose>
+            <xsl:value-of select="$localid" />
+        </xsl:attribute> 
         <t><xsl:value-of select="." /></t>
         <xsl:if test="@pos">
             <pos class="{@pos}" />
