@@ -20,10 +20,10 @@
    <div-annotation set="http://ilk.uvt.nl/folia/sets/vu-dnc-div" />
   </annotations>
   <meta id="corpus">VU-DNC</meta>
-  <meta id="paper"><xsl:value-of select="@paper" /></meta>
-  <meta id="reg"><xsl:value-of select="@news" /></meta>
-  <meta id="subgenre"><xsl:value-of select="@subgenre" /></meta>
-  <meta id="year"><xsl:value-of select="@year" /></meta>  
+  <xsl:if test="@paper"><meta id="paper"><xsl:value-of select="@paper" /></meta></xsl:if>
+  <xsl:if test="@reg"><meta id="reg"><xsl:value-of select="@news" /></meta></xsl:if>
+  <xsl:if test="@subgenre"><meta id="subgenre"><xsl:value-of select="@subgenre" /></meta></xsl:if>
+  <xsl:if test="@year"><meta id="year"><xsl:value-of select="@year" /></meta></xsl:if>
   <xsl:apply-templates select="header"/>
  </metadata>
  <xsl:apply-templates select="body"/> 
@@ -31,13 +31,13 @@
 </xsl:template>
 
 <xsl:template match="header">        
-    <meta id="document"><xsl:value-of select="document" /></meta>
-    <meta id="paper"><xsl:value-of select="paper" /></meta>
-    <meta id="date"><xsl:value-of select="date" /></meta>
-    <meta id="source"><xsl:value-of select="source" /></meta>
-    <meta id="section"><xsl:value-of select="section" /></meta>
-    <meta id="length"><xsl:value-of select="length" /></meta>
-    <meta id="byline"><xsl:value-of select="byline" /></meta>
+    <xsl:if test="document"><meta id="document"><xsl:value-of select="document" /></meta></xsl:if>
+    <xsl:if test="paper"><meta id="paper"><xsl:value-of select="paper" /></meta></xsl:if>
+    <xsl:if test="date"><meta id="date"><xsl:value-of select="date" /></meta></xsl:if>
+    <xsl:if test="source"><meta id="source"><xsl:value-of select="source" /></meta></xsl:if>
+    <xsl:if test="section"><meta id="section"><xsl:value-of select="section" /></meta></xsl:if>
+    <xsl:if test="length"><meta id="length"><xsl:value-of select="length" /></meta></xsl:if>
+    <xsl:if test="byline"><meta id="byline"><xsl:value-of select="byline" /></meta></xsl:if>
 </xsl:template>
 
 <xsl:template match="body">
@@ -98,7 +98,7 @@
 </xsl:template>
 
 
-<xsl:template match="quote">
+<xsl:template name="quote">
     <xsl:param name="localid" />
     <quote>
         <xsl:attribute name="xml:id">
