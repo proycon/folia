@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dcoi="http://lands.let.ru.nl/projects/d-coi/ns/1.0">
+<xsl:stylesheet version="1.0" xmlns="http://ilk.uvt.nl/folia" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dcoi="http://lands.let.ru.nl/projects/d-coi/ns/1.0" xmlns:folia="http://ilk.uvt.nl/folia">
 
 <xsl:output method="xml" encoding="UTF-8" indent="yes" />
 
 <xsl:variable name="id" select="/ptext/@ref" />
 
 <xsl:template match="/ptext">
-<FoLiA xmlns="http://ilk.uvt.nl/folia">
+<FoLiA>
  <xsl:attribute name="xml:id">
      <xsl:value-of select="$id" />
  </xsl:attribute>
