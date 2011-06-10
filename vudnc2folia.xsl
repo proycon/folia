@@ -6,7 +6,7 @@
 <xsl:variable name="id" select="/ptext/@ref" />
 
 <xsl:template match="/ptext">
-<FoLiA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ilk.uvt.nl/FoLiA folia.xsd" xmlns:imdi="http://www.mpi.nl/IMDI/Schema/IMDI">
+<FoLiA xmlns="http://ilk.uvt.nl/folia">
  <xsl:attribute name="xml:id">
      <xsl:value-of select="$id" />
  </xsl:attribute>
