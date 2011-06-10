@@ -47,6 +47,10 @@
             <xsl:text>.text.1</xsl:text>
         </xsl:attribute>
         <div class="body">
+            <xsl:attribute name="xml:id">
+                <xsl:value-of select="$id" />
+                <xsl:text>.body</xsl:text>
+            </xsl:attribute>                 
             <xsl:if test="headline">
                     <head>
                         <xsl:attribute name="xml:id">
