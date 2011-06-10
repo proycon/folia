@@ -17,7 +17,7 @@
    <pos-annotation set="http://ilk.uvt.nl/folia/sets/cgn" annotator="tadpole" annotatortype="auto" />
    <lemma-annotation set="http://ilk.uvt.nl/folia/sets/lemmas-nl" annotator="tadpole" annotatortype="auto" />
    <subjectivity-annotation set="http://ilk.uvt.nl/folia/sets/vu-dnc-subjectivity" />
-   <div-annotation set="http://ilk.uvt.nl/folia/sets/vu-dnc-div" />
+   <division-annotation set="http://ilk.uvt.nl/folia/sets/vu-dnc-div" />
   </annotations>
   <meta id="corpus">VU-DNC</meta>
   <xsl:if test="@paper"><meta id="paper"><xsl:value-of select="@paper" /></meta></xsl:if>
