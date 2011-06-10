@@ -47,21 +47,27 @@
             <xsl:text>.text.1</xsl:text>
         </xsl:attribute>
         <div class="body">
-            <xsl:apply-templates />    
+            <xsl:if test="headline">
+                    <head>
+                        <xsl:attribute name="xml:id">
+                            <xsl:value-of select="$id" />
+                            <xsl:text>.headline</xsl:text>
+                        </xsl:attribute>     
+                    </head>
+                    <xsl:apply-templates select="headline/*" />    
+            </xsl:if>
+            <xsl:apply-templates select="sent" />    
         </div>        
+        <xsl:if test="tail">
+            <div class="tail">
+                    <xsl:attribute name="xml:id">
+                        <xsl:value-of select="$id" />
+                        <xsl:text>.tail</xsl:text>
+                    </xsl:attribute>     
+                 <xsl:apply-templates select="tail/*" />  
+            </div>
+        </xsl:if>        
     </text>
-</xsl:template>
-
-<xsl:template match="headline">
-    <head>
-        <xsl:apply-templates />            
-    </head>
-</xsl:template>
-
-<xsl:template match="tail">
-    <div class="tail">
-        <xsl:apply-templates />       
-    </div>
 </xsl:template>
 
 <xsl:template match="sent">
