@@ -56,9 +56,9 @@
                         <xsl:attribute name="xml:id">
                             <xsl:value-of select="$id" />
                             <xsl:text>.headline</xsl:text>
-                        </xsl:attribute>     
+                        </xsl:attribute>                         
+                        <xsl:apply-templates select="headline/*" />    
                     </head>
-                    <xsl:apply-templates select="headline/*" />    
             </xsl:if>
             <xsl:apply-templates select="sent" />    
         </div>        
