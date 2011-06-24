@@ -1,0 +1,1418 @@
+<grammar xmlns:folia="http://ilk.uvt.nl/folia" xmlns="http://relaxng.org/ns/structure/1.0">
+  <start>
+    <element ns="http://ilk.uvt.nl/folia" name="FoLiA">
+      <attribute ns="http://www.w3.org/XML/1998/namespace" name="id"/>
+      <element name="metadata">
+        <element name="annotations">
+          <zeroOrMore>
+            <choice>
+              <element name="division-annotation">
+                <optional>
+                  <attribute name="set"/>
+                </optional>
+                <optional>
+                  <attribute name="annotator"/>
+                </optional>
+                <optional>
+                  <attribute name="annotatortype"/>
+                </optional>
+              </element>
+              <element name="morphological-annotation">
+                <optional>
+                  <attribute name="set"/>
+                </optional>
+                <optional>
+                  <attribute name="annotator"/>
+                </optional>
+                <optional>
+                  <attribute name="annotatortype"/>
+                </optional>
+              </element>
+              <element name="chunking-annotation">
+                <optional>
+                  <attribute name="set"/>
+                </optional>
+                <optional>
+                  <attribute name="annotator"/>
+                </optional>
+                <optional>
+                  <attribute name="annotatortype"/>
+                </optional>
+              </element>
+              <element name="correction-annotation">
+                <optional>
+                  <attribute name="set"/>
+                </optional>
+                <optional>
+                  <attribute name="annotator"/>
+                </optional>
+                <optional>
+                  <attribute name="annotatortype"/>
+                </optional>
+              </element>
+              <element name="subjectivity-annotation">
+                <optional>
+                  <attribute name="set"/>
+                </optional>
+                <optional>
+                  <attribute name="annotator"/>
+                </optional>
+                <optional>
+                  <attribute name="annotatortype"/>
+                </optional>
+              </element>
+              <element name="domain-annotation">
+                <optional>
+                  <attribute name="set"/>
+                </optional>
+                <optional>
+                  <attribute name="annotator"/>
+                </optional>
+                <optional>
+                  <attribute name="annotatortype"/>
+                </optional>
+              </element>
+              <element name="pos-annotation">
+                <optional>
+                  <attribute name="set"/>
+                </optional>
+                <optional>
+                  <attribute name="annotator"/>
+                </optional>
+                <optional>
+                  <attribute name="annotatortype"/>
+                </optional>
+              </element>
+              <element name="lemma-annotation">
+                <optional>
+                  <attribute name="set"/>
+                </optional>
+                <optional>
+                  <attribute name="annotator"/>
+                </optional>
+                <optional>
+                  <attribute name="annotatortype"/>
+                </optional>
+              </element>
+              <element name="token-annotation">
+                <optional>
+                  <attribute name="set"/>
+                </optional>
+                <optional>
+                  <attribute name="annotator"/>
+                </optional>
+                <optional>
+                  <attribute name="annotatortype"/>
+                </optional>
+              </element>
+              <element name="errordetection-annotation">
+                <optional>
+                  <attribute name="set"/>
+                </optional>
+                <optional>
+                  <attribute name="annotator"/>
+                </optional>
+                <optional>
+                  <attribute name="annotatortype"/>
+                </optional>
+              </element>
+              <element name="suggestion-annotation">
+                <optional>
+                  <attribute name="set"/>
+                </optional>
+                <optional>
+                  <attribute name="annotator"/>
+                </optional>
+                <optional>
+                  <attribute name="annotatortype"/>
+                </optional>
+              </element>
+              <element name="sense-annotation">
+                <optional>
+                  <attribute name="set"/>
+                </optional>
+                <optional>
+                  <attribute name="annotator"/>
+                </optional>
+                <optional>
+                  <attribute name="annotatortype"/>
+                </optional>
+              </element>
+              <element name="entity-annotation">
+                <optional>
+                  <attribute name="set"/>
+                </optional>
+                <optional>
+                  <attribute name="annotator"/>
+                </optional>
+                <optional>
+                  <attribute name="annotatortype"/>
+                </optional>
+              </element>
+              <element name="subentity-annotation">
+                <optional>
+                  <attribute name="set"/>
+                </optional>
+                <optional>
+                  <attribute name="annotator"/>
+                </optional>
+                <optional>
+                  <attribute name="annotatortype"/>
+                </optional>
+              </element>
+              <element name="alternative-annotation">
+                <optional>
+                  <attribute name="set"/>
+                </optional>
+                <optional>
+                  <attribute name="annotator"/>
+                </optional>
+                <optional>
+                  <attribute name="annotatortype"/>
+                </optional>
+              </element>
+              <element name="syntax-annotation">
+                <optional>
+                  <attribute name="set"/>
+                </optional>
+                <optional>
+                  <attribute name="annotator"/>
+                </optional>
+                <optional>
+                  <attribute name="annotatortype"/>
+                </optional>
+              </element>
+              <element name="phon-annotation">
+                <optional>
+                  <attribute name="set"/>
+                </optional>
+                <optional>
+                  <attribute name="annotator"/>
+                </optional>
+                <optional>
+                  <attribute name="annotatortype"/>
+                </optional>
+              </element>
+            </choice>
+          </zeroOrMore>
+        </element>
+        <zeroOrMore>
+          <element name="meta">
+            <attribute name="id"/>
+            <text/>
+          </element>
+        </zeroOrMore>
+      </element>
+      <oneOrMore>
+        <ref name="text"/>
+      </oneOrMore>
+    </element>
+  </start>
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="whitespace">
+    <element name="whitespace">
+      <a:documentation>Whitespace element, signals a vertical whitespace</a:documentation>
+      <empty/>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="su">
+    <element name="su">
+      <a:documentation>Syntactic Unit, span annotation element to be used in SyntaxLayer</a:documentation>
+      <optional>
+        <attribute ns="http://www.w3.org/XML/1998/namespace" name="id"/>
+      </optional>
+      <optional>
+        <attribute name="class"/>
+      </optional>
+      <optional>
+        <attribute name="set"/>
+      </optional>
+      <optional>
+        <attribute name="annotator"/>
+      </optional>
+      <optional>
+        <attribute name="annotatortype"/>
+      </optional>
+      <optional>
+        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+          <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <interleave>
+        <zeroOrMore>
+          <ref name="su"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="wref"/>
+        </zeroOrMore>
+        <optional>
+          <ref name="desc"/>
+        </optional>
+      </interleave>
+    </element>
+  </define>
+
+
+  <define ns="http://ilk.uvt.nl/folia" name="t">
+    <element name="t">
+      <text/>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="syntax">
+    <element name="syntax">
+      <a:documentation>Syntax Layer: Annotation layer for SyntacticUnit span annotation elements</a:documentation>
+      <optional>
+        <attribute name="class"/>
+      </optional>
+      <optional>
+        <attribute name="set"/>
+      </optional>
+      <interleave>
+        <zeroOrMore>
+          <ref name="su"/>
+        </zeroOrMore>
+        <optional>
+          <ref name="desc"/>
+        </optional>
+      </interleave>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="subentities">
+    <element name="subentities">
+      <a:documentation>Subentities Layer: Annotation layer for Subentity subtoken annotation elements. For named entities within a single token.</a:documentation>
+      <optional>
+        <attribute name="class"/>
+      </optional>
+      <optional>
+        <attribute name="set"/>
+      </optional>
+      <zeroOrMore>
+        <ref name="subentity"/>
+      </zeroOrMore>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="sense">
+    <element name="sense">
+      <a:documentation>Sense annotation: a token annotation element</a:documentation>
+      <attribute name="class"/>
+      <optional>
+        <attribute name="set"/>
+      </optional>
+      <optional>
+        <attribute name="annotator"/>
+      </optional>
+      <optional>
+        <attribute name="annotatortype"/>
+      </optional>
+      <optional>
+        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+          <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <interleave>
+        <zeroOrMore>
+          <ref name="feat"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="synset"/>
+        </zeroOrMore>
+        <optional>
+          <ref name="desc"/>
+        </optional>
+      </interleave>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="gap">
+    <element name="gap">
+      <a:documentation>Gap element. Represents skipped portions of the text. Contains Content and Desc elements</a:documentation>
+      <optional>
+        <attribute ns="http://www.w3.org/XML/1998/namespace" name="id"/>
+      </optional>
+      <optional>
+        <attribute name="class"/>
+      </optional>
+      <optional>
+        <attribute name="set"/>
+      </optional>
+      <optional>
+        <attribute name="annotator"/>
+      </optional>
+      <optional>
+        <attribute name="annotatortype"/>
+      </optional>
+      <optional>
+        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+          <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="n"/>
+      </optional>
+      <interleave>
+        <zeroOrMore>
+          <ref name="content"/>
+        </zeroOrMore>
+        <optional>
+          <ref name="desc"/>
+        </optional>
+      </interleave>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="pos">
+    <element name="pos">
+      <a:documentation>Part-of-Speech annotation:  a token annotation element</a:documentation>
+      <attribute name="class"/>
+      <optional>
+        <attribute name="set"/>
+      </optional>
+      <optional>
+        <attribute name="annotator"/>
+      </optional>
+      <optional>
+        <attribute name="annotatortype"/>
+      </optional>
+      <optional>
+        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+          <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <interleave>
+        <zeroOrMore>
+          <ref name="feat"/>
+        </zeroOrMore>
+        <optional>
+          <ref name="desc"/>
+        </optional>
+      </interleave>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="p">
+    <element name="p">
+      <a:documentation>Paragraph element. A structure element. Represents a paragraph and holds all its sentences (and possibly other structure Whitespace and Quotes).</a:documentation>
+      <attribute ns="http://www.w3.org/XML/1998/namespace" name="id"/>
+      <optional>
+        <attribute name="n"/>
+      </optional>
+      <interleave>
+        <zeroOrMore>
+          <ref name="s"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="domain"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="errordetection"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="correction"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t"/>
+        </zeroOrMore>
+        <optional>
+          <ref name="desc"/>
+        </optional>
+        <zeroOrMore>
+          <ref name="br"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="whitespace"/>
+        </zeroOrMore>
+      </interleave>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="chunk">
+    <element name="chunk">
+      <a:documentation>Chunk element, span annotation element to be used in ChunkingLayer</a:documentation>
+      <optional>
+        <attribute ns="http://www.w3.org/XML/1998/namespace" name="id"/>
+      </optional>
+      <optional>
+        <attribute name="class"/>
+      </optional>
+      <optional>
+        <attribute name="set"/>
+      </optional>
+      <optional>
+        <attribute name="annotator"/>
+      </optional>
+      <optional>
+        <attribute name="annotatortype"/>
+      </optional>
+      <optional>
+        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+          <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <interleave>
+        <zeroOrMore>
+          <ref name="wref"/>
+        </zeroOrMore>
+        <optional>
+          <ref name="desc"/>
+        </optional>
+      </interleave>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="entity">
+    <element name="entity">
+      <a:documentation>Entity element, for named entities, span annotation element to be used in EntitiesLayer</a:documentation>
+      <optional>
+        <attribute ns="http://www.w3.org/XML/1998/namespace" name="id"/>
+      </optional>
+      <optional>
+        <attribute name="class"/>
+      </optional>
+      <optional>
+        <attribute name="set"/>
+      </optional>
+      <optional>
+        <attribute name="annotator"/>
+      </optional>
+      <optional>
+        <attribute name="annotatortype"/>
+      </optional>
+      <optional>
+        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+          <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <interleave>
+        <zeroOrMore>
+          <ref name="wref"/>
+        </zeroOrMore>
+        <optional>
+          <ref name="desc"/>
+        </optional>
+      </interleave>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="listitem">
+    <element name="listitem">
+      <a:documentation>Single element in a List. Structure element. Contained within List element.</a:documentation>
+      <optional>
+        <attribute ns="http://www.w3.org/XML/1998/namespace" name="id"/>
+      </optional>
+      <optional>
+        <attribute name="n"/>
+      </optional>
+      <interleave>
+        <zeroOrMore>
+          <ref name="list"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="s"/>
+        </zeroOrMore>
+        <optional>
+          <ref name="desc"/>
+        </optional>
+      </interleave>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="subentity">
+    <element name="subentity">
+      <a:documentation>Subentity element, for named entities within a single token, subtoken annotation element to be used in SubentitiesLayer</a:documentation>
+      <optional>
+        <attribute ns="http://www.w3.org/XML/1998/namespace" name="id"/>
+      </optional>
+      <attribute name="class"/>
+      <optional>
+        <attribute name="set"/>
+      </optional>
+      <optional>
+        <attribute name="annotator"/>
+      </optional>
+      <optional>
+        <attribute name="annotatortype"/>
+      </optional>
+      <optional>
+        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+          <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <interleave>
+        <zeroOrMore>
+          <ref name="feat"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t"/>
+        </zeroOrMore>
+      </interleave>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="new">
+    <element name="new">
+      <interleave>
+        <zeroOrMore>
+          <ref name="sense"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="pos"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="domain"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lemma"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="phon"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="errordetection"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="subjectivity"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="w"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t"/>
+        </zeroOrMore>
+        <optional>
+          <ref name="desc"/>
+        </optional>
+      </interleave>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="morpheme">
+    <element name="morpheme">
+      <a:documentation>Morpheme element, represents one morpheme in morphological analysis, subtoken annotation element to be used in MorphologyLayer</a:documentation>
+      <optional>
+        <attribute ns="http://www.w3.org/XML/1998/namespace" name="id"/>
+      </optional>
+      <optional>
+        <attribute name="class"/>
+      </optional>
+      <optional>
+        <attribute name="set"/>
+      </optional>
+      <optional>
+        <attribute name="annotator"/>
+      </optional>
+      <optional>
+        <attribute name="annotatortype"/>
+      </optional>
+      <optional>
+        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+          <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <interleave>
+        <zeroOrMore>
+          <ref name="feat"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t"/>
+        </zeroOrMore>
+      </interleave>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="head">
+    <element name="head">
+      <a:documentation>Head element. A structure element. Acts as the header/title of a division. There may be one per division. Contains sentences.</a:documentation>
+      <attribute ns="http://www.w3.org/XML/1998/namespace" name="id"/>
+      <optional>
+        <attribute name="n"/>
+      </optional>
+      <interleave>
+        <zeroOrMore>
+          <ref name="s"/>
+        </zeroOrMore>
+        <optional>
+          <ref name="desc"/>
+        </optional>
+      </interleave>
+    </element>
+  </define>
+
+
+  <define ns="http://ilk.uvt.nl/folia" name="synset">
+    <element name="synset">
+      <attribute name="subset"/>
+      <attribute name="class"/>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="domain">
+    <element name="domain">
+      <a:documentation>Domain annotation:  an extended token annotation element</a:documentation>
+      <attribute name="class"/>
+      <optional>
+        <attribute name="set"/>
+      </optional>
+      <optional>
+        <attribute name="annotator"/>
+      </optional>
+      <optional>
+        <attribute name="annotatortype"/>
+      </optional>
+      <optional>
+        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+          <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <interleave>
+        <zeroOrMore>
+          <ref name="feat"/>
+        </zeroOrMore>
+        <optional>
+          <ref name="desc"/>
+        </optional>
+      </interleave>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="w">
+    <element name="w">
+      <a:documentation>Word (aka token) element. Holds a word/token and all its related token annotations.</a:documentation>
+      <attribute ns="http://www.w3.org/XML/1998/namespace" name="id"/>
+      <optional>
+        <attribute name="class"/>
+      </optional>
+      <optional>
+        <attribute name="set"/>
+      </optional>
+      <optional>
+        <attribute name="annotator"/>
+      </optional>
+      <optional>
+        <attribute name="annotatortype"/>
+      </optional>
+      <optional>
+        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+          <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <interleave>
+        <zeroOrMore>
+          <ref name="sense"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="pos"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="domain"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lemma"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="phon"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="errordetection"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="subjectivity"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alt"/>
+        </zeroOrMore>
+        <optional>
+          <ref name="desc"/>
+        </optional>
+        <zeroOrMore>
+          <ref name="subentities"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="morphology"/>
+        </zeroOrMore>
+      </interleave>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="chunking">
+    <element name="chunking">
+      <a:documentation>Chunking Layer: Annotation layer for Chunk span annotation elements</a:documentation>
+      <optional>
+        <attribute name="class"/>
+      </optional>
+      <optional>
+        <attribute name="set"/>
+      </optional>
+      <interleave>
+        <zeroOrMore>
+          <ref name="chunk"/>
+        </zeroOrMore>
+        <optional>
+          <ref name="desc"/>
+        </optional>
+      </interleave>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="lemma">
+    <element name="lemma">
+      <a:documentation>Lemma annotation:  a token annotation element</a:documentation>
+      <attribute name="class"/>
+      <optional>
+        <attribute name="set"/>
+      </optional>
+      <optional>
+        <attribute name="annotator"/>
+      </optional>
+      <optional>
+        <attribute name="annotatortype"/>
+      </optional>
+      <optional>
+        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+          <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <interleave>
+        <zeroOrMore>
+          <ref name="feat"/>
+        </zeroOrMore>
+        <optional>
+          <ref name="desc"/>
+        </optional>
+      </interleave>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="phon">
+    <element name="phon">
+      <a:documentation>Phonetic annotation:  a token annotation element</a:documentation>
+      <attribute name="class"/>
+      <optional>
+        <attribute name="set"/>
+      </optional>
+      <optional>
+        <attribute name="annotator"/>
+      </optional>
+      <optional>
+        <attribute name="annotatortype"/>
+      </optional>
+      <optional>
+        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+          <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <interleave>
+        <zeroOrMore>
+          <ref name="feat"/>
+        </zeroOrMore>
+        <optional>
+          <ref name="desc"/>
+        </optional>
+      </interleave>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="correction">
+    <element name="correction">
+      <attribute ns="http://www.w3.org/XML/1998/namespace" name="id"/>
+      <optional>
+        <attribute name="class"/>
+      </optional>
+      <optional>
+        <attribute name="set"/>
+      </optional>
+      <optional>
+        <attribute name="annotator"/>
+      </optional>
+      <optional>
+        <attribute name="annotatortype"/>
+      </optional>
+      <optional>
+        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+          <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <interleave>
+        <optional>
+          <ref name="new"/>
+        </optional>
+        <optional>
+          <ref name="original"/>
+        </optional>
+        <optional>
+          <ref name="current"/>
+        </optional>
+        <zeroOrMore>
+          <ref name="suggestion"/>
+        </zeroOrMore>
+        <optional>
+          <ref name="desc"/>
+        </optional>
+      </interleave>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="alt">
+    <element name="alt">
+      <a:documentation>Element grouping alternative token annotation(s). Multiple alternative elements may occur, each denoting a different alternative. Elements grouped inside an alternative block are considered dependent.</a:documentation>
+      <attribute ns="http://www.w3.org/XML/1998/namespace" name="id"/>
+      <interleave>
+        <zeroOrMore>
+          <ref name="sense"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="pos"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="domain"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lemma"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="phon"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="errordetection"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="subjectivity"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="correction"/>
+        </zeroOrMore>
+      </interleave>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="altlayers">
+    <element name="altlayers">
+      <a:documentation>Element grouping alternative subtoken annotation(s). Multiple altlayers elements may occur, each denoting a different alternative. Elements grouped inside an alternative block are considered dependent.</a:documentation>
+      <attribute ns="http://www.w3.org/XML/1998/namespace" name="id"/>
+      <interleave>
+        <zeroOrMore>
+          <ref name="syntax"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="chunking"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="entities"/>
+        </zeroOrMore>
+      </interleave>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="entities">
+    <element name="entities">
+      <a:documentation>Entities Layer: Annotation layer for Entity span annotation elements. For named entities.</a:documentation>
+      <optional>
+        <attribute name="class"/>
+      </optional>
+      <optional>
+        <attribute name="set"/>
+      </optional>
+      <interleave>
+        <zeroOrMore>
+          <ref name="entity"/>
+        </zeroOrMore>
+        <optional>
+          <ref name="desc"/>
+        </optional>
+      </interleave>
+    </element>
+  </define>
+
+
+  <define ns="http://ilk.uvt.nl/folia" name="wref">
+    <element name="wref">
+      <attribute name="id">
+        <text/>
+      </attribute>
+      <optional>
+        <attribute name="t">
+          <text/>
+        </attribute>
+      </optional>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="suggestion">
+    <element name="suggestion">
+      <optional>
+        <attribute name="annotator"/>
+      </optional>
+      <optional>
+        <attribute name="annotatortype"/>
+      </optional>
+      <optional>
+        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+          <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <interleave>
+        <zeroOrMore>
+          <ref name="sense"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="pos"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="domain"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lemma"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="phon"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="errordetection"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="subjectivity"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="w"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t"/>
+        </zeroOrMore>
+        <optional>
+          <ref name="desc"/>
+        </optional>
+      </interleave>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="original">
+    <element name="original">
+      <interleave>
+        <zeroOrMore>
+          <ref name="sense"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="pos"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="domain"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lemma"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="phon"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="errordetection"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="subjectivity"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="w"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="correction"/>
+        </zeroOrMore>
+        <optional>
+          <ref name="desc"/>
+        </optional>
+      </interleave>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="content">
+    <element name="content">
+      <empty/>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="s">
+    <element name="s">
+      <a:documentation>Sentence element. A structure element. Represents a sentence and holds all its words (and possibly other structure such as LineBreaks, Whitespace and Quotes)</a:documentation>
+      <attribute ns="http://www.w3.org/XML/1998/namespace" name="id"/>
+      <optional>
+        <attribute name="n"/>
+      </optional>
+      <interleave>
+        <zeroOrMore>
+          <ref name="w"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="quote"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="syntax"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="chunking"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="entities"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="domain"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="errordetection"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="correction"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t"/>
+        </zeroOrMore>
+        <optional>
+          <ref name="desc"/>
+        </optional>
+        <zeroOrMore>
+          <ref name="br"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="whitespace"/>
+        </zeroOrMore>
+      </interleave>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="text">
+    <element name="text">
+      <a:documentation>A full text. This is a high-level element (not to be confused with TextContent!). This element may contain divisions, paragraphs, sentences, etc..</a:documentation>
+      <attribute ns="http://www.w3.org/XML/1998/namespace" name="id"/>
+      <optional>
+        <attribute name="n"/>
+      </optional>
+      <interleave>
+        <zeroOrMore>
+          <ref name="gap"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="div"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="p"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="s"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="list"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="figure"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="domain"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="errordetection"/>
+        </zeroOrMore>
+        <optional>
+          <ref name="desc"/>
+        </optional>
+      </interleave>
+    </element>
+  </define>
+
+
+  <define ns="http://ilk.uvt.nl/folia" name="feat">
+    <element name="feat">
+      <attribute name="subset"/>
+      <attribute name="class"/>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="current">
+    <element name="current">
+      <interleave>
+        <zeroOrMore>
+          <ref name="sense"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="pos"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="domain"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lemma"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="phon"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="errordetection"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="subjectivity"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="w"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t"/>
+        </zeroOrMore>
+        <optional>
+          <ref name="desc"/>
+        </optional>
+      </interleave>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="errordetection">
+    <element name="errordetection">
+      <optional>
+        <attribute name="class"/>
+      </optional>
+      <optional>
+        <attribute name="set"/>
+      </optional>
+      <optional>
+        <attribute name="annotator"/>
+      </optional>
+      <optional>
+        <attribute name="annotatortype"/>
+      </optional>
+      <optional>
+        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+          <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="aref">
+    <element name="aref">
+      <attribute ns="http://www.w3.org/XML/1998/namespace" name="id"/>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="div">
+    <element name="div">
+      <a:documentation>Structure element representing some kind of division. Divisions may be nested at will, and may include almost all kinds of other structure elements.</a:documentation>
+      <attribute ns="http://www.w3.org/XML/1998/namespace" name="id"/>
+      <optional>
+        <attribute name="class"/>
+      </optional>
+      <optional>
+        <attribute name="set"/>
+      </optional>
+      <optional>
+        <attribute name="n"/>
+      </optional>
+      <interleave>
+        <zeroOrMore>
+          <ref name="div"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="gap"/>
+        </zeroOrMore>
+        <optional>
+          <ref name="head"/>
+        </optional>
+        <zeroOrMore>
+          <ref name="p"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="s"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="list"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="figure"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="domain"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="errordetection"/>
+        </zeroOrMore>
+        <optional>
+          <ref name="desc"/>
+        </optional>
+        <zeroOrMore>
+          <ref name="br"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="whitespace"/>
+        </zeroOrMore>
+      </interleave>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="desc">
+    <element name="desc">
+      <a:documentation>Description is an element that can be used to associate a description with almost any
+    other FoLiA element</a:documentation>
+      <empty/>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="quote">
+    <element name="quote">
+      <a:documentation>Quote: a structure element. For quotes/citations. May hold words or sentences.</a:documentation>
+      <optional>
+        <attribute ns="http://www.w3.org/XML/1998/namespace" name="id"/>
+      </optional>
+      <interleave>
+        <zeroOrMore>
+          <ref name="w"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="s"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="quote"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t"/>
+        </zeroOrMore>
+        <optional>
+          <ref name="desc"/>
+        </optional>
+      </interleave>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="subjectivity">
+    <element name="subjectivity">
+      <a:documentation>Subjectivity annotation: a token annotation element</a:documentation>
+      <attribute name="class"/>
+      <optional>
+        <attribute name="set"/>
+      </optional>
+      <optional>
+        <attribute name="annotator"/>
+      </optional>
+      <optional>
+        <attribute name="annotatortype"/>
+      </optional>
+      <optional>
+        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+          <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <interleave>
+        <zeroOrMore>
+          <ref name="feat"/>
+        </zeroOrMore>
+        <optional>
+          <ref name="desc"/>
+        </optional>
+      </interleave>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="list">
+    <element name="list">
+      <a:documentation>Element for enumeration/itemisation. Structure element. Contains ListItem elements.</a:documentation>
+      <optional>
+        <attribute ns="http://www.w3.org/XML/1998/namespace" name="id"/>
+      </optional>
+      <optional>
+        <attribute name="n"/>
+      </optional>
+      <interleave>
+        <zeroOrMore>
+          <ref name="listitem"/>
+        </zeroOrMore>
+        <optional>
+          <ref name="desc"/>
+        </optional>
+      </interleave>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="br">
+    <element name="br">
+      <a:documentation>Line break element, signals a line break</a:documentation>
+      <empty/>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="morphology">
+    <element name="morphology">
+      <a:documentation>Morphology Layer: Annotation layer for Morpheme subtoken annotation elements. For morphological analysis.</a:documentation>
+      <optional>
+        <attribute name="class"/>
+      </optional>
+      <optional>
+        <attribute name="set"/>
+      </optional>
+      <zeroOrMore>
+        <ref name="morpheme"/>
+      </zeroOrMore>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="figure">
+    <element name="figure">
+      <a:documentation>Element for the representation of a graphical figure. Structure element.</a:documentation>
+      <optional>
+        <attribute ns="http://www.w3.org/XML/1998/namespace" name="id"/>
+      </optional>
+      <optional>
+        <attribute name="n"/>
+      </optional>
+      <interleave>
+        <zeroOrMore>
+          <ref name="s"/>
+        </zeroOrMore>
+        <optional>
+          <ref name="desc"/>
+        </optional>
+      </interleave>
+    </element>
+  </define>
+
+
+</grammar>
