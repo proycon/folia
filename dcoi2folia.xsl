@@ -5,7 +5,10 @@
 
 
 <xsl:template match="/dcoi:DCOI">
-<FoLiA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ilk.uvt.nl/FoLiA folia.xsd" xmlns:imdi="http://www.mpi.nl/IMDI/Schema/IMDI" xml:id="{@xml:id}">
+<FoLiA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ilk.uvt.nl/FoLiA folia.xsd" xmlns:imdi="http://www.mpi.nl/IMDI/Schema/IMDI">
+ <xsl:if test="@xml:id">
+   <xsl:attribute name="xml:id"><xsl:value-of select="@xml:id" /></xsl:attribute>
+ </xsl:if>      
  <metadata>
   <annotations>
    <token-annotation />
@@ -17,7 +20,10 @@
 </xsl:template>
 
 <xsl:template match="dcoi:text">
-    <text xml:id="{@xml:id}">        
+    <text>  
+        <xsl:if test="@xml:id">
+            <xsl:attribute name="xml:id"><xsl:value-of select="@xml:id" /></xsl:attribute>
+        </xsl:if>      
         <xsl:apply-templates />
     </text>
 </xsl:template>
@@ -87,5 +93,11 @@
  </w>
 </xsl:template>
 
-</xsl:stylesheet>
+<xsl:template match="*">
+  <xsl:comment>
+    <xsl:value-of select="concat('[CONVERSION TO FOLIA WARNING] Element from original not processed: ',name())"/>
+  </xsl:comment>
+  <xsl:apply-templates/>
+</xsl:template>
 
+</xsl:stylesheet>

@@ -71,4 +71,11 @@
  <w xml:id="@xml:id"><xsl:if test="pos"><xsl:attribute name="pos"><xsl:value-of select="pos/@class" /></xsl:attribute></xsl:if><xsl:if test="lemma"><xsl:attribute name="lemma"><xsl:value-of select="lemma/@class" /></xsl:attribute></xsl:if><xsl:value-of select="t"/></w>
 </xsl:template>
 
+<xsl:template match="*">
+  <xsl:comment>
+    <xsl:value-of select="concat('[CONVERSION TO FOLIA WARNING] Element from original not processed: ',name())"/>
+  </xsl:comment>
+  <xsl:apply-templates/>
+</xsl:template>
+
 </xsl:stylesheet>
