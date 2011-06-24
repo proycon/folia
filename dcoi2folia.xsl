@@ -23,8 +23,9 @@
 </xsl:template>
 
 <xsl:template match="dcoi:gap">
-<gap reason="{@reason}">
-<xsl:value-of select="@hand" />
+<gap class="{@reason}" annotator="{@hand}">
+    <desc><xsl:value-of select="desc" /></desc>
+    <content><xsl:value-of select="content" /></content>
 </gap>
 </xsl:template>
 
