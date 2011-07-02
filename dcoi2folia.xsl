@@ -93,6 +93,51 @@
  </w>
 </xsl:template>
 
+
+<xsl:template match="dcoi:list">
+ <list>
+  <xsl:if test="@xml:id">
+   <xsl:attribute name="xml:id"><xsl:value-of select="@xml:id" /></xsl:attribute>
+  </xsl:if>
+  <xsl:apply-templates />
+ </list>
+</xsl:template>
+
+
+<xsl:template match="dcoi:item">
+ <listitem>
+  <xsl:if test="@xml:id">
+   <xsl:attribute name="xml:id"><xsl:value-of select="@xml:id" /></xsl:attribute>
+  </xsl:if>
+  <xsl:if test="@n">
+   <xsl:attribute name="n"><xsl:value-of select="@n" /></xsl:attribute>
+  </xsl:if>
+  <xsl:apply-templates />
+ </listitem>
+</xsl:template>
+
+<xsl:template match="dcoi:label">
+ <label>
+  <xsl:if test="@xml:id">
+   <xsl:attribute name="xml:id"><xsl:value-of select="@xml:id" /></xsl:attribute>
+  </xsl:if>
+  <xsl:apply-templates />
+ </label>
+</xsl:template>
+
+<xsl:template match="dcoi:figure">
+ <figure>
+  <xsl:if test="@xml:id">
+   <xsl:attribute name="xml:id"><xsl:value-of select="@xml:id" /></xsl:attribute>
+  </xsl:if>
+  <xsl:apply-templates />
+ </figure>
+</xsl:template>
+
+<xsl:template match="dcoi:figDesc">
+ <desc><xsl:value-of select="." /></desc>
+</xsl:template>
+
 <xsl:template match="*">
   <xsl:comment>
     <xsl:value-of select="concat('[CONVERSION TO FOLIA WARNING] Element from original not processed: ',name())"/>

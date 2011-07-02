@@ -107,7 +107,7 @@ FoLiA will be used in the DutchSemCor project, the DU-VNC project, and will also
 
 To clearly understand this documentation, note that when we speak of ``elements'' or ``attributes'', we refer to XML notation, i.e. XML elements and XML attributes.
 
-\chapter{Format}
+\chapter{Document Format}
 
 \section{Global Structure}
 
@@ -350,11 +350,8 @@ In this stage, the sets are not actually defined yet, i.e. the URLs they point t
 
 \section{Annotation Declarations}
 
-Explicitly referring to a set and annotator for each annotation element can be cumbersome, especially in a document with a single set and a single annotator for that type particular of annotation. This problem can be solved by declaring defaults in the annotation declaration.
 
-The annotation declaration is a mandatory part of the metadata that declares all the types of annotation that are present in the document. In addition it may define defaults such as the tagset used, a default annotator, and the type of annotator. These defaults can always be overriden at the annotation level itself, using the XML attributes \texttt{set}, \texttt{annotator} and \texttt{annotatortype}, as discussed in the previous section. None of the attributes are mandatory in the declaration, though the declarations themselves are; they declare what annotations are to be expected in the document. Having a type of annotation that is not declared is invalid. Do note that if you do not specify a set, annotator or annotator-type in either the declaration or in the annotation elements themselves, they will be left undefined. Not declaring sets is generally a bad idea.  
-
-Annotations are declared in the \texttt{annotations} block, as shown in the following example. We here define four annotation levels.
+The annotation declaration is a mandatory part of the metadata that declares all the types of annotation and all sets that are present in the document. Annotations are declared in the \texttt{annotations} block, as shown in the following example. We here define four annotation levels.
 
 \begin{lstlisting}[language=xml]
 <annotations>
@@ -368,6 +365,21 @@ Annotations are declared in the \texttt{annotations} block, as shown in the foll
 </annotations>
 \end{lstlisting}
 
+The set attribute is mandatory and refers to a URL of a FoLiA Set Definition file (see chapter \ref{fsd}). The Set Definition specifies exactly what classes are allowed in the set. It for examples specifies exactly what Part-of-Speech tags exists. This information is necessary to completely validate the document at its deepest level. If the sets point to URLs that do not exist, warnings will be issued. Validation can still proceed but with the notable exception of deep validation of these sets.
+
+If multiple sets are used for the same annotation type, they each need a separate declaration:
+
+\begin{lstlisting}[language=xml]
+        <pos-annotation set="http://ilk.uvt.nl/folia/sets/CGN" 
+          annotator="Frog" annotatortype="auto" />
+        <pos-annotation set="http://ilk.uvt.nl/folia/sets/brown" />
+\end{lstlisting}
+
+If only one set is declared, then in the document itself you are allowed to skip the set attribute on these specific annotation elements. The declared set will be the automatic default. 
+
+The \texttt{annotator} and \texttt{annotatortype} attributes acts as defaults, for the specific annotation type and set. Unlike \texttt{set}, you do \emph{not} need, and it is in fact prohibited, to declare every possible annotator!
+
+Annotator defaults can always be overriden at the specific annotation elements. But declaring them allows for the annotation element to be less verbosely expressed. Explicitly referring to a set and annotator for each annotation element can be cumbersome in pointless in a document with a single set and a single annotator for that particular type of annotation. Declarations and defaults provide a nice way around this problem.
 
 
 \section{Structure Annotation}
@@ -1414,11 +1426,12 @@ Text content (\texttt{t}) in word elements (\texttt{w}) are \emph{by definition}
 Last, but not least; all offset and length attributes are measured in unicode code-points, the first character having index zero. Take special care with combining diacritical marks versus codepoints that directly integrate the diacritical mark.
 
 \subsection{Subsets and multiple classes}
+\label{subset}
 
 For some annotations, associating a single class from a set is not sufficient. FoLiA provides the option to associate multiple classes, or to associate classes with specific subsets. 
 
 
-Take a look at the following abstract case: \texttt{X} here is a \emph{fictional} token/span annotation. It is associated with two classes from the same set. The fictional element \texttt{Y} belongs with \texttt{X}, and is custom to the specific annotation.
+Take a look at the following abstract case: \texttt{X} here is a \emph{fictional} token/span annotation. It is associated with two classes from the same set. The fictional element \texttt{Y} goes with \texttt{X}, and is custom to the specific annotation.
 
 \begin{lstlisting}[language=xml]
 <X set="a">
@@ -1655,6 +1668,169 @@ You can simply define fields with custom IDs, but the following fields are pre-d
 \item \textbf{license} -- The type of license of the document (for example: \emph{GNU Free Documentation License})
 \end{itemize}
 
+
+
+\chapter{Set Definition Format}
+
+\section{Introduction}
+
+The FoLiA format consists not just out of the Document Format discussed in the previous chapter, but also of a Set Definition Format. The document format is agnostic about all sets and the classes therein, it is the Set Definition Format that defines precisely what classes are allowed in a set, including any subsets.
+
+Recall from section~\ref{declarations} that all used sets need to be declared in the document and that they point to URLs holding a FoLiA set definition. If no set definition files are associated, then a full in-depth validation can not take place.
+
+\section{Types and classes}
+
+The set definition format is fairly straightforward, each set definition file represents one set, including all of its subsets.
+
+Here is a simple example:
+
+\begin{lstlisting}[language=xml]
+<set xml:id="simplepos" type="closed">
+    <class xml:id="N" label="Noun" />
+    <class xml:id="V" label="Verb" />
+    <class xml:id="A" label="Adjective" />
+</set>
+\end{lstlisting}
+
+The \texttt{ID} of the class is the value that may be used in the \texttt{class} attribute in the FoLiA document. The \texttt{label} attribute carries a human readable description for presentational purposes, this is optional but highly recommended.
+
+There are three possible types for sets and subsets: 
+
+\begin{enumerate}
+\item \textbf{open}: classes may be anything and are not defined
+\item \textbf{closed}: classes are defined
+\item \textbf{mixed}: classes may be anything, but some are predefined
+\end{enumerate}
+
+A set definition file for an open type set definition may be as concise as:
+
+\begin{lstlisting}[language=xml]
+<set xml:id="lemmas-nl" type="open" />
+\end{lstlisting}
+
+\section{Concept link}
+
+You may want to associate classes, or even sets themselves, with some kind of semantic web or category registry. This link can be made using the \texttt{conceptlink} attribute which may be placed on classes, sets and subset elements. 
+
+\begin{lstlisting}[language=xml]
+<set xml:id="simplepos" type="closed" conceptlink="http://some/host/simplepos">
+    <class xml:id="N" label="Noun" conceptlink="http://some/host/noun" />
+    <class xml:id="V" label="Verb" conceptlink="http://some/host/verb" />
+    <class xml:id="A" label="Adjective" conceptlink="http://some/host/adj" />
+</set>
+\end{lstlisting}
+
+FoLiA does not dictate any format requirements for conceptual links, it can be anything, such as an RDF resource, or any other kind. If you want something more specific, or you want to link to multiple semantic resources, simply use your own ``conceptlink'' attribute in different custom XML namespace.
+
+\section{Subsets}
+
+Section~\ref{subset} introduced subsets. These can be defined in a similar fashion to sets and also carry a \texttt{type} attribute:
+
+\begin{lstlisting}[language=xml]
+<set xml:id="simplepos" type="closed">
+    <class xml:id="N" label="Noun" />
+    <class xml:id="V" label="Verb" />
+    <class xml:id="A" label="Adjective" />   
+    <subset xml:id="gender" class="closed">
+        <class xml:id="m" label="Masculine" />    
+        <class xml:id="f" label="Feminine" />
+        <class xml:id="n" label="Neuter" />
+    </subset>
+</set>
+\end{lstlisting}
+
+It is possible for subsets to be used multiple times if the subset is declared with the attribute \texttt{multi} set to \texttt{true} (defaults to false). This allows multiple classes to be associated with a subset.
+
+\section{Constraints}
+
+Not all classes in subsets can be combined with others. There is the need to put constraints on which may go together. The previous example already illustrates this. For many languages, the ``gender'' subset does not make sense on verbs. We can put a constaint on the usage of this subset, limiting its usage to nouns and adjectives:
+
+\begin{lstlisting}[language=xml]
+<set xml:id="simplepos" type="closed">
+    <class xml:id="N" label="Noun" />
+    <class xml:id="V" label="Verb" />
+    <class xml:id="A" label="Adjective" />   
+    <subset xml:id="gender" class="closed">
+        <constraint>
+            <restrict class="N" />
+            <restrict class="A" />
+        </constraint>
+        <class xml:id="m" label="Masculine" />    
+        <class xml:id="f" label="Feminine" />
+        <class xml:id="n" label="Neuter" />
+    </subset>
+</set>
+\end{lstlisting}
+
+For sake of brevity, constraints can be named and referred to when they are needed multiple times.
+
+\begin{lstlisting}[language=xml]
+<set xml:id="simplepos" type="closed">
+    <class xml:id="N" label="Noun" />
+    <class xml:id="V" label="Verb" />
+    <class xml:id="A" label="Adjective" />   
+    <subset xml:id="gender" class="closed">
+        <constraint name="constraint.1">
+            <restrict class="N" />
+            <restrict class="A" />
+        </constraint>
+        <class xml:id="m" label="Masculine" />    
+        <class xml:id="f" label="Feminine" />
+        <class xml:id="n" label="Neuter" />
+    </subset>
+    <subset xml:id="case" class="closed">
+        <constraint ref="constraint.1" />
+        <class xml:id="nom" label="Nominative" />    
+        <class xml:id="gen" label="Genitive" />
+        <class xml:id="dat" label="Dative" />
+        <class xml:id="acc" label="Accusative" />
+    </subset>
+</set>
+\end{lstlisting}
+
+Constraints can be used within subsets, but also within classes:
+
+\begin{lstlisting}[language=xml]
+<set xml:id="simplepos" type="closed">
+    <class xml:id="N" label="Noun" />
+    <class xml:id="V" label="Verb" />
+    <class xml:id="A" label="Adjective" />   
+    <subset xml:id="gender" class="closed">
+        <class xml:id="m" label="Masculine">
+            <constraint name="constraint.1">
+                <restrict class="N" />
+                <restrict class="A" />
+            </constraint>
+        </class>    
+    </subset>
+</set>
+\end{lstlisting}
+
+Using the restrict element, you force a certain class from the main set or any subset, thus enumerating all the allowed classes. For example, the follow constraint demands masculine or feminine noun in either nominative or accusative case. All of the restrictions must be satisfied for the constraint to match.
+
+\begin{lstlisting}[language=xml]
+<constraint>
+    <restrict class="N" />
+    <restrict subset="gender" class="f" />
+    <restrict subset="gender" class="m" />
+    <restrict subset="case" class="nom" />
+    <restrict subset="case" class="acc" />
+</constraint>
+\end{lstlisting}
+
+You can also opt to specify the ``forbidden'' classes using except. Only if not a single one of the exceptions applies, the constraint is met. 
+
+\begin{lstlisting}[language=xml]
+<constraint>
+    <except class="V" />
+    <except class="A" />
+    <except subset="gender" class="n" />
+    <except subset="case" class="gen" />
+    <except subset="case" class="dat" />
+</constraint>
+\end{lstlisting}
+
+Restrict and except elements can also be mixed.
 
 
 \appendix
