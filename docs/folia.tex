@@ -16,7 +16,7 @@ stringstyle=\ttfamily,
 
 
 
-\title{FoLiA: Format for Linguistic Annotation \\ \small v0.4}
+\title{FoLiA: Format for Linguistic Annotation \\ \small v0.5}
 \author{Maarten van Gompel \\ ILK Research Group \\ Tilburg center for Cognition and Communication \\ Tilburg University }
 
 \parindent=0pt %no paragraph indentation
@@ -1846,7 +1846,44 @@ Considering the fact that FoLiA is an XML-based format, XPath and its derivative
 \item XPath query for the text of all words: \\ \texttt{/FoLiA/text//w[not(ancestor::original)]/t/child::text()}
 \end{itemize}
 
+\chapter{Implementations}
 
+The following FoLiA implementations exist currently, both follow a highly object-oriented model in which FoLiA XML elements correspond with classes.
+
+\begin{enumerate}
+\item \texttt{pynlpl.formats.folia} - A FoLiA library in Python. Part of the Python Natural Language Processing Library. Documentation can can be found at http://ilk.uvt.nl/folia/
+\item \texttt{libfolia} - A FoLiA library in $C++$. (Still under heavily development, July 2011)
+\end{enumerate}
+
+The following table shows the level of FoLiA support in these libraries:
+
+\begin{tabular}{|r|c|c|}
+\hline
+                        & PyNLPl & libfolia  \\
+                        & python & $C++$ \\
+\hline
+Token Annotation        & yes & yes \\
+Span Annotation         & yes & yes \\
+Subtoken Annotation     & yes & yes \\
+Subset/feature support  & yes & yes \\
+Alternatives            & yes & yes \\
+Correction Annotation   & yes & yes \\
+Alignments              & not yet & not yet \\
+Text offset support     & incomplete\footnote{has to be more thorougly tested} & incomplete \\
+Native metadata         & yes & unknown \\
+\hline
+IMDI metadata           & partial\footnote{only a very small subset is interpreted} & ? \\
+CMDI metadata           & no & no \\
+RelaxNG schema generation & yes\footnote{The RelaxNG schema is generated dynamically by the library itself} & no \\
+RelaxNG validation      & yes & no \\
+Set definition support  & not yet & no \\
+Deep validation (Schematron)  & not yet & no \\
+D-Coi read compatibility      & partial\footnote{only basic elements, no List, Figure, etc..} & no \\
+\hline
+\end{tabular}
+
+ 
+ 
 
 
 \bibliographystyle{plain}
