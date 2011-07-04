@@ -343,11 +343,6 @@ The example demonstrates that any annotation element can take an \texttt{annotat
 
 More advanced aspects of the paradigm will introduced later in section \ref{sec:advparadigm}.
 
-\begin{devnotes}
-In this stage, the sets are not actually defined yet, i.e. the URLs they point to don't exist yet. But the idea is that a set always points to a URL that defines all its classes. The format for this is still to be specified however. Links to the ISOCAT Data Category Registry can later be included at that level. For now, ad-hoc sets that will later be defined will do.
-\end{devnotes}
-
-
 \section{Annotation Declarations}
 
 
@@ -1841,10 +1836,22 @@ Considering the fact that FoLiA is an XML-based format, XPath and its derivative
 \begin{itemize}
 \item XPath query for all paragraphs: \texttt{/FoLiA/text//p}
 \item XPath query for all sentences: \texttt{/FoLiA/text//s[not(parent::s)}] \emph{Selects only top-level sentences, not sentences embedded within sentences (e.g quotes)}
-\item XPath query for all words: \texttt{/FoLiA/text//w[not(ancestor::original)]} \emph{The conditional clause is required to correctly deal with correction syntax.}
-\item XPath query for all words with lemma X: \\ \texttt{/FoLiA/text//w[not(ancestor::original)]/lemma[@class == "X"]}
-\item XPath query for the text of all words: \\ \texttt{/FoLiA/text//w[not(ancestor::original)]/t/child::text()}
+\item XPath query for all words: \texttt{/FoLiA/text//w[not(ancestor::original) and not(ancestor::suggestion) and not(ancestor::alternative)]} \emph{The conditional clause is required to correctly deal with correction syntax.}
+\item XPath query for all words with lemma X: \\ \texttt{/FoLiA/text//w[not(ancestor::original) and not(ancestor::suggestion) and not(ancestor::alternative)]/lemma[@class == "X"]}
+\item XPath query for the text of all words: \\ \texttt{/FoLiA/text//w[not(ancestor::original) and not(ancestor::suggestion) and not(ancestor::alternative)]/t/child::text()}
 \end{itemize}
+
+Note that in various cases, you will want to include the condition ``\texttt{not(ancestor::original) and not(ancestor::suggestion) and not(ancestor::alternative) and not(ancestor::altlayers)}'' to skip over elements that are not actually active but instead pertain to a mere suggestion, alternative, or the original of a suggestion.
+
+\chapter{Validation}
+
+Validation proceeds at two levels: shallow validation and deep validation. Shallow validation considers only the structure of the FoLiA document, without validating the sets and classes used. Deep validation checks the sets and classes for their validity using the set definition files.
+
+Shallow validation is performed using a RelaxNG schema, to be found at http://github.com/proycon/folia.rst .
+
+\begin{devnotes}
+Deep validation is still being worked on and will most likely use Schematron.
+\end{devnotes}
 
 \chapter{Implementations}
 

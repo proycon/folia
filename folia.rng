@@ -358,9 +358,9 @@
         <attribute name="n"/>
       </optional>
       <interleave>
-        <zeroOrMore>
+        <optional>
           <ref name="content"/>
-        </zeroOrMore>
+        </optional>
         <optional>
           <ref name="desc"/>
         </optional>
@@ -414,10 +414,10 @@
           <ref name="domain"/>
         </zeroOrMore>
         <zeroOrMore>
-          <ref name="errordetection"/>
+          <ref name="correction"/>
         </zeroOrMore>
         <zeroOrMore>
-          <ref name="correction"/>
+          <ref name="errordetection"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="t"/>
@@ -525,6 +525,27 @@
         <optional>
           <ref name="desc"/>
         </optional>
+        <zeroOrMore>
+          <ref name="label"/>
+        </zeroOrMore>
+      </interleave>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="label">
+    <element name="label">
+      <a:documentation>Element used for labels. Mostly in within list item. Contains words.</a:documentation>
+      <optional>
+        <attribute ns="http://www.w3.org/XML/1998/namespace" name="id"/>
+      </optional>
+      <interleave>
+        <zeroOrMore>
+          <ref name="w"/>
+        </zeroOrMore>
+        <optional>
+          <ref name="desc"/>
+        </optional>
       </interleave>
     </element>
   </define>
@@ -580,6 +601,9 @@
         </zeroOrMore>
         <zeroOrMore>
           <ref name="phon"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="correction"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="errordetection"/>
@@ -729,6 +753,9 @@
         </zeroOrMore>
         <zeroOrMore>
           <ref name="phon"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="correction"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="errordetection"/>
@@ -899,13 +926,13 @@
           <ref name="phon"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="correction"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="errordetection"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="subjectivity"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="correction"/>
         </zeroOrMore>
       </interleave>
     </element>
@@ -996,6 +1023,9 @@
           <ref name="phon"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="correction"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="errordetection"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -1034,6 +1064,9 @@
           <ref name="phon"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="correction"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="errordetection"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -1044,9 +1077,6 @@
         </zeroOrMore>
         <zeroOrMore>
           <ref name="t"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="correction"/>
         </zeroOrMore>
         <optional>
           <ref name="desc"/>
@@ -1090,10 +1120,10 @@
           <ref name="domain"/>
         </zeroOrMore>
         <zeroOrMore>
-          <ref name="errordetection"/>
+          <ref name="correction"/>
         </zeroOrMore>
         <zeroOrMore>
-          <ref name="correction"/>
+          <ref name="errordetection"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="t"/>
@@ -1142,6 +1172,9 @@
           <ref name="domain"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="correction"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="errordetection"/>
         </zeroOrMore>
         <optional>
@@ -1177,6 +1210,9 @@
         </zeroOrMore>
         <zeroOrMore>
           <ref name="phon"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="correction"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="errordetection"/>
@@ -1265,6 +1301,9 @@
         </zeroOrMore>
         <zeroOrMore>
           <ref name="domain"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="correction"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="errordetection"/>
@@ -1365,6 +1404,27 @@
         <optional>
           <ref name="desc"/>
         </optional>
+        <optional>
+          <ref name="caption"/>
+        </optional>
+      </interleave>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="caption">
+    <element name="caption">
+      <a:documentation>Element used for captions for figures or tables, contains sentences</a:documentation>
+      <optional>
+        <attribute ns="http://www.w3.org/XML/1998/namespace" name="id"/>
+      </optional>
+      <interleave>
+        <zeroOrMore>
+          <ref name="s"/>
+        </zeroOrMore>
+        <optional>
+          <ref name="desc"/>
+        </optional>
       </interleave>
     </element>
   </define>
@@ -1409,6 +1469,9 @@
         </zeroOrMore>
         <optional>
           <ref name="desc"/>
+        </optional>
+        <optional>
+          <ref name="caption"/>
         </optional>
       </interleave>
     </element>
