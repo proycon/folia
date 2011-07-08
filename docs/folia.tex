@@ -1879,8 +1879,10 @@ Alignments              & not yet & not yet \\
 Text offset support     & incomplete\footnote{has to be more thorougly tested} & incomplete \\
 Native metadata         & yes & unknown \\
 \hline
-IMDI metadata           & partial\footnote{only a very small subset is interpreted} & ? \\
-CMDI metadata           & no & no \\
+Query facility (findwords) & partial\footnote{only for token annotation} & partial\footnote{in progress} \\
+\hline
+IMDI metadata           & partial\footnote{can be included safely, but only a very small subset is actually interpreted} & ? \\
+CMDI metadata           & no\footnote{but can be included safely, just not interpreted by library} & no \\
 RelaxNG schema generation & yes\footnote{The RelaxNG schema is generated dynamically by the library itself} & no \\
 RelaxNG validation      & yes & no \\
 Set definition support  & not yet & no \\
@@ -1889,9 +1891,20 @@ D-Coi read compatibility      & partial\footnote{only basic elements, no List, F
 \hline
 \end{tabular}
 
+\chapter{Conversions}
  
- 
-
+\begin{tabular}{|l|l|l|}
+\hline
+from & to & status  \\
+\hline
+D-Coi & FoLiA & yes, via XSLT or \texttt{pynlpl.formats.folia}\footnote{via library only with basic elements, no List, Figure, etc..} \\
+FoLiA & D-Coi & yes, via XSLT \footnote{With inevitable data loss for constructs that can not be represented in D-Coi} \\
+Frog/Tadpole columned format & FoLiA & yes, using Python script and library \\
+FoLiA & Frog/Tadpole columned format & yes, using Python script and library \\
+Alpino & FoLiA & not yet \\
+FoLiA & Alpino & not yet \\
+\hline
+\end{tabular} 
 
 \bibliographystyle{plain}
 \bibliography{folia}
