@@ -336,10 +336,10 @@ The following example shows a simple Part-of-Speech annotation without features,
 \begin{lstlisting}[language=xml]
 <pos set="http://ilk.uvt.nl/folia/sets/CGN" class="WW" 
  annotator="Maarten van Gompel" annotatortype="manual"
- confidence="0.76" />
+ confidence="0.76" datetime="1982-12-15T19:01" />
 \end{lstlisting}
 
-The example demonstrates that any annotation element can take an \texttt{annotator} attribute and an \texttt{annotatortype}. The latter is either ``manual'' for human annotators, or ``auto'' for automated systems.  The value for \texttt{annotator} is open and should be set to the name or ID of the system or human annotator that made the annotation. Last, there is a \texttt{confidence} attribute which is set to a floating point value between zero and one, the value expresses the confidence the annotator places in his annotation. None of these options are mandatory, only \texttt{class} may be mandatory for some types of annotation, such as \texttt{pos}.
+The example demonstrates that any annotation element can take an \texttt{annotator} attribute and an \texttt{annotatortype}. The latter is either ``manual'' for human annotators, or ``auto'' for automated systems.  The value for \texttt{annotator} is open and should be set to the name or ID of the system or human annotator that made the annotation. The \texttt{confidence} attribute can be set to a floating point value between zero and one, and expresses the confidence the annotator places in his annotation. Last, the \texttt{datetime} attribute specifies the date and time when this annotation was recorded, the format is \texttt{YYYY-MM-DDThh:mm:ss} (note the T in the middle to separate date from time), as per the XSD Datetime data type. None of these options are mandatory, only \texttt{class} may be mandatory for some types of annotation, such as \texttt{pos}.
 
 More advanced aspects of the paradigm will introduced later in section \ref{sec:advparadigm}.
 
