@@ -55,7 +55,7 @@ The FoLiA format features the following:
 
 \begin{itemize}
 \item Open-source
-\item XML-based, validation against XML schema.
+\item XML-based, validation against RelaxNG schema.
 \item Full Unicode support; UTF-8 encoded.
 \item Document structure consists of divisions, paragraphs, sentences and words/tokens.
 \item Can encode both tokenised as well as untokenised text + partial reconstructability of untokenised form even after tokenisation.
@@ -1847,7 +1847,15 @@ Note that in various cases, you will want to include the condition ``\texttt{not
 
 Validation proceeds at two levels: shallow validation and deep validation. Shallow validation considers only the structure of the FoLiA document, without validating the sets and classes used. Deep validation checks the sets and classes for their validity using the set definition files.
 
-Shallow validation is performed using a RelaxNG schema, to be found at http://github.com/proycon/folia.rst .
+Shallow validation is performed using a RelaxNG schema, to be found at \texttt{https://github.com/proycon/folia/blob/master/schemas/folia.rng} .
+
+You can validate your document using standard XML tools such as \texttt{xmllint} or \texttt{jing}, the latter is known to produce friendlier error output in case of validation errors.
+
+\begin{lstlisting}
+> xmllint -relaxng folia.rng document.xml
+> jing folia.rng document.xml
+\end{lstlisting}
+
 
 \begin{devnotes}
 Deep validation is still being worked on and will most likely use Schematron.
