@@ -239,6 +239,11 @@
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
+      <optional>
+        <attribute name="datetime">
+          <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
       <interleave>
         <zeroOrMore>
           <ref name="su"/>
@@ -249,6 +254,9 @@
         <optional>
           <ref name="desc"/>
         </optional>
+        <zeroOrMore>
+          <ref name="feat"/>
+        </zeroOrMore>
       </interleave>
     </element>
   </define>
@@ -314,6 +322,11 @@
       <optional>
         <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="datetime">
+          <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
       <interleave>
@@ -385,6 +398,11 @@
       <optional>
         <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="datetime">
+          <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
       <interleave>
@@ -459,6 +477,11 @@
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
+      <optional>
+        <attribute name="datetime">
+          <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
       <interleave>
         <zeroOrMore>
           <ref name="wref"/>
@@ -466,6 +489,9 @@
         <optional>
           <ref name="desc"/>
         </optional>
+        <zeroOrMore>
+          <ref name="feat"/>
+        </zeroOrMore>
       </interleave>
     </element>
   </define>
@@ -494,6 +520,11 @@
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
+      <optional>
+        <attribute name="datetime">
+          <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
       <interleave>
         <zeroOrMore>
           <ref name="wref"/>
@@ -501,6 +532,9 @@
         <optional>
           <ref name="desc"/>
         </optional>
+        <zeroOrMore>
+          <ref name="feat"/>
+        </zeroOrMore>
       </interleave>
     </element>
   </define>
@@ -570,6 +604,11 @@
       <optional>
         <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="datetime">
+          <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
       <interleave>
@@ -648,6 +687,11 @@
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
+      <optional>
+        <attribute name="datetime">
+          <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
       <interleave>
         <zeroOrMore>
           <ref name="feat"/>
@@ -703,6 +747,11 @@
       <optional>
         <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="datetime">
+          <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
       <interleave>
@@ -822,6 +871,11 @@
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
+      <optional>
+        <attribute name="datetime">
+          <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
       <interleave>
         <zeroOrMore>
           <ref name="feat"/>
@@ -850,6 +904,11 @@
       <optional>
         <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="datetime">
+          <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
       <interleave>
@@ -882,6 +941,11 @@
       <optional>
         <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="datetime">
+          <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
       <interleave>
@@ -1004,6 +1068,11 @@
       <optional>
         <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="datetime">
+          <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
       <interleave>
@@ -1253,6 +1322,11 @@
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
+      <optional>
+        <attribute name="datetime">
+          <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
     </element>
   </define>
 
@@ -1374,6 +1448,11 @@
       <optional>
         <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="datetime">
+          <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
       <interleave>

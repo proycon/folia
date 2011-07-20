@@ -8,4 +8,4 @@ print "Generating Relax NG schema"
 folia.relaxng('folia.rng')
 
 print "Validating example document"
-folia.validate('example.xml')
+folia.validate('../test/example.xml')
