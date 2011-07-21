@@ -146,7 +146,6 @@
   <xsl:comment>
     <xsl:value-of select="concat('[CONVERSION TO FOLIA WARNING] Element from original not processed: ',name())"/>
   </xsl:comment>
-  <xsl:apply-templates/>
 </xsl:template>
 
 </xsl:stylesheet>

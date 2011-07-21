@@ -4,8 +4,11 @@
 <xsl:output method="xml" encoding="UTF-8" indent="yes" cdata-section-elements="gap" />
 
 <xsl:template match="/folia:FoLiA">
-<DCOI xml:id="{@xml:id}">
- <xsl:copy-of select="metadata/imdi:METATRANSCRIPT"/>
+<DCOI>
+ <xsl:if test="@xml:id">
+   <xsl:attribute name="xml:id"><xsl:value-of select="@xml:id" /></xsl:attribute>
+ </xsl:if>
+ <xsl:copy-of select="folia:metadata/imdi:METATRANSCRIPT"/>
  <xsl:apply-templates select="folia:text"/>
 </DCOI>
 </xsl:template>
@@ -13,7 +16,10 @@
 
 <xsl:template match="folia:text">
 <body>
-  <text xml:id="{@xml:id}">        
+  <text>
+    <xsl:if test="@xml:id">
+        <xsl:attribute name="xml:id"><xsl:value-of select="@xml:id" /></xsl:attribute>
+    </xsl:if>        
     <xsl:apply-templates />
   </text>
 </body>    
@@ -21,11 +27,11 @@
 
 <xsl:template match="folia:gap">
 <gap reason="{@class}" hand="{@annotator}">
-    <xsl:if test="desc">
-        <desc><xsl:value-of select="desc" /></desc>
+    <xsl:if test="folia:desc">
+        <desc><xsl:value-of select="folia:desc" /></desc>
     </xsl:if>
-    <xsl:if test="content">
-        <content><xsl:value-of select="content" /></content>
+    <xsl:if test="folia:content">
+        <content><xsl:value-of select="folia:content" /></content>
     </xsl:if>
 </gap>
 </xsl:template>
@@ -69,8 +75,9 @@
 
 
 
+
 <xsl:template match="folia:w">
- <w xml:id="@xml:id"><xsl:if test="pos"><xsl:attribute name="pos"><xsl:value-of select="pos/@class" /></xsl:attribute></xsl:if><xsl:if test="lemma"><xsl:attribute name="lemma"><xsl:value-of select="lemma/@class" /></xsl:attribute></xsl:if><xsl:value-of select="t"/></w>
+ <w><xsl:if test="@xml:id"><xsl:attribute name="xml:id"><xsl:value-of select="@xml:id" /></xsl:attribute></xsl:if><xsl:if test="folia:pos"><xsl:attribute name="pos"><xsl:value-of select="folia:pos/@class" /></xsl:attribute></xsl:if><xsl:if test="folia:lemma"><xsl:attribute name="lemma"><xsl:value-of select="folia:lemma/@class" /></xsl:attribute></xsl:if><xsl:value-of select="folia:t"/></w>
 </xsl:template>
 
 <xsl:template match="folia:list">
@@ -95,9 +102,8 @@
 
 <xsl:template match="*">
   <xsl:comment>
-    <xsl:value-of select="concat('[CONVERSION TO FOLIA WARNING] Element from original not processed: ',name())"/>
+    <xsl:value-of select="concat('[CONVERSION FROM FOLIA WARNING] Element from original not processed: ',name())"/>
   </xsl:comment>
-  <xsl:apply-templates/>
 </xsl:template>
 
 </xsl:stylesheet>
