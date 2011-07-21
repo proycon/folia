@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xsl:stylesheet version="1.0" xmlns:folia="http://ilk.uvt.nl/folia" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dcoi="http://lands.let.ru.nl/projects/d-coi/ns/1.0" xmlns:imdi="http://www.mpi.nl/IMDI/Schema/IMDI">
 
+<!--
+D-Coi to FoLiA Conversion stylesheet
+    by Maarten van Gompel
+    Induction of Linguistic Knowledge Research group
+    Tilburg University
+    
+    http://ilk.uvt.nl/folia
+    http://github.com/proycon/folia
+
+    revision 1
+    
+    Usage with xsltproc: 
+     $ xsltproc dcoi2folia.xsl dcoidocument.xml
+    
+    Licensed under the GNU General Public License v3
+-->
+
 <xsl:output method="xml" encoding="UTF-8" indent="yes" cdata-section-elements="gap" />
 
 
