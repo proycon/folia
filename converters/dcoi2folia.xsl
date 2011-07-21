@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dcoi="http://lands.let.ru.nl/projects/d-coi/ns/1.0">
+<xsl:stylesheet version="1.0" xmlns:folia="http://ilk.uvt.nl/folia" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dcoi="http://lands.let.ru.nl/projects/d-coi/ns/1.0" xmlns:imdi="http://www.mpi.nl/IMDI/Schema/IMDI">
 
 <xsl:output method="xml" encoding="UTF-8" indent="yes" cdata-section-elements="gap" />
 
 
 <xsl:template match="/dcoi:DCOI">
-<FoLiA xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ilk.uvt.nl/FoLiA folia.xsd" xmlns:imdi="http://www.mpi.nl/IMDI/Schema/IMDI">
+<FoLiA xmlns="http://ilk.uvt.nl/folia">
  <xsl:if test="@xml:id">
    <xsl:attribute name="xml:id"><xsl:value-of select="@xml:id" /></xsl:attribute>
  </xsl:if>      
- <metadata>
+ <metadata type="imdi">
   <annotations>
-   <token-annotation />
+   <token-annotation annotator="ilktok" annotatortype="auto" />
+   <pos-annotation annotator="tadpole" annotatortype="auto" set="http://ilk.uvt.nl/folia/sets/cgn"/>
+   <lemma-annotation annotator="tadpole" annotatortype="auto" set="http://ilk.uvt.nl/folia/sets/lemmas-nl"/>
   </annotations>
   <xsl:copy-of select="imdi:METATRANSCRIPT"/>
  </metadata>
@@ -20,7 +22,7 @@
 </xsl:template>
 
 <xsl:template match="dcoi:text">
-    <text>  
+    <text xmlns="http://ilk.uvt.nl/folia">  
         <xsl:if test="@xml:id">
             <xsl:attribute name="xml:id"><xsl:value-of select="@xml:id" /></xsl:attribute>
         </xsl:if>      
@@ -29,7 +31,7 @@
 </xsl:template>
 
 <xsl:template match="dcoi:gap">
-<gap class="{@reason}" annotator="{@hand}">
+<gap xmlns="http://ilk.uvt.nl/folia" class="{@reason}" annotator="{@hand}">
     <desc><xsl:value-of select="desc" /></desc>
     <content><xsl:value-of select="content" /></content>
 </gap>
@@ -37,13 +39,11 @@
 
 
 <xsl:template match="dcoi:body">
-    <body>
-        <xsl:apply-templates select="dcoi:div|dcoi:div0|dcoi:div1|dcoi:div2|dcoi:div3|dcoi:div4|dcoi:div5|dcoi:div6|dcoi:div7"/>
-    </body>
+    <xsl:apply-templates />
 </xsl:template>
 
 <xsl:template match="dcoi:div|dcoi:div0|dcoi:div1|dcoi:div2|dcoi:div3|dcoi:div4|dcoi:div5|dcoi:div6|dcoi:div7">
- <div>
+ <div xmlns="http://ilk.uvt.nl/folia">
   <xsl:if test="@xml:id">
    <xsl:attribute name="xml:id"><xsl:value-of select="@xml:id" /></xsl:attribute>
   </xsl:if>
@@ -52,7 +52,7 @@
 </xsl:template>
 
 <xsl:template match="dcoi:p">
- <p>
+ <p xmlns="http://ilk.uvt.nl/folia">
   <xsl:if test="@xml:id">
    <xsl:attribute name="xml:id"><xsl:value-of select="@xml:id" /></xsl:attribute>
   </xsl:if>
@@ -61,7 +61,7 @@
 </xsl:template>
 
 <xsl:template match="dcoi:head">
- <head>
+ <head xmlns="http://ilk.uvt.nl/folia">
   <xsl:if test="@xml:id">
    <xsl:attribute name="xml:id"><xsl:value-of select="@xml:id" /></xsl:attribute>
   </xsl:if>
@@ -70,7 +70,7 @@
 </xsl:template>
 
 <xsl:template match="dcoi:s">
- <s>
+ <s xmlns="http://ilk.uvt.nl/folia">
   <xsl:if test="@xml:id">
    <xsl:attribute name="xml:id"><xsl:value-of select="@xml:id" /></xsl:attribute>
   </xsl:if>
@@ -79,7 +79,7 @@
 </xsl:template>
 
 <xsl:template match="dcoi:w">
- <w>
+ <w xmlns="http://ilk.uvt.nl/folia">
   <xsl:if test="@xml:id">
    <xsl:attribute name="xml:id"><xsl:value-of select="@xml:id" /></xsl:attribute>
   </xsl:if>
@@ -95,7 +95,7 @@
 
 
 <xsl:template match="dcoi:list">
- <list>
+ <list xmlns="http://ilk.uvt.nl/folia">
   <xsl:if test="@xml:id">
    <xsl:attribute name="xml:id"><xsl:value-of select="@xml:id" /></xsl:attribute>
   </xsl:if>
@@ -105,7 +105,7 @@
 
 
 <xsl:template match="dcoi:item">
- <listitem>
+ <listitem xmlns="http://ilk.uvt.nl/folia">
   <xsl:if test="@xml:id">
    <xsl:attribute name="xml:id"><xsl:value-of select="@xml:id" /></xsl:attribute>
   </xsl:if>
@@ -117,7 +117,7 @@
 </xsl:template>
 
 <xsl:template match="dcoi:label">
- <label>
+ <label xmlns="http://ilk.uvt.nl/folia"> 
   <xsl:if test="@xml:id">
    <xsl:attribute name="xml:id"><xsl:value-of select="@xml:id" /></xsl:attribute>
   </xsl:if>
@@ -126,7 +126,7 @@
 </xsl:template>
 
 <xsl:template match="dcoi:figure">
- <figure>
+ <figure xmlns="http://ilk.uvt.nl/folia">
   <xsl:if test="@xml:id">
    <xsl:attribute name="xml:id"><xsl:value-of select="@xml:id" /></xsl:attribute>
   </xsl:if>
@@ -135,7 +135,7 @@
 </xsl:template>
 
 <xsl:template match="dcoi:figDesc">
- <desc><xsl:value-of select="." /></desc>
+ <desc xmlns="http://ilk.uvt.nl/folia"><xsl:value-of select="." /></desc>
 </xsl:template>
 
 <xsl:template match="*">
