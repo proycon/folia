@@ -11,7 +11,7 @@ FoLiA to D-Coi Conversion stylesheet
     http://ilk.uvt.nl/folia
     http://github.com/proycon/folia
     
-    revision 1
+    version 0.5.2
     
     Usage with xsltproc: 
      $ xsltproc folia2dcoi.xsl foliadocument.xml

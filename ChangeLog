@@ -1,6 +1,23 @@
-0.3:
+0.5)
+    - Introduced version and generator attribute on folia element
+    - Change in declaration: Now all sets needs to be declared.
+    - Introduced Set Definition Format
+    - Added datetime attribute as common FoLiA attribute
+    - Added subjectivity annotation
+    
+0.4)
+    - Overhaul of correction elements, added suggestion element
+    - Added metadata framework
+    - Added subtoken annotation
+        - Added morphological analysis
+        - Added subentities
+    - wref uses 'id' attribute for reference (xml:id was invalid)
+    - Added t attribute to wref, to facilitate text retrieval
+    
+
+0.3)
 	- Introduced 'extended token annotatation' to paradigm
 	- Added support for alignment (and complexalignment)
 	- Support for metadata
 	- Added phonetic annotation
-	- Introduced 'subsets' and changed pos-annotation accordingly
+	- Introduced 'subsets' (features) and changed pos-annotation accordingly
