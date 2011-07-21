@@ -1158,9 +1158,9 @@
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="content">
+  <define ns="http://ilk.uvt.nl/folia" name="content">
     <element name="content">
-      <empty/>
+      <text/>
     </element>
   </define>
 
@@ -1399,11 +1399,9 @@
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="desc">
+  <define ns="http://ilk.uvt.nl/folia" name="desc">
     <element name="desc">
-      <a:documentation>Description is an element that can be used to associate a description with almost any
-    other FoLiA element</a:documentation>
-      <empty/>
+      <text/>
     </element>
   </define>
 
