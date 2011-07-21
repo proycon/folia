@@ -4,7 +4,7 @@
 <xsl:output method="xml" encoding="UTF-8" indent="yes" cdata-section-elements="gap" />
 
 <xsl:template match="/folia:FoLiA">
-<DCOI xml:id="{@xml:id}"></DCOI>
+<DCOI xml:id="{@xml:id}">
  <xsl:copy-of select="metadata/imdi:METATRANSCRIPT"/>
  <xsl:apply-templates select="folia:text"/>
 </DCOI>
@@ -67,9 +67,31 @@
  </s>
 </xsl:template>
 
+
+
 <xsl:template match="folia:w">
  <w xml:id="@xml:id"><xsl:if test="pos"><xsl:attribute name="pos"><xsl:value-of select="pos/@class" /></xsl:attribute></xsl:if><xsl:if test="lemma"><xsl:attribute name="lemma"><xsl:value-of select="lemma/@class" /></xsl:attribute></xsl:if><xsl:value-of select="t"/></w>
 </xsl:template>
+
+<xsl:template match="folia:list">
+ <list>
+  <xsl:if test="@xml:id">
+   <xsl:attribute name="xml:id"><xsl:value-of select="@xml:id" /></xsl:attribute>
+  </xsl:if>
+  <xsl:apply-templates />
+ </list>
+</xsl:template>
+
+<xsl:template match="folia:listitem">
+ <item>
+  <xsl:if test="@xml:id">
+   <xsl:attribute name="xml:id"><xsl:value-of select="@xml:id" /></xsl:attribute>
+  </xsl:if>
+  <xsl:apply-templates />
+ </item>
+</xsl:template>
+
+
 
 <xsl:template match="*">
   <xsl:comment>
