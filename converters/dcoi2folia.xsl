@@ -32,8 +32,12 @@
 
 <xsl:template match="dcoi:gap">
 <gap xmlns="http://ilk.uvt.nl/folia" class="{@reason}" annotator="{@hand}">
+    <xsl:if test="desc/.">
     <desc><xsl:value-of select="desc" /></desc>
+    </xsl:if>
+    <xsl:if test="content/.">
     <content><xsl:value-of select="content" /></content>
+    </xsl:if>
 </gap>
 </xsl:template>
 
