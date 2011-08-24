@@ -6,7 +6,7 @@
 <xsl:variable name="id" select="/ptext/@ref" />
 
 <xsl:template match="/ptext">
-<FoLiA>
+<FoLiA xmlns="http://ilk.uvt.nl/folia" version="0.5.1" generator="vudnc2folia.xsl">
  <xsl:attribute name="xml:id">
      <xsl:value-of select="$id" />
  </xsl:attribute>
