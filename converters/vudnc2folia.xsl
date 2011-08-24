@@ -31,9 +31,9 @@
 </xsl:template>
 
 <xsl:template match="header">        
-    <xsl:if test="document"><meta id="document"><xsl:value-of select="document" /></meta></xsl:if>
     <xsl:if test="paper"><meta id="paper"><xsl:value-of select="paper" /></meta></xsl:if>
     <xsl:if test="date"><meta id="date"><xsl:value-of select="date" /></meta></xsl:if>
+    <xsl:if test="dateline"><meta id="dateline"><xsl:value-of select="dateline" /></meta></xsl:if>
     <xsl:if test="source"><meta id="source"><xsl:value-of select="source" /></meta></xsl:if>
     <xsl:if test="section"><meta id="section"><xsl:value-of select="section" /></meta></xsl:if>
     <xsl:if test="length"><meta id="length"><xsl:value-of select="length" /></meta></xsl:if>

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xsl:stylesheet version="1.0" xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:imdi="http://www.mpi.nl/IMDI/Schema/IMDI" xmlns:folia="http://ilk.uvt.nl/folia">
 
-<xsl:output method="html" encoding="UTF-8" omit-xml-declaration="yes" doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" indent="yes" cdata-section-elements="script"/>
-
+<xsl:output method="html" encoding="UTF-8" omit-xml-declaration="yes" doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" indent="yes" />
 
 <xsl:template match="/folia:FoLiA">
   <xsl:apply-templates select="folia:text" />    
@@ -10,7 +9,7 @@
 
 
 
-<xsl:template match="folia:text">
+<xsl:template match="/folia:FoLiA/folia:text">
  <div class="text">
    <xsl:choose>
    <xsl:when test="/folia:div">
@@ -31,34 +30,48 @@
 
 <xsl:template match="folia:div">
  <div class="div">
-  <xsl:apply-templates />
+   <xsl:choose>
+   <xsl:when test="/folia:div">
+    <xsl:apply-templates select="/folia:div" />
+   </xsl:when>
+   <xsl:when test="//folia:p">
+    <xsl:apply-templates select="//folia:p|//folia:head" />
+   </xsl:when>
+   <xsl:when test="//folia:s">
+    <xsl:apply-templates select="//folia:s|//folia:head" />
+   </xsl:when> 
+   </xsl:choose>
  </div>
 </xsl:template>
 
 <xsl:template match="folia:p">
- <p>
-  <xsl:apply-templates />
+ <p id="{@xml:id}">
+  <xsl:apply-templates select="folia:s" />
  </p>
 </xsl:template>
 
 
 <xsl:template match="folia:head">
  <h1>
-  <xsl:apply-templates />
+  <xsl:apply-templates select="folia:s" />
  </h1>
 </xsl:template>
 
 <xsl:template match="folia:s">
- <span class="s">
-  <xsl:apply-templates />
- </span>
+ <span id="{@xml:id}" class="s"><xsl:apply-templates select=".//folia:w" /></span>
 </xsl:template>
 
 <xsl:template match="folia:w">
- <span id="{@xml:id}" class="word">
-        <xsl:value-of select="folia:t"/>
- </span>
- <xsl:text> </xsl:text> <!-- TODO: implement @nospace check -->
+<xsl:if test="not(ancestor::folia:original) and not(ancestor::folia:suggestion)">
+<span id="{@xml:id}" class="word"><xsl:value-of select="folia:t"/></span>
+<xsl:choose>
+   <xsl:when test="@space = 'no'"></xsl:when>
+   <xsl:otherwise>
+    <xsl:text> </xsl:text>
+   </xsl:otherwise>
+</xsl:choose>
+</xsl:if>
 </xsl:template>
 
 </xsl:stylesheet>
+

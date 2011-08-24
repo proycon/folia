@@ -14,6 +14,10 @@ D-Coi to FoLiA Conversion stylesheet
     
     Usage with xsltproc: 
      $ xsltproc dcoi2folia.xsl dcoidocument.xml
+     
+    Note: this stylesheet is optimised for SoNaR and 
+    declares pos annotation and lemma annotation (remove or 
+    change if not used)
     
     Licensed under the GNU General Public License v3
 -->
