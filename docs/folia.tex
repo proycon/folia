@@ -216,7 +216,7 @@ FoLiA is not just a format for holding tokenised text, although tokenisation is 
  </p>
 \end{lstlisting}
 
-Higher level elements \emph{may} also contain a text element even when the deeper element does too. It is very important to realise that the sentence/paragraph-level text element \emph{always} contains the text \emph{prior} to tokenisation! Note also that the word element has an attribute \texttt{space}, which defaults to yes, and indicates whether the word was followed by a space in the \emph{untokenised} original. This allows for partial reconstructibility of the sentence in its untokenised form. See section~\label{sec:textcontent} for a more elaborate overview of this subject.
+Higher level elements \emph{may} also contain a text element even when the deeper element does too. It is very important to realise that the sentence/paragraph-level text element \emph{always} contains the text \emph{prior} to tokenisation! Note also that the word element has an attribute \texttt{space}, which defaults to yes, and indicates whether the word was followed by a space in the \emph{untokenised} original. This allows for partial reconstructibility of the sentence in its untokenised form. See section~\ref{sec:textcontent} for a more elaborate overview of this subject.
 
 The following example shows the maximum amount of redundancy, with text elements at every level.
 
@@ -269,12 +269,11 @@ It this kind of redundancy is used (it is not mandatory),you may optionally poin
  </p>
 \end{lstlisting}
 
-It gets somewhat more complicated if corrections are involved, consult section~\label{sec:textcontent} for a more in-depth discussion.
+Matters can become more complicated as multiple text-content element of different classes may be associated with an element, this will be discussed later on in section~\ref{sec:textcontent}.
 
-The paragraph elements may be omitted if a document is described that does not distinguish paragraphs but only sentences. The identifiers of course change accordingly then. Sentences however should never be omitted; documents can never consist of tokens only!
+Paragraph elements may be omitted if a document is described that does not distinguish paragraphs but only sentences. Sentences however may never be omitted; FoLiA documents can never consist of tokens only!
 
 The content element \texttt{head} is reserved for headers and captions, it behaves similarly to the paragraph element and may hold sentences.
-
 
 FoLiA also explicitly supports quotes, as demonstrated in the next example, which annotates the following sentence: 
 
@@ -1025,7 +1024,7 @@ With correction:
 
 Although correction is used inline here, rather than as a normal token annotation, its usage is still identical. For clarity's sake, the class of course depends on the set and is as always never predefined in FoLiA itself.
 
-Note that the text element gains an extra mandatory attribute, \texttt{corrected} with value \emph{inline}, which signals that there are inline corrections \emph{within} the text element. Please see section~\label{sec:textcontent} for a more elaborate discussion on this.
+Note that the text element gains an extra mandatory attribute, \texttt{corrected} with value \emph{inline}, which signals that there are inline corrections \emph{within} the text element. Please see section~\ref{sec:textcontent} for a more elaborate discussion on this.
 
 
 \section{Alternative Token Annotations}
@@ -1333,10 +1332,10 @@ We introduced the FoLiA paradigm in section~\ref{sec:paradigm}. Now we will intr
 
 Any token annotation element or span annotation element may hold a \texttt{desc} element containing a human readable description for the annotation. An example of this has been already shown for the \texttt{sense} and \texttt{gap} elements.
 
-\subsection{Text content and pre-tokenised text}
+\subsection{Text content and multiple classes}
 \label{sec:textcontent}
 
-In section~\ref{sec:basics} we have seen the text content element \texttt{t} used on different levels, and the \texttt{offset} attribute to explicitly link the text between child and parent. This is demonstrated on three levels in the following example:
+In section~\ref{sec:basics} we have seen the text content element \texttt{t}. This element can be associated with structural elements such as \texttt{w}, \texttt{s}, and \texttt{p}. The \texttt{offset} attribute may be used to explicitly link the text between child and parent. This is demonstrated on three levels in the following example:
 
 \begin{lstlisting}[language=xml]
  <p xml:id="example.p.1">
@@ -1360,7 +1359,8 @@ Moreover, we have seen the space attribute, which is a simple alternative that c
 \item any other character or string -- This states that the token is followed by another character or string that acts as a token separator.
 \end{itemize}
 
-When explicit text content on sentence/paragraph level is provided, offsets can be used. This does imply that there are some challenges to solve. First of all, by default, the offset refers to the direct parent of whatever element the text content (\texttt{t}) is a member of. If a level is missing we have to explicitly specify this reference using the \texttt{ref} attribute. Note that there is no text content for the sentence in the following example, and we refer directly to the paragraph's text:
+
+When explicit text content on sentence/paragraph level is provided, offsets can be used to refer back to it from deeper text-content elements. This does imply that there are some challenges to solve. First of all, by default, the offset refers to the direct parent of whatever element the text content (\texttt{t}) is a member of. If a level is missing we have to explicitly specify this reference using the \texttt{ref} attribute. Note that there is no text content for the sentence in the following example, and we refer directly to the paragraph's text:
 
 \begin{lstlisting}[language=xml]
  <p xml:id="example.p.1">
@@ -1385,7 +1385,16 @@ When explicit text content on sentence/paragraph level is provided, offsets can 
  </p>
 \end{lstlisting}
 
-Another challenge is corrections, as they often change the text and we want this to reflect back on the untokenised text. The text content element (\texttt{t}) may be used with the \texttt{corrected} attribute set to ``yes'' to state the text \emph{after correction}, in \emph{untokenised} form! As this may changes offsets, the \texttt{newoffset} attribute is used to refer to the offsets in this new corrected text. This text content element does not replace the already existing one, there can be \emph{one} of each type\footnotesize{Additionally, there can be one where \texttt{corrected} is set to ``inline''}:
+Note that text content is always expected to be untokenised, except in \texttt{w} tags as it by definition is the tokenisation layer.
+
+It is possible to associate \emph{multiple text-content} elements with the same element, and thus associating multiple texts with the same element. You may wonder what could possibly be the point of such extra complexity. But there is a clear use-case when dealing with for example corrections, or wanting to associate the text version just prior or after a processing step such as Optical Character Recognition or another kind of normalisation.
+
+Corrections are challenging because they by nature change the text. Corrections are often applied on the token level (within \texttt{w} tags), but you may want them propagated to the text content of sentences or paragraphs whilst at the same time wanting to retain the text how it originally was.
+
+%TODO
+
+
+The text content element (\texttt{t}) may be used with the \texttt{corrected} attribute set to ``yes'' to state the text \emph{after correction}, in \emph{untokenised} form! As this may changes offsets, the \texttt{newoffset} attribute is used to refer to the offsets in this new corrected text. This text content element does not replace the already existing one, there can be \emph{one} of each type\footnotesize{Additionally, there can be one where \texttt{corrected} is set to ``inline''}:
 
 \begin{lstlisting}[language=xml]
  <p xml:id="example.p.1">
