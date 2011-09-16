@@ -62,7 +62,7 @@ columnconf = []
 for o, a in opts:
     if o == '-f':
         filename = a
-    elif o == '-a':
+    elif o == '-c':
         for a in a.split(','):
             columnconf.append(a)
     elif o == '-H':
