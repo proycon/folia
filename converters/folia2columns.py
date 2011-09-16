@@ -43,7 +43,7 @@ def usage():
     #print >>sys.stderr, "  -x                           Space columns for human readability"
     
 try:
-    opts, args = getopt.getopt(sys.argv[1:], "f:o:HSc:", ["help", "--csv"])
+    opts, args = getopt.getopt(sys.argv[1:], "f:o:hHSc:", ["help", "--csv"])
 except getopt.GetoptError, err:
     print str(err)
     usage()
@@ -65,6 +65,8 @@ for o, a in opts:
     elif o == '-c':
         for a in a.split(','):
             columnconf.append(a)
+    elif o == '-h':
+        usage()
     elif o == '-H':
         output_header = False        
     elif o == '-S':
@@ -80,6 +82,7 @@ for o, a in opts:
 
 if not filename:
     print >>sys.stderr,"ERROR: No FoLiA document specified (use -f)"
+    usage()
     sys.exit(2)
 
 doc = folia.Document(file=filename)
