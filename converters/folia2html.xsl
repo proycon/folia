@@ -72,6 +72,13 @@
             dd.errors {
                 color: red;
             }
+            div.figure {
+                text-align: center;
+            }
+            div.caption {
+                font-style: italic;
+                text-align: center;
+            }
         </style>
         <link rel="StyleSheet" href="style.css" type="text/css" />
   </head>
