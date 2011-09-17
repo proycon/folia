@@ -23,10 +23,10 @@
             div.tokenannotations { display: none; }
             body {
                 background: #424242;
+                font-size: 14px;
             }
             body, p, h1,h2,h3,h4,h5 {
-                font-family: sans-serif;
-                font-size: 14px;
+                font-family: sans-serif;                
             }
             div.text {
                 margin-left: 340px;
@@ -70,7 +70,7 @@
                 font-weight: normal;
             }
             dd.errors {
-                text-color: red;
+                color: red;
             }
         </style>
         <link rel="StyleSheet" href="style.css" type="text/css" />
@@ -198,16 +198,16 @@
             <dd class="errors">There may be errors!</dd>
         </xsl:if>
         <xsl:if test="folia:correction">
-            <xsl:if test="folia:correction/folia:suggestion/t">
-                <dt>Suggestion for text correction</dt>
-                <xsl:for-each select="folia:correction/folia:suggestion/t">
+            <xsl:if test="folia:correction/folia:suggestion/folia:t">
+                <dt>Suggestion(s) for text correction</dt>
+                <xsl:for-each select="folia:correction/folia:suggestion/folia:t">
                     <dd><xsl:value-of select="." /></dd>
                 </xsl:for-each>
             </xsl:if>
-            <xsl:if test="folia:correction/folia:original/t">
+            <xsl:if test="folia:correction/folia:original/folia:t">
                 <dt>Original pre-corrected text</dt>
-                <xsl:for-each select="folia:correction/folia:original/t[1]">
-                    <dd><xsl:value-of select="." /></dd>
+                <xsl:for-each select="folia:correction/folia:original/folia:t[1]">
+                    <dd class="errors"><xsl:value-of select="." /></dd>
                 </xsl:for-each>                
             </xsl:if>            
         </xsl:if>
