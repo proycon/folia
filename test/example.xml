@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="folia2html.xsl"?>
 <FoLiA xmlns="http://ilk.uvt.nl/folia" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="WR-P-E-J-0000000001" version="0.6.0" generator="pynlpl.formats.folia-v0.6.0.13">
   <metadata type="imdi">
     <annotations>
@@ -347,6 +348,7 @@
             </w>
           </s>
           <s xml:id="WR-P-E-J-0000000001.p.1.s.3">
+            <whitespace />
             <w xml:id="WR-P-E-J-0000000001.p.1.s.3.w.1">
               <t>Werkwijze</t>
               <pos class="N(soort,ev,basis,zijd,stan)"/>
@@ -968,11 +970,49 @@
           </s>
         </p>
       </div>
+      <div xml:id="sandbox">
+          <list  xml:id="sandbox.list.1">
+              <listitem xml:id="sandbox.list.1.listitem.1">
+                  <s xml:id="sandbox.list.1.listitem.1.s.1">
+                      <w xml:id="sandbox.list.1.listitem.1.s.1.w.1">
+                          <t>Eerste</t>
+                      </w>
+                      <w xml:id="sandbox.list.1.listitem.1.s.1.w.2">
+                          <t>testitem</t>
+                      </w>                      
+                  </s>                  
+              </listitem>
+              <listitem xml:id="sandbox.list.1.listitem.2">
+                  <s xml:id="sandbox.list.1.listitem.2.s.1">
+                      <w xml:id="sandbox.list.1.listitem.2.s.1.w.1">
+                          <t>Tweede</t>
+                      </w>
+                      <w xml:id="sandbox.list.1.listitem.2.s.1.w.2">
+                          <t>testitem</t>
+                      </w>                      
+                  </s>                  
+              </listitem>
+          </list>
+          <figure xml:id="sandbox.figure.1" src="http://upload.wikimedia.org/wikipedia/commons/8/8e/Family_tree.svg">
+              <desc>Stamboom plaatje van wikipedia</desc>              
+              <caption>
+                  <s xml:id="sandbox.figure.1.caption.s.1">
+                      <w xml:id="sandbox.figure.1.caption.s.1.w.1">
+                          <t>Een</t>
+                      </w>
+                      <w xml:id="sandbox.figure.1.caption.s.1.w.2">
+                          <t>stamboom</t>
+                      </w>                      
+                  </s>
+              </caption>
+          </figure>
+      </div>
       <gap xml:id="WR-P-E-J-0000000001.gap.1" class="backmatter" annotator="proycon">
        <desc>Backmatter</desc>
        <content>
 <![CDATA[
-bli bli bla, bla bla bli
+De tekst is beschikbaar onder de licentie Creative Commons Naamsvermelding/Gelijk delen, er kunnen aanvullende voorwaarden van toepassing zijn. Zie de Gebruiksvoorwaarden voor meer informatie.
+Wikipedia® is een geregistreerd handelsmerk van de Wikimedia Foundation, Inc., een organisatie zonder winstoogmerk.
 ]]>
        </content>
       </gap>      
