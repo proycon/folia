@@ -19,6 +19,60 @@
                 <title><xsl:value-of select="@xml:id" /></title>
             </xsl:otherwise>
         </xsl:choose>
+        <style type="text/css">
+            div.tokenannotations { display: none; }
+            body {
+                background: #424242;
+            }
+            body, p, h1,h2,h3,h4,h5 {
+                font-family: sans-serif;
+                font-size: 14px;
+            }
+            div.text {
+                margin-left: 340px;
+                margin-right: auto;
+                width: 60%;
+                padding: 20px;
+                background: white;
+                border: solid 1px black;
+            }
+            pre.gap {
+                display: block;
+                background: white;
+                border: #fff solid dashed;
+                padding: 5px;
+            }
+            div.tokenannotations {
+                font-family: sans-serif;
+                font-size: 14px;
+            }
+            span.word:hover {
+                background: #A5C5D1;
+            }
+            span.word:hover div.tokenannotations { 
+                display: block; 
+                position: fixed;
+                width: 320px; 
+                left: 5px;
+                top: 5px;
+                background: #b4d4d1; /*#FCFFD0;*/
+                opacity: 0.9; filter: alpha(opacity = 90); 
+                border: 1px solid #628f8b; 
+                padding: 5px; 
+                text-decoration: none;
+            }
+            dt {
+                font-weight: bold;
+                width: 90%;
+            }
+            dd {
+                width: 90%;
+                font-weight: normal;
+            }
+            dd.errors {
+                text-color: red;
+            }
+        </style>
         <link rel="StyleSheet" href="style.css" type="text/css" />
   </head>
   <body>     
@@ -104,7 +158,7 @@
 
 <xsl:template match="folia:w">
 <xsl:if test="not(ancestor::folia:original) and not(ancestor::folia:suggestion) and not(ancestor::folia:alternative)">
-<span id="{@xml:id}" class="word"><xsl:value-of select=".//folia:t[1]"/></span>
+<span id="{@xml:id}" class="word"><xsl:value-of select=".//folia:t[1]"/><xsl:call-template name="tokenannotations" /></span>
 <xsl:choose>
    <xsl:when test="@space = 'no'"></xsl:when>
    <xsl:otherwise>
@@ -114,6 +168,52 @@
 </xsl:if>
 </xsl:template>
 
+<xsl:template name="tokenannotations">
+ <div id="TOKENANNOTATIONS.{@xml:id}" class="tokenannotations">
+    <dl>
+        <dt>ID</dt>
+        <dd><xsl:value-of select="@xml:id" /></dd>        
+        <xsl:if test="folia:phon">
+            <dt>Phonetics</dt>
+            <dd><xsl:value-of select="folia:phon/@class" /></dd>
+        </xsl:if>
+        <xsl:if test="folia:pos">
+            <dt>PoS</dt>
+            <dd><xsl:value-of select="folia:pos/@class" /></dd>
+        </xsl:if>
+        <xsl:if test="folia:lemma">
+            <dt>Lemma</dt>
+            <dd><xsl:value-of select="folia:lemma/@class" /></dd>
+        </xsl:if>
+        <xsl:if test="folia:sense">
+            <dt>Sense</dt>
+            <dd><xsl:value-of select="folia:sense/@class" /></dd>
+        </xsl:if>
+        <xsl:if test="folia:subjectivity">
+            <dt>Subjectivity</dt>
+            <dd><xsl:value-of select="folia:subjectivity/@class" /></dd>
+        </xsl:if>
+        <xsl:if test="folia:errordetection[@errors='yes']">
+            <dt>Error detection</dt>
+            <dd class="errors">There may be errors!</dd>
+        </xsl:if>
+        <xsl:if test="folia:correction">
+            <xsl:if test="folia:correction/folia:suggestion/t">
+                <dt>Suggestion for text correction</dt>
+                <xsl:for-each select="folia:correction/folia:suggestion/t">
+                    <dd><xsl:value-of select="." /></dd>
+                </xsl:for-each>
+            </xsl:if>
+            <xsl:if test="folia:correction/folia:original/t">
+                <dt>Original pre-corrected text</dt>
+                <xsl:for-each select="folia:correction/folia:original/t[1]">
+                    <dd><xsl:value-of select="." /></dd>
+                </xsl:for-each>                
+            </xsl:if>            
+        </xsl:if>
+    </dl>
+ </div>
+</xsl:template>
 
 <xsl:template match="folia:whitespace">
  <br /><br />
