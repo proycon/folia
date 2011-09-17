@@ -16,7 +16,7 @@ stringstyle=\ttfamily,
 
 
 
-\title{FoLiA: Format for Linguistic Annotation \\ \small v0.5.1}
+\title{FoLiA: Format for Linguistic Annotation \\ \small v0.6}
 \author{Maarten van Gompel \\ ILK Research Group \\ Tilburg center for Cognition and Communication \\ Tilburg University }
 
 \parindent=0pt %no paragraph indentation
@@ -993,38 +993,38 @@ For insertions, the \texttt{original} element is empty.
 \end{lstlisting}
 
 
-\subsubsection{Correction prior to tokenisation} 
-\label{sec:pretokcorrection}
+%\subsubsection{Correction prior to tokenisation} 
+%\label{sec:pretokcorrection}
 
-There is another special use of the correction element. Sometimes corrections or normalisations occur prior to tokenisation, think for example about correcting OCR-errors. To accommodate this, the \texttt{correction} element can be used inline within the text content element (\texttt{t}) of a paragraph or sentence, which is by definition untokenised.
+%There is another special use of the correction element. Sometimes corrections or normalisations occur prior to tokenisation, think for example about correcting OCR-errors. To accommodate this, the \texttt{correction} element can be used inline within the text content element (\texttt{t}) of a paragraph or sentence, which is by definition untokenised.
 
-Without correction:
+%Without correction:
 
-\begin{lstlisting}[language=xml]
-<s xml:id="example.p.1.s.1.w.1">
-    <t>Look at thi.s untokenised sentence.</t>
-</s>            
-\end{lstlisting}
+%\begin{lstlisting}[language=xml]
+%<s xml:id="example.p.1.s.1.w.1">
+    %<t>Look at thi.s untokenised sentence.</t>
+%</s>            
+%\end{lstlisting}
 
-With correction:
+%With correction:
 
-\begin{lstlisting}[language=xml]
-<s xml:id="example.p.1.s.1">
-    <t corrected="inline">Look at <correction xml:id="example.p.1.s.1.c.1"
-     class="ocrcorrection">
-     <new>
-        <t>this</t>
-     </new>
-     <original>
-       <t>thi.s</t>
-     </original></correction> untokenised sentence.
-    </t>
-</s>                         
-\end{lstlisting}
+%\begin{lstlisting}[language=xml]
+%<s xml:id="example.p.1.s.1">
+    %<t corrected="inline">Look at <correction xml:id="example.p.1.s.1.c.1"
+     %class="ocrcorrection">
+     %<new>
+        %<t>this</t>
+     %</new>
+     %<original>
+       %<t>thi.s</t>
+%     </original></correction> untokenised sentence.
+    %</t>
+%</s>                         
+%\end{lstlisting}
 
-Although correction is used inline here, rather than as a normal token annotation, its usage is still identical. For clarity's sake, the class of course depends on the set and is as always never predefined in FoLiA itself.
+%Although correction is used inline here, rather than as a normal token annotation, its usage is still identical. For clarity's sake, the class of course depends on the set and is as always never predefined in FoLiA itself.
 
-Note that the text element gains an extra mandatory attribute, \texttt{corrected} with value \emph{inline}, which signals that there are inline corrections \emph{within} the text element. Please see section~\ref{sec:textcontent} for a more elaborate discussion on this.
+%Note that the text element gains an extra mandatory attribute, \texttt{corrected} with value \emph{inline}, which signals that there are inline corrections \emph{within} the text element. Please see section~\ref{sec:textcontent} for a more elaborate discussion on this.
 
 
 \section{Alternative Token Annotations}
@@ -1389,34 +1389,43 @@ Note that text content is always expected to be untokenised, except in \texttt{w
 
 It is possible to associate \emph{multiple text-content} elements with the same element, and thus associating multiple texts with the same element. You may wonder what could possibly be the point of such extra complexity. But there is a clear use-case when dealing with for example corrections, or wanting to associate the text version just prior or after a processing step such as Optical Character Recognition or another kind of normalisation.
 
-Corrections are challenging because they by nature change the text. Corrections are often applied on the token level (within \texttt{w} tags), but you may want them propagated to the text content of sentences or paragraphs whilst at the same time wanting to retain the text how it originally was.
+Corrections are challenging because they can be applied to text content and thus change the text. Corrections are often applied on the token level (within \texttt{w} tags), but you may want them propagated to the text content of sentences or paragraphs whilst at the same time wanting to retain the text how it originally was. This can be accomplished by introducing text content of a different class. Text content that has no associated class obtains the ``current'' class by default, it is expected to always be up-to-date. There is a notable exception: text content that appears within the scope of \texttt{original} elements within a \texttt{correction} element automatically adopts the ``original'' class.\footnote{For more deeply nested original elements, you will have to assign your own classes if you do not want them to take the ``original'' class.} This thus implies that in this rare case, FoLiA actually pre-defines classes (i.e: ``original'' and ``current'')! In addition to these two pre-defined classes, any other custom classes may be added as you see fit. If you add custom classes, you need a declaration:
 
-%TODO
+\begin{lstlisting}[language=xml]
+<annotations>
+    <text-annotation set="http://ilk.uvt.nl/folia/sets/text-annotation" />
+</annotations>
+\end{lstlisting}
 
 
-The text content element (\texttt{t}) may be used with the \texttt{corrected} attribute set to ``yes'' to state the text \emph{after correction}, in \emph{untokenised} form! As this may changes offsets, the \texttt{newoffset} attribute is used to refer to the offsets in this new corrected text. This text content element does not replace the already existing one, there can be \emph{one} of each type\footnotesize{Additionally, there can be one where \texttt{corrected} is set to ``inline''}:
+Below is an example illustrating the usage of multiple classes. To show the flexibility, offsets are added, but these are of course always optional. Note that when an offset is specified, it always refers to a text-content element of the same class!
 
 \begin{lstlisting}[language=xml]
  <p xml:id="example.p.1">
-    <t>Hello. This is a sentence. Bye!</t>
-    <t corrected="yes">Hello. This was a sentence. Bye!</t> 
+    <t>Hello. This is a sentence. Bye!</t> 
+    <t class="original">Hello. This iz a sentence. Bye!</t>    
     <s xml:id="example.p.1.s.1">        
         <t offset="7">This is a sentence.</t>
-        <t corrected="yes" offset="7" length="19" newoffset="7">
-        This was a sentence.
-        </t>        
+        <t class="original" offset="7">This is a sentence.</t>
         <w xml:id="example.p.1.s.1.w.1">
-         <t offset="0" newoffset="0">This</t>
+         <t offset="0">This</t>
         </w>
-        <w xml:id="example.p.1.s.1.w.2">
-         <t offset="5" length="2" newoffset="5">was</t>
-         <correction>...</correction>
+        <w xml:id="example.p.1.s.1.w.2">         
+         <correction>
+          <new>
+           <t offset="5">is</t>
+          </new>
+          <original>
+           <t offset="5">iz</t> 
+           <!-- Note that this element has class 'original' by definition! -->
+          </original>
+         </correction>
         </w>
         <w xml:id="example.p.1.s.1.w.3">
-         <t offset="8" newoffset="9">a</t>
+         <t offset="8">a</t>
         </w>
         <w xml:id="example.p.1.s.1.w.4" space="no">
-         <t offset="10" newoffset="11">sentence</t>
+         <t offset="10">sentence</t>
         </w>
         <w xml:id="example.p.1.s.1.w.5">
          <t offset="48">.</t>
@@ -1425,13 +1434,46 @@ The text content element (\texttt{t}) may be used with the \texttt{corrected} at
  </p>
 \end{lstlisting}
 
-    
+One important aspect is that FoLiA dictates that \texttt{t} elements without classes always appear first, before any other text-content tags that do specify classes. This rule facilitates the job of parsers in quickly getting the latest text content even if there are multiple classes: the first \texttt{t} element will be the most recent by definition.
 
-Order matters here, so parsers can always grab the last (\texttt{t}) element to have the most edited version, and the first to have the version closest to the original. The attribute \texttt{newoffset} always refers to the newest text content, whilst \texttt{offset} refers to the most original text content. The \texttt{length} attribute is used to specify the length of the original text prior to correction, as this can no longer be derived automatically, in all other cases it can be omitted as it can be derived from the textual content itself.
+In the above example, the correction is explicit, in the next example, it is implicit. Furthermore, to illustrate how you could use other custom classes, the next example introduces an custom ``ocroutput'' class that shows the (fictious) output of an OCR system prior to some implicit correction stage. 
 
-Text content (\texttt{t}) in word elements (\texttt{w}) are \emph{by definition} a single token \emph{and} corrected.  Text content (\texttt{t}) on a sentence/paragraph/division level is by definition always untokenised, and can be in a state prior to correction, with inline corrections or post-correction. Multiple \texttt{t} elements are allowed only if their value for \texttt{corrected} differs.
+\begin{lstlisting}[language=xml]
+ <p xml:id="example.p.1">
+    <t>Hello. This is a sentence. Bye!</t> 
+    <t class="original">Hello. This iz a sentence. Bye!</t>    
+    <t class="ocroutput">Hell0 Th1s iz a sentence, Bye1</t>    
+    <s xml:id="example.p.1.s.1">        
+        <t offset="7">This is a sentence.</t>
+        <t class="original" offset="7">This is a sentence.</t>
+        <t class="ocroutput" offset="6">Th1s iz a sentence,</t>
+        <w xml:id="example.p.1.s.1.w.1">
+         <t offset="0">This</t>
+         <t class="ocroutput" offset="0">Th1s</t>
+        </w>
+        <w xml:id="example.p.1.s.1.w.2">         
+           <t offset="5">is</t>
+           <t offset="5" class="original">iz</t> 
+           <t offset="5" class="ocroutput">iz</t>           
+        </w>
+        <w xml:id="example.p.1.s.1.w.3">
+         <t offset="8">a</t>
+        </w>
+        <w xml:id="example.p.1.s.1.w.4" space="no">
+         <t offset="10">sentence</t>
+        </w>
+        <w xml:id="example.p.1.s.1.w.5">
+         <t offset="48">.</t>
+         <t offset="48" class="original">.</t>
+         <t offset="48" class="ocroutput">,</t>
+        </w>
+    </s>
+ </p>
+\end{lstlisting}
 
-Last, but not least; all offset and length attributes are measured in unicode code-points, the first character having index zero. Take special care with combining diacritical marks versus codepoints that directly integrate the diacritical mark.
+
+
+Last, an important note regarding offsets; all offset values are measured in unicode code-points, the first character having index zero. Take special care with combining diacritical marks versus codepoints that directly integrate the diacritical mark.
 
 \subsection{Subsets and multiple classes}
 \label{subset}
@@ -1585,23 +1627,26 @@ The declaration:
 
 FoLiA provides a facility to align parts of your document with other parts of your document, or even with parts of other FoLiA documents. These are called \emph{alignments} and are implemented using either the \texttt{alignment} element, a form of extended token annotation (that may thus also be applied on other levels such as sentences or paragraphs), or \texttt{complexalignment}, a form of span annotation for more complex word alignments.
 
-Consider the following two aligned sentences from two \emph{distinct} FoLiA documents in different languages. Note that the \texttt{t} attribute to the \texttt{aref} element is merely optional and is this overhead is added merely to facilitate the job of simple/limited FoLiA parsers. The \texttt{xlink:href} argument is used to link to the target document, if any. If the alignment is within the same document then it can be simply omitted.
+Consider the following two aligned sentences from two \emph{distinct} FoLiA documents in different languages. Note that the \texttt{t} attribute to the \texttt{aref} element is merely optional and is this overhead is added simply to facilitate the job of limited FoLiA parsers and providing a quick reference to the target text for both parser and human user. The \texttt{xlink:href} argument is used to link to the target document, if any. If the alignment is within the same document then it should be simply omitted.
 
 \begin{lstlisting}[language=xml]
 <s xml:id="example-english.p.1.s.1">
   <t>The Dalai Lama greeted him.</t>
-  <alignment class="french-translation" xlink:href="doc-french.xml" xlink:type="simple">
-        <aref id="doc-french.p.1.s.1" t="Le Dalai Lama le saluait." />
+  <alignment class="french-translation" xlink:href="doc-french.xml" 
+    xlink:type="simple">
+     <aref id="doc-french.p.1.s.1" t="Le Dalai Lama le saluait." />
   </alignment>
 </s>
 
 <s xml:id="example-french.p.1.s.1">
   <t>Le Dalai Lama le saluait.</t>
-  <alignment class="english-translation" xlink:href="doc-english.xml" xlink:type="simple">
-        <aref id="doc-english.p.1.s.1" t="The Dalai Lama greeted him." />
+  <alignment class="english-translation" xlink:href="doc-english.xml" 
+    xlink:type="simple">
+      <aref id="doc-english.p.1.s.1" t="The Dalai Lama greeted him." />
   </alignment>
-  <alignment class="english-translation" xlink:href="doc-dutch.xml" xlink:type="simple">
-        <aref id="doc-dutch.p.1.s.1" t="De Dalai Lama begroette hem." />
+  <alignment class="english-translation" xlink:href="doc-dutch.xml" 
+     xlink:type="simple">
+      <aref id="doc-dutch.p.1.s.1" t="De Dalai Lama begroette hem." />
   </alignment>
 </s>
 \end{lstlisting}
@@ -1620,19 +1665,17 @@ Although the above example has a single alignment reference (\texttt{aref}), it 
   <w xml:id="example-english.p.1.s.1.w.6"><t>.</t></w>
   <complexalignments>
         ...
-        <complexalignment class="french-translation" xlink:href="doc-french.xml" xlink:type="simple">
-            <wref id="example-english.p.1.s.1.w.2" t="Dalai">
-            <wref id="example-english.p.1.s.1.w.3" t="Lama">
-            <aref id="example-french.p.1.s.1.w.2" t="Dalai">
-            <aref id="example-french.p.1.s.1.w.3" t="Lama">
-        </complexalignment>
+    <complexalignment class="french-translation" xlink:href="doc-french.xml"
+          xlink:type="simple">
+        <wref id="example-english.p.1.s.1.w.2" t="Dalai">
+        <wref id="example-english.p.1.s.1.w.3" t="Lama">
+        <aref id="example-french.p.1.s.1.w.2" t="Dalai">
+        <aref id="example-french.p.1.s.1.w.3" t="Lama">
+    </complexalignment>
         ...
   </complexalignments>
 </s>
 \end{lstlisting}
-
-
-
 
 \section{Metadata}
 
@@ -1851,10 +1894,10 @@ Considering the fact that FoLiA is an XML-based format, XPath and its derivative
 \item XPath query for all sentences: \texttt{/FoLiA/text//s[not(parent::s)}] \emph{Selects only top-level sentences, not sentences embedded within sentences (e.g quotes)}
 \item XPath query for all words: \texttt{/FoLiA/text//w[not(ancestor::original) and not(ancestor::suggestion) and not(ancestor::alternative)]} \emph{The conditional clause is required to correctly deal with correction syntax.}
 \item XPath query for all words with lemma X: \\ \texttt{/FoLiA/text//w[not(ancestor::original) and not(ancestor::suggestion) and not(ancestor::alternative)]/lemma[@class == "X"]}
-\item XPath query for the text of all words: \\ \texttt{/FoLiA/text//w[not(ancestor::original) and not(ancestor::suggestion) and not(ancestor::alternative)]/t/child::text()}
+\item XPath query for the text of all words: \\ \texttt{/FoLiA/text//w[not(ancestor::original) and not(ancestor::suggestion) and not(ancestor::alternative)]//t[1]/child::text()}
 \end{itemize}
 
-Note that in various cases, you will want to include the condition ``\texttt{not(ancestor::original) and not(ancestor::suggestion) and not(ancestor::alternative) and not(ancestor::altlayers)}'' to skip over elements that are not actually active but instead pertain to a mere suggestion, alternative, or the original of a suggestion.
+Note that in various cases, you will want to include the condition ``\texttt{not(ancestor::original) and not(ancestor::suggestion) and not(ancestor::alternative) and not(ancestor::altlayers)}'' to skip over elements that are not actually active but instead pertain to a mere suggestion, alternative, or the original of a correction.
 
 \chapter{Validation}
 
@@ -1880,7 +1923,7 @@ The following FoLiA implementations exist currently, both follow a highly object
 
 \begin{enumerate}
 \item \texttt{pynlpl.formats.folia} - A FoLiA library in Python. Part of the Python Natural Language Processing Library. Documentation can can be found at http://ilk.uvt.nl/folia/
-\item \texttt{libfolia} - A FoLiA library in $C++$. (Still under heavily development, July 2011)
+\item \texttt{libfolia} - A FoLiA library in $C++$. (Still under heavily development, September 2011)
 \end{enumerate}
 
 The following table shows the level of FoLiA support in these libraries:
@@ -1906,7 +1949,7 @@ IMDI metadata           & partial\footnote{can be included safely, but only a ve
 CMDI metadata           & no\footnote{but can be included safely, just not interpreted by library} & no \\
 RelaxNG schema generation & yes\footnote{The RelaxNG schema is generated dynamically by the library itself} & no \\
 RelaxNG validation      & yes & no \\
-Set definition support  & not yet & no \\
+Set definition support  & partial\footnote{under development} & no \\
 Deep validation (Schematron)  & not yet & no \\
 D-Coi read compatibility      & partial\footnote{only basic elements, no List, Figure, etc..} & no \\
 \hline
@@ -1921,7 +1964,7 @@ from & to & status  \\
 D-Coi & FoLiA & yes, via XSLT or \texttt{pynlpl.formats.folia}\footnote{via library only with basic elements, no List, Figure, etc..} \\
 FoLiA & D-Coi & yes, via XSLT \footnote{With inevitable data loss for constructs that can not be represented in D-Coi} \\
 Frog/Tadpole columned format & FoLiA & yes, using Python script and library \\
-FoLiA & Frog/Tadpole columned format & yes, using Python script and library \\
+FoLiA & Frog/Tadpole columned format,CSV  & yes, using Python script and library \\
 Alpino & FoLiA & not yet \\
 FoLiA & Alpino & not yet \\
 \hline

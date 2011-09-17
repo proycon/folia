@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="folia.xsl"?>
-<FoLiA xmlns="http://ilk.uvt.nl/folia" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:imdi="http://www.mpi.nl/IMDI/Schema/IMDI" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dcoi="http://lands.let.ru.nl/projects/d-coi/ns/1.0" xml:id="WR-P-E-J-0000000001">
-  <metadata>
+<FoLiA xmlns="http://ilk.uvt.nl/folia" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="WR-P-E-J-0000000001" version="0.6.0" generator="pynlpl.formats.folia-v0.6.0.13">
+  <metadata type="imdi">
     <annotations>
       <token-annotation annotator="ilktok" annotatortype="auto" />
       <pos-annotation set="cgn-combinedtags" annotator="tadpole" annotatortype="auto" />
       <lemma-annotation set="lemmas-nl" annotator="tadpole" annotatortype="auto" />
+      <correction-annotation set="corrections" annotator="proycon" annotatortype="manual" />
+      <errordetection-annotation set="corrections" annotator="proycon" annotatortype="manual" />
     </annotations>
-    <imdi:METATRANSCRIPT xmlns="http://lands.let.ru.nl/projects/d-coi/ns/1.0" xmlns:d-coi="http://lands.let.ru.nl/projects/d-coi/ns/1.0" Date="2009-01-27" Type="SESSION" Version="1">
+    <imdi:METATRANSCRIPT xmlns:imdi="http://www.mpi.nl/IMDI/Schema/IMDI" Date="2009-01-27" Type="SESSION" Version="1">
     <imdi:Session>
       <imdi:Name>WR-P-E-J-0000000001</imdi:Name>
       <imdi:Title>Stemma</imdi:Title>
@@ -152,8 +153,9 @@
               <pos class="N(soort,ev,basis,onz,stan)"/>
               <lemma class="woord"/>
             </w>
-            <w xml:id="WR-P-E-J-0000000001.p.1.s.1.w.6">
+            <w xml:id="WR-P-E-J-0000000001.p.1.s.1.w.6">              
               <t>voor</t>
+              <desc>Dit woordje is een voorzetsel, het is maar dat je het weet...</desc>
               <pos class="VZ(init)"/>
               <lemma class="voor"/>
             </w>
@@ -184,7 +186,18 @@
                  </su>
                  <wref id="WR-P-E-J-0000000001.p.1.s.1.w.8" t="." />
                 </su>
-            </syntax>            
+            </syntax>
+            <chunking>
+                <chunk>
+                        <wref id="WR-P-E-J-0000000001.p.1.s.1.w.3" t="een" />
+                        <wref id="WR-P-E-J-0000000001.p.1.s.1.w.4" t="ander" />
+                        <wref id="WR-P-E-J-0000000001.p.1.s.1.w.5" t="woord" />                
+                </chunk>
+                <chunk>
+                        <wref id="WR-P-E-J-0000000001.p.1.s.1.w.6" t="voor" />
+                        <wref id="WR-P-E-J-0000000001.p.1.s.1.w.7" t="stamboom" />
+                </chunk>
+            </chunking>            
           </s>
           <s xml:id="WR-P-E-J-0000000001.p.1.s.2">
             <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.1">
@@ -339,6 +352,7 @@
               <pos class="N(soort,ev,basis,zijd,stan)"/>
               <lemma class="werkwijz"/>
             </w>
+            <whitespace />
             <w xml:id="WR-P-E-J-0000000001.p.1.s.3.w.2">
               <t>Hiervoor</t>
               <pos class="BW()"/>
@@ -358,6 +372,18 @@
               <t>handschriften</t>
               <pos class="N(soort,mv,basis)"/>
               <lemma class="handschrift"/>
+              <morphology>
+                <morpheme class="handschrift">
+                    <t offset="0">handschrift</t>
+                    <feat subset="type" class="stem" />
+                    <feat subset="function" class="lexical" />
+                </morpheme>
+                <morpheme>
+                    <t offset="11">en</t>
+                    <feat subset="type" class="suffix" />
+                    <feat subset="function" class="plural" />                    
+                </morpheme>
+              </morphology>              
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.3.w.6">
               <t>genummerd</t>
@@ -441,13 +467,16 @@
             </w>
           </s>
           <s xml:id="WR-P-E-J-0000000001.p.1.s.4">
+            <t>De hoofdletter A wordt gebruikt voor het originele handschrift.</t>
+            <t class="original">De hoofdletter A wordt gebruikt voor het originele handschrift.</t>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.4.w.1">
-              <t>De</t>
+              <t offset="0">De</t>
+              <t offset="0" class="original">De</t>
               <pos class="LID(bep,stan,rest)"/>
               <lemma class="de"/>
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.4.w.2">
-              <t>hoofdletter</t>
+              <t offset="3">hoofdletter</t>
               <pos class="N(soort,ev,basis,zijd,stan)"/>
               <lemma class="hoofdletter"/>
             </w>
@@ -602,7 +631,9 @@
           <s xml:id="WR-P-E-J-0000000001.p.1.s.6">
             <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.1">
               <t>Verdwenen</t>
-              <pos class="WW(vd,prenom,zonder)"/>
+              <pos class="WW(vd,prenom,zonder)">
+                <feat subset="head" class="WW" />
+              </pos>
               <lemma class="verdwijnen"/>
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.2">
@@ -751,14 +782,28 @@
               <lemma class="tussen"/>
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.31">
-              <t>vierkante</t>
+              <correction xml:id="WR-P-E-J-0000000001.p.1.s.6.w.31.c.1">
+                <new>
+                 <t>vierkante</t>
+                </new>
+                <original>
+                 <t>vierkant</t>
+                </original>
+              </correction>
               <pos class="ADJ(prenom,basis,met-e,stan)"/>
               <lemma class="vierkant"/>
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.32">
               <t>haken</t>
               <pos class="N(soort,mv,basis)"/>
-              <lemma class="haak"/>
+              <correction xml:id="WR-P-E-J-0000000001.p.1.s.6.w.32.c.1">
+                <new>              
+                 <lemma class="haak"/>
+                </new>
+                <original>
+                 <lemma class="haaak"/>
+                </original>
+               </correction>
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.33">
               <t>geplaatst</t>
@@ -829,16 +874,18 @@
               <pos class="LID(onbep,stan,agr)"/>
               <lemma class="een"/>
             </w>
-            <w xml:id="WR-P-E-J-0000000001.p.1.s.8.w.2">
-              <t>volle</t>
-              <pos class="ADJ(prenom,basis,met-e,stan)"/>
-              <lemma class="vol"/>
-            </w>
-            <w xml:id="WR-P-E-J-0000000001.p.1.s.8.w.3">
-              <t>lijn</t>
-              <pos class="N(soort,ev,basis,zijd,stan)"/>
-              <lemma class="lijn"/>
-            </w>
+            <quote xml:id="WR-P-E-J-0000000001.p.1.s.8.q.1">
+                <w xml:id="WR-P-E-J-0000000001.p.1.s.8.w.2">
+                  <t>volle</t>
+                  <pos class="ADJ(prenom,basis,met-e,stan)"/>
+                  <lemma class="vol"/>
+                </w>
+                <w xml:id="WR-P-E-J-0000000001.p.1.s.8.w.3">
+                  <t>lijn</t>
+                  <pos class="N(soort,ev,basis,zijd,stan)"/>
+                  <lemma class="lijn"/>
+                </w>
+            </quote>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.8.w.4">
               <t>duidt</t>
               <pos class="WW(pv,tgw,met-t)"/>
@@ -865,9 +912,10 @@
               <lemma class=","/>
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.8.w.9">
-              <t>terwijl</t>
+              <t>terweil</t>
+              <errordetection class="spelling" error="yes" />
               <pos class="VG(onder)"/>
-              <lemma class="terwijl"/>
+              <lemma class="terweil"/>
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.8.w.10">
               <t>een</t>
@@ -875,9 +923,9 @@
               <lemma class="een"/>
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.8.w.11">
-              <t>stippellijn</t>
-              <pos class="N(soort,ev,basis,zijd,stan)"/>
-              <lemma class="stippellijn"/>
+              <t>stippelijn</t>
+              <pos class="FOUTN(soort,ev,basis,zijd,stan)"/>
+              <lemma class="stippelijn"/>
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.8.w.12">
               <t>op</t>
@@ -893,10 +941,18 @@
               <t>onzekere</t>
               <pos class="ADJ(prenom,basis,met-e,stan)"/>
               <lemma class="onzeker"/>
+              <correction xml:id="WR-P-E-J-0000000001.p.1.s.8.w.14.c.1" class="spelling">
+                <suggestion>
+                    <t>twijfelachtige</t>
+                </suggestion>
+                <suggestion>
+                    <t>ongewisse</t>
+                </suggestion>
+              </correction>
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.8.w.15">
               <t>verwantschap</t>
-              <pos class="N(soort,ev,basis,zijd,stan)"/>
+              <pos class="N(soort,ev,basis,zijd,stan)" datetime="2011-07-20T19:00:01" />
               <lemma class="verwantschap"/>
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.8.w.16">
@@ -912,5 +968,13 @@
           </s>
         </p>
       </div>
-  </text>
+      <gap xml:id="WR-P-E-J-0000000001.gap.1" class="backmatter" annotator="proycon">
+       <desc>Backmatter</desc>
+       <content>
+<![CDATA[
+bli bli bla, bla bla bli
+]]>
+       </content>
+      </gap>      
+  </text>  
 </FoLiA>
