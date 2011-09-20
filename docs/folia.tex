@@ -16,7 +16,7 @@ stringstyle=\ttfamily,
 
 
 
-\title{FoLiA: Format for Linguistic Annotation \\ \small v0.6}
+\title{FoLiA: Format for Linguistic Annotation \\ \small v0.6.1}
 \author{Maarten van Gompel \\ ILK Research Group \\ Tilburg center for Cognition and Communication \\ Tilburg University }
 
 \parindent=0pt %no paragraph indentation
@@ -504,6 +504,36 @@ Sometimes you may want to explicitly specify vertical whitespace or line breaks.
 \end{lstlisting}
 
 The difference between \texttt{br} and \texttt{whitespace} is that the former specifies that only a linebreak was present, not forcing any vertical whitespace, whilst the latter actually generates an empty space, which would comparable to two successive \texttt{br} statements. Both elements can be used inside divisions, paragraphs, and sentences.
+
+\subsection{Events}
+
+Event structure,  though uncommon to regular written text, can be useful in certain documents. Divisions, paragraphs, sentences, or even words can be encapsulated in an event element to indicate they somehow form an event entity of a particular class. This kind of structure annotation is especially useful in dealing with written media such as chat logs, tweets, and internet fora.
+
+Below an example of a simple chat log, word tokens omitted for brevity:
+
+\begin{lstlisting}[language=xml]
+<event class="message" datetime="2011-12-15T19:01" actor="Jane Doe">
+    <s>
+        <t>Hello John.</t>
+    </s>
+    <s>
+        <t>How are you doing?</t>
+    </s>
+</event>
+<event class="message" datetime="2011-12-15T19:05 actor="John Doe">
+    <s>
+        <t>I'm fine Jane, thanks.</t>
+    </s>
+</event>
+\end{lstlisting}
+
+The declaration:
+
+\begin{lstlisting}[language=xml]
+<annotations>
+    <event-annotation set="http://ilk.uvt.nl/folia/sets/events" />
+</annotations>
+\end{lstlisting}
 
 \subsection{Lists}
 
@@ -1521,6 +1551,12 @@ An example of this is seen in the \texttt{sense} element, which takes a \texttt{
 
 \begin{lstlisting}[language=xml]
 <sense class="p" synset="q" />
+\end{lstlisting}
+
+A second example is the \texttt{event} element with the \texttt{actor} attribute:
+
+\begin{lstlisting}[language=xml]
+<event class="p" actor="q">
 \end{lstlisting}
 
 FoLiA implicitly relates the synset attribute here to the ``synset'' subset of whatever set you defined. Note that any such implicit subset relation needs to be defined by the FoLiA standard itself, you can't just make up such attributes yourself. This section mainly served to gain insight in the advanced aspects of FoLiA, and to be able to suggest additions to it that follow the same principles.
