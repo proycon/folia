@@ -8,6 +8,8 @@
       <lemma-annotation set="lemmas-nl" annotator="tadpole" annotatortype="auto" />
       <correction-annotation set="corrections" annotator="proycon" annotatortype="manual" />
       <errordetection-annotation set="corrections" annotator="proycon" annotatortype="manual" />
+      <sense-annotation set="sense-set" />
+      <event-annotation set="event-set" />
     </annotations>
     <imdi:METATRANSCRIPT xmlns:imdi="http://www.mpi.nl/IMDI/Schema/IMDI" Date="2009-01-27" Type="SESSION" Version="1">
     <imdi:Session>
@@ -972,17 +974,19 @@
       </div>
       <div xml:id="sandbox">
           <list  xml:id="sandbox.list.1">
-              <listitem xml:id="sandbox.list.1.listitem.1">
+              <listitem xml:id="sandbox.list.1.listitem.1" n="1">
                   <s xml:id="sandbox.list.1.listitem.1.s.1">
                       <w xml:id="sandbox.list.1.listitem.1.s.1.w.1">
                           <t>Eerste</t>
+                          <sense class="some.sense.id" synset="some.other.sense.id" />
                       </w>
                       <w xml:id="sandbox.list.1.listitem.1.s.1.w.2">
                           <t>testitem</t>
                       </w>                      
                   </s>                  
               </listitem>
-              <listitem xml:id="sandbox.list.1.listitem.2">
+              <event class="applause" actor="audience" />
+              <listitem xml:id="sandbox.list.1.listitem.2" n="2">
                   <s xml:id="sandbox.list.1.listitem.2.s.1">
                       <w xml:id="sandbox.list.1.listitem.2.s.1.w.1">
                           <t>Tweede</t>
