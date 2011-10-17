@@ -741,7 +741,7 @@ Corrections can be nested and we want to retain a full back-log. The following e
                 <new>
                     <t>three</t>
                 </new>
-                <original>
+                <original auth="no">
                     <t>treee</t>
                 </original>
             </correction>
@@ -890,11 +890,11 @@ And after merging:
             <t>online</t>
         </w>
     </new>
-    <original>
-        <w xml:id="example.p.1.s.1.w.1" auth="no">
+    <original auth="no">
+        <w xml:id="example.p.1.s.1.w.1">
             <t>on</t>
         </w>
-        <w xml:id="example.p.1.s.1.w.2" auth="no>
+        <w xml:id="example.p.1.s.1.w.2">
             <t>line</t>
         </w>                         
     </original>
@@ -928,8 +928,8 @@ After splitting:
             <t>line</t>
         </w>                        
     </new>
-    <original>
-        <w xml:id="example.p.1.s.1.w.1" auth="no">
+    <original auth="no">
+        <w xml:id="example.p.1.s.1.w.1">
             <t>online</t>
         </w>
     </original>
@@ -951,11 +951,11 @@ The same principle as used for merges and splits can also be used for performing
             <t>line</t>
         </w>
     </new>
-    <original>
-        <w xml:id="example.p.1.s.1.w.1" auth="no">
+    <original auth="no">
+        <w xml:id="example.p.1.s.1.w.1">
             <t>line</t>
         </w>
-        <w xml:id="example.p.1.s.1.w.2" auth="no">
+        <w xml:id="example.p.1.s.1.w.2">
             <t>on</t>
         </w>
     </original>
@@ -978,8 +978,8 @@ Omissions, words that are removed in correction, and insertions, words inserted 
  <correction xml:id="example.p.1.s.1.c.1" class="duplicate">
     <new>                        
     </new>
-    <original>
-        <w xml:id="example.p.1.s.1.w.2" auth="no">
+    <original auth="no">
+        <w xml:id="example.p.1.s.1.w.2">
             <t>the</t>
         </w>
     </original>
@@ -1003,7 +1003,7 @@ For insertions, the \texttt{original} element is empty.
             <t>old</t>
         </w>
     </new>
-    <original>
+    <original auth="no">
     </original>
  </correction>  
  <w xml:id="example.p.1.s.1.w.2">
