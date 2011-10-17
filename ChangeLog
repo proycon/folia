@@ -1,3 +1,6 @@
+0.7)
+    - Introduced non-authoritativeness concept
+    - Added Events
 0.6)
     - Revised text content paradigm, introduced support for classes on text-content
     - Removed support for inline corrections prior to tokenisation

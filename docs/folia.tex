@@ -16,7 +16,7 @@ stringstyle=\ttfamily,
 
 
 
-\title{FoLiA: Format for Linguistic Annotation \\ \small v0.6.1}
+\title{FoLiA: Format for Linguistic Annotation \\ \small v0.7}
 \author{Maarten van Gompel \\ ILK Research Group \\ Tilburg center for Cognition and Communication \\ Tilburg University }
 
 \parindent=0pt %no paragraph indentation
@@ -136,14 +136,9 @@ In FoLiA, each document/text is represented by one XML file. The basic structure
 
 \section{Identifiers}
 
-Many elements in the FoLiA format specify an identifier by which the element is uniquely identifiable. This makes referring to any part of a FoLiA document easy and follows the lead of the D-Coi format. The identifiers are constructed in the same way as in the D-Coi format, thus retaining full compatibility if a D-Coi document is converted to FoLiA, any external references to any entity in these documents will remain intact.
-
-Identifiers in D-Coi and FoLiA are cumulative and are usually formed by appending the elements name, a period, and a sequence number, to the identifier of a parent element higher in the hierarchy.
-
-The base of all identifiers is that of the document itself, as encoded in \texttt{xml:id} attribute of the root \texttt{FoLiA} element. This is a unique ID by which the document is identifiable. We choose the identifier \emph{example} for all of the examples in this manual. By convention, the XML file should then ideally be named: \texttt{example.xml}.
+Many elements in the FoLiA format specify an identifier by which the element is uniquely identifiable. This makes referring to any part of a FoLiA document easy and follows the lead of the D-Coi format. Identifiers should be unique in the entire document, and can be anything that qualifies as a valid ID according to the XML standard. A well proven convention is of a cumulative nature, in which you append the elements name, a period, and a sequence number, to the identifier of a parent element higher in the hierarchy. Identifiers are always encoded in the \texttt{xml:id} attribute. The FoLiA document as a whole also carries an ID.
 
 Identifiers are very important and used throughout the FoLiA format. They enable external resources and database to easily point to a specific part of the document or its annotation. FoLiA has been set up in such a way that \emph{identifiers should never ever change}. Once an identifier is assigned, it should never change, re-numbering is strictly prohibited unless you intentionally want to create a new resource and break compatibility with the old one.
-
 
 \section{Basic Structural Elements}
 \label{sec:basics}
@@ -281,7 +276,7 @@ FoLiA also explicitly supports quotes, as demonstrated in the next example, whic
 He said: ``I do not know . I think you are right. ", and left.
 \end{verbatim}
 
- A quote may consist of one or more sentences, but may also consist of mere tokens. The token identifiers in all cases simply follow the sequential numbering of the root sentence, not the embedded sentence.
+A quote may consist of one or more sentences, but may also consist of mere tokens. The token identifiers in all cases simply follow the sequential numbering of the root sentence, not the embedded sentence.
 
 
 \begin{lstlisting}[language=xml]
@@ -313,8 +308,6 @@ He said: ``I do not know . I think you are right. ", and left.
   <w xml:id="example.p.1.s.1.w.19" class="PUNCTUATION" space="no"><t>.</t></w>
  </s>
 \end{lstlisting}
-
-    
 
 \section{Paradigm \& Terminology}
 \label{sec:paradigm}
@@ -724,16 +717,16 @@ Corrections, including but not limited to spelling corrections, can be annotated
         <new>
             <t>tree</t>
         </new>
-        <original>
+        <original auth="no">
             <t>treee</t>
         </original>
     </correction>
 </w>
 \end{lstlisting}
 
-The class indicates the kind of correction, according to the set used. The \texttt{new} elements holds the actual content of the correction. The \texttt{original} element holds the content prior to correction. Note that all corrections must carry a unique identifier. In this example, what we are correcting is the actual textual content, the text element (\texttt{t}).
+The class indicates the kind of correction, according to the set used. The \texttt{new} elements holds the actual content of the correction. The \texttt{original} element holds the content prior to correction. Note that all corrections must carry a unique identifier. In this example, what we are correcting is the actual textual content, the text element (\texttt{t}). To facilitate the job of parsers and queriers, the original element has to be marked as being non-authoritative, using \texttt{auth="no"}. This states that this element and anything below it is not authoritative, meaning that any text or annotations within do not affect the text or annotations of the structure element (the word in this case) of which it is a part.
 
-%Whilst it may seem redundant to specify the corrected token content both under the word element (\texttt{w}), and the \texttt{new} element, and to list the original so verbosely rather than in a mere attribute, there is a good reason for this: corrections can be nested and we want to retain a full back-log. The following example illustrates the word ``treee'' that has been first mis-corrected to ``three'' and subsequently corrected again to ``tree'':
+Corrections can be nested and we want to retain a full back-log. The following example illustrates the word ``treee'' that has been first mis-corrected to ``three'' and subsequently corrected again to ``tree'':
 
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.1">
@@ -742,7 +735,7 @@ The class indicates the kind of correction, according to the set used. The \text
         <new>
             <t>tree</t>
         </new>
-        <original>
+        <original auth="no">
             <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.1" class="spelling"
                annotator="John Doe" annotatortype="manual" confidence="0.6">
                 <new>
@@ -766,7 +759,7 @@ In the examples above what we corrected was the actual textual content (\texttt{
         <new>
             <pos class="n" />
         </new>
-        <original>
+        <original auth="no">
             <pos class="v" />
         </original>
     </correction>
@@ -774,7 +767,6 @@ In the examples above what we corrected was the actual textual content (\texttt{
 </w>    
 \end{lstlisting}
 
-Again, there is a small level of necessary redundancy; the corrected element is within the \texttt{correction/new} element as well as the \texttt{w} element. Furthermore, if these two \texttt{pos} elements would differ, the FoLiA notation would be invalid.
 
 \subsubsection{Error detection and correction with suggestions} 
 
@@ -805,17 +797,17 @@ The correction tag can also be used in such situations in which you want to list
     <t>treee</t>
     <correction xml:id="example.p.1.s.1.w.1.c.1"
        class="spelling" annotator="errorlistX">
-        <suggestion confidence="0.8">
+        <suggestion confidence="0.8" auth="no">
             <t>tree</t>
         </suggestion>
-        <suggestion confidence="0.2">
+        <suggestion confidence="0.2" auth="no">
             <t>three</t>
         </suggestion>
     </correction>
 </w>    
 \end{lstlisting}
 
-In the situation above we have a possible correction with two suggestions, none of which has been selected yet. The actual text remains unmodified so there are no \texttt{new} or \texttt{original} tags.
+In the situation above we have a possible correction with two suggestions, none of which has been selected yet. The actual text remains unmodified so there are no \texttt{new} or \texttt{original} tags. Note that anything in the scope of a suggestion is by definition non-authoritative and suggestions have to be marked as such using \texttt{auth="no"} to facilitate the job of parsers.
 
 When an actual correction is made, the correction element changes. It may still retain the list of suggestions. In the following example, a human annotator named John Doe took one of the suggestions and made the actual correction:
 
@@ -827,15 +819,15 @@ When an actual correction is made, the correction element changes. It may still 
         <new>
             <t>tree</t>
         </new>
-        <suggestion annotator="errorlistX" 
+        <suggestion annotator="errorlistX" auth="no"
           annotatortype="auto" confidence="0.8">
             <t>tree</t>
         </suggestion>
-        <suggestion annotator="errorlistX" 
+        <suggestion annotator="errorlistX" auth="no"
           annotatortype="auto" confidence="0.2">
             <t>three</t>
         </suggestion>
-        <original>
+        <original auth="no">
             <t>treee</t>
         </original>
     </correction>
@@ -850,7 +842,7 @@ Something similar may happen when a correction is made \emph{on the basis of} on
         <new>
             <t>tree</t>
         </new>
-        <original>
+        <original auth="no">
             <t>treee</t>
         </original>
         <errordetection class="spelling" annotator="errorlist" annotatortype="auto" error="yes" />
@@ -899,10 +891,10 @@ And after merging:
         </w>
     </new>
     <original>
-        <w xml:id="example.p.1.s.1.w.1">
+        <w xml:id="example.p.1.s.1.w.1" auth="no">
             <t>on</t>
         </w>
-        <w xml:id="example.p.1.s.1.w.2">
+        <w xml:id="example.p.1.s.1.w.2" auth="no>
             <t>line</t>
         </w>                         
     </original>
@@ -910,7 +902,7 @@ And after merging:
 </s>
 \end{lstlisting} 
 
-Note that the correction element, being a kind of extended token annotation, is here a member of the sentence (\texttt{s}), rather than the word token (\texttt{w}) as in all previous examples. The new identifier denotes the span of the merge, separated by a hyphen, so we get \texttt{.w.1-2} if we merge from \texttt{.w.1} to \texttt{.w.2}.
+Note that the correction element, being a kind of extended token annotation, is here a member of the sentence (\texttt{s}), rather than the word token (\texttt{w}) as in all previous examples. The new identifier denotes the span of the merge, but this is mere convention.
 
 Now we will look at a split, the reverse of the above situation. Prior to splitting, assume we have:
 
@@ -937,15 +929,13 @@ After splitting:
         </w>                        
     </new>
     <original>
-        <w xml:id="example.p.1.s.1.w.1">
+        <w xml:id="example.p.1.s.1.w.1" auth="no">
             <t>online</t>
         </w>
     </original>
  </correction>               
 </s>
 \end{lstlisting}
-
-The new identifiers represent the index of the new tokens, separated by a underscore, so given \texttt{.w.1}  we get \texttt{.w.1\_1} for the first split result, \texttt{.w.1\_2} for the second, and so on...
 
 The same principle as used for merges and splits can also be used for performing ``swap'' corrections:
 
@@ -962,10 +952,10 @@ The same principle as used for merges and splits can also be used for performing
         </w>
     </new>
     <original>
-        <w xml:id="example.p.1.s.1.w.1">
+        <w xml:id="example.p.1.s.1.w.1" auth="no">
             <t>line</t>
         </w>
-        <w xml:id="example.p.1.s.1.w.2">
+        <w xml:id="example.p.1.s.1.w.2" auth="no">
             <t>on</t>
         </w>
     </original>
@@ -989,7 +979,7 @@ Omissions, words that are removed in correction, and insertions, words inserted 
     <new>                        
     </new>
     <original>
-        <w xml:id="example.p.1.s.1.w.2">
+        <w xml:id="example.p.1.s.1.w.2" auth="no">
             <t>the</t>
         </w>
     </original>
@@ -1060,9 +1050,9 @@ For insertions, the \texttt{original} element is empty.
 \section{Alternative Token Annotations}
 \label{sec:alternatives}
 
-The FoLiA format does not just allow for a single ``favoured'' annotation per token, in addition it allows for the recording of alternative annotations. Alternative token annotations are grouped within one or more \texttt{alt} elements. If multiple annotations are grouped together under the same \texttt{alt} element, then they are deemed dependent and form a single set of alternatives.
+The FoLiA format does not just allow for a single authoritative annotation per token, in addition it allows for the recording of \emph{alternative} annotations. Alternative token annotations are grouped within one or more \texttt{alt} elements. If multiple annotations are grouped together under the same \texttt{alt} element, then they are deemed dependent and form a single set of alternatives.
 
-Each alternative has a unique identifier, formed in the already familiar fashion. In the following example we see the Dutch word ``bank'' in the sense of a sofa, alternatively we see two alternative annotations with a different sense and domain.
+Each alternative has a unique identifier, formed in the already familiar fashion. In the following example we see the Dutch word ``bank'' in the sense of a sofa, alternatively we see two alternative annotations with a different sense and domain. Any annotation element within an \emph{alt} block by definition needs to be marked as non-authoritative by setting \texttt{auth="no"}. This facilitates the job of parsers and queriers.
 
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.1">
@@ -1072,14 +1062,14 @@ Each alternative has a unique identifier, formed in the already familiar fashion
      annotator="John Doe" annotatortype="manual" 
      confidence="1.0">zitmeubel</sense>
     <alt xml:id="example.p.1.s.1.w.1.alt.1">
-        <domain class="finance" />
-        <sense class="r_n-5919" synset="d_n-27025"
+        <domain auth="no" class="finance" />
+        <sense auth="no" class="r_n-5919" synset="d_n-27025"
          annotator="Jane Doe" annotatortype="manual" 
          confidence="0.6">geldverlenende instelling</sense>        
     </alt>
     <alt xml:id="example.p.1.s.1.w.1.alt.2">
-        <domain class="geology" />
-        <sense class="r_n-5920" synset="d_n-38257"
+        <domain auth="no" class="geology" />
+        <sense auth="no" class="r_n-5920" synset="d_n-38257"
          annotator="Jim Doe" annotatortype="manual"
          confidence="0.1">zandbank</sense>        
     </alt>    
@@ -1302,7 +1292,7 @@ Still to be done.. The \texttt{semroles} layer and \texttt{semrole} span annotat
 
 With token annotations one could specify an unbounded number of alternative annotations. This is possible for span annotations as well, but due to the different nature of span annotations this happens in a slightly different way.
 
-Where we used \texttt{alt} for token annotations, we now use \texttt{altlayers} for span annotations. Under this element several alternative layers can be presented. Analogous to \texttt{alt}, any layers grouped together are assumed to be somehow dependent. Multiple \texttt{altlayers} can be added to introduce independent alternatives. Each alternative should be associated with a unique identifier, which uses ``alt'' rather than ``altlayers''. 
+Where we used \texttt{alt} for token annotations, we now use \texttt{altlayers} for span annotations. Under this element several alternative layers can be presented. Analogous to \texttt{alt}, any layers grouped together are assumed to be somehow dependent. Multiple \texttt{altlayers} can be added to introduce independent alternatives. Each alternative should be associated with a unique identifier, which uses ``alt'' rather than ``altlayers''. In this case, any layers it consists of must be marked as non-autoritative using \texttt{auth="no"}.
 
 Below is an example of a sentence that is chunked in two ways:
 
@@ -1331,7 +1321,7 @@ Below is an example of a sentence that is chunked in two ways:
   </chunking>
   <altlayers xml:id="example.p.1.s.1.alt.1">
        <chunking annotator="John Doe" 
-        annotatortype="manual" confidence="0.0001">
+        annotatortype="manual" confidence="0.0001" auth="no">
         <chunk xml:id="example.p.1.s.1.alt.1.chunk.1">       
             <wref id="example.p.1.s.1.w.1" t="The" />       
             <wref id="example.p.1.s.1.w.2" t="Dalai" />                       
@@ -1428,7 +1418,8 @@ Corrections are challenging because they can be applied to text content and thus
 \end{lstlisting}
 
 
-Below is an example illustrating the usage of multiple classes. To show the flexibility, offsets are added, but these are of course always optional. Note that when an offset is specified, it always refers to a text-content element of the same class!
+Below is an example illustrating the usage of multiple classes. To show the flexibility, offsets are added, but these are of course always optional. Note that when an offset is specified, it always refers to a text-content element of the same class! 
+%Whenever a text content element has an associated class, it also needs to be marked as non-authoritative using \texttt{auth="no"}. This facilitates the job of parsers seeking to extract the mo
 
 \begin{lstlisting}[language=xml]
  <p xml:id="example.p.1">
@@ -1445,7 +1436,7 @@ Below is an example illustrating the usage of multiple classes. To show the flex
           <new>
            <t offset="5">is</t>
           </new>
-          <original>
+          <original auth="no">
            <t offset="5">iz</t> 
            <!-- Note that this element has class 'original' by definition! -->
           </original>
@@ -1923,17 +1914,29 @@ Restrict and except elements can also be mixed.
 \appendix
 \chapter{Common Queries}
 
-Considering the fact that FoLiA is an XML-based format, XPath and its derivatives are the designated tools for searching in a FoLiA document. Some common queries are listed below:
+Considering the fact that FoLiA is an XML-based format, XPath and its derivatives are the designated tools for searching in a FoLiA document.
+
+A very common XPath predicate found in many XPath expressions for FoLiA is \texttt{not(ancestor-or-self::*/@auth)}. This exploits the notion of authoritativeness. Certain elements in FoLiA are non-authoritative, which means that they have no direct bearing on the actual state of the element they describe. The most notable elements that are non-authorititive are alternatives, suggestions for correction, and the original part of a correction. The predicate \texttt{not(ancestor-or-self::*/@auth)} guarantees that no elements can be selected that occur within the scope of any non-authoritive element. This prevents selecting for example alternative annotations or annotations that were superseded by a correction step. This is in most cases what the user wants and why you will find this predicate appended to almost every XPath expression for FoLiA.
+
+Some common XPath queries are listed below, note that for brevity and readability the namespace prefix is omitted. In actual situations you will have to specify the FoLiA namespace with each element, as XPath unfortunately has no notion of a default namespace.
 
 \begin{itemize}
-\item XPath query for all paragraphs: \texttt{/FoLiA/text//p}
-\item XPath query for all sentences: \texttt{/FoLiA/text//s[not(parent::s)}] \emph{Selects only top-level sentences, not sentences embedded within sentences (e.g quotes)}
-\item XPath query for all words: \texttt{/FoLiA/text//w[not(ancestor::original) and not(ancestor::suggestion) and not(ancestor::alternative)]} \emph{The conditional clause is required to correctly deal with correction syntax.}
-\item XPath query for all words with lemma X: \\ \texttt{/FoLiA/text//w[not(ancestor::original) and not(ancestor::suggestion) and not(ancestor::alternative)]/lemma[@class == "X"]}
-\item XPath query for the text of all words: \\ \texttt{/FoLiA/text//w[not(ancestor::original) and not(ancestor::suggestion) and not(ancestor::alternative)]//t[1]/child::text()}
+\item XPath query for all paragraphs: \texttt{//p[not(ancestor-or-self::*/@auth)]}
+\item XPath query for all sentences: \texttt{//s[not(ancestor-or-self::*/@auth) and not(ancestor::quote)]} \\
+    \emph{Explanation: When selecting sentences, you often do not want sub-sentences that are part of a quote, since they may overlap with the larger sentence they form a part of. The \texttt{not(ancestor::quote)} predicate guarantees this can not happen.}
+\item XPath query for all words: \texttt{//w[not(ancestor-or-self::*/@auth)]}
+\item XPath query for the text of all words/tokens: \texttt{//w//t[not(ancestor-or-self::*/@auth)][1]/text()} \\
+    \emph{Explanation: The \texttt{[1]} predicate is important here and makes sure to select only the first text content element in case there are multiple. Recall that FoLiA dictates that the classless text element appears before any others, ensuring that this is the proper way to obtain the most recent text of an element. (See Section~\ref{sec:textcontent}}.    
+\item XPath query for all words with lemma X: \texttt{//w[.//lemma[@class="X" and not(ancestor-or-self::*/@auth)] ]}
+    \emph{Note: This query assumes there is only one declaration for lemma annotation, and the set has been verified}
+\item XPath query for all words with PoS-tag A in set S: \texttt{//w[.//pos[@set="S" and @class="A" and not(ancestor-or-self::*/@auth)] ]}
+    \emph{Note: This query assumes the set attribute was set explicitly, i.e. there are multiple possible sets in the document for this annotation type}
+\item XPath query for the text of all words with PoS-tag A in set S: \texttt{//w[.//pos[@set="S" and @class="A" and not(ancestor-or-self::*/@auth)] ]//t[not(ancestor-or-self::*/@auth)][1]/text()}
+    \emph{Note: The predicate for non-authoritativeness here needs to be applied both to the pos element and the text content element \texttt{t}, otherwise you may accidentally select the text of words which have the desired pos tag only as an alternative.}
+\item XPath query to select all alternative PoS tags for all words: \texttt{//w/alt/pos} \\       
 \end{itemize}
 
-Note that in various cases, you will want to include the condition ``\texttt{not(ancestor::original) and not(ancestor::suggestion) and not(ancestor::alternative) and not(ancestor::altlayers)}'' to skip over elements that are not actually active but instead pertain to a mere suggestion, alternative, or the original of a correction.
+Before you release XPath queries on FoLiA documents, make sure to first parse the declarations present in the metadata (the \texttt{annotations} block). Verify that the annotation type with the desired set you are looking for is actually present, otherwise you needn't bother running a query at all. Note that the XPath expression differs based on whether there is only one set defined for the sought annotation type, or if there are multiple. In the former case, you can't use the @set attribute to select, and in the latter case, you must.
 
 \chapter{Validation}
 
