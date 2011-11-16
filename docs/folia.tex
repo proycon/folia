@@ -16,7 +16,7 @@ stringstyle=\ttfamily,
 
 
 
-\title{FoLiA: Format for Linguistic Annotation \\ \small v0.7}
+\title{FoLiA: Format for Linguistic Annotation \\ \small v0.8}
 \author{Maarten van Gompel \\ ILK Research Group \\ Tilburg center for Cognition and Communication \\ Tilburg University }
 
 \parindent=0pt %no paragraph indentation
@@ -499,13 +499,15 @@ Sometimes you may want to explicitly specify vertical whitespace or line breaks.
 The difference between \texttt{br} and \texttt{whitespace} is that the former specifies that only a linebreak was present, not forcing any vertical whitespace, whilst the latter actually generates an empty space, which would comparable to two successive \texttt{br} statements. Both elements can be used inside divisions, paragraphs, and sentences.
 
 \subsection{Events}
+\label{events}
 
 Event structure,  though uncommon to regular written text, can be useful in certain documents. Divisions, paragraphs, sentences, or even words can be encapsulated in an event element to indicate they somehow form an event entity of a particular class. This kind of structure annotation is especially useful in dealing with written media such as chat logs, tweets, and internet fora, in which chat turns, forum posts, and tweets can be demarcated as particular events.
 
 Below an example of a simple chat log, word tokens omitted for brevity:
 
 \begin{lstlisting}[language=xml]
-<event class="message" datetime="2011-12-15T19:01" actor="Jane Doe">
+<event class="message" begindatetime="2011-12-15T19:01" 
+ enddatetime="2011-12-15T19:05" actor="Jane Doe">
     <s>
         <t>Hello John.</t>
     </s>
@@ -513,12 +515,15 @@ Below an example of a simple chat log, word tokens omitted for brevity:
         <t>How are you doing?</t>
     </s>
 </event>
-<event class="message" datetime="2011-12-15T19:05 actor="John Doe">
+<event class="message" begindatetime="2011-12-15T19:06"
+ actor="John Doe">
     <s>
-        <t>I'm fine Jane, thanks.</t>
+        <t>I am fine Jane, thanks.</t>
     </s>
 </event>
 \end{lstlisting}
+
+The (optional) features \texttt{begindatetime} and \texttt{enddatetime} can be used express the exact moment at which an event started or ended. Note that this differs from the generic \texttt{datetime} attribute, which would describe the time at which the annotation was recorded, rather than when the event took place! Also, \texttt{begindatetime} and \texttt{enddatetime} are so-called \emph{features} (see section
 
 The declaration:
 
@@ -527,6 +532,8 @@ The declaration:
     <event-annotation set="http://ilk.uvt.nl/folia/sets/events" />
 </annotations>
 \end{lstlisting}
+
+For more fine-grained control over timed events, for example within sentences. It is recommended to use the \texttt{timedevent} span annotation element instead! This works in a very similar fashion but uses an offset annotation layer. See section~\ref{timedevent}.
 
 \subsection{Lists}
 
@@ -690,11 +697,9 @@ This is an extended token annotation element, which means it can also be used di
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.2">
     <t>boot</t>
-    <domain class="naut"><desc>Nautical</desc></domain>
+    <domain class="nautical" />
 </w>
 \end{lstlisting}
-
-The value of the element may optionally be set to a human-readable label for the domain.
 
 The declaration:
 
@@ -1163,11 +1168,11 @@ The declaration is as follows:
 
 \subsection{Dependency Relations}
 
-Dependency relations are relations between syntactic units (or spans of tokens). This relation is often of a particular class and consists of a head component and a dependent component. In the sample ``He sees'', there is  syntactic dependency between the two words: ``sees'' is the head, and ``He'' is the dependant, and the relation class is something like ``subject'', as the dependant is the subject of the head word. Each dependency relation is explicitly noted.
+Dependency relations are relations between tokens of spans of tokens, in most cases equal to syntactic units. A dependency relation is often of a particular class and consists of a single head component and a single dependent component. In the sample ``He sees'', there is  syntactic dependency between the two words: ``sees'' is the head, and ``He'' is the dependant, and the relation class is something like ``subject'', as the dependant is the subject of the head word. Each dependency relation is explicitly noted. 
 
 The element \texttt{dependencies} introduces this annotation layer. Within it, \texttt{dependency} elements describe all dependency pairs. 
 
-In the below example, we show a Dutch sentence parsed with the Alpino Parser \cite{ALPINO}. We show not only the dependency layer, but also the syntax layer. The \texttt{dependency} element always contains one head element (\texttt{hd}) and one dependant element (\texttt{dep}), both can refer to a syntactic unit by means of the \texttt{su} attribute. Additionally, the words they cover are reiterated in the usual fashion. For a better understanding, the figure below illustrates the syntactic parse with the dependency relations.
+In the below example, we show a Dutch sentence parsed with the Alpino Parser \cite{ALPINO}. We show not only the dependency layer, but also the syntax layer to which it is related. The \texttt{dependency} element always contains one head element (\texttt{hd}) and one dependant element (\texttt{dep}), both can refer to a syntactic unit (or anything else for that matter) by means of the \texttt{aref} element within their scope. Additionally, the words they cover are reiterated in the usual fashion, using \texttt{wref}. For a better understanding, the figure below illustrates the syntactic parse with the dependency relations.
 
 \begin{figure}[h]
 \begin{center}
@@ -1186,7 +1191,7 @@ In the below example, we show a Dutch sentence parsed with the Alpino Parser \ci
   <w xml:id="example.p.1.s.1.w.3"><t>begroette</t></w>
   <w xml:id="example.p.1.s.1.w.4"><t>hem</t></w>
   <w xml:id="example.p.1.s.1.w.5"><t>.</t></w>
-  <syntax set="http://ilk.uvt.nl/folia/sets/alpino">
+  <syntax>
     <su xml:id="example.p.1.s.1.su.1" class="top">     
         <su xml:id="example.p.1.s.1.su.1_1" class="smain">     
             <su xml:id="example.p.1.s.1.su.1_1_1" class="np">     
@@ -1209,26 +1214,44 @@ In the below example, we show a Dutch sentence parsed with the Alpino Parser \ci
         </su> 
     </su>
   </syntax>
-  <dependencies>
-    <dependency xml:id="example.p.1.s.1.dependency.1" class="det">
-        <hd su="example.p.1.s.1.su.1_1_1_2">
-           <wref id="example.p.1.s.1.w.2" t="man" />   
-        </hd>
-        <dep ref="example.p.1.s.1.su.1_1_1_1">
-            <wref id="example.p.1.s.1.w.1" t="De" />   
-        </dep>
-    </dependency>
-    <dependency xml:id="example.p.1.s.1.dependency.2" class="obj1">
-        <hd su="example.p.1.s.1.su.1_1_2">
+  <dependencies>    
+    <dependency xml:id="example.p.1.s.1.dependency.1" class="su">
+        <hd>
             <wref id="example.p.1.s.1.w.3" t="begroette">
+            <aref id="example.p.1.s.1.su.1_1_2" type="su">
         </hd>
-        <dep su="example.p.1.s.1.su.1_1_3">
+        <dep>
+            <wref id="example.p.1.s.1.w.2" t="man" />  
+            <aref id="example.p.1.s.1.su.1_1_1" type="su">     
+        </dep>
+    </dependency>        
+    <dependency xml:id="example.p.1.s.1.dependency.3" class="obj1">
+        <hd>
+            <wref id="example.p.1.s.1.w.3" t="begroette">
+            <aref id="example.p.1.s.1.su.1_1_2" type="su">
+        </hd>
+        <dep>
             <wref id="example.p.1.s.1.w.4" t="hem" />   
+            <aref id="example.p.1.s.1.su.1_1_3" type="su">
         </dep>
     </dependency>
+    <dependency xml:id="example.p.1.s.1.dependency.2" class="det">
+        <hd>           
+           <wref id="example.p.1.s.1.w.2" t="man" />   
+           <aref id="example.p.1.s.1.su.1_1_1_2" type="su">
+        </hd>
+        <dep>            
+            <wref id="example.p.1.s.1.w.1" t="De" />   
+            <aref id="example.p.1.s.1.su.1_1_1_1" type="su">
+        </dep>
+    </dependency>   
   </dependencies>
 </s>
 \end{lstlisting}
+
+
+Note that in the first dependency relation, the dependent is just ``man'' rather than ``de man'' . That is, we point only to the head of dependents, the full scope follows automatically when building the dependency tree.
+
 
 The declaration:
 
@@ -1280,7 +1303,51 @@ The declaration:
 </annotations>
 \end{lstlisting}
 
+\subsection{Events as span annotation}
+\label{timedevent}
 
+We already saw events as structure annotation in Section~\ref{events}. But for more fine grained control of timing information a span annotation element in an offset layer is more suited. FoLiA introduces a \texttt{timing} layer in which \texttt{timedevent} can be used to span over tokens that form a particular event. Consider the following example:
+
+\begin{lstlisting}[language=xml]
+<s>
+ <w xml:id="example.p.1.s.1.w.1"><t>I</t></w>
+ <w xml:id="example.p.1.s.1.w.2"><t>think</t></w>
+ <w xml:id="example.p.1.s.1.w.3"><t>I</t></w>
+ <w xml:id="example.p.1.s.1.w.4"><t>have</t></w>
+ <w xml:id="example.p.1.s.1.w.5"><t>to</t></w>
+ <w xml:id="example.p.1.s.1.w.6"><t>go</t></w>
+ <w xml:id="example.p.1.s.1.w.7"><t>.</t></w>
+ <timing>
+  <timedevent class="utterance" begindatetime="2011-12-15T19:01" 
+   enddatetime="2011-12-15T19:03" actor="myself">
+    <wref id="example.p.1.s.1.w.1" t="I" />
+    <wref id="example.p.1.s.1.w.2" t="think" />
+  </timedevent>
+  <timedevent class="cough" begintime="2011-12-15T19:03" 
+   endtime="2011-12-15T19:05" actor="myself">   
+  </timedevent>
+  <timedevent class="utterance" begindatetime="2011-12-15T19:05" 
+   enddatetime="2011-12-15T19:06" actor="myself">
+    <wref id="example.p.1.s.1.w.3" t="I" />
+    <wref id="example.p.1.s.1.w.4" t="have" />
+    <wref id="example.p.1.s.1.w.5" t="to" />
+    <wref id="example.p.1.s.1.w.6" t="go" />
+  </timedevent>
+ </timing>
+</s>
+\end{lstlisting}
+
+These timed events may also be nested. As always, the classes in the example are set-defined rather than predefined by FoLiA. The (optional) features \texttt{begindatetime} and \texttt{enddatetime} can be used express the exact moment at which an event started or ended. Note that this differs from the generic \texttt{datetime} attribute, which would describe the time at which the annotation was recorded, rather than when the event took place! 
+
+The declaration:
+
+\begin{lstlisting}[language=xml]
+<annotations>
+    <timedevent-annotation set="http://ilk.uvt.nl/folia/sets/events" />
+</annotations>
+\end{lstlisting}
+
+For more coarser annotation of events,  use the structure annotation element \texttt{event} instead. See section~\ref{events}.
 
 \subsection{Semantic roles}
 
@@ -1496,61 +1563,65 @@ In the above example, the correction is explicit, in the next example, it is imp
 
 Last, an important note regarding offsets; all offset values are measured in unicode code-points, the first character having index zero. Take special care with combining diacritical marks versus codepoints that directly integrate the diacritical mark.
 
-\subsection{Subsets and multiple classes}
+\subsection{Features, Subsets and multiple classes}
 \label{subset}
 
 For some annotations, associating a single class from a set is not sufficient. FoLiA provides the option to associate multiple classes, or to associate classes with specific subsets. 
 
+In addition to a main class, an arbitrary number of \emph{features} can be added to \emph{any} annotation element. Each feature pertains to a specific \emph{subset}. Subsets and the classes within them can be invented at will as they are part of the set definition, which is left entirely to the user. However, certain annotation elements also have some predefined subsets you may use.
 
-Take a look at the following abstract case: \texttt{X} here is a \emph{fictional} token/span annotation. It is associated with two classes from the same set. The fictional element \texttt{Y} goes with \texttt{X}, and is custom to the specific annotation.
-
-\begin{lstlisting}[language=xml]
-<X set="a">
-    <Y class="p">
-    <Y class="q">
-</X>
-\end{lstlisting}
-
-The classes can be made members of a certain subset, rather than the main set. Subsets are assumed to in turn defined by the main set. No special declarations will be necessary.
+The element \texttt{feat} is used to add features to any kind of annotation. In the following example we make use of a subset we invented which ties a lemma to a page number in some dictionary where the lemma can be found.
 
 \begin{lstlisting}[language=xml]
-<X set="a">
-    <Y subset="f" class="p">
-    <Y subset="g" class="q">
-</X>
+ <lemma class="house">
+   <feat subset="dictionary_page" class="45" />
+ </lemma>
 \end{lstlisting}
 
-Optionally, \texttt{X} itself might also be associated with a class, the class in this case would either represent all sub-parts, \emph{or} be the basis upon which redefinement is made. Which of the two is chosen depends on the set used.
+A more thorough example for Part-of-Speech tags with features will be explained in section~\label{sec:posfeat}.
 
-FoLiA has a default element \texttt{feat} that can be used instead of \texttt{Y} in the last-mentioned example above, so that no special elements needs to be introduced. This \texttt{feat} element can always be used to freely to associate \texttt{any} additional classes of \emph{any} designed subset with with \emph{any} annotation element !!!
-
-If elements such as the ficticious \texttt{Y} are introduced then they can be implicitly associated with a specific subset:
+Some elements have predefined subsets because some features are very commonly used. It however still depends on the set on whether these can be used, and which values these take. Whenever subsets are predefined they can be assigned using XML attributes. Consider the following example of lexical semantic sense annotation, in which subset ``synset'' is predefined:
 
 \begin{lstlisting}[language=xml]
-<X set="a" class="p">
-    <Y class="q">
-</X>
+<sense class="X" synset="Y" />
 \end{lstlisting}
 
-In such cases, if a subset is implied and there can be only one instance, a more common and concise solution would be to add \texttt{Y} as an attribute:
+This is semantically equivalent to:
 
 \begin{lstlisting}[language=xml]
-<X set="a" class="p" y="q" />
+<sense class="X">
+    <feat subset="synset" class="Y" />
+</sense>
 \end{lstlisting}
 
-An example of this is seen in the \texttt{sense} element, which takes a \texttt{synset} attribute that is implicitly associated with a subset of synsets.
+The following example of event annotation with the feature with predefined subset ``actor'' is similar:
 
 \begin{lstlisting}[language=xml]
-<sense class="p" synset="q" />
+<event class="tweet" actor="John Doe">
+ ...
+</event>
 \end{lstlisting}
 
-A second example is the \texttt{event} element with the \texttt{actor} attribute:
+This is semantically equivalent to:
 
 \begin{lstlisting}[language=xml]
-<event class="p" actor="q">
+<event class="tweet">
+ <feat subset="actor" class="John Doe" />
+ <s>...</s>
+</event>
 \end{lstlisting}
 
-FoLiA implicitly relates the synset attribute here to the ``synset'' subset of whatever set you defined. Note that any such implicit subset relation needs to be defined by the FoLiA standard itself, you can't just make up such attributes yourself. This section mainly served to gain insight in the advanced aspects of FoLiA, and to be able to suggest additions to it that follow the same principles.
+Features can also be used to assign multiple classes within the same subset, which is impossible with main classes. In the following example the event is associated with a list of two actors. In this case the XML attribute shortcut no longer suffices, and the \texttt{feat} element must be used.
+
+\begin{lstlisting}[language=xml]
+<event class="conversation">
+ <feat subset="actor" class="John Doe" />
+ <feat subset="actor" class="Jane Doe" />
+ <p>...</p>
+</event>
+\end{lstlisting}
+
+To recap: the \texttt{feat} element can always be used to freely to associate \texttt{any} additional classes of \emph{any} designed subset with with \emph{any} annotation element. For certain elements, there are predefined subsets, in which case you can assign them using the XML attribute shortcut. This however only applies to the pre-defined features.
 
 \subsection{Part-of-Speech tags with features}
 \label{sec:posfeat}
@@ -1573,7 +1644,11 @@ Option one:
 </w>
 \end{lstlisting}
 
-In FoLiA, this attribute \texttt{head} is implicitly associated with the subset ``head'' of whatever set you defined.
+In FoLiA, this attribute \texttt{head} is implicitly associated with the subset ``head'' of whatever set you defined. This would thus be equal to: 
+
+\begin{lstlisting}[language=xml]
+    <feat subset="head" class="N" />
+\end{lstlisting}
 
 Option two:
 
@@ -1654,14 +1729,14 @@ The declaration:
 
 FoLiA provides a facility to align parts of your document with other parts of your document, or even with parts of other FoLiA documents. These are called \emph{alignments} and are implemented using either the \texttt{alignment} element, a form of extended token annotation (that may thus also be applied on other levels such as sentences or paragraphs), or \texttt{complexalignment}, a form of span annotation for more complex word alignments.
 
-Consider the following two aligned sentences from two \emph{distinct} FoLiA documents in different languages. Note that the \texttt{t} attribute to the \texttt{aref} element is merely optional and is this overhead is added simply to facilitate the job of limited FoLiA parsers and providing a quick reference to the target text for both parser and human user. The \texttt{xlink:href} argument is used to link to the target document, if any. If the alignment is within the same document then it should be simply omitted.
+Consider the following two aligned sentences from two \emph{distinct} FoLiA documents in different languages. Note that the \texttt{t} attribute to the \texttt{aref} element is merely optional and is this overhead is added simply to facilitate the job of limited FoLiA parsers and providing a quick reference to the target text for both parser and human user. The \texttt{xlink:href} attribute is used to link to the target document, if any. If the alignment is within the same document then it should be simply omitted. The \texttt{type} attribute is mandatory and specifies the type of element the alignment points too, i.e. its value is equal to the tagname it points to.
 
 \begin{lstlisting}[language=xml]
 <s xml:id="example-english.p.1.s.1">
   <t>The Dalai Lama greeted him.</t>
   <alignment class="french-translation" xlink:href="doc-french.xml" 
     xlink:type="simple">
-     <aref id="doc-french.p.1.s.1" t="Le Dalai Lama le saluait." />
+     <aref id="doc-french.p.1.s.1" t="Le Dalai Lama le saluait." type="s" />
   </alignment>
 </s>
 
@@ -1669,15 +1744,14 @@ Consider the following two aligned sentences from two \emph{distinct} FoLiA docu
   <t>Le Dalai Lama le saluait.</t>
   <alignment class="english-translation" xlink:href="doc-english.xml" 
     xlink:type="simple">
-      <aref id="doc-english.p.1.s.1" t="The Dalai Lama greeted him." />
+      <aref id="doc-english.p.1.s.1" t="The Dalai Lama greeted him." type="s" />
   </alignment>
   <alignment class="english-translation" xlink:href="doc-dutch.xml" 
      xlink:type="simple">
-      <aref id="doc-dutch.p.1.s.1" t="De Dalai Lama begroette hem." />
+      <aref id="doc-dutch.p.1.s.1" t="De Dalai Lama begroette hem." type="s" />
   </alignment>
 </s>
 \end{lstlisting}
-
 
 Although the above example has a single alignment reference (\texttt{aref}), it is not forbidden to link to specify multiple references within the \texttt{alignment} block. For more complex alignments however, such as word alignments that include many-to-one, one-to-many or many-to-many alignments, the span annotation element \texttt{complexalignment} may be more suitable. The following example illustrates a many-to-many word-alignment of the word ``Dalai Lama'' from English to French. This takes places within the \texttt{complexalignments} annotation layer.
 
@@ -1696,8 +1770,8 @@ Although the above example has a single alignment reference (\texttt{aref}), it 
           xlink:type="simple">
         <wref id="example-english.p.1.s.1.w.2" t="Dalai">
         <wref id="example-english.p.1.s.1.w.3" t="Lama">
-        <aref id="example-french.p.1.s.1.w.2" t="Dalai">
-        <aref id="example-french.p.1.s.1.w.3" t="Lama">
+        <aref id="example-french.p.1.s.1.w.2" t="Dalai" type="w">
+        <aref id="example-french.p.1.s.1.w.3" t="Lama" type="w">
     </complexalignment>
         ...
   </complexalignments>
