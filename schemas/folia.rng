@@ -30,6 +30,9 @@ RelaxNG schema for FoLiA XML v0.8.0
         <optional>
           <attribute name="type"/>
         </optional>
+        <optional>
+          <attribute name="src"/>
+        </optional>
         <element name="annotations">
           <zeroOrMore>
             <choice>
