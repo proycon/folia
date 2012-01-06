@@ -2,7 +2,7 @@
 <xsl:stylesheet version="1.0" xmlns:folia="http://ilk.uvt.nl/folia" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dcoi="http://lands.let.ru.nl/projects/d-coi/ns/1.0" xmlns:imdi="http://www.mpi.nl/IMDI/Schema/IMDI">
 
 <!--
-D-Coi to FoLiA Conversion stylesheet
+Valkuil Foutencorpus to FoLiA Conversion stylesheet
     by Maarten van Gompel
     Induction of Linguistic Knowledge Research group
     Tilburg University
@@ -10,14 +10,9 @@ D-Coi to FoLiA Conversion stylesheet
     http://ilk.uvt.nl/folia
     http://github.com/proycon/folia
 
-    version 0.5.2
+    version 0.1 
     
-    Usage with xsltproc: 
-     $ xsltproc dcoi2folia.xsl dcoidocument.xml
-     
-    Note: this stylesheet is optimised for SoNaR and 
-    declares pos annotation and lemma annotation (remove or 
-    change if not used)
+    Note: this is a LIMITED conversion, it does not deal with any joins/splits and multiple corrections on the same token!
     
     Licensed under the GNU General Public License v3
 -->
@@ -110,11 +105,19 @@ D-Coi to FoLiA Conversion stylesheet
    <xsl:attribute name="xml:id"><xsl:value-of select="@xml:id" /></xsl:attribute>
   </xsl:if>
   <xsl:choose>
-  <xsl:when test="@original">
+  <xsl:when test="@original and not(matches(@correction, ',') or matches(@correction,'split')  or matches(@correction,'run_on') )">
   	<correction>
   	  	<xsl:if test="@xml:id">
    			<xsl:attribute name="xml:id"><xsl:value-of select="@xml:id" />.correction.1</xsl:attribute>
   		</xsl:if>
+  		<xsl:choose>  		
+	  		<xsl:when test="@correction">
+	   			<xsl:attribute name="class"><xsl:value-of select="@correction" /></xsl:attribute>
+	  		</xsl:when>
+			<xsl:otherwise>
+	   			<xsl:attribute name="class">unknown</xsl:attribute>
+	  		</xsl:otherwise>	  		
+  		</xsl:choose>
   		<new>
   			<t><xsl:value-of select="."/></t>  	
   		</new>
