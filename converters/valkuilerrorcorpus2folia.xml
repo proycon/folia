@@ -35,6 +35,7 @@ D-Coi to FoLiA Conversion stylesheet
    <token-annotation annotator="ilktok" annotatortype="auto" />
    <pos-annotation annotator="tadpole" annotatortype="auto" set="http://ilk.uvt.nl/folia/sets/cgn"/>
    <lemma-annotation annotator="tadpole" annotatortype="auto" set="http://ilk.uvt.nl/folia/sets/lemmas-nl"/>
+   <correction-annotation annotator="unknown" annotatortype="manual" set="valkuilset"/>
   </annotations>
   <xsl:copy-of select="imdi:METATRANSCRIPT"/>
  </metadata>
