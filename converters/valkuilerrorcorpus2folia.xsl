@@ -105,7 +105,7 @@ Valkuil Foutencorpus to FoLiA Conversion stylesheet
    <xsl:attribute name="xml:id"><xsl:value-of select="@xml:id" /></xsl:attribute>
   </xsl:if>
   <xsl:choose>
-  <xsl:when test="@original and not(matches(@correction, ',') or matches(@correction,'split')  or matches(@correction,'run_on') )">
+  <xsl:when test="@original and (not(@correction) or not(contains(@correction, ',') or contains(@correction,'split')  or contains(@correction,'run_on') ))">
   	<correction>
   	  	<xsl:if test="@xml:id">
    			<xsl:attribute name="xml:id"><xsl:value-of select="@xml:id" />.correction.1</xsl:attribute>
