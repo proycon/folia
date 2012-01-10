@@ -1,13 +1,21 @@
+0.8)
+    - Revised dependencies. Removed ad-hoc dep/@su and hd/@su attributes in favour of aref element.
+    - Revised and simplified feature/subset paradigm. Documentation clarified.
+    - Added timing annotation layer and timedevent element
+    - Added mandatory type attribute to aref element
+    - Stopped abuse of datetime attribute in Event annotation, using begindatetime feature instead.
+    
 0.7)
     - Introduced non-authoritativeness concept
     - Added Events
+    
 0.6)
     - Revised text content paradigm, introduced support for classes on text-content
     - Removed support for inline corrections prior to tokenisation
     
 0.5)
     - Introduced version and generator attribute on folia element
-    - Change in declaration: Now all sets needs to be declared.
+    - Change in declaration: Now all sets need to be declared.
     - Introduced Set Definition Format
     - Added datetime attribute as common FoLiA attribute
     - Added subjectivity annotation
