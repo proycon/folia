@@ -1,7 +1,12 @@
 #!/usr/bin/env python
 #-*- coding:utf-8 -*-
 
-from pynlpl.formats import folia
+import sys
+try:
+    from pynlpl.formats import folia
+except ImportError:
+    print >>sys.stderr,"PyNLPL is required to run this script, obtain it from https://github.com/proycon/pynlpl and either install it or make sure the pynlpl/ dir is symlinked from the directory this script is in."
+    sys.exit(3)
 import codecs
 
 print "Generating Relax NG schema"
