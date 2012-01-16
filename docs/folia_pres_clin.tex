@@ -59,7 +59,7 @@ stringstyle=\ttfamily,
 		\begin{itemize}
 			\item \textbf{Generalised} paradigm -- Single universal paradigm applicable to all kinds of annotations; as few ad-hoc provisions as possible. Not commited to any label set.
 			\item \textbf{Extensible} -- Unsupported annotation types can be added fairly easily.
-			\item \textbf{Expressive} -- Verbose expression of annotations, their annotators, timestamps, etc... Moreover:support for \emph{alternative} annotations. 
+			\item \textbf{Expressive} -- Verbose expression of annotations, their annotators, timestamps, etc... Moreover, support for \emph{alternative} annotations. 
 			\item \textbf{Formalised} -- Validation on two levels: shallow and deep. The latter validates the used label set and allows for links with for instance ISOcat.			
 		\end{itemize}				
 	\end{block}
@@ -146,9 +146,8 @@ stringstyle=\ttfamily,
             \item Chunking
             \item Corrections (used in valkuil.net)
             \item Morphology
-            \item Event/Timing annotation
+            \item Event/Time annotation
             \item Phonetic annotation
-            \item Intra and inter-document alignment                
         \end{itemize}   
     \end{block}
 \end{frame}
@@ -238,7 +237,7 @@ stringstyle=\ttfamily,
         \item \textbf{Structure Elements}: Paragraphs, Sentences, Words/Tokens  
         \item More: Division, Head, List, ListItem, Figure, Gap...
         \item Unique identifiers
-        \item Text content element (t) holds actual text. May occur untokenised on higher levels as well.
+        \item Text content element (t) holds actual text.
       \end{enumerate}
     \end{block}
 \end{frame}
@@ -294,7 +293,7 @@ stringstyle=\ttfamily,
 \begin{frame}
     \begin{block}{Span Annotation}
         \begin{itemize}
-            \item Token Annotation not sufficient, some annotations span over multiple tokens
+            \item Token Annotation is not sufficient, some annotations span over multiple tokens (not necessarily consecutive)
             \item Spanning multiple tokens can produce nesting problems (e.g $A (B C) D$ and $A B (C D)$)                
             \item \textbf{Solution:} Span Annotation using standoff notation
             \item \textbf{Applications:} Syntactic Parses, Chunking, Dependency Relations, Entities/Multi-Word Units
