@@ -86,9 +86,9 @@ stringstyle=\ttfamily,
 		\end{itemize}				
 	\end{block}
 	
-	\begin{block}{Trade-off: Expressibility versus Computing Efficiency}		
+	\begin{block}{Trade-off: Expressivity versus Computing Efficiency}		
 		\begin{itemize}
-			\item FoLiA aims at expressibility rather than computing efficiency. 
+			\item FoLiA aims at expressivity rather than computing efficiency. 
 			\begin{itemize}
 				\item XML and FoLiA overhead: Not ideal for real-time or resource-constrained applications
 				\item \textbf{Conversion} to less expressive, more efficient, formats.
@@ -105,7 +105,7 @@ stringstyle=\ttfamily,
 		\begin{itemize}
 			\item Many ad-hoc and legacy annotation formats (CGN, Tadpole column format)
 			\item Many theoretic and specialised annotation formats with limited scope (LAF, SynAF, MAF, TEI)
-			\item Bottom-up rather than top-down development: FoLiA arose from practical need, immediately developed alongside practicl programming libraries and applications. 
+			\item Bottom-up rather than top-down development: FoLiA arose from practical need, immediately developed alongside practical programming libraries and applications. 
 			\item De-facto-standard: D-COI XML
 		\end{itemize}
 	\end{block}
@@ -130,10 +130,11 @@ stringstyle=\ttfamily,
         \begin{itemize}
             \item Part-of-Speech tags (with features)
             \item Lemmatisation
-            \item Spelling corrections on both a tokenised as well as an untokenised level.
             \item Domain tagging
             \item Lexical semantic sense annotation (used in DutchSemCor)
             \item Named Entities / Multi-word units (used in SoNaR)
+            \item Syntactic Parses
+            \item Dependency Relations            
         \end{itemize}        
     \end{block}
 \end{frame}
@@ -142,12 +143,12 @@ stringstyle=\ttfamily,
     \begin{block}{Supported Annotations (2/2)}
         FoLiA supports the following linguistic annotations:
         \begin{itemize}                       
-            \item Syntactic Parses
-            \item Dependency Relations
             \item Chunking
             \item Corrections (used in valkuil.net)
             \item Morphology
-            \item Event annotatation
+            \item Event/Timing annotation
+            \item Phonetic annotation
+            \item Intra and inter-document alignment                
         \end{itemize}   
     \end{block}
 \end{frame}
@@ -386,7 +387,7 @@ stringstyle=\ttfamily,
         \begin{itemize}
             \item \textbf{Uniformity:} generic framework with simple paradigm, XML based
             \item \textbf{Expressiveness:} Ability to encode many kinds of linguistic annotation, including structural annotation, alternatives, and corrections
-            \item \textbf{Expandibility:} easy to add new annotations with the same paradigm
+            \item \textbf{Extensibility:} easy to add new annotations with the same paradigm
             \item A variety of tools and converters already available!
         \end{itemize}
     \end{block}
