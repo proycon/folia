@@ -71,19 +71,19 @@ stringstyle=\ttfamily,
 
 \begin{frame}
 
-	\begin{block}{Properties}
-		\begin{itemize}	
-			\item One document, one text, one XML file -- containing all annotations.
-			\item Annotation types and label sets must be declared in the document header.
-			\item Document metadata can be either included in the file (limited), or by reference to external CMDI or IMDI (preferred)
-		\end{itemize}
-	\end{block}
-
-	\begin{block}{Applications}
+	\begin{block}{Intended Applications}
 		\begin{itemize}
 			\item as a corpus storage format
 			\item as a language resource exchange format 
 		\end{itemize}				
+	\end{block}
+
+	\begin{block}{Properties}
+		\begin{itemize}	
+			\item One document, one text, one XML file -- containing all annotations.
+			\item Annotation types and label sets must be declared in the document header
+			\item Document metadata can be either included in the file (limited), or by reference to external CMDI or IMDI (preferred)
+		\end{itemize}
 	\end{block}
 	
 	\begin{block}{Trade-off: Expressivity versus Computing Efficiency}		
@@ -122,37 +122,6 @@ stringstyle=\ttfamily,
 
 \end{frame}
    
-\subsection{Annotations}   
-   
-\begin{frame}
-    \begin{block}{Supported Annotations (1/2)}
-        FoLiA supports the following linguistic annotations:
-        \begin{itemize}
-            \item Part-of-Speech tags (with features)
-            \item Lemmatisation
-            \item Domain tagging
-            \item Lexical semantic sense annotation (used in DutchSemCor)
-            \item Named Entities / Multi-word units (used in SoNaR)
-            \item Syntactic Parses
-            \item Dependency Relations            
-        \end{itemize}        
-    \end{block}
-\end{frame}
-            
-\begin{frame}
-    \begin{block}{Supported Annotations (2/2)}
-        FoLiA supports the following linguistic annotations:
-        \begin{itemize}                       
-            \item Chunking
-            \item Corrections (used in valkuil.net)
-            \item Morphology
-            \item Event/Time annotation
-            \item Phonetic annotation
-        \end{itemize}   
-    \end{block}
-\end{frame}
-
-        
        
 \section{Paradigm}
 
@@ -243,7 +212,7 @@ stringstyle=\ttfamily,
 \end{frame}
 
 
-\subsection{Token Annotation}
+%\subsection{Token Annotation}
 
 \begin{frame}[fragile]
     \begin{block}{Token Annotation}
@@ -254,9 +223,11 @@ stringstyle=\ttfamily,
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.2">
     <t>boot</t>
-    <pos set="brown" class="n" 
+    <pos set="cgn" class="n" 
      annotator="Maarten van Gompel" annotatortype="manual" />
     <lemma set="english-lemmas" class="boot" />
+    <sense set="cornetto" class="D_N12345" annotator="supwsd1" 
+     annotatortype="auto" confidence="0.65" />
 </w>                         
 \end{lstlisting}        
     \end{example}
@@ -296,10 +267,15 @@ stringstyle=\ttfamily,
             \item Token Annotation is not sufficient, some annotations span over multiple tokens (not necessarily consecutive)
             \item Spanning multiple tokens can produce nesting problems (e.g $A (B C) D$ and $A B (C D)$)                
             \item \textbf{Solution:} Span Annotation using standoff notation
-            \item \textbf{Applications:} Syntactic Parses, Chunking, Dependency Relations, Entities/Multi-Word Units
-            \item \textbf{Layers:} Each type of span annotation is placed within an \emph{annotation layer}, annotation layers are usually embedded within \emph{sentences} (\texttt{s))}
-            \item Same paradigm: Set, class, annotator, confidence, etc...
         \end{itemize}        
+    \end{block}
+    
+    \begin{block}{Properties}
+    	\begin{itemize}
+    	 \item \textbf{Applications:} Syntactic Parses, Chunking, Dependency Relations, Entities/Multi-Word Units    	
+         \item \textbf{Layers:} Each type of span annotation is placed within an \emph{annotation layer}, annotation layers are usually embedded within \emph{sentences} (\texttt{s))}
+         \item Same paradigm: Set, class, annotator, confidence, etc...
+        \end{itemize}
     \end{block}
 \end{frame}
 
@@ -417,6 +393,39 @@ stringstyle=\ttfamily,
 \section{Extra}
 
 
+\subsection{Annotations}   
+   
+\begin{frame}
+    \begin{block}{Supported Annotations (1/2)}
+        FoLiA supports the following linguistic annotations:
+        \begin{itemize}
+            \item Part-of-Speech tags (with features)
+            \item Lemmatisation
+            \item Domain tagging
+            \item Lexical semantic sense annotation (used in DutchSemCor)
+            \item Named Entities / Multi-word units (used in SoNaR)
+            \item Syntactic Parses
+            \item Dependency Relations            
+        \end{itemize}        
+    \end{block}
+\end{frame}
+            
+\begin{frame}
+    \begin{block}{Supported Annotations (2/2)}
+        FoLiA supports the following linguistic annotations:
+        \begin{itemize}                       
+            \item Chunking
+            \item Corrections (used in valkuil.net)
+            \item Morphology
+            \item Event/Time annotation
+            \item Phonetic annotation
+        \end{itemize}   
+    \end{block}
+\end{frame}
+
+        
+\subsection{Declarations}
+
 \begin{frame}[fragile]
     \begin{block}{Token Annotation}
         All annotations need to be declared in the metadata:
@@ -437,6 +446,8 @@ stringstyle=\ttfamily,
 \end{lstlisting}        
     \end{example}
 \end{frame}
+
+\subsection{Alternatives}
 
 \begin{frame}[fragile]
 \frametitle{Alternative Token Annotations}
@@ -463,7 +474,6 @@ There can be only one of the same set though, this is illegal and requires usage
 
 \end{frame}
 
-\subsection{Token Annotation: Alternatives}
 
 \begin{frame}[fragile]
 \frametitle{Alternative Token Annotations}
