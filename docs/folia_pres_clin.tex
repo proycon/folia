@@ -86,15 +86,6 @@ stringstyle=\ttfamily,
 		\end{itemize}
 	\end{block}
 	
-	\begin{block}{Trade-off: Expressivity versus Computing Efficiency}		
-		\begin{itemize}
-			\item FoLiA aims at expressivity rather than computing efficiency. 
-			\begin{itemize}
-				\item XML and FoLiA overhead: Not ideal for real-time or resource-constrained applications
-				\item \textbf{Conversion} to less expressive, more efficient, formats.
-			\end{itemize}			 
-		\end{itemize}	
-	\end{block}
 	
 \end{frame}	
 	
@@ -244,7 +235,7 @@ stringstyle=\ttfamily,
 <w xml:id="example.p.1.s.1.w.2">
     <t>boot</t>
     <pos set="cgn" class="N(soort,ev,basis,zijn,stan)">
-    	<feat subset="head" class="N" />
+        <feat subset="head" class="N" />
         <feat subset="ntype" class="soort" />
         <feat subset="number" class="ev" />
         <feat subset="degree" class="basis" />
@@ -392,6 +383,20 @@ stringstyle=\ttfamily,
 
 \section{Extra}
 
+\subsection{Trade-off}
+
+
+\begin{frame}
+	\begin{block}{Trade-off: Expressivity versus Computing Efficiency}		
+		\begin{itemize}
+    			\item FoLiA aims at expressivity rather than computing efficiency. 
+			\begin{itemize}
+				\item XML and FoLiA overhead: Not ideal for real-time or resource-constrained applications
+				\item \textbf{Conversion} to less expressive, more efficient, formats.
+			\end{itemize}			 
+		\end{itemize}	
+	\end{block}
+\end{frame}
 
 \subsection{Annotations}   
    
