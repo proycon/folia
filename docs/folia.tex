@@ -2107,5 +2107,30 @@ FoLiA & Alpino & not yet \\
 \bibliographystyle{plain}
 \bibliography{folia}
 
+\chapter{Comparison}
+
+There are numerous annotation formats in the field, so one might wonder why we felt the need to create yet another one. First of all, there are many old and ad-hoc formats in the computational linguistics community, formats that are often specific to one particular application and lack the expressive power for other kind of annotations than initially designed for. Often, such formats are simple text or column-based formats without any kind of formal scheme. FoLiA is intended as a solution for replacing such formats for the storage and exchange of language resources, and as such to facilitate inter-connectivity of NLP tools and sharing of data.
+
+There are also formats with are modern, XML-based and formalised. In the remainder of this appendix we will draw a quick comparison with some notable formats:
+
+
+\subsection{TCF v0.4 -- Text Corpus Format}
+
+The Text Corpus Format\cite{TCF} is specifically designed as a language resource exchange format for webservices chained in a workflow, which is also one of the intended uses of FoLiA. The format is a modern, XML-based, unicode encoded, and supports a fair subset of the annotation types supported by FoLiA. It is one of the formats closest to FoLiA and therefore most interesting to compare. All annotations in TCF are represented in a stand-off fashion within the same XML-file, although there seems to be a provision for some inline annotations as well. The format is simpler and less verbose than FoLiA, slimness and processing efficiency also explicitly being one of the aims of the authors. This however does compromise expressivity and makes it less expressive than FoLiA. For example, there seems to be no support for corrections, alternatives and the encoding of annotators, time of annotation, and confidence level, something that in FoLiA is deeply integrated into the paradigm. TCF is tagset independent and tagsets can be specified by the user, but it does not generalise or formalise the ``set/class'' paradigm to the extent FoLiA does.  The level of generalisation does not go as far as it does in FoLiA.  
+
+In annotation formats there is always a balance between expressivity and efficiency/simplicity. FoLiA is clearly on the more expressive side here, offering more features but therefore making higher demands on memory usage, whereas TCF is more on the efficiency side. 
+
+\subsection{KAF -- Kyoto Annotation Format }
+
+(Yet to write)
+
+\subsection{LAF -- Linguistic Annotation Framework, and GraF}
+
+(Yet to write)
+
+\subsection{TEI P5 -- Text Encoding Initiative}
+
+(Yet to write)
+
 
 \end{document}
