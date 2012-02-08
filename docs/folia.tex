@@ -17,8 +17,18 @@ stringstyle=\ttfamily,
 
 
 
-\title{FoLiA: Format for Linguistic Annotation \\ \small v0.8 - revision 2}
-\author{\emph{Maarten van Gompel} \\ ILK, Tilburg center for Cognition and Communication, Tilburg University \\ Centre for Language Studies, Radboud Universiteit Nijmegen }
+
+\author{Maarten van Gompel \\
+	Center for Language Studies \\
+	Radboud University Nijmegen \\ \\
+    {\small P.O. Box 9103, NL-6500 HD Nijmegen, The Netherlands} \\ \\         
+        URL: http://ilk.uvt.nl/clam/ \thanks{This document is available from
+	    http://ilk.uvt.nl/downloads/pub/papers/ilk.1203.pdf. All rights reserved, Tilburg University and 
+        Radboud University Nijmegen.}}
+
+\title{{\huge FoLiA: Format for Linguistic Annotation} \\ \vspace*{0.5cm}
+{\bf \small version 0.8 - revision 2} \\ \vspace*{0.5cm}{\huge Documentation}\\
+\vspace*{1cm} {\it ILK Technical Report -- ILK 12-03}}
 
 \parindent=0pt %no paragraph indentation
 \parskip=12pt %paragraph skip
@@ -49,6 +59,8 @@ FoLiA is an XML-based\cite{XML} annotation format, suitable for the representati
 
 XML is an inherently hierarchic format. FoLiA does justice to this by maximally utilising a hierarchic, inline, setup. We inherit from the D-Coi format, which posits to be loosely based on a minimal subset of TEI\cite{TEI}. Because of the introduction of a new and much broader paradigm, FoLiA is \emph{not} backwards-compatible with D-Coi, i.e. validators for D-Coi will not accept FoLiA XML. It is however easy to convert FoLiA to less complex or verbose formats such as the D-Coi format, or plain-text. Converters will be provided. This may entail some loss of information if the simpler format has no provisions for particular types of information specified in the FoLiA format. 
 
+
+
 The most important characteristics of FoLiA are:
 
 \begin{itemize}
@@ -59,12 +71,13 @@ The most important characteristics of FoLiA are:
 \item \textbf{Practical} - FoLiA has been developed in a bottom-up fashion right alongside applications, libraries, and other toolkits and convertors. Whilst the format is rich, we try to maintain it as simple and straightforward as possible, minimising the learning curve and making it easy to adopt FoLiA in practical applications.  
 \end{itemize}
 
-The FoLiA format makes mixed-use of inline and stand-off annotation. Inline annotation is used for annotations pertaining to single tokens, whilst stand-off annotation in a seperate annotation layers is adopted for annotation types that span over multiple token. This provides FoLiA with the necessary flexibility and extensibility to deal with various kinds of annotations. Inspiration for this was in part obtained from the Kyoto Annotation Format \cite{KYOTO}. 
+The FoLiA format makes mixed-use of inline and stand-off annotation. Inline annotation is used for annotations pertaining to single tokens, whilst stand-off annotation in a seperate annotation layers is adopted for annotation types that span over multiple token. This provides FoLiA with the necessary flexibility and extensibility to deal with various kinds of annotations. Inspiration for this was in part obtained from the Kyoto Annotation Format \cite{KYOTO}.
 
-Further features of the FoLiA format include:
+In publication of research that makes use of FoLiA, a citation should be given of: {\em ``Maarten van Gompel (2012). FoLiA: Format for Linguistic Annotation. Documentation. ILK Technical Report 12-03. \\ Available from {\tt http://ilk.uvt.nl/downloads/pub/papers/ilk.1203.pdf}''}. FoLiA is open-source and all technical resourcs are licensed under the GNU Public License v3.
+
+Further notable features of the FoLiA format include:
 
 \begin{itemize}
-\item Open-source
 \item XML-based, validation against RelaxNG schema.
 \item Full Unicode support; UTF-8 encoded.
 \item Document structure consists of divisions, paragraphs, sentences and words/tokens, and more specific elements.
@@ -123,6 +136,7 @@ FoLiA is used in the following projects (list may not be complete):
 \item Frog
 \item Ucto
 \end{itemize}
+
 
 
 To clearly understand this documentation, note that when we speak of ``elements'' or ``attributes'', we refer to XML notation, i.e. XML elements and XML attributes.
