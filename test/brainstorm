@@ -275,7 +275,7 @@ SET DEFINITIONS:
 
 <set xml:id="CGN" type="closed" conceptlink="">
     
-    <class xml:id="N" conceptlink="">Human readable description</class>
+    <class xml:id="N" conceptlink="" label="Human readable description" />
     
     <subset id="number" conceptlink="">
         <!-- option 1 -->

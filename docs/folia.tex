@@ -73,7 +73,7 @@ The most important characteristics of FoLiA are:
 
 The FoLiA format makes mixed-use of inline and stand-off annotation. Inline annotation is used for annotations pertaining to single tokens, whilst stand-off annotation in a seperate annotation layers is adopted for annotation types that span over multiple token. This provides FoLiA with the necessary flexibility and extensibility to deal with various kinds of annotations. Inspiration for this was in part obtained from the Kyoto Annotation Format \cite{KYOTO}.
 
-In publication of research that makes use of FoLiA, a citation should be given of: {\em ``Maarten van Gompel (2012). FoLiA: Format for Linguistic Annotation. Documentation. ILK Technical Report 12-03. \\ Available from {\tt http://ilk.uvt.nl/downloads/pub/papers/ilk.1203.pdf}''}. FoLiA is open-source and all technical resourcs are licensed under the GNU Public License v3.
+In publication of research that makes use of FoLiA, a citation should be given of: {\em ``Maarten van Gompel (2012). FoLiA: Format for Linguistic Annotation. Documentation. ILK Technical Report 12-03. \\ Available from {\tt http://ilk.uvt.nl/downloacd ~ds/pub/papers/ilk.1203.pdf}''}. FoLiA is open-source and all technical resourcs are licensed under the GNU Public License v3.
 
 Further notable features of the FoLiA format include:
 
@@ -1860,9 +1860,9 @@ You can simply define fields with custom IDs, but the following fields are pre-d
 
 \section{Introduction}
 
-The FoLiA format consists not just out of the Document Format discussed in the previous chapter, but also of a Set Definition Format. The document format is agnostic about all sets and the classes therein, it is the Set Definition Format that defines precisely what classes are allowed in a set, including any subsets.
+The FoLiA format consists not just out of the Document Format discussed in the previous chapter, but also of a Set Definition Format. The document format is agnostic about all sets and the classes therein, it is the Set Definition Format that defines precisely what classes are allowed in a certain set, including any subsets. 
 
-Recall from section~\ref{declarations} that all used sets need to be declared in the document and that they point to URLs holding a FoLiA set definition. If no set definition files are associated, then a full in-depth validation can not take place.
+Recall from section~\ref{declarations} that all used sets need to be declared in the document header and that they point to URLs holding a FoLiA set definition. If no set definition files are associated, then a full in-depth validation can not take place.
 
 \section{Types and classes}
 
@@ -1878,13 +1878,13 @@ Here is a simple example:
 </set>
 \end{lstlisting}
 
-The \texttt{ID} of the class is the value that may be used in the \texttt{class} attribute in the FoLiA document. The \texttt{label} attribute carries a human readable description for presentational purposes, this is optional but highly recommended.
+The \texttt{ID} of the class determines a value the \texttt{class} attribute may take in the FoLiA document, for elements of this set. The \texttt{label} attribute carries a human readable description for presentational purposes, this is optional but highly recommended.
 
 There are three possible types for sets and subsets: 
 
 \begin{enumerate}
 \item \textbf{open}: classes may be anything and are not defined
-\item \textbf{closed}: classes are defined
+\item \textbf{closed}: classes are defined strictly
 \item \textbf{mixed}: classes may be anything, but some are predefined
 \end{enumerate}
 
@@ -1906,7 +1906,7 @@ You may want to associate classes, or even sets themselves, with some kind of se
 </set>
 \end{lstlisting}
 
-FoLiA does not dictate any format requirements for conceptual links, it can be anything, such as an RDF resource, or any other kind. If you want something more specific, or you want to link to multiple semantic resources, simply use your own ``conceptlink'' attribute in different custom XML namespace.
+FoLiA does not dictate any format requirements for conceptual links, it can be anything, such as an RDF resource, or any other kind. If you want something more specific, or you want to link to multiple semantic resources, simply use your own ``conceptlink'' attribute in a different custom XML namespace.
 
 \section{Subsets}
 
@@ -1925,11 +1925,11 @@ Section~\ref{subset} introduced subsets. These can be defined in a similar fashi
 </set>
 \end{lstlisting}
 
-It is possible for subsets to be used multiple times if the subset is declared with the attribute \texttt{multi} set to \texttt{true} (defaults to false). This allows multiple classes to be associated with a subset.
+It is possible for subsets to be used multiple times if the subset is declared with the attribute \texttt{multi} set to \texttt{true} (defaults to false). This allows multiple classes to be associated with a subset. Subsets can be made mandatory by setting the attribute \texttt{required} to \texttt{true}.
 
 \section{Constraints}
 
-Not all classes in subsets can be combined with others. There is the need to put constraints on which may go together. The previous example already illustrates this. For many languages, the ``gender'' subset does not make sense on verbs. We can put a constaint on the usage of this subset, limiting its usage to nouns and adjectives:
+Not all classes in subsets can be combined with others. Often the need arises to put constraints on which classes can go together. The previous example already illustrates this. For many languages, the ``gender'' subset does not make sense on verbs. We can put a constaint on the usage of this subset, limiting its usage to nouns and adjectives:
 
 \begin{lstlisting}[language=xml]
 <set xml:id="simplepos" type="closed">
@@ -1992,7 +1992,7 @@ Constraints can be used within subsets, but also within classes:
 </set>
 \end{lstlisting}
 
-Using the restrict element, you force a certain class from the main set or any subset, thus enumerating all the allowed classes. For example, the follow constraint demands masculine or feminine noun in either nominative or accusative case. All of the restrictions must be satisfied for the constraint to match.
+Using the restrict element, you force a certain class from the main set or any subset, thus enumerating all the allowed classes. For example, the following constraint demands masculine or feminine nouns in either nominative or accusative case. All of the restrictions must be satisfied for the constraint to match, restrictions on the same subset (or the main set if no subset is specified) are automatically considered as disjunctions.
 
 \begin{lstlisting}[language=xml]
 <constraint>
@@ -2004,7 +2004,20 @@ Using the restrict element, you force a certain class from the main set or any s
 </constraint>
 \end{lstlisting}
 
-You can also opt to specify the ``forbidden'' classes using except. Only if not a single one of the exceptions applies, the constraint is met. 
+Disjunctions, over different subsets, can be made explicitly using the \texttt{disjunction} element. The following would be constrained to feminine nouns \emph{or} plural nouns, rather than feminine plural nouns if the disjunction element were not present:
+
+\begin{lstlisting}[language=xml]
+<constraint>
+    <restrict class="N" />
+	<disjunction>
+	    <restrict subset="gender" class="f" />
+	    <restrict subset="number" class="plural" />
+	</disjunction>
+</constraint>
+\end{lstlisting}
+
+
+You can also opt to specify the ``forbidden'' classes using \texttt{except}. Only if not a single one of the exceptions applies, the constraint is met. 
 
 \begin{lstlisting}[language=xml]
 <constraint>
@@ -2016,7 +2029,28 @@ You can also opt to specify the ``forbidden'' classes using except. Only if not 
 </constraint>
 \end{lstlisting}
 
-Restrict and except elements can also be mixed.
+Restrict and except elements can also be mixed, in which case the constraint matches if all of the restrictions do, and if none of the exceptions do. Moreover, disjunctions can be nested, to form complex constraints.
+
+The \emph{required} attribute can be used on subsets to indicate whether they are mandatory or optional, but a more powerful mechanism is available using constraints and the \texttt{require} element (or its complement: \texttt{forbid}). The following example adds a constraint on nouns and requires it to have the gender and number subsets specified, whereas for verbs, tense and number are required.
+
+
+\begin{lstlisting}[language=xml]
+<class="N">
+	<constraint>
+		<require subset="gender" />
+		<require subset="number" />
+	</constraint>
+</class>
+<class="V">
+	<constraint>
+		<require subset="tense" />
+		<require subset="number" />
+	</constraint>
+</class>
+
+\end{lstlisting}
+
+
 
 
 \appendix
