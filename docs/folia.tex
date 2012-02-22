@@ -607,7 +607,7 @@ There is no provision yet for encoding tables. This may be added later.
 
 \section{Token Annotation}
 
-Token annotations are annotations that are placed within the word (\texttt{w}) element. They all can take any of the attributes described in section \ref{sec:paradigm}, this has to be kept in mind when reading this section. Moreover, all token annotations depend on the document being tokenised, i.e. there being a \texttt{token-annotation} declaration and \texttt{w} elements. The declaration can be as in the following example:
+Token annotations are annotations that are placed within the word (\texttt{w}) element. They all can take any of the attributes described in section \ref{sec:paradigm}, this has to be kept in mind when reading this section. Moreover, all token annotations depend on the document being tokenised, i.e. there being \texttt{w} elements. If the tokens are assigned classes part of a certain set, then a declaration such as the following is mandatory:
 
 \begin{lstlisting}[language=xml]
 <annotations>
