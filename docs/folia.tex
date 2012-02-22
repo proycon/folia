@@ -27,7 +27,7 @@ stringstyle=\ttfamily,
         Radboud University Nijmegen.}}
 
 \title{{\huge FoLiA: Format for Linguistic Annotation} \\ \vspace*{0.5cm}
-{\bf \small version 0.8 - revision 2} \\ \vspace*{0.5cm}{\huge Documentation}\\
+{\bf \small version 0.8 - revision 2.1} \\ \vspace*{0.5cm}{\huge Documentation}\\
 \vspace*{1cm} {\it ILK Technical Report -- ILK 12-03}}
 
 \parindent=0pt %no paragraph indentation
@@ -398,18 +398,18 @@ If multiple sets are used for the same annotation type, they each need a separat
         <pos-annotation set="http://ilk.uvt.nl/folia/sets/brown" />
 \end{lstlisting}
 
-If only one set is declared, then in the document itself you are allowed to skip the set attribute on these specific annotation elements. The declared set will be the automatic default. 
+If only one set is declared, then in the document itself you are allowed to skip the set attribute on these specific annotation elements. The declared set will automatically be the default. 
 
-The \texttt{annotator} and \texttt{annotatortype} attributes acts as defaults, for the specific annotation type and set. Unlike \texttt{set}, you do \emph{not} need, and it is in fact prohibited, to declare every possible annotator!
+The \texttt{annotator} and \texttt{annotatortype} attributes act as defaults, for the specific annotation type and set. Unlike \texttt{set}, you do \emph{not} need, and it is in fact prohibited, to declare every possible annotator here!
 
-Annotator defaults can always be overriden at the specific annotation elements. But declaring them allows for the annotation element to be less verbosely expressed. Explicitly referring to a set and annotator for each annotation element can be cumbersome in pointless in a document with a single set and a single annotator for that particular type of annotation. Declarations and defaults provide a nice way around this problem.
+Annotator defaults can always be overriden at the specific annotation elements. But declaring them allows for the annotation element to be less verbosely expressed. Explicitly referring to a set and annotator for each annotation element can be cumbersome and pointless in a document with a single set and a single annotator for that particular type of annotation. Declarations and defaults provide a nice way around this problem.
 
 
 \section{Structure Annotation}
 
 \subsection{Divisions}
 
-Within the \texttt{text} element, the structure element \texttt{div} can be used to create divisions and subdivisions. Each division may be of a particular \emph{class} pertaining to a \emph{set} defining all possible classes. Divisions and other structural units are often numbered, think for example of chapters and sections. The number, as it was in the source document, can be encoded in the \texttt{n} attribute of the structure annotation element.
+Within the \texttt{text} element, the structure element \texttt{div} can be used to create divisions and subdivisions. Each division \emph{may} be of a particular \emph{class} pertaining to a \emph{set} defining all possible classes. Divisions and other structural units are often numbered, think for example of chapters and sections. The number, as it was in the source document, can be encoded in the \texttt{n} attribute of the structure annotation element.
 
 Look at the following example, showing a full FoLiA document with structured divisions: 
 
@@ -440,7 +440,7 @@ Look at the following example, showing a full FoLiA document with structured div
 </FoLiA>  
 \end{lstlisting}
 
-If divisions are present, they need to be declared, as can be seen in the metadata. Divisions themselves are never mandatory, you can have a document without any divisions.
+If divisions with sets are present, they need to be declared, as can be seen in the metadata. If you have divisions without sets or classes, then a declaration is not necessary
 
 Divisions stem from D-Coi and are modified in FoLiA. These divisions are not mandatory, but may be used to mark extra structure. D-Coi supported the elements \texttt{div0}, \texttt{div1}, \texttt{div2}, etc.., but FoLiA only knows a single \texttt{div} element, which can be nested at will and associated with classes. Note that paragraphs, sentences and words have there own explicit tags, as seen earlier, divisions should never be used for marking these, only larger structures can be divisions!
 
