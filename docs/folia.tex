@@ -27,7 +27,7 @@ stringstyle=\ttfamily,
         Radboud University Nijmegen.}}
 
 \title{{\huge FoLiA: Format for Linguistic Annotation} \\ \vspace*{0.5cm}
-{\bf \small version 0.8 - revision 2.1} \\ \vspace*{0.5cm}{\huge Documentation}\\
+{\bf \small version 0.8 - revision 2.2} \\ \vspace*{0.5cm}{\huge Documentation}\\
 \vspace*{1cm} {\it ILK Technical Report -- ILK 12-03}}
 
 \parindent=0pt %no paragraph indentation
@@ -389,7 +389,7 @@ The annotation declaration is a mandatory part of the metadata that declares all
 </annotations>
 \end{lstlisting}
 
-The set attribute is mandatory and refers to a URL of a FoLiA Set Definition file (see chapter \ref{fsd}). The Set Definition specifies exactly what classes are allowed in the set. It for examples specifies exactly what Part-of-Speech tags exists. This information is necessary to completely validate the document at its deepest level. If the sets point to URLs that do not exist, warnings will be issued. Validation can still proceed but with the notable exception of deep validation of these sets.
+The set attribute is mandatory\footnote{Technically, it can be omitted, but then the set defaults to ``undefined''. This is allowed for flexibility and less explicit usage of FoLiA in limited settings, but not recommended!} and refers to a URL of a FoLiA Set Definition file (see chapter \ref{fsd}). The Set Definition specifies exactly what classes are allowed in the set. It for examples specifies exactly what Part-of-Speech tags exists. This information is necessary to completely validate the document at its deepest level. If the sets point to URLs that do not exist, warnings will be issued. Validation can still proceed but with the notable exception of deep validation of these sets.
 
 If multiple sets are used for the same annotation type, they each need a separate declaration:
 
