@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="folia2html.xsl"?>
-<FoLiA xmlns="http://ilk.uvt.nl/folia" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="WR-P-E-J-0000000001" version="0.8.0" generator="pynlpl.formats.folia-v0.8.0.18">
+<FoLiA xmlns="http://ilk.uvt.nl/folia" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="WR-P-E-J-0000000001" version="0.8" generator="manual">
   <metadata type="imdi">
     <annotations>
       <token-annotation annotator="ilktok" annotatortype="auto" />
@@ -8,6 +7,8 @@
       <lemma-annotation set="lemmas-nl" annotator="tadpole" annotatortype="auto" />
       <correction-annotation set="corrections" annotator="proycon" annotatortype="manual" />
       <errordetection-annotation set="corrections" annotator="proycon" annotatortype="manual" />
+      <morphological-annotation annotator="proycon" annotatortype="manual" />
+      <gap-annotation annotator="proycon" annotatortype="manual" />
       <sense-annotation set="sense-set" />
       <event-annotation set="event-set" />
       <timedevent-annotation set="event-set" />
