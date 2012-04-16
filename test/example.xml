@@ -3,6 +3,8 @@
   <metadata type="native">
     <annotations>
       <token-annotation annotator="ilktok" annotatortype="auto" />
+      <sentence-annotation set="sentences" annotator="ucto" annotatortype="auto" />
+      <paragraph-annotation set="paragraphs" annotator="ucto" annotatortype="auto" />
       <pos-annotation set="cgn-combinedtags" annotator="tadpole" annotatortype="auto" />
       <lemma-annotation set="lemmas-nl" annotator="tadpole" annotatortype="auto" />
       <correction-annotation set="corrections" annotator="proycon" annotatortype="manual" />
@@ -30,7 +32,7 @@
             </w>
           </s>
         </head>
-        <p xml:id="WR-P-E-J-0000000001.p.1">
+        <p xml:id="WR-P-E-J-0000000001.p.1" class="firstparagraph">
           <s xml:id="WR-P-E-J-0000000001.p.1.s.1">
             <w xml:id="WR-P-E-J-0000000001.p.1.s.1.w.1">
               <t>Stemma</t>
@@ -601,7 +603,7 @@
               <lemma class="."/>
             </w>
           </s>
-          <s xml:id="WR-P-E-J-0000000001.p.1.s.6">
+          <s xml:id="WR-P-E-J-0000000001.p.1.s.6" class="sentence">
             <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.1">
               <t>Verdwenen</t>
               <pos class="WW(vd,prenom,zonder)">
@@ -954,7 +956,7 @@
                       </w>                      
                   </s>                  
               </listitem>
-              <event class="applause" actor="audience" />
+              <event xml:id="sandbox.event.0" class="applause" actor="audience" />
               <listitem xml:id="sandbox.list.1.listitem.2" n="2">
                   <s xml:id="sandbox.list.1.listitem.2.s.1">
                       <w xml:id="sandbox.list.1.listitem.2.s.1.w.1">
@@ -969,7 +971,7 @@
           <event xml:id="sandbox.event.1" class="presentation" actor="proycon" begindatetime="2011-12-15T19:01" enddatetime="2011-12-15T19:05">                
               <figure xml:id="sandbox.figure.1" src="http://upload.wikimedia.org/wikipedia/commons/8/8e/Family_tree.svg">
                   <desc>Stamboom plaatje van wikipedia</desc>              
-                  <caption>
+                  <caption xml:id="sandbox.figure.1.caption.1">
                       <s xml:id="sandbox.figure.1.caption.s.1">
                           <w xml:id="sandbox.figure.1.caption.s.1.w.1">
                               <t>Een</t>
