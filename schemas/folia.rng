@@ -598,9 +598,6 @@ RelaxNG schema for FoLiA XML v0.8.1
         <zeroOrMore>
           <ref name="feat"/>
         </zeroOrMore>
-        <zeroOrMore>
-          <ref name="head"/>
-        </zeroOrMore>
         <optional>
           <ref name="desc"/>
         </optional>
@@ -909,8 +906,8 @@ RelaxNG schema for FoLiA XML v0.8.1
   </define>
 
 
-  <define ns="http://ilk.uvt.nl/folia" name="head">
-    <element name="head">
+  <define ns="http://ilk.uvt.nl/folia" name="feat">
+    <element name="feat">
       <attribute name="subset"/>
       <attribute name="class"/>
     </element>
@@ -992,6 +989,53 @@ RelaxNG schema for FoLiA XML v0.8.1
       <interleave>
         <zeroOrMore>
           <ref name="feat"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t"/>
+        </zeroOrMore>
+      </interleave>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" ns="http://ilk.uvt.nl/folia" name="head">
+    <element name="head">
+      <a:documentation>Head element. A structure element. Acts as the header/title of a division. There may be one per division. Contains sentences.</a:documentation>
+      <attribute ns="http://www.w3.org/XML/1998/namespace" name="id"/>
+      <optional>
+        <attribute name="class"/>
+      </optional>
+      <optional>
+        <attribute name="set"/>
+      </optional>
+      <optional>
+        <attribute name="annotator"/>
+      </optional>
+      <optional>
+        <attribute name="annotatortype"/>
+      </optional>
+      <optional>
+        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+          <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="n"/>
+      </optional>
+      <optional>
+        <attribute name="datetime">
+          <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <interleave>
+        <zeroOrMore>
+          <ref name="s"/>
+        </zeroOrMore>
+        <optional>
+          <ref name="desc"/>
+        </optional>
+        <zeroOrMore>
+          <ref name="event"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="t"/>
@@ -1885,14 +1929,6 @@ RelaxNG schema for FoLiA XML v0.8.1
           <ref name="enddatetime"/>
         </zeroOrMore>
       </interleave>
-    </element>
-  </define>
-
-
-  <define ns="http://ilk.uvt.nl/folia" name="feat">
-    <element name="feat">
-      <attribute name="subset"/>
-      <attribute name="class"/>
     </element>
   </define>
 
