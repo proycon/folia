@@ -16,7 +16,8 @@
       <timedevent-annotation set="event-set" />
       <entity-annotation set="mwu-set" />
       <syntax-annotation set="syntax-set" />
-      <dependency-annotation set="alpino-set" />      
+      <dependency-annotation set="alpino-set" />   
+      <alignment-annotation set="alignment-set" />   
     </annotations>
     <meta id="title">Stemma</meta>
     <meta id="language">nl</meta>
@@ -384,6 +385,9 @@
               <t>ze</t>
               <pos class="VNW(pers,pron,stan,red,3,ev,fem)"/>
               <lemma class="ze"/>
+			  <alignment class="reference">
+              	 <aref id="WR-P-E-J-0000000001.p.1.s.3.w.5" t="handschriften" type="w"/>
+              </alignment>
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.3.w.11">
               <t>op</t>

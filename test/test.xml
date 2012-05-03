@@ -4,6 +4,8 @@
   <metadata>
      <annotations>
         <token-annotation set="ucto-tokconfig-nl" annotator="ucto" annotatortype="auto" />
+        <sentence-annotation set="sentences" annotator="ucto" annotatortype="auto" />
+        <paragraph-annotation set="paragraphs" annotator="ucto" annotatortype="auto" />
         <pos-annotation set="CGN" annotator="Frog" annotatortype="auto" />
         <lemma-annotation annotator="Frog" annotatortype="auto" />    
         <sense-annotation set="Cornetto" annotator="supwsd1" annotatortype="auto" />    
@@ -22,7 +24,7 @@
   <text xml:id="TEST-000000001.text">
     <body>
       <div0 xml:id="TEST-0000000001.div0.1">
-        <p xml:id="TEST-000000001.p.1">
+        <p xml:id="TEST-000000001.p.1" class="firstparagraph">
             <t>Dit is een tesst. Deze test bestaat uit twee zinnen.</t>
             <s xml:id="TEST-000000001.p.1.s.1">
                 <t>Dit is een tesst.</t>                
