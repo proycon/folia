@@ -2020,11 +2020,11 @@ The \texttt{complexalignment} element itself may also take a set, which is \emph
 
 It should also be noted that all \emph{span} annotation elements can directly take \texttt{aref} elements, without \texttt{alignment} elements, to facilitate alignments of span annotation elements with other span annotation elements. An example of this was already seen in section \ref{sec:deprel}.
 
-\subsection{Meta-corrections}
+\subsection{Aligned corrections}
 
 \status{PROPOSAL}{no}
 
-The element \texttt{metacorrection}, within the annotation layer \texttt{metacorrections}, is a specific kind of alignment that allows you to specify dependency relations between two or more corrections, or their suggestions. Consider the erroneous dutch sentence ``Toen ik naar binnen gingen'', which has a concordancy error and could be either ``Toen ik naar binnen ging'' or ``Toen wij naar binnen gingen'':
+The element \texttt{alignedcorrection}, within the annotation layer \texttt{alignedcorrections}, is a specific kind of alignment that allows you to specify dependency relations between two or more corrections, or their suggestions. Consider the erroneous dutch sentence ``Toen ik naar binnen gingen'', which has a concordancy error and could be either ``Toen ik naar binnen ging'' or ``Toen wij naar binnen gingen'':
 
 \begin{lstlisting}[language=xml]
 <s>
@@ -2053,23 +2053,24 @@ The element \texttt{metacorrection}, within the annotation layer \texttt{metacor
 	  <w xml:id="example.s.1.w.2a"><t>gingen</t></w>
 	</suggestion>
   </correction>  
-  <metacorrections>
-  	<metacorrection class="persoonsvorm_onderwerp_mismatch">
+  <alignedcorrections>
+  	<alignedcorrection class="persoonsvorm_onderwerp_mismatch">
   		<aref id="correction.1a" type="correction" />
   		<aref id="correction.1b" type="correction" />
-  		<metasuggestion>
+  		<alignedsuggestion>
   			<aref id="correction.1a.suggestion.A" type="suggestion" />
   			<aref id="correction.1b.suggestion.A" type="suggestion" />
-  		</metasuggestion>  		
-		<metasuggestion>
+  		</alignedsuggestion>  		
+		<alignedsuggestion>
   			<aref id="correction.1a.suggestion.B" type="suggestion" />
   			<aref id="correction.1b.suggestion.B" type="suggestion" />
-  		</metasuggestion>  		
-   </metacorrection>
+  		</alignedsuggestion>  		
+   </alignedcorrection>
+  </alignedcorrections
 </s>
 \end{lstlisting}
 
-The metacorrection has alignment references the correction elements that form a part of it. It can optionally also include \texttt{metasuggestion} elements which in turn contain alignment references the parts that form the suggestions.
+The metacorrection has alignment references the correction elements that form a part of it. It can optionally also include \texttt{alignedsuggestion} elements which in turn contain alignment references the parts that form the suggestions.
 
 \section{Metadata}
 
