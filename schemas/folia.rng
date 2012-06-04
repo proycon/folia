@@ -1219,6 +1219,9 @@ RelaxNG schema for FoLiA XML v0.8.2
       <optional>
         <attribute name="auth"/>
       </optional>
+      <optional>
+        <attribute name="space"/>
+      </optional>
       <interleave>
         <zeroOrMore>
           <ref name="sense"/>
