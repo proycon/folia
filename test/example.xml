@@ -893,7 +893,7 @@
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.8.w.9">
               <t>terweil</t>
-              <errordetection class="spelling" error="yes" />
+              <errordetection class="spelling" />
               <pos class="VG(onder)"/>
               <lemma class="terweil"/>
             </w>

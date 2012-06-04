@@ -27,7 +27,7 @@ stringstyle=\ttfamily,
         Radboud University Nijmegen.}}
 
 \title{{\huge FoLiA: Format for Linguistic Annotation} \\ \vspace*{0.5cm}
-{\bf \small version 0.8.1 - revision 2.3} \\ \vspace*{0.5cm}{\huge Documentation}\\
+{\bf \small version 0.8.2 - revision 2.4} \\ \vspace*{0.5cm}{\huge Documentation}\\
 \vspace*{1cm} {\it ILK Technical Report -- ILK 12-03}}
 
 \parindent=0pt %no paragraph indentation
@@ -876,22 +876,23 @@ In the examples above what we corrected was the actual textual content (\texttt{
 
 \subsubsection{Error detection and correction with suggestions} 
 
+\status{Revised in v0.8.2, no error attribute}{pynlpl,libfolia}
 
-The correction of an error implies the detection of an error. In some cases, detection comes without correction, for instance when the generation of correction suggestions is postponed to a later processing stage. The \texttt{errordetection} element is a very simple element that serves this purpose. It signals the existance of errors, or absence thereof:
+The correction of an error implies the detection of an error. In some cases, detection comes without correction, for instance when the generation of correction suggestions is postponed to a later processing stage. The \texttt{errordetection} element is a very simple element that serves this purpose. It signals the existance of errors:
 
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.1">
     <t>treee</t>
-    <errordetection class="spelling" annotator="errorlistX" error="yes" />
+    <errordetection class="spelling" annotator="errorlistX" />
 </w>    
 \end{lstlisting}
 
-The \texttt{error} attribute is set to ``yes'' (which is the default value), and thus marks this as an error of class ``spelling''. We can also imagine it specifically marking something as \emph{not} being an error (in which case class is always redundant), for example due to the occurence of the word according to a lexicon:
+We can also imagine it specifically marking something as \emph{not} being an error, in which case a class could be used that denotes the absence of an error. Note that this class is in no way predefined, but always up to the user and set.
 
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.1">
     <t>tree</t>
-    <errordetection annotator="lexiconX" error="no" />
+    <errordetection class="noerror" />
 </w>    
 \end{lstlisting}
 
@@ -952,7 +953,7 @@ Something similar may happen when a correction is made \emph{on the basis of} on
         <original auth="no">
             <t>treee</t>
         </original>
-        <errordetection class="spelling" annotator="errorlist" annotatortype="auto" error="yes" />
+        <errordetection class="spelling" annotator="errorlist" annotatortype="auto" />
     </correction>
 </w>
 \end{lstlisting}
