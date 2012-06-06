@@ -105,19 +105,19 @@ for filename in filenames:
             if outputfile:
                 outputfile.write(word.text('current', retaintokenisation) + "\n")
             else:
-                print word.encode(encoding)
+                print word.text('current', retaintokenisation).encode(encoding)
     elif sentenceperline:    
         for sentence in doc.sentences():        
             if outputfile:
                 outputfile.write(sentence.text('current', retaintokenisation) + "\n")
             else:
-                print sentence.encode(encoding)    
+                print sentence.text('current', retaintokenisation).encode(encoding)    
     elif paragraphperline:    
         for paragraph in doc.paragraphs():        
             if outputfile:
                 outputfile.write(paragraph.text('current', retaintokenisation) + "\n")
             else:
-                print paragraph.encode(encoding)     
+                print paragraph.text('current', retaintokenisation).encode(encoding)     
     else:
         if outputfile:
             outputfile.write( doc.text(retaintokenisation) )
