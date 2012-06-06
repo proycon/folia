@@ -111,13 +111,13 @@ for filename in filenames:
             if outputfile:
                 outputfile.write(sentence.text('current', retaintokenisation) + "\n")
             else:
-                print word.encode(encoding)    
+                print sentence.encode(encoding)    
     elif paragraphperline:    
         for paragraph in doc.paragraphs():        
             if outputfile:
                 outputfile.write(paragraph.text('current', retaintokenisation) + "\n")
             else:
-                print word.encode(encoding)     
+                print paragraph.encode(encoding)     
     else:
         if outputfile:
             outputfile.write( doc.text(retaintokenisation) )
