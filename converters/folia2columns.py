@@ -7,7 +7,8 @@ import sys
 try:
     from pynlpl.formats import folia
 except:
-    print >>sys.stderr,"ERROR: pynlpl not found, please obtain PyNLPL from github: $ git clone git://github.com/proycon/pynlpl.git"
+    print >>sys.stderr,"ERROR: pynlpl not found, please obtain PyNLPL from the Python Package Manager ($ sudo easy_install pynlpl) or directly from github: $ git clone git://github.com/proycon/pynlpl.git"
+    sys.exit(2)
 
 def usage():
     print >>sys.stderr, "folia2columns.py"
