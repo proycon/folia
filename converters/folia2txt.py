@@ -43,6 +43,7 @@ filename = None
 outputfile = None
 
 allowemptylines = True
+wordperline = False
 sentenceperline = False
 paragraphperline = False
 detokenise = False
