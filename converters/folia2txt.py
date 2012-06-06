@@ -120,9 +120,9 @@ for filename in filenames:
                 print word.encode(encoding)     
     else:
         if outputfile:
-            outputfile.write( doc.text('current', retaintokenisation) )
+            outputfile.write( doc.text(retaintokenisation) )
         else:
-            print doc.text('current', retaintokenisation).encode(encoding)
+            print doc.text( retaintokenisation).encode(encoding)
 
     if autooutput:
         outputfile.close()
