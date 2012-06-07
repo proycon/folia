@@ -105,7 +105,7 @@ def process(filename):
 
     if autooutput:    
         if filename[-len(extension) - 1:].lower() == '.' + extension:
-            outfilename = filename[-len(extension) - 1:] + '.txt'
+            outfilename = filename[:-len(extension) - 1] + '.txt'
         else:
             outfilename += '.txt'
         
