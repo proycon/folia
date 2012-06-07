@@ -109,6 +109,7 @@ def process(filename):
         else:
             outfilename += '.txt'
         
+        print >>sys.stderr, " Saving as " + outfilename
         outputfile = codecs.open(outfilename,'w',encoding)
 
     if wordperline:
@@ -141,8 +142,9 @@ def process(filename):
 
 
 def processdir(d, extension, recurse):
-    for f in glob.glob(d + '/*' + extension):        
-        if f[-len(extension) - 1:] == extension: 
+    print >>sys.stderr, "Searching in  " + d
+    for f in glob.glob(d + '/*'):        
+        if f[-len(extension) - 1:] == '.' + extension: 
             process(f)
         elif recurse and os.path.isdir(f):
             processdir(f, extension, recurse)
