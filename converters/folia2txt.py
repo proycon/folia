@@ -4,6 +4,7 @@
 import getopt
 import codecs
 import sys
+import os
 import glob
 try:
     from pynlpl.formats import folia
@@ -20,25 +21,32 @@ def usage():
     print >>sys.stderr, "This conversion script reads a FoLiA XML document and outputs the"
     print >>sys.stderr, "document's text as plain text, *without* any annotations."
     print >>sys.stderr, ""
-    print >>sys.stderr, "Parameters:"
-    print >>sys.stderr, "  -f [FoLiA XML file]          Specify a FoLiA document to process (mandatory)"    
+    print >>sys.stderr, "Parameters for single files:"
+    print >>sys.stderr, "  -f [FoLiA XML file]          Specify a FoLiA document to process"        
+    print >>sys.stderr, "  -o [filename]                Output to file instead of stdout"    
+    print >>sys.stderr, "  -e [encoding]                Output encoding (default: utf-8)"
+    print >>sys.stderr, "Parameters for processing multiple files:"
+    print >>sys.stderr, "  -d                           Specify a directory to process (instead of -f)"
+    print >>sys.stderr, "  -r                           Process recursively"
+    print >>sys.stderr, "  -E [extension]               Set extention (default: xml)"
+    print >>sys.stderr, "  -O                           Output each file to similarly named .txt file"
+    print >>sys.stderr, "Parameters for output format:"
     print >>sys.stderr, "  -t                           Retain tokenisation, do not detokenise"
     print >>sys.stderr, "  -w                           One word per line"
     print >>sys.stderr, "  -s                           One sentence per line"
     print >>sys.stderr, "  -p                           One paragraph per line" 
-    print >>sys.stderr, "  -o [filename]                Output to file instead of stdout"
-    print >>sys.stderr, "  -O                           Output to similarly named .txt file"
-    print >>sys.stderr, "  -e [encoding]                Output encoding (default: utf-8)"
+
 
    
 try:
-    opts, args = getopt.getopt(sys.argv[1:], "f:o:Ohtspw", ["help"])
+    opts, args = getopt.getopt(sys.argv[1:], "f:d:o:OE:htspwr", ["help"])
 except getopt.GetoptError, err:
     print str(err)
     usage()
     sys.exit(2)
 
 filename = None
+dirname = None
 
 outputfile = None
 
@@ -49,12 +57,16 @@ paragraphperline = False
 detokenise = False
 retaintokenisation = False
 autooutput = False
+extension = 'xml'
+recurse = False
 
 encoding = 'utf-8'
 
 for o, a in opts:
     if o == '-f':
         filename = a
+    elif o == '-d':
+        dirname = a
     elif o == '-h':
         usage()
         sys.exit(0)
@@ -62,6 +74,8 @@ for o, a in opts:
         retaintokenisation = True
     elif o == '-e':
         encoding = a
+    elif o == '-E':
+        extension = a
     elif o == '-o':
         outputfile = a
     elif o == '-O':
@@ -72,6 +86,8 @@ for o, a in opts:
         paragraphperline = True
     elif o == '-w':
         wordperline = True     
+    elif o == '-r':
+        recurse = True
     else:
         
         raise Exception("No such option: " + o)
@@ -82,19 +98,14 @@ if not filename:
     sys.exit(2)    
     
 
-if '*' in filename or '?' in filename:
-    filenames = glob.glob(filename)
-else:
-    filenames = [filename]
-
-if outputfile: outputfile = codecs.open(outputfile,'w',encoding)
-
-for filename in filenames:
+def process(filename):
+    global autooutput, outputfile
+    print >>sys.stderr, "Converting " + filename
     doc = folia.Document(file=filename)
 
     if autooutput:    
-        if filename[-4:].lower() == '.xml':
-            outfilename = filename[-4:] + '.txt'
+        if filename[-len(extension) - 1:].lower() == '.' + extension:
+            outfilename = filename[-len(extension) - 1:] + '.txt'
         else:
             outfilename += '.txt'
         
@@ -126,3 +137,23 @@ for filename in filenames:
 
     if autooutput:
         outputfile.close()
+    
+
+
+def processdir(d, extension, recurse):
+    for f in glob.glob(d + '/*' + extension):        
+        if f[-len(extension) - 1:] == extension: 
+            process(f)
+        elif recurse and os.path.isdir(f):
+            processdir(f, extension, recurse)
+            
+
+if outputfile: outputfile = codecs.open(outputfile,'w',encoding)
+    
+if filename:
+    process(filename)
+elif dirname:
+    processdir(dirname, extension, recurse)
+else:
+    print >>sys.stderr,"Error: Nothing to do, specify -f or -d"
+    
