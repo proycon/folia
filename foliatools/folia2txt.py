@@ -155,7 +155,7 @@ def main():
                 print >>sys.stderr, "ERROR: File or directory not found: " + x
                 sys.exit(3)
     else:
-        print >>sys.stderr,"ERROR: Nothing to do, specify -f or -d"
+        print >>sys.stderr,"ERROR: Nothing to do, specify one or more files or directories"
     
 if __name__ == "__main__":
     main()
