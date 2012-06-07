@@ -26,7 +26,7 @@ def usage():
     print >>sys.stderr, "  -o [filename]                Output to file instead of stdout"    
     print >>sys.stderr, "  -e [encoding]                Output encoding (default: utf-8)"
     print >>sys.stderr, "Parameters for processing multiple files:"
-    print >>sys.stderr, "  -d                           Specify a directory to process (instead of -f)"
+    print >>sys.stderr, "  -d [directory]               Specify a directory to process (instead of -f)"
     print >>sys.stderr, "  -r                           Process recursively"
     print >>sys.stderr, "  -E [extension]               Set extention (default: xml)"
     print >>sys.stderr, "  -O                           Output each file to similarly named .txt file"
