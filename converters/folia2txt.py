@@ -92,8 +92,8 @@ for o, a in opts:
         
         raise Exception("No such option: " + o)
 
-if not filename:
-    print >>sys.stderr,"ERROR: No FoLiA document specified (use -f)"
+if not filename and not dirname:
+    print >>sys.stderr,"ERROR: No FoLiA document specified (use -f or -d)"
     usage()
     sys.exit(2)    
     
