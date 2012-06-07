@@ -37,125 +37,131 @@ def usage():
     print >>sys.stderr, "  -p                           One paragraph per line" 
 
 
-   
-try:
-    opts, args = getopt.getopt(sys.argv[1:], "f:d:o:OE:htspwr", ["help"])
-except getopt.GetoptError, err:
-    print str(err)
-    usage()
-    sys.exit(2)
 
-filename = None
-dirname = None
 
-outputfile = None
 
-allowemptylines = True
-wordperline = False
-sentenceperline = False
-paragraphperline = False
-detokenise = False
-retaintokenisation = False
-autooutput = False
-extension = 'xml'
-recurse = False
-
-encoding = 'utf-8'
-
-for o, a in opts:
-    if o == '-f':
-        filename = a
-    elif o == '-d':
-        dirname = a
-    elif o == '-h':
-        usage()
-        sys.exit(0)
-    elif o == '-t':
-        retaintokenisation = True
-    elif o == '-e':
-        encoding = a
-    elif o == '-E':
-        extension = a
-    elif o == '-o':
-        outputfile = a
-    elif o == '-O':
-        autooutput = True
-    elif o == '-s':
-        sentenceperline = True
-    elif o == '-p':
-        paragraphperline = True
-    elif o == '-w':
-        wordperline = True     
-    elif o == '-r':
-        recurse = True
-    else:
-        
-        raise Exception("No such option: " + o)
-
-if not filename and not dirname:
-    print >>sys.stderr,"ERROR: No FoLiA document specified (use -f or -d)"
-    usage()
-    sys.exit(2)    
     
 
-def process(filename):
-    global autooutput, outputfile
+def process(filename, outputfile = None):
     print >>sys.stderr, "Converting " + filename
     doc = folia.Document(file=filename)
 
-    if autooutput:    
-        if filename[-len(extension) - 1:].lower() == '.' + extension:
-            outfilename = filename[:-len(extension) - 1] + '.txt'
+    if settings.autooutput:    
+        if filename[-len(settings.extension) - 1:].lower() == '.' +settings.extension:
+            outfilename = filename[:-len(settings.extension) - 1] + '.txt'
         else:
             outfilename += '.txt'
         
         print >>sys.stderr, " Saving as " + outfilename
-        outputfile = codecs.open(outfilename,'w',encoding)
+        outputfile = codecs.open(outfilename,'w',settings.encoding)
 
-    if wordperline:
+    if settings.wordperline:
         for word in doc.words():        
             if outputfile:
-                outputfile.write(word.text('current', retaintokenisation) + "\n")
+                outputfile.write(word.text('current', settings.retaintokenisation) + "\n")
             else:
-                print word.text('current', retaintokenisation).encode(encoding)
-    elif sentenceperline:    
+                print word.text('current', settings.retaintokenisation).encode(settings.encoding)
+    elif settings.sentenceperline:    
         for sentence in doc.sentences():        
             if outputfile:
-                outputfile.write(sentence.text('current', retaintokenisation) + "\n")
+                outputfile.write(sentence.text('current', settings.retaintokenisation) + "\n")
             else:
-                print sentence.text('current', retaintokenisation).encode(encoding)    
-    elif paragraphperline:    
+                print sentence.text('current', settings.retaintokenisation).encode(settings.encoding)    
+    elif settings.paragraphperline:    
         for paragraph in doc.paragraphs():        
             if outputfile:
-                outputfile.write(paragraph.text('current', retaintokenisation) + "\n")
+                outputfile.write(paragraph.text('current', settings.retaintokenisation) + "\n")
             else:
-                print paragraph.text('current', retaintokenisation).encode(encoding)     
+                print paragraph.text('current', settings.retaintokenisation).encode(settings.encoding)     
     else:
         if outputfile:
-            outputfile.write( doc.text(retaintokenisation) )
+            outputfile.write( doc.text(settings.retaintokenisation) )
         else:
-            print doc.text( retaintokenisation).encode(encoding)
+            print doc.text( settings.retaintokenisation).encode(settings.encoding)
 
-    if autooutput:
+    if settings.autooutput:
         outputfile.close()
     
 
 
-def processdir(d, extension, recurse):
+def processdir(d, outputfile = None):
     print >>sys.stderr, "Searching in  " + d
     for f in glob.glob(d + '/*'):        
-        if f[-len(extension) - 1:] == '.' + extension: 
-            process(f)
-        elif recurse and os.path.isdir(f):
-            processdir(f, extension, recurse)
+        if f[-len(settings.extension) - 1:] == '.' + settings.extension: 
+            process(f, outputfile)
+        elif settings.recurse and os.path.isdir(f):
+            processdir(f)
             
 
-if outputfile: outputfile = codecs.open(outputfile,'w',encoding)
+class settings:
+    wordperline = False
+    sentenceperline = False
+    paragraphperline = False
+    detokenise = False
+    retaintokenisation = False
+    autooutput = False
+    extension = 'xml'
+    recurse = False
+    encoding = 'utf-8'
+
+
+def main():   
+    try:
+        opts, args = getopt.getopt(sys.argv[1:], "f:d:o:OE:htspwr", ["help"])
+    except getopt.GetoptError, err:
+        print str(err)
+        usage()
+        sys.exit(2)
+
+    filename = None
+    dirname = None
+    outputfile = None
     
-if filename:
-    process(filename)
-elif dirname:
-    processdir(dirname, extension, recurse)
-else:
-    print >>sys.stderr,"Error: Nothing to do, specify -f or -d"
+
+    for o, a in opts:
+        if o == '-f':
+            filename = a
+        elif o == '-d':
+            dirname = a
+        elif o == '-h' or o == '--help':
+            usage()
+            sys.exit(0)
+        elif o == '-t':
+            settings.retaintokenisation = True
+        elif o == '-e':
+            settings.encoding = a
+        elif o == '-E':
+            settings.extension = a
+        elif o == '-o':
+            outputfile = a
+        elif o == '-O':
+            settings.autooutput = True
+        elif o == '-s':
+            settings.sentenceperline = True
+        elif o == '-p':
+            settings.paragraphperline = True
+        elif o == '-w':
+            settings.wordperline = True     
+        elif o == '-r':
+            settings.recurse = True
+        else:            
+            raise Exception("No such option: " + o)
+                
     
+    if outputfile: outputfile = codecs.open(outputfile,'w',settings.encoding)
+        
+    if filename:
+        process(filename, outputfile)
+    elif dirname:
+        processdir(dirname, outputfile)
+    elif len(sys.argv) >= 2:
+        for x in sys.argv[1:]:
+            if os.path.isdir(x):
+                processdir(x,outputfile)
+            elif os.path.isfile(x):
+                process(x, outputfile)    
+    else:
+        print >>sys.stderr,"ERROR: Nothing to do, specify -f or -d"
+    
+if __name__ == "__main__":
+    main()
