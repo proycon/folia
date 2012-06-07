@@ -13,7 +13,7 @@ except:
     sys.exit(2)
     
 def usage():
-    print >>sys.stderr, "folia2txt.py"
+    print >>sys.stderr, "folia2txt"
     print >>sys.stderr, "  by Maarten van Gompel (proycon)"
     print >>sys.stderr, "  Tilburg University / Radboud University Nijmegen"
     print >>sys.stderr, "  2012 - Licensed under GPLv3"
@@ -21,21 +21,22 @@ def usage():
     print >>sys.stderr, "This conversion script reads a FoLiA XML document and outputs the"
     print >>sys.stderr, "document's text as plain text, *without* any annotations."
     print >>sys.stderr, ""
-    print >>sys.stderr, "Parameters for single files:"
-    print >>sys.stderr, "  -f [FoLiA XML file]          Specify a FoLiA document to process"        
-    print >>sys.stderr, "  -o [filename]                Output to file instead of stdout"    
-    print >>sys.stderr, "  -e [encoding]                Output encoding (default: utf-8)"
-    print >>sys.stderr, "Parameters for processing multiple files:"
-    print >>sys.stderr, "  -d [directory]               Specify a directory to process (instead of -f)"
-    print >>sys.stderr, "  -r                           Process recursively"
-    print >>sys.stderr, "  -E [extension]               Set extention (default: xml)"
-    print >>sys.stderr, "  -O                           Output each file to similarly named .txt file"
-    print >>sys.stderr, "Parameters for output format:"
+    print >>sys.stderr, "Usage: folia2txt [options] file-or-dir1 file-or-dir2 ..etc.."
+    print >>sys.stderr, ""
+    print >>sys.stderr, "Parameters for output:"        
     print >>sys.stderr, "  -t                           Retain tokenisation, do not detokenise"
+    print >>sys.stderr, "                               (By default output will be detokenised if"
+    print >>sys.stderr, "                               such information is explicitly available in the"
+    print >>sys.stderr, "                               FoLiA document)"
     print >>sys.stderr, "  -w                           One word per line"
     print >>sys.stderr, "  -s                           One sentence per line"
-    print >>sys.stderr, "  -p                           One paragraph per line" 
-
+    print >>sys.stderr, "  -p                           One paragraph per line"
+    print >>sys.stderr, "  -o [filename]                Output to a single file (instead of default stdout)"    
+    print >>sys.stderr, "  -e [encoding]                Output encoding (default: utf-8)" 
+    print >>sys.stderr, "Parameters for processing directories:"
+    print >>sys.stderr, "  -r                           Process recursively"
+    print >>sys.stderr, "  -E [extension]               Set extension (default: xml)"
+    print >>sys.stderr, "  -O                           Output each file to similarly named .txt file"
 
 
 
@@ -97,7 +98,6 @@ class settings:
     wordperline = False
     sentenceperline = False
     paragraphperline = False
-    detokenise = False
     retaintokenisation = False
     autooutput = False
     extension = 'xml'
@@ -107,23 +107,18 @@ class settings:
 
 def main():   
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "f:d:o:OE:htspwr", ["help"])
+        opts, args = getopt.getopt(sys.argv[1:], "o:OE:htspwr", ["help"])
     except getopt.GetoptError, err:
         print str(err)
         usage()
         sys.exit(2)
 
-    filename = None
-    dirname = None
+
     outputfile = None
     
 
     for o, a in opts:
-        if o == '-f':
-            filename = a
-        elif o == '-d':
-            dirname = a
-        elif o == '-h' or o == '--help':
+        if o == '-h' or o == '--help':
             usage()
             sys.exit(0)
         elif o == '-t':
@@ -150,16 +145,15 @@ def main():
     
     if outputfile: outputfile = codecs.open(outputfile,'w',settings.encoding)
         
-    if filename:
-        process(filename, outputfile)
-    elif dirname:
-        processdir(dirname, outputfile)
-    elif len(sys.argv) >= 2:
+    if len(sys.argv) >= 2:
         for x in sys.argv[1:]:
             if os.path.isdir(x):
                 processdir(x,outputfile)
             elif os.path.isfile(x):
                 process(x, outputfile)    
+            else:
+                print >>sys.stderr, "ERROR: File or directory not found: " + x
+                sys.exit(3)
     else:
         print >>sys.stderr,"ERROR: Nothing to do, specify -f or -d"
     
