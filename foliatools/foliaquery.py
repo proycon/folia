@@ -43,18 +43,18 @@ def usage():
     
     print >>sys.stderr, ""    
     print >>sys.stderr, "Examples:"
-    print >>sys.stderr, "   1) foliaquery --text \"to be * to be\""
+    print >>sys.stderr, "   1) foliaquery --text=\"to be * to be\""
     print >>sys.stderr, "       Matches any gap of any size (up to the maximum)"    
-    print >>sys.stderr, "   2) foliaquery --text \"to be ^ ^ to be\""   
+    print >>sys.stderr, "   2) foliaquery --text=\"to be ^ ^ to be\""   
     print >>sys.stderr, "       Matches any gap of exactly two tokens"
-    print >>sys.stderr, "   3) foliaquery --pos \"ADJ NOUN\""
+    print >>sys.stderr, "   3) foliaquery --pos=\"ADJ NOUN\""
     print >>sys.stderr, "       Searching by annotation"    
-    print >>sys.stderr, "   4) foliaquery --text \"rent\" --pos \"NOUN\""
+    print >>sys.stderr, "   4) foliaquery --text=\"rent\" --pos=\"NOUN\""
     print >>sys.stderr, "       Patterns may be combined, matches have to satisfy all patterns"
-    print >>sys.stderr, "   5) foliaquery --text \"he leaves|departs today|tomorrow\" --pos \"PRON VERB ^\""
+    print >>sys.stderr, "   5) foliaquery --text=\"he leaves|departs today|tomorrow\" --pos=\"PRON VERB ^\""
     print >>sys.stderr, "       The pipe character allows for disjunctions in single tokens"
-    print >>sys.stderr, "   6a) foliaquery --text \"we {w[io]n}\" --pos \"PRON VERB\""
-    print >>sys.stderr, "   6b) foliaquery --text \"{.*able}\" --pos \"ADJ\""
+    print >>sys.stderr, "   6a) foliaquery --text=\"we {w[io]n}\" --pos=\"PRON VERB\""
+    print >>sys.stderr, "   6b) foliaquery --text=\"{.*able}\" --pos=\"ADJ\""
     print >>sys.stderr, "       Curly braces specify a regular expression for a single token"    
         
     
@@ -67,20 +67,29 @@ def parsepattern(rawpattern, annotationtype): #, annotationset=None):
             components.append('*')
         elif tokenpattern == '^':            
             components.append(True)
-        elif tokenpattern[0] == '{' and tokenpattern[-1]:
-            components.append( folia.RegExp(tokenpattern) )
+        elif tokenpattern[0] == '{' and tokenpattern[-1] == '}':
+            components.append( folia.RegExp(tokenpattern[1:-1]) )
         elif '|' in tokenpattern:
             components.append( tuple(tokenpattern.split('|')) )
         else:
             components.append(tokenpattern)
-    return folia.Pattern(*components,matchannotation=annotationtype) #, matchannotationset=annotationset)    
+    d = {'casesensitive':settings.casesensitive}
+    if annotationtype:
+        d['matchannotation'] = annotationtype            
+    return folia.Pattern(*components,**d) #, matchannotationset=annotationset)    
 
 
     
 def process(filename, patterns):
     print >>sys.stderr, "Processing " + filename
     doc = folia.Document(file=filename)
-    doc.findwords( *patterns , casesensitive=settings.casesensitive)
+    for match in doc.findwords(*patterns ):
+        s = u""
+        for token in match:
+            s += u"\t" + token.text()
+        s = filename + "\t" + match[0].id + s
+        print s.encode(settings.encoding)
+            
 
 
 def processdir(d, patterns):
@@ -105,7 +114,7 @@ class settings:
 
 def main():   
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "o:OE:htspwr", ["help","text"])
+        opts, args = getopt.getopt(sys.argv[1:], "o:OE:hr", ["help","text="])
     except getopt.GetoptError, err:
         print str(err)
         usage()
@@ -120,7 +129,7 @@ def main():
             usage()
             sys.exit(0)
         elif o == '--text':
-            patterns.append( parsepattern(a, folia.TextContent) )
+            patterns.append( parsepattern(a, None) )
         elif o == '--pos':
             patterns.append( parsepattern(a, folia.PosAnnotation) )
         elif o == '--lemma':
@@ -147,7 +156,7 @@ def main():
                 processdir(x, patterns)
             elif os.path.isfile(x):
                 process(x, patterns)
-            else:
+            elif x[0:2] != '--':
                 print >>sys.stderr, "ERROR: File or directory not found: " + x
                 sys.exit(3)
     else:
