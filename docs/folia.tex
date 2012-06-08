@@ -27,7 +27,7 @@ stringstyle=\ttfamily,
         Radboud University Nijmegen.}}
 
 \title{{\huge FoLiA: Format for Linguistic Annotation} \\ \vspace*{0.5cm}
-{\bf \small version 0.8.2 - revision 2.4} \\ \vspace*{0.5cm}{\huge Documentation}\\
+{\bf \small version 0.8.2 - revision 2.5} \\ \vspace*{0.5cm}{\huge Documentation}\\
 \vspace*{1cm} {\it ILK Technical Report -- ILK 12-03}}
 
 \parindent=0pt %no paragraph indentation
@@ -2349,15 +2349,16 @@ Before you release XPath queries on FoLiA documents, make sure to first parse th
 
 Validation proceeds at two levels: shallow validation and deep validation. Shallow validation considers only the structure of the FoLiA document, without validating the sets and classes used. Deep validation checks the sets and classes for their validity using the set definition files.
 
-Shallow validation is performed using a RelaxNG schema, to be found at \texttt{https://github.com/proycon/folia/blob/master/schemas/folia.rng} .
+Shallow validation is performed using a RelaxNG schema, \\ to be found at \texttt{https://github.com/proycon/folia/blob/master/schemas/folia.rng} .
 
 You can validate your document using standard XML tools such as \texttt{xmllint} or \texttt{jing}, the latter is known to produce friendlier error output in case of validation errors.
 
-\begin{lstlisting}
-> xmllint -relaxng folia.rng document.xml
-> jing folia.rng document.xml
-\end{lstlisting}
+\begin{verbatim}
+$ xmllint -relaxng folia.rng document.xml
+$ jing folia.rng document.xml
+\end{verbatim}
 
+Alternatively, you can use the simpler \texttt{foliavalidator} tool available in the FoLiA tools (see appendix D). %bad! a hard reference! I know, sorry!
 
 \begin{devnotes}
 Deep validation is still being worked on and will most likely use Schematron.
@@ -2392,21 +2393,92 @@ D-Coi read compatibility      & partial\footnote{only basic elements, no List, F
 \hline
 \end{tabularx}
 
-\chapter{Conversions}
+\chapter{FoLiA Tools}
+
+\section{Introduction}
+
+A number of command-line tools are readily available for working with FoLiA, to various ends. The following tools are currently available:
+
+\begin{itemize}
+\item \texttt{folia2txt} -- Convert FoLiA XML to plain text (pure text, without any annotations)
+\item \texttt{foliaquery} -- A query tool that searches FoLiA documents for a specified pattern, or combination of patterns. Supports various token annotations.
+\item \texttt{foliavalidator} -- Tests if documents are valid FoLiA XML.
+\item \texttt{folia2dcoi} -- Convert FoLiA XML to D-Coi XML (only for annotations supported by D-Coi)
+\item \texttt{dcoi2folia} -- Convert D-Coi XML to FoLiA XML
+\item \texttt{folia2html} -- Converts a FoLiA document to a semi-interactive HTML document, with limited support for certain token annotations.
+\end{itemize}
+
+All of these tools are written in Python, and thus require a Python ($2.6$ or higher) installation to run. As FoLiA matures and is adopted more widely, more tools are likely to be added.
+
+\section{Installation}
+
+The FoLiA tools are published to the Python Package Index and can be installed effortlessly using \texttt{easy install}, on any Linux/BSD system:
  
-\begin{tabularx}{15cm}{|l|l|l|}
-\hline
-from & to & status  \\
-\hline
-D-Coi & FoLiA & yes, via XSLT or \texttt{pynlpl.formats.folia}\footnote{via library only with basic elements, no List, Figure, etc..} \\
-FoLiA & D-Coi & yes, via XSLT \footnote{With inevitable data loss for constructs that can not be represented in D-Coi} \\
-Frog/Tadpole columned format & FoLiA & yes, using Python script and library \\
-FoLiA & Frog/Tadpole columned format,CSV  & yes, using Python script and library \\
-FoLiA & xhtml & yes, via XSLT \footnote{only support for some token annotations} \\
-Alpino & FoLiA & not yet \\
-FoLiA & Alpino & not yet \\
-\hline
-\end{tabularx} 
+\begin{verbatim}
+$ sudo easy_install folia-tools
+\end{verbatim}
+
+If \texttt{easy install} is not yet available, install it as follows:
+
+On Debian/Ubuntu-based systems:
+
+\begin{verbatim}
+$ sudo apt-get install python-setuptools
+\end{verbatim}
+
+On RedHat-based systems:
+
+\begin{verbatim}
+$ yum install python-setuptools
+\end{verbatim}
+
+Alternatively, the FoLiA tools can be obtained from github (\url{https://github.com/proycon/folia}), and once downloaded and extracted, installed using \texttt{sudo ./setup.py install}.
+
+\section{Usage}
+
+To obtain help regarding the usage of any of the available FoLiA tools, please pass the $-h$ option on the command line to the tool you intend to use. This will provide a summary on available options and usage examples. Most of the tools can run on both a single FoLiA document, as well as a whole directory of documents, allowing also for recursion. The tools generally take one or more filenames or directory names as parameters.
+
+\section{FoLiA Query tool}
+
+The query tool, \texttt{foliaquery}, deserves some extra attention. This can be used out-of-the-box to search one or more FoLiA documents for certain patterns. These patterns can be textual, but can also be patterns of (token) annotation. 
+
+Consider a use case in which you have several FoLiA documents in a directory \texttt{/tmp/foliadocs/}. If you are interested in for instance finding all occurrences of the Shakespearean phrase ``to be or not to be'' in these documents, then this can be accomplished using the following command:
+
+\begin{verbatim}
+$ foliaquery --text="to be or not to be" /tmp/foliadocs/
+\end{verbatim}
+
+The query tool also allows you to specify this using wildcards of either fixed or variable length, as illustrated respectively in the next example:
+
+\begin{verbatim}
+$ foliaquery --text="to be ^ ^ to be" /tmp/foliadocs/
+$ foliaquery --text="to be * to be" /tmp/foliadocs/
+\end{verbatim}
+
+In addition to querying on mere text, you may query on annotations such as for example part-of-speech tags or lemmata:
+
+\begin{verbatim}
+$ foliaquery --pos="ADJ N" /tmp/foliadocs/
+$ foliaquery --pos="ADJ ^ N" /tmp/foliadocs/
+$ foliaquery --lemma="be happy" /tmp/foliadocs/
+\end{verbatim}
+
+Various patterns may be combined, and matches have to satisfy all:
+
+\begin{verbatim}
+$ foliaquery --pos="ADJ N" --lemma="beautiful house" /tmp/foliadocs/
+$ foliaquery --pos="ADJ N" --lemma="beautiful ^" /tmp/foliadocs/
+\end{verbatim}
+
+Disjunctions, on the level of single tokens, may be specified using the pipe character:
+
+\begin{verbatim}
+$ foliaquery --pos="ADJ|DET N" --lemma="the|beautiful house|houses" \
+/tmp/foliadocs/
+\end{verbatim}
+
+As you see, the query tool is a powerful tool for finding desired patterns in your corpus data. The output will invariably consist of the filename in which the occurrence was found, the ID of the first matching token, and the text of the entire match.
+
 
 \bibliographystyle{plain}
 \bibliography{folia}
