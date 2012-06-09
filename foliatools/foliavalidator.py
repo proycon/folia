@@ -5,7 +5,7 @@ import getopt
 import sys
 import os
 import glob
-import lxml
+import lxml.etree
 try:
     from pynlpl.formats import folia
 except:
@@ -66,7 +66,6 @@ def main():
         print str(err)
         usage()
         sys.exit(2)
-    
 
     for o, a in opts:
         if o == '-h' or o == '--help':
@@ -78,12 +77,10 @@ def main():
             settings.recurse = True
         else:            
             raise Exception("No such option: " + o)
-                
-    
 
     schema  = lxml.etree.RelaxNG(folia.relaxng())  
-        
-    if len(sys.argv) >= 2:    
+
+    if len(args) >= 1:
         for x in sys.argv[1:]:
             if os.path.isdir(x):
                 processdir(x,schema)
