@@ -38,7 +38,7 @@ def validate(filename, schema = None):
         print >>sys.stderr, "VALIDATION ERROR in " + filename
         print >>sys.stderr, str(e)
         return False
-    print >>sys.stderr, "Validated succesfully: " +  filename
+    print >>sys.stderr, "Validated successfully: " +  filename
     return True
 
 
