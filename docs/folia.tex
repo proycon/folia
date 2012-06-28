@@ -1708,7 +1708,7 @@ Below is an example illustrating the usage of multiple classes. To show the flex
  </p>
 \end{lstlisting}
 
-One important aspect is that FoLiA dictates that \texttt{t} elements without classes always appear first, before any other text-content tags that do specify classes. This rule facilitates the job of parsers in quickly getting the latest text content even if there are multiple classes: the first \texttt{t} element will be the most recent by definition.
+%One important aspect is that FoLiA dictates that \texttt{t} elements without classes always appear first, before any other text-content tags that do specify classes. This rule facilitates the job of parsers in quickly getting the latest text content even if there are multiple classes: the first \texttt{t} element will be the most recent by definition. %constraint lifted
 
 In the above example, the correction is explicit, in the next example, it is implicit. Furthermore, to illustrate how you could use other custom classes, the next example introduces an custom ``ocroutput'' class that shows the (fictious) output of an OCR system prior to some implicit correction stage. 
 
@@ -2332,16 +2332,18 @@ Some common XPath queries are listed below, note that for brevity and readabilit
 \item XPath query for all sentences: \texttt{//s[not(ancestor-or-self::*/@auth) and not(ancestor::quote)]} \\
     \emph{Explanation: When selecting sentences, you often do not want sub-sentences that are part of a quote, since they may overlap with the larger sentence they form a part of. The \texttt{not(ancestor::quote)} predicate guarantees this can not happen.}
 \item XPath query for all words: \texttt{//w[not(ancestor-or-self::*/@auth)]}
-\item XPath query for the text of all words/tokens: \texttt{//w//t[not(ancestor-or-self::*/@auth)][1]/text()} \\
-    \emph{Explanation: The \texttt{[1]} predicate is important here and makes sure to select only the first text content element in case there are multiple. Recall that FoLiA dictates that the classless text element appears before any others, ensuring that this is the proper way to obtain the most recent text of an element. (See Section~\ref{sec:textcontent}}.    
+\item XPath query for the text of all words/tokens: \texttt{//w//t[not(ancestor-or-self::*/@auth and not(@class))]/text()} \\
+    \emph{Explanation: The \texttt{[not(@class)]} predicate is important here and makes sure to select only the text content element in case there are multiple. Recall that FoLiA dictates that the classless text element appears before any others, ensuring that has no class. (See Section~\ref{sec:textcontent}}.    
 \item XPath query for all words with lemma X: \texttt{//w[.//lemma[@class="X" and not(ancestor-or-self::*/@auth)] ]}
     \emph{Note: This query assumes there is only one declaration for lemma annotation, and the set has been verified}
 \item XPath query for all words with PoS-tag A in set S: \texttt{//w[.//pos[@set="S" and @class="A" and not(ancestor-or-self::*/@auth)] ]}
     \emph{Note: This query assumes the set attribute was set explicitly, i.e. there are multiple possible sets in the document for this annotation type}
-\item XPath query for the text of all words with PoS-tag A in set S: \texttt{//w[.//pos[@set="S" and @class="A" and not(ancestor-or-self::*/@auth)] ]//t[not(ancestor-or-self::*/@auth)][1]/text()}
+\item XPath query for the text of all words with PoS-tag A in set S: \texttt{//w[.//pos[@set="S" and @class="A" and not(ancestor-or-self::*/@auth)] ]//t[not(ancestor-or-self::*/@auth) and not(@class)]/text()}
     \emph{Note: The predicate for non-authoritativeness here needs to be applied both to the pos element and the text content element \texttt{t}, otherwise you may accidentally select the text of words which have the desired pos tag only as an alternative.}
 \item XPath query to select all alternative PoS tags for all words: \texttt{//w/alt/pos} \\       
 \end{itemize}
+
+When selecting text elements \texttt{(t)}, you generally want to add \texttt{not(@class)} to the constraint, to select only the text content elements that have not been assigned an alternative class. Recall that multiple text content may be present, bearing another class. Omitting this constraint will prevent you from properly retrieving the current text of a document, as it will also retrieve all this differently typed text content.
 
 Before you release XPath queries on FoLiA documents, make sure to first parse the declarations present in the metadata (the \texttt{annotations} block). Verify that the annotation type with the desired set you are looking for is actually present, otherwise you needn't bother running a query at all. Note that the XPath expression differs based on whether there is only one set defined for the sought annotation type, or if there are multiple. In the former case, you can't use the @set attribute to select, and in the latter case, you must.
 
