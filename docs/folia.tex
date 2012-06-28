@@ -2332,7 +2332,7 @@ Some common XPath queries are listed below, note that for brevity and readabilit
 \item XPath query for all sentences: \texttt{//s[not(ancestor-or-self::*/@auth) and not(ancestor::quote)]} \\
     \emph{Explanation: When selecting sentences, you often do not want sub-sentences that are part of a quote, since they may overlap with the larger sentence they form a part of. The \texttt{not(ancestor::quote)} predicate guarantees this can not happen.}
 \item XPath query for all words: \texttt{//w[not(ancestor-or-self::*/@auth)]}
-\item XPath query for the text of all words/tokens: \texttt{//w//t[not(ancestor-or-self::*/@auth and not(@class))]/text()} \\
+\item XPath query for the text of all words/tokens: \texttt{//w//t[not(ancestor-or-self::*/@auth) and not(@class)]/text()} \\
     \emph{Explanation: The \texttt{[not(@class)]} predicate is important here and makes sure to select only the text content element in case there are multiple. Recall that FoLiA dictates that the classless text element appears before any others, ensuring that has no class. (See Section~\ref{sec:textcontent}}.    
 \item XPath query for all words with lemma X: \texttt{//w[.//lemma[@class="X" and not(ancestor-or-self::*/@auth)] ]}
     \emph{Note: This query assumes there is only one declaration for lemma annotation, and the set has been verified}
