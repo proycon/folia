@@ -1854,6 +1854,9 @@ RelaxNG schema for FoLiA XML v0.8.2
         </attribute>
       </optional>
       <optional>
+        <attribute name="n"/>
+      </optional>
+      <optional>
         <attribute name="datetime">
           <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
