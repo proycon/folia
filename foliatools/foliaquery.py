@@ -150,8 +150,8 @@ def main():
             raise Exception("No such option: " + o)
             
         
-    if len(sys.argv) >= 2:
-        for x in sys.argv[1:]:
+    if args:
+        for x in args:
             if os.path.isdir(x):
                 processdir(x, patterns)
             elif os.path.isfile(x):

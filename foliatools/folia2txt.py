@@ -145,8 +145,8 @@ def main():
     
     if outputfile: outputfile = codecs.open(outputfile,'w',settings.encoding)
         
-    if len(sys.argv) >= 2:
-        for x in sys.argv[1:]:
+    if args:
+        for x in args:
             if os.path.isdir(x):
                 processdir(x,outputfile)
             elif os.path.isfile(x):

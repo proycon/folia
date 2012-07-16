@@ -45,7 +45,7 @@ def addtext(element, subelementclass):
     
     text = ""
     offset = 0
-    for e in element.list():    
+    for e in element.items():    
         if isinstance(e, subelementclass) and e.hastext():            
             textcontent = e.textcontent()       
             
@@ -63,7 +63,8 @@ def addtext(element, subelementclass):
             if text:
                 text += e.TEXTDELIMITER
                 offset += len(e.TEXTDELIMITER) 
-            
+
+    text = text.strip()            
     element.append(folia.TextContent, cls='current', value=text)    
     return text
         
@@ -99,7 +100,7 @@ def process(filename, outputfile = None):
     if settings.inplaceedit:
         doc.save()
     else:
-        print doc
+        print doc.xmlstring()
 
 def processdir(d, outputfile = None):
     print >>sys.stderr, "Searching in  " + d
@@ -168,8 +169,8 @@ def main():
     
     if outputfile: outputfile = codecs.open(outputfile,'w',settings.encoding)
         
-    if len(sys.argv) >= 2:
-        for x in sys.argv[1:]:
+    if args:
+        for x in args:
             if os.path.isdir(x):
                 processdir(x,outputfile)
             elif os.path.isfile(x):
