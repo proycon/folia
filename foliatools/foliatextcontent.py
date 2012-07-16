@@ -54,10 +54,14 @@ def addtext(element, subelementclass):
                 if not (e.parent is element):                    
                     textcontent.ref = element
                     
-            offset += len(textcontent.value)        
-            delimiter = e.overridetextdelimiter()  
-            if delimiter: offset += len(delimiter)
-            text += textcontent.value + delimiter       
+             
+            delimiter = e.overridetextdelimiter()              
+            text += textcontent.value
+            offset += len(textcontent.value)       
+            if delimiter: 
+                text += delimiter
+                offset += len(delimiter)
+                   
         
         elif isinstance(e, folia.AbstractStructureElement) and e.TEXTDELIMITER:  
             if text:
