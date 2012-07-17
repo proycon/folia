@@ -25,12 +25,10 @@ def usage():
     print >>sys.stderr, ""
     print >>sys.stderr, "Parameters for output:"        
     print >>sys.stderr, "  -s                           Add text content on sentence level"
-    print >>sys.stderr, "  -S                           Remove text content on sentence level"
-    print >>sys.stderr, "  -p                           Add text content on paragraph level"
-    print >>sys.stderr, "  -P                           Remove content on paragraph level"
-    print >>sys.stderr, "  -t                           Add text content on global text level"
-    print >>sys.stderr, "  -T                           Remove text content on global text level"
-    print >>sys.stderr, "  -X                           Do not add offset information"    
+    print >>sys.stderr, "  -p                           Add text content on paragraph level"    
+    print >>sys.stderr, "  -d                           Add text content on division level"
+    print >>sys.stderr, "  -t                           Add text content on global text level"    
+    print >>sys.stderr, "  -X                           Do NOT add offset information"    
     print >>sys.stderr, "  -e [encoding]                Output encoding (default: utf-8)"
     print >>sys.stderr, "  -w                           Edit file(s) (overwrites input files)" 
     print >>sys.stderr, "Parameters for processing directories:"
@@ -39,67 +37,62 @@ def usage():
 
 
 
-def addtext(element, subelementclass):
-    if element.hastext():
-        return False
+def propagatetext(element, Classes, setoffset=True,  cls='current', previousdelimiter=""):
+       
+    if not element.PRINTABLE: #only printable elements can hold text
+        raise folia.NoSuchText
+   
+    #print >>sys.stderr, repr(element), element.id
     
-    text = ""
-    offset = 0
-    for e in element.items():    
-        if isinstance(e, subelementclass) and e.hastext():            
-            textcontent = e.textcontent()       
-            
-            if textcontent.offset is None and settings.offsets:
-                textcontent.offset = offset
-                if not (e.parent is element):                    
-                    textcontent.ref = element
-                    
-             
-            delimiter = e.overridetextdelimiter()              
-            text += textcontent.value
-            offset += len(textcontent.value)       
-            if delimiter: 
-                text += delimiter
-                offset += len(delimiter)
-                   
+    if element.hastext(cls):            
+        s = element.textcontent(cls).value
+        #print >>stderr, "text content: " + s            
+    else:                 
+        addtext = False
+        for c in Classes:
+            if isinstance(element,c):
+                addtext = True
+                break
         
-        elif isinstance(e, folia.AbstractStructureElement) and e.TEXTDELIMITER:  
-            if text:
-                text += e.TEXTDELIMITER
-                offset += len(e.TEXTDELIMITER) 
-
-    text = text.strip()            
-    element.append(folia.TextContent, cls='current', value=text)    
-    return text
-        
+        #Not found, descend into children
+        delimiter = ""
+        s = ""            
+        for e in element:            
+            if e.PRINTABLE and not isinstance(e, folia.TextContent):
+                try:
+                    t = propagatetext(e,  Classes, setoffset,cls, delimiter)
+                    if addtext and setoffset and e.hastext(cls):
+                        extraoffset = len(t) - len(e.textcontent(cls).value)
+                        e.textcontent(cls).offset = len(s) + extraoffset
+                    s += t
+                    delimiter = e.gettextdelimiter(False)
+                    #delimiter will be buffered and only printed upon next iteration, this prevent the delimiter being output at the end of a sequence
+                    #print >>stderr, "Delimiter for " + repr(e) + ": " + repr(delimiter)
+                except folia.NoSuchText:
+                    continue           
+                
     
+        s = s.strip(' \r\n\t')
+        if s and addtext:
+            element.append(folia.TextContent, cls=cls, value=s)
 
+    s = s.strip(' \r\n\t')
+    if s and previousdelimiter:
+        #print >>stderr, "Outputting previous delimiter: " + repr(previousdelimiter)
+        return previousdelimiter + s
+    elif s:
+        return s
+    else:
+        print >>sys.stderr, "No text for: " + repr(element)
+        #No text found at all :`(
+        raise folia.NoSuchText
+        
 def process(filename, outputfile = None):
     print >>sys.stderr, "Converting " + filename
     doc = folia.Document(file=filename)
     
-    
-    if settings.sentencelevel == 1:
-        for e in doc.sentences():
-            addtext(e, folia.Word)
-        
-    if settings.paragraphlevel == 1:
-        if settings.sentencelevel == 1:
-            subelementclass = folia.Sentence
-        else:
-            subelementclass = folia.Word
-        for e in doc.paragraphs():
-            addtext(e, subelementclass)        
-        
-    if settings.globallevel == 1:
-        if settings.paragraphlevel == 1:
-            subelementclass = folia.Paragraph        
-        if settings.sentencelevel == 1:
-            subelementclass = folia.Sentence
-        else:
-            subelementclass = folia.Word
-        for e in doc:
-            addtext(e, subelementclass) 
+    propagatetext(doc.data[0], settings.Classes, settings.offsets)
+
                     
     if settings.inplaceedit:
         doc.save()
@@ -117,10 +110,7 @@ def processdir(d, outputfile = None):
             
 
 class settings:
-    globallevel = 0
-    sentencelevel = 0
-    paragraphlevel = 0
-    divlevel = 0
+    Classes = []
     inplaceedit = False
     offsets = True
     
@@ -145,18 +135,14 @@ def main():
         if o == '-h' or o == '--help':
             usage()
             sys.exit(0)
+        elif o == '-d':
+            settings.Classes.append(folia.Division)            
         elif o == '-t':
-            settings.globallevel = 1          
+            settings.Classes.append(folia.Text)            
         elif o == '-s':
-            settings.sentencelevel = 1            
+            settings.Classes.append(folia.Sentence)            
         elif o == '-p':
-            settings.paragraphlevel = 1            
-        elif o == '-T':
-            settings.globallevel = -1           
-        elif o == '-S':
-            settings.sentencelevel = -1            
-        elif o == '-P':
-            settings.paragraphlevel = -1            
+            settings.Classes.append(folia.Paragraph)                        
         elif o == '-X':
             settings.offsets = False
         elif o == '-e':
