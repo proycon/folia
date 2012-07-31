@@ -34,6 +34,7 @@ def usage():
     print >>sys.stderr, "Parameters for processing directories:"
     print >>sys.stderr, "  -r                           Process recursively"
     print >>sys.stderr, "  -E [extension]               Set extension (default: xml)"
+    print >>sys.stderr, "  -q                           Ignore errors"
     print >>sys.stderr, ""
     print >>sys.stderr, "Pattern syntax:"
     print >>sys.stderr, "    Fixed-width wildcard: ^ "
@@ -81,16 +82,21 @@ def parsepattern(rawpattern, annotationtype): #, annotationset=None):
 
     
 def process(filename, patterns):
-    print >>sys.stderr, "Processing " + filename
-    doc = folia.Document(file=filename)
-    for match in doc.findwords(*patterns ):
-        s = u""
-        for token in match:
-            s += u"\t" + token.text()
-        s = filename + "\t" + match[0].id + s
-        print s.encode(settings.encoding)
-            
-
+    try:
+        print >>sys.stderr, "Processing " + filename
+        doc = folia.Document(file=filename)
+        for match in doc.findwords(*patterns ):
+            s = u""
+            for token in match:
+                s += u"\t" + token.text()
+            s = filename + "\t" + match[0].id + s
+            print s.encode(settings.encoding)
+    except Exception as e:
+        if settings.ignoreerrors:
+            print >>sys.stderr, "ERROR: An exception was raised whilst processing " + filename + ":", e            
+        else:
+            raise        
+        
 
 def processdir(d, patterns):
     print >>sys.stderr, "Searching in  " + d
@@ -109,12 +115,13 @@ class settings:
     recurse = False
     encoding = 'utf-8'
     
+    ignoreerrors = False
     casesensitive = True
 
 
 def main():   
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "o:OE:hr", ["help","text="])
+        opts, args = getopt.getopt(sys.argv[1:], "o:OE:hqr", ["help","text="])
     except getopt.GetoptError, err:
         print str(err)
         usage()
@@ -146,6 +153,8 @@ def main():
             settings.extension = a
         elif o == '-r':
             settings.recurse = True
+        elif o == '-q':
+            settings.ignoreerrors = True        
         else:            
             raise Exception("No such option: " + o)
             

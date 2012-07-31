@@ -29,11 +29,12 @@ def usage():
     print >>sys.stderr, settings.usage
     print >>sys.stderr, ""
     print >>sys.stderr, "Parameters for output:"        
-    print >>sys.stderr, "  -o [filename]                Output to a single file (instead of default stdout)"    
+    print >>sys.stderr, "  -o [filename]                Output to file (instead of default stdout)"    
     print >>sys.stderr, "  -e [encoding]                Output encoding (default: utf-8)" 
     print >>sys.stderr, "Parameters for processing directories:"
     print >>sys.stderr, "  -r                           Process recursively"
     print >>sys.stderr, "  -E [extension]               Set extension (default: xml)"
+    print >>sys.stderr, "  -q                           Ignore errors"
     
     
 
@@ -41,6 +42,7 @@ class settings:
     autooutput = False
     extension = 'xml'
     recurse = False
+    ignoreerrors = False
     encoding = 'utf-8'
     xsltfilename = "undefined.xsl"
     outputextension = 'UNDEFINED'
@@ -56,12 +58,18 @@ def processdir(d):
             processdir(f)
     
 def process(inputfilename, outputfilename=None):    
-    transform(settings.xsltfilename, inputfilename, outputfilename, settings.encoding)
+    try:
+        transform(settings.xsltfilename, inputfilename, outputfilename, settings.encoding)
+    except Exception as e:
+        if settings.ignoreerrors:
+            print >>sys.stderr, "ERROR: An exception was raised whilst processing " + inputfilename + ":", e            
+        else:
+            raise        
     
 
 def main(xsltfilename, outputextension, usagetext):   
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "o:E:hr", ["help"])
+        opts, args = getopt.getopt(sys.argv[1:], "o:E:hrq", ["help"])
     except getopt.GetoptError, err:
         print str(err)
         usage()
@@ -88,6 +96,8 @@ def main(xsltfilename, outputextension, usagetext):
             outputfilename = a
         elif o == '-r':
             settings.recurse = True
+        elif o == '-q':
+            settings.ignoreerrors = True
         else:            
             raise Exception("No such option: " + o)
                 

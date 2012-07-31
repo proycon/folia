@@ -34,40 +34,47 @@ def usage():
     print >>sys.stderr, "  -r                           Process recursively"
     print >>sys.stderr, "  -E [extension]               Set extension (default: xml)"
     print >>sys.stderr, "  -O                           Output each file to similarly named .freqlist file"
+    print >>sys.stderr, "  -q                           Ignore errors"
     
 
 
     
 
 def process(filename):
-    print >>sys.stderr, "Processing " + filename
-    doc = folia.Document(file=filename)
+    try:
+        print >>sys.stderr, "Processing " + filename
+        doc = folia.Document(file=filename)
 
-    freqlist = FrequencyList()
-    
-    if settings.n == 1:
-        for word in doc.words():
-            text = word.toktext()
-            if settings.casesensitive: text = text.lower()
-            freqlist.count(text)
-    elif settings.sentencemarkers:
-        for sentence in doc.sentences():
-            for ngram in Windower(sentence.words(), settings.n):
+        freqlist = FrequencyList()
+        
+        if settings.n == 1:
+            for word in doc.words():
+                text = word.toktext()
+                if settings.casesensitive: text = text.lower()
+                freqlist.count(text)
+        elif settings.sentencemarkers:
+            for sentence in doc.sentences():
+                for ngram in Windower(sentence.words(), settings.n):
+                    text = ' '.join([x for x in ngram.toktext() ])
+                    if settings.casesensitive: text = text.lower()
+                    freqlist.count(text)                
+        else:
+            for word in Windower(sentence.words(), settings.n, None, None):
                 text = ' '.join([x for x in ngram.toktext() ])
                 if settings.casesensitive: text = text.lower()
-                freqlist.count(text)                
-    else:
-        for word in Windower(sentence.words(), settings.n, None, None):
-            text = ' '.join([x for x in ngram.toktext() ])
-            if settings.casesensitive: text = text.lower()
-            freqlist.count(text)                        
-                
-    if settings.autooutput:                
-        if filename[-len(settings.extension) - 1:].lower() == '.' +settings.extension:
-            outfilename = filename[:-len(settings.extension) - 1] + '.freqlist'
+                freqlist.count(text)                        
+                    
+        if settings.autooutput:                
+            if filename[-len(settings.extension) - 1:].lower() == '.' +settings.extension:
+                outfilename = filename[:-len(settings.extension) - 1] + '.freqlist'
+            else:
+                outfilename += '.freqlist'
+            freqlist.save(outfilename,True)    
+    except Exception as e:
+        if settings.ignoreerrors:
+            print >>sys.stderr, "ERROR: An exception was raised whilst processing " + filename, e            
         else:
-            outfilename += '.freqlist'
-        freqlist.save(outfilename,True)    
+            raise        
                                        
     return freqlist
         
@@ -91,12 +98,13 @@ class settings:
     recurse = False
     encoding = 'utf-8'
     sentencemarkers = False
+    ignoreerrors = False
     n = 1
 
 
 def main():   
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "o:OE:htspwr", ["help"])
+        opts, args = getopt.getopt(sys.argv[1:], "o:OE:htspwrq", ["help"])
     except getopt.GetoptError, err:
         print str(err)
         usage()
@@ -121,6 +129,8 @@ def main():
             settings.sentencemarkers = True
         elif o == '-r':
             settings.recurse = True
+        elif o == '-q':
+            settings.ignoreerrors = True            
         else:            
             raise Exception("No such option: " + o)
                 

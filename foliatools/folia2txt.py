@@ -37,6 +37,7 @@ def usage():
     print >>sys.stderr, "  -r                           Process recursively"
     print >>sys.stderr, "  -E [extension]               Set extension (default: xml)"
     print >>sys.stderr, "  -O                           Output each file to similarly named .txt file"
+    print >>sys.stderr, "  -q                           Ignore errors"
 
 
 
@@ -45,43 +46,52 @@ def usage():
 
 def process(filename, outputfile = None):
     print >>sys.stderr, "Converting " + filename
-    doc = folia.Document(file=filename)
+    try:
+        doc = folia.Document(file=filename)
 
-    if settings.autooutput:    
-        if filename[-len(settings.extension) - 1:].lower() == '.' +settings.extension:
-            outfilename = filename[:-len(settings.extension) - 1] + '.txt'
+        if settings.autooutput:    
+            if filename[-len(settings.extension) - 1:].lower() == '.' +settings.extension:
+                outfilename = filename[:-len(settings.extension) - 1] + '.txt'
+            else:
+                outfilename += '.txt'
+            
+            print >>sys.stderr, " Saving as " + outfilename
+            outputfile = codecs.open(outfilename,'w',settings.encoding)
+
+        if settings.wordperline:
+            for word in doc.words():        
+                if outputfile:
+                    outputfile.write(word.text('current', settings.retaintokenisation) + "\n")
+                else:
+                    print word.text('current', settings.retaintokenisation).encode(settings.encoding)
+        elif settings.sentenceperline:    
+            for sentence in doc.sentences():        
+                if outputfile:
+                    outputfile.write(sentence.text('current', settings.retaintokenisation) + "\n")
+                else:
+                    print sentence.text('current', settings.retaintokenisation).encode(settings.encoding)    
+        elif settings.paragraphperline:    
+            for paragraph in doc.paragraphs():        
+                if outputfile:
+                    outputfile.write(paragraph.text('current', settings.retaintokenisation) + "\n")
+                else:
+                    print paragraph.text('current', settings.retaintokenisation).encode(settings.encoding)     
         else:
-            outfilename += '.txt'
+            if outputfile:
+                outputfile.write( doc.text(settings.retaintokenisation) )
+            else:
+                print doc.text( settings.retaintokenisation).encode(settings.encoding)
+
+        if settings.autooutput:
+            outputfile.close()
+        elif outputfile:
+            outputfile.flush()
+    except Exception as e:
+        if settings.ignoreerrors:
+            print >>sys.stderr, "ERROR: An exception was raised whilst processing " + filename + ":", e            
+        else:
+            raise
         
-        print >>sys.stderr, " Saving as " + outfilename
-        outputfile = codecs.open(outfilename,'w',settings.encoding)
-
-    if settings.wordperline:
-        for word in doc.words():        
-            if outputfile:
-                outputfile.write(word.text('current', settings.retaintokenisation) + "\n")
-            else:
-                print word.text('current', settings.retaintokenisation).encode(settings.encoding)
-    elif settings.sentenceperline:    
-        for sentence in doc.sentences():        
-            if outputfile:
-                outputfile.write(sentence.text('current', settings.retaintokenisation) + "\n")
-            else:
-                print sentence.text('current', settings.retaintokenisation).encode(settings.encoding)    
-    elif settings.paragraphperline:    
-        for paragraph in doc.paragraphs():        
-            if outputfile:
-                outputfile.write(paragraph.text('current', settings.retaintokenisation) + "\n")
-            else:
-                print paragraph.text('current', settings.retaintokenisation).encode(settings.encoding)     
-    else:
-        if outputfile:
-            outputfile.write( doc.text(settings.retaintokenisation) )
-        else:
-            print doc.text( settings.retaintokenisation).encode(settings.encoding)
-
-    if settings.autooutput:
-        outputfile.close()
     
 
 
@@ -102,12 +112,13 @@ class settings:
     autooutput = False
     extension = 'xml'
     recurse = False
+    ignoreerrors = False
     encoding = 'utf-8'
 
 
 def main():   
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "o:OE:htspwr", ["help"])
+        opts, args = getopt.getopt(sys.argv[1:], "o:OE:htspwrq", ["help"])
     except getopt.GetoptError, err:
         print str(err)
         usage()
@@ -139,6 +150,8 @@ def main():
             settings.wordperline = True     
         elif o == '-r':
             settings.recurse = True
+        elif o == '-q':
+            settings.ignoreerrors = True
         else:            
             raise Exception("No such option: " + o)
                 
