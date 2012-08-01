@@ -263,7 +263,7 @@ def process(filename, outputfile=None):
                 line = "\t".join(columns)
                 
             if outputfile:
-                outputfile.write(line+'\n')
+                outputfile.write(line+'\n')cd
             else:    
                 print line.encode(settings.encoding)
 

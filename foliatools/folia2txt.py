@@ -78,8 +78,10 @@ def process(filename, outputfile = None):
                     print paragraph.text('current', settings.retaintokenisation).encode(settings.encoding)     
         else:
             if outputfile:
+                print >>sys.stderr, " Outputting to file"
                 outputfile.write( doc.text(settings.retaintokenisation) )
             else:
+                print >>sys.stderr, " Outputting"
                 print doc.text( settings.retaintokenisation).encode(settings.encoding)
 
         if settings.autooutput:
@@ -169,6 +171,8 @@ def main():
                 sys.exit(3)
     else:
         print >>sys.stderr,"ERROR: Nothing to do, specify one or more files or directories"
+    
+    if outputfile: outputfile.close()
     
 if __name__ == "__main__":
     main()
