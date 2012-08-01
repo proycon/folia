@@ -138,9 +138,9 @@ def processdir(d, outputfile = None):
     print >>sys.stderr, "Searching in  " + d
     for f in glob.glob(d + '/*'):        
         if f[-len(settings.extension) - 1:] == '.' + settings.extension: 
-            process(f)
+            process(f, outputfile)
         elif settings.recurse and os.path.isdir(f):
-            processdir(f)
+            processdir(f, outputfile)
 
 def process(filename, outputfile=None):
     try:

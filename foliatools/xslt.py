@@ -48,14 +48,14 @@ class settings:
     outputextension = 'UNDEFINED'
     usage = "UNDEFINED"
 
-def processdir(d):
+def processdir(d, outputfilename = None):
     print >>sys.stderr, "Searching in  " + d
     for f in glob.glob(d + '/*'):        
         if f[-len(settings.extension) - 1:] == '.' + settings.extension and f[-len(settings.outputextension) - 1:] != '.' + settings.outputextension: 
             outputfilename =  f[:-len(settings.extension) - 1] + '.' + settings.outputextension
             process(f, outputfilename)
         elif settings.recurse and os.path.isdir(f):
-            processdir(f)
+            processdir(f, outputfilename)
     
 def process(inputfilename, outputfilename=None):    
     try:
