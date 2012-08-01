@@ -103,7 +103,7 @@ def processdir(d, outputfile = None):
         if f[-len(settings.extension) - 1:] == '.' + settings.extension: 
             process(f, outputfile)
         elif settings.recurse and os.path.isdir(f):
-            processdir(f)
+            processdir(f, outputfile)
             
 
 class settings:
