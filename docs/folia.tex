@@ -27,7 +27,7 @@ stringstyle=\ttfamily,
         Radboud University Nijmegen.}}
 
 \title{{\huge FoLiA: Format for Linguistic Annotation} \\ \vspace*{0.5cm}
-{\bf \small version 0.8.2 - revision 2.5} \\ \vspace*{0.5cm}{\huge Documentation}\\
+{\bf \small version 0.9.0 - revision 2.6} \\ \vspace*{0.5cm}{\huge Documentation}\\
 \vspace*{1cm} {\it ILK Technical Report -- ILK 12-03}}
 
 \parindent=0pt %no paragraph indentation
@@ -60,32 +60,32 @@ stringstyle=\ttfamily,
 
 FoLiA is a Format for Linguistic Annotation, derived from the D-Coi format\cite{DCOI} developed as part of the D-Coi project by project partner at Polderland Language and Speech Technologies B.V. The D-Coi format was designed for use by the D-Coi corpus, as well as by its successor; the SoNaR corpus \cite{Oostdijk+08}. Though being rooted in the D-Coi format, the FoLiA format goes a lot further and introduces a rich generalised framework for linguistic annotation. FoLiA development started at the ILK research group, Tilburg University, and is continued at the Radboud University Nijmegen. It is being adopted in multiple projects in the Dutch and Flemish Natural Language Processing community.
 
-FoLiA is an XML-based\cite{XML} annotation format, suitable for the representation of written and linguistically annotated language resources. FoLiA's intended use is as a format for storing and/or exchanging language resources, including corpora. Our aim is to introduce a single rich format that can accomodate a wide variety of linguistic annotation types through a single generalised paradigm. We do not commit to any label set, language or linguistic theory. This is always left to the developer of the language resource, and provides maximum flexibility.
+FoLiA is an XML-based\cite{XML} annotation format, suitable for the representation of linguistically annotated language resources. FoLiA's intended use is as a format for storing and/or exchanging language resources, including corpora. Our aim is to introduce a single rich format that can accomodate a wide variety of linguistic annotation types through a single generalised paradigm. We do not commit to any label set, language or linguistic theory. This is always left to the developer of the language resource, and provides maximum flexibility.
 
 XML is an inherently hierarchic format. FoLiA does justice to this by maximally utilising a hierarchic, inline, setup. We inherit from the D-Coi format, which posits to be loosely based on a minimal subset of TEI\cite{TEI}. Because of the introduction of a new and much broader paradigm, FoLiA is \emph{not} backwards-compatible with D-Coi, i.e. validators for D-Coi will not accept FoLiA XML. It is however easy to convert FoLiA to less complex or verbose formats such as the D-Coi format, or plain-text. Converters will be provided. This may entail some loss of information if the simpler format has no provisions for particular types of information specified in the FoLiA format. 
-
-
 
 The most important characteristics of FoLiA are:
 
 \begin{itemize}
 \item \textbf{Generalised} paradigm - We use a generalised paradigm, with as few ad-hoc provisions for annotation types as possible.
-\item \textbf{Expressivity} - The format is highly expressive, annotations can be expressed in great detail and with flexibility to the user's needs. Moreover, FoLiA has generalised support for representing annotation alternatives, and annotation metadata such as information on annotator, time of annotation, and annotation confidence.
+\item \textbf{Expressivity} - The format is highly expressive, annotations can be expressed in great detail and with flexibility to the user's needs, without forcing unwanted details. Moreover, FoLiA has generalised support for representing annotation alternatives, and annotation metadata such as information on annotator, time of annotation, and annotation confidence.
 \item \textbf{Extensible} - Due to the generalised paradigm and the fact that the format does not commit to any label set, FoLiA is fairly easily extensible.   
 \item \textbf{Formalised} - The format is formalised, validatable on both a shallow and a deep level (the latter including tagset validation), and easily machine parsable, for which tools are provided.
 \item \textbf{Practical} - FoLiA has been developed in a bottom-up fashion right alongside applications, libraries, and other toolkits and convertors. Whilst the format is rich, we try to maintain it as simple and straightforward as possible, minimising the learning curve and making it easy to adopt FoLiA in practical applications.  
 \end{itemize}
 
-The FoLiA format makes mixed-use of inline and stand-off annotation. Inline annotation is used for annotations pertaining to single tokens, whilst stand-off annotation in a seperate annotation layers is adopted for annotation types that span over multiple token. This provides FoLiA with the necessary flexibility and extensibility to deal with various kinds of annotations. Inspiration for this was in part obtained from the Kyoto Annotation Format \cite{KYOTO}.
+The FoLiA format makes mixed-use of inline and stand-off annotation. Inline annotation is used for annotations pertaining to single tokens, whilst stand-off annotation in a seperate annotation layers is adopted for annotation types that span over multiple tokens. This provides FoLiA with the necessary flexibility and extensibility to deal with various kinds of annotations. Inspiration for this was in part obtained from the Kyoto Annotation Format \cite{KYOTO}.
 
-In publication of research that makes use of FoLiA, a citation should be given of: {\em ``Maarten van Gompel (2012). FoLiA: Format for Linguistic Annotation. Documentation. ILK Technical Report 12-03. \\ Available from {\tt http://ilk.uvt.nl/downloacd ~ds/pub/papers/ilk.1203.pdf}''}. FoLiA is open-source and all technical resourcs are licensed under the GNU Public License v3.
+In publication of research that makes use of FoLiA, a citation should be given of: {\em ``Maarten van Gompel (2012). FoLiA: Format for Linguistic Annotation. Documentation. ILK Technical Report 12-03. \\ Available from {\tt http://ilk.uvt.nl/downloads/pub/papers/ilk.1203.pdf}''}. FoLiA is open-source and all technical resources are licensed under the GNU Public License v3.
 
-Further notable features of the FoLiA format include:
+Notable features of the FoLiA format include:
 
 \begin{itemize}
 \item XML-based, validation against RelaxNG schema.
 \item Full Unicode support; UTF-8 encoded.
+\item Support for text as well as speech
 \item Document structure consists of divisions, paragraphs, sentences and words/tokens, and more specific elements.
+\item Support for annotation of transcribed speech
 \item Can be used for both tokenised as well as untokenised text, though for meaningful linguistic annotation, tokenisation is mandatory.
 \item Provenance support for all linguistic annotations: annotator, type (automatic or manual), time.
 \item Support for alternative annotations, optionally with associated confidence values.
@@ -106,20 +106,13 @@ There is support for the following linguistic annotations:
 \item Dependency Relations
 \item Chunking
 \item Morphological Analysis
-\item Subjectivity Annotation (to be used in VU-DNC)
-\end{itemize}
-
-In later stages, the following may be added:
-
-\begin{itemize}
+\item Subjectivity Annotation
 \item Semantic Role Labelling
-\item Co-reference
-\item Topic Segmentation
-\item Authorship Attribution
+\item Coreference
+\item Event annotation
 \end{itemize}
 
-
-FoLiA support is incorporated directly into the following ILK sofware:
+FoLiA support is incorporated directly into the following sofware:
 
 \begin{itemize} 
 \item ucto - A tokeniser which can directly output FoLiA XML 
@@ -129,20 +122,18 @@ FoLiA support is incorporated directly into the following ILK sofware:
 \item libfolia - C++ library for parsing FoLiA
 \end{itemize}
 
-
 FoLiA is used in the following projects (list may not be complete):
 
 \begin{itemize}
-\item SoNaR
+\item SoNaR (STEVIN)
 \item DutchSemCor (NWO)
 \item TTNWW (CLARIN)
+\item DU-VNC (CLARIN)
+\item Ticclops (CLARIN)
 \item Valkuil.net
-\item CLAM
-\item Frog
-\item Ucto
+\item Basilex (NWO)
+\item LIN (NWO)
 \end{itemize}
-
-
 
 To clearly understand this documentation, note that when we speak of ``elements'' or ``attributes'', we refer to XML notation, i.e. XML elements and XML attributes.
 
@@ -150,11 +141,10 @@ To clearly understand this documentation, note that when we speak of ``elements'
 
 \section{Global Structure}
 
-In FoLiA, each document/text is represented by one XML file. The basic structure of such a FoLiA document is as follows and should always be UTF-8 encoded. An elaborate XSLT stylesheet will be provided in order to be able to instantly view FoLiA documents in any modern web browser.
+In FoLiA, each document/text is represented by one XML file. The basic structure of such a FoLiA document is as follows and should always be UTF-8 encoded.
 
 \begin{lstlisting}[language=xml]
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="http://ilk.uvt.nl/FoLiA/FoLiA.xsl"?>
 <FoLiA xmlns="http://ilk.uvt.nl/FoLiA"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
   version="0.5"
@@ -175,14 +165,18 @@ In FoLiA, each document/text is represented by one XML file. The basic structure
 
 \section{Identifiers}
 
-Many elements in the FoLiA format specify an identifier by which the element is uniquely identifiable. This makes referring to any part of a FoLiA document easy and follows the lead of the D-Coi format. Identifiers should be unique in the entire document, and can be anything that qualifies as a valid ID according to the XML standard. A well proven convention is of a cumulative nature, in which you append the elements name, a period, and a sequence number, to the identifier of a parent element higher in the hierarchy. Identifiers are always encoded in the \texttt{xml:id} attribute. The FoLiA document as a whole also carries an ID.
+Many elements in the FoLiA format specify an identifier by which the element is uniquely identifiable. This makes referring to any part of a FoLiA document easy and follows the lead of the D-Coi format. Identifiers should be unique in the entire document, and can be anything that qualifies as a valid ID according to the XML standard. A well proven convention is of a cumulative nature, in which you append the element name, a period, and a sequence number, to the identifier of a parent element higher in the hierarchy. Identifiers are always encoded in the \texttt{xml:id} attribute,
 
-Identifiers are very important and used throughout the FoLiA format, and mandatory for almost all structural elements. They enable external resources and databases to easily point to a specific part of the document or an annotation therein. FoLiA has been set up in such a way that \emph{identifiers should never ever change}. Once an identifier is assigned, it should never change, re-numbering is strictly prohibited unless you intentionally want to create a new resource and break compatibility with the old one.
+The FoLiA document as a whole also carries an ID.
+
+Identifiers are very important and used throughout the FoLiA format, and mandatory for almost all structural elements. They enable external resources and databases to easily point to a specific part of the document or an annotation therein. FoLiA has been set up in such a way that \emph{identifiers should never ever change}. Once an identifier is assigned, it should never change, re-numbering is strictly prohibited unless you intentionally want to create a new resource and break compatibility with the old one. Identifiers can be assigned to many FoLiA elements, their usage is recommended though often not strictly required. 
 
 \section{Basic Structural Elements}
 \label{sec:basics}
 
-Basic structural elements occur within the \texttt{text} element. These are the most basic ones:
+\subsection{Text Structure Annotation}
+
+Basic structural elements for textual documments occur within the \texttt{text} element. These are the most basic ones:
 
 \begin{itemize}
 \item \texttt{p} - Paragraph
@@ -199,7 +193,6 @@ This is the second paragraph. This one has two sentences.
 \end{verbatim}
 
 In FoLiA XML, this will appear as follows after tokenisation. Some parts have been omitted for the sake of brevity:
-
 
 \begin{lstlisting}[language=xml]
  <p xml:id="example.p.1">
@@ -230,9 +223,9 @@ In FoLiA XML, this will appear as follows after tokenisation. Some parts have be
 \end{lstlisting}
 
 
-The deepest content element should always contain a text element (\texttt{t}) which holds the actual textual content. The necessity of having a text element shall become apparent as you progress through this documentation; there can be many different token annotations under a word element (\texttt{w}).
+At least the deepest content element should preferably always contain a text element (\texttt{t}) which holds the actual textual content. The necessity of having an explicit text element shall become apparent as you progress through this documentation.
 
-FoLiA is not just a format for holding tokenised text, although tokenisation is a prerequisite for almost all kinds of annotation. However, FoLiA can also hold untokenised text, on a paragraph and/or sentence level:
+FoLiA is not just a format for holding tokenised text, although tokenisation is a prerequisite for almost all kinds of annotation. However, FoLiA can also hold untokenised text, on for example paragraph and/or sentence level:
 
 \begin{lstlisting}[language=xml]
  <p xml:id="example.p.1">
@@ -250,7 +243,7 @@ FoLiA is not just a format for holding tokenised text, although tokenisation is 
  </p>
 \end{lstlisting}
 
-Higher level elements \emph{may} also contain a text element even when the deeper element does too. It is very important to realise that the sentence/paragraph-level text element \emph{always} contains the text \emph{prior} to tokenisation! Note also that the word element has an attribute \texttt{space}, which defaults to yes, and indicates whether the word was followed by a space in the \emph{untokenised} original. This allows for partial reconstructibility of the sentence in its untokenised form. See section~\ref{sec:textcontent} for a more elaborate overview of this subject.
+Higher level elements \emph{may} also contain a text element even when the deeper elements do too. It is very important to realise that the sentence/paragraph-level text element \emph{always} contains the text \emph{prior} to tokenisation! Note also that the word element has an attribute \texttt{space}, which defaults to yes, and indicates whether the word was followed by a space in the \emph{untokenised} original. This allows for partial reconstructibility of the sentence in its untokenised form. See section~\ref{sec:textcontent} for a more elaborate overview of this subject.
 
 The following example shows the maximum amount of redundancy, with text elements at every level.
 
@@ -287,7 +280,7 @@ The following example shows the maximum amount of redundancy, with text elements
  </p>
 \end{lstlisting}
 
-It this kind of redundancy is used (it is not mandatory),you may optionally point back to the text content of its parent by specifying the \texttt{offset} attribute:
+If this kind of redundancy is used (it is not mandatory), you may optionally point back to the text content of its parent by specifying the \texttt{offset} attribute:
 
 \begin{lstlisting}[language=xml]
  <p xml:id="example.p.1">
@@ -305,9 +298,9 @@ It this kind of redundancy is used (it is not mandatory),you may optionally poin
 
 Matters can become more complicated as multiple text-content element of different classes may be associated with an element, this will be discussed later on in section~\ref{sec:textcontent}.
 
-Paragraph elements may be omitted if a document is described that does not distinguish paragraphs but only sentences. Sentences however may never be omitted; FoLiA documents can never consist of tokens only!
+Paragraph elements may be omitted if a document is described that does not distinguish paragraphs but only sentences. Sentences however may never be omitted; FoLiA documents can never consist of tokens only.
 
-The content element \texttt{head} is reserved for headers and captions, it behaves similarly to the paragraph element and may hold sentences.
+The content element \texttt{head} is reserved for headers and captions, it behaves similarly to the paragraph element and holds sentences.
 
 FoLiA also explicitly supports quotes, as demonstrated in the next example, which annotates the following sentence: 
 
@@ -315,8 +308,7 @@ FoLiA also explicitly supports quotes, as demonstrated in the next example, whic
 He said: ``I do not know . I think you are right. ", and left.
 \end{verbatim}
 
-A quote may consist of one or more sentences, but may also consist of mere tokens. The token identifiers in all cases simply follow the sequential numbering of the root sentence, not the embedded sentence.
-
+A quote may consist of one or more sentences, but may also consist of mere tokens:
 
 \begin{lstlisting}[language=xml]
  <s xml:id="example.p.1.s.1">
@@ -348,6 +340,38 @@ A quote may consist of one or more sentences, but may also consist of mere token
  </s>
 \end{lstlisting}
 
+\subsection{Speech Structure Annotation}
+
+\status{PROPOSED in v0.9)}{not implemented yet}
+
+FoLiA is not just suited for the annotation of text, but also accomodates annotation of transcribed speech. This generally asks for a different document structure than text documents. The top-level element for speech-centered resources is \texttt{speech}. Certain elements described in the section on text structure may be used under \texttt{speech} as well; such as divisions (\texttt{div}), sentences (\texttt{s)} and words (\texttt{w}). Notions such as paragraphs and figures make less sense in a speech context.
+
+In addition to the existing elements, a new structural element is introduced for speech annotation: 
+
+\begin{itemize}
+  \item \texttt{utt} -- \textbf{utterance} -- An utterance may consist out of words or sentences, which in turn may contain words. The opposite is also true, a sentence may consists out of multiple utterances.  
+\end{itemize}
+ 
+ 
+For \emph{all} structure elements in a speech context, the following speech-specific FoLiA attributes are available, on top of the other generic FoLiA attributes:
+
+\begin{itemize}
+  \item \texttt{src} -- \textbf{source} -- Points to a file or full URL of a sound or video file. This attribute is inheritable.
+   
+  \item \texttt{begintime} -- \textbf{begin time} --  A timestamp in \texttt{HH:MM:SS.MMMM} format, indicating the begin time of this speech act. If a sound clip is specified (\texttt{src}); the timestamp refers to an offset in the soundclip (minus \texttt{srcoffset}).
+    
+  \item \texttt{endtime} -- \textbf{end time} --  A timestamp in \texttt{HH:MM:SS.MMMM} format, indicating the end time of this speech act. If a sound clip is specified (\texttt{src}); the timestamp refers to an offset in the soundclip (minus \texttt{srcoffset}).
+  
+  \item \texttt{srcoffset} -- \textbf{source offset} -- A timestamp in \texttt{HH:MM:SS.MMMM} format that is \emph{subtracted} from all \texttt{begintime}, and \texttt{endtime} designation within its scope, to find the position in the audio clip. This attribute enabled the use of global timings in all begintime/endtime attributes, across different sound clips. Defaults to zero.
+  
+  \item \texttt{speaker} -- \textbf{speaker} -- A string identifying the speaker. This attribute is inheritable. Multiple speakers are not allowed, simply do not specify a speaker on a certain level if none can be designated. 
+\end{itemize}
+ 
+
+%TODO
+ 
+  
+
 \section{Paradigm \& Terminology}
 \label{sec:paradigm}
 
@@ -378,8 +402,7 @@ More advanced aspects of the paradigm will introduced later in section \ref{sec:
 
 \section{Annotation Declarations}
 
-
-The annotation declaration is a mandatory part of the metadata that declares all the types of annotation and all sets that are present in the document. Annotations are declared in the \texttt{annotations} block, as shown in the following example. We here define four annotation levels.
+The annotation declaration is a mandatory part of the metadata that declares all the types of annotation and all sets that are present in the document. Annotations are declared in the \texttt{annotations} block, as shown in the following example. We here define four annotation levels with fictitious sets:
 
 \begin{lstlisting}[language=xml]
 <annotations>
@@ -394,7 +417,7 @@ The annotation declaration is a mandatory part of the metadata that declares all
 </annotations>
 \end{lstlisting}
 
-The set attribute is mandatory\footnote{Technically, it can be omitted, but then the set defaults to ``undefined''. This is allowed for flexibility and less explicit usage of FoLiA in limited settings, but not recommended!} and refers to a URL of a FoLiA Set Definition file (see chapter \ref{fsd}). The Set Definition specifies exactly what classes are allowed in the set. It for examples specifies exactly what Part-of-Speech tags exists. This information is necessary to completely validate the document at its deepest level. If the sets point to URLs that do not exist, warnings will be issued. Validation can still proceed but with the notable exception of deep validation of these sets.
+The set attribute is mandatory\footnote{Technically, it can be omitted, but then the set defaults to ``undefined''. This is allowed for flexibility and less explicit usage of FoLiA in limited settings, but not recommended!} and refers to a URL of a FoLiA Set Definition file (see chapter \ref{fsd}). In the above example, the set URLs are fictitious, make sure to list your own appropriate sets. A Set Definition specifies exactly what classes are allowed in the set. It for examples specifies exactly what Part-of-Speech tags exist. This information is necessary to completely validate the document at its deepest level. If the sets point to URLs that do not exist or are not URLs at all,' warnings will be issued. Validation can still proceed but with the notable exception of deep validation of these sets.
 
 If multiple sets are used for the same annotation type, they each need a separate declaration:
 
@@ -406,7 +429,7 @@ If multiple sets are used for the same annotation type, they each need a separat
 
 If only one set is declared, then in the document itself you are allowed to skip the set attribute on these specific annotation elements. The declared set will automatically be the default. 
 
-The \texttt{annotator} and \texttt{annotatortype} attributes act as defaults, for the specific annotation type and set. Unlike \texttt{set}, you do \emph{not} need, and it is in fact prohibited, to declare every possible annotator here!
+The \texttt{annotator} and \texttt{annotatortype} attributes act as defaults for the specific annotation type and set. Unlike \texttt{set}, you do \emph{not} need, and it is in fact prohibited, to declare every possible annotator here!
 
 Annotator defaults can always be overriden at the specific annotation elements. But declaring them allows for the annotation element to be less verbosely expressed. Explicitly referring to a set and annotator for each annotation element can be cumbersome and pointless in a document with a single set and a single annotator for that particular type of annotation. Declarations and defaults provide a nice way around this problem.
 
@@ -416,7 +439,7 @@ Annotator defaults can always be overriden at the specific annotation elements. 
 
 \subsection{Paragraphs, Sentences and Words}
 
-Paragraphs, sentences and words (or tokens) are amongst the most elementary structure elements. As has been seen in a previous section, word elements (\texttt{w}) can take a class, pertaining to a certain set, at which point a definition must be present in the metadata:
+Paragraphs, sentences and words (or tokens) are amongst the most elementary structure elements. As has been seen in a previous section, word elements (\texttt{w}) can take a class, pertaining to a certain set, at which point a definition must be present in the metadata, note that the actual set URL is just an example, assign your own:
 
 \begin{lstlisting}[language=xml]
 <annotations>
@@ -437,13 +460,15 @@ Being part of a set, this implies that tokens themselves \emph{may} be assigned 
 </s>
 \end{lstlisting}        
 
-The same can be applied to paragraphs and sentences, which will need a declaration of \texttt{paragraph-annotation} and \texttt{sentence-annotation} respectively.
+The same can be applied to paragraphs and sentences, which requires a declaration of \texttt{paragraph-annotation} and \texttt{sentence-annotation} respectively.
 
 \subsection{Divisions}
 
-Within the \texttt{text} element, the structure element \texttt{div} can be used to create divisions and subdivisions. Each division \emph{may} be of a particular \emph{class} pertaining to a \emph{set} defining all possible classes. Divisions and other structural units are often numbered, think for example of chapters and sections. The number, as it was in the source document, can be encoded in the \texttt{n} attribute of the structure annotation element.
+Within the \texttt{text} element, the structure element \texttt{div} can be used to create divisions and subdivisions. Each division \emph{may} be of a particular \emph{class} pertaining to a \emph{set} defining all possible classes.
 
-Look at the following example, showing a full FoLiA document with structured divisions: 
+Divisions and other structural units are often numbered, think for example of chapters and sections. The number, as it was in the source document, can be encoded in the \texttt{n} attribute of the structure annotation element.
+
+Look at the following example, showing a full FoLiA document with structured divisions. The declared set is a fictituous example:
 
 \begin{lstlisting}[language=xml]
 <?xml version="1.0" encoding="utf-8"?>
@@ -472,9 +497,7 @@ Look at the following example, showing a full FoLiA document with structured div
 </FoLiA>  
 \end{lstlisting}
 
-If divisions with sets are present, they need to be declared, as can be seen in the metadata. If you have divisions without sets or classes, then a declaration is not necessary
-
-Divisions stem from D-Coi and are modified in FoLiA. These divisions are not mandatory, but may be used to mark extra structure. D-Coi supported the elements \texttt{div0}, \texttt{div1}, \texttt{div2}, etc.., but FoLiA only knows a single \texttt{div} element, which can be nested at will and associated with classes. Note that paragraphs, sentences and words have there own explicit tags, as seen earlier, divisions should never be used for marking these, only larger structures can be divisions!
+Divisions stem from D-Coi and are modified in FoLiA. These divisions are not mandatory, but may be used to mark extra structure. D-Coi supported the elements \texttt{div0}, \texttt{div1}, \texttt{div2}, etc.., but FoLiA only knows a single \texttt{div} element, which can be nested at will and associated with classes. Note that paragraphs, sentences and words have there own explicit tags, as seen earlier, divisions should never be used for marking these, only larger structures can be divisions.
 
 The \texttt{head} element may be used to for the header of any division. It may hold \texttt{s} and \texttt{w} elements (not \texttt{p}).
 
@@ -497,7 +520,7 @@ The D-Coi format pre-defined the following ``reasons'' \cite{DCOI}:
 \item sampling
 \end{itemize}
 
-Due to the flexible nature of FoLiA, we don't predefine any classes whatsoever and leave this up to whatever set is declared. The above gives a good indication of what gaps can be used for though. 
+Due to the flexible nature of FoLiA, we never predefine any classes whatsoever and leave this up to whatever set is declared. The above gives a good indication of what gaps can be used for though. 
 
 The gap element may optionally take two elements:
 
@@ -538,7 +561,7 @@ The gap element may optionally take two elements:
   </text>
 \end{lstlisting}
 
-Gaps have to be declared:
+Gaps have to be declared, the actual set used here is just a fictitious example:
 
 \begin{lstlisting}[language=xml]
 <annotations>
@@ -599,7 +622,7 @@ Below an example of a simple chat log, word tokens omitted for brevity:
 
 The (optional) features \texttt{begindatetime} and \texttt{enddatetime} can be used express the exact moment at which an event started or ended. Note that this differs from the generic \texttt{datetime} attribute, which would describe the time at which the annotation was recorded, rather than when the event took place! Also, \texttt{begindatetime} and \texttt{enddatetime} are so-called \emph{features} (see section
 
-The declaration:
+The declaration, the actual set is fictitious:
 
 \begin{lstlisting}[language=xml]
 <annotations>
@@ -607,8 +630,7 @@ The declaration:
 </annotations>
 \end{lstlisting}
 
-For more fine-grained control over timed events, for example within sentences. It is recommended to use the \texttt{timedevent} span annotation element instead! This works in a very similar fashion but uses an offset annotation layer. See section~\ref{timedevent}.
-
+For more fine-grained control over timed events, for example within sentences. It is recommended to use the \texttt{timesegment} span annotation element instead! This works in a very similar fashion but uses an offset annotation layer. See section~\ref{timesegment}.
 
 
 \subsection{Lists}
@@ -661,7 +683,8 @@ Token annotations are annotations that are placed within the word (\texttt{w}) e
 
 \status{final}{pynlpl, libfolia}
 
-The following example illustrates a simple Part-of-Speech annotation for the Dutch word ``boot'':
+
+Part-of-Speech annotation allows the annotation of lexical categories using the \texttt{pos} element. The following example illustrates a simple Part-of-Speech annotation for the Dutch word ``boot'':
 
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.2">
@@ -670,11 +693,9 @@ The following example illustrates a simple Part-of-Speech annotation for the Dut
 </w>
 \end{lstlisting}
 
+Lexical annotation can take more complex forms than assignment of single part-of-speech tag. There may for example be numerous features associated with the part of speech tag, such as gender, number, case, tense, mood, etc... FoLiA introduces a special paradigm for dealing with such features. We will look into this later, in section~\ref{sec:advparadigm}. 
 
-
-However, for some tagsets simple part-of-speech annotation is not enough; there may for example be features associated with the part of speech tag. We will into this later, in section~\ref{sec:advparadigm}.
-
-Whenever Part-of-Speech annotations are used, they should be declared in the \texttt{annotations} block as follows, the set you use may differ and all attributes are optional. In the declaration example here it is as if the annotations were made by the software \emph{Frog}. Do note the requirement of a \texttt{token-annotation} as well.
+Whenever Part-of-Speech annotations are used, they should be declared in the \texttt{annotations} block as follows, the set you use may differ and all attributes are optional. In the declaration example here it is as if the annotations were made by the software \emph{Frog}, but you may want to use your own. Do note the requirement of a \texttt{token-annotation} as well.
 
 \begin{lstlisting}[language=xml]
 <annotations>
@@ -685,13 +706,13 @@ Whenever Part-of-Speech annotations are used, they should be declared in the \te
 </annotations>
 \end{lstlisting}
 
-As mentioned earlier, the declaration only sets defaults. They can be overridden in the \texttt{pos} element itself (or any other token annotation element for that matter).
+As mentioned earlier, the declaration only sets defaults for annotator and annotatortype. They can be overridden in the \texttt{pos} element itself (or any other token annotation element for that matter).
 
 \subsection{Lemma Annotation}
 
 \status{final}{pynlpl, libfolia}
 
-In the FoLiA paradigm, lemmas are perceived as classes within the (possibly open) set of all possible lemmas. Their annotation is thus as follows:
+In the FoLiA paradigm, lemmas are perceived as classes within the (possibly open) set of all possible lemmas. Their annotation proceeds as follows:
 
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.2">
@@ -760,7 +781,6 @@ And the example declaration:
 </annotations>
 \end{lstlisting}
 
-
 \subsection{Lexical Semantic Sense Annotation}
 
 \status{final}{pynlpl,libfolia}
@@ -808,6 +828,31 @@ The declaration:
     <domain-annotation set="http://ilk.uvt.nl/folia/sets/domains-nl" />
 </annotations>
 \end{lstlisting}
+
+\subsection{Metrics}
+
+\status{final since v0.9}{pynlpl,libfolia}
+
+The metric element allows annotation of some kind of measurement with any content element. Example:
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.1.s.1.w.2">
+    <t>boot</t>
+    <metric class="charlength" value="4" />
+    <metric class="frequency" value="0.00232" />
+</w>
+\end{lstlisting}
+
+The declaration:
+
+\begin{lstlisting}[language=xml]
+<annotations>
+    <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl" annotator="ucto" annotatortype="auto" />
+    <metric-annotation set="http://ilk.uvt.nl/folia/sets/metrics" />
+</annotations>
+\end{lstlisting}
+
+This element is technically not a token annotation element, it may be used in a wider scope. It can also be used as a kind of second order annotation within any token annotation elements and within any span annotation elements:
 
 \subsection{Corrections}
 
@@ -1247,7 +1292,7 @@ Alternatives can be used as a great way of postponing actual annotation, due to 
 
 \section{Span Annotation}
 
-Not all annotations can be realised as token annotations. Some typically span multiple tokens. For these we introduce a kind of offset notation in separate \emph{annotation layers}. These annotation layers are embedded at the sentence level, \emph{after} the word tokens. Within these layers, references are made to these word tokens. Each annotation layer is specific to a kind of span annotation.
+Not all annotations can be realised as token annotations. Some typically span multiple tokens. For these we introduce a kind of offset notation in separate \emph{annotation layers}. These annotation layers are embedded at the sentence level, \emph{after} the word tokens. Within these layers, references are made to these word tokens using the \texttt{wref} element. Each annotation layer is specific to a kind of span annotation, for which a declaration should be present in the metadata section of the document.
 
 The layer elements themselves may also take the \texttt{set}, \texttt{annotator}, \texttt{annotatortype}, or \texttt{confidence} attributes. Which introduces the defaults for all the span annotations under it. They in turn may of course always chose to override this.
 
@@ -1321,7 +1366,7 @@ A very typical form of span annotation is syntax annotation. This is done within
 Just to prevent any misunderstanding, the classes depend on the set used, so you can use whatever system of syntactic annotation you desire. Moreover, any of the \texttt{su} elements can have the common attributes \texttt{annotator}, \texttt{annotatortype} and \texttt{confidence}.
 
 
-The above example illustrated a fairly simple syntactic parse. Dependency parses are possible too. Dependencies are listed separate from the syntax in an extra annotation layer, as shall be explained in the next section.
+The above example illustrated a fairly simple syntactic parse. Dependency parses are possible too. Dependencies are listed separate from the syntax in an extra annotation layer, see seection~\ref{sec:deprel}.
 
 The declaration is as follows:
 
@@ -1336,7 +1381,7 @@ The declaration is as follows:
 \subsection{Dependency Relations}
 \label{sec:deprel}
 
-\status{slight revised in v0.8 (no ``su'' attribute on hd/dep)}{pynlpl,libfolia}
+\status{slightly revised in v0.8 (no ``su'' attribute on hd/dep)}{pynlpl,libfolia}
 
 Dependency relations are relations between tokens of spans of tokens, in most cases equal to syntactic units. A dependency relation is often of a particular class and consists of a single head component and a single dependent component. In the sample ``He sees'', there is  syntactic dependency between the two words: ``sees'' is the head, and ``He'' is the dependant, and the relation class is something like ``subject'', as the dependant is the subject of the head word. Each dependency relation is explicitly noted. 
 
@@ -1477,12 +1522,12 @@ The declaration:
 </annotations>
 \end{lstlisting}
 
-\subsection{Events as span annotation}
-\label{timedevent}
+\subsection{Time segmentation}
+\label{timesegment}
 
-\status{final since v0.8}{pynlpl,libfolia}
+\status{final since v0.8, renamed in v0.9}{pynlpl}
 
-We already saw events as structure annotation in Section~\ref{events}. But for more fine grained control of timing information a span annotation element in an offset layer is more suited. FoLiA introduces a \texttt{timing} layer in which \texttt{timedevent} can be used to span over tokens that form a particular event. Consider the following example:
+FoLiA supports time segmentation using the \texttt{timing} layer and the \texttt{timesegment} span annotation element. This element is useful for  speech, but can also be used for event annotation. We already saw events as structure annotation in Section~\ref{events}, but for more fine-grained control of timing information a span annotation element in an offset layer is more suited. The following example illustrates the usage for event annotation:
 
 \begin{lstlisting}[language=xml]
 <s>
@@ -1494,48 +1539,246 @@ We already saw events as structure annotation in Section~\ref{events}. But for m
  <w xml:id="example.p.1.s.1.w.6"><t>go</t></w>
  <w xml:id="example.p.1.s.1.w.7"><t>.</t></w>
  <timing>
-  <timedevent class="utterance" begindatetime="2011-12-15T19:01" 
+  <timesegment class="utterance" begindatetime="2011-12-15T19:01" 
    enddatetime="2011-12-15T19:03" actor="myself">
     <wref id="example.p.1.s.1.w.1" t="I" />
     <wref id="example.p.1.s.1.w.2" t="think" />
-  </timedevent>
-  <timedevent class="cough" begintime="2011-12-15T19:03" 
+  </timesegment>
+  <timesegment class="cough" begintime="2011-12-15T19:03" 
    endtime="2011-12-15T19:05" actor="myself">   
-  </timedevent>
-  <timedevent class="utterance" begindatetime="2011-12-15T19:05" 
+  </timesegment>
+  <timesegment class="utterance" begindatetime="2011-12-15T19:05" 
    enddatetime="2011-12-15T19:06" actor="myself">
     <wref id="example.p.1.s.1.w.3" t="I" />
     <wref id="example.p.1.s.1.w.4" t="have" />
     <wref id="example.p.1.s.1.w.5" t="to" />
     <wref id="example.p.1.s.1.w.6" t="go" />
-  </timedevent>
+  </timesegment>
  </timing>
 </s>
 \end{lstlisting}
 
-These timed events may also be nested. As always, the classes in the example are set-defined rather than predefined by FoLiA. The (optional) features \texttt{begindatetime} and \texttt{enddatetime} can be used express the exact moment at which an event started or ended. Note that this differs from the generic \texttt{datetime} attribute, which would describe the time at which the annotation was recorded, rather than when the event took place! 
+Time segments may also be nested. As always, the classes in the example are set-defined rather than predefined by FoLiA. The (optional) features \texttt{begindatetime} and \texttt{enddatetime} can be used express the exact moment at which an event started or ended. Note that this differs from the generic \texttt{datetime} attribute, which would describe the time at which the annotation was recorded, rather than when the event took place! 
 
-The declaration:
+The timing layer is ideally suited for segmenting speech and relating it to an annotatable transcription. Precisely for this purpose the timing layer can take an extra attribute \texttt{src}, this attribute specifies the filename or URL of a sound or video file with speech. All begindatetime and enddatetime attributes are then to be interpreted specifically for this file.
+
+\begin{lstlisting}[language=xml]
+<s>
+ <w xml:id="example.p.1.s.1.w.1"><t>I</t></w>
+ <w xml:id="example.p.1.s.1.w.2"><t>think</t></w>
+ <w xml:id="example.p.1.s.1.w.3"><t>I</t></w>
+ <w xml:id="example.p.1.s.1.w.4"><t>have</t></w>
+ <w xml:id="example.p.1.s.1.w.5"><t>to</t></w>
+ <w xml:id="example.p.1.s.1.w.6"><t>go</t></w>
+ <w xml:id="example.p.1.s.1.w.7"><t>.</t></w>
+ <timing src="ithinkihavetogo.mp3">
+  <timesegment begindatetime="00:00:00.000" 
+   enddatetime="00:00:00.250">
+    <wref id="example.p.1.s.1.w.1" t="I" />
+  </timesegment>
+  <timesegment begindatetime="00:00:00.250" 
+   enddatetime="00:00:00.500">
+    <wref id="example.p.1.s.1.w.2" t="think" />
+  </timesegment>
+  <timesegment begindatetime="00:00:00.500" 
+   enddatetime="00:00:00.750">
+    <wref id="example.p.1.s.1.w.3" t="I" />
+  </timesegment>
+  <timesegment begindatetime="00:00:00.750" 
+   enddatetime="00:00:01.000">
+    <wref id="example.p.1.s.1.w.4" t="have" />
+  </timesegment>
+  <timesegment begindatetime="00:00:01.000" 
+   enddatetime="00:00:01.250">
+    <wref id="example.p.1.s.1.w.5" t="to" />
+  </timesegment>
+  <timesegment begindatetime="00:00:01.250" 
+   enddatetime="00:00:01.500">
+    <wref id="example.p.1.s.1.w.6" t="go" />
+  </timesegment>
+ </timing>
+</s>
+\end{lstlisting}
+
+
+The declaration for time segmentation is as follows:
 
 \begin{lstlisting}[language=xml]
 <annotations>
-    <timedevent-annotation set="http://ilk.uvt.nl/folia/sets/events" />
+    <timesegment-annotation set="http://ilk.uvt.nl/folia/sets/events" />
 </annotations>
 \end{lstlisting}
 
-For more coarser annotation of events,  use the structure annotation element \texttt{event} instead. See section~\ref{events}.
+If you are only interested in a annotation of events, and a more coarser level of annotation suffices, then use the structure annotation element \texttt{event} instead. See section~\ref{events}.
+
+\textbf{Note:} time segments were known as "timed events" in FoLiA 0.8 and below. They have been renamed to a more appropriate and more generic name. For backward compatibility, libraries should implement \texttt{timedevent} as an alias for \texttt{timesegment}, and \texttt{timedevent-annotation} as an alias for \texttt{timesegment-annotation}. 
 
 
 \subsection{Semantic roles}
 
+\status{new in 0.9}{pynlpl}
 
-\status{TO BE PROPOSED}{no}
+Semantic roles, or thematic roles, are implemented in FoLiA using the span-annotation element \texttt{semrole}, within the annotation layer \texttt{semroles}, usually embedded at sentence level.
 
-\begin{devnotes}
-Still to be done.. The \texttt{semroles} layer and \texttt{semrole} span annotation element will be reserved for this.
-\end{devnotes}
+\begin{lstlisting}[language=xml]
+<s xml:id="example.p.1.s.1">
+  <t>The Dalai Lama greeted him.</t>
+  <w xml:id="example.p.1.s.1.w.1"><t>The</t></w>
+  <w xml:id="example.p.1.s.1.w.2"><t>Dalai</t></w>
+  <w xml:id="example.p.1.s.1.w.3"><t>Lama</t></w>
+  <w xml:id="example.p.1.s.1.w.4"><t>greeted</t></w>
+  <w xml:id="example.p.1.s.1.w.5"><t>him</t></w>
+  <w xml:id="example.p.1.s.1.w.6"><t>.</t></w>
+  <semroles>
+	<semrole class="agent">
+		<wref id="example.p.1.s.1.w.2" />
+		<wref id="example.p.1.s.1.w.3" />
+	</semrole>
+	<semrole class="patient">
+		<wref id="example.p.1.s.1.w.5" />
+	</semrole>
+  </semroles>
+</s>
+\end{lstlisting}
 
+Semantic roles commonly correspond with syntactic units. Links between the two can be expressed using FoLiA's facility for alignments (see also section~\ref{sec:alignments}), which were already seen in dependency relations as well. The \texttt{aref} element may be used from within the \texttt{semrole} element to link to a syntactic unit, or anything else for that matter. The following example illustrates this:
 
+\begin{lstlisting}[language=xml]
+<s xml:id="example.p.1.s.1">
+  <t>De man begroette hem.</t>
+  <w xml:id="example.p.1.s.1.w.1"><t>De</t></w>
+  <w xml:id="example.p.1.s.1.w.2"><t>man</t></w>
+  <w xml:id="example.p.1.s.1.w.3"><t>begroette</t></w>
+  <w xml:id="example.p.1.s.1.w.4"><t>hem</t></w>
+  <w xml:id="example.p.1.s.1.w.5"><t>.</t></w>
+  <syntax>
+    <su xml:id="example.p.1.s.1.su.1" class="top">     
+        <su xml:id="example.p.1.s.1.su.1_1" class="smain">     
+            <su xml:id="example.p.1.s.1.su.1_1_1" class="np">     
+                <su xml:id="example.p.1.s.1.su.1_1_1_1" class="top">     
+                    <wref id="example.p.1.s.1.w.1" t="De" />       
+                </su>
+                <su xml:id="example.p.1.s.1.su.1_1_1_2" class="top">     
+                    <wref id="example.p.1.s.1.w.2" t="man" />
+                </su> 
+            </su>
+            <su xml:id="example.p.1.s.1.su.1_1_2" class="verb">     
+                <wref id="example.p.1.s.1.w.3" t="begroette" />   
+            </su>
+            <su xml:id="example.p.1.s.1.su.1_1_3" class="pron">     
+                <wref id="example.p.1.s.1.w.4" t="hem" />   
+            </su>
+        </su>
+        <su xml:id="example.p.1.s.1.su.1_2" class="punct">
+            <wref id="example.p.1.s.1.w.5" t="." />               
+        </su> 
+    </su>
+  </syntax>
+  <semroles>
+	<semrole class="agent">
+		<wref id="example.p.1.s.1.w.1" />
+		<wref id="example.p.1.s.1.w.2" />
+		<aref id="example.p.1.s.1.su.1_1_1" type="su">
+	</semrole>
+	<semrole class="patient">
+		<wref id="example.p.1.s.1.w.4" />
+		<aref id="example.p.1.s.1.su.1_1_3" type="su">
+	</semrole>
+  </semroles>
+</s>
+\end{lstlisting}
+
+The \texttt{hd} element can optionally be used to mark the head of a semantic role:
+
+\begin{lstlisting}[language=xml]
+	<semrole class="agent">
+		<wref id="example.p.1.s.1.w.1" t="de" />
+		<hd>
+			<wref id="example.p.1.s.1.w.2" t="man" />
+		</hd>
+		<aref id="example.p.1.s.1.su.1_1_2" type="su">
+	</semrole>
+\end{lstlisting}
+
+The mandatory declaration for semantic role annotation is as follows:
+
+\begin{lstlisting}[language=xml]
+<annotations>
+    <semrole-annotation set="http://ilk.uvt.nl/folia/sets/semroles" />
+</annotations>
+\end{lstlisting}
+
+\subsection{Coreference Relations}
+\label{sec:coref}
+
+\status{new in 0.9}{not yet}
+
+Relations between words that refer to the same referent are expressed in FoLiA using the \texttt{coreferencechain} and \texttt{coreferencelink} span-annotation elements, within the \texttt{coreferences} annotation layer. This is done by specifying the entire chain in which all links are coreferent. The head of a coreference may optionally be marked with the \texttt{hd} element. This annotation layer itself may be embedded on whatever level is preferred, the following example uses paragraph level, but you can for instance also embed it at sentence level or a global text level:  
+
+\begin{lstlisting}[language=xml]
+<p xml:id="example.p.1">
+<s xml:id="example.p.1.s.1">
+  <t>The Dalai Lama greeted him.</t>
+  <w xml:id="example.p.1.s.1.w.1"><t>The</t></w>
+  <w xml:id="example.p.1.s.1.w.2"><t>Dalai</t></w>
+  <w xml:id="example.p.1.s.1.w.3"><t>Lama</t></w>
+  <w xml:id="example.p.1.s.1.w.4"><t>greeted</t></w>
+  <w xml:id="example.p.1.s.1.w.5"><t>him</t></w>
+  <w xml:id="example.p.1.s.1.w.6"><t>.</t></w>
+</s>
+<s xml:id="example.p.1.s.2">
+  <t>He was happy to see him.</t>
+  <w xml:id="example.p.1.s.2.w.1"><t>He</t></w>
+  <w xml:id="example.p.1.s.2.w.2"><t>was</t></w>
+  <w xml:id="example.p.1.s.2.w.3"><t>happy</t></w>
+  <w xml:id="example.p.1.s.2.w.4"><t>to</t></w>
+  <w xml:id="example.p.1.s.2.w.4"><t>see</t></w>
+  <w xml:id="example.p.1.s.2.w.5"><t>him</t></w>
+  <w xml:id="example.p.1.s.2.w.6"><t>.</t></w>  
+</s>
+<s xml:id="example.p.1.s.3">
+  <t>He was happy to see him.</t>
+  <w xml:id="example.p.1.s.3.w.1"><t>He</t></w>
+  <w xml:id="example.p.1.s.3.w.2"><t>smiled</t></w>
+  <w xml:id="example.p.1.s.3.w.3"><t>.</t></w>
+</s>
+<coreferences>
+	<coreferencechain class="ident">
+		<coreferencelink>
+			<wref id="example.p.1.s.1.w.1" t="The" />
+			<hd>
+				<wref id="example.p.1.s.1.w.2" t="Dalai" />
+				<wref id="example.p.1.s.1.w.3" t="Lama" />
+			</hd>
+		</coreferencelink>
+		<coreferencelink>
+			<wref id="example.p.1.s.2.w.1" t="he" />
+		</coreferencelink>
+	</coreferencechain>
+</coreferences>
+</p>
+\end{lstlisting}
+
+Being a span-annotation element, the \texttt{coreference} element may take all of the usual attributes, most notable is the \texttt{class} element designating the type of coreference relation. Like its parent, each of the links in the chain may take the standard attributes \texttt{annotator}, \texttt{annotatortype}, \texttt{datetime}, \texttt{confidence}. The links or heads do not take a class, only \texttt{coreferencechain} does.
+
+\texttt{Coreferencelink} may take three attributes, which are actually predefined FoLiA subsets (See Section~\ref{subset}), their values depend on the set used and are thus customly definable and never predefined: 
+
+\begin{itemize} %As suggested by Orphee De Clerq
+\item \texttt{modality} - A subset that can be used for indication that there is modality or negation in this coreference link.
+\item \texttt{time} - A subset used to indicate a time dependency. An example of a time dependency is seen in the sentence: ``Bert De Graeve, until recently CEO, will now take up a position as CFO''. Here 
+``Bert De Graeve'', ``CEO''  and ``CFO'' would all be part of the same coreference chain, and the second \texttt{coreferencelink} (``CEO'') can be marked as being in the past using the ``time'' attribute.
+\item \texttt{level} - A subset used that can indicate the level on which the coreference holds. A possible value suggestion could be ``sense'', indicating that only on sense-level there is a corefence relation, as opposed to an actual reference.
+\end{itemize}
+
+%TODO: more examples?
+
+The declaration for coreference relations is done as follows:
+
+\begin{lstlisting}[language=xml]
+<annotations>
+    <coreference-annotation set="http://ilk.uvt.nl/folia/sets/coref" />
+</annotations>
+\end{lstlisting}
 
 \subsection{Alterative Span Annotations}
 
@@ -1633,7 +1876,7 @@ Moreover, we have seen the space attribute, which is a simple alternative that c
 \end{itemize}
 
 
-When explicit text content on sentence/paragraph level is provided, offsets can be used to refer back to it from deeper text-content elements. This does imply that there are some challenges to solve. First of all, by default, the offset refers to the direct parent of whatever element the text content (\texttt{t}) is a member of. If a level is missing we have to explicitly specify this reference using the \texttt{ref} attribute. Note that there is no text content for the sentence in the following example, and we refer directly to the paragraph's text:
+When explicit text content on sentence/paragraph level is provided, offsets can be used to refer back to it from deeper text-content elements. This does imply that there are some challenges to solve. First of all, by default, the offset refers to the direct parent of whatever text-supporting element the text content (\texttt{t}) is a member of. If a level is missing we have to explicitly specify this reference using the \texttt{ref} attribute. Note that there is no text content for the sentence in the following example, and we refer directly to the paragraph's text:
 
 \begin{lstlisting}[language=xml]
  <p xml:id="example.p.1">
@@ -1855,14 +2098,106 @@ Option two:
 \end{lstlisting}
 
 
-\section{Subtoken Annotation}
+\section{Morphological Annotation / Subtoken Annotation}
 
-Subtoken category combines aspects from both token annotation and span annotation. It introduces an annotation layer at the token level, as child of the \texttt{w} element. Within this annotation layer, subtoken annotation elements can be used to annotate parts within the token itself. Whereas span elements use \texttt{wref} to refer to words, subannotation elements use \texttt{t} to refer to part of the text of the token. Recall that \texttt{t} elements can contain references to higher-level \texttt{t} elements. In such cases, the \texttt{offset} attribute is used to designate the offset index in the word's associated text element (\texttt{t}) (zero being right at the start of the text).
+\status{heavily revised since v0.9}{reimplementation necessary}
 
-\subsection{Morphological Analysis}
+Tokens can be further segmented into morphemes, a subtoken level of annotation. Morphemes behave quite similar to \texttt{w} elements (tokens). Moreover, morphemes can be referred to in span annotation, allowing spans to be defined not only over whole words/tokens but also parts thereof. The element for morphemes is \texttt{morpheme}, and can only occur within \texttt{w} elements. Recall that \texttt{t} elements can contain references to higher-level \texttt{t} elements. In such cases, the \texttt{offset} attribute is used to designate the offset index in the word's associated text element (\texttt{t}) (zero being right at the start of the text). Morphemes may do this.
 
-\status{final since v0.4}
+Furthermore, a morpheme may take a class, usually referring to its type. As always, the classes are defined by the declared set, and not predefined by the FoLiA set. Declaration proceeds as follows:
 
+\begin{lstlisting}[language=xml]
+<annotations>
+    <morphology-annotation set="http://ilk.uvt.nl/folia/sets/entities" />
+</annotations>
+\end{lstlisting}
+
+An example of morphology in use could look as follows:
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.4.s.2.w.4">
+    <t>leest</t>
+    <lemma class="lezen" />
+    <morphology>
+        <morpheme class="stem" function="lexical">
+            <t offset="0">lees</t>
+        </morpheme>
+        <morpheme class="suffix" function="inflexional">
+            <t offset="4">t</t>
+        </morpheme>
+    </morphology>
+</w>
+\end{lstlisting}
+
+Note that attribute \texttt{function} is a predefined subclass you may use (not mandatory), its values are defined in the set rather than the FoLiA standard, so are user-defined.
+
+Morphemes are special as they allow token annotation just as words do. We can for instance bind a lemma annotation to the morpheme representing the word's stem rather than only to the entire word:
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.4.s.2.w.4">
+    <t>leest</t>
+    <lemma class="lezen" />
+    <morphology>
+        <morpheme xml:id="example.p.4.s.2.w.4.m.1" class="stem" function="lexical">
+			<lemma class="lezen" />
+            <t offset="0">lees</t>
+        </morpheme>
+        <morpheme xml:id="example.p.4.s.2.w.4.m.2" class="suffix" function="inflexional">
+            <t offset="4">t</t>
+        </morpheme>
+    </morphology>
+</w>
+\end{lstlisting}
+
+Similarly, consider the Spanish word or phrase ``Dámelo'' (give it to me), written as one entity. If this has not been split during tokenisation, but left as a single token, you can annotate its morphemes, as all morphemes allow token annotation to be placed within its scope:
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.1.s.1.w.1">
+    <t>dámelo</t>
+    <morphology>
+        <morpheme class="stem">
+            <t offset="0">dá</t>
+			<lemma class="dar" />
+			<pos class="v" />
+        </morpheme>
+        <morpheme class="suffix">
+            <t offset="2">me</t>
+			<lemma class="me" />
+			<pos class="pron" />
+        </morpheme>
+        <morpheme class="suffix">
+            <t offset="4">lo</t>
+			<lemma class="lo" />
+			<pos class="pron" />
+        </morpheme>
+    </morphology>
+</w>
+\end{lstlisting}
+
+Unlike words, morphemes may also be nested, as they can be expressed on multiple levels:
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.1.s.1.w.1">
+    <t>comfortable</t>
+    <morphology>
+        <morpheme class="base">
+            <t offset="0">comfort</t>
+			<morpheme class="prefix">
+				<t offset="0">com</t>
+			</morpheme>
+			<morpheme class="morph">
+				<t offset="3">fort</t>				
+			</morpheme>
+        </morpheme>
+        <morpheme class="suffix">
+            <t offset="7">able</t>
+        </morpheme>
+    </morphology>
+</w>
+\end{lstlisting}
+
+
+Note that the annotation of morphology has changed since FoLiA version 0.9. Older versions did not yet assign a class to morphemes themselves, but rather only used features, which were entirely left to the set to define. These documents remain valid in FoLiA 0.9 and above, but this way is no longer the recommended way. The following example illustrated the old style:
 
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.4.s.2.w.4">
@@ -1884,17 +2219,34 @@ Subtoken category combines aspects from both token annotation and span annotatio
 \end{lstlisting}
 
 
+The next example will illustrate how morphemes can be referred to in span annotation. Here we have a morpheme, and not the entire words, which forms a named entity:
+
 \begin{lstlisting}[language=xml]
-<annotations>
-    <morphology-annotation set="http://ilk.uvt.nl/folia/sets/entities" />
-</annotations>
+<w xml:id="example.p.4.s.2.w.4">
+    <t>CDA-voorzitter</t>
+    <morphemes>
+		<morpheme xml:id="example.p.4.s.2.w.1.m.1">
+			<t offset="0">CDA</t>
+		</morpheme>
+	</morphemes>	
+	<entities>
+		<entity xml:id="entity.1">
+			<wref id="example.p.4.s.2.w.1.m.1" />
+		</entity>
+	</entities>
+</w>
 \end{lstlisting}
 
-\subsection{Named Entities within a token}
+The older FoLiA elements \texttt{subentities} and \texttt{subentity} are deprecated in favour of this new approach.
 
-\status{final since v0.4}{pynlpl,libfolia}
+The same approach can be followed for other kinds of span annotation. Note that the span annotation layer (\texttt{entities} in the example) may be embedded on various levels. Most commonly on sentence level, but also on word level, paragraph level or the global text level.
 
-Named entities may sometimes occur as \emph{part} of a token. The \texttt{subentities} annotation layer and the \texttt{subentity} subtoken annotation element can be used for annotating these:  
+
+%\subsection{Named Entities within a token}
+
+%\status{final since v0.4}{pynlpl,libfolia}
+
+%Named entities may sometimes occur as \emph{part} of a token. The \texttt{subentities} annotation layer and the \texttt{subentity} subtoken annotation element can be used for annotating these:  
 
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.4.s.2.w.4">
@@ -1908,7 +2260,7 @@ Named entities may sometimes occur as \emph{part} of a token. The \texttt{subent
 </w>
 \end{lstlisting}
 
-The declaration:
+%The declaration:
 
 \begin{lstlisting}[language=xml]
 <annotations>
@@ -1918,6 +2270,7 @@ The declaration:
 
 
 \section{Alignments}
+\label{sec:alignments}
 
 \status{revised in v0.8}{not implemented yet}
 
@@ -1947,7 +2300,7 @@ Consider the two following aligned sentences from excerpts of two \emph{distinct
 </s>
 \end{lstlisting}
 
-The \texttt{t} attribute to the \texttt{aref} element is merely optional and this overhead is added simply to facilitate the job of limited FoLiA parsers and provides a quick reference to the target text for both parser and human user. The \texttt{xlink:href} attribute is used to link to the target document, if any. If the alignment is within the same document then it should be simply omitted. The \texttt{type} attribute in \texttt{aref} is mandatory and specifies the type of element the alignment points too, i.e. its value is equal to the tagname it points to.
+The \texttt{t} attribute to the \texttt{aref} element is merely optional and this overhead is added simply to facilitate the job of limited FoLiA parsers and provides a quick reference to the target text for both parsers and human users. The \texttt{xlink:href} attribute is used to link to the target document, if any. If the alignment is within the same document then it should be simply omitted. The \texttt{type} attribute in \texttt{aref} is mandatory and specifies the type of element the alignment points too, i.e. its value is equal to the tagname it points to.
 
 Although the above example has a single alignment reference (\texttt{aref}), it is not forbidden to specify multiple references within the \texttt{alignment} block. For more complex alignments however, such as word alignments that include many-to-one, one-to-many or many-to-many alignments, the element \texttt{complexalignment} may be more suitable, which behaves similarly to a span annotation element. This element groups \texttt{alignment} elements together, effectively creating a many-to-many alignment. The following example illustrates an example similar to the one above. All this takes place within the \texttt{complexalignments} annotation layer.
 
@@ -1967,7 +2320,7 @@ Although the above example has a single alignment reference (\texttt{aref}), it 
 	        <aref id="example-english.p.1.s.1.w.3" t="Lama" type="w">	
 		</alignment>
 		<alignment class="french-translation" xlink:href="doc-french.xml"
-          xlink:type="simple>
+          xlink:type="simple">
 	        <aref id="example-french.p.1.s.1.w.2" t="Dalai" type="w">
 	        <aref id="example-french.p.1.s.1.w.3" t="Lama" type="w">
 		</alignment>
@@ -1978,7 +2331,7 @@ Although the above example has a single alignment reference (\texttt{aref}), it 
 
 Here \texttt{aref} is used instead of \texttt{wref}, as despite similarities alignments are technically not exactly span annotation elements. You can in fact align anything that can carry an ID, within the same document and across multiple documents. Moreover, the notion of alignments is not limited to just to words, and it can be used for more than specifying translations.
 
-The first \texttt{alignment} element has no xlink reference, and therefore simply refers to the current document. The subsequent alignment element links to the foreign document. This notation is powerful as it does allows you to specify a large number of alignments in a concise matter. Consider the next example in which we added german and italian. Effectively specifying what can be perceived as 16 relationships over four different documents:
+The first \texttt{alignment} element has no xlink reference, and therefore simply refers to the current document. The second alignment element links to the foreign document. This notation is powerful as it allows you to specify a large number of alignments in a concise matter. Consider the next example in which we added german and italian. Effectively specifying what can be perceived as 16 relationships over four different documents:
 
 \begin{lstlisting}[language=xml]
 <s xml:id="example-english.p.1.s.1">
@@ -1996,17 +2349,17 @@ The first \texttt{alignment} element has no xlink reference, and therefore simpl
 	        <aref id="example-english.p.1.s.1.w.3" t="Lama" type="w">	
 		</alignment>
 		<alignment class="french-translation" xlink:href="doc-french.xml"
-          xlink:type="simple>
+          xlink:type="simple">
 	        <aref id="example-french.p.1.s.1.w.2" t="Dalai" type="w">
 	        <aref id="example-french.p.1.s.1.w.3" t="Lama" type="w">
 		</alignment>
 		<alignment class="german-translation" xlink:href="doc-german.xml"
-          xlink:type="simple>
+          xlink:type="simple">
 	        <aref id="example-german.p.1.s.1.w.2" t="Dalai" type="w">
 	        <aref id="example-german.p.1.s.1.w.3" t="Lama" type="w">
 		</alignment>
 		<alignment class="italian-translation" xlink:href="doc-italian.xml"
-          xlink:type="simple>
+          xlink:type="simple">
 	        <aref id="example-italian.p.1.s.1.w.2" t="Dalai" type="w">
 	        <aref id="example-italian.p.1.s.1.w.3" t="Lama" type="w">
 		</alignment>
@@ -2332,12 +2685,12 @@ Some common XPath queries are listed below, note that for brevity and readabilit
 \item XPath query for all sentences: \texttt{//s[not(ancestor-or-self::*/@auth) and not(ancestor::quote)]} \\
     \emph{Explanation: When selecting sentences, you often do not want sub-sentences that are part of a quote, since they may overlap with the larger sentence they form a part of. The \texttt{not(ancestor::quote)} predicate guarantees this can not happen.}
 \item XPath query for all words: \texttt{//w[not(ancestor-or-self::*/@auth)]}
-\item XPath query for the text of all words/tokens: \texttt{//w//t[not(ancestor-or-self::*/@auth) and not(@class)]/text()} \\
-    \emph{Explanation: The \texttt{[not(@class)]} predicate is important here and makes sure to select only the text content element in case there are multiple. Recall that FoLiA dictates that the classless text element appears before any others, ensuring that has no class. (See Section~\ref{sec:textcontent}}.    
-\item XPath query for all words with lemma X: \texttt{//w[.//lemma[@class="X" and not(ancestor-or-self::*/@auth)] ]}
-    \emph{Note: This query assumes there is only one declaration for lemma annotation, and the set has been verified}
-\item XPath query for all words with PoS-tag A in set S: \texttt{//w[.//pos[@set="S" and @class="A" and not(ancestor-or-self::*/@auth)] ]}
-    \emph{Note: This query assumes the set attribute was set explicitly, i.e. there are multiple possible sets in the document for this annotation type}
+\item XPath query for the text of all words/tokens: \texttt{//w//t[not(ancestor-or-self::*/@auth) and not(ancestor-or-self::*/morpheme) and not(@class)]/text()} \\
+    \emph{Explanation: The \texttt{[not(@class)]} predicate is important here and makes sure to select only the text content element in case there are multiple. (See also Section~\ref{sec:textcontent}). The \texttt{not(ancestor-or-self::*/morpheme} makes sure morphemes are excluded}.    
+\item XPath query for all words with lemma X: \texttt{//w[.//lemma[@class="X" and not(ancestor-or-self::*/@auth) and not(ancestor-or-self::*/morpheme] ]}
+    \emph{Note: This query assumes there is only one declaration for lemma annotation, and the set has been verified. It furthermore excludes morphemes.}
+\item XPath query for all words with PoS-tag A in set S: \texttt{//w[.//pos[@set="S" and @class="A" and not(ancestor-or-self::*/@auth)] ]. }
+    \emph{Note: This query assumes the set attribute was set explicitly, i.e. there are multiple possible sets in the document for this annotation type. This query does not exclude morphemes.}
 \item XPath query for the text of all words with PoS-tag A in set S: \texttt{//w[.//pos[@set="S" and @class="A" and not(ancestor-or-self::*/@auth)] ]//t[not(ancestor-or-self::*/@auth) and not(@class)]/text()}
     \emph{Note: The predicate for non-authoritativeness here needs to be applied both to the pos element and the text content element \texttt{t}, otherwise you may accidentally select the text of words which have the desired pos tag only as an alternative.}
 \item XPath query to select all alternative PoS tags for all words: \texttt{//w/alt/pos} \\       
