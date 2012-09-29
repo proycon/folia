@@ -370,7 +370,6 @@ For \emph{all} structure elements in a speech context, the following speech-spec
 
 %TODO
  
-  
 
 \section{Paradigm \& Terminology}
 \label{sec:paradigm}
@@ -381,14 +380,23 @@ The FoLiA format has a very uniform setup and its XML notation for annotation fo
 \item \textbf{Structural annotation} - Annotations marking global structure, such as chapters, sections, subsections, figures, list items, paragraphs, etc...
 \item \textbf{Token annotation} - Annotations pertaining to one specific token. These will be elements of the token element (\texttt{w}) in inline notation. Linguistic annotations in this category are for example: part-of-speech annotation, lemma annotation, sense annotation, morphological analysis, spelling correction. Some token elements may be used on higher levels (e.g. sentence/paragraph) as well and may then be referred to as \textbf{Extended Token Annotation}
 \item \textbf{Span annotation} - Annotations spanning over multiple tokens. Each type of annotation will be in a separate \textbf{annotation layer} with offset notation. These layers are typically embedded on the sentence level, or possibly also on higher levels (paragraph/division/text) for certain annotation types. Examples in this category are: syntactic parses, chunking, semantic roles and named entities.
-\item \textbf{Subtoken annotation} - This is a type of annotation that has aspects of both token annotation as well as span annotation. The former because is included inline within a token element (\texttt{w}) and describes the token. The latter because is defines a small span \emph{within} the token. Examples in this category are: morphological analysis, named subentities 
+%\item \textbf{Subtoken annotation} - This is a type of annotation that has aspects of both token annotation as well as span annotation. The former because it is included inline within a token element (\texttt{w}) and describes the token. The latter because is defines a small span \emph{within} the token. Examples in this category are: morphological analysis. %TODO? re-enable?
 \end{itemize}
 
-Almost all annotations are associated with what we shall call a \textbf{set}. The set determines the vocabulary, the tags or types, of the annotation. An element of such a set is referred to as a \textbf{class} from the FoLiA perspective. For example, we may have a document with Part-of-Speech annotation according to the CGN set (a tagset for Dutch part-of-speech tags). The CGN set defines main tag classes such as \emph{WW}, \emph{BW}, \emph{ADJ}, \emph{VZ}. FoLiA itself thus never commits to any tagset but leaves you to explicitly define this. You can also use multiple tagsets in the same document if so desired, even for the same type of annotation.
+Almost all annotations are associated with what we call a \textbf{set}. The set determines the vocabulary of the annotation, i.e. the tags or types of the annotation. An element of such a set is referred to as a \textbf{class}. For example, we may have a document with Part-of-Speech annotation according to the CGN set (a tagset for Dutch part-of-speech tags). The CGN set defines main tag classes such as \emph{WW}, \emph{BW}, \emph{ADJ}, \emph{VZ}. FoLiA itself thus never commits to any tagset but leaves you to define this. You can also use multiple tagsets in the same document if so desired, even for the same type of annotation.
 
-Any annotation element may have a \texttt{set} attribute, the value of which points to the URL hosting the file that defines the set, and a \texttt{class} attribute, which selects a class from the set.
+Any annotation element may have a \texttt{set} attribute, the value of which points to the URL of the set definition file that defines the set. Such an element then also carries a \texttt{class} attribute, which selects a particular class from the set.
 
-The following example shows a simple Part-of-Speech annotation without features, but with all common attributes according to the FoLiA paradigm:
+In addition to this, various other generic FoLiA attributes are available for all annotation elements. These are never mandatory:
+
+\begin{enumerate}
+\item \texttt{annotator} -- The name or ID of the system or human annotator that made the annotation.
+\item \texttt{annotatortype} -- ``manual'' for human annotators, or ``auto'' for automated systems.
+\item \texttt{confidence} -- A floating point value between zero and one; expresses the confidence the annotator places in his annotation.
+\item \texttt{datetime} --  The date and time when this annotation was recorded, the format is \texttt{YYYY-MM-DDThh:mm:ss} (note the T in the middle to separate date from time), as per the XSD Datetime data type.
+\end{enumerate}
+
+The following example shows a simple Part-of-Speech annotation without features, but with various generic attributes according:
 
 \begin{lstlisting}[language=xml]
 <pos set="http://ilk.uvt.nl/folia/sets/CGN" class="WW" 
@@ -396,9 +404,9 @@ The following example shows a simple Part-of-Speech annotation without features,
  confidence="0.76" datetime="1982-12-15T19:01" />
 \end{lstlisting}
 
-The example demonstrates that any annotation element can take an \texttt{annotator} attribute and an \texttt{annotatortype}. The latter is either ``manual'' for human annotators, or ``auto'' for automated systems.  The value for \texttt{annotator} is open and should be set to the name or ID of the system or human annotator that made the annotation. The \texttt{confidence} attribute can be set to a floating point value between zero and one, and expresses the confidence the annotator places in his annotation. Last, the \texttt{datetime} attribute specifies the date and time when this annotation was recorded, the format is \texttt{YYYY-MM-DDThh:mm:ss} (note the T in the middle to separate date from time), as per the XSD Datetime data type. None of these options are mandatory, only \texttt{class} may be mandatory for some types of annotation, such as \texttt{pos}.
+%TODO: insert scheme
 
-More advanced aspects of the paradigm will introduced later in section \ref{sec:advparadigm}.
+More advanced aspects of the FoLiA paradigm will introduced later in section \ref{sec:advparadigm}.
 
 \section{Annotation Declarations}
 
@@ -787,7 +795,7 @@ And the example declaration:
 
 In semantic sense annotation, the classes in most sets will be a kind of lexical unit ID. In systems that make a distinction between lexical units and synonym sets (synsets), the synset attribute is available for notation of the latter. In systems with only synsets and no other primary form of lexical unit, the class can simply be set to the synset.
 
-A human readable description for the \emph{sense} element, ``beeldhouwwerk'', can beplaced inside a \texttt{desc} element, but this is optional.
+A human readable description for the \emph{sense} element, ``beeldhouwwerk'', could be placed inside a \texttt{desc} element, but this is optional.
 
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.2">
@@ -810,7 +818,7 @@ The example declaration is as follows:
 
 \status{final}{pynlpl,libfolia}
 
-This is an extended token annotation element, which means it can also be used directly in any of the content elements, such as sentence (\texttt{s}) and  paragraph (\texttt{p}). It can even be used in the \texttt{text} element itself. This annotation defines the domain of the token of content element. Example:
+Domain annotation is used to associate a certain domain with a structural element. This is an extended token annotation element, which means it can also be used directly in any of the content elements, such as sentence (\texttt{s}) and  paragraph (\texttt{p}). It can even be used in the \texttt{text} element itself. Example:
 
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.2">
@@ -819,7 +827,7 @@ This is an extended token annotation element, which means it can also be used di
 </w>
 \end{lstlisting}
 
-The declaration:
+The declaration, the actual set is fictitious:
 
 \begin{lstlisting}[language=xml]
 <annotations>
@@ -833,7 +841,7 @@ The declaration:
 
 \status{final since v0.9}{pynlpl,libfolia}
 
-The metric element allows annotation of some kind of measurement with any content element. Example:
+The metric element allows annotation of some kind of measurement for the element it is a member of. Example:
 
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.2">
@@ -843,7 +851,7 @@ The metric element allows annotation of some kind of measurement with any conten
 </w>
 \end{lstlisting}
 
-The declaration:
+The declaration. The actual sets are fictitious examples:
 
 \begin{lstlisting}[language=xml]
 <annotations>
@@ -916,8 +924,6 @@ In the examples above what we corrected was the actual textual content (\texttt{
     
 </w>    
 \end{lstlisting}
-
-
 
 \subsubsection{Error detection and correction with suggestions} 
 
@@ -1292,16 +1298,15 @@ Alternatives can be used as a great way of postponing actual annotation, due to 
 
 \section{Span Annotation}
 
-Not all annotations can be realised as token annotations. Some typically span multiple tokens. For these we introduce a kind of offset notation in separate \emph{annotation layers}. These annotation layers are embedded at the sentence level, \emph{after} the word tokens. Within these layers, references are made to these word tokens using the \texttt{wref} element. Each annotation layer is specific to a kind of span annotation, for which a declaration should be present in the metadata section of the document.
+Not all annotations can be realised as token annotations. Some typically span multiple tokens. For these we introduce a kind of offset notation in separate \emph{annotation layers}. These annotation layers are generally embedded at the sentence level, \emph{after} the word tokens, though they may also be embedded on higher levels. Within these layers, references are made to all of the the word tokens spanned using the \texttt{wref} element. Each annotation layer is specific to a kind of span annotation, for which a declaration should be present in the metadata section of the document.
 
-The layer elements themselves may also take the \texttt{set}, \texttt{annotator}, \texttt{annotatortype}, or \texttt{confidence} attributes. Which introduces the defaults for all the span annotations under it. They in turn may of course always chose to override this.
+%The layer elements themselves may also take the \texttt{set}, \texttt{annotator}, \texttt{annotatortype}, or \texttt{confidence} attributes. Which introduces the defaults for all the span annotations under it. They in turn may of course always chose to override this. %DISABLED FOR NOW, LIBRARIES DON't IMPLEMENT THIS YET
 
 \subsection{Entities}
 
 \status{final}{pynlpl,libfolia}
 
-Named entities or other multi-word units can be encoded in the \texttt{entities} layer. Below is an example of a full sentence in which one name is tagged. Each entity should have a unique identifier.
-
+Named entities or other multi-word units can be encoded in the \texttt{entities} layer. Below is an example of a full sentence in which one name is tagged. It is recommended for each entity to have a unique identifier.
 
 \begin{lstlisting}[language=xml]
 <s xml:id="example.p.1.s.1">
@@ -1321,13 +1326,13 @@ Named entities or other multi-word units can be encoded in the \texttt{entities}
 </s>
 \end{lstlisting}
 
-Note that elements that are not part of any span annotation need never be included in the layer. The \texttt{wref} element takes an \emph{optional} \texttt{t} attribute which contains a copy of the text of the word pointed towards. This is to facilitate human readability and prevent the need for resolving words for simple applications in which only the textual content is of interest.
+Note that elements that are not part of any span annotation need never be included in the layer. The \texttt{wref} element takes an \emph{optional} \texttt{t} attribute which contains a copy of the text of the word pointed at. This is to facilitate human readability and prevent the need for resolving words for simple applications in which only the textual content is of interest.
 
 \subsection{Syntax}
 
 \status{final}{pynlpl,libfolia}
 
-A very typical form of span annotation is syntax annotation. This is done within the \texttt{syntax} layer and introduces a nested hierarchy of syntactic unit (\texttt{su}) elements. Each syntactic unit should have a unique identifier.
+A very typical form of span annotation is syntax annotation. This is done within the \texttt{syntax} layer and introduces a nested hierarchy of syntactic unit (\texttt{su}) elements. It is recommended for each syntactic unit to have a unique identifier:
 
 \begin{lstlisting}[language=xml]
 <s xml:id="example.p.1.s.1">
@@ -1363,12 +1368,11 @@ A very typical form of span annotation is syntax annotation. This is done within
 </s>
 \end{lstlisting}
 
-Just to prevent any misunderstanding, the classes depend on the set used, so you can use whatever system of syntactic annotation you desire. Moreover, any of the \texttt{su} elements can have the common attributes \texttt{annotator}, \texttt{annotatortype} and \texttt{confidence}.
-
+As is prescribed by the FoLiA paradigm; the classes always depend on the set used. You can use whatever system of syntactic annotation you desire. Moreover, any of the \texttt{su} elements can have the common attributes \texttt{annotator}, \texttt{annotatortype} and \texttt{confidence}.
 
 The above example illustrated a fairly simple syntactic parse. Dependency parses are possible too. Dependencies are listed separate from the syntax in an extra annotation layer, see seection~\ref{sec:deprel}.
 
-The declaration is as follows:
+The declaration is as follows, the actual set is fictitious:
 
 \begin{lstlisting}[language=xml]
 <annotations>
@@ -1383,11 +1387,11 @@ The declaration is as follows:
 
 \status{slightly revised in v0.8 (no ``su'' attribute on hd/dep)}{pynlpl,libfolia}
 
-Dependency relations are relations between tokens of spans of tokens, in most cases equal to syntactic units. A dependency relation is often of a particular class and consists of a single head component and a single dependent component. In the sample ``He sees'', there is  syntactic dependency between the two words: ``sees'' is the head, and ``He'' is the dependant, and the relation class is something like ``subject'', as the dependant is the subject of the head word. Each dependency relation is explicitly noted. 
+Dependency relations are relations between tokens, in most cases equal to syntactic units. A dependency relation is often of a particular class and consists of a single head component and a single dependent component. In the sample ``He sees'', there is  syntactic dependency between the two words: ``sees'' is the head, and ``He'' is the dependant, and the relation class is something like ``subject'', as the dependant is the subject of the head word. Each dependency relation is explicitly noted in FoLiA.
 
 The element \texttt{dependencies} introduces this annotation layer. Within it, \texttt{dependency} elements describe all dependency pairs. 
 
-In the below example, we show a Dutch sentence parsed with the Alpino Parser \cite{ALPINO}. We show not only the dependency layer, but also the syntax layer to which it is related. The \texttt{dependency} element always contains one head element (\texttt{hd}) and one dependant element (\texttt{dep}), both can refer to a syntactic unit (or anything else for that matter) by means of the \texttt{aref} element within their scope. Additionally, the words they cover are reiterated in the usual fashion, using \texttt{wref}. For a better understanding, the figure below illustrates the syntactic parse with the dependency relations.
+In the below example, we show a Dutch sentence parsed with the Alpino Parser \cite{ALPINO}. We show not only the dependency layer, but also the syntax layer to which it is related. The \texttt{dependency} element always contains one head element (\texttt{hd}) and one dependant element (\texttt{dep}). The words they cover are reiterated in the usual fashion, using \texttt{wref}. For a better understanding, the figure below illustrates the syntactic parse with the dependency relations. Both \texttt{hd} and \texttt{dep} can optionally make extra reference to a syntactic unit (or anything else for that matter) by means of the \texttt{aref} element. 
 
 \begin{figure}[h]
 \begin{center}
@@ -1468,7 +1472,7 @@ In the below example, we show a Dutch sentence parsed with the Alpino Parser \ci
 Note that in the first dependency relation, the dependent is just ``man'' rather than ``de man'' . That is, we point only to the head of dependents, the full scope follows automatically when building the dependency tree.
 
 
-The declaration:
+The declaration, the actual sets are fictitious:
 
 \begin{lstlisting}[language=xml]
 <annotations>
@@ -1514,7 +1518,7 @@ Unlike a full syntactic parse, chunking is not nested. The layer for this type o
 \end{lstlisting}
 
 
-The declaration:
+The declaration, the actual sets are fictitious:
 
 \begin{lstlisting}[language=xml]
 <annotations>
@@ -1711,7 +1715,7 @@ The mandatory declaration for semantic role annotation is as follows:
 \subsection{Coreference Relations}
 \label{sec:coref}
 
-\status{new in 0.9}{not yet}
+\status{new in 0.9}{pynlpl}
 
 Relations between words that refer to the same referent are expressed in FoLiA using the \texttt{coreferencechain} and \texttt{coreferencelink} span-annotation elements, within the \texttt{coreferences} annotation layer. This is done by specifying the entire chain in which all links are coreferent. The head of a coreference may optionally be marked with the \texttt{hd} element. This annotation layer itself may be embedded on whatever level is preferred, the following example uses paragraph level, but you can for instance also embed it at sentence level or a global text level:  
 
@@ -2102,13 +2106,13 @@ Option two:
 
 \status{heavily revised since v0.9}{reimplementation necessary}
 
-Tokens can be further segmented into morphemes, a subtoken level of annotation. Morphemes behave quite similar to \texttt{w} elements (tokens). Moreover, morphemes can be referred to in span annotation, allowing spans to be defined not only over whole words/tokens but also parts thereof. The element for morphemes is \texttt{morpheme}, and can only occur within \texttt{w} elements. Recall that \texttt{t} elements can contain references to higher-level \texttt{t} elements. In such cases, the \texttt{offset} attribute is used to designate the offset index in the word's associated text element (\texttt{t}) (zero being right at the start of the text). Morphemes may do this.
+Tokens can be further segmented into morphemes, a subtoken level of annotation. Morphemes behave quite similarly to \texttt{w} elements (tokens). Moreover, morphemes can be referred to from within in span annotation using \texttt{wref}, allowing spans to be defined not only over whole words/tokens but also parts thereof. The element for morphemes is \texttt{morpheme}, and can only occur within \texttt{w} elements. Recall that \texttt{t} elements can contain references to higher-level \texttt{t} elements. In such cases, the \texttt{offset} attribute is used to designate the offset index in the word's associated text element (\texttt{t}) (zero being right at the start of the text). Morphemes may do this.
 
-Furthermore, a morpheme may take a class, usually referring to its type. As always, the classes are defined by the declared set, and not predefined by the FoLiA set. Declaration proceeds as follows:
+Furthermore, a morpheme may take a class, referring to its type. As always, the classes are defined by the declared set, and not predefined by the FoLiA set. Declaration proceeds as follows, the actual set is fictitious:
 
 \begin{lstlisting}[language=xml]
 <annotations>
-    <morphology-annotation set="http://ilk.uvt.nl/folia/sets/entities" />
+    <morphology-annotation set="http://ilk.uvt.nl/folia/sets/morphology" />
 </annotations>
 \end{lstlisting}
 
@@ -2129,9 +2133,9 @@ An example of morphology in use could look as follows:
 </w>
 \end{lstlisting}
 
-Note that attribute \texttt{function} is a predefined subclass you may use (not mandatory), its values are defined in the set rather than the FoLiA standard, so are user-defined.
+Note that attribute \texttt{function} is a predefined subclass you may use (not mandatory), its values are defined by the set rather than the FoLiA standard, so they are user-defined.
 
-Morphemes are special as they allow token annotation just as words do. We can for instance bind a lemma annotation to the morpheme representing the word's stem rather than only to the entire word:
+Morphemes are special as they allow token annotation just as words do. We can for instance bind lemma annotation to the morpheme representing the word's stem rather than only to the entire word:
 
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.4.s.2.w.4">
@@ -2197,7 +2201,7 @@ Unlike words, morphemes may also be nested, as they can be expressed on multiple
 \end{lstlisting}
 
 
-Note that the annotation of morphology has changed since FoLiA version 0.9. Older versions did not yet assign a class to morphemes themselves, but rather only used features, which were entirely left to the set to define. These documents remain valid in FoLiA 0.9 and above, but this way is no longer the recommended way. The following example illustrated the old style:
+Note that the annotation of morphology has changed since FoLiA version 0.9. Older versions did not yet assign a class to morphemes themselves, but rather only used features, which were entirely left to the set to define. These documents remain valid in FoLiA 0.9 and above, but this way is no longer the recommended way. The following example illustrates the old style:
 
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.4.s.2.w.4">
@@ -2219,7 +2223,7 @@ Note that the annotation of morphology has changed since FoLiA version 0.9. Olde
 \end{lstlisting}
 
 
-The next example will illustrate how morphemes can be referred to in span annotation. Here we have a morpheme, and not the entire words, which forms a named entity:
+The next example will illustrate how morphemes can be referred to in span annotation. Here we have a morpheme, and not the entire word, which forms a named entity:
 
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.4.s.2.w.4">
@@ -2240,7 +2244,6 @@ The next example will illustrate how morphemes can be referred to in span annota
 The older FoLiA elements \texttt{subentities} and \texttt{subentity} are deprecated in favour of this new approach.
 
 The same approach can be followed for other kinds of span annotation. Note that the span annotation layer (\texttt{entities} in the example) may be embedded on various levels. Most commonly on sentence level, but also on word level, paragraph level or the global text level.
-
 
 %\subsection{Named Entities within a token}
 
