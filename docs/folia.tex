@@ -268,7 +268,8 @@ The annotation declaration is a mandatory part of the metadata that declares all
 
 \begin{lstlisting}[language=xml]
 <annotations>
-        <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl" 
+        <token-annotation 
+          set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl" 
           annotator="ucto" annotatortype="auto" />
         <pos-annotation set="http://ilk.uvt.nl/folia/sets/CGN" 
           annotator="Frog" annotatortype="auto" />
@@ -410,11 +411,19 @@ If this kind of redundancy is used (it is not mandatory), you may optionally poi
     <t>This is a paragraph containing only one sentence.</t>
     <s xml:id="example.p.1.s.1">        
         <t offset="0">This is a paragraph containing only one sentence.</t>
-        <w xml:id="example.p.1.s.1.w.1"><t offset="0">This</t></w>
-        <w xml:id="example.p.1.s.1.w.2"><t offset="5">is</t></w>
+        <w xml:id="example.p.1.s.1.w.1">
+        	<t offset="0">This</t>
+        </w>
+        <w xml:id="example.p.1.s.1.w.2">
+        	<t offset="5">is</t>
+        </w>
         ...
-        <w xml:id="example.p.1.s.1.w.8" space="no"><t offset="40">sentence</t></w>
-        <w xml:id="example.p.1.s.1.w.9"><t offset="48">.</t></w>
+        <w xml:id="example.p.1.s.1.w.8" space="no">
+        	<t offset="40">sentence</t>
+        </w>
+        <w xml:id="example.p.1.s.1.w.9">
+        	<t offset="48">.</t>
+        </w>
     </s>
  </p>
 \end{lstlisting}
@@ -437,15 +446,21 @@ A quote may consist of one or more sentences, but may also consist of mere token
  <s xml:id="example.p.1.s.1">
   <w xml:id="example.p.1.s.1.w.1" class="WORD"><t>He</t></w>
   <w xml:id="example.p.1.s.1.w.2" class="WORD"><t>said</t></w>
-  <w xml:id="example.p.1.s.1.w.3" class="PUNCTUATION" space="no"><t>:</t></w>
-  <w xml:id="example.p.1.s.1.w.4" class="PUNCTUATION" space="no"><t>''</t></w>
+  <w xml:id="example.p.1.s.1.w.3" class="PUNCTUATION" space="no">
+  	<t>:</t>
+  </w>
+  <w xml:id="example.p.1.s.1.w.4" class="PUNCTUATION" space="no">
+  	<t>''</t>
+  </w>
   <quote xml:id="example.p.1.s.1.quote.1">
     <s xml:id="example.p.1.s.1.quote.1.s.1">
        <w xml:id="example.p.1.s.1.w.5" class="WORD"><t>I</t></w>
        <w xml:id="example.p.1.s.1.w.6" class="WORD"><t>do</t></w>
        <w xml:id="example.p.1.s.1.w.7" class="WORD"><t>not</t></w>
        <w xml:id="example.p.1.s.1.w.8" class="WORD"><t>know</t></w>
-       <w xml:id="example.p.1.s.1.w.9" class="PUNCTUATION" space="no"><t>.</t></w>
+       <w xml:id="example.p.1.s.1.w.9" class="PUNCTUATION" space="no">
+       	<t>.</t>
+       </w>
     </s>
     <s xml:id="example.p.1.s.1.quote.1.s.2">
        <w xml:id="example.p.1.s.1.w.10" class="WORD"><t>I</t></w>
@@ -459,7 +474,9 @@ A quote may consist of one or more sentences, but may also consist of mere token
   <w xml:id="example.p.1.s.1.w.16" class="PUNCTUATION"><t>,</t></w>
   <w xml:id="example.p.1.s.1.w.17" class="WORD"><t>and</t></w>
   <w xml:id="example.p.1.s.1.w.18" class="WORD"><t>left</t></w>
-  <w xml:id="example.p.1.s.1.w.19" class="PUNCTUATION" space="no"><t>.</t></w>
+  <w xml:id="example.p.1.s.1.w.19" class="PUNCTUATION" space="no">
+  	<t>.</t>
+  </w>
  </s>
 \end{lstlisting}
 
@@ -479,10 +496,13 @@ Being part of a set, this implies that tokens themselves \emph{may} be assigned 
 
 \begin{lstlisting}[language=xml]
 <s xml:id="example.p.1.s.1">
+	<t>I see 2 children.</t>
     <w xml:id="example.p.1.s.1.w.1" class="WORD"><t>I</t></w>
     <w xml:id="example.p.1.s.1.w.2" class="WORD"><t>see</t></w>
     <w xml:id="example.p.1.s.1.w.3" class="NUMBER"><t>2</t></w>
-    <w xml:id="example.p.1.s.1.w.4" class="WORD" space="no"><t>children</t></w>
+    <w xml:id="example.p.1.s.1.w.4" class="WORD" space="no">
+		<t>children</t>
+    </w>
     <w xml:id="example.p.1.s.1.w.5" class="PUNCTUATION"><t>.</t></w>
 </s>
 \end{lstlisting}        
@@ -820,7 +840,9 @@ A human readable description for the \emph{sense} element, ``beeldhouwwerk'', co
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.2">
     <t>beeld</t>
-    <sense class="r_n-6220" synset="d_n-32683"><desc>beeldhouwwerk</desc></sense>
+    <sense class="r_n-6220" synset="d_n-32683">
+    	<desc>beeldhouwwerk</desc>
+    </sense>
 </w>
 \end{lstlisting}
 
@@ -1196,12 +1218,18 @@ In a speech context, all structural elements may carry the generic attributes. S
 
 \begin{lstlisting}[language=xml]
 <s src="ithinkihavetogo.mp3">
- <w xml:id="example.p.1.s.1.w.1" begintime="00:00:00.0000" endtime="00:00:00.2500"><t>I</t></w>
- <w xml:id="example.p.1.s.1.w.2" begintime="00:00:00.2500" endtime="00:00:00.5000"><t>think</t></w>
- <w xml:id="example.p.1.s.1.w.3" begintime="00:00:00.5000" endtime="00:00:00.7500"><t>I</t></w>
- <w xml:id="example.p.1.s.1.w.4" begintime="00:00:00.7500" endtime="00:00:01.0000"><t>have</t></w>
- <w xml:id="example.p.1.s.1.w.5" begintime="00:00:01.0000" endtime="00:00:01.2500"><t>to</t></w>
- <w xml:id="example.p.1.s.1.w.6" begintime="00:00:01.2500" endtime="00:00:01.5000"><t>go</t></w>
+ <w xml:id="example.p.1.s.1.w.1"
+  begintime="00:00:00.0000" endtime="00:00:00.2500"><t>I</t></w>
+ <w xml:id="example.p.1.s.1.w.2"
+  begintime="00:00:00.2500" endtime="00:00:00.5000"><t>think</t></w>
+ <w xml:id="example.p.1.s.1.w.3" 
+  begintime="00:00:00.5000" endtime="00:00:00.7500"><t>I</t></w>
+ <w xml:id="example.p.1.s.1.w.4"
+  begintime="00:00:00.7500" endtime="00:00:01.0000"><t>have</t></w>
+ <w xml:id="example.p.1.s.1.w.5" 
+  begintime="00:00:01.0000" endtime="00:00:01.2500"><t>to</t></w>
+ <w xml:id="example.p.1.s.1.w.6" 
+  begintime="00:00:01.2500" endtime="00:00:01.5000"><t>go</t></w>
  <w xml:id="example.p.1.s.1.w.7"><t>.</t></w>
  <timing>
 	<timesegment class="emphasised">
@@ -1999,7 +2027,8 @@ The declaration. The actual sets are fictitious examples:
 
 \begin{lstlisting}[language=xml]
 <annotations>
-    <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl" annotator="ucto" annotatortype="auto" />
+    <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl"
+      annotator="ucto" annotatortype="auto" />
     <metric-annotation set="http://ilk.uvt.nl/folia/sets/metrics" />
 </annotations>
 \end{lstlisting}
@@ -2147,7 +2176,8 @@ Something similar may happen when a correction is made \emph{on the basis of} on
         <original auth="no">
             <t>treee</t>
         </original>
-        <errordetection class="spelling" annotator="errorlist" annotatortype="auto" />
+        <errordetection class="spelling"
+         annotator="errorlist" annotatortype="auto" />
     </correction>
 </w>
 \end{lstlisting}
