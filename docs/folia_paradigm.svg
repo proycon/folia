@@ -14,7 +14,10 @@
    id="svg3373"
    version="1.1"
    inkscape:version="0.48.3.1 r9886"
-   sodipodi:docname="folia_paradigm.svg">
+   sodipodi:docname="folia_paradigm.svg"
+   inkscape:export-filename="/home/proycon/work/FoLiA/docs/folia_paradigm.png"
+   inkscape:export-xdpi="300"
+   inkscape:export-ydpi="300">
   <defs
      id="defs3375">
     <marker
@@ -156,8 +159,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4142136"
-     inkscape:cx="213.54209"
-     inkscape:cy="895.57454"
+     inkscape:cx="218.07687"
+     inkscape:cy="772.14308"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -176,7 +179,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -185,14 +188,14 @@
      inkscape:groupmode="layer"
      id="layer1">
     <rect
-       style="opacity:0.67873307999999999;fill:#f2f2f2;stroke:#000301;stroke-width:1.34198737000000001;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:0.46625767000000001;stroke-dasharray:2.68397497999999990, 1.34198750000000011;stroke-dashoffset:0"
+       style="opacity:0.67873308;fill:#f2f2f2;stroke:#000301;stroke-width:1.32472348;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:0.46625767;stroke-dasharray:2.64944719, 1.3247236;stroke-dashoffset:0"
        id="rect3104-2-5"
        width="105.49435"
-       height="69.251907"
+       height="67.481598"
        x="141.73904"
        y="330.60629"
        rx="22.911518"
-       ry="1.8851159" />
+       ry="1.8369257" />
     <path
        style="fill:#ffeeaa;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 13.131983,175.0447 134.350287,0 0,51.51778 -67.680219,111.11678 -25.75889,0 -41.416254,-114.14723 z"
@@ -381,8 +384,8 @@
        id="rect3989"
        width="226.02907"
        height="73.538086"
-       x="166.47623"
-       y="222.3891"
+       x="165.06201"
+       y="223.80331"
        rx="28.765694"
        ry="8.4423342" />
     <text
@@ -868,7 +871,7 @@
          sodipodi:role="line"
          x="15.102862"
          y="168.80861"
-         id="tspan3574">Phonetic transcription, Metrics,</tspan><tspan
+         id="tspan3574">Phonetic transcription...</tspan><tspan
          sodipodi:role="line"
          x="15.102862"
          y="180.05861"
@@ -900,7 +903,7 @@
          sodipodi:role="line"
          x="15.792083"
          y="217.44939"
-         id="tspan3281-5-0-0">Semantic Roles </tspan><tspan
+         id="tspan3281-5-0-0">Semantic Roles... </tspan><tspan
          sodipodi:role="line"
          x="15.792083"
          y="228.69939"
@@ -985,42 +988,36 @@
          style="font-style:italic;-inkscape-font-specification:Sans Italic">annotation types.</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:9px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
-       x="155.5462"
-       y="391.73163"
-       id="text3991-3-8-6-3-8-4-9"
-       sodipodi:linespacing="125%"
-       transform="matrix(0.99999377,-0.00352892,0.00352892,0.99999377,0,0)"><tspan
-         sodipodi:role="line"
-         x="155.5462"
-         y="391.73163"
-         id="tspan3281-5-0-0-1">Descriptions</tspan><tspan
-         sodipodi:role="line"
-         x="155.5462"
-         y="402.98163"
-         id="tspan3251-1-4-9-3" /></text>
-    <text
-       xml:space="preserve"
        style="font-size:15px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000080;fill-opacity:1;stroke:none;font-family:Sans"
-       x="143.74203"
-       y="354.62292"
+       x="150.74203"
+       y="353.37292"
        id="text3426-0-6-1-3"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3428-8-4-6-6"
-         x="143.74203"
-         y="354.62292"
+         x="150.74203"
+         y="353.37292"
          style="font-size:10px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#000080;font-family:Ubuntu;-inkscape-font-specification:Ubuntu Bold">4a) Feature Annot.</tspan><tspan
          sodipodi:role="line"
-         x="143.74203"
-         y="367.12292"
+         x="150.74203"
+         y="365.87292"
          style="font-size:10px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#000080;font-family:Ubuntu;-inkscape-font-specification:Ubuntu Bold"
          id="tspan4812">4b) Alignment Ann.</tspan><tspan
          sodipodi:role="line"
-         x="143.74203"
-         y="379.62292"
+         x="150.74203"
+         y="378.37292"
          style="font-size:10px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#000080;font-family:Ubuntu;-inkscape-font-specification:Ubuntu Bold"
-         id="tspan4810">4c) Miscellaneous</tspan></text>
+         id="tspan4810">4c) Corrections</tspan><tspan
+         sodipodi:role="line"
+         x="150.74203"
+         y="390.87292"
+         style="font-size:10px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#000080;font-family:Ubuntu;-inkscape-font-specification:Ubuntu Bold"
+         id="tspan9222">4d) Alternatives</tspan><tspan
+         sodipodi:role="line"
+         x="150.74203"
+         y="403.37292"
+         style="font-size:10px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#000080;font-family:Ubuntu;-inkscape-font-specification:Ubuntu Bold"
+         id="tspan9224" /></text>
     <rect
        style="opacity:0.67873308;fill:none;stroke:#000301;stroke-width:1.63913608;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:0.46625767;stroke-dasharray:3.27827262, 1.63913631;stroke-dashoffset:0"
        id="rect3104-2-5-9"
@@ -1363,17 +1360,6 @@
          y="482.06073"
          style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:FreeMono;-inkscape-font-specification:FreeMono"
          id="tspan5136" /></text>
-    <text
-       xml:space="preserve"
-       style="font-size:15px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="174.28571"
-       y="375.21936"
-       id="text5336"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan5338"
-         x="174.28571"
-         y="375.21936">-</tspan></text>
     <rect
        style="opacity:0.67873308;fill:none;stroke:#000301;stroke-width:2.2932384;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:0.46625767;stroke-dasharray:4.58647789, 2.29323894;stroke-dashoffset:0"
        id="rect3104-2-5-9-1"
@@ -1673,42 +1659,42 @@
        xml:space="preserve"
        style="font-size:7px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        x="172.62256"
-       y="411.04333"
+       y="416.34665"
        id="text4720-6"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          x="172.62256"
-         y="411.04333"
+         y="416.34665"
          id="tspan4726-0"
          style="font-style:italic;-inkscape-font-specification:Sans Italic">Feature annotation</tspan><tspan
          sodipodi:role="line"
          x="172.62256"
-         y="419.79333"
+         y="425.09665"
          style="font-style:italic;-inkscape-font-specification:Sans Italic"
          id="tspan7744">may be used at-will</tspan><tspan
          sodipodi:role="line"
          x="172.62256"
-         y="428.54333"
+         y="433.84665"
          style="font-style:italic;-inkscape-font-specification:Sans Italic"
          id="tspan7750">in all annotation</tspan><tspan
          sodipodi:role="line"
          x="172.62256"
-         y="437.29333"
+         y="442.59665"
          style="font-style:italic;-inkscape-font-specification:Sans Italic"
          id="tspan7752">elements. Subsets are</tspan><tspan
          sodipodi:role="line"
          x="172.62256"
-         y="446.04333"
+         y="451.34665"
          style="font-style:italic;-inkscape-font-specification:Sans Italic"
          id="tspan7754">user-defined in the</tspan><tspan
          sodipodi:role="line"
          x="172.62256"
-         y="454.79333"
+         y="460.09665"
          style="font-style:italic;-inkscape-font-specification:Sans Italic"
          id="tspan7756">set.</tspan><tspan
          sodipodi:role="line"
          x="172.62256"
-         y="463.54333"
+         y="468.84665"
          style="font-style:italic;-inkscape-font-specification:Sans Italic"
          id="tspan7748" /></text>
     <path
