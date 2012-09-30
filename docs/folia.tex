@@ -1128,47 +1128,9 @@ FoLiA supports time segmentation using the \texttt{timing} layer and the \texttt
 </s>
 \end{lstlisting}
 
-Time segments may also be nested. As always, the classes in the example are set-defined rather than predefined by FoLiA. The (optional) features \texttt{begindatetime} and \texttt{enddatetime} can be used express the exact moment at which an event started or ended. Note that this differs from the generic \texttt{datetime} attribute, which would describe the time at which the annotation was recorded, rather than when the event took place! 
 
-The timing layer is ideally suited for segmenting speech and relating it to a transcription. Precisely for this purpose the timing layer can take an extra attribute \texttt{src}, this attribute specifies the filename or URL of a sound or video file with speech. All begindatetime and enddatetime attributes are then to be interpreted specifically for this file.
+Time segments may also be nested. As always, the classes in the example are set-defined rather than predefined by FoLiA. The prefefined and optional features \texttt{begindatetime} and \texttt{enddatetime} can be used express the exact moment at which an event started or ended. These too are set-defined so the format shown here is just an example.
 
-\begin{lstlisting}[language=xml]
-<s>
- <w xml:id="example.p.1.s.1.w.1"><t>I</t></w>
- <w xml:id="example.p.1.s.1.w.2"><t>think</t></w>
- <w xml:id="example.p.1.s.1.w.3"><t>I</t></w>
- <w xml:id="example.p.1.s.1.w.4"><t>have</t></w>
- <w xml:id="example.p.1.s.1.w.5"><t>to</t></w>
- <w xml:id="example.p.1.s.1.w.6"><t>go</t></w>
- <w xml:id="example.p.1.s.1.w.7"><t>.</t></w>
- <timing src="ithinkihavetogo.mp3">
-  <timesegment begindatetime="00:00:00.000" 
-   enddatetime="00:00:00.250">
-    <wref id="example.p.1.s.1.w.1" t="I" />
-  </timesegment>
-  <timesegment begindatetime="00:00:00.250" 
-   enddatetime="00:00:00.500">
-    <wref id="example.p.1.s.1.w.2" t="think" />
-  </timesegment>
-  <timesegment begindatetime="00:00:00.500" 
-   enddatetime="00:00:00.750">
-    <wref id="example.p.1.s.1.w.3" t="I" />
-  </timesegment>
-  <timesegment begindatetime="00:00:00.750" 
-   enddatetime="00:00:01.000">
-    <wref id="example.p.1.s.1.w.4" t="have" />
-  </timesegment>
-  <timesegment begindatetime="00:00:01.000" 
-   enddatetime="00:00:01.250">
-    <wref id="example.p.1.s.1.w.5" t="to" />
-  </timesegment>
-  <timesegment begindatetime="00:00:01.250" 
-   enddatetime="00:00:01.500">
-    <wref id="example.p.1.s.1.w.6" t="go" />
-  </timesegment>
- </timing>
-</s>
-\end{lstlisting}
 
 
 The declaration for time segmentation is as follows:
@@ -1179,11 +1141,82 @@ The declaration for time segmentation is as follows:
 </annotations>
 \end{lstlisting}
 
+
 If you are only interested in a annotation of events, and a more coarser level of annotation suffices, then use the structure annotation element \texttt{event} instead. See section~\ref{sec:events}.
 
-\textbf{Note:} time segments were known as "timed events" in FoLiA 0.8 and below. They have been renamed to a more appropriate and more generic name. For backward compatibility, libraries should implement \texttt{timedevent} as an alias for \texttt{timesegment}, and \texttt{timedevent-annotation} as an alias for \texttt{timesegment-annotation}. 
+
+\textbf{Note:} time segments were known as "timed events" in FoLiA 0.8 and below. They have been renamed to a more appropriate and more generic name. For backward compatibility, libraries should implement \texttt{timedevent} as an alias for \texttt{timesegment}, and \texttt{timedevent-annotation} as an alias for \texttt{timesegment-annotation}.
 
 
+\subsubsection{Time segmentation in a speech context}
+
+\status{PROPOSED in v0.9}{pynlpl}
+
+If used in a speech context, all the generic speech attributes become available (See section~\ref{sec:speech}). This introduces  \texttt{begintime} and \texttt{endtime}, which are different from \texttt{begindatetime} and \texttt{enddatetime} ! The generic attributes \texttt{begintime} and \texttt{endtime} are not defined by the set, but specify a time location in HH:MM:SS.MMMM format which may refer to the location in an associated sound file. Sound files are associated using the \texttt{src} attribute, which is inherited by all lower elements, so we put it on the sentence here:
+
+\begin{lstlisting}[language=xml]
+<s src="ithinkihavetogo.mp3">
+ <w xml:id="example.p.1.s.1.w.1"><t>I</t></w>
+ <w xml:id="example.p.1.s.1.w.2"><t>think</t></w>
+ <w xml:id="example.p.1.s.1.w.3"><t>I</t></w>
+ <w xml:id="example.p.1.s.1.w.4"><t>have</t></w>
+ <w xml:id="example.p.1.s.1.w.5"><t>to</t></w>
+ <w xml:id="example.p.1.s.1.w.6"><t>go</t></w>
+ <w xml:id="example.p.1.s.1.w.7"><t>.</t></w>
+ <timing>
+  <timesegment begintime="00:00:00.0000" 
+   endtime="00:00:00.2500">
+    <wref id="example.p.1.s.1.w.1" t="I" />
+  </timesegment>
+  <timesegment begintime="00:00:00.2500" 
+   endtime="00:00:00.5000">
+    <wref id="example.p.1.s.1.w.2" t="think" />
+  </timesegment>
+  <timesegment begintime="00:00:00.5000" 
+   endtime="00:00:00.7500">
+    <wref id="example.p.1.s.1.w.3" t="I" />
+  </timesegment>
+  <timesegment begintime="00:00:00.7500" 
+   endtime="00:00:01.000">
+    <wref id="example.p.1.s.1.w.4" t="have" />
+  </timesegment>
+  <timesegment begintime="00:00:01.0000" 
+   endtime="00:00:01.250">
+    <wref id="example.p.1.s.1.w.5" t="to" />
+  </timesegment>
+  <timesegment begintime="00:00:01.2500" 
+   endtime="00:00:01.5000">
+    <wref id="example.p.1.s.1.w.6" t="go" />
+  </timesegment>
+ </timing>
+</s>
+\end{lstlisting}
+
+In a speech context, all structural elements may carry the generic attributes. So the time segmentation in the previous example, though valid, is not the most intuitive way of accomplishing this. Instead, time segmentation can better be used when actual classes are assigned:
+
+\begin{lstlisting}[language=xml]
+<s src="ithinkihavetogo.mp3">
+ <w xml:id="example.p.1.s.1.w.1" begintime="00:00:00.0000" endtime="00:00:00.2500"><t>I</t></w>
+ <w xml:id="example.p.1.s.1.w.2" begintime="00:00:00.2500" endtime="00:00:00.5000"><t>think</t></w>
+ <w xml:id="example.p.1.s.1.w.3" begintime="00:00:00.5000" endtime="00:00:00.7500"><t>I</t></w>
+ <w xml:id="example.p.1.s.1.w.4" begintime="00:00:00.7500" endtime="00:00:01.0000"><t>have</t></w>
+ <w xml:id="example.p.1.s.1.w.5" begintime="00:00:01.0000" endtime="00:00:01.2500"><t>to</t></w>
+ <w xml:id="example.p.1.s.1.w.6" begintime="00:00:01.2500" endtime="00:00:01.5000"><t>go</t></w>
+ <w xml:id="example.p.1.s.1.w.7"><t>.</t></w>
+ <timing>
+	<timesegment class="emphasised">
+		<wref id="example.p.1.s.1.w.3" />
+		<wref id="example.p.1.s.1.w.4" />
+		<wref id="example.p.1.s.1.w.5" />
+		<wref id="example.p.1.s.1.w.6" />
+	</timesegment>
+ </timing>
+</s>
+\end{lstlisting}
+
+This usage, and the freedom FoLiA sets offer, opens up possibilities for a wide variety of time-segmented annotations. Moreover, the wref element does not necessarily point at words, but it may also point at phonemes. This will be introduced in section~\ref{sec:phonemes}.
+
+ 
 \subsection{Semantic roles}
 
 \status{new in 0.9}{pynlpl}
@@ -1596,6 +1629,7 @@ Like the \texttt{t} element, the \texttt{ph} element supports the \texttt{offset
 \end{lstlisting}
 
 \subsection{Phoneme Annotation}
+\label{sec:phonemes}
 
 \status{PROPOSED in v0.9}{not implemented yet}
 
