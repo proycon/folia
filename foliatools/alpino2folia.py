@@ -23,28 +23,41 @@ def usage():
     print >>sys.stderr, ""
     print >>sys.stderr, "Usage: alpino2folia [options] alpino-input folia-output"   
     
-def extract_syntax(alpinonode, folianode, foliasentence):    
+def extract_syntax(alpinonode, folianode, foliasentence, alpinoroot):    
     for node in alpinonode:
+        print >>sys.stderr,"SYNTAX:", node
         if 'word' in node.attrib:
             folianode.append(folia.SyntacticUnit, foliasentence[int(node.attrib['begin'])], cls=node.attrib['pos'])
-        else:
+        elif 'cat' in node.attrib:
             su = folianode.append(folia.SyntacticUnit, cls=node.attrib['cat'])
-            extract_syntax(node, su, foliasentence)
+            extract_syntax(node, su, foliasentence,alpinoroot)
+        elif 'index' in node.attrib:
+                pos = foliasentence[int(node.attrib['index'])-1].annotation(folia.PosAnnotation)
+                
+                if pos.feat('head'):
+                    pos = pos.feat('head')
+                else:                                    
+                    pos = pos.cls
+                folianode.append(folia.SyntacticUnit, foliasentence[int(node.attrib['index'])-1], cls=pos )
+        else:            
+            print >>sys.stderr,"SYNTAX: Don't know what to do with node...", repr(node.attrib) 
             
 def extract_dependencies(alpinonode, deplayer, foliasentence):
     deps = []
     head = None
     for node in alpinonode:
+        print >>sys.stderr,"DEP:", node
         if not 'word' in node.attrib:
-            extract_dependencies(node, deplayer, foliasentence[int(node.attrib['begin'])] )
+            extract_dependencies(node, deplayer, foliasentence )
         if 'rel' in node.attrib:
             if node.attrib['rel'] == 'hd':
                 head = folia.DependencyHead(deplayer.doc, foliasentence[int(node.attrib['begin'])])
             else:
-                deps.append(folia.DependencyDependent(deplayer.doc, foliasentence[int(node.attrib['begin'])]) )             
+                deps.append( (node.attrib['rel'], folia.DependencyDependent(deplayer.doc, foliasentence[int(node.attrib['begin'])]) )  )             
     
-    for dep in deps:                
-        deplayer.append( folia.Dependency, head, dep)
+    if head:
+        for cls, dep in deps:                
+            deplayer.append( folia.Dependency, head, dep, cls=cls)
                 
 
 def alpino2folia(alpinofile, foliadoc=None):
@@ -96,22 +109,30 @@ def alpino2folia(alpinofile, foliadoc=None):
                 layer = foliaword.append(folia.MorphologyLayer)
                 layer.append(folia.Morpheme, folia.TextContent(foliadoc, node.attrib['root']), cls='root')
                              
-            foliapos = foliaword.append(folia.PosAnnotation, cls=node.attrib['pos'])
-                        
+            if 'postag' in node.attrib and 'pt' in node.attrib:
+                foliapos = foliaword.append(folia.PosAnnotation, cls=node.attrib['postag'], head=node.attrib['pt'])
+            elif 'frame' in node.attrib:
+                foliaword.append(folia.PosAnnotation, cls=node.attrib['frame'], head=node.attrib['pos'])                 
+            else:
+                foliaword.append(folia.PosAnnotation, cls=node.attrib['pos'])
+                
             #gather pos features
             for key, value in node.attrib.items():
-                if key in ('wh','per','num','gen','case','def','infl','sc','buiging','refl','tense','comparative','positie','pvagr','pvtijd','graad','pdtype','wvorm','ntype','vwtype'):
+                if key in ('wh','per','num','gen','case','def','infl','sc','buiging','refl','tense','comparative','positie','pvagr','pvtijd','graad','pdtype','wvorm','ntype','vwtype','getal','status','naamval','persoon','genus'):
                     foliapos.append(folia.Feature, subset=key, cls=value)
+                elif not (key in ('sense','pos','rel','postag','pt','frame','root','lemma','id','begin','end','word','index')): 
+                    print >>sys.stderr, "WARNING: Ignored attribute " + key + "=\"" + value + "\" on node..."
     
     foliasyntaxlayer = foliasentence.append(folia.SyntaxLayer)
+    foliasyntaxtop = foliasyntaxlayer.append(folia.SyntacticUnit, cls='top')
     
     #extract syntax
-    extract_syntax(node, foliasyntaxlayer, foliasentence)
+    extract_syntax(alpinoroot[0], foliasyntaxtop, foliasentence, alpinoroot)
     
     foliadeplayer = foliasentence.append(folia.DependenciesLayer)            
             
     #extract dependencies:  
-    extract_dependencies(node, foliadeplayer, foliasentence)
+    extract_dependencies(alpinoroot[0], foliadeplayer, foliasentence)
            
     return foliadoc
     
