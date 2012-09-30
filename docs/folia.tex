@@ -75,11 +75,11 @@ The most important characteristics of FoLiA are:
 \item \textbf{Generalised} paradigm - We use a generalised paradigm, with as few ad-hoc provisions for annotation types as possible.
 \item \textbf{Expressivity} - The format is highly expressive, annotations can be expressed in great detail and with flexibility to the user's needs, without forcing unwanted details. Moreover, FoLiA has generalised support for representing annotation alternatives, and annotation metadata such as information on annotator, time of annotation, and annotation confidence.
 \item \textbf{Extensible} - Due to the generalised paradigm and the fact that the format does not commit to any label set, FoLiA is fairly easily extensible.   
-\item \textbf{Formalised} - The format is formalised, validatable on both a shallow and a deep level (the latter including tagset validation), and easily machine parsable, for which tools are provided.
-\item \textbf{Practical} - FoLiA has been developed in a bottom-up fashion right alongside applications, libraries, and other toolkits and convertors. Whilst the format is rich, we try to maintain it as simple and straightforward as possible, minimising the learning curve and making it easy to adopt FoLiA in practical applications.  
+\item \textbf{Formalised} - The format is formalised, and can be validated on both a shallow and a deep level (the latter including tagset validation), and easily machine parsable, for which tools are provided.
+\item \textbf{Practical} - FoLiA has been developed in a bottom-up fashion right alongside applications, libraries, and other toolkits and converters. Whilst the format is rich, we try to maintain it as simple and straightforward as possible, minimising the learning curve and making it easy to adopt FoLiA in practical applications.  
 \end{itemize}
 
-The FoLiA format makes mixed-use of inline and stand-off annotation. Inline annotation is used for annotations pertaining to single tokens, whilst stand-off annotation in a seperate annotation layers is adopted for annotation types that span over multiple tokens. This provides FoLiA with the necessary flexibility and extensibility to deal with various kinds of annotations. Inspiration for this was in part obtained from the Kyoto Annotation Format \cite{KYOTO}.
+The FoLiA format makes mixed-use of inline and stand-off annotation. Inline annotation is used for annotations pertaining to single tokens, whilst stand-off annotation in a separate annotation layers is adopted for annotation types that span over multiple tokens. This provides FoLiA with the necessary flexibility and extensibility to deal with various kinds of annotations. Inspiration for this was in part obtained from the Kyoto Annotation Format \cite{KYOTO}.
 
 In publication of research that makes use of FoLiA, a citation should be given of: {\em ``Maarten van Gompel (2012). FoLiA: Format for Linguistic Annotation. Documentation. ILK Technical Report 12-03. \\ Available from {\tt http://ilk.uvt.nl/downloads/pub/papers/ilk.1203.pdf}''}. FoLiA is open-source and all technical resources are licensed under the GNU Public License v3.
 
@@ -113,7 +113,7 @@ There is support for the following linguistic annotations:
 \item Morphological Analysis
 \item Subjectivity Annotation
 \item Semantic Role Labelling
-\item Coreference
+\item Co-reference
 \item Event annotation
 \end{itemize}
 
@@ -148,7 +148,7 @@ The FoLiA format, this documentation, and the libraries implementing FoLiA are a
 
 \status{final since v0.4}{pynlpl,libfolia}
 
-The above example states that the particular section is final since version 0.4 of FoLiA and that it is implemented in the libraries pynlpl (python) and libfolia ($C++$). You may also see portions of this documentation that are proposals, which means the funcionality is still open for debate and not final yet. Example: 
+The above example states that the particular section is final since version 0.4 of FoLiA and that it is implemented in the libraries pynlpl (python) and libfolia ($C++$). You may also see portions of this documentation that are proposals, which means the functionality is still open for debate and not final yet. Example: 
 
 \status{PROPOSED in v0.9)}{not implemented yet} 
 
@@ -200,7 +200,7 @@ The FoLiA format has a very uniform setup and its XML notation for annotation fo
 \item \textbf{Higher-order annotation} - Higher-order annotation consists of several categories of annotation. These all have in common that they annotate either other annotations, or in some way modify or point at other annotations. 
 \begin{itemize}
 	\item \textbf{Feature annotation} - Feature annotation allows for more detailed annotation. It acts as a feature or attribute to an annotation. This category of annotation will be explained in Section~\ref{sec:features}.
-	\item \textbf{Alignment annotation} - Allows for associations between arbitrary annotations within or accross FoLiA documents.
+	\item \textbf{Alignment annotation} - Allows for associations between arbitrary annotations within or across FoLiA documents.
 	\item \textbf{Corrections} - Allows corrections or suggestions for correction to be associated with annotations.
 	\item \textbf{Alternatives} - Allows annotations to be markes as alternative.
 \end{itemize}
@@ -293,7 +293,7 @@ If only one set is declared, then in the document itself you are allowed to skip
 
 The \texttt{annotator} and \texttt{annotatortype} attributes act as defaults for the specific annotation type and set. Unlike \texttt{set}, you do \emph{not} need, and it is in fact prohibited, to declare every possible annotator here!
 
-Annotator defaults can always be overriden at the specific annotation elements. But declaring them allows for the annotation element to be less verbosely expressed. Explicitly referring to a set and annotator for each annotation element can be cumbersome and pointless in a document with a single set and a single annotator for that particular type of annotation. Declarations and defaults provide a nice way around this problem.
+Annotator defaults can always be overridden at the specific annotation elements. But declaring them allows for the annotation element to be less verbosely expressed. Explicitly referring to a set and annotator for each annotation element can be cumbersome and pointless in a document with a single set and a single annotator for that particular type of annotation. Declarations and defaults provide a nice way around this problem.
 
 
 \section{Structure Annotation}
@@ -495,7 +495,7 @@ Within the \texttt{text} element, the structure element \texttt{div} can be used
 
 Divisions and other structural units are often numbered, think for example of chapters and sections. The number, as it was in the source document, can be encoded in the \texttt{n} attribute of the structure annotation element.
 
-Look at the following example, showing a full FoLiA document with structured divisions. The declared set is a fictituous example:
+Look at the following example, showing a full FoLiA document with structured divisions. The declared set is a fictitious example:
 
 \begin{lstlisting}[language=xml]
 <?xml version="1.0" encoding="utf-8"?>
@@ -656,7 +656,7 @@ The declaration, the actual set is fictitious:
 </annotations>
 \end{lstlisting}
 
-For more fine-grained control over timed events, for example within sentences. It is recommended to use the \texttt{timesegment} span annotation element instead! This works in a very similar fashion but uses an offset annotation layer. See section~\ref{sec:timesegment}.
+For more fine-grained control over timed events, for example within sentences. It is recommended to use the \texttt{timesegment} span annotation element instead! This works in a very similar fashion but uses a stand-off annotation layer. See section~\ref{sec:timesegment}.
 
 
 \subsection{Lists}
@@ -1130,7 +1130,7 @@ FoLiA supports time segmentation using the \texttt{timing} layer and the \texttt
 
 Time segments may also be nested. As always, the classes in the example are set-defined rather than predefined by FoLiA. The (optional) features \texttt{begindatetime} and \texttt{enddatetime} can be used express the exact moment at which an event started or ended. Note that this differs from the generic \texttt{datetime} attribute, which would describe the time at which the annotation was recorded, rather than when the event took place! 
 
-The timing layer is ideally suited for segmenting speech and relating it to an annotatable transcription. Precisely for this purpose the timing layer can take an extra attribute \texttt{src}, this attribute specifies the filename or URL of a sound or video file with speech. All begindatetime and enddatetime attributes are then to be interpreted specifically for this file.
+The timing layer is ideally suited for segmenting speech and relating it to a transcription. Precisely for this purpose the timing layer can take an extra attribute \texttt{src}, this attribute specifies the filename or URL of a sound or video file with speech. All begindatetime and enddatetime attributes are then to be interpreted specifically for this file.
 
 \begin{lstlisting}[language=xml]
 <s>
@@ -1331,7 +1331,7 @@ Relations between words that refer to the same referent are expressed in FoLiA u
 
 Being a span-annotation element, the \texttt{coreference} element may take all of the usual attributes, most notable is the \texttt{class} element designating the type of coreference relation. Like its parent, each of the links in the chain may take the standard attributes \texttt{annotator}, \texttt{annotatortype}, \texttt{datetime}, \texttt{confidence}. The links or heads do not take a class, only \texttt{coreferencechain} does.
 
-\texttt{Coreferencelink} may take three attributes, which are actually predefined FoLiA subsets (See Section~\ref{sec:features}), their values depend on the set used and are thus customly definable and never predefined: 
+\texttt{Coreferencelink} may take three attributes, which are actually predefined FoLiA subsets (See Section~\ref{sec:features}), their values depend on the set used and are thus user-definable and never predefined: 
 
 \begin{itemize} %As suggested by Orphee De Clerq
 \item \texttt{modality} - A subset that can be used for indication that there is modality or negation in this coreference link.
@@ -1531,7 +1531,7 @@ The same approach can be followed for other kinds of span annotation. Note that 
 
 \status{Proposed in v0.9}{not implemented yet}
 
-FoLiA is not just suited for the annotation of text, but also accomodates annotation of transcribed speech. This generally asks for a different document structure than text documents. The top-level element for speech-centered resources is \texttt{speech}. Certain elements described in the section on text structure may be used under \texttt{speech} as well; such as divisions (\texttt{div}), sentences (\texttt{s)} and words (\texttt{w}). Notions such as paragraphs and figures make less sense in a speech context.
+FoLiA is not just suited for the annotation of text, but also accommodates annotation of transcribed speech. This generally asks for a different document structure than text documents. The top-level element for speech-centred resources is \texttt{speech}. Certain elements described in the section on text structure may be used under \texttt{speech} as well; such as divisions (\texttt{div}), sentences (\texttt{s)} and words (\texttt{w}). Notions such as paragraphs and figures make less sense in a speech context.
 
 All structure elements in a speech context may take the extra FoLiA attributes for speech, as laid out in section~\ref{sec:speechparadigm}. These include attributes for referring to associating sound clips.
 
@@ -1542,7 +1542,7 @@ All structure elements in a speech context may take the extra FoLiA attributes f
 
 An utterance may consist out of words or sentences, which in turn may contain words. The opposite is also true, a sentence may consists out of multiple utterances. The utterance element in FoLiA is \texttt{utt}. 
 
-Utterances need not be declared necessarily, but may be if classes are assigned. The actual set in the example is fictituous:
+Utterances need not be declared necessarily, but may be if classes are assigned. The actual set in the example is fictitious:
 
 \begin{lstlisting}[language=xml]
 <annotations>
@@ -2038,7 +2038,7 @@ In the examples above what we corrected was the actual textual content (\texttt{
 
 \status{Revised in v0.8.2, no error attribute}{pynlpl,libfolia}
 
-The correction of an error implies the detection of an error. In some cases, detection comes without correction, for instance when the generation of correction suggestions is postponed to a later processing stage. The \texttt{errordetection} element is a very simple element that serves this purpose. It signals the existance of errors and is a normal token annotation element: 
+The correction of an error implies the detection of an error. In some cases, detection comes without correction, for instance when the generation of correction suggestions is postponed to a later processing stage. The \texttt{errordetection} element is a very simple element that serves this purpose. It signals the existence of errors and is a normal token annotation element: 
 
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.1">
@@ -2058,7 +2058,7 @@ We can also imagine it specifically marking something as \emph{not} being an err
 
 This kind of error detection is very simple and does not provide actual correction nor suggestions for correction. In some cases, it is desirable to record suggestions for correction, but without making the actual correction.
 
-The correction tag can also be used in such situations in which you want to list suggestions for correction, but not yet commit to any single one. You may for example want to postponed this actual selection to another module or human annotator. Recall that the actual correction is always included in the ``new'' tag, non-comitting suggestions are included in the ``suggestion'' tag. All suggestions may take an ID and may specify an annotator, if no annotator is specified it will be inherited from the \texttt{correction} element itself. Suggestions never take sets or classes by themselves, the class and set pertain to the correction as a whole, and apply to all suggestions within. This implies that you will need multiple correction elements if you want to make suggestions of very distinct types. The following example shows two suggestions for correction:
+The correction tag can also be used in such situations in which you want to list suggestions for correction, but not yet commit to any single one. You may for example want to postponed this actual selection to another module or human annotator. Recall that the actual correction is always included in the ``new'' tag, non-committing suggestions are included in the ``suggestion'' tag. All suggestions may take an ID and may specify an annotator, if no annotator is specified it will be inherited from the \texttt{correction} element itself. Suggestions never take sets or classes by themselves, the class and set pertain to the correction as a whole, and apply to all suggestions within. This implies that you will need multiple correction elements if you want to make suggestions of very distinct types. The following example shows two suggestions for correction:
  
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.1">
@@ -2582,7 +2582,7 @@ Below is an example illustrating the usage of multiple classes. To show the flex
 
 %One important aspect is that FoLiA dictates that \texttt{t} elements without classes always appear first, before any other text-content tags that do specify classes. This rule facilitates the job of parsers in quickly getting the latest text content even if there are multiple classes: the first \texttt{t} element will be the most recent by definition. %constraint lifted
 
-In the above example, the correction is explicit, in the next example, it is implicit. Furthermore, to illustrate how you could use other custom classes, the next example introduces an custom ``ocroutput'' class that shows the (fictious) output of an OCR system prior to some implicit correction stage. 
+In the above example, the correction is explicit, in the next example, it is implicit. Furthermore, to illustrate how you could use other custom classes, the next example introduces an custom ``ocroutput'' class that shows the (fictitious) output of an OCR system prior to some implicit correction stage. 
 
 \begin{lstlisting}[language=xml]
  <p xml:id="example.p.1">
@@ -2744,7 +2744,7 @@ It is possible for subsets to be used multiple times if the subset is declared w
 
 \section{Constraints}
 
-Not all classes in subsets can be combined with others. Often the need arises to put constraints on which classes can go together. The previous example already illustrates this. For many languages, the ``gender'' subset does not make sense on verbs. We can put a constaint on the usage of this subset, limiting its usage to nouns and adjectives:
+Not all classes in subsets can be combined with others. Often the need arises to put constraints on which classes can go together. The previous example already illustrates this. For many languages, the ``gender'' subset does not make sense on verbs. We can put a constraint on the usage of this subset, limiting its usage to nouns and adjectives:
 
 \begin{lstlisting}[language=xml]
 <set xml:id="simplepos" type="closed">
@@ -2873,7 +2873,7 @@ The \emph{required} attribute can be used on subsets to indicate whether they ar
 
 Considering the fact that FoLiA is an XML-based format, XPath and its derivatives are the designated tools for searching in a FoLiA document.
 
-A very common XPath predicate found in many XPath expressions for FoLiA is \texttt{not(ancestor-or-self::*/@auth)}. This exploits the notion of authoritativeness. Certain elements in FoLiA are non-authoritative, which means that they have no direct bearing on the actual state of the element they describe. The most notable elements that are non-authorititive are alternatives, suggestions for correction, and the original part of a correction. The predicate \texttt{not(ancestor-or-self::*/@auth)} guarantees that no elements can be selected that occur within the scope of any non-authoritive element. This prevents selecting for example alternative annotations or annotations that were superseded by a correction step. This is in most cases what the user wants and why you will find this predicate appended to almost every XPath expression for FoLiA.
+A very common XPath predicate found in many XPath expressions for FoLiA is \texttt{not(ancestor-or-self::*/@auth)}. This exploits the notion of authoritativeness. Certain elements in FoLiA are non-authoritative, which means that they have no direct bearing on the actual state of the element they describe. The most notable elements that are non-authoritative are alternatives, suggestions for correction, and the original part of a correction. The predicate \texttt{not(ancestor-or-self::*/@auth)} guarantees that no elements can be selected that occur within the scope of any non-authoritative element. This prevents selecting for example alternative annotations or annotations that were superseded by a correction step. This is in most cases what the user wants and why you will find this predicate appended to almost every XPath expression for FoLiA.
 
 Some common XPath queries are listed below, note that for brevity and readability the namespace prefix is omitted. In actual situations you will have to specify the FoLiA namespace with each element, as XPath unfortunately has no notion of a default namespace.
 
@@ -2895,7 +2895,7 @@ Some common XPath queries are listed below, note that for brevity and readabilit
 
 When selecting text elements \texttt{(t)}, you generally want to add \texttt{not(@class)} to the constraint, to select only the text content elements that have not been assigned an alternative class. Recall that multiple text content may be present, bearing another class. Omitting this constraint will prevent you from properly retrieving the current text of a document, as it will also retrieve all this differently typed text content.
 
-Before you release XPath queries on FoLiA documents, make sure to first parse the declarations present in the metadata (the \texttt{annotations} block). Verify that the annotation type with the desired set you are looking for is actually present, otherwise you needn't bother running a query at all. Note that the XPath expression differs based on whether there is only one set defined for the sought annotation type, or if there are multiple. In the former case, you can't use the @set attribute to select, and in the latter case, you must.
+Before you release XPath queries on FoLiA documents, make sure to first parse the declarations present in the metadata (the \texttt{annotations} block). Verify that the annotation type with the desired set you are looking for is actually present, otherwise you need not bother running a query at all. Note that the XPath expression differs based on whether there is only one set defined for the sought annotation type, or if there are multiple. In the former case, you can't use the @set attribute to select, and in the latter case, you must.
 
 \chapter{Validation}
 
@@ -2988,7 +2988,7 @@ Alternatively, the FoLiA tools can be obtained from github (\url{https://github.
 
 \section{Usage}
 
-To obtain help regarding the usage of any of the available FoLiA tools, please pass the $-h$ option on the command line to the tool you intend to use. This will provide a summary on available options and usage examples. Most of the tools can run on both a single FoLiA document, as well as a whole directory of documents, allowing also for recursion. The tools generally take one or more filenames or directory names as parameters.
+To obtain help regarding the usage of any of the available FoLiA tools, please pass the $-h$ option on the command line to the tool you intend to use. This will provide a summary on available options and usage examples. Most of the tools can run on both a single FoLiA document, as well as a whole directory of documents, allowing also for recursion. The tools generally take one or more file names or directory names as parameters.
 
 \section{FoLiA Query tool}
 
@@ -3044,9 +3044,9 @@ There are also formats with are modern, XML-based and formalised. In the remaind
 
 \subsection{TCF v0.4 -- Text Corpus Format}
 
-The Text Corpus Format\cite{TCF} is specifically designed as a language resource exchange format for webservices chained in a workflow, which is also one of the intended uses of FoLiA. The format is a modern, XML-based, unicode encoded, and supports a fair subset of the annotation types supported by FoLiA. It is one of the formats closest to FoLiA and therefore most interesting to compare. All annotations in TCF are represented in a stand-off fashion within the same XML-file, although there seems to be a provision for some inline annotations as well. The format is simpler and less verbose than FoLiA, slimness and processing efficiency also explicitly being one of the aims of the authors. This however does compromise expressivity and makes it less expressive than FoLiA. For example, there seems to be no support for corrections, alternatives and the encoding of annotators, time of annotation, and confidence level, something that in FoLiA is deeply integrated into the paradigm. TCF is tagset independent and tagsets can be specified by the user, but it does not generalise or formalise the ``set/class'' paradigm to the extent FoLiA does.  The level of generalisation does not go as far as it does in FoLiA.  
+The Text Corpus Format\cite{TCF} is specifically designed as a language resource exchange format for webservices chained in a workflow, which is also one of the intended uses of FoLiA. The format is a modern, XML-based, unicode encoded, and supports a fair subset of the annotation types supported by FoLiA. It is one of the formats closest to FoLiA and therefore most interesting to compare. All annotations in TCF are represented in a stand-off fashion within the same XML-file, although there seems to be a provision for some inline annotations as well. The format is simpler and less verbose than FoLiA, slimness and processing efficiency also explicitly being one of the aims of the authors. This however does compromise expressibility and makes it less expressive than FoLiA. For example, there seems to be no support for corrections, alternatives and the encoding of annotators, time of annotation, and confidence level, something that in FoLiA is deeply integrated into the paradigm. TCF is tagset independent and tagsets can be specified by the user, but it does not generalise or formalise the ``set/class'' paradigm to the extent FoLiA does.  The level of generalisation does not go as far as it does in FoLiA.  
 
-In annotation formats there is always a balance between expressivity and efficiency/simplicity. FoLiA is clearly on the more expressive side here, offering more features but therefore making higher demands on memory usage, whereas TCF is more on the efficiency side. 
+In annotation formats there is always a balance between expressibility and efficiency/simplicity. FoLiA is clearly on the more expressive side here, offering more features but therefore making higher demands on memory usage, whereas TCF is more on the efficiency side. 
 
 \subsection{KAF -- Kyoto Annotation Format }
 
