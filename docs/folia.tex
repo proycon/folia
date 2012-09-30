@@ -7,11 +7,16 @@
 \usepackage{tabularx}
 \usepackage{listings}
 \usepackage{color}
+\usepackage{tipa}
 \lstset{% general command to set parameter(s)
 basicstyle=\footnotesize,
 keywordstyle=\color{black}\bfseries\underbar,
 identifierstyle=\color{black}\bfseries\underbar,
 stringstyle=\ttfamily,
+escapeinside={\%*}{*)},
+inputencoding=utf8,
+extendedchars=true,
+literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\textipa{U}}}1 {ː}{{\textipa{:}}}1 {ɝ}{{\textipa{O}}}1 {æ}{{\ae}}1,
 }
 
 
@@ -189,9 +194,9 @@ Identifiers are very important and used throughout the FoLiA format, and mandato
 The FoLiA format has a very uniform setup and its XML notation for annotation follows a generalised paradigm. We distinguish several different categories of annotation, three main categories and several higher-order annotation categories.
 
 \begin{itemize}
-\item \textbf{Structural annotation} - Annotations marking global structure, such as chapters, sections, subsections, figures, list items, paragraphs, sentences, words, morphemes, phonemes etc... Section~\ref{sec:structureannotation} will discuss all structure annotation elements in FoLiA.
+\item \textbf{Structural annotation} - Annotations marking global structure, such as chapters, sections, subsections, figures, list items, paragraphs, sentences, words, morphemes, phonemes etc... Section~\ref{sec:structureannotation} will discuss most structure annotation elements in FoLiA. Morphemes and phonemes are discusses in separate sections. 
 \item \textbf{Token annotation} - Annotations pertaining to a specific token. These will be elements of the token element (\texttt{w}) in inline notation. Linguistic annotations in this category are for example: part-of-speech annotation (lexical categories), lemma annotation, sense annotation. Various token annotation elements may be used on higher levels (e.g. sentence/paragraph) as well and may then be referred to as \textbf{Extended Token Annotation}. Section~\ref{sec:tokenannotation} will discuss all token annotations.
-\item \textbf{Span annotation} - Annotations spanning over multiple tokens. Each type of annotation will be in a separate \textbf{annotation layer} with stand-off notation. These layers are typically embedded on the sentence level, or possibly also on higher levels (paragraph/division/text) for certain annotation types. Examples in this category are: syntax, syntactic dependencies, chunking, co-references, semantic roles and named entities.
+\item \textbf{Span annotation} - Annotations spanning over multiple tokens. Each type of annotation will be in a separate \textbf{annotation layer} with stand-off notation. These layers are typically embedded on the sentence level, or possibly also on higher levels (paragraph/division/text) for certain annotation types. Examples in this category are: syntax, syntactic dependencies, chunking, co-references, semantic roles and named entities. Section~\ref{sec:spanannotation} will discuss all span annotations.
 \item \textbf{Higher-order annotation} - Higher-order annotation consists of several categories of annotation. These all have in common that they annotate either other annotations, or in some way modify or point at other annotations. 
 \begin{itemize}
 	\item \textbf{Feature annotation} - Feature annotation allows for more detailed annotation. It acts as a feature or attribute to an annotation. This category of annotation will be explained in Section~\ref{sec:features}.
@@ -200,7 +205,7 @@ The FoLiA format has a very uniform setup and its XML notation for annotation fo
 	\item \textbf{Alternatives} - Allows annotations to be markes as alternative.
 \end{itemize}
 
-%\item \textbf{Subtoken annotation} - This is a type of annotation that has aspects of both token annotation as well as span annotation. The former because it is included inline within a token element (\texttt{w}) and describes the token. The latter because is defines a small span \emph{within} the token. Examples in this category are: morphological analysis. %TODO? re-enable?
+%\item \textbf{Subtoken annotation} - This is a type of annotation that has aspects of both token annotation as well as span annotation. The former because it is included inline within a token element (\texttt{w}) and describes the token. The latter because is defines a small span \emph{within} the token. Examples in this category are: morphological analysis. %TODO %DEPRECATED
 \end{itemize}
 
 Almost all annotations are associated with what we call a \textbf{set}. The set determines the vocabulary of the annotation, i.e. the tags or types of the annotation. An element of such a set is referred to as a \textbf{class}. For example, we may have a document with Part-of-Speech annotation according to the CGN set (a tagset for Dutch part-of-speech tags). The CGN set defines main tag classes such as \emph{WW}, \emph{BW}, \emph{ADJ}, \emph{VZ}. FoLiA itself thus never commits to any tagset but leaves you to define this. You can also use multiple tagsets in the same document if so desired, even for the same type of annotation.
@@ -245,11 +250,11 @@ FoLiA is also suited for annotation of speech data. The following additional FoL
 \begin{itemize}
   \item \texttt{src} -- \textbf{source} -- Points to a file or full URL of a sound or video file. This attribute is inheritable.
    
-  \item \texttt{begintime} -- \textbf{begin time} --  A timestamp in \texttt{HH:MM:SS.MMMM} format, indicating the begin time of this speech act. If a sound clip is specified (\texttt{src}); the timestamp refers to an offset in the soundclip (minus \texttt{srcoffset}).
+  \item \texttt{begintime} -- \textbf{begin time} --  A timestamp in \texttt{HH:MM:SS.MMMM} format, indicating the begin time of this speech act. If a sound clip is specified (\texttt{src}); the timestamp refers to a location in the soundclip (minus \texttt{srcoffset}).
     
-  \item \texttt{endtime} -- \textbf{end time} --  A timestamp in \texttt{HH:MM:SS.MMMM} format, indicating the end time of this speech act. If a sound clip is specified (\texttt{src}); the timestamp refers to an offset in the soundclip (minus \texttt{srcoffset}).
+  \item \texttt{endtime} -- \textbf{end time} --  A timestamp in \texttt{HH:MM:SS.MMMM} format, indicating the end time of this speech act. If a sound clip is specified (\texttt{src}); the timestamp refers to a location in the soundclip (minus \texttt{srcoffset}).
   
-  \item \texttt{srcoffset} -- \textbf{source offset} -- A timestamp in \texttt{HH:MM:SS.MMMM} format that is \emph{subtracted} from all \texttt{begintime}, and \texttt{endtime} designation within its scope, to find the position in the audio clip. This attribute enabled the use of global timings in all begintime/endtime attributes, across different sound clips. Defaults to zero.
+  \item \texttt{srcoffset} -- \textbf{source offset} -- A timestamp in \texttt{HH:MM:SS.MMMM} format that is \emph{subtracted} from all \texttt{begintime}, and \texttt{endtime} designations within its scope, to find the position in the audio clip. This attribute enabled the use of global timings in all begintime/endtime attributes, across different sound clips. Defaults to zero.
   
   \item \texttt{speaker} -- \textbf{speaker} -- A string identifying the speaker. This attribute is inheritable. Multiple speakers are not allowed, simply do not specify a speaker on a certain level if none can be designated. 
 \end{itemize}
@@ -257,6 +262,7 @@ FoLiA is also suited for annotation of speech data. The following additional FoL
 More about speech annotation in section~\ref{sec:speech}.
 
 \section{Annotation Declaration}
+\label{sec:declarations}
 
 The annotation declaration is a mandatory part of the metadata that declares all the types of annotation and all sets that are present in the document. Annotations are declared in the \texttt{annotations} block, as shown in the following example. We here define four annotation levels with fictitious sets:
 
@@ -273,7 +279,7 @@ The annotation declaration is a mandatory part of the metadata that declares all
 </annotations>
 \end{lstlisting}
 
-The set attribute is mandatory\footnote{Technically, it can be omitted, but then the set defaults to ``undefined''. This is allowed for flexibility and less explicit usage of FoLiA in limited settings, but not recommended!} and refers to a URL of a FoLiA Set Definition file (see chapter \ref{fsd}). In the above example, the set URLs are fictitious, make sure to list your own appropriate sets. A Set Definition specifies exactly what classes are allowed in the set. It for examples specifies exactly what Part-of-Speech tags exist. This information is necessary to completely validate the document at its deepest level. If the sets point to URLs that do not exist or are not URLs at all, warnings will be issued. Validation can still proceed but with the notable exception of deep validation of these sets.
+The set attribute is mandatory\footnote{Technically, it can be omitted, but then the set defaults to ``undefined''. This is allowed for flexibility and less explicit usage of FoLiA in limited settings, but not recommended!} and refers to a URL of a FoLiA Set Definition file (see chapter~\ref{chapter:setdefinitions}). In the above example, the set URLs are fictitious, make sure to list your own appropriate sets. A Set Definition specifies exactly what classes are allowed in the set. It for examples specifies exactly what Part-of-Speech tags exist. This information is necessary to completely validate the document at its deepest level. If the sets point to URLs that do not exist or are not URLs at all, warnings will be issued. Validation can still proceed but with the notable exception of deep validation of these sets.
 
 If multiple sets are used for the same annotation type, they each need a separate declaration:
 
@@ -614,7 +620,7 @@ Sometimes you may want to explicitly specify vertical whitespace or line breaks.
 The difference between \texttt{br} and \texttt{whitespace} is that the former specifies that only a linebreak was present, not forcing any vertical whitespace, whilst the latter actually generates an empty space, which would comparable to two successive \texttt{br} statements. Both elements can be used inside divisions, paragraphs, and sentences.
 
 \subsection{Events}
-\label{events}
+\label{sec:events}
 
 \status{final since v0.7}{pynlpl, libfolia}
 
@@ -650,7 +656,7 @@ The declaration, the actual set is fictitious:
 </annotations>
 \end{lstlisting}
 
-For more fine-grained control over timed events, for example within sentences. It is recommended to use the \texttt{timesegment} span annotation element instead! This works in a very similar fashion but uses an offset annotation layer. See section~\ref{timesegment}.
+For more fine-grained control over timed events, for example within sentences. It is recommended to use the \texttt{timesegment} span annotation element instead! This works in a very similar fashion but uses an offset annotation layer. See section~\ref{sec:timesegment}.
 
 
 \subsection{Lists}
@@ -696,6 +702,7 @@ There is no provision yet for encoding tables. This may be added later.
 
 
 \section{Token Annotation}
+\label{sec:tokenannotation}
 
 Token annotations are annotations that are placed within the word (\texttt{w}) element, or by extension within other structure elements, in which case we speak of \emph{extended token annotation}. 
 
@@ -855,6 +862,7 @@ The declaration, the actual set is fictitious:
 
 
 \section{Span Annotation}
+\label{sec:spanannotation}
 
 Not all annotations can be realised as token annotations. Some typically span multiple tokens. For these we introduce a kind of offset notation in separate \emph{annotation layers}. These annotation layers are generally embedded at the sentence level, \emph{after} the word tokens, though they may also be embedded on higher levels. Within these layers, references are made to all of the the word tokens spanned using the \texttt{wref} element. Each annotation layer is specific to a kind of span annotation, for which a declaration should be present in the metadata section of the document.
 
@@ -1085,11 +1093,11 @@ The declaration, the actual sets are fictitious:
 \end{lstlisting}
 
 \subsection{Time segmentation}
-\label{timesegment}
+\label{sec:timesegment}
 
 \status{final since v0.8, renamed in v0.9}{pynlpl}
 
-FoLiA supports time segmentation using the \texttt{timing} layer and the \texttt{timesegment} span annotation element. This element is useful for  speech, but can also be used for event annotation. We already saw events as structure annotation in Section~\ref{events}, but for more fine-grained control of timing information a span annotation element in an offset layer is more suited. The following example illustrates the usage for event annotation:
+FoLiA supports time segmentation using the \texttt{timing} layer and the \texttt{timesegment} span annotation element. This element is useful for  speech, but can also be used for event annotation. We already saw events as structure annotation in Section~\ref{sec:events}, but for more fine-grained control of timing information a span annotation element in an offset layer is more suited. The following example illustrates the usage for event annotation:
 
 \begin{lstlisting}[language=xml]
 <s>
@@ -1171,7 +1179,7 @@ The declaration for time segmentation is as follows:
 </annotations>
 \end{lstlisting}
 
-If you are only interested in a annotation of events, and a more coarser level of annotation suffices, then use the structure annotation element \texttt{event} instead. See section~\ref{events}.
+If you are only interested in a annotation of events, and a more coarser level of annotation suffices, then use the structure annotation element \texttt{event} instead. See section~\ref{sec:events}.
 
 \textbf{Note:} time segments were known as "timed events" in FoLiA 0.8 and below. They have been renamed to a more appropriate and more generic name. For backward compatibility, libraries should implement \texttt{timedevent} as an alias for \texttt{timesegment}, and \texttt{timedevent-annotation} as an alias for \texttt{timesegment-annotation}. 
 
@@ -1323,7 +1331,7 @@ Relations between words that refer to the same referent are expressed in FoLiA u
 
 Being a span-annotation element, the \texttt{coreference} element may take all of the usual attributes, most notable is the \texttt{class} element designating the type of coreference relation. Like its parent, each of the links in the chain may take the standard attributes \texttt{annotator}, \texttt{annotatortype}, \texttt{datetime}, \texttt{confidence}. The links or heads do not take a class, only \texttt{coreferencechain} does.
 
-\texttt{Coreferencelink} may take three attributes, which are actually predefined FoLiA subsets (See Section~\ref{features}), their values depend on the set used and are thus customly definable and never predefined: 
+\texttt{Coreferencelink} may take three attributes, which are actually predefined FoLiA subsets (See Section~\ref{sec:features}), their values depend on the set used and are thus customly definable and never predefined: 
 
 \begin{itemize} %As suggested by Orphee De Clerq
 \item \texttt{modality} - A subset that can be used for indication that there is modality or negation in this coreference link.
@@ -1395,7 +1403,7 @@ Morphemes allow token annotation just as words do. We can for instance bind lemm
 </w>
 \end{lstlisting}
 
-Similarly, consider the Spanish word or phrase ``Dámelo'' (give it to me), written as one entity. If this has not been split during tokenisation, but left as a single token, you can annotate its morphemes, as all morphemes allow token annotation to be placed within its scope:
+Similarly, consider the Spanish word or phrase ``D\'amelo'' (give it to me), written as one entity. If this has not been split during tokenisation, but left as a single token, you can annotate its morphemes, as all morphemes allow token annotation to be placed within its scope:
 
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.1">
@@ -1589,8 +1597,7 @@ Like the \texttt{t} element, the \texttt{ph} element supports the \texttt{offset
 
 \subsection{Phoneme Annotation}
 
-\status{Proposed in v0.9}{not implemented yet}
-
+\status{PROPOSED in v0.9}{not implemented yet}
 
 The smallest unit of annotatable speech is the phoneme level. The \texttt{phoneme} element is a form of structure annotation used for phonemes. Alike to morphology, it is embedded within a layer \texttt{phonetics} which can be used within word/token elements (\texttt{w}) or directly within \texttt{utt} if no words are distinguished:
 
@@ -1643,7 +1650,7 @@ The distortion element is also useful to mark specific accents or dialects, depe
 \begin{lstlisting}[language=xml]
 <utt>
 	<t>day</t>
-	<ph>dæɪ</ph>
+	<ph>dæi</ph>
 	<distortion class="cockney" />
 </utt>
 \end{lstlisting}
@@ -1837,7 +1844,7 @@ The element \texttt{feat} is used to add features to any kind of annotation. In 
  </lemma>
 \end{lstlisting}
 
-A more thorough example for Part-of-Speech tags with features will be explained in section~\label{sec:posfeat}.
+A more thorough example for Part-of-Speech tags with features will be explained in section~\ref{sec:posfeat}.
 
 Some elements have predefined subsets because some features are very commonly used. It however still depends on the set on whether these can be used, and which values these take. Whenever subsets are predefined in the FoLiA standard they can be assigned using XML attributes. Consider the following example of lexical semantic sense annotation, in which subset ``synset'' is a predefined subset:
 
@@ -2662,14 +2669,15 @@ You can simply define fields with custom IDs, but the following fields are pre-d
 
 
 \chapter{Set Definition Format}
+\label{chapter:setdefinitions}
 
-\status{PROPOSED}{pynlpl (partly)}
+\status{PROPOSED since v0.7}{pynlpl (partly)}
 
 \section{Introduction}
 
 The FoLiA format consists not just out of the Document Format discussed in the previous chapter, but also of a Set Definition Format. The document format is agnostic about all sets and the classes therein, it is the Set Definition Format that defines precisely what classes are allowed in a certain set, including any subsets. 
 
-Recall from section~\ref{declarations} that all used sets need to be declared in the document header and that they point to URLs holding a FoLiA set definition. If no set definition files are associated, then a full in-depth validation can not take place.
+Recall from section~\ref{sec:declarations} that all used sets need to be declared in the document header and that they point to URLs holding a FoLiA set definition. If no set definition files are associated, then a full in-depth validation can not take place.
 
 \section{Types and classes}
 
@@ -2717,7 +2725,7 @@ FoLiA does not dictate any format requirements for conceptual links, it can be a
 
 \section{Subsets}
 
-Section~\ref{features} introduced subsets. These can be defined in a similar fashion to sets and also carry a \texttt{type} attribute:
+Section~\ref{sec:features} introduced subsets. These can be defined in a similar fashion to sets and also carry a \texttt{type} attribute:
 
 \begin{lstlisting}[language=xml]
 <set xml:id="simplepos" type="closed">

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="folia2html.xsl"?>
-<FoLiA xmlns="http://ilk.uvt.nl/folia" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="WR-P-E-J-0000000001" version="0.8" generator="manual">
+<FoLiA xmlns="http://ilk.uvt.nl/folia" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="WR-P-E-J-0000000001" version="0.9" generator="manual">
   <metadata type="native">
     <annotations>
       <token-annotation annotator="ilktok" annotatortype="auto" />
@@ -19,6 +19,8 @@
       <syntax-annotation set="syntax-set" />
       <dependency-annotation set="alpino-set" />   
       <alignment-annotation set="alignment-set" />   
+      <semrole-annotation set="semrole-set" />
+      <coreference-annotation set="coreference-set" />  
     </annotations>
     <meta id="title">Stemma</meta>
     <meta id="language">nl</meta>
@@ -183,7 +185,7 @@
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.2">
               <t>de</t>
-              <pos class="LID(bep,stan,rest)"/>
+              <pos class="LID(bep,stan,rest)" />
               <lemma class="de"/>
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.3">
@@ -198,7 +200,11 @@
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.5">
               <t>wordt</t>
-              <pos class="WW(pv,tgw,met-t)"/>
+              <pos class="WW(pv,tgw,met-t)">
+                <feat subset="role" class="pv" />
+              	<feat subset="tense" class="tgw" />
+              	<feat subset="form" class="met-t" />
+              </pos>
               <lemma class="worden"/>
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.6">
@@ -350,15 +356,11 @@
               <pos class="N(soort,mv,basis)"/>
               <lemma class="handschrift"/>
               <morphology>
-                <morpheme class="handschrift">
+                <morpheme class="stem" function="lexical">
                     <t offset="0">handschrift</t>
-                    <feat subset="type" class="stem" />
-                    <feat subset="function" class="lexical" />
                 </morpheme>
-                <morpheme>
-                    <t offset="11">en</t>
-                    <feat subset="type" class="suffix" />
-                    <feat subset="function" class="plural" />                    
+                <morpheme class="suffix" function="inflexional">
+                    <t offset="11">en</t>                   
                 </morpheme>
               </morphology>              
             </w>
@@ -847,6 +849,15 @@
               <pos class="LET()"/>
               <lemma class="."/>
             </w>
+            <semroles>
+            	<semrole class="actor">
+            		<wref id="WR-P-E-J-0000000001.p.1.s.7.w.3" />
+            	</semrole>
+				<semrole class="patient">
+            		<wref id="WR-P-E-J-0000000001.p.1.s.7.w.4" />
+            		<hd><wref id="WR-P-E-J-0000000001.p.1.s.7.w.5" /></hd>
+            	</semrole>
+            </semroles>
           </s>
           <s xml:id="WR-P-E-J-0000000001.p.1.s.8">
             <w xml:id="WR-P-E-J-0000000001.p.1.s.8.w.1">
@@ -947,6 +958,33 @@
             </w>
           </s>
         </p>
+        <coreferences>
+        	<coreferencechain class="ident">
+        		<coreferencelink>
+        			<wref id="WR-P-E-J-0000000001.p.1.s.3.w.5" />
+        		</coreferencelink>
+        		<coreferencelink>
+        			<wref id="WR-P-E-J-0000000001.p.1.s.3.w.10" />
+        		</coreferencelink>        		
+        		<coreferencelink>
+        			<wref id="WR-P-E-J-0000000001.p.1.s.3.w.16" />
+        		</coreferencelink>        		        		
+        		<coreferencelink>
+        			<wref id="WR-P-E-J-0000000001.p.1.s.7.w.7" />
+        		</coreferencelink>        		        		
+        	</coreferencechain>
+        	<coreferencechain class="ident">
+        		<coreferencelink>
+        			<wref id="WR-P-E-J-0000000001.p.1.s.6.w.1" />
+        			<hd>
+        				<wref id="WR-P-E-J-0000000001.p.1.s.6.w.2" />
+        			</hd>
+        		</coreferencelink>
+        	    <coreferencelink>
+        			<wref id="WR-P-E-J-0000000001.p.1.s.6.w.8" />
+        		</coreferencelink>
+        	</coreferencechain>
+        </coreferences>
       </div>
       <div xml:id="sandbox">
           <list xml:id="sandbox.list.1">
@@ -988,6 +1026,44 @@
                   </caption>
               </figure>
            </event>
+           <div xml:id="sandbox.2">
+		       <s xml:id="WR-P-E-J-0000000001.sandbox.2.s.1">
+		       		<t>De CDA-lijsttrekker heeft fors verloren.</t>
+		       		<w xml:id="WR-P-E-J-0000000001.sandbox.2.s.1.w.1">
+		       			<t offset="0">De</t>
+		       		</w>
+		       		<w xml:id="WR-P-E-J-0000000001.sandbox.2.s.1.w.2">
+		       			<t offset="3">CDA-lijsttrekker</t>
+		       			<morphology>
+		       				<morpheme xml:id="WR-P-E-J-0000000001.sandbox.2.s.1.w.1.m.1" class="lexical">
+		       					<t offset="0">CDA</t>
+		       				</morpheme>
+		       				<morpheme class="lexical">
+		       					<t offset="4">lijsttrekker</t>
+		       					<pos class="n" />
+		       					<lemma class="lijsttrekker" />
+		       				</morpheme>
+		       			</morphology>
+		       		</w> 
+		       		<w xml:id="WR-P-E-J-0000000001.sandbox.2.s.1.w.3">
+		       			<t offset="18">heeft</t>
+		       		</w> 
+		       		<w xml:id="WR-P-E-J-0000000001.sandbox.2.s.1.w.4">
+		       			<t offset="24">fors</t>
+		       		</w>  
+		       		<w xml:id="WR-P-E-J-0000000001.sandbox.2.s.1.w.5">
+		       			<t offset="29">verloren</t>
+		       		</w>  
+		       		<w xml:id="WR-P-E-J-0000000001.sandbox.2.s.1.w.6">
+		       			<t offset="37">.</t>
+		       		</w>  
+		       		<entities>
+		       			<entity class="politicalparty">
+		       				<wref id="WR-P-E-J-0000000001.sandbox.2.s.1.w.1.m.1" />
+		       			</entity>
+		       		</entities>
+		       </s>
+           </div>
       </div>
       <gap xml:id="WR-P-E-J-0000000001.gap.1" class="backmatter">
        <desc>Backmatter</desc>
