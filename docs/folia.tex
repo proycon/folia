@@ -27,12 +27,12 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
 	Center for Language Studies \\
 	Radboud University Nijmegen \\ \\
     {\small P.O. Box 9103, NL-6500 HD Nijmegen, The Netherlands} \\ \\         
-        URL: http://ilk.uvt.nl/clam/ \thanks{This document is available from
+        URL: http://ilk.uvt.nl/folia/ \thanks{This document is available from
 	    http://ilk.uvt.nl/downloads/pub/papers/ilk.1203.pdf. All rights reserved, Tilburg University and 
         Radboud University Nijmegen.}}
 
 \title{{\huge FoLiA: Format for Linguistic Annotation} \\ \vspace*{0.5cm}
-{\bf \small version 0.9.0 - revision 2.6} \\ \vspace*{0.5cm}{\huge Documentation}\\
+{\bf \small version 0.9.0 - revision 2.6.1} \\ \vspace*{0.5cm}{\huge Documentation}\\
 \vspace*{1cm} {\it ILK Technical Report -- ILK 12-03}}
 
 \parindent=0pt %no paragraph indentation
@@ -1413,7 +1413,7 @@ The declaration for coreference relations is done as follows:
 
 \section{Morphological Annotation}
 
-\status{heavily revised since v0.9}{reimplementation necessary}
+\status{heavily revised since v0.9}{pynlpl}
 
 Tokens can be further segmented into morphemes, a form of structure annotation. Morphemes behave much like \texttt{w} elements (tokens). Moreover, morphemes can be referred to from within in span annotation using \texttt{wref}, allowing spans to be defined not only over whole words/tokens but also parts thereof. The element for morphemes is \texttt{morpheme}, and can only occur within \texttt{w} elements. Recall that \texttt{t} elements can contain references to higher-level \texttt{t} elements. In such cases, the \texttt{offset} attribute is used to designate the offset index in the word's associated text element (\texttt{t}) (zero being right at the start of the text). Morphemes may do this.
 
@@ -1584,8 +1584,7 @@ The same approach can be followed for other kinds of span annotation. Note that 
 
 \section{Speech Annotation}
 
-\status{Proposed in v0.9}{reimplementation necessary}
-
+\status{Proposed in v0.9}{not implemented yet}
 
 \subsection{Speech Structure Annotation}
 \label{sec:speech}
