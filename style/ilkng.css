@@ -126,3 +126,11 @@ a:hover {
 .rightbox {
 	float: right;
 }
+
+#langbox {
+	float: right;
+}
+#langbox img {
+	border: 2px white solid;
+	margin-bottom: 2px;
+}
