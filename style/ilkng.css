@@ -77,7 +77,7 @@ a:hover {
 #logo {
 	float: right;
 	display: inline-block;
-	background: url(/style/rulogo.png);
+	background: url(rulogo.png);
 	width: 475px;
 	height: 80px;
 	min-width: 475px;
@@ -86,7 +86,7 @@ a:hover {
 
 #icon {
 	display: inline-block;
-	background: url(/style/icon.png);	
+	background: url(icon.png);	
 	width: 121px;
 	height: 80px;
 	min-width: 121px;
