@@ -1,0 +1,64 @@
+---
+layout: ilkng
+title: FoLiA
+subtitle: Format for Linguistic Annotation
+---
+
+<div class="leftbox">
+
+<p><strong>FoLiA</strong> is an XML-based format for Linguistic Annotation suitable for representing written language resources such as corpora. Its goal is to unify a variety of linguistic annotations in one single rich format, without committing to any particular standard annotation set. Instead, it seeks to accommodate any desired system or tagset, and so offer maximum flexibility. This makes FoLiA language independent. Due to its generalised set up, it is easy to extend the FoLiA format to suit your custom needs for linguistic annotation.</p>
+
+<p>XML is an inherently hierarchic format. FoLiA does justice to this by utilising a hierarchic, inline, setup. We inherit from the <strong>D-Coi</strong> format, which posits to be loosely based on a minimal subset of <strong>TEI</strong>. Because of the introduction of a broader paradigm, FoLiA is not backwards-compatible with D-Coi, i.e. validators for D-Coi will not accept FoLiA XML. It is however easy to convert FoLiA to less complex or verbose formats such as the D-Coi format, or plain-text. Converters will be provided. This may entail some loss of information if the simpler format has no provisions for particular types of information specified in the FoLiA format.</p>
+
+<p>Notable features are:</p>
+
+<ul>
+<li>XML-based, UTF-8 encoded</li>
+<li>Language and tagset independent</li>
+<li>Can encode both tokenised as well as untokenised text + partial reconstructability of untokenised form even after tokenisation.</li>
+<li>Generalised paradigm, extensible and flexible</li>
+<li>Provenance support for all linguistic annotations: annotator, type (automatic or manual), time.</li>
+</ul>
+
+<p>FoLiA was written by Maarten van Gompel.</p>
+
+
+</div>
+
+
+<div class="rightbox">
+<h2>Resources</h2>
+
+<p>
+The documentation, validation schema and other resources for the latest FoLiA version can be found below. Consult the <a href="http://github.com/proycon/folia">FoLiA github repository</a>  for all available resources.</p>
+
+<ul>
+<li><a href="http://github.com/proycon/folia/blob/master/docs/folia.pdf?raw=true">FoLiA documentation (PDF)</a></li>
+<li><a href="http://github.com/proycon/folia">FoLiA source repository on github</a> (contains converter scripts, schemas, XSL stylesheets, etc)</li>
+<li><a href="http://github.com/proycon/folia/blob/master/schemas/folia.rng">FoLiA RelaxNG schema</a> (for validation)</li>
+<li><a href="example.xml">Example of a FoLiA document</a> (with in-browser visualisation through XSL, view source for XML)</li>
+</ul>
+
+<p>Two software libraries are available for working with the FoLiA format from within your own scripts and applications. Make sure to check back regularly for updates, as both are still being actively developed.</p>
+
+<ul>
+<li><tt>pynlpl.formats.folia</tt> (Python library) - by Maarten van Gompel, distributed as part of PyNLPl
+<ul>
+	<li><a href="http://packages.python.org/PyNLPl/folia.html">Library documentation (Introductory tutorial and API reference)</a></li>
+	<li>We recommend obtaining pynlpl through the <a href="http://pypi.python.org/pypi/PyNLPl/">Python Package Index</a> or directly from github, this ensures you have the latest version and can keep it up to date: $ sudo easy_install pynlpl</li>
+</ul>
+</li>
+<li><tt>libfolia</tt> (C++ library) - by Ko van der Sloot.
+<ul>
+	<li>No documentation available yet</li>
+	<li>Note: libfolia is a dependency for both Frog and ucto. You will need it to compile them!</li>
+</ul>
+</li>
+</ul>
+	
+<p>
+For additional support and announcements please join the: <a href="https://lists.uvt.nl/mailman/listinfo/folia">FoLiA Mailing List</a>.
+</p>
+
+</div>
+
