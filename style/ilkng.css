@@ -103,7 +103,7 @@ a:hover {
 
 .leftbox, .rightbox {
 	background: white;
-	width: 45%;
+	width: 45%;	
 	-moz-box-shadow: 10px 10px 5px #555;
 	-webkit-box-shadow: 10px 10px 5px #555;
 	box-shadow: 10px 10px 5px #555;
