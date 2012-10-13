@@ -1,7 +1,7 @@
 body {
 	font-family: Ubuntu, "Lucida Grande",Calibri, Verdana, Arial, Helvetica, sans-serif;
 	font-size: 13px;
-	background: url(/style/back.png);
+	background: url(back.png);
 	margin: 0;
 	padding: 0;
 }
