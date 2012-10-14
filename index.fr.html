@@ -15,24 +15,24 @@ pynlpldoclabel: Documentation de la bibliothèque python
 
 <div class="leftbox">
 
-<p><strong>FoLiA</strong> est un format de base XML pour la représentation des ressources linguistiques annotées. L'objectif de FoLiA est d'être un format pour stockage et échange des ressources linguistiques, corpora inclus. Nous voulons introduire un seul format riche capable de représenter des différents types d'annotation, à travers un paradigme général. FoLiA ne s'engage pas à un seul ensemble d'étiquettes linguistiques, une seule langue ou une théorie linguistique spécifique. On laisse ça à l'utilisateur, pour ainsi offrir une flexibilité maximale.</p> 
+<p><strong>FoLiA</strong> est un format de base XML pour la représentation des ressources linguistiques annotées. L'objectif de FoLiA est d'être un format pour stockage et échange des ressources linguistiques, corpora inclus. Nous voulons introduire un seul format riche capable de représenter les différents types d'annotation, à travers un paradigme général. FoLiA ne s'engage pas à un seul ensemble d'étiquettes linguistiques, une seule langue ou une théorie linguistique spécifique. On laisse toujours ça à l'utilisateur, pour ainsi offrir une flexibilité maximale.</p> 
 
 
-<p>XML est un format hiérarchique. <strong>FoLiA</strong> en profite en utilisant une structure in-line et hierarchique. Nous héritons de notre prédécesseur, le format <strong>D-Coi</strong>. Ce format postule d'être lâchement basé sur une sous-ensemble du format <strong>TEI</strong>. À cause de l'introduction d'un nouveau et plus large paradigme, FoLiA n'est pas compatible avec le format D-Coi. Cependant, c'est facile de convertir FoLiA à des formats moins expressifs. Nous fournissons des convertisseurs à cet effet.</p> 
+<p>XML est un format hiérarchique. <strong>FoLiA</strong> en profite en utilisant une structure in-line et hierarchique. Nous héritons de notre prédécesseur, le format <strong>D-Coi</strong>. Ce format postule d'être lâchement basé sur une sous-ensemble du format <strong>TEI</strong>. À cause de l'introduction d'un nouveau et plus large paradigme, FoLiA n'est pas compatible avec le format D-Coi. Cependant, il est facile de convertir FoLiA à des formats moins expressifs. Nous fournissons des convertisseurs à cet effet.</p> 
 
 
 <p>Les charactéristiques principales de FoLiA sont:</p>
 
 <ul>
 <li><strong>Paradigme général</strong> - On utilise un paradigme général et uniforme, avec le minimum de solutions ad-hoc.</li>
-<li><strong>Expressivité</strong> - Le format est très expressif, on peut formuler des annotations de manière très détaillée, mais sans forcer des détails indésirables sur l'utilisateur. FoLiA appuye des annotations alternatives et metadata pour des annotations; comme information à propos de l'annotateur, temps de l'annotation, confidence, etc.. </li> 
-<li><strong>Extensible</strong> - Grace au paradigme uniforme et le fait que le format ne se limite pas à un seul ensemble d'étiquettes linguistiques, FoLiA est bien extensible. </li>
-<li><strong>Formalisé</strong> - Le format est formalisé, ça veut dire que on peut le valider sur un niveau superficiel, et dans un niveau profond; le niveau profond vérifie aussi les étiquettes.</li>
+<li><strong>Expressivité</strong> - Le format est très expressif, on peut formuler des annotations de manière très détaillée, mais sans forcer des détails indésirables sur l'utilisateur. FoLiA appuye des annotations alternatives et metadata pour des annotations; comme l'information à propos de l'annotateur, temps de l'annotation, confidence, etc.. </li> 
+<li><strong>Extensible</strong> - Grâce au paradigme uniforme et le fait que le format ne se limite pas à un seul ensemble d'étiquettes linguistiques, FoLiA est bien extensible. </li>
+<li><strong>Formalisé</strong> - Le format est formalisé, ça veut dire qu'on peut le valider sur un niveau superficiel, et sur un niveau profond; le niveau profond vérifie aussi les étiquettes.</li>
 <li><strong>Pratique</strong> - FoLiA était contruit de manière bottom-up, à côté de ses applications, bibliothèques et convertisseurs. Bien que le format est rich, nous essayons de ne pas le compliquer. L'utilisation et l'apprentissage sont le plus simples possibiles pour faciliter l'adoption du format.</li>
 </ul>
 
 <p>
-FoLiA combine l'utilisation de annotation 'in-line' et 'stand-off'. Ce premier est utilisé pour des annotations concernants des mots/termes uniques, alors que l'annotation stand-off est utilisé pour les annotations sur plusieurs termes. Ça donne à FoLiA la flexibilité et expressivité essentiel pour le soutien de divers types d'annotation linguistique.</p>
+FoLiA combine l'utilisation de annotation 'in-line' et 'stand-off'. Ce premier est utilisé pour des annotations concernants des mots/termes uniques, alors que l'annotation stand-off est utilisé pour les annotations sur plusieurs termes. Ceci donne à FoLiA la flexibilité et expressivité essentiel pour le soutien de divers types d'annotation linguistique.</p>
 
 </div>
 
@@ -41,7 +41,7 @@ FoLiA combine l'utilisation de annotation 'in-line' et 'stand-off'. Ce premier e
 <h2>Ressources</h2>
 
 <p>
-Ici vous trouverez la documentation, schème de validation et des autres ressources pour la denière version de FoLiA. Consultez la  <a href="http://github.com/proycon/folia">dépôt de FoLiA sur github</a> pour y trouver tous les ressources.</p>
+Ici vous trouverez la documentation, schéma de validation et des autres ressources pour la denière version de FoLiA. Consultez la  <a href="http://github.com/proycon/folia">dépôt de FoLiA sur github</a> pour y trouver tous les ressources.</p>
 
 <ul>
 <li><a href="http://github.com/proycon/folia/blob/master/docs/folia.pdf?raw=true">FoLiA documentation (PDF, en anglais)</a></li>
@@ -50,7 +50,7 @@ Ici vous trouverez la documentation, schème de validation et des autres ressour
 <li><a href="example.xml">Exemple d'un document FoLiA</a> (avec visualisation par XSL, consultez la source pour voir l'XML)</li>
 </ul>
 
-<p>Il y a deux bibliothèques pour travailler avec le format FoLiA dès votre propres scripts et programmes. Vérifiez fréquemment si votre copie peut être actualisé:</p>
+<p>Il y a deux bibliothèques pour travailler avec le format FoLiA à partir de vos propres scripts et programmes. Vérifiez fréquemment si votre copie peut être actualisé:</p>
 
 <ul>
 <li><tt><a href="http://github.com/proycon/pynlpl/blob/master/formats/folia.py">pynlpl.formats.folia</a></tt> (Bibliothèque python) - par Maarten van Gompel, distribué comme partie de PyNLPl
