@@ -1,0 +1,91 @@
+---
+layout: ilkng
+title: FoLiA
+subtitle: Formato para Annotação Linguística
+keywords: folia, formato para annotação linguistica, xml, tei, d-coi, clarin
+description: 
+lang: pt
+homelabel: Página inicial
+sourcelabel: Fonte
+documentationlabel: Documentação
+schemalabel: Esquema RelaxNG
+examplelabel: Exemplo
+pynlpldoclabel: Documentação da biblioteca python
+---
+
+<div class="leftbox">
+
+<p><strong>FoLiA</strong> é um formato baseado em XML pela representação de recursos annotados linguisticalmente. FoLiA é usado como formato para armazenar recursos linguistocs, como corpora. O objetivo é de oferecer um formato rico que pode representar uma grande variedade de annotações linguisticas, baseado num paradigma comúm. FoLiA não obriga o uso de um determindo conjunto de etiquetas linguisticas, língua ou teoria linguística. O utilizador sempre pode escolher isso em liberdade, e assim FoLiA oferece uma máxima flexibilidade. </p> 
+ 
+
+<p>XML é o um formato hierárquico. <strong>FoLiA</strong> segue a structura hierárquica maximalmente com o seu modelo de annotação <emph>in-line</emph>, o que herdamos do formato <strong>D-Coi</strong>. D-coi foi o antecessor de FoLiA e postula ser baseada num subjunto mínimo de <strong>TEI</strong>. Devido à introducção dum novo e extenso paradigma, FoLiA não é compatível com D-Coi. Não obstante, é facil convertir documentos FoLiA a formatos menos complexos e expressivos. Temos alguns convertedores disponiveis.</p> 
+
+<p>As características principais de FoLiA são:</p>
+
+<ul>
+<li><strong>Paradigma generalizado</strong> - Há um paradigma generalizado, evitando qualquer solução ad-hoc.</li> 
+<li><strong>Expressividade</strong> - O formato é muito expressivo. É possível representar annotações em grande detalhe, mas FoLiA não obriga o usuário specific detalhes não deseados. FoLiA também tem soporte para annotação de alternativas, e de metadata sobre annotações como informação sobre o annotador, tempo de annotação, confidencia etc..</li>
+<li><strong>Extensível</strong> - FoLiA é bastante extensível devido ao paradigma generalizado e o fato de que FoLiA não confina o usuário a usar um determinado conjunto de etiquetas linguísticas,  </li>
+<li><strong>Formalizado</strong> - O formato é formalizado e documentos são validavéis num nível superficial e num nivel profundo (o último inclui validação das etiquetas linguisticas).</li>
+<li><strong>Práctico</strong> - FoLiA é desenvolvido de maneira <emph>bottom-up</emph>. Isso quer dizer que applicações e bibliotecas são produzidas junto com o desenvolvimento do formato mesmo. Ainda que o format é rico é verboso, tentamos de mantê-lo simples para que outros podem adoptá-lo facilmente nas applicações deles e pelos dados deles.</li>
+</ul>
+
+<p>
+FoLiA combina o uso de annotação in-line com stand-off. Annotação inline é usado para annotações pertencendo a palavras soltas, ou a outras construçōes soltas. Annotatacão stand-off é usado para as annotações que estendem por mais de uma palavra.</p>
+
+</div>
+
+
+<div class="rightbox">
+<h2>Recursos</h2>
+
+<p>
+A documentação, o esquema de validação e outros recusors pela última versão de FoLiA se pode encontrar aqui debaixo. Você também pode consultar o <a href="http://github.com/proycon/folia">repositório FoLiA no github</a>.</p>
+
+<ul>
+<li><a href="http://github.com/proycon/folia/blob/master/docs/folia.pdf?raw=true">Documentação de FoLiA (PDF, em inglês)</a></li>
+<li><a href="http://github.com/proycon/folia">Código de FoLiA em github</a> (tem convertidores, esquemas, etc)</li>
+<li><a href="http://github.com/proycon/folia/blob/master/schemas/folia.rng">FoLiA RelaxNG esquema</a> (para validação)</li>
+<li><a href="example.xml">Exemplo dum documento FoLiA</a> (com visualização por XSL, consulta o fonte pelo XML)</li>
+</ul>
+
+<p>Há duas bibliotecas que você pode usar para trabalhar com FoLiA nos seus scripts e applicações:</p>
+
+<ul>
+<li><tt><a href="http://github.com/proycon/pynlpl/blob/master/formats/folia.py">pynlpl.formats.folia</a></tt> (Biblioteca para python) - por Maarten van Gompel, distribuido como parte de  PyNLPl
+<ul>
+	<li><a href="http://packages.python.org/PyNLPl/folia.html">Documentación de la biblioteca (tutorial y referencía API)</a></li>
+	<li>PyNLPl está no <a href="http://pypi.python.org/pypi/PyNLPl/">Python Package Index</a> ou no github.  Assim se pode facilmente manter a sua copia atualizada, instala-lo por: $ sudo easy_install pynlpl</li>
+</ul>
+</li>
+<li><tt><a href="http://ilk.uvt.nl/folia/download-libfolia.php">libfolia</a></tt> (biblioteca para C++) - por Ko van der Sloot.
+<ul>
+	<li>Ainda não há documentação</li>
+	<li>libfolia é uma dependêncía para Frog e ucto.</li>
+</ul>
+</li>
+</ul>
+	
+<p>
+Para mais soporte voce pode participar no <a href="https://lists.uvt.nl/mailman/listinfo/folia">mailing list de FoLiA</a>.
+</p>
+
+</div>
+
+<div class="rightbox">
+
+<p>FoLiA é usado em varios projectos na comunidade de linguistica computacional nos Países Baixos e Flandes. Também é usado em alguns projectos de <a href="http://www.clarin.eu">CLARIN</a>. Soporte para FoLiA forma parte de varias applicações, como  <a href="http://ilk.uvt.nl/ucto">ucto</a>, <a href="http://ilk.uvt.nl/frog">Frog</a>, e <a href="http://valkuil.net">Valkuil.net</a>.</p>
+
+<p>FoLiA é criado por Maarten van Gompel, com apoio de Antal van den Bosch, Ko van der Sloot, Martin Reynaert e outras pessoas na comunidade acadêmica. Em estudos que usam FoLiA, você pode citar-b En estudios que usan FoLiA, se puede citar-nos como:
+</br></br>
+<tt>Maarten van Gompel (2012). <emph>FoLiA: Format for Linguistic Annotation.</emph> Documentation. 
+ ILK Technical Report 12-03. Available from <a href="http://ilk.uvt.nl/downloads/pub/papers/ilk.1203.pdf">http://ilk.uvt.nl/downloads/pub/papers/ilk.1203.pdf</a></tt>
+</p>
+
+<p>FoLiA é código-abierto e todos os recursos são baixo a <a href="http://www.gnu.org/licenses/gpl-3.0.html">GNU Licença Pública v3</a>.</p>
+</div>
+
+<h2 style="clear:both; margin-top: 20px;">Esquema do paradigma</h2>
+<div style="margin-top: 20px;">
+	<img src="folia_paradigm_s.png" alt="FoLiA paradigm" />
+</div>
