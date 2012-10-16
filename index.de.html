@@ -1,0 +1,93 @@
+---
+layout: ilkng
+title: FoLiA
+subtitle: Format für Linguistische Annotation
+keywords: folia, format für linguistische Annotation, xml, tei, d-coi, clarin
+description: FoLiA ist ein auf XML-basiertes Format für die Annotation Linguistischer Dateien. FoLiA ist geeignet für die Speicherung und Austausch sölcher Ressourcen. Das Ziel ist um verschiedene Arten linguistischer Annotation zu unterstützen in einem einziges und umfangreiches Format basiert auf einem allgemeines Paradigma.
+lang: de
+homelabel: Startseite
+sourcelabel: Quelle
+documentationlabel: Dokumentation
+schemalabel: RelaxNG schema
+examplelabel: Voorbeeld
+pynlpldoclabel: Python Library Documentatie
+---
+
+<div class="leftbox">
+
+<p><strong>FoLiA</strong> ist ein auf XML-basiertes Format für die Annotation Linguistischer Dateien. FoLiA ist geeignet für die Speicherung und Austausch sölcher Ressourcen. Das Ziel ist um verschiedene Arten linguistischer Annotation zu unterstützen in einem einziges und umfangreiches Format basiert auf einem allgemeines Paradigma. FoLiA verpflichtet kein spezifischer Label-set, Sprache oder linguistische Theorie. Der Benutzer ist darin ganz frei, und das macht FoLiA sehr flexibel.</p>
+
+<p>XML ist ein hierarchisches Format. <strong>FoLiA</strong> benützt diesen Struktur optimal und folgt wo möglich eine in-line hierarchische Methode. Wir erben das von unserem Vorgang, das <strong>D-Coi</strong> Format. <strong>D-coi</strong> behauptet auf einem Subset von <strong>TEI</strong> basiert zu sein. Wegen das umfangeiches Paradigma, FoLiA ist nicht kompatibel mit D-Coi. Es ist aber einfach FoLiA Dokumenten nach weniger expressive Formaten wie D-Coi oder unformatierten Text über zu setzen. Dafür bieten wir auch Konverter an.</p>
+
+<p>Wichtige eigenschaften des FoLiA Formats sind: </p>
+
+<ul>
+<li><strong>Generalisiertes Paradigma</strong> - Wir benützen ein generalisiertes Paradigma und verwenden dabei so weinig möglich ad-hoc lösungen. </li>
+<li><strong>Expressivität</strong> - Das Format ist sehr expressif. Annotationen können sehr ausführlich ausgesetzt werden, wenn der Benützer möchte. Außerdem gibt es auch unterstützung um alternative Annotationen dar zu stellen und kann man Metadaten von Annotationen hinzufügen, wie zum Beispiel Informationen über dem Bearbeiter, das Zeitpunkt davon und das Vertrauen im Annotation. </li>
+<li><strong>Erweiterbar</strong> - Wegen das generalisiertes Paradigma und die Tatsache, das FoLiA kein Label-Sets verplichtet, ist das Format einfach erweiterbar.
+<li><strong>Formalisiert</strong> - Das Format kan man validieren auf oberflächligem und tiefem Niveau. Das Format ist einfach von Rechner zu parsieren, es gibt dafür auch einige Bibliotheken und Hilfsprogramme.  </li>
+<li><strong>Praktisch</strong> - Das FoLiA Format ist auf einem `bottom-up` Art entwickelt, zusammen mit Applikationen, HIlfsprogramme und Bibliotheken. Weil das Format sehr umfangreich ist, halten wir es so einfach wie möglich um damit die Annahme und Verwendung des Formats zu ermutigen.</li>
+</ul>
+
+<p>
+FoLiA benützt in-line sowie stand-off Annotation. Inline Annotation gehört zu einzelne Wörter oder einzelne Strukturelemente, weil stand-off Annotation sich über mehrere Wörter umspannt. Stand-off annotation wird in getrennte Annonationslagen aufgenommen. FoLiA bietet so eine hohe flexibilität um verschiedene Arten linguistischer Annotation zu bedienen.</p>
+
+</div>
+
+
+<div class="rightbox">
+<p>
+Hier finden Sie Links zum Dokumentation, RelaxNG schema, und Bibliotheken. Sie finden das alles auch in der FoLiA Seite in <a href="http://github.com/proycon/folia">github</a>.
+</p>
+
+
+<ul>
+<li><a href="http://github.com/proycon/folia/blob/master/docs/folia.pdf?raw=true">FoLiA Dokumentation (PDF, auf Englisch)</a></li>
+<li><a href="http://github.com/proycon/folia">FoLiA sourcecode</a> ( enthalt Konverter, Schemas, usw)</li>
+<li><a href="http://github.com/proycon/folia/blob/master/schemas/folia.rng">FoLiA RelaxNG schema</a></li>
+<li><a href="example.xml">Beispeil FoLiA Dokument</a> (mit Visualisation im Browser)</li>
+</ul>
+
+<p>Zwei software Bibliotheken sind verfügbar um mit FoLiA dokument zu arbeiten in Ihren eigenen Sofware und scripts. Kontroliere oft ob eine neue Version verfügbar ist, weil sie noch voll in entwicklung sein.</p>  
+
+
+<ul>
+<li><tt><a href="http://github.com/proycon/pynlpl/blob/master/formats/folia.py">pynlpl.formats.folia</a></tt> (für Python) - von Maarten van Gompel, distribuiert als Teil von PyNLPl.
+<ul>
+	<li><a href="http://packages.python.org/PyNLPl/folia.html">Dokumentation der Python Bibliothek (auf Englisch)</a></li>
+	<li>Wir empfehlen pynlpl herunter zu laden vom <a href="http://pypi.python.org/pypi/PyNLPl/">Python Package Index</a> oder github, auf diese Weise können Sie das einfach aktualisieren: <tt>$ sudo easy_install pynlpl</tt></li>
+</ul>
+</li>
+<li><tt><a href="http://ilk.uvt.nl/folia/download-libfolia.php">libfolia</a></tt> (für C++) - von Ko van der Sloot, Universität Tilburg
+<ul>
+	<li>Noch kein Dokumentation verfügbar</li>
+	<li><strong>Achtung:</strong> man benötigt libfolia um Frog sowie ucto zu kompilieren!</li>
+</ul>
+</li>
+</ul>
+	
+<p>
+Für weitere unterstützung können Sie teilnehmen am <a href="https://lists.uvt.nl/mailman/listinfo/folia">FoLiA Mailing List</a>.
+</p>
+
+</div>
+
+<div class="rightbox">
+
+<p>FoLiA wird von verschiedene Projekten im Niederländischen und Flämischen Komputerlinguistikgesellschaft verwendet. Das großte Niederländische Korpus, SoNaR, ist im FoLiA Format veröffentlicht. Es gibt auch manche <a href="http://www.clarin.eu">CLARIN</a> Projekten, die FoLiA verwenden.  FoLiA unterstützung ist integriert in mehrere Software-Pakete, wie <a href="http://ilk.uvt.nl/ucto">ucto</a>, <a href="http://ilk.uvt.nl/frog">Frog</a> und <a href="http://valkuil.net">Valkuil.net</a>.</p>
+
+<p>FoLiA ist von Maarten van Gompel entwickelt an der Universät Tilburg und heuzutage an der Radboud Universität Nijmegen, mit Hilfe von Antal van den Bosch, Ko van der Sloot, Martin Reynaert und anderen. Publikation von Forschung das FoLiA verwendet, kann FoLiA anführen als:
+</br></br>
+<tt>Maarten van Gompel (2012). <emph>FoLiA: Format for Linguistic Annotation.</emph> Documentation. 
+ ILK Technical Report 12-03. Available from <a href="http://ilk.uvt.nl/downloads/pub/papers/ilk.1203.pdf">http://ilk.uvt.nl/downloads/pub/papers/ilk.1203.pdf</a></tt>
+</p>
+
+<p>FoLiA ist open-source en verfügbar unter der <a href="http://www.gnu.org/licenses/gpl-3.0.html">GNU Publike Lizenz v3</a>.</p>
+
+
+</div>
+
+<h2 style="clear:both; margin-top: 20px;">Schema des Paradigmas</h2>
+<div style="margin-top: 20px;">
+	<img src="folia_paradigm_s.png" alt="FoLiA paradigm" />
+</div>
