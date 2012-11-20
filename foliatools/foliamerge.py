@@ -55,10 +55,10 @@ def foliamerge(outputfile, *files):
                             except:
                                 pass
                             #check if the annotation already exists
-                            if isinstance(e, folia.AbstractTokenAnnotation) and newparent.hasannotation(e.ANNOTATIONTYPE, e.set):
+                            if isinstance(e, folia.AbstractTokenAnnotation) and newparent.hasannotation(e.__class__, e.set):
                                 print >>sys.stderr, "Annotation type " + e.__class__.__name__ + ", set " + e.set + ", under " + parent.id + " , already exists... skipping"
                                 pass
-                            elif isinstance(e, folia.AbstractAnnotationLayer) and newparent.hasannotationlayer(e.ANNOTATIONTYPE, e.set):    
+                            elif isinstance(e, folia.AbstractAnnotationLayer) and newparent.hasannotationlayer(e.__class__, e.set):    
                                 print >>sys.stderr, "Annotation type " + e.__class__.__name__ + ", set " + e.set + ", under " + parent.id + " , already exists... skipping"
                                 pass
                             else:
