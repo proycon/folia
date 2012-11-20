@@ -40,7 +40,10 @@ def foliamerge(outputfile, *files):
                 
                 for e in inputdoc.items():
                     if isinstance(e, folia.AbstractAnnotation) or isinstance(e, folia.AbstractAnnotationLayer):                         
-                        if e.ANNOTATIONTYPE
+                        try:
+                            e.ANNOTATIONTYPE
+                        except:
+                            continue                       
                         if (e.ANNOTATIONTYPE, e.set) in outputdoc.annotations:
                             parent = e.parent()
                             if parent.id:
