@@ -29,10 +29,14 @@ def foliamerge(outputfile, *files):
         outputdoc = None
         
         for i, filename in enumerate(files):
+            print >>sys.stderr, "Processing " + filename 
             inputdoc = folia.Document(file=filename)
             if i == 0:
+                 print >>sys.stderr, "(pivot document)"
                  outputdoc = inputdoc
             else:
+                print >>sys.stderr, "(merging document)"
+                
                 for annotationtype,set in inputdoc.annotations:
                     if not outputdoc.declared(annotationtype,set):
                         outputdoc.declare( annotationtype, set)
