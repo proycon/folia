@@ -93,7 +93,7 @@ def main():
     
     outputdoc = foliamerge(outputfile, *args)
     if not outputfile:
-        print outputdoc
+        print outputdoc.xmlstring()
         
 
 if __name__ == "__main__":
