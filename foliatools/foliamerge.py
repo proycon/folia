@@ -39,15 +39,16 @@ def foliamerge(outputfile, *files):
 
                 
                 for e in inputdoc.items():
-                    if isinstance(e, folia.AbstractAnnotation) or isinstance(e, folia.AbstractAnnotationLayer): 
-                        if (e.annotationtype, e.set) in outputdoc.annotations:
+                    if isinstance(e, folia.AbstractAnnotation) or isinstance(e, folia.AbstractAnnotationLayer):                         
+                        if e.ANNOTATIONTYPE
+                        if (e.ANNOTATIONTYPE, e.set) in outputdoc.annotations:
                             parent = e.parent()
                             if parent.id:
                                 newparent = outputdoc[parent.id]
                                 #check if the annotation already exists
-                                if isinstance(e, folia.AbstractTokenAnnotation) and newparent.hasannotation(e.annotationtype, e.set):
+                                if isinstance(e, folia.AbstractTokenAnnotation) and newparent.hasannotation(e.ANNOTATIONTYPE, e.set):
                                     pass
-                                elif isinstance(e, folia.AbstractAnnotationLayer) and newparent.hasannotationlayer(e.annotationtype, e.set):    
+                                elif isinstance(e, folia.AbstractAnnotationLayer) and newparent.hasannotationlayer(e.ANNOTATIONTYPE, e.set):    
                                     pass
                                 else:
                                     c = e.copy(outputdoc) #make a copy, linked to outputdoc
