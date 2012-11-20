@@ -62,7 +62,7 @@ def foliamerge(outputfile, *files):
                                 print >>sys.stderr, "Annotation type " + e.__class__.__name__ + ", set " + e.set + ", under " + parent.id + " , already exists... skipping"
                                 pass
                             else:
-                                print >>sys.stderr, "Adding Annotation type " + e.__class__.__name__ + ", set " + e.set
+                                print >>sys.stderr, "Adding Annotation type " + e.__class__.__name__ + ", set " + e.set + " to " + parent.id
                                 c = e.copy(outputdoc) #make a copy, linked to outputdoc
                                 newparent.append(c) #append to outputdoc
                                     
