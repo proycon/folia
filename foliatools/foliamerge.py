@@ -45,8 +45,8 @@ def foliamerge(outputfile, *files):
                         except:
                             continue                       
                         if (e.ANNOTATIONTYPE, e.set) in outputdoc.annotations:
-                            parent = e.parent()
-                            if parent.id:
+                            parent = e.parent
+                            if parent.id in outputdoc:
                                 newparent = outputdoc[parent.id]
                                 #check if the annotation already exists
                                 if isinstance(e, folia.AbstractTokenAnnotation) and newparent.hasannotation(e.ANNOTATIONTYPE, e.set):
