@@ -50,19 +50,21 @@ def foliamerge(outputfile, *files):
                             continue                       
                         if (e.ANNOTATIONTYPE, e.set) in outputdoc.annotations:
                             parent = e.parent
-                            if parent.id in outputdoc:
+                            try:
                                 newparent = outputdoc[parent.id]
-                                #check if the annotation already exists
-                                if isinstance(e, folia.AbstractTokenAnnotation) and newparent.hasannotation(e.ANNOTATIONTYPE, e.set):
-                                    print >>sys.stderr, "Annotation type " + e.__class__.__name__ + ", set " + e.set + ", under " + parent.id + " , already exists... skipping"
-                                    pass
-                                elif isinstance(e, folia.AbstractAnnotationLayer) and newparent.hasannotationlayer(e.ANNOTATIONTYPE, e.set):    
-                                    print >>sys.stderr, "Annotation type " + e.__class__.__name__ + ", set " + e.set + ", under " + parent.id + " , already exists... skipping"
-                                    pass
-                                else:
-                                    print >>sys.stderr, "Adding Annotation type " + e.__class__.__name__ + ", set " + e.set
-                                    c = e.copy(outputdoc) #make a copy, linked to outputdoc
-                                    newparent.append(c) #append to outputdoc
+                            except:
+                                pass
+                            #check if the annotation already exists
+                            if isinstance(e, folia.AbstractTokenAnnotation) and newparent.hasannotation(e.ANNOTATIONTYPE, e.set):
+                                print >>sys.stderr, "Annotation type " + e.__class__.__name__ + ", set " + e.set + ", under " + parent.id + " , already exists... skipping"
+                                pass
+                            elif isinstance(e, folia.AbstractAnnotationLayer) and newparent.hasannotationlayer(e.ANNOTATIONTYPE, e.set):    
+                                print >>sys.stderr, "Annotation type " + e.__class__.__name__ + ", set " + e.set + ", under " + parent.id + " , already exists... skipping"
+                                pass
+                            else:
+                                print >>sys.stderr, "Adding Annotation type " + e.__class__.__name__ + ", set " + e.set
+                                c = e.copy(outputdoc) #make a copy, linked to outputdoc
+                                newparent.append(c) #append to outputdoc
                                     
         if outputfile:
             outputdoc.save(outputfile)
