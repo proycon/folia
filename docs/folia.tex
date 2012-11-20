@@ -886,7 +886,7 @@ The declaration, the actual set is fictitious:
 \section{Span Annotation}
 \label{sec:spanannotation}
 
-Not all annotations can be realised as token annotations. Some typically span multiple tokens. For these we introduce a kind of offset notation in separate \emph{annotation layers}. These annotation layers are generally embedded at the sentence level, \emph{after} the word tokens, though they may also be embedded on higher levels. Within these layers, references are made to all of the the word tokens spanned using the \texttt{wref} element. Each annotation layer is specific to a kind of span annotation, for which a declaration should be present in the metadata section of the document.
+Not all annotations can be realised as token annotations. Some typically span multiple tokens. For these we introduce a kind of offset notation in separate \emph{annotation layers}. These annotation layers are generally embedded at the sentence level, \emph{after} the word tokens, though they may also be embedded on higher levels. Within these layers, references are made to all of the the word tokens spanned using the \texttt{wref} element. Each annotation layer is specific to a kind of span annotation and associated with a set, for which a declaration should be present in the metadata section of the document. 
 
 %The layer elements themselves may also take the \texttt{set}, \texttt{annotator}, \texttt{annotatortype}, or \texttt{confidence} attributes. Which introduces the defaults for all the span annotations under it. They in turn may of course always chose to override this. %DISABLED FOR NOW, LIBRARIES DON't IMPLEMENT THIS YET
 
