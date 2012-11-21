@@ -24,6 +24,35 @@ def usage():
     print >>sys.stderr, "  -s                           Substitute: use first input file as output as well"
 
 
+def mergechildren(parent, outputdoc):    
+    for e in parent:        
+        if (isinstance(e, folia.AbstractAnnotation) or isinstance(e, folia.AbstractAnnotationLayer)) and parent.id:                         
+            try:
+                e.ANNOTATIONTYPE
+            except:
+                continue                       
+            if (e.ANNOTATIONTYPE, e.set) in outputdoc.annotations:
+                assert e.parent == parent
+                try:
+                    newparent = outputdoc[parent.id]
+                except:
+                    pass
+                #check if the annotation already exists
+                if isinstance(e, folia.AbstractTokenAnnotation) and newparent.hasannotation(e.__class__, e.set):
+                    print >>sys.stderr, "Annotation type " + e.__class__.__name__ + ", set " + e.set + ", under " + newparent.id + " , already exists... skipping"
+                    pass
+                elif isinstance(e, folia.AbstractAnnotationLayer) and newparent.hasannotationlayer(e.__class__, e.set):    
+                    print >>sys.stderr, "Annotation type " + e.__class__.__name__ + ", set " + e.set + ", under " + newparent.id + " , already exists... skipping"
+                    pass
+                else:
+                    print >>sys.stderr, "Adding Annotation type " + e.__class__.__name__ + ", set " + str(e.set) + " to " + newparent.id
+                    c = e.copy(outputdoc) #make a copy, linked to outputdoc
+                    newparent.append(c) #append to outputdoc
+        elif isinstance(e, folia.AbstractElement):                        
+            mergechildren(e, outputdoc)
+    
+                    
+                        
 
 def foliamerge(outputfile, *files):
         outputdoc = None
@@ -41,31 +70,9 @@ def foliamerge(outputfile, *files):
                     if not outputdoc.declared(annotationtype,set):
                         outputdoc.declare( annotationtype, set)
 
-                
-                for e in inputdoc.items():
-                    if isinstance(e, folia.AbstractAnnotation) or isinstance(e, folia.AbstractAnnotationLayer):                         
-                        try:
-                            e.ANNOTATIONTYPE
-                        except:
-                            continue                       
-                        if (e.ANNOTATIONTYPE, e.set) in outputdoc.annotations:
-                            parent = e.parent
-                            try:
-                                newparent = outputdoc[parent.id]
-                            except:
-                                pass
-                            #check if the annotation already exists
-                            if isinstance(e, folia.AbstractTokenAnnotation) and newparent.hasannotation(e.__class__, e.set):
-                                print >>sys.stderr, "Annotation type " + e.__class__.__name__ + ", set " + e.set + ", under " + newparent.id + " , already exists... skipping"
-                                pass
-                            elif isinstance(e, folia.AbstractAnnotationLayer) and newparent.hasannotationlayer(e.__class__, e.set):    
-                                print >>sys.stderr, "Annotation type " + e.__class__.__name__ + ", set " + e.set + ", under " + newparent.id + " , already exists... skipping"
-                                pass
-                            else:
-                                print >>sys.stderr, "Adding Annotation type " + e.__class__.__name__ + ", set " + str(e.set) + " to " + newparent.id
-                                c = e.copy(outputdoc) #make a copy, linked to outputdoc
-                                newparent.append(c) #append to outputdoc
-                                    
+                for e in inputdoc:
+                    mergechildren(e, outputdoc)
+                                                    
         if outputfile:
             outputdoc.save(outputfile)
 
