@@ -31,6 +31,7 @@ def mergechildren(parent, outputdoc):
                 e.ANNOTATIONTYPE
             except:
                 continue                       
+    
             if (e.ANNOTATIONTYPE, e.set) in outputdoc.annotations:
                 assert e.parent == parent
                 try:
