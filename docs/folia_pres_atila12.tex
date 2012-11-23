@@ -30,10 +30,10 @@
 \setbeamerfont{block title}{size={}}
 
 \def\raccoon{
-\makebox[\linewidth][c]{\includegraphics[width=70pt]{/home/proycon/Pictures/All/raccoon.pdf}\FloatBarrier}
+\makebox[\linewidth][c]{\includegraphics[width=70pt]{/home/proycon/Pictures/Local/raccoon.pdf}\FloatBarrier}
 }
 \def\smallraccoon{
-\makebox[\linewidth][c]{\includegraphics[width=30pt]{/home/proycon/Pictures/All/raccoon.pdf}\FloatBarrier}
+\makebox[\linewidth][c]{\includegraphics[width=30pt]{/home/proycon/Pictures/Local/raccoon.pdf}\FloatBarrier}
 }
 
 
@@ -86,6 +86,37 @@
 \begin{frame}
         \includegraphics[width=115.0mm]{folia_paradigm.png}
 \end{frame}
+
+
+\begin{frame}
+        \includegraphics[width=115.0mm]{folia_paradigm_p1.png}
+\end{frame}
+
+
+\begin{frame}
+        \includegraphics[width=115.0mm]{folia_paradigm_p2.png}
+\end{frame}
+
+\begin{frame}
+        \includegraphics[width=115.0mm]{folia_paradigm_p3.png}
+\end{frame}
+
+\begin{frame}
+        \includegraphics[width=115.0mm]{folia_paradigm_p4.png}
+\end{frame}
+
+\begin{frame}
+        \includegraphics[width=115.0mm]{folia_paradigm_p5.png}
+\end{frame}
+
+\begin{frame}
+        \includegraphics[width=115.0mm]{folia_paradigm_p6.png}
+\end{frame}
+
+\begin{frame}
+        \includegraphics[width=115.0mm]{folia_paradigm.png}
+\end{frame}
+
 
 \section{Practice}
 \subsection{Dissemination}
@@ -176,6 +207,7 @@ doc.save() #Save edited document
 		\item Co-reference resolution
 		\item Semantic roles
 		\item Improvements in morphological annotation
+		\item Speech annotation: first proposal
 	  \end{itemize}
 	\end{block}
 
@@ -183,6 +215,7 @@ doc.save() #Save edited document
 	  \begin{itemize}
 		\item Speech annotation, phonemes
 		\item FoLiA Set Definitions and deep validation
+		\item More tools and applications
 	  \end{itemize}
 	\end{block}
 \end{frame}
@@ -205,6 +238,93 @@ doc.save() #Save edited document
 
 
 \end{center}
+
+
+\section{Extra}
+
+\subsection{Trade-off}
+
+
+\begin{frame}
+	\begin{block}{Trade-off: Expressivity versus Computing Efficiency}		
+		\begin{itemize}
+    			\item FoLiA aims at expressivity rather than computing efficiency. 
+			\begin{itemize}
+				\item XML and FoLiA overhead: Not ideal for real-time or resource-constrained applications
+				\item \textbf{Conversion} to less expressive, more efficient, formats.
+			\end{itemize}			 
+		\end{itemize}	
+	\end{block}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Alternative Token Annotations}
+
+Annotations of the same type, but different sets need \emph{not} be alternatives.
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.1.s.1.w.2">
+    <t>luid</t>
+    <pos set="brown" class="jj" />
+    <pos set="cgn" class="adj" />
+</w>                         
+\end{lstlisting}        
+
+There can be only one of the same set though, this is illegal and requires usage of alternatives instead:
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.1.s.1.w.2">
+    <t>luid</t>
+    <pos set="cgn" class="adj" />
+    <pos set="cgn" class="adv" />
+</w>                         
+\end{lstlisting}   
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Alternative Token Annotations}
+
+Encodes mutually exclusive alternative annotations. Any annotations that are not alternatives are considered ``selected''.
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.1.s.1.w.2">
+    <t>bank</t>
+    <sense set="wordnet3.0" class="bank%1:17:01:"    
+     annotator="Maarten van Gompel" annotatortype="manual" 
+     confidence="0.8">
+     <desc>sloping ground near water</desc></sense>
+    <alt xml:id="example.p.1.s.1.w.2.alt.1">
+     <sense set="wordnet3.0" class="bank%1:14:01:"
+      annotator="WSDsystem" annotatortype="auto" 
+      confidence="0.6">     
+      <desc>financial institution</desc></sense> 
+    </alt>
+</w>                         
+\end{lstlisting}        
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Alternative Token Annotations}
+
+All token annotations grouped as one alternative are considered dependent. Multiple alternatives are always independent:
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.1.s.1.w.2">
+    <t>vlieg</t>
+    <pos class="N" />
+    <lemma class="vlieg" />
+    <alt xml:id="example.p.1.s.1.w.2.alt.1">
+        <pos class="V" />
+        <lemma class="vliegen" />
+    </alt>
+</w>                         
+\end{lstlisting}        
+
+\end{frame}
 
 \end{frame}
 
