@@ -73,6 +73,7 @@ def main():
         usage()
         sys.exit(2)
 
+    outputfile = None
 
     for o, a in opts:
         if o == '-c':
