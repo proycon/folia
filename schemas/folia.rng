@@ -532,7 +532,7 @@ RelaxNG schema for FoLiA XML v0.9.0
         <attribute name="annotatortype"/>
       </optional>
       <optional>
-        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+        <attribute name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
@@ -570,7 +570,7 @@ RelaxNG schema for FoLiA XML v0.9.0
         <attribute name="annotatortype"/>
       </optional>
       <optional>
-        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+        <attribute name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
@@ -625,6 +625,11 @@ RelaxNG schema for FoLiA XML v0.9.0
       <optional>
         <attribute name="auth"/>
       </optional>
+      <optional>
+        <attribute name="set">
+          <text/>
+        </attribute>
+      </optional>
       <interleave>
         <zeroOrMore>
           <ref name="su"/>
@@ -656,7 +661,7 @@ RelaxNG schema for FoLiA XML v0.9.0
         <attribute name="annotatortype"/>
       </optional>
       <optional>
-        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+        <attribute name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
@@ -703,7 +708,7 @@ RelaxNG schema for FoLiA XML v0.9.0
         <attribute name="annotatortype"/>
       </optional>
       <optional>
-        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+        <attribute name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
@@ -755,7 +760,7 @@ RelaxNG schema for FoLiA XML v0.9.0
         <attribute name="annotatortype"/>
       </optional>
       <optional>
-        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+        <attribute name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
@@ -794,7 +799,7 @@ RelaxNG schema for FoLiA XML v0.9.0
         <attribute name="annotatortype"/>
       </optional>
       <optional>
-        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+        <attribute name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
@@ -844,7 +849,7 @@ RelaxNG schema for FoLiA XML v0.9.0
         <attribute name="annotatortype"/>
       </optional>
       <optional>
-        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+        <attribute name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
@@ -955,7 +960,7 @@ RelaxNG schema for FoLiA XML v0.9.0
         <attribute name="annotatortype"/>
       </optional>
       <optional>
-        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+        <attribute name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
@@ -1016,7 +1021,7 @@ RelaxNG schema for FoLiA XML v0.9.0
         <attribute name="annotatortype"/>
       </optional>
       <optional>
-        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+        <attribute name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
@@ -1068,7 +1073,7 @@ RelaxNG schema for FoLiA XML v0.9.0
         <attribute name="annotatortype"/>
       </optional>
       <optional>
-        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+        <attribute name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
@@ -1118,7 +1123,7 @@ RelaxNG schema for FoLiA XML v0.9.0
         <attribute name="annotatortype"/>
       </optional>
       <optional>
-        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+        <attribute name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
@@ -1188,6 +1193,18 @@ RelaxNG schema for FoLiA XML v0.9.0
         <zeroOrMore>
           <ref name="morphology"/>
         </zeroOrMore>
+        <zeroOrMore>
+          <ref name="domain"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lang"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="correction"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="errordetection"/>
+        </zeroOrMore>
       </interleave>
     </element>
   </define>
@@ -1210,7 +1227,7 @@ RelaxNG schema for FoLiA XML v0.9.0
         <attribute name="annotatortype"/>
       </optional>
       <optional>
-        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+        <attribute name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
@@ -1270,6 +1287,18 @@ RelaxNG schema for FoLiA XML v0.9.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="morphology"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="domain"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lang"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="correction"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="errordetection"/>
         </zeroOrMore>
       </interleave>
     </element>
@@ -1342,7 +1371,7 @@ RelaxNG schema for FoLiA XML v0.9.0
         <attribute name="annotatortype"/>
       </optional>
       <optional>
-        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+        <attribute name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
@@ -1422,7 +1451,7 @@ RelaxNG schema for FoLiA XML v0.9.0
         <attribute name="annotatortype"/>
       </optional>
       <optional>
-        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+        <attribute name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
@@ -1486,6 +1515,18 @@ RelaxNG schema for FoLiA XML v0.9.0
         <zeroOrMore>
           <ref name="morphology"/>
         </zeroOrMore>
+        <zeroOrMore>
+          <ref name="domain"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lang"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="correction"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="errordetection"/>
+        </zeroOrMore>
       </interleave>
     </element>
   </define>
@@ -1534,7 +1575,7 @@ RelaxNG schema for FoLiA XML v0.9.0
         <attribute name="annotatortype"/>
       </optional>
       <optional>
-        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+        <attribute name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
@@ -1581,7 +1622,7 @@ RelaxNG schema for FoLiA XML v0.9.0
         <attribute name="annotatortype"/>
       </optional>
       <optional>
-        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+        <attribute name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
@@ -1677,6 +1718,11 @@ RelaxNG schema for FoLiA XML v0.9.0
       <optional>
         <attribute name="auth"/>
       </optional>
+      <optional>
+        <attribute name="set">
+          <text/>
+        </attribute>
+      </optional>
       <interleave>
         <zeroOrMore>
           <ref name="chunk"/>
@@ -1706,7 +1752,7 @@ RelaxNG schema for FoLiA XML v0.9.0
         <attribute name="annotatortype"/>
       </optional>
       <optional>
-        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+        <attribute name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
@@ -1754,7 +1800,7 @@ RelaxNG schema for FoLiA XML v0.9.0
         <attribute name="annotatortype"/>
       </optional>
       <optional>
-        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+        <attribute name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
@@ -1789,6 +1835,11 @@ RelaxNG schema for FoLiA XML v0.9.0
       <a:documentation>Dependencies Layer: Annotation layer for Dependency span annotation elements. For dependency entities.</a:documentation>
       <optional>
         <attribute name="auth"/>
+      </optional>
+      <optional>
+        <attribute name="set">
+          <text/>
+        </attribute>
       </optional>
       <interleave>
         <zeroOrMore>
@@ -1829,6 +1880,11 @@ RelaxNG schema for FoLiA XML v0.9.0
       <optional>
         <attribute name="auth"/>
       </optional>
+      <optional>
+        <attribute name="set">
+          <text/>
+        </attribute>
+      </optional>
       <interleave>
         <zeroOrMore>
           <ref name="semrole"/>
@@ -1860,7 +1916,7 @@ RelaxNG schema for FoLiA XML v0.9.0
         <attribute name="annotatortype"/>
       </optional>
       <optional>
-        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+        <attribute name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
@@ -1925,7 +1981,7 @@ RelaxNG schema for FoLiA XML v0.9.0
         <attribute name="annotatortype"/>
       </optional>
       <optional>
-        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+        <attribute name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
@@ -1974,7 +2030,7 @@ RelaxNG schema for FoLiA XML v0.9.0
         <attribute name="annotatortype"/>
       </optional>
       <optional>
-        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+        <attribute name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
@@ -2035,7 +2091,7 @@ RelaxNG schema for FoLiA XML v0.9.0
         <attribute name="annotatortype"/>
       </optional>
       <optional>
-        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+        <attribute name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
@@ -2117,6 +2173,18 @@ RelaxNG schema for FoLiA XML v0.9.0
         <zeroOrMore>
           <ref name="metric"/>
         </zeroOrMore>
+        <zeroOrMore>
+          <ref name="domain"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lang"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="correction"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="errordetection"/>
+        </zeroOrMore>
       </interleave>
     </element>
   </define>
@@ -2127,6 +2195,11 @@ RelaxNG schema for FoLiA XML v0.9.0
       <a:documentation>Entities Layer: Annotation layer for Entity span annotation elements. For named entities.</a:documentation>
       <optional>
         <attribute name="auth"/>
+      </optional>
+      <optional>
+        <attribute name="set">
+          <text/>
+        </attribute>
       </optional>
       <interleave>
         <zeroOrMore>
@@ -2171,7 +2244,7 @@ RelaxNG schema for FoLiA XML v0.9.0
         <attribute name="annotatortype"/>
       </optional>
       <optional>
-        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+        <attribute name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
@@ -2275,7 +2348,7 @@ RelaxNG schema for FoLiA XML v0.9.0
         <attribute name="annotatortype"/>
       </optional>
       <optional>
-        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+        <attribute name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
@@ -2323,7 +2396,7 @@ RelaxNG schema for FoLiA XML v0.9.0
         <attribute name="annotatortype"/>
       </optional>
       <optional>
-        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+        <attribute name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
@@ -2451,7 +2524,7 @@ RelaxNG schema for FoLiA XML v0.9.0
         <attribute name="annotatortype"/>
       </optional>
       <optional>
-        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+        <attribute name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
@@ -2638,7 +2711,7 @@ RelaxNG schema for FoLiA XML v0.9.0
         <attribute name="annotatortype"/>
       </optional>
       <optional>
-        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+        <attribute name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
@@ -2748,7 +2821,7 @@ RelaxNG schema for FoLiA XML v0.9.0
         <attribute name="annotatortype"/>
       </optional>
       <optional>
-        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+        <attribute name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
@@ -2907,7 +2980,7 @@ RelaxNG schema for FoLiA XML v0.9.0
         <attribute name="annotatortype"/>
       </optional>
       <optional>
-        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+        <attribute name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
@@ -2985,6 +3058,11 @@ RelaxNG schema for FoLiA XML v0.9.0
       <optional>
         <attribute name="auth"/>
       </optional>
+      <optional>
+        <attribute name="set">
+          <text/>
+        </attribute>
+      </optional>
       <interleave>
         <zeroOrMore>
           <ref name="coreferencechain"/>
@@ -3014,7 +3092,7 @@ RelaxNG schema for FoLiA XML v0.9.0
         <attribute name="annotatortype"/>
       </optional>
       <optional>
-        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+        <attribute name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
@@ -3061,7 +3139,7 @@ RelaxNG schema for FoLiA XML v0.9.0
         <attribute name="annotatortype"/>
       </optional>
       <optional>
-        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+        <attribute name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
@@ -3128,6 +3206,18 @@ RelaxNG schema for FoLiA XML v0.9.0
         <zeroOrMore>
           <ref name="morphology"/>
         </zeroOrMore>
+        <zeroOrMore>
+          <ref name="domain"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lang"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="correction"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="errordetection"/>
+        </zeroOrMore>
       </interleave>
     </element>
   </define>
@@ -3150,7 +3240,7 @@ RelaxNG schema for FoLiA XML v0.9.0
         <attribute name="annotatortype"/>
       </optional>
       <optional>
-        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+        <attribute name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
@@ -3222,6 +3312,11 @@ RelaxNG schema for FoLiA XML v0.9.0
       <optional>
         <attribute name="auth"/>
       </optional>
+      <optional>
+        <attribute name="set">
+          <text/>
+        </attribute>
+      </optional>
       <interleave>
         <zeroOrMore>
           <ref name="dependency"/>
@@ -3253,7 +3348,7 @@ RelaxNG schema for FoLiA XML v0.9.0
         <attribute name="annotatortype"/>
       </optional>
       <optional>
-        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+        <attribute name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
@@ -3277,6 +3372,11 @@ RelaxNG schema for FoLiA XML v0.9.0
       <a:documentation>Morphology Layer: Annotation layer for Morpheme subtoken annotation elements. For morphological analysis.</a:documentation>
       <optional>
         <attribute name="auth"/>
+      </optional>
+      <optional>
+        <attribute name="set">
+          <text/>
+        </attribute>
       </optional>
       <zeroOrMore>
         <ref name="morpheme"/>
@@ -3302,7 +3402,7 @@ RelaxNG schema for FoLiA XML v0.9.0
         <attribute name="annotatortype"/>
       </optional>
       <optional>
-        <attribute ns="http://ilk.uvt.nl/folia" name="confidence">
+        <attribute name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>

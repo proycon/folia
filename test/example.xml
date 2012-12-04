@@ -20,6 +20,7 @@
       <dependency-annotation set="alpino-set" />   
       <alignment-annotation set="alignment-set" />   
       <semrole-annotation set="semrole-set" />
+      <chunking-annotation set="chunk-set" />
       <coreference-annotation set="coreference-set" />  
     </annotations>
     <meta id="title">Stemma</meta>
