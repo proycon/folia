@@ -25,6 +25,7 @@ def usage():
 
 
 def mergechildren(parent, outputdoc):    
+    merges = 0
     for e in parent:        
         if (isinstance(e, folia.AbstractAnnotation) or isinstance(e, folia.AbstractAnnotationLayer)) and parent.id:                         
             try:
@@ -49,14 +50,16 @@ def mergechildren(parent, outputdoc):
                     print >>sys.stderr, "Adding Annotation type " + e.__class__.__name__ + ", set " + str(e.set) + " to " + newparent.id
                     c = e.copy(outputdoc) #make a copy, linked to outputdoc
                     newparent.append(c) #append to outputdoc
+                    merges += 1
         elif isinstance(e, folia.AbstractElement):                        
-            mergechildren(e, outputdoc)
-    
+            merges += mergechildren(e, outputdoc)
+    return merges
                     
                         
 
 def foliamerge(outputfile, *files):
         outputdoc = None
+        merges = 0
         
         for i, filename in enumerate(files):
             print >>sys.stderr, "Processing " + filename 
@@ -72,9 +75,9 @@ def foliamerge(outputfile, *files):
                         outputdoc.declare( annotationtype, set)
 
                 for e in inputdoc:
-                    mergechildren(e, outputdoc)
+                    merges += mergechildren(e, outputdoc)
                                                     
-        if outputfile:
+        if outputfile and merges > 0:
             outputdoc.save(outputfile)
 
         return outputdoc    
