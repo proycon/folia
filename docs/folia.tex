@@ -2683,10 +2683,12 @@ In the above example, the correction is explicit, in the next example, it is imp
 Last, an important note regarding offsets; all offset values are measured in unicode code-points, the first character having index zero. Take special care with combining diacritical marks versus codepoints that directly integrate the diacritical mark.
 
 
-\subsubsection{Substrings}
+
+
+\subsection{Substrings}
 \label{sec:str}
 
-\status{final since v0.9.1}{pynlpl,libfolia}
+\status{final since v0.9.1}{libfolia}
 
 A \texttt{str} element is available in FoLiA to allow annotations on untokenised substrings. The \texttt{str} element refers to a substring of the text-content (\texttt{t}) element on the same level and allows the assigning of identifiers to substrings. Consider the following example:
 
@@ -2700,9 +2702,10 @@ A \texttt{str} element is available in FoLiA to allow annotations on untokenised
 </p>
 \end{lstlisting}
 
-In substrings, the offset attribute on the text-content element is required. 
+In substrings, using an offset attribute on the text-content element enables substrings to be properly positioned with respect to their parent text. 
 
-Both the \texttt{str} as the \texttt{t} elements are members of the same set and thus share the same classes. The class \emph{current} is assigned when no explicit class is mentioned. In case of multiple \texttt{t} elements the class tells to which \texttt{t} element the substring refer: Both are covered by the \texttt{text-annotation} declaration.
+
+The class \emph{current} is assigned when no explicit class is mentioned. In case of multiple \texttt{t} elements the class tells to which \texttt{t} element the substring refer: Both are covered by the \texttt{text-annotation} declaration. Both the substring element, as well as the text content element should always carry the same class. 
 
 \begin{lstlisting}[language=xml]
  <p xml:id="example.p.1">
@@ -2710,12 +2713,12 @@ Both the \texttt{str} as the \texttt{t} elements are members of the same set and
     <t class="original">Hello. This iz a sentence. Bye!</t>    
     <t class="ocroutput">Hell0 Th1s iz a sentence, Bye1</t>    
     
-    <str xml:id="example.p.1.s.1" class="ocroutput">
-    	<t offset="0">Hell0</t>
+    <str xml:id="example.p.1.s.1">
+    	<t class="ocroutput" offset="0">Hell0</t>
     </str>
     
-    <str xml:id="example.p.1.s.2" class="original">
-    	<t offset="0">Hello.</t>
+    <str xml:id="example.p.1.s.2">
+    	<t class="normalised" offset="0">Hello.</t>
     </str>    
             
     <str xml:id="example.p.1.s.3">
@@ -2732,14 +2735,14 @@ Relations between the various substrings can be explicitly represented using ali
     <t class="original">Hello. This iz a sentence. Bye!</t>    
     <t class="ocroutput">Hell0 Th1s iz a sentence, Bye1</t>    
     
-    <str xml:id="example.p.1.s.1" class="ocroutput">
-    	<t offset="0">Hell0</t>
+    <str xml:id="example.p.1.s.1">
+    	<t class="ocroutput" offset="0">Hell0</t>
     	<alignment>
     		<aref id="example.p.1.s.2" type="str" />
     	</alignment>
     </str>
     
-    <str xml:id="example.p.1.s.2" class="original">
+    <str xml:id="example.p.1.s.2">
     	<t offset="0">Hello.</t>
     	<alignment>
     		<aref id="example.p.1.s.1" type="str" />
@@ -2748,8 +2751,34 @@ Relations between the various substrings can be explicitly represented using ali
 </p>    
 \end{lstlisting}
 
-Substring elements are a form of higher-order annotation, they are not structure annotation. Unlike structure elements, their order does not matter and substrings may overlap. The difference between \texttt{w} and \texttt{str} has to be clearly understood, the former refers to actual tokens and supports further token annotation, the latter to untokenised or differently tokenised substrings.The \texttt{str} element is especially powerful when combined with alignments, as this allows the user to relate multiple alternative tokenisations. This is also the limit as to what you can do with differing tokenisations in FoLiA, as FoLiA only supports one authoritative tokenisation. 
+Or one string can refer back to two or more different text content elements:
 
+\begin{lstlisting}[language=xml]
+ <p xml:id="example.p.1">
+    <t>Hello. This is a sentence. Bye!</t> 
+    <t class="normalised">Hello. This iz a sentence. Bye!</t>    
+    <t class="ocroutput">Hell0 Th1s iz a sentence, Bye1</t>    
+    
+    <str xml:id="example.p.1.s.1">
+    	<t class="ocroutput" offset="0">Hell0</t>
+    	<t class="normalised" offset="0">Hello</t>
+		<t offset="0">Hello.</t>
+    </str>
+      
+</p>    
+\end{lstlisting}
+
+ 
+Substring elements are a form of higher-order annotation, they are similar to structure annotation but carry several different properties. Unlike structure elements, substring order does not matter and substrings may overlap. The difference between \texttt{w} and \texttt{str} has to be clearly understood, the former refers to actual tokens and supports further token annotation, the latter to untokenised or differently tokenised substrings.The \texttt{str} element is especially powerful when combined with alignments, as this allows the user to relate multiple alternative tokenisations. This is also the limit as to what you can do with differing tokenisations in FoLiA, as FoLiA only supports one authoritative tokenisation. 
+
+
+The declaration:
+
+\begin{lstlisting}[language=xml]
+<annotations>
+    <string-annotation set="http://ilk.uvt.nl/folia/sets/string-annotation" />
+</annotations>
+\end{lstlisting}
 
 \section{Metadata}
 
