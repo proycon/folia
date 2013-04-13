@@ -50,7 +50,7 @@ for compdir in glob.glob(plkdir + "/comp-*"):
 
         doc = folia.Document(id=full_id)
         doc.metadatatype = folia.MetaDataType.IMDI
-        doc.metadata = text_id + ".imdi"
+        doc.metadatafile = text_id + ".imdi"
         textbody = doc.append(folia.Text(doc, id=full_id+"."+text_id))
         doc.declare(folia.PosAnnotation, set="hdl:1839/00-SCHM-0000-0000-000B-9")
         doc.declare(folia.LemmaAnnotation, set="hdl:1839/00-SCHM-0000-0000-000E-3")
