@@ -51,7 +51,7 @@ for compdir in glob.glob(plkdir + "/comp-*"):
         doc = folia.Document(id=full_id)
         doc.metadatatype = folia.MetaDataType.IMDI
         doc.metadata = text_id + ".imdi"
-        textbody = doc.append(folia.Text, id=full_id+"."+text_id)
+        textbody = doc.append(folia.Text(doc, id=full_id+"."+text_id))
 
         fin = gzip.open(path,'r')
         for line in fin:
