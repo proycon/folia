@@ -52,6 +52,8 @@ for compdir in glob.glob(plkdir + "/comp-*"):
         doc.metadatatype = folia.MetaDataType.IMDI
         doc.metadata = text_id + ".imdi"
         textbody = doc.append(folia.Text(doc, id=full_id+"."+text_id))
+        doc.declare(folia.PosAnnotation, set="hdl:1839/00-SCHM-0000-0000-000B-9")
+        doc.declare(folia.LemmaAnnotation, set="hdl:1839/00-SCHM-0000-0000-000E-3")
 
         fin = gzip.open(path,'r')
         for line in fin:
@@ -69,11 +71,12 @@ for compdir in glob.glob(plkdir + "/comp-*"):
                 elif au_id:
                     try:
                         wordtext,pos,lemma, extra = line.split("\t",3)
-                        word = sentence.append(folia.Word, wordtext)
-                        word.append(folia.PosAnnotation, cls=pos)
-                        word.append(folia.LemmaAnnotation, cls=lemma)
                     except ValueError:
                         print >>sys.stderr,"\tWARNING: Line malformed: ", line
+                        continue
+                    word = sentence.append(folia.Word, wordtext)
+                    word.append(folia.PosAnnotation, cls=pos)
+                    word.append(folia.LemmaAnnotation, cls=lemma)
         fin.close()
         doc.save(outdir + '/' + collection_id + '/' + full_id + '.folia.xml')
 
