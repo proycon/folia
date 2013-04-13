@@ -23,7 +23,6 @@ from datetime import datetime
 from pynlpl.formats import folia
 
 CGN_ENCODING = 'iso-8859-15' #not yet used!
-SONAR_ENCODING = 'iso-8859-15' #not yet used!
 
 if len(sys.argv) != 3:
     print >> sys.stderr,"SYNTAX: ./cgn2folia.py cgnrootdir outputdir"
@@ -56,6 +55,7 @@ for compdir in glob.glob(plkdir + "/comp-*"):
 
         fin = gzip.open(path,'r')
         for line in fin:
+            line = unicode(line,CGN_ENCODING)
             if line:
                 if line[0:3] == '<au':
                     end = line[8:].find('"')
