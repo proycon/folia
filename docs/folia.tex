@@ -3073,6 +3073,12 @@ Alternatively, you can use the simpler \texttt{foliavalidator} tool available in
 Deep validation is still being worked on and will most likely use Schematron.
 \end{devnotes}
 
+\section{Extending FoLiA}
+
+If you add your own custom tags, always make sure you use a different XML namespace rather than the default FoLiA namespace! FoLiA libraries are designed to ignore and discard other namespaces.
+
+In case your can not find a suitable way to encode your particular annotation in the latest version of the FoLiA specificaton, we urge you to write to \texttt{proycon\@anaproy.nl} so that discuss whether FoLiA needs to be expanded to accomodate your particular annotation.
+
 \chapter{Implementations}
 
 The following FoLiA implementations exist currently, both follow a highly object-oriented model in which FoLiA XML elements correspond with classes.
