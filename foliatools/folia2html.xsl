@@ -376,8 +376,8 @@ and not(ancestor-or-self::*/morpheme) and not(@class)]"/></span>
                 <span class="attrlabel">Metric <xsl:value-of select="@class" /></span><span class="attrvalue"><xsl:value-of select="@value" /></span><br />
             </xsl:for-each>
         </xsl:if>
-        <xsl:if test="folia:errordetection[@errors='yes']">
-			<span class="attrlabel">Error detection</span><span class="attrvalue">Possible errors</span><br />
+        <xsl:if test="folia:errordetection">
+            <span class="attrlabel">Error detection</span><span class="attrvalue"><xsl:value-of select="@class" /></span><br />
         </xsl:if>
         <xsl:if test="folia:correction">
             <!-- TODO: Expand to support all token annotations -->
