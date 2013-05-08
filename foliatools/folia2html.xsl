@@ -144,6 +144,7 @@
 					border: 1px solid #628f8b;
 					padding: 5px;
 					text-decoration: none !important;
+                    text-align: left;
 				}
 				.attributes dt {
 					color: #254643;
@@ -165,10 +166,11 @@
 					padding: 10px;
 					border: 1px solid #4f7d87;
 				}
-				.gap pre {
+                pre.gap {
+                    width: 90%;
 					padding: 5px;
-					background: #ddd;
-					border: 1px dashed red;
+                    border: 1px dashed #ddd;
+                    white-space: pre-wrap;
 				}
 				span.attrlabel {
 					display: inline-block;
@@ -190,6 +192,11 @@
                 span.details {
                     font-style: normal;
                     font-size: 80%;
+                }
+
+                div.caption {
+                    text-align: center;
+                    style: italic;
                 }
 
 
