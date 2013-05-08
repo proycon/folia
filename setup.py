@@ -11,7 +11,7 @@ def read(fname):
 
 setup(
     name = "FoLiA-tools",
-    version = "0.9.0.12",
+    version = "0.9.1.13",
     author = "Maarten van Gompel",
     author_email = "proycon@anaproy.nl",
     description = ("FoLiA-tools contains various Python-based command line tools for working with FoLiA XML (Format for Linguistic Annotation)"),
@@ -40,7 +40,7 @@ setup(
             'folia2html = foliatools.folia2html:main',
 	    'foliaquery = foliatools.foliaquery:main',
 	    'foliatextcontent = foliatools.foliatextcontent:main',
-            'dcoi2folia = foliatools.dcoi2folia:main', 
+            'dcoi2folia = foliatools.dcoi2folia:main',
         ]
     },
     #include_package_data=True,
