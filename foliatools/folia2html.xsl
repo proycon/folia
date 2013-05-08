@@ -109,9 +109,11 @@
                 .cor {
                     background: #f9caca;
                 }
-                .s:hover .sh, s:hover .cor { 
+                .s:hover .sh { 
 					background: #cfd0ed;
-
+                }
+                .s:hover .cor { 
+					background: #cfd0ed;
                 }
 
 				#text {
@@ -154,7 +156,7 @@
 				.word:hover>.attributes {
 					display: block;
 					position: absolute;
-					width: 320px;
+					width: 340px;
 					font-size: 12px;
 					left: 2em;
 					top: 2em;
@@ -195,7 +197,7 @@
 					display: inline-block;
 					color: #254643;
 					font-weight: bold;
-					width: 90px;
+					width: 110px;
 				}
 				span.attrvalue {
 					font-weight: 12px;
