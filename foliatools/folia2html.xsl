@@ -456,7 +456,7 @@ and not(ancestor-or-self::*/morpheme) and not(@class)]"/></span>
     <xsl:for-each select="$chunks">
     <xsl:for-each select="folia:chunking">
         <xsl:for-each select="folia:chunk">
-            <xsl:if test="//folia:wref[@id=$id]">
+            <xsl:if test=".//folia:wref[@id=$id]">
                 <span class="attrlabel">Chunk</span>
                 <span class="attrvalue">
                     <span class="spanclass"><xsl:value-of select="@class" /></span>
@@ -471,7 +471,7 @@ and not(ancestor-or-self::*/morpheme) and not(@class)]"/></span>
     <xsl:for-each select="$syntax">
     <xsl:for-each select="folia:syntax">
         <xsl:for-each select="//folia:su">
-            <xsl:if test="//folia:wref[@id=$id]">
+            <xsl:if test=".//folia:wref[@id=$id]">
                 <span class="attrlabel">Syntactic Unit</span>
                 <span class="attrvalue">
                     <span class="spanclass"><xsl:value-of select="@class" /></span>
@@ -487,7 +487,7 @@ and not(ancestor-or-self::*/morpheme) and not(@class)]"/></span>
     <xsl:for-each select="$semroles">
     <xsl:for-each select="folia:semroles">
         <xsl:for-each select="folia:semrole">
-            <xsl:if test="//folia:wref[@id=$id]">
+            <xsl:if test=".//folia:wref[@id=$id]">
                 <span class="attrlabel">Semantic Role</span>
                 <span class="attrvalue">
                     <span class="spanclass"><xsl:value-of select="@class" /></span>
@@ -503,7 +503,7 @@ and not(ancestor-or-self::*/morpheme) and not(@class)]"/></span>
     <xsl:for-each select="$corefs">
     <xsl:for-each select="ancestor::folia:coreferences">
         <xsl:for-each select="folia:coreferencechain">
-            <xsl:if test="//folia:wref[@id=$id]">
+            <xsl:if test=".//folia:wref[@id=$id]">
                 <span class="attrlabel">Coreference Chain</span>
                 <span class="attrvalue">
                     <span class="spanclass"><xsl:value-of select="@class" /></span>
