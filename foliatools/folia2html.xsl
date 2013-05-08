@@ -4,6 +4,7 @@
 <xsl:output method="html" encoding="UTF-8" omit-xml-declaration="yes" doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" indent="yes" />
 
 
+
 <xsl:template match="/folia:FoLiA">
   <html>
   <head>
@@ -20,6 +21,13 @@
                 <title><xsl:value-of select="@xml:id" /></title>
             </xsl:otherwise>
         </xsl:choose>
+        <!--
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js" />
+        <script type="text/javascript">
+            $(document).ready(function(){
+            });
+        </script>
+        -->
         <style type="text/css">
  				body {
 					/*background: #222222;*/
@@ -94,7 +102,18 @@
 					position: relative;
 					text-decoration: none;
 					z-index: 24;
-				}
+                }
+                .sh { 
+                    background: #f4f9ca;
+                }
+                .cor {
+                    background: #f9caca;
+                }
+                .s:hover .sh, s:hover .cor { 
+					background: #cfd0ed;
+
+                }
+
 				#text {
 					border: 1px solid #628f8b;
 					width: 60%;
@@ -321,15 +340,16 @@
 </xsl:template>
 
 <xsl:template match="folia:w">
+    <xsl:variable name="wid" select="@xml:id" />
     <xsl:if test="not(ancestor::folia:original) and not(ancestor::folia:suggestion) and not(ancestor::folia:alternative) and not(ancestor-or-self::*/auth)">
-<span id="{@xml:id}" class="word"><xsl:call-template name="textcontent" /><xsl:call-template name="tokenannotations" /></span>
-<xsl:choose>
-   <xsl:when test="@space = 'no'"></xsl:when>
-   <xsl:otherwise>
-    <xsl:text> </xsl:text>
-   </xsl:otherwise>
-</xsl:choose>
-</xsl:if>
+        <span id="{@xml:id}"><xsl:attribute name="class">word<xsl:if test="//folia:wref[@id=$wid and not(ancestor::folia:altlayers)]"> sh</xsl:if><xsl:if test=".//folia:correction or .//folia:errordetection"> cor</xsl:if></xsl:attribute><xsl:call-template name="textcontent" /><xsl:call-template name="tokenannotations" /></span>
+    <xsl:choose>
+       <xsl:when test="@space = 'no'"></xsl:when>
+       <xsl:otherwise>
+        <xsl:text> </xsl:text>
+       </xsl:otherwise>
+    </xsl:choose>
+    </xsl:if>
 </xsl:template>
 
 <xsl:template name="textcontent">
