@@ -426,11 +426,24 @@ and not(ancestor-or-self::*/morpheme) and not(@class)]"/></span>
 
 
 <xsl:template name="span">
+    <xsl:param name="id" />
     <xsl:text> </xsl:text>
     <span class="span">
         <xsl:for-each select=".//folia:wref">
-            <xsl:value-of select="@t" />
-            <xsl:text> </xsl:text>
+            <xsl:variable name="wrefid" select="@id" />
+            <xsl:choose>
+                <xsl:when test="@t">
+                    <xsl:value-of select="@t" />
+                    <xsl:text> </xsl:text>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:if test="//folia:w[@xml:id=$wrefid]">
+
+                        <xsl:value-of select="//folia:w[@xml:id=$wrefid]/folia:t[not(ancestor::folia:original) and not(ancestor::folia:suggestion) and not(ancestor::folia:alternative) and not(ancestor-or-self::*/auth)]"/>
+                    </xsl:if>
+                    <xsl:text> </xsl:text>
+                </xsl:otherwise>
+            </xsl:choose>
         </xsl:for-each>
     </span>
 </xsl:template>
@@ -446,7 +459,9 @@ and not(ancestor-or-self::*/morpheme) and not(@class)]"/></span>
                     <span class="attrlabel">Entity</span>
                     <span class="attrvalue">
                         <span class="spanclass"><xsl:value-of select="@class" /></span>
-                        <xsl:call-template name="span" />
+                        <xsl:call-template name="span">
+                            <xsl:with-param name="id" select="$id" />
+                        </xsl:call-template>
                     </span><br />
                 </xsl:if>
             </xsl:for-each>
@@ -462,7 +477,9 @@ and not(ancestor-or-self::*/morpheme) and not(@class)]"/></span>
                 <span class="attrlabel">Chunk</span>
                 <span class="attrvalue">
                     <span class="spanclass"><xsl:value-of select="@class" /></span>
-                    <xsl:call-template name="span" />
+                        <xsl:call-template name="span">
+                            <xsl:with-param name="id" select="$id" />
+                        </xsl:call-template>
                 </span><br/>
             </xsl:if>
         </xsl:for-each>
@@ -477,7 +494,9 @@ and not(ancestor-or-self::*/morpheme) and not(@class)]"/></span>
                 <span class="attrlabel">Syntactic Unit</span>
                 <span class="attrvalue">
                     <span class="spanclass"><xsl:value-of select="@class" /></span>
-                    <xsl:call-template name="span" />
+                        <xsl:call-template name="span">
+                            <xsl:with-param name="id" select="$id" />
+                        </xsl:call-template>
                 </span><br/>
             </xsl:if>
         </xsl:for-each>
@@ -493,7 +512,9 @@ and not(ancestor-or-self::*/morpheme) and not(@class)]"/></span>
                 <span class="attrlabel">Semantic Role</span>
                 <span class="attrvalue">
                     <span class="spanclass"><xsl:value-of select="@class" /></span>
-                    <xsl:call-template name="span" />
+                        <xsl:call-template name="span">
+                            <xsl:with-param name="id" select="$id" />
+                        </xsl:call-template>
                 </span><br />
             </xsl:if>
         </xsl:for-each>
@@ -510,7 +531,9 @@ and not(ancestor-or-self::*/morpheme) and not(@class)]"/></span>
                 <span class="attrvalue">
                     <span class="spanclass"><xsl:value-of select="@class" /></span>
                     <xsl:for-each select="folia:coreferencelink">
-                        <xsl:call-template name="span" />
+                        <xsl:call-template name="span">
+                            <xsl:with-param name="id" select="$id" />
+                        </xsl:call-template>
                         <xsl:text> - </xsl:text>
                     </xsl:for-each>
                     <br />
