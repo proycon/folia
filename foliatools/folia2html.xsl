@@ -566,6 +566,31 @@ and not(ancestor-or-self::*/morpheme) and not(@class)]"/></span>
     </xsl:for-each>
     </xsl:for-each>
 
+    <xsl:for-each select="$ancestors">
+    <xsl:for-each select="folia:dependencies">
+        <xsl:for-each select="folia:dependency">
+            <xsl:if test=".//folia:wref[@id=$id]">
+                <span class="attrlabel">Dependency</span>
+                <span class="attrvalue">
+                    <span class="spanclass"><xsl:value-of select="@class" /></span><xsl:text> </xsl:text>
+                        <xsl:for-each select="folia:hd">
+                            <strong>Head:</strong>
+                            <xsl:call-template name="span">
+                                <xsl:with-param name="id" select="$id" />
+                            </xsl:call-template>
+                        </xsl:for-each>
+                        <xsl:for-each select="folia:dep">
+                            <strong>Dep:</strong>
+                            <xsl:call-template name="span">
+                                <xsl:with-param name="id" select="$id" />
+                            </xsl:call-template>
+                        </xsl:for-each>
+                </span><br />
+            </xsl:if>
+        </xsl:for-each>
+    </xsl:for-each>
+    </xsl:for-each>
+
 </xsl:template>
 
 
