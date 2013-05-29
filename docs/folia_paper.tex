@@ -412,7 +412,7 @@ and refer to their unique identifiers. Span annotation elements of a certain
 type are grouped in an \emph{annotation layer} corresponding to the annotation
 type, this layer is in turn embedded \emph{inline} in the structural element
 that encompasses all spans. An example of this is shown in
-Figure~\ref{sec:spanannotation}. Span annotation is also geared towards nested,
+Figure~\ref{fig:spanannotation}. Span annotation is also geared towards nested,
 tree-like structures, such as syntax.
 
 \begin{figure}[tbh]
@@ -524,7 +524,7 @@ user to define, and in doing so we commit to a high level of openness. Set
 definitions are defined outside of the annotated FoLiA documents, using a
 different format: FoLiA Set Definition format\footnote{Alternative set
 definition formats may be supported as well in later versions of FoLiA}. This
-will be discussed in more detail in section~\ref{sec:setformat}. Figures
+will be discussed in more detail in section~\ref{sec:setdefinitions}. Figures
 \ref{fig:tokenannotation} and \ref{fig:spanannotation} illustrate the use of
 classes. The actual Part-of-Speech tags are the classes and they form part of a
 set (in this case the Penn Treebank Tagset). In these excerpts, the sets are
@@ -606,6 +606,7 @@ correction. An example of an alternative annotation is included in
 Figure~\ref{fig:wordannotation}. 
 
 \subsection{Metadata}
+\label{sec:metadata}
 
 A FoLiA document always starts with a metadata specification. FoLiA introduces
 a simple native $field \rightarrow value$ map for metadata, leaving it up to
@@ -641,6 +642,7 @@ annotation tools.
 
 
 \subsection{Set definitions}
+\label{sec:setdefinitions}
 
 It is the task of the FoLiA Set Definition format to define all possible
 classes in a set, or to declare a set as ``open'' if the classes do not form a
@@ -656,6 +658,7 @@ section.
 
 \subsection{Higher Order Annotation}
 \label{sec:higherorder}
+\label{sec:features}
 
 The paradigm of sets and classes allows for further granularity by introducing
 \emph{features} and \emph{subsets}. A feature in FoLiA is a form of
@@ -673,8 +676,7 @@ predefined classes and any subset can be invented by the user, fully committing
 to the idea of openness. % te veel detail?
 
 \begin{figure}[tbh]
-
-\label{fig:spanannotation}
+\label{fig:features}
 \begin{lstlisting}[language=xml]
     <pos class="N(soort,ev,basis,zijd,stan)" head="N">
         <feat subset="ntype" class="soort" />
