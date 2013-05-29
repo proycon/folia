@@ -15,7 +15,7 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
 }
 
 
-\title{FoLiA: Format for Linguistic Annotation - a descriptive and comparative study}
+\title{FoLiA: A practical XML Format for Linguistic Annotation - a descriptive and comparative study}
 \author{Maarten van Gompel, Martin Reynaert}
 \date{Centre for Language Studies, Radboud University Nijmegen}
 
@@ -28,8 +28,8 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
 \begin{abstract}
 
 In this paper we present FoLiA, a Format for Linguistic Annotation, and conduct
-a comparative study with other annotation formats; including the
-Text Encoding Initiative (TEI) format, the Linguistic Annotation Framework
+a comparative study with other annotation schemes; including the
+Text Encoding Initiative (TEI), the Linguistic Annotation Framework
 (LAF) and Text Corpus Format (TCF). An additional point of focus is the
 interoperability between FoLiA and metadata standards such as the Component
 MetaData Infrastructure (CMDI), as well as data category registries such as
@@ -40,7 +40,7 @@ users in their decision for a particular format.
 FoLiA is a practically-oriented XML-based annotation format for the
 representation of language resources, supporting a wide variety of annotation
 types. It introduces a flexible and uniform paradigm and representation
-independent of language or label set. The format is designed to be highly
+independent of language or label set. It is designed to be highly
 expressive, generic, and formalised, whilst at time same time focussing on
 being as practical as possible to ease adoption and implementation of the
 format. The aspiration is to offer a generic format for storage, exchange, and
@@ -709,8 +709,8 @@ processing and managing language resources, such as written corpora, lexical
 corpora, speech corpora, dictionary compiling and classification schemes''
 \cite{LAF}. 
 
-LAF can not be seen as a format as such, but rather as a comprehensive data
-model or paradigm. The scope of which is wide, and the level of abstraction,
+LAF can not be seen as a format as such, but rather as a comprehensive 
+meta-model or paradigm. The scope of which is wide, and the level of abstraction,
 generalisation, uniformity and consistency are high. Various user formats or
 representations can in turn make use of this data model. This follows the
 observation that different constraints are posed on formats by different uses.
@@ -733,18 +733,24 @@ LAF-compatible representation of tokenisation and tagging is covered by the
 Morpho-syntactic Annotation Framework (MAF) \cite{MAF}. The Syntactic Annotation
 Framework (SynAF) focusses on the representation of syntactic structures
 \cite{SYNAF}, and part of its focus is a definition of data categories, which
-is outside of the scope of FoLiA. SynAF still does not commit to a particular
+is outside of the scope of FoLiA. SynAF is still a meta-model and does not commit to a particular
 XML serialisation. However, SynAF is inspired on Tiger XML \cite{TIGER}, the successor
 of which, Tiger2 \cite{TIGER2}, is a full SynAF-compatible serialisation
 format.
 
-LAF and GrAF offer great flexibility but are off less direct practical use for
-end-users seeking a hands-on format. This is not a format one can pick up and use with
-readily available tools, and the learning curve is fairly steep. Moreover,
-accessibility is greatly hindered by the fact that the full and latest specification
-of LAF, MAF and SynAF are not freely accessible, but only after purchase at the Internation Organization
-for Standardisation. This is in sharp contrast with the emphasis of open
-access and open source in FoLiA. 
+LAF and GrAF offer great flexibility but are of less direct practical use for
+end-users seeking a hands-on format. With regard to this
+\citeasnoun{TEICORPUSANNOT} remark: ``A tendency may be observed of increasing
+abstractness and generality of proposed standards, esp., SynAF and LAF. This
+leads to their greater formal elegance, at the cost of their actual
+usefulness''. We concur and conclude that this is not a format end-users can
+just pick up and use with readily available tools, despite the availability of
+some libraries for GraF. Due to the level of abstraction, the learning curve is
+fairly steep and leaves a lot to the user to define. Moreover, accessibility is
+greatly hindered by the fact that the full and latest specification of LAF, MAF
+and SynAF are not freely accessible, but only after purchase at the Internation
+Organization for Standardisation.  This is in sharp contrast with the emphasis
+of open access and open source in FoLiA. 
 
 The question that arises in this context is to what extent FoLiA is compatible
 with LAF, i.e. to what extent can FoLiA be seen as format adhering to the LAF
@@ -753,7 +759,7 @@ data model and can it be converted to and from the pivot format proposed by LAF?
 The fact that FoLiA in part commits to an inline annotation style is not an
 obstacle for conversion to any full stand-off representation desired by LAF;
 more important is the fact that the notation employed by FoLiA is consistent
-and unambiguous. The reverse conversion, from LAF to FoLiA, will be more
+and unambiguous. The reverse conversion, from LAF to FoLiA, will be somewhat more
 constrained. FoLiA will not be able to encode the full extent of LAF, most
 notably it will not handle annotations on multiple mutually incompatible
 tokenisations of the source text. The high generalisation and flexibility in
@@ -763,8 +769,9 @@ present. Nevertheless, we think a large subset can still be covered in a
 variety of applications, as many features are present in FoLiA and many
 annotation types are supported. A large extent of the higher-order graph-based
 annotations in LAF could also be represented in FoLiA through
-\emph{alignments} and \emph{subsets/features}.  Possible future study and
-implementation of conversion to a LAF pivot format could test this thesis more
+\emph{alignments} and \emph{subsets/features}. Furthermore, FoLiA commits to a
+high level of openness and, like LAF, takes standards such ISOCat \cite{ISOCAT} into
+consideration. Possible future study and implementation of conversion to the LAF pivot format could test this thesis more
 empirically if there is demand for such a study.
 
 \subsection{The Text Encoding Initiative (TEI P5)}
@@ -776,6 +783,10 @@ effort which produces \emph{guidelines} for text encoding \cite{TEI}. It
 defines a vast amount of tags for the encoding of all kinds of texts, in which
 different views on a text can be taken for different uses and applications.
 Like FoLiA, TEI is used for data storage, exchange, and processing.
+Furthermore, TEI can be considered a direct ancestor leading to LAF and its
+children: ``the current standards that have been or are being established by ISO
+TC 37/SC4 committee ..., known together as the LAF (Linguistic Annotation Framework) family of standards, ... descend
+in part from an early application of the TEI.'' \cite{TEICORPUSANNOT}. 
 
 FoLiA's predecessor D-Coi states to be loosely based on a subset of TEI
 \cite{DCOI}, FoLiA inherits this, which results in certain similarities in
@@ -787,9 +798,9 @@ expressivity than FoLiA.
 TEI also provides facilities for linguistic annotation. Certain
 linguistic properties such as lemmas can be represented as XML attributes.
 Morphemes are also well supported in TEI. A further set of generic analysis
-elements is available as well, supporting also spans. Generic elements for
+elements is available, supporting also spans. Generic elements for
 \emph{feature structures} are also available. These feature structures follow
-the same standard as the Morpho-syntactic Annotation Framework. \citeasnoun{TEILING} define
+the same de jure standard as the Morpho-syntactic Annotation Framework. \citeasnoun{TEILING} define
 feature structures as general-purpose data structures consisting of a named
 feature and its value(s). Complex feature structures contain a group of
 individual features allowing for a representation of various kinds of
@@ -857,18 +868,42 @@ Java software library as well as a Java pilot desktop application (TIEWER) for
 viewing and limited editing, the latter is not available for FoLiA yet. An
 online web application for viewing TCF is also available.
 
-%\subsection{Other formats} %TODO?
+\subsection{Other formats}
 
-%We compared against two major formats
+We compared against two major formats or frameworks, and one more practical format which is
+more on par with FoLiA. In this last section of our comparison. We will briefly
+sketch some comparisons against other common formats in the field.
 
-%\subsection{Potsdamer Austauschformat Linguistischer Annotationen (PAULA)}
+The XCES (XML Corpus Encoding Standard) format is an older format, that is
+derived from its non-XML predecessor CES \cite{XCES} and which aims to follow the TEI
+guidelines. The format is fairly old, even in its second version, and seems
+currently not well maintained, the last update of the xces.org site dates from
+June 2008. It is criticised for its lack of documentation \cite{TEICORPUSANNOT}. \cite{prze09}
+reiterates this and adds that XCES lacks specific recommendations for any
+linguistic levels, resorting instead to general feature structure mechanisms.
+FoLiA in contrast has explicit support for various annotation types.
 
-%\subsection{Kyoto Annotation Format (KAF)}
+PAULA (Potsdamer Austauschformat Linguistischer Annotationen) is an XML format
+geared towards data exchange, used and developed within the SFB 632 project in
+Germany. The format is fairly well documented and comes with DTD schemas for
+validation. It uses a strict stand-off style in which different layers of
+linguistic annotation are encoded in different files. A primary data text file
+forms the lowest level of resource representation \cite{PAULA}, and is always
+mandatory. A tokenisation file posits a segmentation, by verbose references,
+\emph{marks} in PAULA, to the data file. Further marks or the more powerful and
+asbstract \emph{structs} can be used akin to span annotation in FoLiA.
+Stand-off feature structures hold the actual linguistic annotations. PAULA is
+more generic and less specific than FoLiA. The stand-off nature makes it
+generally more verbose, less human-readabily and less easily parseable than
+FoLiA. It commits to a high level of openness, but in this regard it lacks in
+formality as it does not seem to provide facilities to define data categories
+or relate them to standards such as ISOCat.  Unlike FoLiA, PAULA does not
+specify any real structure notation.
 
-
-%TODO: EAF/ELAN?
-%TODO: KAF?
-%TODO: PAULA XML
+PAULA is inspired on early drafts of LAF and uses the same graph paradigm, but is of more direct practical use. An
+open-source search and visualitation tool, ANNIS2\footnote{http://www.sfb632.
+uni-potsdam.de/d1/annis/}, is available with support for
+PAULA.
 
 
 \section{Practice}
@@ -896,15 +931,17 @@ library and a C++ library\footnote{Both libraries can be obtained from
 http://proycon.github.io/folia}. Furthermore, a suite called ``FoLiA tools'' is
 available; which contains several converters to other formats (including plain
 text, CSV and HTML for visualisation), a validator, a tool for merging
-multiple FoLiA documents and a tool for limited querying/searching of FoLiA documents.
+multiple FoLiA documents and a command-line tool for limited querying/searching of FoLiA documents.
 
 Some further notable open-source tools that use FoLiA are:
 
 \begin{itemize}
   \item Ucto\footnote{http://ilk.uvt.nl/ucto} - A multilingual rule-based
-    tokeniser \cite{UCTO}.
+    tokeniser \cite{UCTO}. This tool is a good stepping stone for setting up an initial
+    FoLiA document from scratch, by tokenising plain-text input.
  \item Frog\footnote{http://ilk.uvt.nl/frog} - An integration of various memory-based NLP modules developed for
-  Dutch. 
+  Dutch. Allows for plain-text Dutch input to be converted into richly
+  annotated FoLiA documents.
  \item Ticcl - Text normalisation  %TODO: Martin? including citation
  \item Valkuil\footnote{http://www.valkuil.net} - A spelling corrector for Dutch
  \item Fowlt\footnote{http://www.fowlt.net} - A spelling corrector for English
@@ -957,7 +994,7 @@ thought and debate has gone into establishing these theoretical foundations
 than is the case in the development of FoLiA, which followed a completely
 reversed bottom-up approach. FoLiA however aims at a far more practical level and is
 more easily accessible than LAF, which makes it far more easy to adopt in
-software tools.
+software tools. On a practical level, TCF and PAULA are most comparable with FoLiA. 
 
 Similar conclusions can be drawn from the comparison with TEI. FoLiA offers
 higher specificity for linguistic annotation\footnote{TEI though offers higher
