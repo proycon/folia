@@ -42,8 +42,7 @@ representation of language resources, supporting a wide variety of annotation
 types. It introduces a flexible and uniform paradigm and representation
 independent of language or label set. It is designed to be highly
 expressive, generic, and formalised, whilst at time same time focussing on
-being as practical as possible to ease adoption and implementation of the
-format. The aspiration is to offer a generic format for storage, exchange, and
+being as practical as possible to ease its adoption and implementation. The aspiration is to offer a generic format for storage, exchange, and
 machine-processing of linguistically annotated documents, preventing users as
 well as software tools from having to cope with a wide variety of different
 formats, which in the field regularly causes convertibility issues and
@@ -75,7 +74,7 @@ problematic if these formats are used as a data exchange or corpus storage
 format. This becomes even more of an issue if the ad-hoc formats are the result
 of the processing of a richer input format but fail to retain parts of the
 input format or the means to effectively refer to such original input format.
-Data loss is one of the most undesireable outcomes. A data exchange or corpus
+Data loss is one of the most undesirable outcomes. A data exchange or corpus
 storage format requires a more extensible and a more formalised format, one
 that does not reach its limits as different project partners include different
 annotation types, and that never loses data with respect to the original input
@@ -92,7 +91,7 @@ make available the necessary tools to work with the format.
 
 We observe and acknowledge that numerous annotation formats exist in the field
 of Computational Linguistics and Linguistics in general. This raises the
-question why create a new one rather than using an existing format. FoLiA
+question why we have opted to create a new one rather than to use an existing format. FoLiA
 emerged in the context of the computational linguistics community in the
 Netherlands and Flanders. It was presented at the Computational Linguistics in
 the Netherlands (CLIN) conference in 2011 and 2012, and now culminating in this
@@ -113,8 +112,8 @@ parser \cite{ALPINO}. This format is good at representing what it was
 designed for, but not expressive enough to act as a more generic format for
 linguistic annotation.
 
-Existing formats that may compete with FoLiA feature-wise seem to have not been
-represented well, part may be simply due to a lack of awareness and lack of interest in
+Existing formats that may compete with FoLiA feature-wise seem not to have been
+represented well, in part maybe simply due to a lack of awareness and lack of interest in
 formatting issues. Another reason, from a more development-oriented
 perspective, is the lack of NLP-tools and software libraries that offer direct
 support for existing formats and thus make it easy to work with. FoLiA was
@@ -129,7 +128,7 @@ for Dutch''. We dedicate section~\ref{sec:practice} to a more detailed
 discussion of the usage of FoLiA in current projects and lessons learned.
 
 In Section~\ref{sec:comparison} the differences and compatibility between FoLiA
-and various main contenders will be studied in-depth. For now, before going
+and the main alternatives to it will be studied in-depth. For now, before going
 into an actual description of the FoLiA paradigm in
 Section~\ref{sec:description}, we will in section~\ref{sec:criteria} list several dimensions or criteria on
 which formats for linguistic annotation can be assessed.
@@ -159,7 +158,7 @@ a foundation for further comparison in section~\ref{sec:comparison}.
       on a detailed description of this model.
   \end{itemize}
 \item \textbf{Expressivity} -- Is the format expressive enough to represent a
-  wide variety of of linguistic annotation?
+  wide variety of linguistic annotation?
   \begin{itemize}
     \item[] Linguistic annotation types need to be explicitly supported in FoLiA,
       and a wide variety indeed is, following a uniform paradigm. FoLiA is a
@@ -196,7 +195,7 @@ a foundation for further comparison in section~\ref{sec:comparison}.
   processing software? To this we add what \citeasnoun{LAF} denote as
   \emph{Semantic Adequacy}: do the representational structures and data
   categories have a proper formal semantics? Are they stored in a shared
-  fashion? In this same spirit we add: Is there a proper schema definition of the
+  fashion? In this same spirit we further add: Is there a proper schema definition of the
   format which instances can be validated against?
   \begin{itemize}
     \item[] FoLiA is a highly verbose format and explicit in its representations.
@@ -241,12 +240,12 @@ a foundation for further comparison in section~\ref{sec:comparison}.
 
 We add several criteria of our own to the carefully drafted requirements by
 \citeasnoun{LAF}. These were not addressed as such in their study, but are
-important nevertheless:
+considered important nevertheless:
 
 \begin{enumerate}
 \setcounter{enumi}{\theenumTemp}
 \item \textbf{Genericness vs Specialisation} -- How generic is the format or is it highly specialised
-  for a certain kind of annotation? Strongly correlated with
+  for a certain kind of annotation? This is strongly correlated with
   \emph{expressivity}.
   \begin{itemize}
     \item[] Our aim is to provide, within reasonable limits, a
@@ -288,7 +287,7 @@ important nevertheless:
     \item[] Certain formats require high levels of abstraction whilst others are
       very close to the original source. The usage of XML already implies a higher level of abstraction. We keep
       the XML elements strongly correlated with meaningful concepts in the
-      field. Annotation types and text-structural element are explicitly
+      field. Annotation types and text-structural elements are explicitly
       defined and fixed by the format, rather than completely open to the user
       to define. In this regard, we choose a lower lever of abstraction than
       certain other formats. 
@@ -305,7 +304,7 @@ This will, in part, account for the variation in formats in existence.
 \section{Description}
 \label{sec:description}
 
-An extensive overview of all annotation types is beyond the scope of this
+An extensive overview of all annotation types FoLiA offers is beyond the scope of this
 paper, for that we refer to the FoLiA Documentation \cite{FOLIA}. In the
 current section we aim to clarify the data model used by FoLiA, show the
 capabilities given this paradigm, and motivate our choices.
@@ -326,7 +325,7 @@ structure it fully commits to the OHCO thesis, and inherits most of this from it
 predecessor D-Coi. As far as possible FoLiA continues in this fashion for
 linguistic annotation, which implies an ``inline
 annotation'' style. We can distinguish four categories of annotation or
-representation in FoLiA, the first two are forms of inline annotation:
+representation in FoLiA, the first two of which are forms of inline annotation:
 
 \begin{enumerate}
 \item \textbf{Structure annotation} -- Representation of document structure.
@@ -379,7 +378,7 @@ Part-of-Speech tags, showing structure annotation as well as token annotation.
 </s>
 \end{lstlisting}
 \caption{An excerpt of FoLiA XML showing a sentence, tokenised, with
-part-of-speech annotation. Illustrating the use of in-line annotation for
+part-of-speech annotation. The excerpt illustrates the use of in-line annotation for
 structural elements and token annotation, and the use of identifiers.}
 \end{figure}
 
@@ -405,7 +404,7 @@ relations, semantic roles, chunking/shallow parses}.
 \end{enumerate}
 
 
-Within the scope of span annotation element, references are made to the
+Within the scope of a span annotation element, references are made to the
 structural elements over which the span applies, often word tokens,
 and refer to their unique identifiers. Span annotation elements of a certain
 type are grouped in an \emph{annotation layer} corresponding to the annotation
@@ -471,14 +470,14 @@ text content in FoLiA and is shown in Figures  \ref{fig:tokenannotation} and
 \ref{fig:spanannotation}. Text content can be embedded on various levels of
 structure annotation. Any text content outside of the word/token level is by
 definition untokenised. Likewise, text content within the word/token level by
-definition is tokenised. Links between the two can be retaining by using the
+definition is tokenised. Links between the two can be retained by using the
 optional \emph{offset} attribute, pointing to the unicode character (as opposed
 to byte offset) where the text starts. Figure~\ref{fig:textcontent} illustrates
 this.
 
 The same figure also illustrates that a token is not the structure element of
 smallest granularity, there is also notation for representing morphemes and
-phonemes. These are embeddeded within an annotation layer in a word/token and
+phonemes. These are embedded within an annotation layer in a word/token and
 can make use of the same offset attribute to relate their text to the full token.
 
 \begin{figure}[tbh]
@@ -549,7 +548,7 @@ common XML attributes, these are however never mandatory:
 
 \begin{itemize}
 \item \textbf{annotator} -- A name or ID of the person or system responsible for this annotation, i.e. the creator or editor.
-\item \textbf{annotatortype} -- ``manual`` or ``auto'', indicating whether the annotator is an automated system of the annotation is manual human labour.
+\item \textbf{annotatortype} -- ``auto`` or ``manual'', indicating whether the annotator is an automated system or whether the annotation is the result of manual human labour.
 \item \textbf{confidence} -- A value between 0 and 1 expressing the confidence placed in this annotation by the annotator.
 \item \textbf{n} -- A string representing a numeral that indicates the position of this element in a certain order. Used in for example chapter numbers, section numbers, enumerations.
 \end{itemize}
@@ -585,7 +584,7 @@ available:
   </alt>
 </w> 
 \end{lstlisting}
-\caption{Excerpt of a word with token annotations in (fictitious) sets, with common attributes. Also shows is an example of an alternative} 
+\caption{Excerpt of a word with token annotations in (fictitious) sets, with common attributes. Also shown is an example of an alternative} 
 \end{figure}
 
 \subsection{Alternatives and corrections}
@@ -831,13 +830,13 @@ Infrastructure (CLARIN) project. In comparison, FoLiA is used by several
 projects in the Dutch version of CLARIN \cite{CLARINNL}.
 
 The TCF format aims at a representation that supports interoperability between
-different web services in a corpus processing pipeline. It is strongly linked
+different web services in a corpus processing pipeline. It is strongly linked to
 the WebLicht software which offers a webservice infrastructure and employs
 TCF as interchange format \cite{WEBLICHT}.
 
 Of all the formats compared in this section, the TCF format is most similar to
-FoLiA with regard to its intended use and audience. The level of abstraction in
-TCF and FoLiA is very similar, and both share a practical focus.
+FoLiA with regard to its intended use and audience. The levels of abstraction in
+TCF and FoLiA are very similar, and both share a practical focus.
 
 TCF is inspired by the Linguistic Annotation Framework \cite{LAF}, and unlike
 FoLiA, the TCF format is primarily a stand-off format. The corpus text, its
@@ -854,9 +853,7 @@ TCF differs from FoLiA in expressivity, being less expressive than FoLiA as
 FoLiA offers more annotation types. This also makes FoLiA generally more verbose.
 Annotation types in FoLiA are also more uniform than in TCF, as TCF does not
 introduce as strict a paradigm as FoLiA does with its notion of sets, subsets,
-classes and common attributes\footnote{Features such as support for encoding
-annotators don't seem available
-in TCF}.  All in all, FoLiA offers a higher degree of formality, through set
+classes and common attributes\footnote{Features such as support for encoding who were the annotators do not seem to be available in TCF}.  All in all, FoLiA offers a higher degree of formality, through set
 definitions and deep validation.
 
 TCF is developed with more regard for the compatibility with the Linguistic
