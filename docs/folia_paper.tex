@@ -86,25 +86,26 @@ make available the necessary tools to work with the format.
 
 We observe and acknowledge that numerous annotation formats exist in the field
 of Computational Linguistics and Linguistics in general. This raises the
-question why we have opted to create a new format rather than to use an existing one. FoLiA
-emerged in the context of the computational linguistics community in the
-Netherlands and Flanders. It was presented at the Computational Linguistics in
-the Netherlands (CLIN) conference in 2011 and 2012. A prevalence of the above mentioned
-ad-hoc formats was observed in projects and tools, creating problems for data
-exchange and corpus storage. Development of FoLiA was initiated at an
-intersection of several projects (Stevin project SoNaR \cite{Oostdijk2013}, CLARIN-NL projects TICCLops and TTNWW, NWO project DutchSemCor)\footnote{We
-refer to Section~\ref{sec:practice} for a discussion of FoLiA in practice} and
-software projects (Ucto, Frog) that all faced such issues. At that point in
-time, the largest available Dutch language corpus, the D-Coi corpus, was using
-a custom XML-based corpus format \cite{DCOI} that could be considered a
-de facto standard. However, this format was severely limited in expressivity.
-FoLiA was built on the foundations laid by the D-Coi corpus format, extending
-it way beyond the limits this format imposed. Another widely established
-format in the same community is the Alpino XML format, used for the encoding of
-(Dutch) syntactic structures and dependency parses by the widely used Alpino
-parser \cite{ALPINO}. This format is good at representing what it was
-designed for, but not expressive enough to act as a more generic format for
-linguistic annotation.
+question why we have opted to create a new format rather than to use an
+existing one. FoLiA emerged in the context of the computational linguistics
+community in the Netherlands and Flanders. It was presented at the
+Computational Linguistics in the Netherlands (CLIN) conference in 2011 and
+2012. A prevalence of the above mentioned ad-hoc formats was observed in
+projects and tools, creating problems for data exchange and corpus storage.
+Development of FoLiA was initiated at an intersection of several projects
+(Stevin project SoNaR \cite{Oostdijk2013}, CLARIN-NL projects TICCLops and
+TTNWW, NWO project DutchSemCor)\footnote{We refer to Section~\ref{sec:practice}
+for a discussion of FoLiA in practice} and software projects (Ucto, Frog) that
+all faced such issues. At that point in time, the largest available Dutch
+language corpus, the D-Coi corpus, was using a custom XML-based corpus format
+\cite{DCOI} that could be considered a de facto standard. However, this format
+was severely limited in expressivity.  FoLiA was built on the foundations laid
+by the D-Coi corpus format, extending it way beyond the limits this format
+imposed. Another widely established format in the same community is the Alpino
+XML format, used for the encoding of (Dutch) syntactic structures and
+dependency parses by the widely used Alpino parser \cite{ALPINO}. This format
+is good at representing what it was designed for, but not expressive enough to
+act as a more generic format for linguistic annotation.
 
 Existing formats that may compete with FoLiA feature-wise seem not to have been
 represented well, in part maybe simply due to a lack of awareness and lack of interest in
@@ -122,10 +123,11 @@ for Dutch''. We dedicate Section~\ref{sec:practice} to a more detailed
 discussion of the usage of FoLiA in current projects and lessons learned.
 
 In Section~\ref{sec:comparison} the differences and compatibility between FoLiA
-and the main alternatives available will be studied in-depth. For now, before going
-into an actual description of the FoLiA paradigm in
-Section~\ref{sec:description}, we will in Section~\ref{sec:criteria} list several dimensions or criteria on
-which formats for linguistic annotation can be assessed.
+and the main alternatives available will be studied in-depth. For now, before
+going into an actual description of the FoLiA paradigm in
+Section~\ref{sec:description}, we will in Section~\ref{sec:criteria} list
+several dimensions or criteria on which formats for linguistic annotation can
+be assessed.
 
 \section{Criteria for Assessment}
 \label{sec:criteria}
@@ -238,7 +240,9 @@ considered important nevertheless:
 
 \begin{enumerate}
 \setcounter{enumi}{\theenumTemp}
-\item \textbf{Genericness vs Specialisation} -- How generic is the format? Is it perhaps highly specialised for a certain kind of annotation? This is strongly correlated with
+\item \textbf{Genericness vs Specialisation} -- How generic is the format? Is
+  it perhaps highly specialised for a certain kind of annotation? This is
+  strongly correlated with
   \emph{expressivity}.
   \begin{itemize}
     \item[] Our aim is to provide, within reasonable limits, a
@@ -922,8 +926,12 @@ which is delivered in FoLiA format.
 %TODO Martin: Stukje over SoNaR en rol van FoLiA erin? 
 
 Other corpora in which FoLiA is used are DutchSemCor, a corpus annotated with
-lexical semantic senses \cite{DUTCHSEMCOR}; Basilex, a corpus consisting of elementary school
-texts for Dutch; VU-DNC, a diachronic corpus for Dutch. Several projects within CLARIN-NL's TTNWW project are also employing FoLiA for their representational needs. In view of the focus on Dutch in all these projects, it has to be stressed again that FoLiA in fact is fully language independent.
+lexical semantic senses \cite{DUTCHSEMCOR}; Basilex, a corpus consisting of
+elementary school texts for Dutch; VU-DNC, a diachronic corpus for Dutch.
+Several projects within CLARIN-NL's TTNWW project are also employing FoLiA for
+their representational needs. In view of the focus on Dutch in all these
+projects, it has to be stressed again that FoLiA in fact is fully language
+independent.
 
 One of the emphasised assets of FoLiA is the availability of tools to work with the
 format. There are currently two complete libraries available for programmers, a Python
