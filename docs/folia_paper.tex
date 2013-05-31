@@ -16,9 +16,13 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
 
 
 \title{FoLiA: A practical XML Format for Linguistic Annotation - a descriptive and comparative study}
-\author{Maarten van Gompel, Martin Reynaert}
 
-\date{Centre for Language Studies, Radboud University Nijmegen}
+\author{Maarten van Gompel \email{proycon@anaproy.nl}\\
+{\normalsize \bf Martin Reynaert} \email{reynaert@uvt.nl}
+\AND \addr{Centre for Language Studies\\ 
+Radboud University Nijmegen} \AND \addr{Tilburg Centre for Cognition and 
+Communication\\Tilburg University} }
+
 
 \pagestyle{empty}
 
@@ -31,7 +35,7 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
 In this paper we present FoLiA, a Format for Linguistic Annotation, and conduct
 a comparative study with other annotation schemes; including the
 Text Encoding Initiative (TEI), the Linguistic Annotation Framework
-(LAF) and Text Corpus Format (TCF). An additional point of focus is the
+(LAF) and the Text Corpus Format (TCF). An additional point of focus is the
 interoperability between FoLiA and metadata standards such as the Component
 MetaData Infrastructure (CMDI), as well as data category registries such as
 ISOCat. The aim of the paper is to present a clear image of the capabilities of
@@ -39,7 +43,7 @@ FoLiA and how it relates to other formats. This should open discussion and aid
 users in their decision for a particular format.
 
 FoLiA is a practically-oriented XML-based annotation format for the
-representation of language resources, supporting a wide variety of annotation
+representation of language resources, explicitly supporting a wide variety of annotation
 types. It introduces a flexible and uniform paradigm and representation
 independent of language or label set. It is designed to be highly expressive,
 generic, and formalised, whilst at time same time focussing on being as
@@ -102,17 +106,18 @@ projects and tools, creating problems for data exchange and corpus storage.
 Development of FoLiA was initiated at an intersection of several projects
 (Stevin project SoNaR \cite{StevinSONAR2013}, CLARIN-NL projects TICCLops and
 TTNWW, NWO project DutchSemCor)\footnote{We refer to Section~\ref{sec:practice}
-for a discussion of FoLiA in practice} and software projects (Ucto, Frog) that
-all faced such issues. At that point in time, the largest available Dutch
-language corpus, the D-Coi corpus, was using a custom XML-based corpus format
-\cite{DCOI} that could be considered a de facto standard. However, this format
-was severely limited in expressivity.  FoLiA was built on the foundations laid
-by the D-Coi corpus format, extending it way beyond the limits this format
-imposed. Another widely established format in the same community is the Alpino
-XML format, used for the encoding of (Dutch) syntactic structures and
-dependency parses by the widely used Alpino parser \cite{ALPINO}. This format
-is good at representing what it was designed for, but not expressive enough to
-act as a more generic format for linguistic annotation.
+for a discussion of FoLiA in practice} and software projects (Ucto, Frog,
+Valkuil) that all faced such issues. At that point in time, the largest
+available Dutch language corpus, the D-Coi corpus, was using a custom XML-based
+corpus format \cite{DCOI} that could be considered a de facto standard.
+However, this format was severely limited in expressivity.  FoLiA was built on
+the foundations laid by the D-Coi corpus format, extending it way beyond the
+limits this format imposed. Another widely established format in the same
+community is the Alpino XML format, used for the encoding of (Dutch) syntactic
+structures and dependency parses by the widely used Alpino parser
+\cite{ALPINO}. This format is good at representing what it was designed for,
+but not expressive enough to act as a more generic format for linguistic
+annotation.
 
 Existing formats that may compete with FoLiA feature-wise seem not to have been
 represented well, in part maybe simply due to a lack of awareness and lack of interest in
@@ -151,8 +156,8 @@ Section~\ref{sec:comparison}.
 \begin{enumerate}
 \item \textbf{Uniformity \& Consistency} -- To what extent is the format
   uniform; based upon the same building blocks rather than ad-hoc provisions?
-  Is the format capable of expressing different levels of granularity? This
-  category we would like to group with what \citeasnoun{LAF} denote as
+  Is the format capable of expressing different levels of granularity? We would
+  like to group this category with what \citeasnoun{LAF} denote as
   \emph{consistency}: Are the same mechanisms used to indicate the same type of
   information?
   \begin{itemize}
@@ -208,7 +213,7 @@ Section~\ref{sec:comparison}.
       format. This allows for high formality and deep validation. At the same
       time, this is not forced on users so more informal usage without set
       definitions is also possible. Shallow validation validates any FoLiA
-      document against a RelaxNG schema \cite{RELAXNG}. Each FoLiA element has a clearly
+      document against a RelaxNG schema \cite{RELAXNG}. Each FoLiA element has clearly
       defined semantics, defined in the documentation \cite{FOLIA}.
   \end{itemize}
 \item \textbf{Human readability} -- To what extent are the representations human readable and editable?
@@ -322,14 +327,14 @@ have powerful technologies such as XPath, XSLT, and XQuery at our disposal for
 handling FoLiA documents. XML is inherently an hierarchical format which lends
 itself well for the encoding of text documents. This is proven most of all by
 the ubiquity and success of (x)HTML on the web.  The OHCO thesis, first posited
-by \cite{OHCO1} and revised in \cite{OHCO2} asserts that ``text is an Ordered
+by \citeasnoun{OHCO1} and revised in \citeasnoun{OHCO2}, asserts that ``text is an Ordered
 Hierarchy of Content Objects``. Each structural element that makes up the text
 may hold deeper, more fine-grained, structures of the text. XML is well suited
 for modelling such data and FoLiA makes strong use of the hierarchical
 capabilities of XML. For document structure it fully commits to the OHCO
 thesis, and inherits most of this from its predecessor D-Coi. As far as
 possible FoLiA continues in this fashion for linguistic annotation, which
-implies an ``inline annotation'' style. We can distinguish four categories of
+implies an \emph{``inline annotation''} style. We can distinguish four categories of
 annotation or representation in FoLiA, the first two of which are forms of
 inline annotation:
 
@@ -395,7 +400,7 @@ adopted for naming identifiers is left to the user.
 The inline annotation style used in FoLiA's token annotation brings benefits
 but is not without its limits. In order to attain the high expressivity we
 desire, stand-off annotation can not be avoided. In the title of their study,
-\cite{OHCO2} rightly posit that problems arise as soon as overlapping
+\citeasnoun{OHCO2} rightly posit that problems arise as soon as overlapping
 structures have to be represented. FoLiA's \emph{Span Annotation} remedies
 this problem by resorting to a stand-off annotation style in separate
 annotation layers. Span annotation is used for annotation types that span
@@ -466,7 +471,8 @@ within it all relevant annotations that are limited to the scope of that
 sentence. Moreover, holding everything in a single file ensures the integrity
 of the document and its annotations is maintained as a whole and can be easily
 used in data exchange or storage, also with regard for versioning control. This
-focus on high locality distinguishes FoLiA from various other formats. 
+focus on high locality distinguishes FoLiA from various other formats, as shall
+be discussed later in Section~\ref{sec:comparison}. 
 
 \subsection{Text content} 
 
