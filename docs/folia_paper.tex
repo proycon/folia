@@ -41,39 +41,46 @@ users in their decision for a particular format.
 FoLiA is a practically-oriented XML-based annotation format for the
 representation of language resources, supporting a wide variety of annotation
 types. It introduces a flexible and uniform paradigm and representation
-independent of language or label set. It is designed to be highly
-expressive, generic, and formalised, whilst at time same time focussing on
-being as practical as possible to ease its adoption and implementation. The aspiration is to offer a generic format for storage, exchange, and
-machine-processing of linguistically annotated documents, preventing users as
-well as software tools from having to cope with a wide variety of different
-formats, which in the field regularly causes convertibility issues and
-proliferation of ad-hoc formats. FoLiA emerged from such a practical need in
-the context of Computational Linguistics in the Netherlands and Flanders. It
-has been successfully adopted by numerous projects within this community. FoLiA
-was developed in a bottom-up fashion, with special emphasis on software
-libraries and tools to handle it.
+independent of language or label set. It is designed to be highly expressive,
+generic, and formalised, whilst at time same time focussing on being as
+practical as possible to ease its adoption and implementation. The aspiration
+is to offer a generic format for storage, exchange, and machine-processing of
+linguistically annotated documents, preventing users as well as software tools
+from having to cope with a wide variety of different formats, which in the
+field regularly causes convertibility issues and proliferation of ad-hoc
+formats. FoLiA emerged from such a practical need in the context of
+Computational Linguistics in the Netherlands and Flanders. It has been
+successfully adopted by numerous projects within this community. FoLiA was
+developed in a bottom-up fashion, with special emphasis on software libraries
+and tools to handle it.
 
 \end{abstract}
 
 \section{Introduction}
 
 Linguistic annotation is the enrichment of data with features that describe or
-analyse this data linguistically. The data often takes the form of written text, which may well be a transcription of an audio/video clip of human speech. A wide variety of such linguistic features can be thought of. Examples are part-of-speech annotation, lemmatisation, co-reference relations,
-semantic roles, and so on. Within the field of computational linguistics we
-often see tools and data collections such as corpora use ad-hoc formats that
-are limited to a mere subset of these \emph{annotation types}. When newer
-annotation types become available at a later point in time, the original format
-needs to be extended, which often occurs in a similar ad-hoc fashion and raises
-concerns of backward-compatibility. Moreover, such ad-hoc formats are often not
-formalised in any schema definition and thus hard to validate. This is all very well if this usage is limited to temporary data formats in a linguistic processing pipeline with specialised tools, but the practice becomes problematic when these formats are used as a data exchange or corpus storage
-format. This becomes even more of an issue if the ad-hoc formats are the result
-of the processing of a richer input format but fail to retain parts of the
-input format or the means to effectively refer to such original input format.
-Data loss is one of the most undesirable outcomes. A data exchange or corpus
-storage format requires a more extensible and a more formalised format, one
-that does not reach its limits as different project partners or projects include different
-annotation types, and that never loses data with respect to the original input
-source.
+analyse this data linguistically. The data often takes the form of written
+text, which may well be a transcription of an audio/video clip of human speech.
+A wide variety of such linguistic features can be thought of. Examples are
+part-of-speech annotation, lemmatisation, co-reference relations, semantic
+roles, and so on. Within the field of computational linguistics we often see
+tools and data collections such as corpora use ad-hoc formats that are limited
+to a mere subset of these \emph{annotation types}. When newer annotation types
+become available at a later point in time, the original format needs to be
+extended, which often occurs in a similar ad-hoc fashion and raises concerns of
+backward-compatibility. Moreover, such ad-hoc formats are often not formalised
+in any schema definition and thus hard to validate. This is all very well if
+this usage is limited to temporary data formats in a linguistic processing
+pipeline with specialised tools, but the practice becomes problematic when
+these formats are used as a data exchange or corpus storage format. This
+becomes even more of an issue if the ad-hoc formats are the result of the
+processing of a richer input format but fail to retain parts of the input
+format or the means to effectively refer to such original input format.  Data
+loss is one of the most undesirable outcomes. A data exchange or corpus storage
+format requires a more extensible and a more formalised format, one that does
+not reach its limits as different project partners or projects include
+different annotation types, and that never loses data with respect to the
+original input source.
 
 In this paper we propose and describe FoLiA: Format for Linguistic Annotation,
 as such a format for data exchange, storage, as well as for processing by
@@ -133,12 +140,13 @@ be assessed.
 \label{sec:criteria}
 
 We draw the dimensions on which we assess formats for linguistic annotation
-from \citeasnoun{LAF}. In that study a group of experts drafted requirements for
-a framework for linguistic annotation. We interpret these as dimensions or
-criteria along which the characteristics of annotation formats can be defined. Each dimension we paraphrase as a
-question. Subsequently, we give an indication of how FoLiA measures along each of these
-dimensions. This provides an initial overview of FoLiA and presents
-a foundation for further comparison in Section~\ref{sec:comparison}.
+from \citeasnoun{LAF}. In that study a group of experts drafted requirements
+for a framework for linguistic annotation. We interpret these as dimensions or
+criteria along which the characteristics of annotation formats can be defined.
+Each dimension we paraphrase as a question. Subsequently, we give an indication
+of how FoLiA measures along each of these dimensions. This provides an initial
+overview of FoLiA and presents a foundation for further comparison in
+Section~\ref{sec:comparison}.
 
 \begin{enumerate}
 \item \textbf{Uniformity \& Consistency} -- To what extent is the format
@@ -308,21 +316,22 @@ capabilities given this paradigm, and motivate our choices.
 
 \subsection{Annotation style}
 
-FoLiA is an XML-based format \cite{XML}. XML is a common choice as it is a widely
-established and accepted standard. Choosing XML also implies that we have
-powerful technologies such as XPath, XSLT, and XQuery at our disposal for handling FoLiA documents. XML is
-inherently an hierarchical format which lends itself well for the encoding of
-text documents. This is proven most of all by the ubiquity and success of (x)HTML on the web.
-The OHCO thesis, first posited by \cite{OHCO1} and revised in \cite{OHCO2}
-asserts that ``text is an Ordered Hierarchy of Content Objects``. Each
-structural element that makes up the text may hold deeper, more fine-grained,
-structures of the text. XML is well suited for modelling such data and FoLiA
-makes strong use of the hierarchical capabilities of XML. For document
-structure it fully commits to the OHCO thesis, and inherits most of this from its
-predecessor D-Coi. As far as possible FoLiA continues in this fashion for
-linguistic annotation, which implies an ``inline
-annotation'' style. We can distinguish four categories of annotation or
-representation in FoLiA, the first two of which are forms of inline annotation:
+FoLiA is an XML-based format \cite{XML}. XML is a common choice as it is a
+widely established and accepted standard. Choosing XML also implies that we
+have powerful technologies such as XPath, XSLT, and XQuery at our disposal for
+handling FoLiA documents. XML is inherently an hierarchical format which lends
+itself well for the encoding of text documents. This is proven most of all by
+the ubiquity and success of (x)HTML on the web.  The OHCO thesis, first posited
+by \cite{OHCO1} and revised in \cite{OHCO2} asserts that ``text is an Ordered
+Hierarchy of Content Objects``. Each structural element that makes up the text
+may hold deeper, more fine-grained, structures of the text. XML is well suited
+for modelling such data and FoLiA makes strong use of the hierarchical
+capabilities of XML. For document structure it fully commits to the OHCO
+thesis, and inherits most of this from its predecessor D-Coi. As far as
+possible FoLiA continues in this fashion for linguistic annotation, which
+implies an ``inline annotation'' style. We can distinguish four categories of
+annotation or representation in FoLiA, the first two of which are forms of
+inline annotation:
 
 \begin{enumerate}
 \item \textbf{Structure annotation} -- Representation of document structure.
