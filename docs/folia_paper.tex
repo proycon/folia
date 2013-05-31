@@ -37,7 +37,7 @@ Communication\\Tilburg University} }
 \begin{abstract}
 
 In this paper we present FoLiA, a Format for Linguistic Annotation, and conduct
-a comparative study with other annotation schemes; including the Linguistic
+a comparative study with other annotation schemes, including the Linguistic
 Annotation Framework (LAF), the Text Encoding Initiative (TEI) and Text Corpus
 Format (TCF). An additional point of focus is the interoperability between
 FoLiA and metadata standards such as the Component MetaData Infrastructure
@@ -69,7 +69,7 @@ and tools to handle it.
 Linguistic annotation is the enrichment of data with features that describe or
 analyse this data linguistically. The data often takes the form of written
 text, which may well be a transcription of an audio/video clip of human speech.
-A wide variety of such linguistic features can be thought of. Examples are
+A wide variety of such linguistic features can be thought of, examples are
 part-of-speech annotation, lemmatisation, co-reference relations, semantic
 roles, and so on. Within the field of computational linguistics we often see
 tools and data collections such as corpora use ad-hoc formats that are limited
@@ -91,9 +91,9 @@ different annotation types, and that never loses data with respect to the
 original input source.
 
 In this paper we propose and describe FoLiA: Format for Linguistic Annotation,
-as such a format for data exchange, storage, as well as for processing by
+as such a format for data exchange and storage, as well as for processing by
 tools. The prime motivation for the development of FoLiA stems from the
-grievances we just sketched, and which we in practice found all too common.
+grievances we just sketched, and which we found all too common in practice.
 Nevertheless, ad-hoc formats are often used because they are simple and
 practical. If we intend to offer a viable alternative to this we must ensure to
 strongly focus on practical needs and ease of adoption and usage, as well as
@@ -106,14 +106,14 @@ existing one. FoLiA emerged in the context of the computational linguistics
 community in the Netherlands and Flanders. It was presented at the
 Computational Linguistics in the Netherlands (CLIN) conference in 2011 and
 2012. A prevalence of the above mentioned ad-hoc formats was observed in
-projects and tools, creating problems for data exchange and corpus storage.
+many projects and tools, creating problems for data exchange and corpus storage.
 Development of FoLiA was initiated at an intersection of several projects
 (Stevin project SoNaR \cite{StevinSONAR2013}, CLARIN-NL projects TICCLops and
 TTNWW, NWO project DutchSemCor)\footnote{We refer to Section~\ref{sec:practice}
 for a discussion of FoLiA in practice} and software projects (Ucto, Frog,
 Valkuil) that all faced such issues. At that point in time, the largest
 available Dutch language corpus, the D-Coi corpus, was using a custom XML-based
-corpus format \cite{DCOI} that could be considered a de facto standard.
+format \cite{DCOI} that could be considered a de facto standard.
 However, this format was severely limited in expressivity.  FoLiA was built on
 the foundations laid by the D-Coi corpus format, extending it way beyond the
 limits this format imposed. Another widely established format in the same
@@ -124,32 +124,33 @@ but not expressive enough to act as a more generic format for linguistic
 annotation.
 
 Existing formats that may compete with FoLiA feature-wise seem not to have been
-represented well, in part maybe simply due to a lack of awareness and lack of interest in
-formatting issues. Another reason, from a more development-oriented
-perspective, is the lack of NLP-tools and software libraries that offer direct
-support for existing formats and thus make it easy to work with them. FoLiA was
-consciously designed with this in mind, in a very
-bottom-up fashion, right alongside tools and libraries and within the scope of
-actual NLP projects. We see this as an important prerequisite to facilitate
-adoption and, by extension, de facto standardisation. This approach seems
-successful and noted. \citeasnoun{CLARINDEV12} writes in a paper on recent developments
-in CLARIN-NL: ``the corpus format in use in this project [the TTNWW project],
-FoLiA, appears to develop into a de facto standard for text corpora annotation
-for Dutch''. We dedicate Section~\ref{sec:practice} to a more detailed
-discussion of the usage of FoLiA in current projects and lessons learned.
+represented well in the aforementioned community, in part maybe simply due to a
+lack of awareness and lack of interest in formatting issues. Another reason,
+from a more development-oriented perspective, is the lack of NLP-tools and
+software libraries that offer direct support for existing formats and thus make
+it easy to work with them. FoLiA was consciously designed with this in mind, in
+a very bottom-up fashion, right alongside tools and libraries and within the
+scope of actual NLP projects. We see this as an important prerequisite to
+facilitate adoption and, by extension, de facto standardisation. This approach
+seems successful and noted. \citeasnoun{CLARINDEV12} writes in a paper on
+recent developments in CLARIN-NL: ``the corpus format in use in this project
+[the TTNWW project], FoLiA, appears to develop into a de facto standard for
+text corpora annotation for Dutch''. We dedicate Section~\ref{sec:practice} to
+a more detailed discussion of the usage of FoLiA in current projects and
+lessons learned.
 
 In Section~\ref{sec:comparison} the differences and compatibility between FoLiA
 and the main alternatives available will be studied in-depth. For now, before
 going into an actual description of the FoLiA paradigm in
-Section~\ref{sec:description}, we will in Section~\ref{sec:criteria} list
+Section~\ref{sec:description}, we will list
 several dimensions or criteria on which formats for linguistic annotation can
-be assessed.
+be assessed in Section~\ref{sec:criteria}.
 
 \section{Criteria for Assessment}
 \label{sec:criteria}
 
 We draw the dimensions on which we assess formats for linguistic annotation
-from \citeasnoun{LAF}. In that study a group of experts drafted requirements
+from \citeasnoun{LAF}. In this study a group of experts drafted requirements
 for a framework for linguistic annotation. We interpret these as dimensions or
 criteria along which the characteristics of annotation formats can be defined.
 Each dimension we paraphrase as a question. Subsequently, we give an indication
@@ -208,8 +209,8 @@ Section~\ref{sec:comparison}.
   processing software? To this we add what \citeasnoun{LAF} denote as
   \emph{Semantic Adequacy}: do the representational structures and data
   categories have a proper formal semantics? Are they stored in a shared
-  fashion? In this same spirit we further add: Is there a proper schema definition of the
-  format which instances can be validated against?
+  fashion? In this same spirit we further add: is there a proper schema definition of the
+  format against which instances can be validated?
   \begin{itemize}
     \item[] FoLiA is a highly verbose format and explicit in its representations.
       There is a strict separation between the annotated document and the
@@ -350,7 +351,7 @@ inline annotation:
   phonemes, lists,
   list items, figures and their captions, extra linebreaks, gaps and events.}
 \item \textbf{Token annotation} -- Annotation applied to a single token or, by
-  extension, to another structural element). This category encompasses the
+  extension, to another structural element. This category encompasses the
   following annotation types: \emph{part-of-speech tags, lemmatisation, lexical
   semantic sense annotation, subjectivity annotation, domain annotation}. All
   are annotations pertaining to a single structural element.
@@ -364,7 +365,7 @@ the web. For token annotation the choice for inline annotation maximises the
 use of the hierarchical expressivity of XML, which results in better \emph{human
 readability} and \emph{parsability}. The excerpt of FoLiA XML in
 Figure~\ref{fig:tokenannotation} illustrates a sentence, tokenised, annotated with
-Part-of-Speech tags, showing structure annotation as well as token annotation.
+Part-of-Speech tags and showing structure annotation as well as token annotation.
 
 \begin{figure}[tbh]
 \begin{lstlisting}[language=xml]
@@ -558,7 +559,7 @@ Section~\ref{sec:features}. Moreover, references to a data category registry
 such as ISOCAT \cite{ISOCAT} can be made at this level as well.
 
 The FoLiA paradigm furthermore dictates that annotation elements may always take certain
-common XML attributes, these are however never mandatory:
+common XML attributes, which are however never mandatory:
 
 \begin{itemize}
 \item \textbf{annotator} -- A name or ID of the person or system responsible for this annotation, i.e. the creator or editor.
