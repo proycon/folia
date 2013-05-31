@@ -100,7 +100,7 @@ Computational Linguistics in the Netherlands (CLIN) conference in 2011 and
 2012. A prevalence of the above mentioned ad-hoc formats was observed in
 projects and tools, creating problems for data exchange and corpus storage.
 Development of FoLiA was initiated at an intersection of several projects
-(Stevin project SoNaR \cite{Oostdijk2013}, CLARIN-NL projects TICCLops and
+(Stevin project SoNaR \cite{StevinSONAR2013}, CLARIN-NL projects TICCLops and
 TTNWW, NWO project DutchSemCor)\footnote{We refer to Section~\ref{sec:practice}
 for a discussion of FoLiA in practice} and software projects (Ucto, Frog) that
 all faced such issues. At that point in time, the largest available Dutch
@@ -358,7 +358,6 @@ Figure~\ref{fig:tokenannotation} illustrates a sentence, tokenised, annotated wi
 Part-of-Speech tags, showing structure annotation as well as token annotation.
 
 \begin{figure}[tbh]
-\label{fig:tokenannotation}
 \begin{lstlisting}[language=xml]
 <s xml:id="example.p.1.s.2">
   <w xml:id="example.p.1.s.2.w.1">
@@ -385,7 +384,7 @@ Part-of-Speech tags, showing structure annotation as well as token annotation.
 \end{lstlisting}
 \caption{An excerpt of FoLiA XML showing a sentence, tokenised, with
 part-of-speech annotation. The excerpt illustrates the use of in-line annotation for
-structural elements and token annotation, and the use of identifiers.}
+structural elements and token annotation, and the use of identifiers.\label{fig:tokenannotation}}
 \end{figure}
 
 FoLiA elements may carry a unique identifier by which they can be easily
@@ -422,7 +421,6 @@ Figure~\ref{fig:spanannotation}. Span annotation is also geared towards nested,
 tree-like structures, such as syntax.
 
 \begin{figure}[tbh]
-\label{fig:spanannotation}
 \begin{lstlisting}[language=xml]
 <s xml:id="example.p.1.s.2">
   <w xml:id="example.p.1.s.2.w.1">
@@ -453,7 +451,7 @@ tree-like structures, such as syntax.
   </entities>
 </s>
 \end{lstlisting}
-\caption{An excerpt of FoLiA XML illustrating the use of span annotation, in this example: named entities.}
+\caption{An excerpt of FoLiA XML illustrating the use of span annotation, in this example: named entities.\label{fig:spanannotation}}
 \end{figure}
 
 A deliberate choice was made to keep information together and as localised as
@@ -489,8 +487,6 @@ phonemes. These are embedded within an annotation layer in a word/token and
 can make use of the same offset attribute to relate their text to the full token.
 
 \begin{figure}[tbh]
-
-\label{fig:textcontent}
 \begin{lstlisting}[language=xml]
 <p xml:id="example.p.1">
  <t>He hits Mr. Smith. That came quite expected!</t>
@@ -516,7 +512,7 @@ can make use of the same offset attribute to relate their text to the full token
 </p>
 \end{lstlisting}
 \caption{Text content with references on multiple levels: paragraph, sentence
-and word. Also included is an example of morphological annotation.}
+and word. Also included is an example of morphological annotation.\label{fig:textcontent}}
 \end{figure}
 
 
@@ -571,8 +567,6 @@ available:
 \end{itemize}
 
 \begin{figure}[tbh]
-
-\label{fig:wordannotation}
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.2.s.1.w.2">
   <t>amazing</t>
@@ -592,7 +586,7 @@ available:
   </alt>
 </w> 
 \end{lstlisting}
-\caption{Excerpt of a word with token annotations in (fictitious) sets, with common attributes. Also shown is an example of an alternative} 
+\caption{Excerpt of a word with token annotations in (fictitious) sets, with common attributes. Also shown is an example of an alternative\label{fig:wordannotation}} 
 \end{figure}
 
 \subsection{Alternatives and corrections}
@@ -682,7 +676,6 @@ predefined classes and any subset can be invented by the user, fully committing
 to the idea of openness. % te veel detail?
 
 \begin{figure}[tbh]
-\label{fig:features}
 \begin{lstlisting}[language=xml]
     <pos class="N(soort,ev,basis,zijd,stan)" head="N">
         <feat subset="ntype" class="soort" />
@@ -692,7 +685,7 @@ to the idea of openness. % te veel detail?
         <feat subset="case" class="stan" />
     </pos>
 \end{lstlisting}
-\caption{Example of a Part-of-Speech tag with features}
+\caption{Example of a Part-of-Speech tag with features\label{fig:features}}
 \end{figure}
 
 Other forms of higher-order annotation which we shall not address further are:
