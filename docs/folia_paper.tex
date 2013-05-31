@@ -17,6 +17,7 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
 
 \title{FoLiA: A practical XML Format for Linguistic Annotation - a descriptive and comparative study}
 \author{Maarten van Gompel, Martin Reynaert}
+
 \date{Centre for Language Studies, Radboud University Nijmegen}
 
 \pagestyle{empty}
@@ -50,56 +51,49 @@ proliferation of ad-hoc formats. FoLiA emerged from such a practical need in
 the context of Computational Linguistics in the Netherlands and Flanders. It
 has been successfully adopted by numerous projects within this community. FoLiA
 was developed in a bottom-up fashion, with special emphasis on software
-libraries and tools to handle the format.
+libraries and tools to handle it.
 
 \end{abstract}
 
 \section{Introduction}
 
 Linguistic annotation is the enrichment of data with features that describe or
-analyse this data linguistically. The data often takes the form of written text
-or an audio/video clip of human speech, not seldom accompanied by a
-transcription. A wide variety of such linguistic features can be thought of.
-Examples are part-of-speech annotation, lemmatisation, co-reference relations,
+analyse this data linguistically. The data often takes the form of written text, which may well be a transcription of an audio/video clip of human speech. A wide variety of such linguistic features can be thought of. Examples are part-of-speech annotation, lemmatisation, co-reference relations,
 semantic roles, and so on. Within the field of computational linguistics we
 often see tools and data collections such as corpora use ad-hoc formats that
 are limited to a mere subset of these \emph{annotation types}. When newer
 annotation types become available at a later point in time, the original format
 needs to be extended, which often occurs in a similar ad-hoc fashion and raises
 concerns of backward-compatibility. Moreover, such ad-hoc formats are often not
-formalised in any schema definition and thus hard to validate. The usage of
-such formats may all be well if this usage is limited to temporary data formats
-in a linguistic processing pipeline with specialised tools, but it becomes
-problematic if these formats are used as a data exchange or corpus storage
+formalised in any schema definition and thus hard to validate. This is all very well if this usage is limited to temporary data formats in a linguistic processing pipeline with specialised tools, but the practice becomes problematic when these formats are used as a data exchange or corpus storage
 format. This becomes even more of an issue if the ad-hoc formats are the result
 of the processing of a richer input format but fail to retain parts of the
 input format or the means to effectively refer to such original input format.
 Data loss is one of the most undesirable outcomes. A data exchange or corpus
 storage format requires a more extensible and a more formalised format, one
-that does not reach its limits as different project partners include different
+that does not reach its limits as different project partners or projects include different
 annotation types, and that never loses data with respect to the original input
 source.
 
 In this paper we propose and describe FoLiA: Format for Linguistic Annotation,
-as such a format for data exchange, storage, as well as for processing in
+as such a format for data exchange, storage, as well as for processing by
 tools. The prime motivation for the development of FoLiA stems from the
 grievances we just sketched, and which we in practice found all too common.
 Nevertheless, ad-hoc formats are often used because they are simple and
-practical, if we intend to offer a viable alternative to this we must ensure to
+practical. If we intend to offer a viable alternative to this we must ensure to
 strongly focus on practical needs and ease of adoption and usage, as well as
 make available the necessary tools to work with the format. 
 
 We observe and acknowledge that numerous annotation formats exist in the field
 of Computational Linguistics and Linguistics in general. This raises the
-question why we have opted to create a new one rather than to use an existing format. FoLiA
+question why we have opted to create a new format rather than to use an existing one. FoLiA
 emerged in the context of the computational linguistics community in the
 Netherlands and Flanders. It was presented at the Computational Linguistics in
-the Netherlands (CLIN) conference in 2011 and 2012, and now culminating in this
-submission for the CLIN journal of 2013. A prevalence of the above mentioned
+the Netherlands (CLIN) conference in 2011 and 2012. A prevalence of the above mentioned
 ad-hoc formats was observed in projects and tools, creating problems for data
 exchange and corpus storage. Development of FoLiA was initiated at an
-intersection of several projects (SoNaR, Ticcl, TTNWW, DutchSemCor)\footnote{We
-refer to section~\ref{sec:practice} for a discussion of FoLiA in practice} and
+intersection of several projects (Stevin project SoNaR \cite{Oostdijk2013}, CLARIN-NL projects TICCLops and TTNWW, NWO project DutchSemCor)\footnote{We
+refer to Section~\ref{sec:practice} for a discussion of FoLiA in practice} and
 software projects (Ucto, Frog) that all faced such issues. At that point in
 time, the largest available Dutch language corpus, the D-Coi corpus, was using
 a custom XML-based corpus format \cite{DCOI} that could be considered a
@@ -116,21 +110,21 @@ Existing formats that may compete with FoLiA feature-wise seem not to have been
 represented well, in part maybe simply due to a lack of awareness and lack of interest in
 formatting issues. Another reason, from a more development-oriented
 perspective, is the lack of NLP-tools and software libraries that offer direct
-support for existing formats and thus make it easy to work with. FoLiA was
-consciously designed with this in time, in a very
+support for existing formats and thus make it easy to work with them. FoLiA was
+consciously designed with this in mind, in a very
 bottom-up fashion, right alongside tools and libraries and within the scope of
 actual NLP projects. We see this as an important prerequisite to facilitate
 adoption and, by extension, de facto standardisation. This approach seems
 successful and noted. \citeasnoun{CLARINDEV12} writes in a paper on recent developments
 in CLARIN-NL: ``the corpus format in use in this project [the TTNWW project],
 FoLiA, appears to develop into a de facto standard for text corpora annotation
-for Dutch''. We dedicate section~\ref{sec:practice} to a more detailed
+for Dutch''. We dedicate Section~\ref{sec:practice} to a more detailed
 discussion of the usage of FoLiA in current projects and lessons learned.
 
 In Section~\ref{sec:comparison} the differences and compatibility between FoLiA
-and the main alternatives to it will be studied in-depth. For now, before going
+and the main alternatives available will be studied in-depth. For now, before going
 into an actual description of the FoLiA paradigm in
-Section~\ref{sec:description}, we will in section~\ref{sec:criteria} list several dimensions or criteria on
+Section~\ref{sec:description}, we will in Section~\ref{sec:criteria} list several dimensions or criteria on
 which formats for linguistic annotation can be assessed.
 
 \section{Criteria for Assessment}
@@ -142,7 +136,7 @@ a framework for linguistic annotation. We interpret these as dimensions or
 criteria along which the characteristics of annotation formats can be defined. Each dimension we paraphrase as a
 question. Subsequently, we give an indication of how FoLiA measures along each of these
 dimensions. This provides an initial overview of FoLiA and presents
-a foundation for further comparison in section~\ref{sec:comparison}.
+a foundation for further comparison in Section~\ref{sec:comparison}.
 
 \begin{enumerate}
 \item \textbf{Uniformity \& Consistency} -- To what extent is the format
@@ -170,7 +164,7 @@ a foundation for further comparison in section~\ref{sec:comparison}.
   is the format specialised for one or more languages or is it language
   independent?
   \begin{itemize}
-    \item[] FoLiA does not commit to single linguistic theories and is open to
+    \item[] FoLiA does not commit to any single linguistic theory and is open to
       any label set or language. The definition of label sets is separate from
       the annotated documents. Section~\ref{sec:setdefinitions} will discuss
       this.
@@ -178,11 +172,11 @@ a foundation for further comparison in section~\ref{sec:comparison}.
 \item \textbf{Extensibility} -- Is the format easily extensible?
   \begin{itemize}
     \item[] The openness dimension sketched above already allows for a fair
-      amount of flexibility, in addition to this, higher-order annotations (see
-      section~\ref{sec:features}) in FoLiA allow for additional freedom by
+      amount of flexibility. In addition to this, higher-order annotations (see
+      Section~\ref{sec:features}) in FoLiA allow for additional freedom by
       being able to freely associate extra features (key/value pairs) with any
       annotation, without concession to the formalised nature of the format.
-      The main annotation types however, are a core specialised part of the format and are
+      The main annotation types, however, are a core specialised part of the format and are
       defined centrally. This distinguishes FoLiA from more abstract formats.
       FoLiA remains in constant development and subsequent releases often add
       support for additional annotation types, fitted within the FoLiA paradigm
@@ -217,7 +211,7 @@ a foundation for further comparison in section~\ref{sec:comparison}.
 \item \textbf{Media independence} -- Does the annotation format support
   different media? Or is it committed to one, such as written text?
   \begin{itemize}
-    \item[] Though different media are supported and proposals are written
+    \item[] Though different media are supported and proposals are being written
       for more comprehensive speech annotation, written text is currently best
       represented. 
    \end{itemize}
@@ -227,7 +221,7 @@ a foundation for further comparison in section~\ref{sec:comparison}.
      \item[] FoLiA supports the annotation of alternatives for all
     main annotation types. These alternatives can each be assigned confidence
     scores. FoLiA also supports explicit corrections, or mere suggestions for
-    correcions, on annotations.
+    corrections, on annotations.
     Untokenised text, and text at different stages of processing can also be
     encoded. There is an important limitation in this dimension however, FoLiA
     presupposes one authoritative tokenisation if linguistic annotations are
@@ -238,14 +232,13 @@ a foundation for further comparison in section~\ref{sec:comparison}.
    \setcounter{enumTemp}{\theenumi}
 \end{enumerate}
 
-We add several criteria of our own to the carefully drafted requirements by
+We add several criteria of our own to the requirements carefully drafted by
 \citeasnoun{LAF}. These were not addressed as such in their study, but are
 considered important nevertheless:
 
 \begin{enumerate}
 \setcounter{enumi}{\theenumTemp}
-\item \textbf{Genericness vs Specialisation} -- How generic is the format or is it highly specialised
-  for a certain kind of annotation? This is strongly correlated with
+\item \textbf{Genericness vs Specialisation} -- How generic is the format? Is it perhaps highly specialised for a certain kind of annotation? This is strongly correlated with
   \emph{expressivity}.
   \begin{itemize}
     \item[] Our aim is to provide, within reasonable limits, a
@@ -262,7 +255,7 @@ considered important nevertheless:
       facilitate efficiency/parsability and also has a positive effect on human
       readability. FoLiA is designed also with streaming XML parsers in mind,
       which do not hold the entire document in memory. Keeping entire XML
-      documents, FoLiA documents included, is often very expensive.
+      documents in memory, FoLiA documents included, is often very expensive.
   \end{itemize}
 \item \textbf{Locality} - Are annotations pertaining to the same sequence(s) in
   close proximity to one another in the representation, or are they spread out
@@ -317,7 +310,7 @@ powerful technologies such as XPath, XSLT, and XQuery at our disposal for handli
 inherently an hierarchical format which lends itself well for the encoding of
 text documents. This is proven most of all by the ubiquity and success of (x)HTML on the web.
 The OHCO thesis, first posited by \cite{OHCO1} and revised in \cite{OHCO2}
-asserts that ``text is an ordered hierarchy of content objects``. Each
+asserts that ``text is an Ordered Hierarchy of Content Objects``. Each
 structural element that makes up the text may hold deeper, more fine-grained,
 structures of the text. XML is well suited for modelling such data and FoLiA
 makes strong use of the hierarchical capabilities of XML. For document
@@ -330,7 +323,7 @@ representation in FoLiA, the first two of which are forms of inline annotation:
 \begin{enumerate}
 \item \textbf{Structure annotation} -- Representation of document structure.
   This includes \emph{words/tokens, divisions (i.e. chapters, sections,
-  subsections), headers (title of divisions), paragraphs, sentences,
+  subsections), headers (titles of divisions), paragraphs, sentences,
   utterances, morphemes,
   phonemes, lists,
   list items, figures and their captions, extra linebreaks, gaps and events.}
@@ -338,7 +331,7 @@ representation in FoLiA, the first two of which are forms of inline annotation:
   extension, to another structural element). This category encompasses the
   following annotation types: \emph{part-of-speech tags, lemmatisation, lexical
   semantic sense annotation, subjectivity annotation, domain annotation}. All
-  are annotations pertaining to single structural element.
+  are annotations pertaining to a single structural element.
   \newcounter{enumTemptwo}
   \setcounter{enumTemptwo}{\theenumi}
 \end{enumerate}
@@ -348,7 +341,7 @@ by the OHCO thesis and the aforementioned success of hierarchical representation
 the web. For token annotation the choice for inline annotation maximises the
 use of the hierarchical expressivity of XML, which results in better \emph{human
 readability} and \emph{parsability}. The excerpt of FoLiA XML in
-Figure~\ref{fig:tokenannotation} illustrates a sentence, tokenised, and with
+Figure~\ref{fig:tokenannotation} illustrates a sentence, tokenised, annotated with
 Part-of-Speech tags, showing structure annotation as well as token annotation.
 
 \begin{figure}[tbh]
@@ -383,7 +376,9 @@ structural elements and token annotation, and the use of identifiers.}
 \end{figure}
 
 FoLiA elements may carry a unique identifier by which they can be easily
-referenced, both internally as from external sources. Figure~\ref{fig:tokenannotation} illustrates this. The precise convention adopted for naming identifiers is left to the user.
+referenced, both internally and from external sources.
+Figure~\ref{fig:tokenannotation} illustrates this. The precise convention
+adopted for naming identifiers is left to the user.
 
 The inline annotation style used in FoLiA's token annotation brings benefits
 but is not without its limits. In order to attain the high expressivity we
@@ -445,22 +440,22 @@ tree-like structures, such as syntax.
   </entities>
 </s>
 \end{lstlisting}
-\caption{An excerpt of FoLiA XML illustrating the use of span annotation, in this example named entities.}
+\caption{An excerpt of FoLiA XML illustrating the use of span annotation, in this example: named entities.}
 \end{figure}
 
-A deliberate choice was made to keep information together and as
-localised as possible. The annotated document encompasses a single XML file
-rather than multiple files for different annotation types. The annotation
-layers,  using stand-off annotation, are embedded in an in-line fashion at a
-local level, as we have seen. This choice is motivated largely by parsability
-and to lesser extend by human readability. Keeping information together and
-localised allows parsers to function in a streaming fashion and lowers memory
-requirements. When a parser retrieves for instance a sentence, it can be sure to have
-contained within it all relevant annotations that are limited to the scope of
-that sentence. Moreover, holding everything in a single file ensures the integrity of the document and its
-annotations is maintained as a whole and can be easily used in data exchange or
-storage, also with regard for versioning control. This focus on high locality
-distinguishes FoLiA from various other formats. 
+A deliberate choice was made to keep information together and as localised as
+possible. The annotated document encompasses a single XML file rather than
+multiple files for different annotation types. The annotation layers,  using
+stand-off annotation, are embedded in an in-line fashion at a local level, as
+we have seen. This choice is motivated largely by parsability and to a lesser
+extent by human readability. Keeping information together and localised allows
+parsers to function in a streaming fashion and lowers memory requirements. When
+a parser retrieves for instance a sentence, it can be sure to have contained
+within it all relevant annotations that are limited to the scope of that
+sentence. Moreover, holding everything in a single file ensures the integrity
+of the document and its annotations is maintained as a whole and can be easily
+used in data exchange or storage, also with regard for versioning control. This
+focus on high locality distinguishes FoLiA from various other formats. 
 
 \subsection{Text content} 
 
@@ -522,7 +517,7 @@ user to define, and in doing so we commit to a high level of openness. Set
 definitions are defined outside of the annotated FoLiA documents, using a
 different format: FoLiA Set Definition format\footnote{Alternative set
 definition formats may be supported as well in later versions of FoLiA}. This
-will be discussed in more detail in section~\ref{sec:setdefinitions}. Figures
+will be discussed in more detail in Section~\ref{sec:setdefinitions}. Figures
 \ref{fig:tokenannotation} and \ref{fig:spanannotation} illustrate the use of
 classes. The actual Part-of-Speech tags are the classes and they form part of a
 set (in this case the Penn Treebank Tagset). In these excerpts, the sets are
@@ -533,14 +528,14 @@ annotation type with the used set must be declared in the metadata portion of
 the FoLiA document. If only one set is declared for a given annotation type, as
 is often the case, then the \texttt{set} attribute needs not be specified on
 each of the relevant annotation elements. These mandatory declarations will be
-further discussed in section~\ref{sec:metadata}. 
+further discussed in Section~\ref{sec:metadata}. 
 
 This paradigm is applied consistently to annotation elements of all types. The
 set points to a URL holding a file in \emph{FoLiA Set Definition} format that
 declares all possible classes of the set. It may also declare a set as being
 open. Human readable labels can be associated with each class in as set and
 constraints can be posed on combinations of classes in subsets, see
-section~\ref{sec:features}. Moreover, references to a data category registry
+Section~\ref{sec:features}. Moreover, references to a data category registry
 such as ISOCAT \cite{ISOCAT} can be made at this level as well.
 
 The FoLiA paradigm furthermore dictates that annotation elements may always take certain
@@ -599,9 +594,9 @@ encoding alternatives.
 %course no obligation to include alternatives at all. Neither is there an
 %obligation to have an authoritative annotation, selection can be postponed by
 %including nothing but alternatives. 
-Furthermore, FoLiA also implements extensive support for storing and tracking corrections or suggestions for
-correction. An example of an alternative annotation is included in
-Figure~\ref{fig:wordannotation}. 
+Furthermore, FoLiA also implements extensive support for storing and tracking
+corrections or suggestions for correction. An example of an alternative
+annotation is included in Figure~\ref{fig:wordannotation}. 
 
 \subsection{Metadata}
 \label{sec:metadata}
@@ -619,11 +614,11 @@ being used in the field.
 %Although recommended, there is no obligation to specify any metadata at all
 %except for 
 A mandatory part of the metadata that can not be delegated to other metadata
-formats yet is the declaration of annotation types and sets. This enables users and parsers alike to know
-whether certain annotations are present in the document, without resorting to a
-full scan. 
-%It furthermore allows defaults for certain common attributes to be
-%set so they need not be repeated throughout the document.
+formats yet is the declaration of annotation types and sets. This enables users
+and parsers alike to know whether certain annotations are present in the
+document, without resorting to a full scan. 
+%It furthermore allows defaults for certain common attributes to be set so they
+%need not be repeated throughout the document.
 
 We acknowledge that the distinction between what is annotation data and what is
 metadata may be fuzzy. The common FoLiA attributes \texttt{annotator} and
@@ -650,7 +645,7 @@ mapping may also be included to an external data category registry such as
 ISOCat \cite{ISOCAT} which may take over a lot of the role of the set
 definition format.
 
-Set definitions format may also pose constraints on how classes of
+The set definitions format may also pose constraints on how classes of
 \emph{subsets} may be combined. The notion of subsets is explored in the next
 section.
 
@@ -709,18 +704,18 @@ processing and managing language resources, such as written corpora, lexical
 corpora, speech corpora, dictionary compiling and classification schemes''
 \cite{LAF}. 
 
-LAF can not be seen as a format as such, but rather as a comprehensive 
-meta-model or paradigm. The scope of which is wide, and the level of abstraction,
-generalisation, uniformity and consistency are high. Various user formats or
-representations can in turn make use of this data model. This follows the
-observation that different constraints are posed on formats by different uses.
-There is an explicit aim at maximum flexibility. 
+LAF can not be seen as a format as such, but rather as a comprehensive
+meta-model or paradigm. The scope of the paradigm is wide, and the levels of
+abstraction, generalisation, uniformity and consistency are high. Various user
+formats or representations can in their own way make use of this data model.
+This is in line with the observation that different constraints are posed on
+formats by different uses.  There is an explicit aim at maximum flexibility. 
 
-\citeasnoun{LAF} state that the LAF data model is essentially a feature structure
-graph. An instantiation of this idea is found in the GrAF format \cite{GRAF},
-an actual XML-based format that can encode the full LAF data model. This format
- consists in essence of nodes and edges. GrAF is intended to act as the LAF pivot format
-for conversion between user-defined formats. 
+\citeasnoun{LAF} state that the LAF data model is essentially a feature
+structure graph. An instantiation of this idea is found in the GrAF format
+\cite{GRAF}, an actual XML-based format that can encode the full LAF data
+model. This format consists in essence of nodes and edges. GrAF is intended to
+act as the LAF pivot format for conversion between user-defined formats. 
 
 The LAF paradigm is stand-off. It first of all lays a base segmentation
 (tokenisation) by referencing to offsets in the original data document, a
@@ -730,13 +725,13 @@ Annotation can also be drawn over other annotations, a more abstract and
 generic version of what higher-order annotation in FoLiA is.
 
 LAF-compatible representation of tokenisation and tagging is covered by the
-Morpho-syntactic Annotation Framework (MAF) \cite{MAF}. The Syntactic Annotation
-Framework (SynAF) focusses on the representation of syntactic structures
-\cite{SYNAF}, and part of its focus is a definition of data categories, which
-is outside of the scope of FoLiA. SynAF is still a meta-model and does not commit to a particular
-XML serialisation. However, SynAF is inspired on Tiger XML \cite{TIGER}, the successor
-of which, Tiger2 \cite{TIGER2}, is a full SynAF-compatible serialisation
-format.
+Morpho-syntactic Annotation Framework (MAF) \cite{MAF}. The Syntactic
+Annotation Framework (SynAF) focusses on the representation of syntactic
+structures \cite{SYNAF}, and part of its focus is a definition of data
+categories, which is outside the scope of FoLiA. SynAF is still a meta-model
+and does not commit to a particular XML serialisation. However, SynAF is
+inspired on Tiger XML \cite{TIGER}, the successor of which, Tiger2
+\cite{TIGER2}, is a full SynAF-compatible serialisation format.
 
 LAF and GrAF offer great flexibility but are of less direct practical use for
 end-users seeking a hands-on format. With regard to this
@@ -748,31 +743,35 @@ just pick up and use with readily available tools, despite the availability of
 some libraries for GraF. Due to the level of abstraction, the learning curve is
 fairly steep and leaves a lot to the user to define. Moreover, accessibility is
 greatly hindered by the fact that the full and latest specification of LAF, MAF
-and SynAF are not freely accessible, but only after purchase at the Internation
+and SynAF are not freely accessible, but only after purchase at the International
 Organization for Standardisation.  This is in sharp contrast with the emphasis
 of open access and open source in FoLiA. 
 
 The question that arises in this context is to what extent FoLiA is compatible
-with LAF, i.e. to what extent can FoLiA be seen as format adhering to the LAF
-data model and can it be converted to and from the pivot format proposed by LAF?
+with LAF, i.e. to what extent can FoLiA be seen as a format adhering to the LAF
+data model and whether it can be converted to and from the pivot format proposed by LAF?
 
 The fact that FoLiA in part commits to an inline annotation style is not an
-obstacle for conversion to any full stand-off representation desired by LAF;
+obstacle for conversion to any fully stand-off representation desired by LAF;
 more important is the fact that the notation employed by FoLiA is consistent
-and unambiguous. The reverse conversion, from LAF to FoLiA, will be somewhat more
-constrained. FoLiA will not be able to encode the full extent of LAF, most
+and unambiguous. The reverse conversion, from LAF to FoLiA, will be somewhat
+more constrained. FoLiA will not be able to encode the full extent of LAF, most
 notably it will not handle annotations on multiple mutually incompatible
-tokenisations of the source text. The high generalisation and flexibility in
-LAF may not always translate to FoLiA, as FoLiA is by design more specific,
-less abstract, and facilities for annotation types have to be explicitly
-present. Nevertheless, we think a large subset can still be covered in a
-variety of applications, as many features are present in FoLiA and many
+tokenisations of the source text, unless one produces various and mutually
+divergent FoLiA versions of the same document. The high generalisation and
+flexibility in LAF may not always translate to FoLiA, as FoLiA is by design
+more specific, less abstract, and facilities for annotation types have to be
+explicitly present. Nevertheless, we think a large subset can still be covered
+in a variety of applications, as many features are present in FoLiA and many
 annotation types are supported. A large extent of the higher-order graph-based
-annotations in LAF could also be represented in FoLiA through
-\emph{alignments} and \emph{subsets/features}. Furthermore, FoLiA commits to a
-high level of openness and, like LAF, takes standards such ISOCat \cite{ISOCAT} into
-consideration. Possible future study and implementation of conversion to the LAF pivot format could test this thesis more
-empirically if there is demand for such a study.
+annotations in LAF could also be represented in FoLiA through \emph{alignments}
+and \emph{subsets/features}. Furthermore, FoLiA commits to a high level of
+openness and, like LAF, takes standards such as ISOCat \cite{ISOCAT} into
+consideration. %Possible future study and implementation of conversion to the
+LAF pivot format could test this thesis more empirically if there is demand for
+such a study. %dit is onnodig geblaat ;0)
+
+%mre: note: heb halve zin toegevoegd over verschillende versies in FoLiA van zelfde doc met ander tok
 
 \subsection{The Text Encoding Initiative (TEI P5)}
 
@@ -795,19 +794,20 @@ annotation style, but also has support for stand-off notation where necessary.
 When it comes to the encoding of textual structure, TEI clearly offers more
 expressivity than FoLiA. 
 
-TEI also provides facilities for linguistic annotation. Certain
-linguistic properties such as lemmas can be represented as XML attributes.
-Morphemes are also well supported in TEI. A further set of generic analysis
-elements is available, supporting also spans. Generic elements for
-\emph{feature structures} are also available. These feature structures follow
-the same de jure standard as the Morpho-syntactic Annotation Framework. \citeasnoun{TEILING} define
+TEI also provides facilities for linguistic annotation. Certain linguistic
+properties such as lemmas can be represented as XML attributes.  Morphemes are
+also well supported in TEI. A further set of generic analysis elements is
+available, supporting spans too. Generic elements for \emph{feature structures}
+are also available. These feature structures follow the same de jure standard
+as the Morpho-syntactic Annotation Framework. \citeasnoun{TEILING} defines
 feature structures as general-purpose data structures consisting of a named
 feature and its value(s). Complex feature structures contain a group of
 individual features allowing for a representation of various kinds of
 information. FoLiA's token and span annotation elements, optionally enriched
-with FoLiA's \emph{features}, are essentially (instantiations of) feature structures;
-at a higher level of specificity and lower level of abstraction, each
-annotation-type with proper semantics and following the same uniform paradigm.
+with FoLiA's \emph{features}, are essentially (instantiations of) feature
+structures; at a higher level of specificity and lower level of abstraction,
+each annotation-type with proper semantics and following the same uniform
+paradigm.
 
 \citeasnoun{prze09} argues for TEI P5 as a suitable format for the encoding of
 treebanks. He does observe that, at the time of the paper, the impact of the P5
@@ -817,8 +817,7 @@ Guidelines, and usually there is more than one way of representing any given
 annotation, so designing a coherent and constrained TEI-conformant schema for
 linguistic corpora is a daunting task''.  It is unclear to what extent TEI has
 been more enthousiastically adopted for linguistic annotation in recent years
-in spite of this. Still, this contrasts sharply with FoLiA's higher
-specificity.
+in spite of this. Still, this is in sharp contrast to FoLiA's higher specificity.
 
 
 \subsection{The D-SPIN Text Corpus Format (TCF 0.4)}
@@ -827,7 +826,7 @@ The D-SPIN text corpus format \cite{TCF} was developed in the context of the
 Deutsche Sprachressourcen-Infrastruktur (D-SPIN) project, which is the
 German contribution to the European Common Language Resources and Technology
 Infrastructure (CLARIN) project. In comparison, FoLiA is used by several
-projects in the Dutch version of CLARIN \cite{CLARINNL}.
+projects in the Dutch version of CLARIN, i.e. CLARIN-NL  \cite{CLARINNL}.
 
 The TCF format aims at a representation that supports interoperability between
 different web services in a corpus processing pipeline. It is strongly linked to
@@ -842,41 +841,47 @@ TCF is inspired by the Linguistic Annotation Framework \cite{LAF}, and unlike
 FoLiA, the TCF format is primarily a stand-off format. The corpus text, its
 tokens, and its annotations are all encoded in different sections.  This
 implies TCF differs from FoLiA in the dimension of \emph{locality} and
-parsability of TCF may be somewhat more complicated than FoLiA as more
+\emph{parsability} of TCF may be somewhat more complicated than FoLiA as more
 dereference operations are needed.
+
+%mre: waarom geen emph op parsability en in 2e volgende paragraaf op expressivity?
 
 Like FoLiA, TCF assumes one basic tokenisation underlying the data. TCF also
 employs globally unique identifiers, which are extensively used due to the
 stand-off nature.
 
-TCF differs from FoLiA in expressivity, being less expressive than FoLiA as
-FoLiA offers more annotation types. This also makes FoLiA generally more verbose.
+TCF differs from FoLiA in \emph{expressivity}, being less expressive than FoLiA
+as FoLiA offers more annotation types. This makes FoLiA generally more verbose.
 Annotation types in FoLiA are also more uniform than in TCF, as TCF does not
 introduce as strict a paradigm as FoLiA does with its notion of sets, subsets,
-classes and common attributes\footnote{Features such as support for encoding who were the annotators do not seem to be available in TCF}.  All in all, FoLiA offers a higher degree of formality, through set
-definitions and deep validation.
+classes and common attributes\footnote{Features such as support for encoding
+who were the annotators do not seem to be available in TCF}.  All in all, FoLiA
+offers a higher degree of formality, through set definitions and deep
+validation.
 
 TCF is developed with more regard for the compatibility with the Linguistic
-Annotation Framework \cite{LAF} and more effort towards convertors to this end
+Annotation Framework \cite{LAF} and sees more effort towards providing converters to this end
 than FoLiA. For FoLiA this remains open for future work, but such conversions
 from and to LAF standards should in principle be no less feasible than for TCF.
 
+%TCF has some tools and libraries available, including validators. There is a Java software library as well as a Java pilot desktop application (TIEWER) for viewing and limited editing, the latter is not available for FoLiA yet. An online web application for viewing TCF is also available.
+
 TCF has some tools and libraries available, including validators. There is a
 Java software library as well as a Java pilot desktop application (TIEWER) for
-viewing and limited editing, the latter is not available for FoLiA yet. An
-online web application for viewing TCF is also available.
+viewing and limited editing. An online web application for viewing TCF is also
+available.
+
+%mre: Zal er wellicht binnenkort zijn in Nederlab maar heeft geen zin dat hier te zeggen
 
 \subsection{Other formats}
 
 We compared against two major formats or frameworks, and one more practical format which is
-more on par with FoLiA. In this last section of our comparison. We will briefly
-sketch some comparisons against other common formats in the field.
+more on par with FoLiA. In this last section of our comparison, we will briefly
+sketch some comparisons with other common formats in the field.
 
 The XCES (XML Corpus Encoding Standard) format is an older format, that is
 derived from its non-XML predecessor CES \cite{XCES} and which aims to follow the TEI
-guidelines. The format is fairly old, even in its second version, and seems
-currently not well maintained, the last update of the xces.org site dates from
-June 2008. It is criticised for its lack of documentation \cite{TEICORPUSANNOT}. \cite{prze09}
+guidelines. The format is fairly old, even in its second version, and currently seems not well maintained, the last update of the xces.org site dates from June 2008. It is criticized for its lack of documentation \cite{TEICORPUSANNOT}. \cite{prze09}
 reiterates this and adds that XCES lacks specific recommendations for any
 linguistic levels, resorting instead to general feature structure mechanisms.
 FoLiA in contrast has explicit support for various annotation types.
@@ -889,19 +894,19 @@ linguistic annotation are encoded in different files. A primary data text file
 forms the lowest level of resource representation \cite{PAULA}, and is always
 mandatory. A tokenisation file posits a segmentation, by verbose references,
 \emph{marks} in PAULA, to the data file. Further marks or the more powerful and
-asbstract \emph{structs} can be used akin to span annotation in FoLiA.
+abstract \emph{structs} can be used akin to span annotation in FoLiA.
 Stand-off feature structures hold the actual linguistic annotations. PAULA is
 more generic and less specific than FoLiA. The stand-off nature makes it
-generally more verbose, less human-readabily and less easily parseable than
+generally more verbose, less human-readable and less easily parsable than
 FoLiA. It commits to a high level of openness, but in this regard it lacks in
 formality as it does not seem to provide facilities to define data categories
 or relate them to standards such as ISOCat.  Unlike FoLiA, PAULA does not
 specify any real structure notation.
 
-PAULA is inspired on early drafts of LAF and uses the same graph paradigm, but is of more direct practical use. An
-open-source search and visualitation tool, ANNIS2\footnote{http://www.sfb632.
-uni-potsdam.de/d1/annis/}, is available with support for
-PAULA.
+PAULA is inspired on early drafts of LAF and uses the same graph paradigm, but
+is of more direct practical use. An open-source search and visualisation tool,
+ANNIS2\footnote{http://www.sfb632.  uni-potsdam.de/d1/annis/}, is available
+with support for PAULA.
 
 
 \section{Practice}
@@ -918,15 +923,13 @@ which is delivered in FoLiA format.
 
 Other corpora in which FoLiA is used are DutchSemCor, a corpus annotated with
 lexical semantic senses \cite{DUTCHSEMCOR}; Basilex, a corpus consisting of elementary school
-texts for Dutch; VU-DNC, a diachronic corpus for Dutch. Several projects within CLARIN-NL's TTNWW project are also
-employing FoLiA for their representational needs. In view of the focus on Dutch
-in these projects, it has to be stressed again that FoLiA is fully language independent.
+texts for Dutch; VU-DNC, a diachronic corpus for Dutch. Several projects within CLARIN-NL's TTNWW project are also employing FoLiA for their representational needs. In view of the focus on Dutch in all these projects, it has to be stressed again that FoLiA in fact is fully language independent.
 
 One of the emphasised assets of FoLiA is the availability of tools to work with the
 format. There are currently two complete libraries available for programmers, a Python
 library and a C++ library\footnote{Both libraries can be obtained from
 http://proycon.github.io/folia}. Furthermore, a suite called ``FoLiA tools'' is
-available; which contains several converters to other formats (including plain
+available; it contains several converters to other formats (including plain
 text, CSV and HTML for visualisation), a validator, a tool for merging
 multiple FoLiA documents and a command-line tool for limited querying/searching of FoLiA documents.
 
@@ -935,21 +938,25 @@ Some further notable open-source tools that use FoLiA are:
 \begin{itemize}
   \item Ucto\footnote{http://ilk.uvt.nl/ucto} - A multilingual rule-based
     tokeniser \cite{UCTO}. This tool is a good stepping stone for setting up an initial
-    FoLiA document from scratch, by tokenising plain-text input.
- \item Frog\footnote{http://ilk.uvt.nl/frog} - An integration of various memory-based NLP modules developed for
-  Dutch. Allows for plain-text Dutch input to be converted into richly
-  annotated FoLiA documents. Frog is fully based on FoLiA representations internally.
- \item Ticcl - Text normalisation  %TODO: Martin? including citation
+    FoLiA document from scratch, it allows for  tokenising plain-text input.
+ \item Frog\footnote{http://ilk.uvt.nl/frog} - An integration of various memory-based NLP modules developed for Dutch. Allows for plain-text Dutch input to be converted into richly
+  annotated FoLiA documents. Uses FoLiA as its internal format
+ \item TICCL - Text-Induced Corpus Clean-up. A system geared at fully automatic lexical normalization and correction of typographical and Optical Character Recognition (OCR) misrecognition errors in possibly very large corpora \cite{Reynaert2010}
  \item Valkuil\footnote{http://www.valkuil.net} - A spelling corrector for Dutch
  \item Fowlt\footnote{http://www.fowlt.net} - A spelling corrector for English
  \item tel\footnote{to be released soon} - Frequency list generation and n-gram
    extraction on FoLiA documents
+ \item CLAM\footnote{http://proycon.github.io/clam} - CLAM allows the quick
+   building of fully fledged RESTful webservices by wrapping around any
+   command-line tool \cite{CLAM}. Though CLAM can be used with any format, it
+   is very suitable
+   for use with FoLiA as format for data exchange between webservices. This
+   setup is found for instance in CLARIN-NL's TTNWW project. %TODO: cite TTNWW?
 \end{itemize}
 
 At the moment, off-the-shelf annotation environments are not yet available and
 remain much desired future work. Corpus search environments that also include
-FoLiA support are under development in the newly started projects NederLab and
-OpenSoNaR. %TODO MArtin: stukje erover? references?
+FoLiA support are under development in the newly started projects NederLab\footnote{http://www.nederlab.nl/} and OpenSoNaR\footnote{CLARIN-NL Call 4 project to start September 2013 in which the Stevin SoNaR corpus is to be made available online with various user interfaces for users with different research interests}. %TODO MArtin: stukje erover? references?
 
 From the usage of FoLiA in practice we can already draw some lessons. FoLiA and
 XML are by nature very verbose formats, which results in sizable XML files.
@@ -969,13 +976,13 @@ projects aim for this.
 
 \section{Conclusion \& Future work}
 
-There is plenty to choose for anybody deciding on a format for
+There is plenty to choose from for anybody deciding on a format for
 linguistic annotation. However, the abundance of choice does not necessarily make
 things easier and greatly depends on the particular goals and requirements of the
 project.  
 
-Our aim in this paper was twofold, first of all we provided a descriptive
-overview of the Format for Linguistic Annotation (FoLiA). Secondly, we
+Our aim in this paper was twofold. First, we have provided a descriptive
+overview of the Format for Linguistic Annotation (FoLiA). Secondly, we have
 conducted a comparative study with other formats.
 
 FoLiA distinguishes itself from most other formats by choosing to represent
@@ -988,7 +995,7 @@ Comparisons were drawn with the Linguistic Annotation Framework and its
 children, the de jure standard for linguistic annotation. LAF offers a far
 higher level of abstraction and genericness than FoLiA. Undoubtedly more
 thought and debate has gone into establishing these theoretical foundations
-than is the case in the development of FoLiA, which followed a completely
+than is the case in the development of FoLiA, which follows a completely
 reversed bottom-up approach. FoLiA however aims at a far more practical level and is
 more easily accessible than LAF, which makes it far more easy to adopt in
 software tools. 
@@ -1004,13 +1011,13 @@ following a largely in-line and single-document setup. This eases
 parsability and human readability. A second distinguishing characteristic of
 FoLiA is its higher specificity; each annotation type is an explicit part of
 the format and carries proper semantics. This implies a slightly lower level of
-openness and genericness. The class/set an common attributes paradigm balances
+openness and genericness. The class/set and common attributes paradigm balances
 this and ensures the necessary flexibility.
 
 Future work on FoLiA focusses on one hand on increased expressivity of the
 format, by adding specifications for more annotation types where current
-facilities are not enough; and on the other hand on development of further
-tools and libraries that work with the format. Current developments are
+facilities prove insufficient; and on the other hand on development of further
+tools and libraries to work with the format. Current developments are
 underway for better representation for linguistic annotation of speech, and
 reducing the currently present bias towards written text. Further focus is on
 finalising the more formal aspects of FoLiA; the set definitions and resulting
