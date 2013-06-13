@@ -23,6 +23,7 @@
       <chunking-annotation set="chunk-set" />
       <coreference-annotation set="coreference-set" />  
       <lang-annotation set="lang-set" />
+      <metric-annotation set="metric-set" />
       <table-annotation set="table-set" />
     </annotations>
     <meta id="title">Stemma</meta>
@@ -1074,6 +1075,7 @@
                     <str xml:id="sandbox.3.str">
                         <t offset="3">FoLiA developers</t>
                         <lang class="eng" />
+                        <metric class="wordcount" value="2" />
                     </str>
                 </head> 
                 <table xml:id="example.table.1">
@@ -1089,18 +1091,26 @@
                 </tablehead>
                 <row>
                     <cell>
-                        <w xml:id="example.table.1.w.3"><t>Maarten van Gompel</t></w>
+                        <w xml:id="example.table.1.w.3"><t>Maarten</t></w>
+                        <w xml:id="example.table.1.w.4"><t>van</t></w>
+                        <w xml:id="example.table.1.w.5"><t>Gompel</t></w>
                     </cell>
                     <cell>
-                        <w xml:id="example.table.1.w.4"><t>Radboud University Nijmegen</t></w>
+                        <w xml:id="example.table.1.w.6"><t>Radboud</t></w>
+                        <w xml:id="example.table.1.w.7"><t>University</t></w>
+                        <w xml:id="example.table.1.w.8"><t>Nijmegen</t></w>
                     </cell>
                 </row>
                 <row>
                     <cell>
-                        <w xml:id="example.table.1.w.5"><t>Ko van der Sloot</t></w>
+                        <w xml:id="example.table.1.w.9"><t>Ko</t></w>
+                        <w xml:id="example.table.1.w.10"><t>van</t></w>
+                        <w xml:id="example.table.1.w.11"><t>der</t></w>
+                        <w xml:id="example.table.1.w.12"><t>Sloot</t></w>
                     </cell>
                     <cell>
-                        <w xml:id="example.table.1.w.6"><t>Tilburg University</t></w>
+                        <w xml:id="example.table.1.w.13"><t>Tilburg</t></w>
+                        <w xml:id="example.table.1.w.14"><t>University</t></w>
                     </cell>
                 </row>
                 </table>
