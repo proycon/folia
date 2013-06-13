@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="folia2html.xsl"?>
-<FoLiA xmlns="http://ilk.uvt.nl/folia" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="WR-P-E-J-0000000001" version="0.9" generator="manual">
+<FoLiA xmlns="http://ilk.uvt.nl/folia" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="WR-P-E-J-0000000001" version="0.9.2" generator="manual">
   <metadata type="native">
     <annotations>
       <token-annotation annotator="ilktok" annotatortype="auto" />
@@ -22,6 +22,8 @@
       <semrole-annotation set="semrole-set" />
       <chunking-annotation set="chunk-set" />
       <coreference-annotation set="coreference-set" />  
+      <lang-annotation set="lang-set" />
+      <table-annotation set="table-set" />
     </annotations>
     <meta id="title">Stemma</meta>
     <meta id="language">nl</meta>
@@ -1063,7 +1065,45 @@
 		       				<wref id="WR-P-E-J-0000000001.sandbox.2.s.1.w.1.m.1" />
 		       			</entity>
 		       		</entities>
-		       </s>
+                </s>
+            </div>
+            <div xml:id="sandbox.3">
+                <head xml:id="sandbox.3.head">
+                    <!-- Not tokenised! -->
+                    <t>De FoLiA developers zijn:</t> 
+                    <str xml:id="sandbox.3.str">
+                        <t offset="3">FoLiA developers</t>
+                        <lang class="eng" />
+                    </str>
+                </head> 
+                <table xml:id="example.table.1">
+                <tablehead>
+                    <row>
+                    <cell>
+                        <w xml:id="example.table.1.w.1"><t>Naam</t></w>
+                    </cell>
+                    <cell>
+                        <w xml:id="example.table.1.w.2"><t>Universiteit</t></w>
+                    </cell>
+                    </row>
+                </tablehead>
+                <row>
+                    <cell>
+                        <w xml:id="example.table.1.w.3"><t>Maarten van Gompel</t></w>
+                    </cell>
+                    <cell>
+                        <w xml:id="example.table.1.w.4"><t>Radboud University Nijmegen</t></w>
+                    </cell>
+                </row>
+                <row>
+                    <cell>
+                        <w xml:id="example.table.1.w.5"><t>Ko van der Sloot</t></w>
+                    </cell>
+                    <cell>
+                        <w xml:id="example.table.1.w.6"><t>Tilburg University</t></w>
+                    </cell>
+                </row>
+                </table>
            </div>
       </div>
       <gap xml:id="WR-P-E-J-0000000001.gap.1" class="backmatter">
