@@ -32,7 +32,7 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
         Radboud University Nijmegen.}}
 
 \title{{\huge FoLiA: Format for Linguistic Annotation} \\ \vspace*{0.5cm}
-{\bf \small version 0.9.1 - revision 2.8} \\ \vspace*{0.5cm}{\huge Documentation}\\
+{\bf \small version 0.9.2 -- Revision 2.9} \\ \vspace*{0.5cm}{\huge Documentation}\\
 \vspace*{1cm} {\it ILK Technical Report -- ILK 12-03}}
 
 \parindent=0pt %no paragraph indentation
@@ -432,7 +432,8 @@ Matters can become more complicated as multiple text-content element of differen
 
 Paragraph elements may be omitted if a document is described that does not distinguish paragraphs but only sentences. Sentences however may never be omitted; FoLiA documents can never consist of tokens only.
 
-The content element \texttt{head} is reserved for headers and captions, it behaves similarly to the paragraph element and holds sentences.
+The content element \texttt{head} is reserved for headers and captions, it
+behaves similarly to the paragraph element and holds sentences.
 
 FoLiA also explicitly supports quotes, as demonstrated in the next example, which annotates the following sentence: 
 
@@ -637,7 +638,11 @@ Sometimes you may want to explicitly specify vertical whitespace or line breaks.
   </text>
 \end{lstlisting}
 
-The difference between \texttt{br} and \texttt{whitespace} is that the former specifies that only a linebreak was present, not forcing any vertical whitespace, whilst the latter actually generates an empty space, which would comparable to two successive \texttt{br} statements. Both elements can be used inside divisions, paragraphs, and sentences.
+The difference between \texttt{br} and \texttt{whitespace} is that the former
+specifies that only a linebreak was present, not forcing any vertical
+whitespace, whilst the latter actually generates an empty space, which would
+comparable to two successive \texttt{br} statements. Both elements can be used
+inside divisions, paragraphs, headers, and sentences.
 
 \subsection{Events}
 \label{sec:events}
@@ -714,12 +719,57 @@ Figures are not declared. The \texttt{caption} element may hold sentences \textt
 
 \subsection{Tables}
 
-\status{TO BE PROPOSED}{no}
+\status{proposed in FoLiA 0.9.2}{pynlpl}
 
-\begin{devnotes}
-There is no provision yet for encoding tables. This may be added later.
-\end{devnotes}
+Support for simple tables is provided in a fashion similar to HTML and TEI. The
+element \texttt{table} introduces a table, within its scope \texttt{row}
+elements mark the various rows, \texttt{tablehead} marks the header of the
+table and contains one or more rows. The rows themselves consist of
+\texttt{cell} elements, which in turn may contain other structural elements
+such as words, sentences or even entire paragraphs.
 
+Consider the example below, not all elements have been assigned IDs for
+brevity:
+
+\begin{lstlisting}[language=xml]
+<table xml:id="example.table.1">
+  <tablehead>
+    <row>
+      <cell>
+        <w xml:id="example.table.1.w.1"><t>Name</t></w>
+      </cell>
+      <cell>
+        <w xml:id="example.table.1.w.2"><t>Affiliation</t></w>
+      </cell>
+    </row>
+  </tablehead>
+  <row>
+    <cell>
+      <w xml:id="example.table.1.w.3"><t>Maarten van Gompel</t></w>
+    </cell>
+    <cell>
+      <w xml:id="example.table.1.w.4"><t>Radboud University Nijmegen</t></w>
+    </cell>
+  </row>
+  <row>
+    <cell>
+      <w xml:id="example.table.1.w.5"><t>Ko van der Sloot</t></w>
+    </cell>
+    <cell>
+      <w xml:id="example.table.1.w.6"><t>Tilburg University</t></w>
+    </cell>
+  </row>
+</table>
+\end{lstlisting}
+
+Tables, rows and cells can all be assigned classes, the declaration is as
+follows:
+
+\begin{lstlisting}[language=xml]
+<annotations>
+    <table-annotation set="http://ilk.uvt.nl/folia/sets/some-table-set"  />
+</annotations>
+\end{lstlisting}
 
 \section{Token Annotation}
 \label{sec:tokenannotation}
@@ -2771,6 +2821,9 @@ Or one string can refer back to two or more different text content elements:
  
 Substring elements are a form of higher-order annotation, they are similar to structure annotation but carry several different properties. Unlike structure elements, substring order does not matter and substrings may overlap. The difference between \texttt{w} and \texttt{str} has to be clearly understood, the former refers to actual tokens and supports further token annotation, the latter to untokenised or differently tokenised substrings.The \texttt{str} element is especially powerful when combined with alignments, as this allows the user to relate multiple alternative tokenisations. This is also the limit as to what you can do with differing tokenisations in FoLiA, as FoLiA only supports one authoritative tokenisation. 
 
+The \texttt{str} element does not allow all of (extended) token annotations.
+However, certain extended token annotations are allowed; such as language
+identification, domain identification, metrics and corrections.
 
 The declaration:
 
