@@ -32,8 +32,9 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
         Radboud University Nijmegen.}}
 
 \title{{\huge FoLiA: Format for Linguistic Annotation} \\ \vspace*{0.5cm}
-{\bf \small version 0.9.2 -- Revision 2.9} \\ \vspace*{0.5cm}{\huge Documentation}\\
-\vspace*{1cm} {\it ILK Technical Report -- ILK 12-03}}
+{\bf \small version 0.9.3 -- Revision 2.10} \\ \vspace*{0.5cm}{\huge Documentation}\\
+%\vspace*{1cm} {\it ILK Technical Report -- ILK 12-03}
+}
 
 \parindent=0pt %no paragraph indentation
 \parskip=12pt %paragraph skip
@@ -1776,6 +1777,12 @@ The mandatory declaration goes as follows, the set is fictitious:
 
 
 
+
+
+
+
+
+
 \section{Higher-order Annotation}
 \label{sec:higherorder}
 
@@ -2733,8 +2740,6 @@ In the above example, the correction is explicit, in the next example, it is imp
 Last, an important note regarding offsets; all offset values are measured in unicode code-points, the first character having index zero. Take special care with combining diacritical marks versus codepoints that directly integrate the diacritical mark.
 
 
-
-
 \subsection{Substrings}
 \label{sec:str}
 
@@ -2825,6 +2830,20 @@ The \texttt{str} element does not allow all of (extended) token annotations.
 However, certain extended token annotations are allowed; such as language
 identification, domain identification, metrics and corrections.
 
+The \texttt{str} element has a counterpart in the group of text markup
+elements: \texttt{t-str}.See section~\ref{sec:tstr}. Whilst not as powerful as the \texttt{str} element,
+it is more intuitive to use. The following example illustrates both \texttt{t-str} and \texttt{str}, with
+proper references making their relation explicit:
+
+\begin{lstlisting}[language=xml]
+ <p xml:id="example.p.1">
+    <t><t-str id="example.p.1.str.1">Hello</t-str>. This is a sentence. Bye!</t> 
+    <str xml:id="example.p.1.str.1">
+    	<t offset="0">Hello</t>
+    </str>
+</p>
+\end{lstlisting}
+
 The declaration:
 
 \begin{lstlisting}[language=xml]
@@ -2832,6 +2851,208 @@ The declaration:
     <string-annotation set="http://ilk.uvt.nl/folia/sets/string-annotation" />
 </annotations>
 \end{lstlisting}
+
+
+\subsection{Text Markup}
+
+\status{PROPOSED for v0.10}{no}
+
+The text content element \texttt{t} allows within its scope elements of a certain
+group, these are \emph{Text Markup} elements. The value of any of these
+elements is always textual content. Likewise, the elements have in common that
+in some way they modify or mark up textual content. Text markup elements mark certain spans within the text. Elements of this category may be nested.
+
+Text markup elements may carry an optional ID. However, it may happen that textual
+content is repeated on multiple levels, which implies the textual markup
+elements are also repeated. Only one may carry the customary \texttt{xml:id}
+attribute, duplicated may carry the \texttt{id} \emph{reference} attribute (in the FoLiA namespace instead of the XML
+namespace!) which is interpreted as a reference. Such an element should be
+identical to the one it refers to, and explicitly include the value (if
+applicable) to facilitate the job of XML parsers. Certain elements may also use
+this \texttt{id} reference attribute to refer to structural elements that cover the very same
+data.
+
+As text markup operates in the scope of the text content element, it is ideally
+suited for untokenised text.
+
+Any of the remaining common FoLiA attributes may be freely associated with any
+of the text-markup elements.
+
+Each text-markup element starts with \texttt{t-} and demands a declaration, the following subsections will discuss the various text markup elements available.
+
+\subsection{Style}
+\label{sec:tstyle}
+
+The text markup element \texttt{t-style} marks a specific portion of textual
+concent to be rendered in a specific style. Styles in turn are classes in your
+set, closely following the FoLiA paradigm. FoLiA does not predefine any actual styles.
+
+\begin{lstlisting}[language=xml]
+<s>
+  <t>to <t-style class="bold">be</t-style> or not to be</t> 
+</s>
+\end{lstlisting}
+
+Text-markup elements, may always be nested, as the following example shows with
+styles:
+
+\begin{lstlisting}[language=xml]
+<s>
+  <t>to <t-style class="italic"><t-style class="bold">be</t-style></t-style> or not to be</t> 
+</s>
+\end{lstlisting}
+
+The declaration:
+
+\begin{lstlisting}[language=xml]
+<annotations>
+    <style-annotation set="http://ilk.uvt.nl/folia/sets/style" />
+</annotations>
+\end{lstlisting}
+
+\subsection{Gaps}
+\label{sec:tgap}
+
+The text markup element \texttt{t-gap} indicates a gap in the textual content.
+Either text is not available or there is a deliberate blank for for
+example fill-in exercises. It is recommended to provide a textual value when
+possible, but this is not required. The following examples show both ways:
+
+\begin{lstlisting}[language=xml]
+<s>
+  <t>to <t-gap xml:id="gap.1" class="fillin">be</t-gap> or not to be</t> 
+</s>
+\end{lstlisting}
+
+
+\begin{lstlisting}[language=xml]
+<s>
+  <t>to <t-gap xml:id="gap.1" class="unknown" /> or not to be</t> 
+</s>
+\end{lstlisting}
+
+The \texttt{t-gap} element is related to the structural element \texttt{gap}, but offers a
+more fine-grained variant. If you find that you want to mark your whole
+text content as being a \texttt{t-gap}, then this is a sure sign you should use the
+structural element \texttt{gap} instead. The \texttt{t-gap} element may take an
+ID reference attribute that refers to a \texttt{gap} element, as shown in the following
+example:
+
+
+\begin{lstlisting}[language=xml]
+<s>
+  <t>to <t-gap id="gap.1" class="fillin" /> or not to be</t> 
+  <w><t>to</t></w>
+  <gap xml:id="gap.1"><content>be</content></gap>
+  <w><t>or</t></w>
+  <w><t>not</t></w>
+  <w><t>to</t></w>
+  <w><t>be</t></w>
+</s>
+\end{lstlisting}
+
+Being related, the \texttt{t-gap} uses the same declaration as the \texttt{gap} element.
+
+\subsection{Substrings}
+\label{sec:tstr}
+
+The \texttt{t-str} element relates to the higher annotation element
+\texttt{str}, introduced in Section~\ref{sec:str} and it shares the same
+declaration. The \texttt{id} reference attribute of \texttt{t-str} may therefore refer to the id of a
+\texttt{str} element. The element is use to mark arbitrary substrings:
+
+\begin{lstlisting}[language=xml]
+<s>
+  <t>to <t-str xml:id="gap.1">be</t-str> or not to be</t> 
+</s>
+\end{lstlisting}
+
+Note that \texttt{t-str}, unlike the \texttt{str} element, does not support
+overlap due to the nature of text markup elements.
+
+The following example illustrates both \texttt{t-str} and \texttt{str}, with
+proper references:
+
+\begin{lstlisting}[language=xml]
+ <p xml:id="example.p.1">
+    <t><t-str id="example.p.1.str.1">Hello</t-str>. This is a sentence. Bye!</t> 
+    <str xml:id="example.p.1.str.1">
+    	<t offset="0">Hello</t>
+    </str>
+</p>
+\end{lstlisting}
+
+The declaration:
+
+\begin{lstlisting}[language=xml]
+<annotations>
+    <string-annotation set="http://ilk.uvt.nl/folia/sets/string-annotation" />
+</annotations>
+\end{lstlisting}
+
+\subsection{Error Detection}
+
+The text-markup counterpart to the token annotation element
+\texttt{errordetection} is \texttt{t-error}. This element may be used to signal
+errors in text content:
+
+
+\begin{lstlisting}[language=xml]
+<s>
+  <t>to <t-error xml:id="error.1" class="spelling">bee</t-corrected>
+  or not to be</t> 
+</s>
+\end{lstlisting}
+
+The declaration:
+
+\begin{lstlisting}[language=xml]
+<annotations>
+  <errordetection-annotation set="http://ilk.uvt.nl/folia/sets/corrections" />
+</annotations>
+\end{lstlisting}
+
+\subsection{Correction}
+
+Corrections may be expressed using the \texttt{correction} element discussed in
+section~\ref{sec:corrections}. A text markup counterpart is available in the
+form of the \texttt{t-correction} element, which marks specific text as being a
+correction. The definition is shared with the \texttt{correction} element and
+id references may be made to correction elements, which offer far more
+expressive power. The below example shows both:
+
+\begin{lstlisting}[language=xml]
+<s>
+  <t>to <t-correction class="confusible id="correction.1" 
+  original="bee">be</t-corrected> or not to be</t> 
+  <w><t>to</t></w>
+  <correction class="confusible" xml:id="correction.1">
+    <new>
+      <w><t>be</t></w>
+    </new>
+    <original>
+      <w><t>bee</t></w>
+    </original>
+  </correction>
+  <w><t>or</t></w>
+  <w><t>not</t></w>
+  <w><t>to</t></w>
+  <w><t>be</t></w>
+</s>
+\end{lstlisting}
+
+The \texttt{t-correction} element allows an additional attribute
+\texttt{original}, which may be used to record the version prior to correction.
+
+The declaration:
+
+\begin{lstlisting}[language=xml]
+<annotations>
+    <correction-annotation set="http://ilk.uvt.nl/folia/sets/corrections" />
+</annotations>
+\end{lstlisting}
+
+
 
 \section{Metadata}
 
@@ -3092,13 +3313,18 @@ Some common XPath queries are listed below, note that for brevity and readabilit
 \item XPath query for all sentences: \texttt{//s[not(ancestor-or-self::*/@auth) and not(ancestor::quote)]} \\
     \emph{Explanation: When selecting sentences, you often do not want sub-sentences that are part of a quote, since they may overlap with the larger sentence they form a part of. The \texttt{not(ancestor::quote)} predicate guarantees this can not happen.}
 \item XPath query for all words: \texttt{//w[not(ancestor-or-self::*/@auth)]}
-\item XPath query for the text of all words/tokens: \texttt{//w//t[not(ancestor-or-self::*/@auth) and not(ancestor-or-self::*/morpheme) and not(@class)]/text()} \\
+\item XPath query for the text of all words/tokens:
+  \texttt{//w//t[not(ancestor-or-self::*/@auth) and
+  not(ancestor-or-self::*/morpheme) and not(@class)]//text()} \\
     \emph{Explanation: The \texttt{[not(@class)]} predicate is important here and makes sure to select only the text content element in case there are multiple. (See also Section~\ref{sec:textcontent}). The \texttt{not(ancestor-or-self::*/morpheme} makes sure morphemes are excluded}.    
 \item XPath query for all words with lemma X: \texttt{//w[.//lemma[@class="X" and not(ancestor-or-self::*/@auth) and not(ancestor-or-self::*/morpheme] ]}
     \emph{Note: This query assumes there is only one declaration for lemma annotation, and the set has been verified. It furthermore excludes morphemes.}
 \item XPath query for all words with PoS-tag A in set S: \texttt{//w[.//pos[@set="S" and @class="A" and not(ancestor-or-self::*/@auth)] ]. }
     \emph{Note: This query assumes the set attribute was set explicitly, i.e. there are multiple possible sets in the document for this annotation type. This query does not exclude morphemes.}
-\item XPath query for the text of all words with PoS-tag A in set S: \texttt{//w[.//pos[@set="S" and @class="A" and not(ancestor-or-self::*/@auth)] ]//t[not(ancestor-or-self::*/@auth) and not(@class)]/text()}
+\item XPath query for the text of all words with PoS-tag A in set S:
+  \texttt{//w[.//pos[@set="S" and @class="A" and
+  not(ancestor-or-self::*/@auth)] ]//t[not(ancestor-or-self::*/@auth) and
+  not(@class)]//text()}
     \emph{Note: The predicate for non-authoritativeness here needs to be applied both to the pos element and the text content element \texttt{t}, otherwise you may accidentally select the text of words which have the desired pos tag only as an alternative.}
 \item XPath query to select all alternative PoS tags for all words: \texttt{//w/alt/pos} \\       
 \end{itemize}
