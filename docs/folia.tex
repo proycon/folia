@@ -2860,12 +2860,12 @@ The declaration:
 The text content element \texttt{t} allows within its scope elements of a certain
 group, these are \emph{Text Markup} elements. The value of any of these
 elements is always textual content. Likewise, the elements have in common that
-in some way they modify or mark up textual content. Text markup elements mark certain spans within the text. Elements of this category may be nested.
+in some way they modify or otherwise apply markup to textual content. Text markup elements mark certain spans within the text. Elements of this category may be nested.
 
-Text markup elements may carry an optional ID. However, it may happen that textual
+Text markup elements may carry an optional identifier. However, it may happen that textual
 content is repeated on multiple levels, which implies the textual markup
-elements are also repeated. Only one may carry the customary \texttt{xml:id}
-attribute, duplicated may carry the \texttt{id} \emph{reference} attribute (in the FoLiA namespace instead of the XML
+elements are also repeated. However, only one of them may carry the customary \texttt{xml:id}
+attribute; duplicates may carry the \texttt{id} \emph{reference} attribute (in the FoLiA namespace instead of the XML
 namespace!) which is interpreted as a reference. Such an element should be
 identical to the one it refers to, and explicitly include the value (if
 applicable) to facilitate the job of XML parsers. Certain elements may also use
@@ -2873,14 +2873,16 @@ this \texttt{id} reference attribute to refer to structural elements that cover 
 data.
 
 As text markup operates in the scope of the text content element, it is ideally
-suited for untokenised text.
+suited for untokenised text. You should however limit your usage of text markup
+elements and only use them  when other existing annotation elements do not
+suffice, or for extra verbosity in addition to existing elements.
 
 Any of the remaining common FoLiA attributes may be freely associated with any
 of the text-markup elements.
 
 Each text-markup element starts with \texttt{t-} and demands a declaration, the following subsections will discuss the various text markup elements available.
 
-\subsection{Style}
+\subsubsection{Style}
 \label{sec:tstyle}
 
 The text markup element \texttt{t-style} marks a specific portion of textual
@@ -2898,7 +2900,8 @@ styles:
 
 \begin{lstlisting}[language=xml]
 <s>
-  <t>to <t-style class="italic"><t-style class="bold">be</t-style></t-style> or not to be</t> 
+  <t>to <t-style class="italic"><t-style class="bold">be
+  </t-style></t-style> or not to be</t> 
 </s>
 \end{lstlisting}
 
@@ -2910,7 +2913,7 @@ The declaration:
 </annotations>
 \end{lstlisting}
 
-\subsection{Gaps}
+\subsubsection{Gaps}
 \label{sec:tgap}
 
 The text markup element \texttt{t-gap} indicates a gap in the textual content.
@@ -2941,7 +2944,7 @@ example:
 
 \begin{lstlisting}[language=xml]
 <s>
-  <t>to <t-gap id="gap.1" class="fillin" /> or not to be</t> 
+  <t>to <t-gap id="gap.1" class="fillin">be</t-gap> or not to be</t> 
   <w><t>to</t></w>
   <gap xml:id="gap.1"><content>be</content></gap>
   <w><t>or</t></w>
@@ -2953,13 +2956,19 @@ example:
 
 Being related, the \texttt{t-gap} uses the same declaration as the \texttt{gap} element.
 
-\subsection{Substrings}
+\begin{lstlisting}[language=xml]
+<annotations>
+    <gap-annotation set="http://ilk.uvt.nl/folia/sets/gaps" />
+</annotations>
+\end{lstlisting}
+
+\subsubsection{Substrings}
 \label{sec:tstr}
 
-The \texttt{t-str} element relates to the higher annotation element
-\texttt{str}, introduced in Section~\ref{sec:str} and it shares the same
+The \texttt{t-str} element relates to the higher-order annotation element
+\texttt{str} introduced in Section~\ref{sec:str} and shares the same
 declaration. The \texttt{id} reference attribute of \texttt{t-str} may therefore refer to the id of a
-\texttt{str} element. The element is use to mark arbitrary substrings:
+\texttt{str} element. The element is used to mark arbitrary substrings:
 
 \begin{lstlisting}[language=xml]
 <s>
@@ -2990,12 +2999,12 @@ The declaration:
 </annotations>
 \end{lstlisting}
 
-\subsection{Error Detection}
+\subsubsection{Error Detection}
 
 The text-markup counterpart to the token annotation element
 \texttt{errordetection} is \texttt{t-error}. This element may be used to signal
-errors in text content:
-
+errors in text content. Note that the use of \texttt{errordetection} is
+preferred when possible.
 
 \begin{lstlisting}[language=xml]
 <s>
@@ -3012,7 +3021,7 @@ The declaration:
 </annotations>
 \end{lstlisting}
 
-\subsection{Correction}
+\subsubsection{Correction}
 
 Corrections may be expressed using the \texttt{correction} element discussed in
 section~\ref{sec:corrections}. A text markup counterpart is available in the
@@ -3023,7 +3032,7 @@ expressive power. The below example shows both:
 
 \begin{lstlisting}[language=xml]
 <s>
-  <t>to <t-correction class="confusible id="correction.1" 
+  <t>to <t-correction class="confusible" id="correction.1" 
   original="bee">be</t-corrected> or not to be</t> 
   <w><t>to</t></w>
   <correction class="confusible" xml:id="correction.1">
