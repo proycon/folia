@@ -2872,13 +2872,12 @@ applicable) to facilitate the job of XML parsers. Certain elements may also use
 this \texttt{id} reference attribute to refer to structural elements that cover the very same
 data.
 
+Text markup elements may take sets and classes as most other elements, and any of the remaining common FoLiA attributes may be freely associated with any of the text-markup elements.
+
 As text markup operates in the scope of the text content element, it is ideally
 suited for untokenised text. You should however limit your usage of text markup
-elements and only use them  when other existing annotation elements do not
-suffice, or for extra verbosity in addition to existing elements.
-
-Any of the remaining common FoLiA attributes may be freely associated with any
-of the text-markup elements.
+elements and only use them when other existing annotation elements do not
+suffice, or for extra verbosity in addition to existing elements. 
 
 Each text-markup element starts with \texttt{t-} and demands a declaration, the following subsections will discuss the various text markup elements available.
 
@@ -3060,6 +3059,13 @@ The declaration:
     <correction-annotation set="http://ilk.uvt.nl/folia/sets/corrections" />
 </annotations>
 \end{lstlisting}
+
+\subsubsection{Linebreaks}
+
+The element \texttt{<br />} may be used as both as a structural element as well
+as a text markup element. It is exempted from needing a declaration.
+
+
 
 
 
