@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="folia2html.xsl"?>
-<FoLiA xmlns="http://ilk.uvt.nl/folia" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="WR-P-E-J-0000000001" version="0.9.2" generator="manual">
+<FoLiA xmlns="http://ilk.uvt.nl/folia" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="WR-P-E-J-0000000001" version="0.10.0" generator="manual">
   <metadata type="native">
     <annotations>
       <token-annotation annotator="ilktok" annotatortype="auto" />
@@ -25,6 +25,7 @@
       <lang-annotation set="lang-set" />
       <metric-annotation set="metric-set" />
       <table-annotation set="table-set" />
+      <style-annotation set="style" />
     </annotations>
     <meta id="title">Stemma</meta>
     <meta id="language">nl</meta>
@@ -1071,7 +1072,7 @@
             <div xml:id="sandbox.3">
                 <head xml:id="sandbox.3.head">
                     <!-- Not tokenised! -->
-                    <t>De FoLiA developers zijn:</t> 
+                    <t>De <t-str id="sandbox.3.str"><t-style xml:id="sandbox.3.str.bold" class="bold">FoLiA</t-style> developers</t-str> zijn:</t> 
                     <str xml:id="sandbox.3.str">
                         <t offset="3">FoLiA developers</t>
                         <lang class="eng" />
