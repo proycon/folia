@@ -2879,13 +2879,13 @@ suited for untokenised text. You should however limit your usage of text markup
 elements and only use them when other existing annotation elements do not
 suffice, or for extra verbosity in addition to existing elements. 
 
-Each text-markup element starts with \texttt{t-} and demands a declaration, the following subsections will discuss the various text markup elements available.
+Each text-markup element, save for one exception, starts with \texttt{t-} and demands a declaration, the following subsections will discuss the various text markup elements available.
 
 \subsubsection{Style}
 \label{sec:tstyle}
 
 The text markup element \texttt{t-style} marks a specific portion of textual
-concent to be rendered in a specific style. Styles in turn are classes in your
+concent to be rendered in a specific style. Styles in turn are simply classes in your
 set, closely following the FoLiA paradigm. FoLiA does not predefine any actual styles.
 
 \begin{lstlisting}[language=xml]
@@ -2894,8 +2894,7 @@ set, closely following the FoLiA paradigm. FoLiA does not predefine any actual s
 </s>
 \end{lstlisting}
 
-Text-markup elements, may always be nested, as the following example shows with
-styles:
+Text-markup elements may always be nested, as the following example shows:
 
 \begin{lstlisting}[language=xml]
 <s>
@@ -2918,7 +2917,8 @@ The declaration:
 The text markup element \texttt{t-gap} indicates a gap in the textual content.
 Either text is not available or there is a deliberate blank for for
 example fill-in exercises. It is recommended to provide a textual value when
-possible, but this is not required. The following examples show both ways:
+possible, but this is not required. The following examples show both
+possibilities:
 
 \begin{lstlisting}[language=xml]
 <s>
