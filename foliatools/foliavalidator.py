@@ -70,6 +70,7 @@ class settings:
     encoding = 'utf-8'
 
 def main():
+    quick = False
     try:
         opts, args = getopt.getopt(sys.argv[1:], "E:srhqV", ["help"])
     except getopt.GetoptError, err:
