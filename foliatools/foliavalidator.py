@@ -16,7 +16,7 @@ def usage():
     print >>sys.stderr, "foliavalidator"
     print >>sys.stderr, "  by Maarten van Gompel (proycon)"
     print >>sys.stderr, "  Radboud University Nijmegen"
-    print >>sys.stderr, "  2012 - Licensed under GPLv3"
+    print >>sys.stderr, "  2013 - Licensed under GPLv3"
     print >>sys.stderr, ""
     print >>sys.stderr, "FoLiA " + folia.FOLIAVERSION + ", library version " + folia.LIBVERSION
     print >>sys.stderr, ""
@@ -98,13 +98,14 @@ def main():
 
     if len(args) >= 1:
         for x in sys.argv[1:]:
-            if os.path.isdir(x):
-                processdir(x,schema,quick)
-            elif os.path.isfile(x):
-                validate(x, schema,quick)
-            else:
-                print >>sys.stderr, "ERROR: File or directory not found: " + x
-                sys.exit(3)
+            if x[0] != '-':
+                if os.path.isdir(x):
+                    processdir(x,schema,quick)
+                elif os.path.isfile(x):
+                    validate(x, schema,quick)
+                else:
+                    print >>sys.stderr, "ERROR: File or directory not found: " + x
+                    sys.exit(3)
     else:
         print >>sys.stderr,"ERROR: No files specified"
         sys.exit(2)
