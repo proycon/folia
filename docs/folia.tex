@@ -32,7 +32,7 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
         Radboud University Nijmegen.}}
 
 \title{{\huge FoLiA: Format for Linguistic Annotation} \\ \vspace*{0.5cm}
-{\bf \small version 0.9.3 -- Revision 2.10} \\ \vspace*{0.5cm}{\huge Documentation}\\
+{\bf \small version 0.10.0 -- Revision 3.0} \\ \vspace*{0.5cm}{\huge Documentation}\\
 %\vspace*{1cm} {\it ILK Technical Report -- ILK 12-03}
 }
 
@@ -2855,7 +2855,7 @@ The declaration:
 
 \subsection{Text Markup}
 
-\status{PROPOSED for v0.10}{no}
+\status{new in FoLiA v0.10}{pynlpl}
 
 The text content element \texttt{t} allows within its scope elements of a certain
 group, these are \emph{Text Markup} elements. The value of any of these
@@ -3007,7 +3007,7 @@ preferred when possible.
 
 \begin{lstlisting}[language=xml]
 <s>
-  <t>to <t-error xml:id="error.1" class="spelling">bee</t-corrected>
+  <t>to <t-error xml:id="error.1" class="spelling">bee</t-error>
   or not to be</t> 
 </s>
 \end{lstlisting}
