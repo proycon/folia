@@ -39,13 +39,13 @@ def validate(filename, schema = None, quick=False):
     try:
         folia.validate(filename, schema)
     except Exception as e:
-        print >>sys.stderr, "VALIDATION ERROR against RelaxNG schema, in " + filename
+        print >>sys.stderr, "VALIDATION ERROR against RelaxNG schema (stage 1/2), in " + filename
         print >>sys.stderr, str(e)
         return False
     try:
         d = folia.Document(file=filename)
     except Exception as e:
-        print >>sys.stderr, "VALIDATION ERROR on full parse by library, in " + filename
+        print >>sys.stderr, "VALIDATION ERROR on full parse by library (stage 2/2), in " + filename
         print >>sys.stderr, str(e)
         return False
 

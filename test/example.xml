@@ -616,7 +616,7 @@
             </w>
           </s>
           <s xml:id="WR-P-E-J-0000000001.p.1.s.6" class="sentence">
-              <t>Verdwenen handschriften waarvan men toch vermoedt dat ze ooit bestaan hebben worden ook in het stemma opgenomen en worden weergegeven door de laatste letter van het alfabet en worden tussen <t-correction id="WR-P-E-J-0000000001.p.1.s.6.w.31.c.1" class="spelling" original="vierkant">vierkante</t-correction> haken geplaatst.</t>
+              <t>Verdwenen handschriften waarvan men toch vermoedt dat ze ooit bestaan hebben worden ook in het stemma opgenomen en worden weergegeven door de laatste letter van het alfabet en worden tussen <t-correction id="WR-P-E-J-0000000001.p.1.s.6.w.31.c.1" class="spelling" original="vierkant">vierkante</t-correction> haken geplaatst.<br/></t>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.1">
               <t>Verdwenen</t>
               <pos class="WW(vd,prenom,zonder)">
@@ -803,6 +803,7 @@
               <pos class="LET()"/>
               <lemma class="."/>
             </w>
+            <br />
           </s>
           <s xml:id="WR-P-E-J-0000000001.p.1.s.7">
             <w xml:id="WR-P-E-J-0000000001.p.1.s.7.w.1">
