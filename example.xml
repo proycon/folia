@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="folia2html.xsl"?>
-<FoLiA xmlns="http://ilk.uvt.nl/folia" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="WR-P-E-J-0000000001" version="0.9" generator="manual">
+<FoLiA xmlns="http://ilk.uvt.nl/folia" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="WR-P-E-J-0000000001" version="0.10.0" generator="manual">
   <metadata type="native">
     <annotations>
       <token-annotation annotator="ilktok" annotatortype="auto" />
@@ -22,6 +22,10 @@
       <semrole-annotation set="semrole-set" />
       <chunking-annotation set="chunk-set" />
       <coreference-annotation set="coreference-set" />  
+      <lang-annotation set="lang-set" />
+      <metric-annotation set="metric-set" />
+      <table-annotation set="table-set" />
+      <style-annotation set="style" />
     </annotations>
     <meta id="title">Stemma</meta>
     <meta id="language">nl</meta>
@@ -612,6 +616,7 @@
             </w>
           </s>
           <s xml:id="WR-P-E-J-0000000001.p.1.s.6" class="sentence">
+              <t>Verdwenen handschriften waarvan men toch vermoedt dat ze ooit bestaan hebben worden ook in het stemma opgenomen en worden weergegeven door de laatste letter van het alfabet en worden tussen <t-correction id="WR-P-E-J-0000000001.p.1.s.6.w.31.c.1" class="spelling" original="vierkant">vierkante</t-correction> haken geplaatst.<br/></t>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.1">
               <t>Verdwenen</t>
               <pos class="WW(vd,prenom,zonder)">
@@ -798,6 +803,7 @@
               <pos class="LET()"/>
               <lemma class="."/>
             </w>
+            <br />
           </s>
           <s xml:id="WR-P-E-J-0000000001.p.1.s.7">
             <w xml:id="WR-P-E-J-0000000001.p.1.s.7.w.1">
@@ -1063,7 +1069,54 @@
 		       				<wref id="WR-P-E-J-0000000001.sandbox.2.s.1.w.1.m.1" />
 		       			</entity>
 		       		</entities>
-		       </s>
+                </s>
+            </div>
+            <div xml:id="sandbox.3">
+                <head xml:id="sandbox.3.head">
+                    <!-- Not tokenised! -->
+                    <t>De <t-str id="sandbox.3.str"><t-style xml:id="sandbox.3.str.bold" class="bold">FoLiA</t-style> developers</t-str> zijn:</t> 
+                    <str xml:id="sandbox.3.str">
+                        <t offset="3">FoLiA developers</t>
+                        <lang class="eng" />
+                        <metric class="wordcount" value="2" />
+                    </str>
+                </head> 
+                <table xml:id="example.table.1">
+                <tablehead>
+                    <row>
+                    <cell>
+                        <w xml:id="example.table.1.w.1"><t>Naam</t></w>
+                    </cell>
+                    <cell>
+                        <w xml:id="example.table.1.w.2"><t>Universiteit</t></w>
+                    </cell>
+                    </row>
+                </tablehead>
+                <row>
+                    <cell>
+                        <w xml:id="example.table.1.w.3"><t>Maarten</t></w>
+                        <w xml:id="example.table.1.w.4"><t>van</t></w>
+                        <w xml:id="example.table.1.w.5"><t>Gompel</t></w>
+                    </cell>
+                    <cell>
+                        <w xml:id="example.table.1.w.6"><t>Radboud</t></w>
+                        <w xml:id="example.table.1.w.7"><t>University</t></w>
+                        <w xml:id="example.table.1.w.8"><t>Nijmegen</t></w>
+                    </cell>
+                </row>
+                <row>
+                    <cell>
+                        <w xml:id="example.table.1.w.9"><t>Ko</t></w>
+                        <w xml:id="example.table.1.w.10"><t>van</t></w>
+                        <w xml:id="example.table.1.w.11"><t>der</t></w>
+                        <w xml:id="example.table.1.w.12"><t>Sloot</t></w>
+                    </cell>
+                    <cell>
+                        <w xml:id="example.table.1.w.13"><t>Tilburg</t></w>
+                        <w xml:id="example.table.1.w.14"><t>University</t></w>
+                    </cell>
+                </row>
+                </table>
            </div>
       </div>
       <gap xml:id="WR-P-E-J-0000000001.gap.1" class="backmatter">
