@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xsl:stylesheet version="1.0" xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:imdi="http://www.mpi.nl/IMDI/Schema/IMDI" xmlns:folia="http://ilk.uvt.nl/folia">
 
-<xsl:output method="xml" encoding="UTF-8" omit-xml-declaration="yes" doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" indent="yes" />
+<xsl:output method="html" encoding="UTF-8" omit-xml-declaration="yes" doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" indent="yes" />
 
-
+<!-- FoLiA v0.10 -->
 
 <xsl:template match="/folia:FoLiA">
   <html>
@@ -229,6 +229,13 @@
 					font-weight: bold;
 					text-align: center;
 				}
+                td {
+                 border: 1px solid #ddd;
+                }
+                thead {
+                font-weight: bold;
+                background: #ddd;
+                }
 
         </style>
   </head>
@@ -284,36 +291,53 @@
 <xsl:choose>
  <xsl:when test="count(ancestor::folia:div) = 1">
     <h1>
-        <xsl:apply-templates />
+        <xsl:call-template name="headinternal" />
     </h1>
  </xsl:when>
  <xsl:when test="count(ancestor::folia:div) = 2">
     <h2>
-        <xsl:apply-templates />
+        <xsl:call-template name="headinternal" />
     </h2>
  </xsl:when>
  <xsl:when test="count(ancestor::folia:div) = 3">
     <h3>
-        <xsl:apply-templates />
+        <xsl:call-template name="headinternal" />
     </h3>
  </xsl:when>
  <xsl:when test="count(ancestor::folia:div) = 4">
     <h4>
-        <xsl:apply-templates />
+        <xsl:call-template name="headinternal" />
     </h4>
  </xsl:when>
  <xsl:when test="count(ancestor::folia:div) = 5">
     <h5>
-        <xsl:apply-templates />
+        <xsl:call-template name="headinternal" />
     </h5>
  </xsl:when>
  <xsl:otherwise>
     <h6>
-        <xsl:apply-templates />
+        <xsl:call-template name="headinternal" />
     </h6>
  </xsl:otherwise>
 </xsl:choose>
 </xsl:template>
+
+<xsl:template name="headinternal">
+    <span id="{@xml:id}" class="head">
+        <xsl:choose>
+        <xsl:when test=".//folia:s">
+            <xsl:apply-templates select=".//folia:s|folia:whitespace|folia:br" />
+        </xsl:when>
+        <xsl:when test=".//folia:w">
+            <xsl:apply-templates select=".//folia:w|folia:whitespace|folia:br" />
+        </xsl:when>
+        <xsl:when test=".//folia:t[not(@class) and not(ancestor::folia:original) and not(ancestor::folia:suggestion) and not(ancestor::folia:alternative) and not(ancestor-or-self::*/auth) and not(ancestor::folia:str)]">
+            <xsl:call-template name="textcontent" />
+        </xsl:when>
+        </xsl:choose>
+    </span>
+</xsl:template>
+
 
 <xsl:template match="folia:list">
 <ul>
@@ -355,8 +379,8 @@
 </xsl:template>
 
 <xsl:template name="textcontent">
-    <span class="t"><xsl:value-of select=".//folia:t[not(ancestor-or-self::*/@auth)
-and not(ancestor-or-self::*/morpheme) and not(@class)]"/></span>
+    <span class="t"><xsl:value-of select="string(.//folia:t[not(ancestor-or-self::*/@auth)
+        and not(ancestor::folia:morpheme) and not(ancestor::folia:str) and not(@class)])"/></span>
 </xsl:template>
 
 <xsl:template name="tokenannotation_text">
@@ -365,8 +389,8 @@ and not(ancestor-or-self::*/morpheme) and not(@class)]"/></span>
                 <span class="attrlabel">Text
                 <xsl:if test="count(../folia:t) &gt; 1">
                     (<xsl:value-of select="@class" />)
-                </xsl:if>
-                </span><span class="attrvalue"><xsl:value-of select="text()" /></span><br />
+                  </xsl:if>
+                </span><span class="attrvalue"><xsl:value-of select=".//text()" /></span><br />
             </xsl:for-each>
       </xsl:if>
 </xsl:template>
@@ -620,6 +644,36 @@ and not(ancestor-or-self::*/morpheme) and not(@class)]"/></span>
    </div>
   </xsl:if>
  </div>
+</xsl:template>
+
+<xsl:template match="folia:table">
+    <table>
+      <xsl:apply-templates select="folia:tablehead" />
+      <tbody>
+        <xsl:apply-templates select="folia:row" />
+      </tbody>
+    </table>
+</xsl:template>
+
+
+
+<xsl:template match="folia:tablehead">
+  <thead>
+        <xsl:apply-templates select="folia:row" />
+  </thead>
+</xsl:template>
+
+
+<xsl:template match="folia:row">
+  <tr>
+        <xsl:apply-templates select="folia:cell" />
+ </tr>
+</xsl:template>
+
+<xsl:template match="folia:cell">
+  <td>
+    <xsl:apply-templates select="folia:p|folia:s|folia:w" />
+  </td>
 </xsl:template>
 
 </xsl:stylesheet>

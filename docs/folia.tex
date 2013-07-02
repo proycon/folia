@@ -3330,9 +3330,15 @@ Some common XPath queries are listed below, note that for brevity and readabilit
 \item XPath query for all words: \texttt{//w[not(ancestor-or-self::*/@auth)]}
 \item XPath query for the text of all words/tokens:
   \texttt{//w//t[not(ancestor-or-self::*/@auth) and
-  not(ancestor-or-self::*/morpheme) and not(@class)]//text()} \\
-    \emph{Explanation: The \texttt{[not(@class)]} predicate is important here and makes sure to select only the text content element in case there are multiple. (See also Section~\ref{sec:textcontent}). The \texttt{not(ancestor-or-self::*/morpheme} makes sure morphemes are excluded}.    
-\item XPath query for all words with lemma X: \texttt{//w[.//lemma[@class="X" and not(ancestor-or-self::*/@auth) and not(ancestor-or-self::*/morpheme] ]}
+  not(ancestor-or-self::*/morpheme) and not(ancestor-or-self::*/str) and not(@class)]//text()} \\
+    \emph{Explanation: The \texttt{[not(@class)]} predicate is important here
+    and makes sure to select only the text content element in case there are
+    multiple. (See also Section~\ref{sec:textcontent}). The
+    \texttt{not(ancestor-or-self::*/morpheme} makes sure morphemes are
+    excluded, \texttt{not(ancestor-or-self::*/str} makes sure strings are
+    excluded.
+\item XPath query for all words with lemma X: \texttt{//w[.//lemma[@class="X"
+  and not(ancestor-or-self::*/@auth) and not(ancestor-or-self::*/morpheme)] ]}
     \emph{Note: This query assumes there is only one declaration for lemma annotation, and the set has been verified. It furthermore excludes morphemes.}
 \item XPath query for all words with PoS-tag A in set S: \texttt{//w[.//pos[@set="S" and @class="A" and not(ancestor-or-self::*/@auth)] ]. }
     \emph{Note: This query assumes the set attribute was set explicitly, i.e. there are multiple possible sets in the document for this annotation type. This query does not exclude morphemes.}
