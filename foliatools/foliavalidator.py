@@ -36,6 +36,7 @@ def usage():
 
 
 
+
 def validate(filename, schema = None, quick=False):
     try:
         folia.validate(filename, schema)
@@ -47,7 +48,8 @@ def validate(filename, schema = None, quick=False):
         d = folia.Document(file=filename)
     except Exception as e:
         print >>sys.stderr, "VALIDATION ERROR on full parse by library (stage 2/2), in " + filename
-        print >>sys.stderr, str(e)
+        print >>sys.stderr, e.__class__.__name__ + ": " + str(e)
+        print >>sys.stderr, "Full traceback follows:"
         ex_type, ex, tb = sys.exc_info()
         traceback.print_tb(tb)
         return False
