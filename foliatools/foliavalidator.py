@@ -5,6 +5,7 @@ import getopt
 import sys
 import os
 import glob
+import traceback
 import lxml.etree
 try:
     from pynlpl.formats import folia
