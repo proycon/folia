@@ -47,6 +47,8 @@ def validate(filename, schema = None, quick=False):
     except Exception as e:
         print >>sys.stderr, "VALIDATION ERROR on full parse by library (stage 2/2), in " + filename
         print >>sys.stderr, str(e)
+        ex_type, ex, tb = sys.exc_info()
+        traceback.print_tb(tb)
         return False
 
     print >>sys.stderr, "Validated successfully: " +  filename
