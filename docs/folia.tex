@@ -2870,7 +2870,8 @@ namespace!) which is interpreted as a reference. Such an element should be
 identical to the one it refers to, and explicitly include the value (if
 applicable) to facilitate the job of XML parsers. Certain elements may also use
 this \texttt{id} reference attribute to refer to structural elements that cover the very same
-data.
+data. A markup element may thus take either \texttt{xml:id} or \texttt{id} (a
+reference to another element), they may never occur together.
 
 Text markup elements may take sets and classes as most other elements, and any of the remaining common FoLiA attributes may be freely associated with any of the text-markup elements.
 
@@ -2971,7 +2972,7 @@ declaration. The \texttt{id} reference attribute of \texttt{t-str} may therefore
 
 \begin{lstlisting}[language=xml]
 <s>
-  <t>to <t-str xml:id="gap.1">be</t-str> or not to be</t> 
+  <t>to <t-str xml:id="str.1">be</t-str> or not to be</t> 
 </s>
 \end{lstlisting}
 
