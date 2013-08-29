@@ -32,7 +32,7 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
         Radboud University Nijmegen.}}
 
 \title{{\huge FoLiA: Format for Linguistic Annotation} \\ \vspace*{0.5cm}
-{\bf \small version 0.10.0 -- Revision 3.0} \\ \vspace*{0.5cm}{\huge Documentation}\\
+{\bf \small version 0.10.0 -- Revision 3.1} \\ \vspace*{0.5cm}{\huge Documentation}\\
 %\vspace*{1cm} {\it ILK Technical Report -- ILK 12-03}
 }
 
@@ -2650,7 +2650,11 @@ When explicit text content on sentence/paragraph level is provided, offsets can 
  </p>
 \end{lstlisting}
 
-Note that text content is always expected to be untokenised, except in \texttt{w} tags as it by definition is the tokenisation layer.
+Note that text content is always expected to be untokenised, except in
+\texttt{w} tags as it by definition is the tokenisation layer. Text-content
+elements may never be empty nor contain only whitespace or non-printable
+characters, in such circumstances you simply omit the text-content element
+alltogether.
 
 It is possible to associate \emph{multiple text-content} elements with the same element, and thus associating multiple texts with the same element. You may wonder what could possibly be the point of such extra complexity. But there is a clear use-case when dealing with for example corrections, or wanting to associate the text version just prior or after a processing step such as Optical Character Recognition or another kind of normalisation.
 
