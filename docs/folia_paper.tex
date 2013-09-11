@@ -41,7 +41,7 @@ a comparative study with other annotation schemes, including the Linguistic
 Annotation Framework (LAF), the Text Encoding Initiative (TEI) and Text Corpus
 Format (TCF). An additional point of focus is the interoperability between
 FoLiA and metadata standards such as the Component MetaData Infrastructure
-(CMDI), as well as data category registries such as ISOCat. The aim of the
+(CMDI), as well as data category registries such as ISOcat. The aim of the
 paper is to present a clear image of the capabilities of FoLiA and how it
 relates to other formats. This should open discussion and aid users in their
 decision for a particular format.
@@ -50,7 +50,7 @@ FoLiA is a practically-oriented XML-based annotation format for the
 representation of language resources, explicitly supporting a wide variety of annotation
 types. It introduces a flexible and uniform paradigm and representation
 independent of language or label set. It is designed to be highly expressive,
-generic, and formalised, whilst at time same time focussing on being as
+generic, and formalised, whilst at the same time focussing on being as
 practical as possible to ease its adoption and implementation. The aspiration
 is to offer a generic format for storage, exchange, and machine-processing of
 linguistically annotated documents, preventing users as well as software tools
@@ -243,7 +243,7 @@ Section~\ref{sec:comparison}.
     scores. FoLiA also supports explicit corrections, or mere suggestions for
     corrections, on annotations.
     Untokenised text, and text at different stages of processing can also be
-    encoded. There is an important limitation in this dimension however, FoLiA
+    encoded. There is an important limitation in this dimension, however. FoLiA
     presupposes one authoritative tokenisation if linguistic annotations are
     added. Increased granularity within this tokenisation, through morphemes or
     phonemes, is always possible.
@@ -556,16 +556,17 @@ declares all possible classes of the set. It may also declare a set as being
 open. Human readable labels can be associated with each class in a set and
 constraints can be posed on combinations of classes in subsets, see
 Section~\ref{sec:features}. Moreover, references to a data category registry
-such as ISOCAT \cite{ISOCAT} can be made at this level as well.
+such as ISOcat \cite{ISOCAT} can be made at this level as well.
 
-The FoLiA paradigm furthermore dictates that annotation elements may always take certain
-common XML attributes, which are however never mandatory:
+The FoLiA paradigm furthermore states that annotation elements may always take certain
+common XML attributes, these are never mandatory:
 
 \begin{itemize}
 \item \textbf{annotator} -- A name or ID of the person or system responsible for this annotation, i.e. the creator or editor.
 \item \textbf{annotatortype} -- ``auto`` or ``manual'', indicating whether the annotator is an automated system or whether the annotation is the result of manual human labour.
 \item \textbf{confidence} -- A value between 0 and 1 expressing the confidence placed in this annotation by the annotator.
-\item \textbf{n} -- A string representing a numeral that indicates the position of this element in a certain order. Used in for example chapter numbers, section numbers, enumerations.
+\item \textbf{n} -- A string representing a numeral that indicates the position
+  of this element in a certain order. Used in, for example, chapter numbers, section numbers, enumerations.
 \end{itemize}
 
 For structural elements in a speech context, additional common attributes are
@@ -638,10 +639,9 @@ document, without resorting to a full scan.
 %It furthermore allows defaults for certain common attributes to be set so they
 %need not be repeated throughout the document.
 
-We acknowledge that the distinction between what is annotation data and what is
-metadata may be fuzzy. The common FoLiA attributes \texttt{annotator} and
-\texttt{annotatortype} can arguably be considered metadata, but they are so closely
-related to the annotations that inclusion in FoLiA is justified in our view. In
+The common FoLiA attributes \texttt{annotator} and
+\texttt{annotatortype} can arguably be considered metadata as well, but they are so closely
+related to the annotations that their inclusion in FoLiA is justified in our view. In
 fact, standardised facilities to easily make explicit the annotators of an
 annotation are lacking in certain other formats, whilst they make a format more
 suited for use in annotation tools.
@@ -660,7 +660,7 @@ classes in a set, or to declare a set as ``open'' if the classes do not form a
 closed vocabulary. Whereas the classes are short identifiers, the set
 definition format can map each of these to fully human-readable labels. A
 mapping may also be included to an external data category registry such as
-ISOCat \cite{ISOCAT} which may take over a lot of the role of the set
+ISOcat \cite{ISOCAT} which may take over a lot of the role of the set
 definition format.
 
 The set definitions format may also pose constraints on how classes of
@@ -784,7 +784,7 @@ in a variety of applications, as many features are present in FoLiA and many
 annotation types are supported. A large extent of the higher-order graph-based
 annotations in LAF could also be represented in FoLiA through \emph{alignments}
 and \emph{subsets/features}. Furthermore, FoLiA commits to a high level of
-openness and, like LAF, takes standards such as ISOCat \cite{ISOCAT} into
+openness and, like LAF, takes standards such as ISOcat \cite{ISOCAT} into
 consideration. %Possible future study and implementation of conversion to the
 %LAF pivot format could test this thesis more empirically if there is demand for
 %such a study. %dit is onnodig geblaat ;0)
@@ -922,7 +922,7 @@ FoLiA. The stand-off nature makes it generally more verbose, less
 human-readable and less easily parsable than FoLiA. It commits to a high level
 of openness, but in this regard it lacks in formality as it does not seem to
 provide facilities to define data categories or relate them to standards such
-as ISOCat.  Unlike FoLiA, PAULA does not specify any real structure notation.
+as ISOcat.  Unlike FoLiA, PAULA does not specify any real structure notation.
 
 PAULA is inspired on early drafts of LAF and uses the same graph paradigm, but
 is of more direct practical use. An open-source search and visualisation tool,
