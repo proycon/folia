@@ -32,7 +32,7 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
         Radboud University Nijmegen.}}
 
 \title{{\huge FoLiA: Format for Linguistic Annotation} \\ \vspace*{0.5cm}
-{\bf \small version 0.10.0 -- Revision 3.1} \\ \vspace*{0.5cm}{\huge Documentation}\\
+{\bf \small version 0.10.0 -- Revision 3.2} \\ \vspace*{0.5cm}{\huge Documentation}\\
 %\vspace*{1cm} {\it ILK Technical Report -- ILK 12-03}
 }
 
@@ -1419,7 +1419,7 @@ Relations between words that refer to the same referent are expressed in FoLiA u
   <w xml:id="example.p.1.s.2.w.6"><t>.</t></w>  
 </s>
 <s xml:id="example.p.1.s.3">
-  <t>He was happy to see him.</t>
+  <t>He smiled.</t>
   <w xml:id="example.p.1.s.3.w.1"><t>He</t></w>
   <w xml:id="example.p.1.s.3.w.2"><t>smiled</t></w>
   <w xml:id="example.p.1.s.3.w.3"><t>.</t></w>
@@ -1437,6 +1437,17 @@ Relations between words that refer to the same referent are expressed in FoLiA u
 			<wref id="example.p.1.s.2.w.1" t="he" />
 		</coreferencelink>
 	</coreferencechain>
+	<coreferencechain class="ident">
+		<coreferencelink>
+			<wref id="example.p.1.s.2.w.5" t="him" />
+        </coreferencelink>
+		<coreferencelink>
+			<wref id="example.p.1.s.2.w.6" t="him" />
+        </coreferencelink>
+		<coreferencelink>
+			<wref id="example.p.1.s.3.w.1" t="He" />
+        </coreferencelink>
+    </coreferencechain>
 </coreferences>
 </p>
 \end{lstlisting}
