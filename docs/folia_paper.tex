@@ -319,10 +319,12 @@ This will, in part, account for the variation in formats in existence.
 \section{Description}
 \label{sec:description}
 
-An extensive overview of all annotation types FoLiA offers is beyond the scope of this
-paper, for that we refer to the FoLiA Documentation \cite{FOLIA}. In the
-current section we aim to clarify the data model used by FoLiA, show the
-capabilities given this paradigm, and motivate our choices.
+An extensive overview of all annotation types FoLiA offers is beyond the scope
+of this paper, for that we refer to the FoLiA Documentation \cite{FOLIA} and
+the validation schema which is available in RelaxNG format \cite{RELAXNG}, the latter is
+ideally suited to validate your own FoLiA documents to make sure they adhere to
+the standard. In the current section our aim is to clarify the data model used by
+FoLiA, show the capabilities given this paradigm, and motivate our choices.
 
 \subsection{Annotation style}
 
@@ -481,16 +483,18 @@ be discussed later in Section~\ref{sec:comparison}.
 
 \subsection{Text content} 
 
-The textual content of a structural element is considered an annotation just as well,
-albeit with certain special properties. The \texttt{t} element represents the
-text content in FoLiA and is shown in Figures  \ref{fig:tokenannotation} and
-\ref{fig:spanannotation}. Text content can be embedded on various levels of
+The textual content of a structural element is considered an annotation just as
+well, albeit with certain special properties. The \texttt{t} element represents
+the text content in FoLiA and is shown in Figures  \ref{fig:tokenannotation}
+and \ref{fig:spanannotation}. Text content can be embedded on various levels of
 structure annotation. Any text content outside of the word/token level is by
 definition untokenised. Likewise, text content within the word/token level by
 definition is tokenised. Links between the two can be retained by using the
-optional \emph{offset} attribute, pointing to the unicode character (as opposed
-to byte offset) where the text starts. Figure~\ref{fig:textcontent} illustrates
-this.
+optional \emph{offset} attribute, pointing to the unicode \emph{character} (as opposed
+to byte offset) where the text fragment is embedded in the higher level. 
+These character offset references \emph{by default} point to the text pertaining to
+the structure element ``one level up'', where a level also corresponds to a
+structure annotation element. Figure~\ref{fig:textcontent} illustrates this.
 
 The same figure also illustrates that a token is not the structure element of
 smallest granularity, there is also notation for representing morphemes and
@@ -536,10 +540,27 @@ categories. FoLiA does not predefine any sets or classes, these are left to the
 user to define, and in doing so we commit to a high level of openness. Set
 definitions are defined outside of the annotated FoLiA documents, using a
 different format: \emph{FoLiA Set Definition format}\footnote{Alternative set
-definition formats may be supported as well in later versions of FoLiA}. This
-will be discussed in more detail in Section~\ref{sec:setdefinitions}. Figures
+definition formats may be supported as well in later versions of FoLiA}.
+
+It is the task of the FoLiA Set Definition format to define all possible
+classes in a set, or to declare a set as ``open'' if the classes do not form a
+closed vocabulary. Whereas the classes are short identifiers, the set
+definition format can map each of these to fully human-readable labels. A
+mapping may also be included to an external data category registry such as
+ISOcat \cite{ISOCAT} which may take over a lot of the role of the set
+definition format.
+
+The set definition format may also pose constraints on how classes of
+\emph{subsets} may be combined. The notion of subsets is explored in 
+section~\ref{sec:features}. The validity of a FoLiA document can be validated
+against a RelaxNG schema which checks whether the document correctly adheres to
+the proper FoLiA syntax, this we call ``shallow validation''. Set definition
+files allow us to take a step futher and do ``deep validation'' as well, in
+which the actual classes are checked.
+
+Figures
 \ref{fig:tokenannotation} and \ref{fig:spanannotation} illustrate the use of
-classes. The actual Part-of-Speech tags are the classes and they form part of a
+classes in FoLiA. The actual Part-of-Speech tags are the classes and they form part of a
 set (in this case the Penn Treebank Tagset). In these excerpts, the sets are
 not made explicit. Sets can be referred to using the \texttt{set} XML attribute
 that any token annotation element or span annotation element may take. The
@@ -601,21 +622,12 @@ available:
 \caption{Excerpt of a word with token annotations in (fictitious) sets, with common attributes. Also shown is an example of an alternative.\label{fig:wordannotation}} 
 \end{figure}
 
-\subsection{Alternatives and corrections}
 
-For token annotation and span annotation, provisions are implemented for
-encoding alternatives. 
-%Only one annotation can be \emph{authoritative}, but you
-%can include alternative annotations. To illustrate this, consider a
-%part-of-speech tagger that outputs a distribution of tags per sense, the most
-%likely one can be selected as authoritative and all alternatives \emph{can} be
-%included as well. The operative word here being \emph{can}, as there is of
-%course no obligation to include alternatives at all. Neither is there an
-%obligation to have an authoritative annotation, selection can be postponed by
-%including nothing but alternatives. 
-Furthermore, FoLiA also implements extensive support for storing and tracking
-corrections or suggestions for correction. An example of an alternative
-annotation is included in Figure~\ref{fig:wordannotation}. 
+Figure~\ref{fig:wordannotation} also shows that FoLiA has provisions for
+encoding alternatives: an alternative sense is encoded alongside the actually
+selected sense. This example illustrates alternatives for token annotation, yet a similar
+construct is available for span annotation.
+
 
 \subsection{Metadata}
 \label{sec:metadata}
@@ -651,22 +663,6 @@ suited for use in annotation tools.
 %structure elements and annotation elements are contained.
 
 
-
-\subsection{Set definitions}
-\label{sec:setdefinitions}
-
-It is the task of the FoLiA Set Definition format to define all possible
-classes in a set, or to declare a set as ``open'' if the classes do not form a
-closed vocabulary. Whereas the classes are short identifiers, the set
-definition format can map each of these to fully human-readable labels. A
-mapping may also be included to an external data category registry such as
-ISOcat \cite{ISOCAT} which may take over a lot of the role of the set
-definition format.
-
-The set definitions format may also pose constraints on how classes of
-\emph{subsets} may be combined. The notion of subsets is explored in the next
-section.
-
 \subsection{Higher Order Annotation}
 \label{sec:higherorder}
 \label{sec:features}
@@ -675,16 +671,16 @@ The paradigm of sets and classes allows for further granularity by introducing
 \emph{features} and \emph{subsets}. A feature in FoLiA is a form of
 higher-order annotation: it is essentially an annotation on an annotation.
 Where token and span annotations take a set, features take a subset. This
-subset is in turn member of a set and defined in the same set definition file.
+subset is definined within the scope of a set, and thus in the same set
+definition file. Like sets, subsets consist of classes.
+
 An illustrative example of the usage of features and subsets can be made using
-part-of-speech annotation, as shown in Figure~\ref{fig:features}. This figure
-additionally demonstrates that annotation types may \emph{predefine} certain subset
-names (never their classes): for part-of-speech annotation, the subset ``head''
-is predefined, this then allows shorter notation using an XML attribute.  Likewise,
-Figure~ \ref{fig:textcontent} included an example of morphology, which predefines
-the subset ``function''. There is no obligation on sets to actually use these
-predefined classes and any subset can be invented by the user, fully committing
-to the idea of openness. % te veel detail?
+part-of-speech annotation, as shown in Figure~\ref{fig:features}. The
+part-of-speech annotation element in this label set happens to be assigned a
+class that encodes all features in one string, this is a property of the label
+set and not of FoLiA, as FoLiA never prescribes classes. The feature notation
+in FoLiA in turn allows you to explicitly encode each part-of-speech feature. 
+
 
 \begin{figure}[tbh]
 \begin{lstlisting}[language=xml]
@@ -699,14 +695,24 @@ to the idea of openness. % te veel detail?
 \caption{Example of a Part-of-Speech tag with features.\label{fig:features}}
 \end{figure}
 
+Figure~\ref{fig:features} additionally demonstrates that annotation types may \emph{predefine} certain subset
+names (but never their classes): for part-of-speech annotation, the subset ``head''
+is predefined, this then allows shorter notation using an XML attribute instead
+of the \texttt{feat} element, but it is semantically identical within FoLiA.  Likewise,
+Figure~ \ref{fig:textcontent} included an example of morphology, which predefines
+the subset ``function''. There is no obligation on sets to actually use these
+predefined subsets and any subset can be invented by the user, fully committing
+to the idea of openness. % te veel detail?
+
 Other forms of higher-order annotation which we shall not address further are:
 
 \begin{itemize}
   \item \emph{Alignments} -- Links \cite{XLINK} between arbitrary annotations or structure
 elements, also across FoLiA documents.  
   \item Extra human-readable \emph{descriptions} can be associated with any annotation.
+  \item Corrections - FoLiA also implements extensive support for storing and tracking
+corrections or suggestions for correction.
 \end{itemize}
-
 
 \section{Comparison}
 \label{sec:comparison}
