@@ -1,9 +1,9 @@
 \documentclass[a4paper,10pt,twoside]{article}
 \usepackage[english]{babel}
+\usepackage{hyperref}{}
 \usepackage{clin}
 \usepackage{harvard}
 \usepackage{listings}
-\usepackage{hyperref}{}
 \usepackage{color}
 \lstset{% general command to set parameter(s)
 basicstyle=\footnotesize,
@@ -913,14 +913,7 @@ lacks specific recommendations for any linguistic levels, resorting instead to
 general feature structure mechanisms.  FoLiA in contrast has explicit support
 for various annotation types.
 
-PAULA (Potsdamer Austauschformat Linguistischer Annotationen) is an XML format
-geared towards data exchange, used and developed within the SFB 632 project in
-Germany\footnote{\url{http://www.sfb632.uni-potsdam.de/}}. The format is fairly well
-documented and comes with DTD schemas for validation. It uses a strict
-stand-off style in which different layers of linguistic annotation are encoded
-in different files. A primary data text file forms the lowest level of resource
-representation \cite{PAULA}, and is always mandatory. A tokenisation file
-posits a segmentation, by verbose references, \emph{marks} in PAULA, to the
+PAULA (Potsdamer Austauschformat Linguistischer Annotationen) is an XML format geared towards data exchange, used and developed within the SFB 632 project in Germany\footnote{\url{http://www.sfb632.uni-potsdam.de/}}. The format is fairly well documented and comes with DTD schemas for validation. It uses a strict stand-off style in which different layers of linguistic annotation are encoded in different files. A primary data text file forms the lowest level of resource representation \cite{PAULA}, and is always mandatory. A tokenisation file posits a segmentation, by verbose references, \emph{marks} in PAULA, to the
 data file. Further marks or the more powerful and abstract \emph{structs} can
 be used akin to span annotation in FoLiA.  Stand-off feature structures hold
 the actual linguistic annotations. PAULA is more generic and less specific than
@@ -951,16 +944,7 @@ annotated with lexical semantic senses \cite{DUTCHSEMCOR};
 Basilex\footnote{\url{http://www.basilex.nl}}, a corpus consisting of
 elementary school texts for Dutch; VU-DNC, a diachronic corpus for Dutch.
 Several projects within CLARIN-NL's TTNWW project are also employing FoLiA for
-their representational needs. NWO project Political
-Mashup\footnote{\url{http://politicalmashup.nl}} embeds FoLiA in its own XML
-and has extended the format with elements for ``semanticising'' the texts of the
-Dutch Acts of Parliament\footnote{E.g. Dutch parliamentary proceedings
-1930-2012, semanticised:
-\url{https://easy.dans.knaw.nl/ui/datasets/id/easy-dataset:51848}}. In view of
-the focus on Dutch in all these projects, it has to be stressed again that
-FoLiA in fact is fully language independent. This is exemplified by the various
-projects at research group LT3\footnote{\url{http://lt3.hogent.be}} which have
-adopted the format.
+their representational needs. NWO project Political Mashup\footnote{\url{http://politicalmashup.nl}} embeds FoLiA in its own XML and has extended the format with elements for ``semanticising'' the texts of the Dutch Acts of Parliament\footnote{E.g. Dutch parliamentary proceedings 1930-2012, semanticised:\url{https://easy.dans.knaw.nl/ui/datasets/id/easy-dataset:51848}}. In view of the focus on Dutch in all these projects, it has to be stressed again that FoLiA in fact is fully language independent. This is exemplified by the various projects at research group LT3\footnote{\url{http://lt3.hogent.be}} at Ghent University which have adopted the format.
 
 One of the emphasized assets of FoLiA is the availability of tools to work with the
 format. There are currently two complete libraries available for programmers, a Python
@@ -1077,6 +1061,7 @@ Linguistic Annotation Framework may be a notable point for future work.
 \section{Acknowledgments}
 Martin Reynaert acknowledges support from NWO in projects Political Mashup and Nederlab.
  {\sc ticcl}ops is being made multilingual with funding from CLARIN-NL in project CLARIN-NL-12-006.
+
 \bibliographystyle{clin} 
 \bibliography{folia}  
 
