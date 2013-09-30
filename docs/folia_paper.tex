@@ -950,26 +950,29 @@ FoLiA format. Other corpora in which FoLiA is used are DutchSemCor, a corpus
 annotated with lexical semantic senses \cite{DUTCHSEMCOR};
 Basilex\footnote{\url{http://www.basilex.nl}}, a corpus consisting of
 elementary school texts for Dutch; VU-DNC, a diachronic corpus for Dutch.
-Several projects within CLARIN-NL's TTNWW project are also employing FoLiA for
+Moreover, several projects within CLARIN-NL's TTNWW project are also employing FoLiA for
 their representational needs. NWO project Political
 Mashup\footnote{\url{http://politicalmashup.nl}} embeds FoLiA in its own XML
-and has extended the format with elements for ``semanticising'' the texts of the
-Dutch Acts of Parliament\footnote{E.g. Dutch parliamentary proceedings
-1930-2012, semanticised:
+format and has extended the format with elements for ``semanticising'' the
+texts of the Dutch Acts of Parliament\footnote{E.g. Dutch parliamentary
+proceedings 1930-2012, semanticised:
 \url{https://easy.dans.knaw.nl/ui/datasets/id/easy-dataset:51848}}. In view of
 the focus on Dutch in all these projects, it has to be stressed again that
 FoLiA in fact is fully language independent. This is exemplified by the various
-projects at research group LT3\footnote{\url{http://lt3.hogent.be}} which have
-adopted the format.
+projects at research group LT3\footnote{\url{http://lt3.hogent.be}}, Ghent
+University, which have adopted the format.
 
-One of the emphasized assets of FoLiA is the availability of tools to work with the
+One of the emphasised assets of FoLiA is the availability of tools to work with the
 format. There are currently two complete libraries available for programmers, a Python
 library and a $C++$ library\footnote{Both libraries can be obtained from
 \url{http://proycon.github.io/folia}}. Furthermore, a suite called \emph{``FoLiA
 tools''}\footnote{\url{http://pypi.python.org/pypi/FoLiA-tools}} is
 available; it contains several converters to other formats (including plain
 text, CSV and HTML for visualisation), a validator, a tool for merging
-multiple FoLiA documents and a command-line tool for limited querying/searching of FoLiA documents.
+multiple FoLiA documents and a command-line tool for limited querying/searching
+of FoLiA documents. The visualisation stylesheet is popular and has already
+been adapted by several third party projects such as NederLab, Basilex, and Political
+Mashup to suit their specific needs.
 
 Some further notable open-source tools that use FoLiA are:
 
@@ -993,11 +996,14 @@ Some further notable open-source tools that use FoLiA are:
    engine built on top of Apache Lucene. It allows fast, complex searches with
    accurate hit highlighting on large, tagged and annotated, bodies of text.
    Has support for both FoLiA as well as TEI. It will form the back-end for OpenSonaR.
- \item Brat\footnote{\url{http://brat.nlplab.org}} - Brat Rapid Annotation Tool. This web-based tool for structured text annotation was recently extended at LT3 with support for importing, visualizing and exporting FoLiA information.
+ \item Brat\footnote{\url{http://brat.nlplab.org}} - Brat Rapid Annotation
+   Tool. This web-based tool for structured text annotation is being extended at LT3, Ghent University, with support for importing, visualizing and exporting FoLiA information.
  \end{itemize}
 
 At the moment, off-the-shelf annotation environments are not yet available for
-FoLiA and remain much desired future work. Corpus search environments that also include
+FoLiA and remain much desired future work; promising work to this extent is
+being performed in the context of the Brat
+Rapid Annotation Tool. Corpus search environments that also include
 FoLiA support are under development in the newly started projects
 NederLab\footnote{\url{http://www.nederlab.nl/}} and OpenSoNaR\footnote{CLARIN-NL
 Call 4 project which started October 2013 in which the Stevin SoNaR corpus is to
@@ -1014,11 +1020,30 @@ problem can only be remedied by using streaming parsers, the principle of
 locality ensures that such parsers can be suitably used on FoLiA, which can not
 be said for most other formats.
 
-Limits of any XML-based format are quickly reached in applications of real-time corpus
-querying. Real time iteration over millions of XML documents is far too costly in terms
-of processing time. For such applications, smart indexing and storage in some sort of
-database system is indispensable. The aforementioned Nederlab and OpenSoNaR
-projects aim for this. 
+Another cautionary lesson we can draw is that third party users are often quickly
+inclined to either create ad-hoc extensions to the format or embed a subset of
+FoLiA within different formats. Especially the former is problematic and
+discouraged as FoLiA is a format high in specificity. Flexibility is offered in the form of the
+set/class paradigm and corresponding set definition files, features in subsets offer even
+more flexibility. If annotation categories need to be added, then this has to
+be a more centralised development effort in FoLiA as a whole. This proves not
+always sufficiently clear, and it is the task of the authors and developers to
+make this clearer.
+
+Embedding FoLiA in other formats, or even other formats in FoLiA, may be a
+valid tactic on the strict condition that properly distinguishable XML
+namespaces are used. However, in the former case, the resulting documents can
+not be considered FoLiA documents as-such and can not be processed by the FoLiA
+validator and other FoLiA tools; specialised parsers will be required.
+Moreover, special care is in order not to lose the annotation declarations
+required by FoLiA. 
+
+Another issue is the fact that the limits of any XML-based format are quickly
+reached in applications of real-time corpus querying. Real time iteration over
+millions of XML documents is far too costly in terms of processing time. For
+such applications, smart indexing and storage in some sort of database system
+is indispensable. The aforementioned Nederlab and OpenSoNaR projects aim for
+this. 
 
 \section{Conclusion \& Future work}
 
