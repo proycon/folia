@@ -513,7 +513,7 @@ can make use of the same offset attribute to relate their text to the full token
         <morpheme class="lexical" function="lexical">
          <t offset="0">hit</t>
         </morpheme>
-        <morpheme class="suffix" function="inflexional">
+        <morpheme class="suffix" function="inflectional">
          <t offset="3">s</t>
         </morpheme>
     </morphology>
@@ -709,8 +709,8 @@ Other forms of higher-order annotation which we shall not address further are:
 \begin{itemize}
   \item \emph{Alignments} -- Links \cite{XLINK} between arbitrary annotations or structure
 elements, also across FoLiA documents.  
-  \item Extra human-readable \emph{descriptions} can be associated with any annotation.
-  \item Corrections - FoLiA also implements extensive support for storing and tracking
+  \item \emph{Descriptions} -- Extra human-readable descriptions can be associated with any annotation.
+  \item \emph{Corrections} -- FoLiA also implements extensive support for storing and tracking
 corrections or suggestions for correction.
 \end{itemize}
 
@@ -901,12 +901,12 @@ We compared against two major formats or frameworks, and one more practical form
 more on par with FoLiA. In this last section of our comparison, we will briefly
 sketch some comparisons with other common formats in the field.
 
-The XCES (XML Corpus Encoding Standard) format is an older format, that is
+The XCES (XML Corpus Encoding Standard) format is an older format that is
 derived from its non-XML predecessor CES \cite{XCES} and which aims to follow
 the TEI guidelines. The format is fairly old, even in its second version, and
 currently seems not well maintained, the last update of the xces.org site dates
 from June 2008. It is criticized for its lack of documentation
-\cite{TEICORPUSANNOT}.  \citeasnoun{prze09} reiterates this and adds that XCES
+\cite{TEICORPUSANNOT}.  \citeasnoun{prze09} anticipates this and adds that XCES
 lacks specific recommendations for any linguistic levels, resorting instead to
 general feature structure mechanisms.  FoLiA in contrast has explicit support
 for various annotation types.
@@ -935,12 +935,12 @@ Linguistics community in the Netherlands and Flanders. As part of the general ov
 this section present a short overview of projects and tools in which FoLiA is
 used.
  
-Especially notable is the SoNaR corpus \cite{StevinSONAR2013}, the 500 million
+Especially notable is the SoNaR-500 corpus \cite{StevinSONAR2013}, the 540 million
 word reference corpus for contemporary written Dutch, which is delivered in
 FoLiA format. Other corpora in which FoLiA is used are DutchSemCor, a corpus
 annotated with lexical semantic senses \cite{DUTCHSEMCOR};
 Basilex\footnote{\url{http://www.basilex.nl}}, a corpus consisting of
-elementary school texts for Dutch; VU-DNC, a diachronic corpus for Dutch.
+Dutch texts young children would typically be exposed to; VU-DNC, a 2 million word diachronic corpus for Dutch offering both sentiment annotations and a gold standard for OCR post-correction.
 Moreover, several projects within CLARIN-NL's TTNWW project are also employing FoLiA for
 their representational needs. NWO project Political Mashup\footnote{\url{http://politicalmashup.nl}} embeds FoLiA in its own XML
 format and has extended the format with elements for ``semanticising'' the
@@ -974,15 +974,15 @@ Some further notable open-source tools\footnote{We list the tools in chronologic
     tokeniser \cite{UCTO}. This tool is a good stepping stone for setting up an initial
     FoLiA document from scratch, it allows for  tokenising plain-text input.
   \item Frog\footnote{\url{http://ilk.uvt.nl/frog}} - An integration of various memory-based NLP modules developed for Dutch. Allows for plain-text Dutch input to be converted into richly
-  annotated FoLiA documents. Uses FoLiA as its internal format
- \item TICCL - Text-Induced Corpus Clean-up. A system geared at fully automatic lexical normalization and correction of typographical and Optical Character Recognition (OCR) misrecognition errors in possibly very large corpora \cite{Reynaert2010}
+  annotated FoLiA documents. Uses FoLiA as its internal format.
+ \item TICCL - Text-Induced Corpus Clean-up. A system geared at fully automatic lexical normalization and correction of typographical and Optical Character Recognition (OCR) misrecognition errors in possibly very large corpora \cite{Reynaert2010}.
   \item CLAM\footnote{\url{http://proycon.github.io/clam}} - CLAM allows the quick
    building of fully fledged RESTful webservices by wrapping around any
    command-line tool \cite{CLAM}. Though CLAM can be used with any format, it
    is very suitable for use with FoLiA as format for data exchange between
-   webservices. This setup is found for instance in CLARIN-NL's TTNWW project. 
- \item Valkuil\footnote{\url{http://www.valkuil.net}} - A spelling corrector for Dutch
- \item Fowlt\footnote{\url{http://www.fowlt.net}} - A spelling corrector for English
+   webservices. This setup is found for instance in CLARIN-NL's and CLARIN Flander's joint TTNWW project. 
+ \item Valkuil\footnote{\url{http://www.valkuil.net}} - A spelling corrector for Dutch.
+ \item Fowlt\footnote{\url{http://www.fowlt.net}} - A spelling corrector for English.
  \item FoLiA-tel\footnote{to be released soon} - Frequency list generation and n-gram
    extraction on FoLiA documents, works on word forms, lemmas and POS-tags.
  \item BlackLab\footnote{\url{https://github.com/INL/BlackLab}} A corpus retrieval
@@ -1082,7 +1082,7 @@ Future work on FoLiA focusses on one hand on increased expressivity of the
 format, by adding specifications for more annotation types where current
 facilities prove insufficient; and on the other hand on development of further
 tools and libraries to work with the format. Current developments are
-underway for better representation for linguistic annotation of speech, and
+underway for better representation for linguistic annotation of speech, and for 
 reducing the currently present bias towards written text. Further focus is on
 finalising the more formal aspects of FoLiA; the set definitions and resulting
 ability for deep validation. These are not yet embraced in current practice,
