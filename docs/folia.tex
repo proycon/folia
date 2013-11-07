@@ -99,7 +99,13 @@ The most important characteristics of FoLiA are:
 
 The FoLiA format makes mixed-use of inline and stand-off annotation. Inline annotation is used for annotations pertaining to single tokens, whilst stand-off annotation in a separate annotation layers is adopted for annotation types that span over multiple tokens. This provides FoLiA with the necessary flexibility and extensibility to deal with various kinds of annotations. Inspiration for this was in part obtained from the Kyoto Annotation Format \cite{KYOTO}.
 
-In publication of research that makes use of FoLiA, a citation should be given of: {\em ``Maarten van Gompel (2012). FoLiA: Format for Linguistic Annotation. Documentation. ILK Technical Report 12-03. \\ Available from {\tt http://ilk.uvt.nl/downloads/pub/papers/ilk.1203.pdf}''}. FoLiA is open-source and all technical resources are licensed under the GNU Public License v3.
+In publication of research that makes use of FoLiA, a citation should be given
+of: {\em ``Maarten van Gompel (2013). FoLiA: Format for Linguistic Annotation.
+Documentation. Language and Speech Technology Technical Report Series 13-01.
+Radboud University Nijmegen.''}. The latest version of the documentation is
+always available from {\tt http://proycon.github.io/folia}.  FoLiA is
+open-source and all technical resources are licensed under the GNU Public
+License v3.
 
 Notable features of the FoLiA format include:
 
@@ -489,7 +495,9 @@ A quote may consist of one or more sentences, but may also consist of mere token
        <w xml:id="example.p.1.s.1.w.14" class="WORD"><t>right</t></w>
     </s>
   </quote>
-  <w xml:id="example.p.1.s.1.w.15" class="PUNCTUATION" space="no"><t>''</t></w>
+  <w xml:id="example.p.1.s.1.w.15" class="PUNCTUATION" space="no">
+   <t>''</t>
+  </w>
   <w xml:id="example.p.1.s.1.w.16" class="PUNCTUATION"><t>,</t></w>
   <w xml:id="example.p.1.s.1.w.17" class="WORD"><t>and</t></w>
   <w xml:id="example.p.1.s.1.w.18" class="WORD"><t>left</t></w>
@@ -538,14 +546,16 @@ Look at the following example, showing a full FoLiA document with structured div
 
 \begin{lstlisting}[language=xml]
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="http://ilk.uvt.nl/FoLiA/FoLiA.xsl"?>
+<?xml-stylesheet type="text/xsl" 
+ href="http://ilk.uvt.nl/FoLiA/FoLiA.xsl"?>
 <FoLiA xmlns="http://ilk.uvt.nl/FoLiA"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
   version="0.5"
   xml:id="example">
   <metadata>
       <annotations>
-          <division-annotation set="http://ilk.uvt.nl/folia/sets/divisions" />
+          <division-annotation 
+           set="http://ilk.uvt.nl/folia/sets/divisions" />
       </annotations>    
   </metadata>
   <text xml:id="example.text">
@@ -727,7 +737,8 @@ Lists, like paragraphs, sentences and headers are content elements that need not
 Even figures can be encoded in the FoLiA format, although the actual figure itself can only be included as a mere reference to an external image file, but including such a reference (\texttt{src} attribute) is optional.
 
 \begin{lstlisting}[language=xml]
- <figure xml:id="example.figure.1" n="1" src="/path/or/url/to/image/file">
+ <figure xml:id="example.figure.1" n="1" 
+  src="/path/to/image/file">
    <desc>A textual description of the figure (Like ALT in HTML)</desc>
    <caption><t>The caption for the figure</t></caption>
  </figure>
@@ -766,7 +777,9 @@ brevity:
       <w xml:id="example.table.1.w.3"><t>Maarten van Gompel</t></w>
     </cell>
     <cell>
-      <w xml:id="example.table.1.w.4"><t>Radboud University Nijmegen</t></w>
+      <w xml:id="example.table.1.w.4">
+        <t>Radboud University Nijmegen</t>
+      </w>
     </cell>
   </row>
   <row>
@@ -811,12 +824,10 @@ Part-of-Speech annotation allows the annotation of lexical categories using the 
 
 Lexical annotation can take more complex forms than assignment of single part-of-speech tag. There may for example be numerous features associated with the part of speech tag, such as gender, number, case, tense, mood, etc... FoLiA introduces a special paradigm for dealing with such features. We will look into this later, in section~\ref{sec:higherorder}. 
 
-Whenever Part-of-Speech annotations are used, they should be declared in the \texttt{annotations} block as follows. The set you use may differ and all further attributes are optional and are used to set defaults. In the declaration example here it is as if the annotations were made by the software \emph{Frog}, but you will want to use your own. Do note the requirement of a \texttt{token-annotation} as well.
+Whenever Part-of-Speech annotations are used, they should be declared in the \texttt{annotations} block as follows. The set you use may differ and all further attributes are optional and are used to set defaults. In the declaration example here it is as if the annotations were made by the software \emph{Frog}, but you will want to use your own. 
 
 \begin{lstlisting}[language=xml]
 <annotations>
-    <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl" 
-     annotator="ucto" annotatortype="auto" />
     <pos-annotation set="http://ilk.uvt.nl/folia/sets/CGN" 
      annotator="Frog" annotatortype="auto" />
 </annotations>
@@ -841,8 +852,6 @@ And the example declaration:
 
 \begin{lstlisting}[language=xml]
 <annotations>
-    <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl" 
-     annotator="ucto" annotatortype="auto" />
     <lemma-annotation set="http://ilk.uvt.nl/folia/sets/mblem-nl"
      annotator="Frog" annotatortype="auto" />
 </annotations>
@@ -918,8 +927,6 @@ The example declaration is as follows:
 
 \begin{lstlisting}[language=xml]
 <annotations>
-    <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl"
-     annotator="ucto" annotatortype="auto" />
     <sense-annotation set="http://ilk.uvt.nl/folia/sets/cornetto" />
 </annotations>
 \end{lstlisting}
@@ -941,8 +948,6 @@ The declaration, the actual set is fictitious:
 
 \begin{lstlisting}[language=xml]
 <annotations>
-    <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl"
-     annotator="ucto" annotatortype="auto" />
     <domain-annotation set="http://ilk.uvt.nl/folia/sets/domains-nl" />
 </annotations>
 \end{lstlisting}
@@ -1032,8 +1037,6 @@ The declaration is as follows, the actual set is fictitious:
 
 \begin{lstlisting}[language=xml]
 <annotations>
-    <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl" 
-     annotator="ucto" annotatortype="auto" />
     <syntax-annotation set="http://ilk.uvt.nl/folia/sets/syntax-nl" />
 </annotations>
 \end{lstlisting}
@@ -1132,10 +1135,10 @@ The declaration, the actual sets are fictitious:
 
 \begin{lstlisting}[language=xml]
 <annotations>
-    <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl" 
-     annotator="ucto" annotatortype="auto" />
-    <syntax-annotation set="http://ilk.uvt.nl/folia/sets/alpino-syntax" /> 
-    <dependency-annotation set="http://ilk.uvt.nl/folia/sets/alpino-dep" />
+    <syntax-annotation 
+     set="http://ilk.uvt.nl/folia/sets/alpino-syntax" /> 
+    <dependency-annotation 
+     set="http://ilk.uvt.nl/folia/sets/alpino-dep" />
 </annotations>
 \end{lstlisting}
 
@@ -1178,7 +1181,8 @@ The declaration, the actual sets are fictitious:
 
 \begin{lstlisting}[language=xml]
 <annotations>
-    <chunking-annotation set="http://ilk.uvt.nl/folia/sets/syntax-nl" />
+    <chunking-annotation 
+     set="http://ilk.uvt.nl/folia/sets/syntax-nl" />
 </annotations>
 \end{lstlisting}
 
@@ -1227,7 +1231,8 @@ The declaration for time segmentation is as follows:
 
 \begin{lstlisting}[language=xml]
 <annotations>
-    <timesegment-annotation set="http://ilk.uvt.nl/folia/sets/events" />
+    <timesegment-annotation
+     set="http://ilk.uvt.nl/folia/sets/events" />
 </annotations>
 \end{lstlisting}
 
@@ -1442,28 +1447,28 @@ Relations between words that refer to the same referent are expressed in FoLiA u
   <w xml:id="example.p.1.s.3.w.3"><t>.</t></w>
 </s>
 <coreferences>
-	<coreferencechain class="ident">
-		<coreferencelink>
-			<wref id="example.p.1.s.1.w.1" t="The" />
-			<hd>
-				<wref id="example.p.1.s.1.w.2" t="Dalai" />
-				<wref id="example.p.1.s.1.w.3" t="Lama" />
-			</hd>
-		</coreferencelink>
-		<coreferencelink>
-			<wref id="example.p.1.s.2.w.1" t="he" />
-		</coreferencelink>
-	</coreferencechain>
-	<coreferencechain class="ident">
-		<coreferencelink>
-			<wref id="example.p.1.s.2.w.5" t="him" />
-        </coreferencelink>
-		<coreferencelink>
-			<wref id="example.p.1.s.2.w.6" t="him" />
-        </coreferencelink>
-		<coreferencelink>
-			<wref id="example.p.1.s.3.w.1" t="He" />
-        </coreferencelink>
+    <coreferencechain class="ident">
+      <coreferencelink>
+          <wref id="example.p.1.s.1.w.1" t="The" />
+          <hd>
+            <wref id="example.p.1.s.1.w.2" t="Dalai" />
+            <wref id="example.p.1.s.1.w.3" t="Lama" />
+          </hd>
+      </coreferencelink>
+      <coreferencelink>
+        <wref id="example.p.1.s.2.w.1" t="he" />
+      </coreferencelink>
+    </coreferencechain>
+    <coreferencechain class="ident">
+      <coreferencelink>
+        <wref id="example.p.1.s.2.w.5" t="him" />
+      </coreferencelink>
+      <coreferencelink>
+        <wref id="example.p.1.s.2.w.6" t="him" />
+      </coreferencelink>
+      <coreferencelink>
+        <wref id="example.p.1.s.3.w.1" t="He" />
+      </coreferencelink>
     </coreferencechain>
 </coreferences>
 </p>
@@ -1486,7 +1491,8 @@ The declaration for coreference relations is done as follows:
 
 \begin{lstlisting}[language=xml]
 <annotations>
-    <coreference-annotation set="http://ilk.uvt.nl/folia/sets/coref" />
+    <coreference-annotation 
+     set="http://ilk.uvt.nl/folia/sets/coref" />
 </annotations>
 \end{lstlisting}
 
@@ -1500,7 +1506,8 @@ Furthermore, a morpheme may take a class, referring to its type. As always, the 
 
 \begin{lstlisting}[language=xml]
 <annotations>
-    <morphology-annotation set="http://ilk.uvt.nl/folia/sets/morphology" />
+    <morphology-annotation 
+     set="http://ilk.uvt.nl/folia/sets/morphology" />
 </annotations>
 \end{lstlisting}
 
@@ -1685,7 +1692,8 @@ Utterances need not be declared necessarily, but may be if classes are assigned.
 
 \begin{lstlisting}[language=xml]
 <annotations>
-    <utterance-annotation set="http://ilk.uvt.nl/folia/sets/utterances" />
+    <utterance-annotation 
+     set="http://ilk.uvt.nl/folia/sets/utterances" />
 </annotations>
 \end{lstlisting}
 
@@ -1696,7 +1704,8 @@ An actual example of utterances is shown later in the section on phonetic conten
 Non-speech events are simply covered by \texttt{event} annotation as seen in section \ref{sec:events}. Consider the following small example, with speech-context attributes associated:
 
 \begin{lstlisting}[language=xml]
-<event class="cough" src="soundclip.mp3" begintime="..." endtime="..." />
+<event class="cough" src="soundclip.mp3"
+ begintime="..." endtime="..." />
 \end{lstlisting}
 
 \subsection{Phonetic Content}
@@ -1708,10 +1717,12 @@ Written text is always contained in the text content element (\texttt{t}), for p
 \begin{lstlisting}[language=xml]
 <utt src="helloworld.mp3"  begintime="..." endtime="...">
 	<ph>helˈoʊ wɝːld</ph>
-	<w xml:id="example.utt.1.w.1" begintime="..." endtime="...">
+	<w xml:id="example.utt.1.w.1" 
+     begintime="..." endtime="...">
 		<ph>helˈoʊ</ph>	
 	</w>
-	<w xml:id="example.utt.1.w.2"  begintime="..." endtime="...">
+	<w xml:id="example.utt.1.w.2"  
+     begintime="..." endtime="...">
 		<ph>wɝːld</ph>	
 	</w>
 </utt>
@@ -1744,21 +1755,21 @@ The smallest unit of annotatable speech is the phoneme level. The \texttt{phonem
 
 \begin{lstlisting}[language=xml]   
 <utt>
-	<w xml:id="word" src="book.wav">
-		<t>book</t>
-		<ph>bʊk</ph>
-		<phonetics>
-			<phoneme begintime="..."  endtime="...">
-				<ph>b</ph>
-			</phoneme>
-			<phoneme begintime="..." endtime="...">
-				<ph>ʊ</ph>
-			</phoneme>
-			<phoneme begintime="..." endtime="...">
-				<ph>k</ph>
-			</phoneme>
-		</phonetics>
-	</w>
+  <w xml:id="word" src="book.wav">
+    <t>book</t>
+    <ph>bʊk</ph>
+    <phonetics>
+      <phoneme begintime="..."  endtime="...">
+          <ph>b</ph>
+      </phoneme>
+      <phoneme begintime="..." endtime="...">
+          <ph>ʊ</ph>
+      </phoneme>
+      <phoneme begintime="..." endtime="...">
+          <ph>k</ph>
+      </phoneme>
+    </phonetics>
+  </w>
 </utt>
 \end{lstlisting}
 
@@ -1766,7 +1777,8 @@ Phoneme annotation needs to be declared if classes are assigned to the phonemes:
 
 \begin{lstlisting}[language=xml]
 <annotations>
-    <phoneme-annotation set="http://ilk.uvt.nl/folia/sets/utterances" />
+    <phoneme-annotation 
+     set="http://ilk.uvt.nl/folia/sets/utterances" />
 </annotations>
 \end{lstlisting}
 
@@ -1799,7 +1811,8 @@ The mandatory declaration goes as follows, the set is fictitious:
 
 \begin{lstlisting}[language=xml]
 <annotations>
-    <distortion-annotation set="http://ilk.uvt.nl/folia/sets/distortion" />
+    <distortion-annotation 
+     set="http://ilk.uvt.nl/folia/sets/distortion" />
 </annotations>
 \end{lstlisting}
 
@@ -2111,9 +2124,8 @@ The declaration. The actual sets are fictitious examples:
 
 \begin{lstlisting}[language=xml]
 <annotations>
-    <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl"
-      annotator="ucto" annotatortype="auto" />
-    <metric-annotation set="http://ilk.uvt.nl/folia/sets/metrics" />
+    <metric-annotation 
+     set="http://ilk.uvt.nl/folia/sets/metrics" />
 </annotations>
 \end{lstlisting}
 
@@ -2127,7 +2139,8 @@ Corrections, including but not limited to spelling corrections, can be annotated
 %    <t>tree</t>
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.1">
-    <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.1" class="spelling">
+    <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.1" 
+     class="spelling">
         <new>
             <t>tree</t>
         </new>
@@ -2144,23 +2157,27 @@ Corrections can be nested and we want to retain a full back-log. The following e
 
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.1">
-    <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.2" class="spelling" 
-      annotator="Jane Doe" annotatortype="manual" confidence="1.0">
-        <new>
-            <t>tree</t>
-        </new>
-        <original auth="no">
-            <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.1" class="spelling"
-               annotator="John Doe" annotatortype="manual" confidence="0.6">
-                <new>
-                    <t>three</t>
-                </new>
-                <original auth="no">
-                    <t>treee</t>
-                </original>
-            </correction>
-        </original>
-    </correction>
+  <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.2"
+    class="spelling" 
+    annotator="Jane Doe" annotatortype="manual" 
+    confidence="1.0">
+      <new>
+          <t>tree</t>
+      </new>
+      <original auth="no">
+        <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.1"
+         class="spelling"
+         annotator="John Doe" annotatortype="manual"
+         confidence="0.6">
+         <new>
+             <t>three</t>
+         </new>
+         <original auth="no">
+             <t>treee</t>
+         </original>
+        </correction>
+      </original>
+  </correction>
 </w>
 \end{lstlisting}
 
@@ -2209,16 +2226,16 @@ The correction tag can also be used in such situations in which you want to list
  
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.1">
-    <t>treee</t>
-    <correction xml:id="example.p.1.s.1.w.1.c.1"
-       class="spelling" annotator="errorlistX">
-        <suggestion confidence="0.8" auth="no">
-            <t>tree</t>
-        </suggestion>
-        <suggestion confidence="0.2" auth="no">
-            <t>three</t>
-        </suggestion>
-    </correction>
+  <t>treee</t>
+  <correction xml:id="example.p.1.s.1.w.1.c.1"
+      class="spelling" annotator="errorlistX">
+      <suggestion confidence="0.8" auth="no">
+          <t>tree</t>
+      </suggestion>
+      <suggestion confidence="0.2" auth="no">
+          <t>three</t>
+      </suggestion>
+  </correction>
 </w>    
 \end{lstlisting}
 
@@ -2272,10 +2289,10 @@ Like everything, corrections and error detection have to be declared, and have t
 
 \begin{lstlisting}[language=xml]
 <annotations>
-    <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl" 
-     annotator="ucto" annotatortype="auto" />
-    <errordetection-annotation set="http://ilk.uvt.nl/folia/sets/corrections" />
-    <correction-annotation set="http://ilk.uvt.nl/folia/sets/corrections" />
+    <errordetection-annotation 
+     set="http://ilk.uvt.nl/folia/sets/corrections" />
+    <correction-annotation
+     set="http://ilk.uvt.nl/folia/sets/corrections" />
 </annotations>
 \end{lstlisting}
 
@@ -2479,7 +2496,8 @@ Consider the two following aligned sentences from excerpts of two \emph{distinct
   <t>The Dalai Lama greeted him.</t>
   <alignment class="french-translation" xlink:href="doc-french.xml" 
     xlink:type="simple">
-     <aref id="doc-french.p.1.s.1" t="Le Dalai Lama le saluait." type="s" />
+     <aref id="doc-french.p.1.s.1" t="Le Dalai Lama le saluait." 
+     type="s" />
   </alignment>
 </s>
 
@@ -2487,11 +2505,13 @@ Consider the two following aligned sentences from excerpts of two \emph{distinct
   <t>Le Dalai Lama le saluait.</t>
   <alignment class="english-translation" xlink:href="doc-english.xml" 
     xlink:type="simple">
-      <aref id="doc-english.p.1.s.1" t="The Dalai Lama greeted him." type="s" />
+      <aref id="doc-english.p.1.s.1" t="The Dalai Lama greeted him." 
+       type="s" />
   </alignment>
   <alignment class="dutch-translation" xlink:href="doc-dutch.xml" 
      xlink:type="simple">
-      <aref id="doc-dutch.p.1.s.1" t="De Dalai Lama begroette hem." type="s" />
+      <aref id="doc-dutch.p.1.s.1" t="De Dalai Lama begroette hem." 
+       type="s" />
   </alignment>
 </s>
 \end{lstlisting}
@@ -2511,15 +2531,15 @@ Although the above example has a single alignment reference (\texttt{aref}), it 
   <w xml:id="example-english.p.1.s.1.w.6"><t>.</t></w>
   <complexalignments>
     <complexalignment>
-		<alignment>
-    	    <aref id="example-english.p.1.s.1.w.2" t="Dalai" type="w">
-	        <aref id="example-english.p.1.s.1.w.3" t="Lama" type="w">	
-		</alignment>
-		<alignment class="french-translation" xlink:href="doc-french.xml"
-          xlink:type="simple">
-	        <aref id="example-french.p.1.s.1.w.2" t="Dalai" type="w">
-	        <aref id="example-french.p.1.s.1.w.3" t="Lama" type="w">
-		</alignment>
+      <alignment>
+        <aref id="example-english.p.1.s.1.w.2" t="Dalai" type="w">
+        <aref id="example-english.p.1.s.1.w.3" t="Lama" type="w">	
+      </alignment>
+      <alignment class="french-translation" xlink:href="doc-french.xml"
+       xlink:type="simple">
+        <aref id="example-french.p.1.s.1.w.2" t="Dalai" type="w">
+        <aref id="example-french.p.1.s.1.w.3" t="Lama" type="w">
+      </alignment>
     </complexalignment>
   </complexalignments>
 </s>
@@ -2540,25 +2560,28 @@ The first \texttt{alignment} element has no xlink reference, and therefore simpl
   <w xml:id="example-english.p.1.s.1.w.6"><t>.</t></w>
   <complexalignments>
     <complexalignment>
-		<alignment class="english-translation">
-    	    <aref id="example-english.p.1.s.1.w.2" t="Dalai" type="w">
-	        <aref id="example-english.p.1.s.1.w.3" t="Lama" type="w">	
-		</alignment>
-		<alignment class="french-translation" xlink:href="doc-french.xml"
-          xlink:type="simple">
-	        <aref id="example-french.p.1.s.1.w.2" t="Dalai" type="w">
-	        <aref id="example-french.p.1.s.1.w.3" t="Lama" type="w">
-		</alignment>
-		<alignment class="german-translation" xlink:href="doc-german.xml"
-          xlink:type="simple">
-	        <aref id="example-german.p.1.s.1.w.2" t="Dalai" type="w">
-	        <aref id="example-german.p.1.s.1.w.3" t="Lama" type="w">
-		</alignment>
-		<alignment class="italian-translation" xlink:href="doc-italian.xml"
-          xlink:type="simple">
-	        <aref id="example-italian.p.1.s.1.w.2" t="Dalai" type="w">
-	        <aref id="example-italian.p.1.s.1.w.3" t="Lama" type="w">
-		</alignment>
+      <alignment class="english-translation">
+        <aref id="example-english.p.1.s.1.w.2" t="Dalai" type="w">
+        <aref id="example-english.p.1.s.1.w.3" t="Lama" type="w">	
+      </alignment>
+      <alignment class="french-translation" 
+       xlink:href="doc-french.xml"
+       xlink:type="simple">
+        <aref id="example-french.p.1.s.1.w.2" t="Dalai" type="w">
+        <aref id="example-french.p.1.s.1.w.3" t="Lama" type="w">
+      </alignment>
+      <alignment class="german-translation" 
+       xlink:href="doc-german.xml"
+       xlink:type="simple">
+        <aref id="example-german.p.1.s.1.w.2" t="Dalai" type="w">
+        <aref id="example-german.p.1.s.1.w.3" t="Lama" type="w">
+      </alignment>
+      <alignment class="italian-translation" 
+       xlink:href="doc-italian.xml"
+       xlink:type="simple">
+        <aref id="example-italian.p.1.s.1.w.2" t="Dalai" type="w">
+        <aref id="example-italian.p.1.s.1.w.3" t="Lama" type="w">
+      </alignment>
     </complexalignment>
   </complexalignments>
 </s>
@@ -2579,43 +2602,46 @@ The element \texttt{alignedcorrection}, within the annotation layer \texttt{alig
 \begin{lstlisting}[language=xml]
 <s>
   <w xml:id="example.s.1.w.1"><t>Toen</t></w>
-  <correction xml:id="correction.1a" class="persoonsvorm_onderwerp_mismatch">
-	<original>
-	  <w xml:id="example.s.1.w.2"><t>ik</t></w>
+  <correction xml:id="correction.1a" 
+   class="persoonsvorm_onderwerp_mismatch">
+    <original>
+      <w xml:id="example.s.1.w.2"><t>ik</t></w>
     </original>
-	<suggestion xml:id="correction.1a.suggestion.A">
-	  <w xml:id="example.s.1.w.2a"><t>ik</t></w>
-	</suggestion>
-	<suggestion xml:id="correction.1a.suggestion.B">
-	  <w xml:id="example.s.1.w.2a"><t>wij</t></w>
-	</suggestion>
+    <suggestion xml:id="correction.1a.suggestion.A">
+      <w xml:id="example.s.1.w.2a"><t>ik</t></w>
+    </suggestion>
+    <suggestion xml:id="correction.1a.suggestion.B">
+      <w xml:id="example.s.1.w.2a"><t>wij</t></w>
+    </suggestion>
   </correction>
   <w xml:id="example.s.1.w.3"><t>naar</t></w>
   <w xml:id="example.s.1.w.4"><t>binnen</t></w>
-  <correction xml:id="correction.1b" class="persoonsvorm_onderwerp_mismatch" >
-	<original>
-	  <w xml:id="example.s.1.w.5"><t>gingen</t></w>
-	</original>
-	<suggestion xml:id="correction.1b.suggestion.A">
-	  <w xml:id="example.s.1.w.2a"><t>ging</t></w>
-	</suggestion>
-	<suggestion xml:id="correction.1b.suggestion.B">
-	  <w xml:id="example.s.1.w.2a"><t>gingen</t></w>
-	</suggestion>
+  <correction xml:id="correction.1b" 
+   class="persoonsvorm_onderwerp_mismatch" >
+    <original>
+      <w xml:id="example.s.1.w.5"><t>gingen</t></w>
+    </original>
+    <suggestion xml:id="correction.1b.suggestion.A">
+      <w xml:id="example.s.1.w.2a"><t>ging</t></w>
+    </suggestion>
+    <suggestion xml:id="correction.1b.suggestion.B">
+      <w xml:id="example.s.1.w.2a"><t>gingen</t></w>
+    </suggestion>
   </correction>  
   <alignedcorrections>
-  	<alignedcorrection class="persoonsvorm_onderwerp_mismatch">
-  		<aref id="correction.1a" type="correction" />
-  		<aref id="correction.1b" type="correction" />
-  		<alignedsuggestion>
-  			<aref id="correction.1a.suggestion.A" type="suggestion" />
-  			<aref id="correction.1b.suggestion.A" type="suggestion" />
-  		</alignedsuggestion>  		
-		<alignedsuggestion>
-  			<aref id="correction.1a.suggestion.B" type="suggestion" />
-  			<aref id="correction.1b.suggestion.B" type="suggestion" />
-  		</alignedsuggestion>  		
-   </alignedcorrection>
+    <alignedcorrection 
+     class="persoonsvorm_onderwerp_mismatch">
+        <aref id="correction.1a" type="correction" />
+        <aref id="correction.1b" type="correction" />
+        <alignedsuggestion>
+          <aref id="correction.1a.suggestion.A" type="suggestion" />
+          <aref id="correction.1b.suggestion.A" type="suggestion" />
+        </alignedsuggestion> 
+        <alignedsuggestion>
+          <aref id="correction.1a.suggestion.B" type="suggestion" />
+          <aref id="correction.1b.suggestion.B" type="suggestion" />
+        </alignedsuggestion>
+    </alignedcorrection>
   </alignedcorrections
 </s>
 \end{lstlisting}
@@ -2634,12 +2660,14 @@ In section~\ref{sec:basics} we have seen the text content element \texttt{t}. Th
  <p xml:id="example.p.1">
     <t>Hello. This is a sentence. Bye!</t>
     <s xml:id="example.p.1.s.1">        
-        <t offset="7">This is a sentence.</t>    
-        <w xml:id="example.p.1.s.1.w.1"><t offset="0">This</t></w>
-        <w xml:id="example.p.1.s.1.w.2"><t offset="5">is</t></w>
-        <w xml:id="example.p.1.s.1.w.3"><t offset="8">a</t></w>
-        <w xml:id="example.p.1.s.1.w.4" space="no"><t offset="10">sentence</t></w>
-        <w xml:id="example.p.1.s.1.w.5"><t offset="18">.</t></w>
+      <t offset="7">This is a sentence.</t>    
+      <w xml:id="example.p.1.s.1.w.1"><t offset="0">This</t></w>
+      <w xml:id="example.p.1.s.1.w.2"><t offset="5">is</t></w>
+      <w xml:id="example.p.1.s.1.w.3"><t offset="8">a</t></w>
+      <w xml:id="example.p.1.s.1.w.4" space="no">
+       <t offset="10">sentence</t>
+      </w>
+      <w xml:id="example.p.1.s.1.w.5"><t offset="18">.</t></w>
     </s>
  </p>
 \end{lstlisting}
@@ -2690,7 +2718,8 @@ Corrections are challenging because they can be applied to text content and thus
 
 \begin{lstlisting}[language=xml]
 <annotations>
-    <text-annotation set="http://ilk.uvt.nl/folia/sets/text-annotation" />
+    <text-annotation 
+     set="http://ilk.uvt.nl/folia/sets/text-annotation" />
 </annotations>
 \end{lstlisting}
 
@@ -2699,37 +2728,37 @@ Below is an example illustrating the usage of multiple classes. To show the flex
 %Whenever a text content element has an associated class, it also needs to be marked as non-authoritative using \texttt{auth="no"}. This facilitates the job of parsers seeking to extract the mo
 
 \begin{lstlisting}[language=xml]
- <p xml:id="example.p.1">
-    <t>Hello. This is a sentence. Bye!</t> 
-    <t class="original">Hello. This iz a sentence. Bye!</t>    
-    <s xml:id="example.p.1.s.1">        
-        <t offset="7">This is a sentence.</t>
-        <t class="original" offset="7">This is a sentence.</t>
-        <w xml:id="example.p.1.s.1.w.1">
-         <t offset="0">This</t>
-        </w>
-        <w xml:id="example.p.1.s.1.w.2">         
-         <correction>
-          <new>
-           <t offset="5">is</t>
-          </new>
-          <original auth="no">
-           <t offset="5">iz</t> 
-           <!-- Note that this element has class 'original' by definition! -->
-          </original>
-         </correction>
-        </w>
-        <w xml:id="example.p.1.s.1.w.3">
-         <t offset="8">a</t>
-        </w>
-        <w xml:id="example.p.1.s.1.w.4" space="no">
-         <t offset="10">sentence</t>
-        </w>
-        <w xml:id="example.p.1.s.1.w.5">
-         <t offset="48">.</t>
-        </w>
-    </s>
- </p>
+<p xml:id="example.p.1">
+  <t>Hello. This is a sentence. Bye!</t> 
+  <t class="original">Hello. This iz a sentence. Bye!</t>    
+  <s xml:id="example.p.1.s.1">        
+    <t offset="7">This is a sentence.</t>
+    <t class="original" offset="7">This is a sentence.</t>
+    <w xml:id="example.p.1.s.1.w.1">
+      <t offset="0">This</t>
+    </w>
+    <w xml:id="example.p.1.s.1.w.2">         
+      <correction>
+      <new>
+        <t offset="5">is</t>
+      </new>
+      <original auth="no">
+        <t offset="5">iz</t> 
+        <!-- Note that this element has class 'original' by definition! -->
+      </original>
+      </correction>
+    </w>
+    <w xml:id="example.p.1.s.1.w.3">
+      <t offset="8">a</t>
+    </w>
+    <w xml:id="example.p.1.s.1.w.4" space="no">
+      <t offset="10">sentence</t>
+    </w>
+    <w xml:id="example.p.1.s.1.w.5">
+      <t offset="48">.</t>
+    </w>
+  </s>
+</p>
 \end{lstlisting}
 
 %One important aspect is that FoLiA dictates that \texttt{t} elements without classes always appear first, before any other text-content tags that do specify classes. This rule facilitates the job of parsers in quickly getting the latest text content even if there are multiple classes: the first \texttt{t} element will be the most recent by definition. %constraint lifted
@@ -2823,19 +2852,19 @@ Relations between the various substrings can be explicitly represented using ali
     <t class="ocroutput">Hell0 Th1s iz a sentence, Bye1</t>    
     
     <str xml:id="example.p.1.s.1">
-    	<t class="ocroutput" offset="0">Hell0</t>
-    	<alignment>
-    		<aref id="example.p.1.s.2" type="str" />
-    	</alignment>
+        <t class="ocroutput" offset="0">Hell0</t>
+        <alignment>
+            <aref id="example.p.1.s.2" type="str" />
+        </alignment>
     </str>
     
     <str xml:id="example.p.1.s.2">
-    	<t offset="0">Hello.</t>
-    	<alignment>
-    		<aref id="example.p.1.s.1" type="str" />
-    	</alignment>
+        <t offset="0">Hello.</t>
+        <alignment>
+            <aref id="example.p.1.s.1" type="str" />
+        </alignment>
     </str>    
-</p>    
+  </p>    
 \end{lstlisting}
 
 Or one string can refer back to two or more different text content elements:
@@ -2868,11 +2897,12 @@ it is more intuitive to use. The following example illustrates both \texttt{t-st
 proper references making their relation explicit:
 
 \begin{lstlisting}[language=xml]
- <p xml:id="example.p.1">
-    <t><t-str id="example.p.1.str.1">Hello</t-str>. This is a sentence. Bye!</t> 
-    <str xml:id="example.p.1.str.1">
-    	<t offset="0">Hello</t>
-    </str>
+<p xml:id="example.p.1">
+  <t><t-str id="example.p.1.str.1">Hello</t-str>. This 
+   is a sentence. Bye!</t> 
+  <str xml:id="example.p.1.str.1">
+      <t offset="0">Hello</t>
+  </str>
 </p>
 \end{lstlisting}
 
@@ -2880,7 +2910,8 @@ The declaration:
 
 \begin{lstlisting}[language=xml]
 <annotations>
-    <string-annotation set="http://ilk.uvt.nl/folia/sets/string-annotation" />
+    <string-annotation 
+     set="http://ilk.uvt.nl/folia/sets/string-annotation" />
 </annotations>
 \end{lstlisting}
 
@@ -3016,9 +3047,10 @@ proper references:
 
 \begin{lstlisting}[language=xml]
  <p xml:id="example.p.1">
-    <t><t-str id="example.p.1.str.1">Hello</t-str>. This is a sentence. Bye!</t> 
+    <t><t-str id="example.p.1.str.1">Hello</t-str>. This 
+     is a sentence. Bye!</t> 
     <str xml:id="example.p.1.str.1">
-    	<t offset="0">Hello</t>
+     <t offset="0">Hello</t>
     </str>
 </p>
 \end{lstlisting}
@@ -3027,7 +3059,8 @@ The declaration:
 
 \begin{lstlisting}[language=xml]
 <annotations>
-    <string-annotation set="http://ilk.uvt.nl/folia/sets/string-annotation" />
+    <string-annotation 
+     set="http://ilk.uvt.nl/folia/sets/string-annotation" />
 </annotations>
 \end{lstlisting}
 
@@ -3049,7 +3082,8 @@ The declaration:
 
 \begin{lstlisting}[language=xml]
 <annotations>
-  <errordetection-annotation set="http://ilk.uvt.nl/folia/sets/corrections" />
+  <errordetection-annotation 
+   set="http://ilk.uvt.nl/folia/sets/corrections" />
 </annotations>
 \end{lstlisting}
 
@@ -3089,7 +3123,8 @@ The declaration:
 
 \begin{lstlisting}[language=xml]
 <annotations>
-    <correction-annotation set="http://ilk.uvt.nl/folia/sets/corrections" />
+    <correction-annotation 
+     set="http://ilk.uvt.nl/folia/sets/corrections" />
 </annotations>
 \end{lstlisting}
 
@@ -3166,9 +3201,9 @@ Here is a simple example:
 
 \begin{lstlisting}[language=xml]
 <set xml:id="simplepos" type="closed">
-    <class xml:id="N" label="Noun" />
-    <class xml:id="V" label="Verb" />
-    <class xml:id="A" label="Adjective" />
+  <class xml:id="N" label="Noun" />
+  <class xml:id="V" label="Verb" />
+  <class xml:id="A" label="Adjective" />
 </set>
 \end{lstlisting}
 
@@ -3193,10 +3228,14 @@ A set definition file for an open type set definition may be as concise as:
 You may want to associate classes, or even sets themselves, with some kind of semantic web or category registry. This link can be made using the \texttt{conceptlink} attribute which may be placed on classes, sets and subset elements. 
 
 \begin{lstlisting}[language=xml]
-<set xml:id="simplepos" type="closed" conceptlink="http://some/host/simplepos">
-    <class xml:id="N" label="Noun" conceptlink="http://some/host/noun" />
-    <class xml:id="V" label="Verb" conceptlink="http://some/host/verb" />
-    <class xml:id="A" label="Adjective" conceptlink="http://some/host/adj" />
+<set xml:id="simplepos" type="closed" 
+ conceptlink="http://some/host/simplepos">
+  <class xml:id="N" label="Noun" 
+   conceptlink="http://some/host/noun" />
+  <class xml:id="V" label="Verb"
+   conceptlink="http://some/host/verb" />
+  <class xml:id="A" label="Adjective"
+   conceptlink="http://some/host/adj" />
 </set>
 \end{lstlisting}
 
@@ -3208,14 +3247,14 @@ Section~\ref{sec:features} introduced subsets. These can be defined in a similar
 
 \begin{lstlisting}[language=xml]
 <set xml:id="simplepos" type="closed">
-    <class xml:id="N" label="Noun" />
-    <class xml:id="V" label="Verb" />
-    <class xml:id="A" label="Adjective" />   
-    <subset xml:id="gender" class="closed">
-        <class xml:id="m" label="Masculine" />    
-        <class xml:id="f" label="Feminine" />
-        <class xml:id="n" label="Neuter" />
-    </subset>
+  <class xml:id="N" label="Noun" />
+  <class xml:id="V" label="Verb" />
+  <class xml:id="A" label="Adjective" />   
+  <subset xml:id="gender" class="closed">
+      <class xml:id="m" label="Masculine" />    
+      <class xml:id="f" label="Feminine" />
+      <class xml:id="n" label="Neuter" />
+  </subset>
 </set>
 \end{lstlisting}
 
@@ -3227,18 +3266,18 @@ Not all classes in subsets can be combined with others. Often the need arises to
 
 \begin{lstlisting}[language=xml]
 <set xml:id="simplepos" type="closed">
-    <class xml:id="N" label="Noun" />
-    <class xml:id="V" label="Verb" />
-    <class xml:id="A" label="Adjective" />   
-    <subset xml:id="gender" class="closed">
-        <constraint>
-            <restrict class="N" />
-            <restrict class="A" />
-        </constraint>
-        <class xml:id="m" label="Masculine" />    
-        <class xml:id="f" label="Feminine" />
-        <class xml:id="n" label="Neuter" />
-    </subset>
+  <class xml:id="N" label="Noun" />
+  <class xml:id="V" label="Verb" />
+  <class xml:id="A" label="Adjective" />   
+  <subset xml:id="gender" class="closed">
+      <constraint>
+          <restrict class="N" />
+          <restrict class="A" />
+      </constraint>
+      <class xml:id="m" label="Masculine" />    
+      <class xml:id="f" label="Feminine" />
+      <class xml:id="n" label="Neuter" />
+  </subset>
 </set>
 \end{lstlisting}
 
@@ -3357,11 +3396,12 @@ A very common XPath predicate found in many XPath expressions for FoLiA is \text
 Some common XPath queries are listed below, note that for brevity and readability the namespace prefix is omitted. In actual situations you will have to specify the FoLiA namespace with each element, as XPath unfortunately has no notion of a default namespace.
 
 \begin{itemize}
-\item XPath query for all paragraphs: \texttt{//p[not(ancestor-or-self::*/@auth)]}
-\item XPath query for all sentences: \texttt{//s[not(ancestor-or-self::*/@auth) and not(ancestor::quote)]} \\
+\item XPath query for all paragraphs: \\ \texttt{//p[not(ancestor-or-self::*/@auth)]}
+\item XPath query for all sentences: \\
+  \texttt{//s[not(ancestor-or-self::*/@auth) and not(ancestor::quote)]} 
     \emph{Explanation: When selecting sentences, you often do not want sub-sentences that are part of a quote, since they may overlap with the larger sentence they form a part of. The \texttt{not(ancestor::quote)} predicate guarantees this can not happen.}
-\item XPath query for all words: \texttt{//w[not(ancestor-or-self::*/@auth)]}
-\item XPath query for the text of all words/tokens:
+\item XPath query for all words: \\\texttt{//w[not(ancestor-or-self::*/@auth)]}
+\item XPath query for the text of all words/tokens:\\
   \texttt{//w//t[not(ancestor-or-self::*/@auth) and
   not(ancestor-or-self::*/morpheme) and not(ancestor-or-self::*/str) and
   not(@class)]//text()} \\
@@ -3371,12 +3411,12 @@ Some common XPath queries are listed below, note that for brevity and readabilit
     \texttt{not(ancestor-or-self::*/morpheme} makes sure morphemes are
     excluded, \texttt{not(ancestor-or-self::*/str} makes sure strings are
     excluded.}
-\item XPath query for all words with lemma X: \texttt{//w[.//lemma[@class="X"
+\item XPath query for all words with lemma X: \\ \texttt{//w[.//lemma[@class="X"
   and not(ancestor-or-self::*/@auth) and not(ancestor-or-self::*/morpheme)] ]}
     \emph{Note: This query assumes there is only one declaration for lemma annotation, and the set has been verified. It furthermore excludes morphemes.}
-\item XPath query for all words with PoS-tag A in set S: \texttt{//w[.//pos[@set="S" and @class="A" and not(ancestor-or-self::*/@auth)] ]. }
+\item XPath query for all words with PoS-tag A in set S: \\ \texttt{//w[.//pos[@set="S" and @class="A" and not(ancestor-or-self::*/@auth)] ]. }
     \emph{Note: This query assumes the set attribute was set explicitly, i.e. there are multiple possible sets in the document for this annotation type. This query does not exclude morphemes.}
-\item XPath query for the text of all words with PoS-tag A in set S:
+\item XPath query for the text of all words with PoS-tag A in set S: \\
   \texttt{//w[.//pos[@set="S" and @class="A" and
   not(ancestor-or-self::*/@auth)] ]//t[not(ancestor-or-self::*/@auth) and
   not(@class)]//text()}
@@ -3392,7 +3432,8 @@ Before you release XPath queries on FoLiA documents, make sure to first parse th
 
 Validation proceeds at two levels: shallow validation and deep validation. Shallow validation considers only the structure of the FoLiA document, without validating the sets and classes used. Deep validation checks the sets and classes for their validity using the set definition files.
 
-Shallow validation is performed using a RelaxNG schema, \\ to be found at \texttt{https://github.com/proycon/folia/blob/master/schemas/folia.rng} .
+Shallow validation is performed using a RelaxNG schema, the latest version of
+which can always be obtain from the following URL: \\ \texttt{https://github.com/proycon/folia/blob/master/schemas/folia.rng}
 
 You can validate your document using standard XML tools such as \texttt{xmllint} or \texttt{jing}, the latter is known to produce friendlier error output in case of validation errors.
 
@@ -3418,14 +3459,16 @@ In case your can not find a suitable way to encode your particular annotation in
 The following FoLiA implementations exist currently, both follow a highly object-oriented model in which FoLiA XML elements correspond with classes.
 
 \begin{enumerate}
-\item \texttt{pynlpl.formats.folia} - A FoLiA library in Python. Part of the Python Natural Language Processing Library. Documentation can can be found at http://ilk.uvt.nl/folia/
-\item \texttt{libfolia} - A FoLiA library in $C++$. (Still under heavily development, September 2011)
+\item \texttt{pynlpl.formats.folia} - A FoLiA library in Python. Part of the
+  Python Natural Language Processing Library. See
+  {\tt https://pypi.python.org/pypi/PyNLPl/} for sources and documentation.
+\item \texttt{libfolia} - A FoLiA library in $C++$. Obtain from {\tt
+  http://proycon.github.io/folia}
 \end{enumerate}
-
 
 Information regarding implementation of certain elements for these two libraries in present in the status boxes throughout this documentation. The following table shows the level of FoLiA support for advanced deatures in these libraries:
 
-\begin{tabularx}{15cm}{|r|c|c|}
+\begin{tabularx}{9cm}{|r|c|c|}
 \hline 
                        & PyNLPl & libfolia  \\
 \hline
