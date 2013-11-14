@@ -56,7 +56,7 @@ def process(filename, outputfile = None):
             else:
                 outfilename += '.txt'
             if settings.autooutput_cwd:
-                outputfile = os.path.basename(outfilename)
+                outfilename = os.path.basename(outfilename)
 
             print >>sys.stderr, " Saving as " + outfilename
             outputfile = codecs.open(outfilename,'w',settings.encoding)
