@@ -149,6 +149,7 @@ def main():
         elif o == '-O':
             settings.autooutput = True
         elif o == '-P':
+            settings.autooutput = True
             settings.autooutput_cwd = True
         elif o == '-s':
             settings.sentenceperline = True

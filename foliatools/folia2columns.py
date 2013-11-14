@@ -93,6 +93,9 @@ def main():
             outputfile = a
         elif o == '-O':
             settings.autooutput = True
+        elif o == '-P':
+            settings.autooutput = True
+            settings.autooutput_cwd = True
         elif o == '-x':
             settings.nicespacing = int(a)
         elif o == '-E':
