@@ -47,8 +47,8 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
 
 \begin{titlepage}
 \begin{center}
-%\textsc{\large Language and Speech Technology\\ Technical Report Series}\\[1.5cm] 
-%\textsc{Report Number LST-13-01}\\[0.5cm] 
+\textsc{\large Language and Speech Technology\\ Technical Report Series}\\[1.5cm] 
+\textsc{Report Number LST-13-01}\\[0.5cm] 
 \vspace{3cm}  %PRERELEASE
 
 \HRule \\[0.5cm]
@@ -61,22 +61,22 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
 \emph{November 7th, 2013} \\[0.5cm] 
 \includegraphics[width=20.0mm]{ru-beeldmerk-zwart.eps}
 \end{center}
-%\vspace{1cm}
-\vspace{3cm} %PRERELEASE
+\vspace{1cm}
+%\vspace{3cm} %PRERELEASE
 
 \begin{minipage}{0.6\textwidth}
 \begin{flushleft}
-PI Group Language and Speech Technology PI Group \\
+PI Group Language and Speech Technology \\
 Centre for Language Studies \\
 Radboud University Nijmegen \\
 P.O. Box 9103 \\
 NL-6500 HD Nijmegen \\
 The Netherlands \\
 http://www.ru.nl/lst \\[0.3cm]
-%Series editors: \\
-%\hspace{0.5cm}\emph{Nelleke Oostdijk}   \\
-%\hspace{0.5cm}\emph{Antal van den Bosch}  \\
-%\hspace{0.5cm}\emph{David van Leeuwen}  \\
+Series editors: \\
+\hspace{0.5cm}\emph{Nelleke Oostdijk}   \\
+\hspace{0.5cm}\emph{Antal van den Bosch}  \\
+\hspace{0.5cm}\emph{David van Leeuwen}  \\
 \end{flushleft}
 \end{minipage}
 
@@ -1269,7 +1269,7 @@ The declaration (the actual sets are fictitious):
 </annotations>
 \end{lstlisting}
 
-\subsection{Time segmentation}
+\subsection{Time Segmentation}
 \label{sec:timesegment}
 
 \status{final since v0.8, renamed in v0.9}{pynlpl}
@@ -1401,7 +1401,7 @@ In a speech context, all structural elements may carry the generic attributes. S
 This usage, and the freedom FoLiA sets offer, opens up possibilities for a wide variety of time-segmented annotations. Moreover, the wref element does not necessarily point at words, but it may also point at phonemes. This will be introduced in Section~\ref{sec:phonemes}.
 
  
-\subsection{Semantic roles}
+\subsection{Semantic Roles}
 
 \status{new in 0.9}{pynlpl}
 
@@ -1917,7 +1917,7 @@ We introduced the FoLiA paradigm in Section~\ref{sec:paradigm} and listed the fo
 
 In our discussion of the various types of higher-order annotation, we will encounter the more advanced aspects of the FoLiA paradigm.
 
-\subsection{Human readable descriptions}
+\subsection{Human-readable Descriptions}
 
 \status{final since v0.6}{pynlpl,libfolia}
 
@@ -2152,7 +2152,7 @@ annotation element. For certain elements, there are predefined subsets, in
 which case you can assign them using the XML attribute shortcut. This, however,
 only applies to the predefined subsets.
 
-\subsection{Part-of-Speech tags with features}
+\subsection{Part-of-Speech Tags with Features}
 \label{sec:posfeat}
 
 \status{final}{pynlpl,libfolia}
@@ -2730,7 +2730,7 @@ The \texttt{complexalignment} element itself may also take a set, which is \emph
 
 It should also be noted that all \emph{span} annotation elements can directly take \texttt{aref} elements, without \texttt{alignment} elements, to facilitate alignments of span annotation elements with other span annotation elements. An example of this was already seen in Section \ref{sec:deprel}.
 
-\subsection{Aligned corrections}
+\subsection{Aligned Corrections}
 
 \status{PROPOSAL in FoLiA v0.9}{no}
 
@@ -2786,7 +2786,7 @@ The element \texttt{alignedcorrection}, within the annotation layer \texttt{alig
 The metacorrection has alignment references the correction elements that form a part of it. It can optionally also include \texttt{alignedsuggestion} elements which in turn contain alignment references the parts that form the suggestions.
 
 
-\subsection{Text content}
+\subsection{Text Content}
 \label{sec:textcontent}
 
 \status{final since v0.6}{pynlpl,libfolia}
@@ -3342,7 +3342,7 @@ The FoLiA format consists not just out of the Document Format discussed in the p
 
 Recall from Section~\ref{sec:declarations} that all sets used need to be declared in the document header and that they point to URLs holding a FoLiA set definition. If no set definition files are associated, then a full in-depth validation cannot take place.
 
-\section{Types and classes}
+\section{Types and Classes}
 
 The set definition format is fairly straightforward, each set definition file represents one set, including all of its subsets.
 
@@ -3372,7 +3372,7 @@ A set definition file for an open type set definition may be as concise as:
 <set xml:id="lemmas-nl" type="open" />
 \end{lstlisting}
 
-\section{Concept link}
+\section{Concept Link}
 
 You may want to associate classes, or even sets themselves, with some kind of semantic web or category registry. This link can be made using the \texttt{conceptlink} attribute which may be placed on classes, sets and subset elements. 
 
@@ -3624,9 +3624,9 @@ Currently, the following FoLiA implementations exist. Both follow a highly objec
 
 \begin{enumerate}
 \item \texttt{pynlpl.formats.folia} - A FoLiA library in Python. Part of the
-  Python Natural Language Processing Library. See
+  Python Natural Language Processing Library. See \\
   {\tt https://pypi.python.org/pypi/PyNLPl/} for sources and documentation.
-\item \texttt{libfolia} - A FoLiA library in $C++$. Obtain from {\tt
+\item \texttt{libfolia} - A FoLiA library in $C++$. Obtain from \\ {\tt
   http://proycon.github.io/folia}
 \end{enumerate}
 
