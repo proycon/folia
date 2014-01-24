@@ -87,7 +87,7 @@
               <lemma class="."/>
             </w>
             <entities>
-                <entity set="mwu_set" class="ander_woord">
+                <entity set="mwu-set" class="ander_woord">
                     <wref id="WR-P-E-J-0000000001.p.1.s.1.w.4" t="ander" />
                     <wref id="WR-P-E-J-0000000001.p.1.s.1.w.5" t="woord" />                    
                 </entity>
@@ -1067,7 +1067,7 @@
 		       			<t offset="37">.</t>
 		       		</w>  
 		       		<entities>
-		       			<entity class="politicalparty">
+		       			<entity set="mwu-set" class="politicalparty">
 		       				<wref id="WR-P-E-J-0000000001.sandbox.2.s.1.w.1.m.1" />
 		       			</entity>
 		       		</entities>
@@ -1111,11 +1111,13 @@
                         <w xml:id="example.table.1.w.6"><t>Radboud</t></w>
                         <w xml:id="example.table.1.w.7"><t>University</t></w>
                         <w xml:id="example.table.1.w.8"><t>Nijmegen</t></w>
-                        <entity set="http://raw.github.com/proycon/folia/master/setdefinitions/namedentities.foliaset.xml" class="org">
-                            <wref id="example.table.1.w.6" t="Radboud" />
-                            <wref id="example.table.1.w.7" t="University" />
-                            <wref id="example.table.1.w.8" t="Nijmegen" />
-                        </entity>
+                        <entities>
+                            <entity set="http://raw.github.com/proycon/folia/master/setdefinitions/namedentities.foliaset.xml" class="org">
+                                <wref id="example.table.1.w.6" t="Radboud" />
+                                <wref id="example.table.1.w.7" t="University" />
+                                <wref id="example.table.1.w.8" t="Nijmegen" />
+                            </entity>
+                        </entities>
                     </cell>
                 </row>
                 <row>
@@ -1124,20 +1126,24 @@
                         <w xml:id="example.table.1.w.10"><t>van</t></w>
                         <w xml:id="example.table.1.w.11"><t>der</t></w>
                         <w xml:id="example.table.1.w.12"><t>Sloot</t></w>
+                        <entities>
                         <entity set="http://raw.github.com/proycon/folia/master/setdefinitions/namedentities.foliaset.xml" class="per">
                             <wref id="example.table.1.w.9" t="Ko" />
                             <wref id="example.table.1.w.10" t="van" />
                             <wref id="example.table.1.w.11" t="der" />
                             <wref id="example.table.1.w.12" t="Sloot" />
                         </entity>
+                        </entities>
                     </cell>
                     <cell>
                         <w xml:id="example.table.1.w.13"><t>Tilburg</t></w>
                         <w xml:id="example.table.1.w.14"><t>University</t></w>
+                        <entities>
                         <entity set="http://raw.github.com/proycon/folia/master/setdefinitions/namedentities.foliaset.xml" class="org">
                             <wref id="example.table.1.w.13" t="Tilburg" />
                             <wref id="example.table.1.w.14" t="University" />
                         </entity>
+                        </entities>
                     </cell>
                 </row>
                 </table>
