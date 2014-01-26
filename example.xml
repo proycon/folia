@@ -16,6 +16,7 @@
       <event-annotation set="event-set" />
       <timesegment-annotation set="event-set" />
       <entity-annotation set="mwu-set" />
+      <entity-annotation set="http://raw.github.com/proycon/folia/master/setdefinitions/namedentities.foliaset.xml" />
       <syntax-annotation set="syntax-set" />
       <dependency-annotation set="alpino-set" />   
       <alignment-annotation set="alignment-set" />   
@@ -26,12 +27,13 @@
       <metric-annotation set="metric-set" />
       <table-annotation set="table-set" />
       <style-annotation set="style" />
+      <division-annotation set="divs" />
     </annotations>
     <meta id="title">Stemma</meta>
     <meta id="language">nl</meta>
   </metadata>
   <text xml:id="WR-P-E-J-0000000001.text">
-      <div xml:id="WR-P-E-J-0000000001.div0.1">
+      <div xml:id="WR-P-E-J-0000000001.div0.1" class="chapter">
         <head xml:id="WR-P-E-J-0000000001.head.1">
           <s xml:id="WR-P-E-J-0000000001.head.1.s.1">
             <w xml:id="WR-P-E-J-0000000001.head.1.s.1.w.1">
@@ -85,7 +87,7 @@
               <lemma class="."/>
             </w>
             <entities>
-                <entity class="ander_woord">
+                <entity set="mwu-set" class="ander_woord">
                     <wref id="WR-P-E-J-0000000001.p.1.s.1.w.4" t="ander" />
                     <wref id="WR-P-E-J-0000000001.p.1.s.1.w.5" t="woord" />                    
                 </entity>
@@ -302,16 +304,27 @@
               <pos class="VZ(init)"/>
               <lemma class="tussen"/>
             </w>
-            <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.24">
-              <t>handschrift</t>
-              <pos class="N(soort,ev,basis,onz,stan)"/>
-              <lemma class="handschrift"/>
-            </w>
-            <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.25">
-              <t>en</t>
-              <pos class="VG(neven)"/>
-              <lemma class="en"/>
-            </w>
+            <correction xml:id="correction.join" class="join">
+                <new>
+                    <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.24-25">
+                        <t>handschriften</t>
+                        <pos class="N(soort,mv,basis,onz,stan)"/>
+                        <lemma class="handschrift"/>
+                    </w>
+                </new>
+                <original auth="no">
+                    <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.24">
+                        <t>handschrift</t>
+                        <pos class="N(soort,ev,basis,onz,stan)"/>
+                        <lemma class="handschrift"/>
+                    </w>
+                    <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.25">
+                        <t>en</t>
+                        <pos class="VG(neven)"/>
+                        <lemma class="en"/>
+                    </w>
+                </original>
+            </correction>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.26">
               <t>weer</t>
               <pos class="BW()"/>
@@ -590,9 +603,9 @@
               <lemma class="oorsprong"/>
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.5.w.17">
-              <t>of</t>
+              <t>óf</t>
               <pos class="VG(neven)"/>
-              <lemma class="of"/>
+              <lemma class="óf"/>
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.5.w.18">
               <t>plaats</t>
@@ -1065,7 +1078,7 @@
 		       			<t offset="37">.</t>
 		       		</w>  
 		       		<entities>
-		       			<entity class="politicalparty">
+		       			<entity set="mwu-set" class="politicalparty">
 		       				<wref id="WR-P-E-J-0000000001.sandbox.2.s.1.w.1.m.1" />
 		       			</entity>
 		       		</entities>
@@ -1097,11 +1110,25 @@
                         <w xml:id="example.table.1.w.3"><t>Maarten</t></w>
                         <w xml:id="example.table.1.w.4"><t>van</t></w>
                         <w xml:id="example.table.1.w.5"><t>Gompel</t></w>
+                        <entities>
+                            <entity set="http://raw.github.com/proycon/folia/master/setdefinitions/namedentities.foliaset.xml" class="per">
+                                <wref id="example.table.1.w.3" t="Maarten" />
+                                <wref id="example.table.1.w.4" t="van" />
+                                <wref id="example.table.1.w.5" t="Gompel" />
+                            </entity>
+                        </entities>
                     </cell>
                     <cell>
                         <w xml:id="example.table.1.w.6"><t>Radboud</t></w>
                         <w xml:id="example.table.1.w.7"><t>University</t></w>
                         <w xml:id="example.table.1.w.8"><t>Nijmegen</t></w>
+                        <entities>
+                            <entity set="http://raw.github.com/proycon/folia/master/setdefinitions/namedentities.foliaset.xml" class="org">
+                                <wref id="example.table.1.w.6" t="Radboud" />
+                                <wref id="example.table.1.w.7" t="University" />
+                                <wref id="example.table.1.w.8" t="Nijmegen" />
+                            </entity>
+                        </entities>
                     </cell>
                 </row>
                 <row>
@@ -1110,10 +1137,24 @@
                         <w xml:id="example.table.1.w.10"><t>van</t></w>
                         <w xml:id="example.table.1.w.11"><t>der</t></w>
                         <w xml:id="example.table.1.w.12"><t>Sloot</t></w>
+                        <entities>
+                        <entity set="http://raw.github.com/proycon/folia/master/setdefinitions/namedentities.foliaset.xml" class="per">
+                            <wref id="example.table.1.w.9" t="Ko" />
+                            <wref id="example.table.1.w.10" t="van" />
+                            <wref id="example.table.1.w.11" t="der" />
+                            <wref id="example.table.1.w.12" t="Sloot" />
+                        </entity>
+                        </entities>
                     </cell>
                     <cell>
                         <w xml:id="example.table.1.w.13"><t>Tilburg</t></w>
                         <w xml:id="example.table.1.w.14"><t>University</t></w>
+                        <entities>
+                        <entity set="http://raw.github.com/proycon/folia/master/setdefinitions/namedentities.foliaset.xml" class="org">
+                            <wref id="example.table.1.w.13" t="Tilburg" />
+                            <wref id="example.table.1.w.14" t="University" />
+                        </entity>
+                        </entities>
                     </cell>
                 </row>
                 </table>
