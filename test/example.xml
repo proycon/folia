@@ -304,16 +304,27 @@
               <pos class="VZ(init)"/>
               <lemma class="tussen"/>
             </w>
-            <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.24">
-              <t>handschrift</t>
-              <pos class="N(soort,ev,basis,onz,stan)"/>
-              <lemma class="handschrift"/>
-            </w>
-            <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.25">
-              <t>en</t>
-              <pos class="VG(neven)"/>
-              <lemma class="en"/>
-            </w>
+            <correction xml:id="correction.join" class="join">
+                <new>
+                    <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.24-25">
+                        <t>handschriften</t>
+                        <pos class="N(soort,mv,basis,onz,stan)"/>
+                        <lemma class="handschrift"/>
+                    </w>
+                </new>
+                <original auth="no">
+                    <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.24">
+                        <t>handschrift</t>
+                        <pos class="N(soort,ev,basis,onz,stan)"/>
+                        <lemma class="handschrift"/>
+                    </w>
+                    <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.25">
+                        <t>en</t>
+                        <pos class="VG(neven)"/>
+                        <lemma class="en"/>
+                    </w>
+                </original>
+            </correction>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.26">
               <t>weer</t>
               <pos class="BW()"/>
