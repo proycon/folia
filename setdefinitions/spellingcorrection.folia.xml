@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<set xml:id="spellingcorrection" type="closed" xmlns="http://ilk.uvt.nl/folia">
+    <class xml:id="nonworderror" label="Non-word error" /> 
+    <class xml:id="confusion" label="Real-word confusion" />
+    <class xml:id="spliterror" label="Split Error" />
+    <class xml:id="runonerror" label="Runon Error" />
+    <class xml:id="missingword" label="Missing Word" />
+    <class xml:id="missingpunctuation" label="Missing Punctuation" />
+    <class xml:id="redundantword" label="Redundant Word" />
+    <class xml:id="redundantpunctuation" label="Redundant Punctuation" />
+    <class xml:id="archaic" label="Archaic Spelling" />
+    <class xml:id="uncertain" label="Uncertain" />
+</set>
+
