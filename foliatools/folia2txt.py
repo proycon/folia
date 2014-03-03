@@ -20,6 +20,7 @@ def usage():
     print >>sys.stderr, ""
     print >>sys.stderr, "This conversion script reads a FoLiA XML document and outputs the"
     print >>sys.stderr, "document's text as plain text, *without* any annotations."
+    print >>sys.stderr, "Use folia2annotatedtxt if you want limited support for inline annotations."
     print >>sys.stderr, ""
     print >>sys.stderr, "Usage: folia2txt [options] file-or-dir1 file-or-dir2 ..etc.."
     print >>sys.stderr, ""
