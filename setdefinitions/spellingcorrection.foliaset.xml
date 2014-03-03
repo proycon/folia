@@ -8,6 +8,7 @@
     <class xml:id="missingpunctuation" label="Missing Punctuation" />
     <class xml:id="redundantword" label="Redundant Word" />
     <class xml:id="redundantpunctuation" label="Redundant Punctuation" />
+    <class xml:id="capitalizationerror" label="Capitalization Error" />
     <class xml:id="archaic" label="Archaic Spelling" />
     <class xml:id="uncertain" label="Uncertain" />
 </set>
