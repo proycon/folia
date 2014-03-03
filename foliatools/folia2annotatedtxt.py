@@ -158,7 +158,7 @@ def process(filename, outputfile=None):
             outputfile = codecs.open(outfilename,'w',settings.encoding)
 
 
-        wordinsen = wordinpar = 0
+        wordnum = 0
 
 
         for i, w in enumerate(doc.words()):
@@ -168,17 +168,16 @@ def process(filename, outputfile=None):
                         outputfile.write("\n")
                     else:
                         print
-                    wordinsen = 0
+                wordnum = 0
             if w.paragraph() != prevpar and i > 0:
                 if outputfile:
                     outputfile.write("\n")
                 else:
                     print
-                wordinpar = 0
+                wordnum = 0
             prevpar = w.paragraph()
             prevsen = w.sentence()
-            wordinsen += 1
-            wordinpar += 1
+            wordnum += 1
             columns = []
             for c in settings.columnconf:
                 if c == 'id':
@@ -226,11 +225,13 @@ def process(filename, outputfile=None):
                     sys.exit(1)
 
 
-            word = "|".join(columns)
+            word = "|".join(columns).strip()
             if outputfile:
+                if wordnum > 1: outputfile.write(" ")
                 outputfile.write(word)
             else:
-                print word.encode(settings.encoding)
+                #if wordnum > 1: print " ",
+                print word.encode(settings.encoding),
 
         if settings.autooutput:
             outputfile.close()
