@@ -5,21 +5,22 @@ FoLiA: Format for Linguistic Annotation
 
 http://proycon.github.io/folia
 
-FoLiA is an XML-based format for Linguistic Annotation suitable for
-representing written language resources such as corpora. Its goal is to unify a
-variety of linguistic annotations in one single rich format, without committing
-to any particular standard annotation set. Instead, it seeks to accommodate any
-desired system or tagset, and so offer maximum flexibility. This makes FoLiA
-language independent. Due to its generalised set up, it is easy to extend the
-FoLiA format to suit your custom needs for linguistic annotation.
 
-XML is an inherently hierarchic format. FoLiA does justice to this by utilising
-a hierarchic, inline, setup. We inherit from the D-Coi format, which posits to
-be loosely based on a minimal subset of TEI, but are not backwards compatible.
-It is however easy to convert FoLiA to less complex or verbose formats such as
-the D-Coi format, or plain-text. Converters are provided. This may entail
-some loss of information if the simpler format has no provisions for particular
-types of information specified in the FoLiA format.
+FoLiA is an XML-based annotation format, suitable for the representation of
+linguistically annotated language resources. FoLiA’s intended use is as a
+format for storing and/or exchanging language resources, including corpora. Our
+aim is to introduce a single rich format that can accomodate a wide variety of
+linguistic annotation types through a single generalised paradigm. We do not
+commit to any label set, language or linguistic theory. This is always left to
+the developer of the language resource, and provides maximum flexibility.
+
+XML is an inherently hierarchic format. FoLiA does justice to this by maximally
+utilising a hierarchic, inline, setup. We inherit from the D-Coi format, which
+posits to be loosely based on a minimal subset of TEI. Because of the
+introduction of a new and much broader paradigm, FoLiA is not
+backwards-compatible with D-Coi, i.e. validators for D-Coi will not accept
+FoLiA XML. It is however easy to convert FoLiA to less complex or verbose
+format s such as the D-Coi format, or plain-text. Converters are provided.
 
 The main characteristics of FoLiA are:
 
