@@ -15,14 +15,11 @@ FoLiA format to suit your custom needs for linguistic annotation.
 
 XML is an inherently hierarchic format. FoLiA does justice to this by utilising
 a hierarchic, inline, setup. We inherit from the D-Coi format, which posits to
-be loosely based on a minimal subset of TEI. Because of the introduction of a
-broader paradigm inspired by the KAF (KYOTO Annotation Format or Knowledge
-Annotation Format), FoLiA is not backwards-compatible with D-Coi, i.e.
-validators for D-Coi will not accept FoLiA XML. It is however easy to convert
-FoLiA to less complex or verbose formats such as the D-Coi format, or
-plain-text. Converters will be provided. This may entail some loss of
-information if the simpler format has no provisions for particular types of
-information specified in the FoLiA format.
+be loosely based on a minimal subset of TEI, but are not backwards compatible.
+It is however easy to convert FoLiA to less complex or verbose formats such as
+the D-Coi format, or plain-text. Converters are provided. This may entail
+some loss of information if the simpler format has no provisions for particular
+types of information specified in the FoLiA format.
 
 The main characteristics of FoLiA are:
 
@@ -32,7 +29,11 @@ The main characteristics of FoLiA are:
  * **Formalised** - The format is formalised, and can be validated on both a shallow and a deep level (the latter including tagset validation), and easily machine parsable, for which tools are provided.
  * **Practical** - FoLiA has been developed in a bottom-up fashion right alongside applications, libraries, and other toolkits and converters. Whilst the format is rich, we try to maintain it as simple and straightforward as possible, minimising the learning curve and making it easy to adopt FoLiA in practical applications.
 
-The FoLiA format makes mixed-use of inline and stand-off annotation. Inline annotation is used for annotations pertaining to single tokens, whilst stand-off annotation in a separate annotation layers is adopted for annotation types that span over multiple tokens. This provides FoLiA with the necessary flexibility and extensibility to deal with various kinds of annotations.
+The FoLiA format makes mixed-use of inline and stand-off annotation. Inline
+annotation is used for annotations pertaining to single tokens, whilst
+stand-off annotation in a separate annotation layers is adopted for annotation
+types that span over multiple tokens. This provides FoLiA with the necessary
+flexibility and extensibility to deal with various kinds of annotations.
 
 Notable features are:
 
