@@ -53,7 +53,7 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
 
 \HRule \\[0.5cm]
 { \Large \bfseries FoLiA: Format for Linguistic Annotation}\\[0.5cm] % Title of your document
-{\bf \small version 0.10.0 -- Revision 3.3} \\[0.5cm]
+{\bf \small version 0.10.1 -- Revision 3.4} \\[0.5cm]
 { \Large \bfseries Documentation}\\[0.5cm]
 {\large \emph{Maarten van Gompel}}\\[0.5cm]
 \HRule \\[1.0cm]
@@ -3296,7 +3296,6 @@ as a text markup element. It is exempted from needing a declaration.
 
 
 
-
 \section{Metadata}
 
 \status{final since v0.4}{pynlpl,libfolia}
@@ -3350,10 +3349,295 @@ You can simply define fields with custom IDs, but the following fields are pre-d
 \end{itemize}
 
 
+\section{External documents and full stand-off annotation}
+\label{sec:external}
+
+\status{proposed in v0.10.1 for v0.11}{not implemented yet}
+
+Although FoLiA is explicitly constructed around a document-centric paradigm that stores
+everything in a single file, it does offer mechanisms to employ a setup that
+includes subdocuments or splits annotations accross multiple files. These are
+two distinct but comparable mechanisms, each with their own uses:
+
+\begin{enumerate}
+  \item \textbf{Subdocuments} - At any point in the FoLiA structure, a
+    reference can be made to a subdocument, this subdocument may optionally be
+    flagged for inclusion, which makes available all subdocument data as if
+    they were contained in the main file. Subdocuments not flagged as such are
+    simple references.
+  \item \textbf{Stand-off documents} - Specific annotation types may be split
+    into external documents. These external documents must duplicate a minimal part of the structure 
+    of the main document and may never introduce new structure.
+\end{enumerate}
+
+Working with a single file, as opposed to the mechanisms offered in this
+section, is usually recommended. Nevertheless, FoLiA wants to offer the
+necessary flexibility for those who need it. Such advanced users must always be
+aware of the caveats inherent in working with multiple files:
+
+\begin{itemize}
+  \item Make sure to distribute all applicable files if annotations are split.
+    Always distribute the main file.
+  \item Make sure all external files describe the same version of the document
+  \item Annotation declarations must be consistent between main file and
+    external files, and may never clash.
+  \item Not all FoLiA implementations will support this: simple FoLiA libraries
+    and XPath or XSL based processors may not know how to deal with external
+    documents.
+\end{itemize}
+
+FoLiA forces a certain level of duplicity/redundancy to make violating these
+constraints harder.
+
+The first mechanism, subdocuments, is implemented using the \texttt{external}
+element. This element refers to another FoLiA document and may mark it for
+inclusion using the \texttt{include="yes"} attribute. The \texttt{src}
+attribute may refer to either a local file or a web-based URL. Consider the
+following excerpt of a parent document:
+
+\begin{lstlisting}[language=xml]
+<text>
+    <div>
+        <head><t>chapter 1</t></head>
+    </div>
+
+    <external src="chapter2.xml" include="yes" />
+</text>
+\end{lstlisting}
+
+The subdocument itself is just like any other normal FoLiA document, including
+all the mandatory declarations! Moreover, declarations must not conflict with
+any declarations in the parent document, or inclusion will be impossible.
+The subdocument may have an \emph{optional} attribute \texttt{external="yes"},
+which states that it is never to be loaded independently, but only when
+included in another document. It is possible for multiple parent documents
+to include the same subdocument.
+
+\begin{lstlisting}[language=xml]
+<FoLiA id="chapter2" external="yes">
+    <metadata>
+      <annotations>        
+      </annotations>
+    </metadata>
+    <text>
+      <div>
+          <head><t>chapter 2</t></head>
+      </div>
+    </text>
+</FoLiA>
+\end{lstlisting}
+
+When inclusion is enabled through \texttt{include="yes"}, FoLiA libraries will
+make the contents of the \texttt{text} element available at the exact point
+where the \texttt{external} reference is made.This implies that the elements
+contained under \texttt{text} must be valid in the context in which they are
+placed. If \texttt{include="no"} or unset, the external element acts as a mere
+reference. 
+
+Note that a structure element is required in subdocuments, the following main and subdocument
+are \textbf{invalid}! Invalid main document excerpt:
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.w.1">
+    <t>house</t>
+    <external src="chapter2.xml" include="yes" />
+</w>
+\end{lstlisting}
+
+\textbf{Invalid} subdocument:
+
+\begin{lstlisting}[language=xml]
+<FoLiA id="chapter2">
+    <metadata>
+      <annotations>        
+        <pos-annotation set=".." />
+      </annotations>
+    </metadata>
+    <text>
+      <pos class="N" />
+    </text>
+</FoLiA>
+\end{lstlisting}
+
+Similarly, using the external element for including annotation layers is
+invalid too. This is the case because such cases fall in the second category,
+\textbf{Stand-off documents} instead of \textbf{Subdocuments}, which follow a
+slightly different syntax:
+
+Stand-off documents are not included by means of the \texttt{external} element,
+but are associated directly in the declaration section of the main
+document through an \texttt{external} \emph{attribute}. Stand-off documents must replicate at least a
+minimal part of the structure of the main document and must always have
+\texttt{external="yes"} set. A stand-off document may not introduce new
+structure elements as was the case with subdocuments. Main document excerpt:
+
+\begin{lstlisting}[language=xml]
+<FoLiA id="main">
+  <metadata>
+    <annotations>
+        <pos-annotation set="http://../adhoc-pos.xml" external="pos.xml" />
+    </annotations>
+  </metadata>
+  <text>
+    <p id="example.p.1">
+      <s id="example.p.1.s.1">
+        <t>The big house</t>
+        <w xml:id="example.p.1.w.1">
+          <t>The</t>
+        </w>
+        <w xml:id="example.p.1.w.2">
+          <t>big</t>
+        </w>
+        <w xml:id="example.p.1.w.3">
+          <t>house</t>
+        </w>
+      </s>
+    </p>
+  </text>
+</FoLiA>
+\end{lstlisting}
+
+The stand-off document would then for example look like this, replicating only
+a minimal part, the deepest relevant layer, of the structure:
+
+\begin{lstlisting}[language=xml]
+<FoLiA id="main" external="yes">
+  <metadata>
+    <annotations>
+        <pos-annotation set="http://../adhoc-pos.xml" />
+    </annotations>
+  </metadata>
+  <text>
+    <w xml:id="example.p.1.w.1">
+      <pos class="det">
+    </w>
+    <w xml:id="example.p.1.w.2">
+      <pos class="adj">
+    </w>
+    <w xml:id="example.p.1.w.3">
+      <pos class="n">
+    </w>
+  </text>
+</FoLiA>
+\end{lstlisting}
+
+Any other type of annotation present in this document will be ignored. Only
+the type for which it is expliclitly referred to from the parent document is
+loaded. This does open up the interesting option of using the same stand-off
+document for multiple annotation types. Consider the main document declaration
+were as follows:
+
+\begin{lstlisting}[language=xml]
+  <metadata>
+    <annotations>
+        <pos-annotation set="http://../adhoc-pos.xml" external="poslemma.xml" />
+        <lemma-annotation set="http://../adhoc-lemma.xml" external="poslemma.xml" />
+    </annotations>
+  </metadata>
+</FoLiA>
+\end{lstlisting}
+
+The stand-off document could then include both:
+
+\begin{lstlisting}[language=xml]
+<FoLiA id="main" external="yes">
+  <metadata>
+    <annotations>
+        <pos-annotation set="http://../adhoc-pos.xml" />
+        <lemma-annotation set="http://../adhoc-lemma.xml" />
+    </annotations>
+  </metadata>
+  <text>
+    <w xml:id="example.p.1.w.1">
+      <pos class="det">
+      <lemma class="the" />
+    </w>
+    <w xml:id="example.p.1.w.2">
+      <pos class="adj">
+      <lemma class="big" />
+    </w>
+    <w xml:id="example.p.1.w.3">
+      <pos class="n">
+      <lemma class="house" />
+    </w>
+  </text>
+</FoLiA>
+\end{lstlisting}
+
+
+Of course, stand-off documents work for span annotation as well. In this case
+it is always required to specify a full annotation layer. The items referred to
+with \texttt{wref} (or \texttt{aref} for that matter) need not exist in the
+stand-off document as long as they exist in the parent. This is a general
+principle that applies to all documents marked with \texttt{external="yes"}. In
+the library implementation they share an ID index with their parent.
+
+Consider the following
+excerpt of the same main document as in the previous examples:
+
+
+\begin{lstlisting}[language=xml]
+  <metadata>
+    <annotations>
+        <syntax-annotation set="http://../adhoc-syntax.xml" external="syntax.xml" />
+    </annotations>
+  </metadata>
+</FoLiA>
+\end{lstlisting}
+
+
+And here the stand-off document:
+
+
+\begin{lstlisting}[language=xml]
+<FoLiA id="main" external="yes">
+  <metadata>
+    <annotations>
+        <syntax-annotation set="http://../adhoc-syntax.xml" external="syntax.xml" />
+    </annotations>
+  </metadata>
+  <text>
+    <s xml:id="example.p.1.s.1">
+     <syntax>
+      <su class="np">     
+        <su class="det">
+          <wref id="example.p.1.w.1" />
+        </su>
+        <su class="np">
+          <su class="adj">
+            <wref id="example.p.1.w.2" />
+          </su>
+          <su class="n">
+            <wref id="example.p.1.w.3" />
+          </su>
+        </su>
+      </su>
+     </syntax>
+    </s>
+  </text>
+</FoLiA>
+\end{lstlisting}
+
+Note that in the above example, we did minimal duplication of the structure by
+copying the sentence element. This allows us to still adhere to the convention of
+\emph{locality} FoLiA follows, the notion of embedding layers in-line in the
+deepest elements possible according to the scope. This is, however, not a requirement and the
+document would still be valid and describe the same situation if the \texttt{s} element
+were omitted alltogether.
+
+
+There is no declaration necessary for the use of the \texttt{external} element
+or attribute. However, stand-off documents and subdocuments with
+\texttt{external="yes"} may not themselves make use of neither the
+\texttt{external} element in their structure, nor attribute on declarations. That privelege is
+reserved for the main document. The sole exception are subdocuments not
+marked with \texttt{external="yes"}, as they can act as fully independent.
+Needless to say, circular references are forbidden in such cases.
+
 \chapter{Set Definition Format}
 \label{chapter:setdefinitions}
 
-\status{PROPOSED since v0.7}{pynlpl (partly)}
+\status{Final since v0.10.1}{pynlpl}
 
 \section{Introduction}
 
