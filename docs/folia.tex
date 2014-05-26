@@ -930,7 +930,8 @@ structure element with an extra higher-order annotation function:
 </s>
 \end{lstlisting}
 
-Another example in tokenised data:
+Another example in tokenised data, and now we add the \emph{optional} \texttt{type}
+attribute, which holds the type of the FoLiA element that is referred to:
 
 \begin{lstlisting}[language=xml]
 <s>
@@ -939,7 +940,7 @@ Another example in tokenised data:
   <w><t>this</t></w>
   <w><t>earlier</t></w>
   <w><t>.</t></w>
-  <ref id="mynote" />
+  <ref id="mynote" type="note" />
 </s>
 \end{lstlisting}
 
@@ -948,7 +949,7 @@ You can optionally make explicit the symbol used for the reference:
 \begin{lstlisting}[language=xml]
 <s>
   <t>We demonstrated this earlier.</t>
-  <ref id="mynote"><t>1</t></ref>
+  <ref id="mynote" type="note"><t>1</t></ref>
 </s>
 \end{lstlisting}
 
