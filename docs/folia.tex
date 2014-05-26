@@ -172,7 +172,7 @@ There is support for the following linguistic annotations:
 \item Dependency Relations
 \item Chunking
 \item Morphological Analysis
-\item Subjectivity Annotation
+\item Subjectivity Annotation/Sentiment analysis
 \item Semantic Role Labelling
 \item Co-reference
 \item Event annotation
@@ -1046,7 +1046,27 @@ The declaration (the actual set is fictitious):
 </annotations>
 \end{lstlisting}
 
+\subsection{Subjectivity/Sentiment Analysis}
 
+\status{final}{pynlpl,libfolia}
+
+Subjectivity annotation is used to associate a certain subjective quality with
+a structural element. It is used for sentiment analysis and opinion analysis. Example:
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.1.s.1.w.2">
+    <t>hate</t>
+    <subjectivity class="negative" />
+</w>
+\end{lstlisting}
+
+The declaration (the actual set is fictitious):
+
+\begin{lstlisting}[language=xml]
+<annotations>
+    <subjectivity-annotation set="http://ilk.uvt.nl/folia/sets/sentiments" />
+</annotations>
+\end{lstlisting}
 
 
 
