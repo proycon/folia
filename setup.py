@@ -11,7 +11,7 @@ def read(fname):
 
 setup(
     name = "FoLiA-tools",
-    version = "0.10.0.18",
+    version = "0.11.0.19",
     author = "Maarten van Gompel",
     author_email = "proycon@anaproy.nl",
     description = ("FoLiA-tools contains various Python-based command line tools for working with FoLiA XML (Format for Linguistic Annotation)"),
@@ -19,7 +19,7 @@ setup(
     keywords = "nlp computational_linguistics search linguistics toolkit folia pynlpl",
     url = "https://github.com/proycon/folia",
     packages=['foliatools'],
-    long_description=read('README'),
+    long_description=read('README.md'),
     classifiers=[
         "Development Status :: 4 - Beta",
         "Topic :: Text Processing :: Linguistic",
