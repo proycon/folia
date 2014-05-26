@@ -53,12 +53,12 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
 
 \HRule \\[0.5cm]
 { \Large \bfseries FoLiA: Format for Linguistic Annotation}\\[0.5cm] % Title of your document
-{\bf \small version 0.10.1 -- Revision 3.4} \\[0.5cm]
+{\bf \small version 0.11.0 -- Revision 3.6} \\[0.5cm]
 { \Large \bfseries Documentation}\\[0.5cm]
 {\large \emph{Maarten van Gompel}}\\[0.5cm]
 \HRule \\[1.0cm]
 
-\emph{January 2nd, 2014} \\[0.5cm] 
+\emph{January 2nd, 2014 \small{(published)} -- May 26th, 2014 \small{(last revision)}} \\[0.3cm] 
 \includegraphics[width=20.0mm]{ru-beeldmerk-zwart.eps}
 \end{center}
 \vspace{0.5cm}
@@ -890,7 +890,7 @@ follows:
 
 \section{Notes}
 
-\status{since FoLiA 0.11.0}{pynlpl}
+\status{since FoLiA 0.11.0}{pynlpl, libfolia}
 
 The structure element \texttt{note} allows for notes to be included in FoLiA
 documents. A footnote is an example of a note. The notes form an integral part
@@ -918,6 +918,8 @@ Notes have to be declared, which can be done as follows (the set is fictitious):
 \end{lstlisting}
 
 \section{Structure References}
+
+\status{since FoLiA 0.11.0}{pynlpl, libfolia}
 
 In the previous section we discussed notes, in this section we show that you
 can make references to these notes using the \texttt{ref} element, this is a
@@ -3453,7 +3455,7 @@ You can simply define fields with custom IDs, but the following fields are pre-d
 \section{External documents and full stand-off annotation}
 \label{sec:external}
 
-\status{proposed in v0.10.1 for v0.11}{not implemented yet}
+\status{v0.11}{only partially implemented in pynlpl.format.folia and libfolia}
 
 Although FoLiA is explicitly constructed around a document-centric paradigm that stores
 everything in a single file, it does offer mechanisms to employ a setup that
@@ -3479,7 +3481,7 @@ aware of the caveats inherent in working with multiple files:
 \begin{itemize}
   \item Make sure to distribute all applicable files if annotations are split.
     Always distribute the main file.
-  \item Make sure all external files describe the same version of the document
+  only \item Make sure all external files describe the same version of the document
   \item Annotation declarations must be consistent between main file and
     external files, and may never clash.
   \item Not all FoLiA implementations will support this: simple FoLiA libraries
