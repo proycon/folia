@@ -899,7 +899,7 @@ its annotations, rather than a part of it, consider using \texttt{desc}
 instead. Notes themselves can contain all the usual forms of annotations.
 
 The place of a note in the text is where it will appear. References to the note
-are made using a specific tag: \texttt{noteref}
+are made using a specific tag, \texttt{ref}, discussed in the next section.
 
 \begin{lstlisting}[language=xml]
   <s><t>blah blah blah</t></s>
@@ -909,13 +909,24 @@ are made using a specific tag: \texttt{noteref}
 </text>
 \end{lstlisting}
 
-A reference can then be made as such, this acts like a structure element but
-has a higher order annotation function:
+Notes have to be declared, which can be done as follows (the set is fictitious):
+
+\begin{lstlisting}[language=xml]
+<annotations>
+    <note-annotation set="http://ilk.uvt.nl/folia/sets/notes"  />
+</annotations>
+\end{lstlisting}
+
+\section{Structure References}
+
+In the previous section we discussed notes, in this section we show that you
+can make references to these notes using the \texttt{ref} element, this is a
+structure element with an extra higher-order annotation function:
 
 \begin{lstlisting}[language=xml]
 <s>
   <t>We demonstrated this earlier.</t>
-  <noteref id="mynote" />
+  <ref id="mynote" />
 </s>
 \end{lstlisting}
 
@@ -928,7 +939,7 @@ Another example in tokenised data:
   <w><t>this</t></w>
   <w><t>earlier</t></w>
   <w><t>.</t></w>
-  <noteref id="mynote" />
+  <ref id="mynote" />
 </s>
 \end{lstlisting}
 
@@ -937,10 +948,14 @@ You can optionally make explicit the symbol used for the reference:
 \begin{lstlisting}[language=xml]
 <s>
   <t>We demonstrated this earlier.</t>
-  <noteref id="mynote"><t>1</t></noteref>
+  <ref id="mynote"><t>1</t></ref>
 </s>
 \end{lstlisting}
 
+Although we framed this in the context of notes, the \texttt{ref} element is
+more general and can be used whereever you need to explicitly refer to other structure
+elements. Common targets are figures, tables, divisions (sections, chapters,
+etc). 
 
 Being a structure element, the note reference itself may carry an ID as well.
 Note that the ID attribute without the xml namespace always indicates a reference in
@@ -948,17 +963,10 @@ throughout FoLiA:
 
 \begin{lstlisting}[language=xml]
 <s><t>We demonstrated this earlier.</t></s>
-<noteref xml:id="myreference" id="mynote" />
+<ref xml:id="myreference" id="mynote" />
 \end{lstlisting}
 
-Notes have to be declared, which can be done as follows (the set is fictitious):
-
-\begin{lstlisting}[language=xml]
-<annotations>
-    <note-annotation set="http://ilk.uvt.nl/folia/sets/notes"  />
-</annotations>
-\end{lstlisting}
-
+The reference element itself needs no declaration.
 
 \section{Token Annotation}
 \label{sec:tokenannotation}
