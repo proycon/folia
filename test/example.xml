@@ -28,6 +28,7 @@
       <table-annotation set="table-set" />
       <style-annotation set="style" />
       <division-annotation set="divs" />
+      <note-annotation set="notes" />
     </annotations>
     <meta id="title">Stemma</meta>
     <meta id="language">nl</meta>
@@ -40,6 +41,7 @@
               <t>Stemma</t>
               <pos class="N(soort,ev,basis,onz,stan)"/>
               <lemma class="stemma"/>
+              <ref id="footnote.1" type="note" />
             </w>
           </s>
         </head>
@@ -1159,6 +1161,11 @@
                 </row>
                 </table>
            </div>
+        <note xml:id="footnote.1" class="footnote">
+          <s xml:id="footnote.1.s.1">
+            <t>Deze pagina komt oorspronkelijk van wikipedia</t>
+          </s>
+        </note>
       </div>
       <gap xml:id="WR-P-E-J-0000000001.gap.1" class="backmatter">
        <desc>Backmatter</desc>
