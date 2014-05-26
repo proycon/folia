@@ -888,6 +888,78 @@ follows:
 </annotations>
 \end{lstlisting}
 
+\section{Notes}
+
+\status{since FoLiA 0.11.0}{pynlpl}
+
+The structure element \texttt{note} allows for notes to be included in FoLiA
+documents. A footnote is an example of a note. The notes form an integral part
+of the text. For notes that are merely descriptive comments on the texts or
+its annotations, rather than a part of it, consider using \texttt{desc}
+instead. Notes themselves can contain all the usual forms of annotations.
+
+The place of a note in the text is where it will appear. References to the note
+are made using a specific tag: \texttt{noteref}
+
+\begin{lstlisting}[language=xml]
+  <s><t>blah blah blah</t></s>
+  <note xml:id="mynote" class="footnote">
+    <s xml:id="mynote.s.1"><t>See our website!</t></s>
+  </note>
+</text>
+\end{lstlisting}
+
+A reference can then be made as such, this acts like a structure element but
+has a higher order annotation function:
+
+\begin{lstlisting}[language=xml]
+<s>
+  <t>We demonstrated this earlier.</t>
+  <noteref id="mynote" />
+</s>
+\end{lstlisting}
+
+Another example in tokenised data:
+
+\begin{lstlisting}[language=xml]
+<s>
+  <w><t>We</t></w>
+  <w><t>demonstrated</t></w>
+  <w><t>this</t></w>
+  <w><t>earlier</t></w>
+  <w><t>.</t></w>
+  <noteref id="mynote" />
+</s>
+\end{lstlisting}
+
+You can optionally make explicit the symbol used for the reference:
+
+\begin{lstlisting}[language=xml]
+<s>
+  <t>We demonstrated this earlier.</t>
+  <noteref id="mynote"><t>1</t></noteref>
+</s>
+\end{lstlisting}
+
+
+Being a structure element, the note reference itself may carry an ID as well.
+Note that the ID attribute without the xml namespace always indicates a reference in
+throughout FoLiA:
+
+\begin{lstlisting}[language=xml]
+<s><t>We demonstrated this earlier.</t></s>
+<noteref xml:id="myreference" id="mynote" />
+\end{lstlisting}
+
+Notes have to be declared, which can be done as follows (the set is fictitious):
+
+\begin{lstlisting}[language=xml]
+<annotations>
+    <note-annotation set="http://ilk.uvt.nl/folia/sets/notes"  />
+</annotations>
+\end{lstlisting}
+
+
 \section{Token Annotation}
 \label{sec:tokenannotation}
 
