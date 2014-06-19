@@ -1010,7 +1010,7 @@
       </div>
       <div xml:id="sandbox">
           <list xml:id="sandbox.list.1">
-              <listitem xml:id="sandbox.list.1.listitem.1" n="1">
+              <item xml:id="sandbox.list.1.listitem.1" n="1">
                   <s xml:id="sandbox.list.1.listitem.1.s.1">
                       <w xml:id="sandbox.list.1.listitem.1.s.1.w.1">
                           <t>Eerste</t>
@@ -1020,9 +1020,9 @@
                           <t>testitem</t>
                       </w>                      
                   </s>                  
-              </listitem>
+              </item>
               <event xml:id="sandbox.event.0" class="applause" actor="audience" />
-              <listitem xml:id="sandbox.list.1.listitem.2" n="2">
+              <item xml:id="sandbox.list.1.listitem.2" n="2">
                   <s xml:id="sandbox.list.1.listitem.2.s.1">
                       <w xml:id="sandbox.list.1.listitem.2.s.1.w.1">
                           <t>Tweede</t>
@@ -1031,7 +1031,7 @@
                           <t>testitem</t>
                       </w>                      
                   </s>                  
-              </listitem>
+              </item>
           </list>
           <event xml:id="sandbox.event.1" class="presentation" actor="proycon" begindatetime="2011-12-15T19:01" enddatetime="2011-12-15T19:05">                
               <figure xml:id="sandbox.figure.1" src="http://upload.wikimedia.org/wikipedia/commons/8/8e/Family_tree.svg">
