@@ -6,12 +6,13 @@ from setuptools import setup, find_packages
 
 
 
+
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 setup(
     name = "FoLiA-tools",
-    version = "0.11.0.20",
+    version = "0.11.0.22",
     author = "Maarten van Gompel",
     author_email = "proycon@anaproy.nl",
     description = ("FoLiA-tools contains various Python-based command line tools for working with FoLiA XML (Format for Linguistic Annotation)"),
@@ -19,7 +20,7 @@ setup(
     keywords = "nlp computational_linguistics search linguistics toolkit folia pynlpl",
     url = "https://github.com/proycon/folia",
     packages=['foliatools'],
-    long_description=read('README.md'),
+    long_description=read('README.rst'),
     classifiers=[
         "Development Status :: 4 - Beta",
         "Topic :: Text Processing :: Linguistic",
