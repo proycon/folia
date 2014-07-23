@@ -30,6 +30,11 @@ RelaxNG schema for FoLiA XML v%s
      $ xmllint ‒‒relaxng folia.rng foliadocument.xml
      $ jing folia.rng foliadocument.xml
 
+    However, it is recommended to use the foliavalidator tool instead,
+    as it does extra validation that can not be captured by RelaxNG!
+
+    $ foliavalidator foliadocument.xml
+
     Licensed under the GNU General Public License v3
 -->
 """ %  (folia.FOLIAVERSION, folia.LIBVERSION))
