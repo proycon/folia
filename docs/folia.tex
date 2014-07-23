@@ -53,12 +53,12 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
 
 \HRule \\[0.5cm]
 { \Large \bfseries FoLiA: Format for Linguistic Annotation}\\[0.5cm] % Title of your document
-{\bf \small version 0.11.0 -- Revision 3.6} \\[0.5cm]
+{\bf \small version 0.11.1 -- Revision 3.7} \\[0.5cm]
 { \Large \bfseries Documentation}\\[0.5cm]
 {\large \emph{Maarten van Gompel}}\\[0.5cm]
 \HRule \\[1.0cm]
 
-\emph{January 2nd, 2014 \small{(published)} -- May 26th, 2014 \small{(last revision)}} \\[0.3cm] 
+\emph{January 2nd, 2014 \small{(published)} -- July 23rd, 2014 \small{(last revision)}} \\[0.3cm] 
 \includegraphics[width=20.0mm]{ru-beeldmerk-zwart.eps}
 \end{center}
 \vspace{0.5cm}
@@ -2735,6 +2735,81 @@ For omissions, the \texttt{original} element is empty.
 
 %Note that the text element gains an extra mandatory attribute, \texttt{corrected} with value \emph{inline}, which signals that there are inline corrections \emph{within} the text element. Please see section~\ref{sec:textcontent} for a more elaborate discussion on this.
 
+
+\subsubsection{Corrections on span annotation}
+\status{added in v0.11.1}{not implemented yet}
+
+All the previous sections focussed on corrections on token annotation, text
+content, or structure elements such as words. The correction element, however,
+is one of the most ubiquitous elements in FoLiA and can also be used for correcting span
+annotation elements, such as named entities. Recall that span annotation
+elements are embedded in an annotation layer. The correction element may be
+used within such annotation layers, as well as within span elements themselves.
+Corrections on span annotation elements can be corrections on either the class
+or on the tokens over which the annotation spans, the following two examples
+illustrate each of these cases:
+
+\begin{lstlisting}[language=xml]
+<s xml:id="example.p.1.s.1">
+  <t>The Dalai Lama greeted him.</t>
+  <w xml:id="example.p.1.s.1.w.1"><t>The</t></w>
+  <w xml:id="example.p.1.s.1.w.2"><t>Dalai</t></w>
+  <w xml:id="example.p.1.s.1.w.3"><t>Lama</t></w>
+  <w xml:id="example.p.1.s.1.w.4"><t>greeted</t></w>
+  <w xml:id="example.p.1.s.1.w.5"><t>him</t></w>
+  <w xml:id="example.p.1.s.1.w.6"><t>.</t></w>
+  <entities>
+    <correction class="wrongclass">
+      <new>
+        <entity xml:id="example.p.1.s.1.entity.1.corrected" class="person">
+            <wref id="example.p.1.s.1.w.2" t="Dalai" />
+            <wref id="example.p.1.s.1.w.3" t="Lama" />
+        </entity>
+      </new>
+      <original auth="no">
+        <entity xml:id="example.p.1.s.1.entity.1" class="organisation">
+            <wref id="example.p.1.s.1.w.2" t="Dalai" />
+            <wref id="example.p.1.s.1.w.3" t="Lama" />
+        </entity>
+      </original>
+    </correction>
+  </entities>
+</s>
+\end{lstlisting}
+
+
+\begin{lstlisting}[language=xml]
+<s xml:id="example.p.1.s.1">
+  <t>The Dalai Lama greeted him.</t>
+  <w xml:id="example.p.1.s.1.w.1"><t>The</t></w>
+  <w xml:id="example.p.1.s.1.w.2"><t>Dalai</t></w>
+  <w xml:id="example.p.1.s.1.w.3"><t>Lama</t></w>
+  <w xml:id="example.p.1.s.1.w.4"><t>greeted</t></w>
+  <w xml:id="example.p.1.s.1.w.5"><t>him</t></w>
+  <w xml:id="example.p.1.s.1.w.6"><t>.</t></w>
+  <entities>
+    <correction class="wrongclass">
+      <new>
+        <entity xml:id="example.p.1.s.1.entity.1.corrected" class="person">
+            <wref id="example.p.1.s.1.w.2" t="Dalai" />
+            <wref id="example.p.1.s.1.w.3" t="Lama" />
+        </entity>
+      </new>
+      <original auth="no">
+        <entity xml:id="example.p.1.s.1.entity.1" class="person">
+            <wref id="example.p.1.s.1.w.1" t="The" />
+            <wref id="example.p.1.s.1.w.2" t="Dalai" />
+            <wref id="example.p.1.s.1.w.3" t="Lama" />
+        </entity>
+      </original>
+    </correction>
+  </entities>
+</s>
+\end{lstlisting}
+
+When correcting span annotation elements that are nested (such as syntax), the
+child elements are an inherent part of the correction, and will often need to
+be duplicated if the correction is on an element higher up in the tree.
 
 
 \subsection{Alignments}
