@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<set xml:id="frog-ner-nl" type="closed" xmlns="http://ilk.uvt.nl/folia" conceptlink="http://www.isocat.org/datcat/DC-2275">
+    <class xml:id="loc" label="Location" conceptlink="http://www.isocat.org/datcat/DC-4339" />
+    <class xml:id="per" label="Person" conceptlink="http://www.isocat.org/datcat/DC-2978" />
+    <class xml:id="org" label="Organisation" conceptlink="http://www.isocat.org/datcat/DC-2979" />
+    <class xml:id="misc" label="Miscellaneous" />
+    <class xml:id="eve" label="Event" />
+    <class xml:id="pro" label="Proverb" />
+</set>
