@@ -3883,12 +3883,12 @@ the \emph{location} class has been extended into more fine-grained subclasses.
   <class xml:id="per" label="Person" />
   <class xml:id="org" label="Organisation" />
   <class xml:id="loc" label="Location">
-    <class xml:id="loc/country" label="Country" />
-    <class xml:id="loc/street" label="Street" />
-    <class xml:id="loc/building" label="Building">
-      <class xml:id="loc/building/hospital" label="Hospital" />
-      <class xml:id="loc/building/church" label="Church" />
-      <class xml:id="loc/building/station" label="Station" />
+    <class xml:id="loc.country" label="Country" />
+    <class xml:id="loc.street" label="Street" />
+    <class xml:id="loc.building" label="Building">
+      <class xml:id="loc.building.hospital" label="Hospital" />
+      <class xml:id="loc.building.church" label="Church" />
+      <class xml:id="loc.building.station" label="Station" />
     </class>
   </class>
 </set>
@@ -3897,7 +3897,7 @@ the \emph{location} class has been extended into more fine-grained subclasses.
 It is recommended, but not mandatory, to set the class ID of any nested classes
 to represent a full path, as a full path makes substring queries possible.
 FoLiA, however, does not dictate this and neither does it prescribe a delimiter
-for such paths, so the slash in the above example is merely a convention. Each
+for such paths, so the period in the above example is merely a convention. Each
 ID, however, does have to be unique in the entire set.
 
 \section{Subsets}
