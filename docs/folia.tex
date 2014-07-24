@@ -53,12 +53,12 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
 
 \HRule \\[0.5cm]
 { \Large \bfseries FoLiA: Format for Linguistic Annotation}\\[0.5cm] % Title of your document
-{\bf \small version 0.11.1 -- Revision 3.7} \\[0.5cm]
+{\bf \small version 0.11.1 -- Revision 3.8} \\[0.5cm]
 { \Large \bfseries Documentation}\\[0.5cm]
 {\large \emph{Maarten van Gompel}}\\[0.5cm]
 \HRule \\[1.0cm]
 
-\emph{January 2nd, 2014 \small{(published)} -- July 23rd, 2014 \small{(last revision)}} \\[0.3cm] 
+\emph{January 2nd, 2014 \small{(published)} -- July 24th, 2014 \small{(last revision)}} \\[0.3cm] 
 \includegraphics[width=20.0mm]{ru-beeldmerk-zwart.eps}
 \end{center}
 \vspace{0.5cm}
@@ -3870,6 +3870,34 @@ You may want to associate classes, or even sets themselves, with some kind of se
 \end{lstlisting}
 
 FoLiA does not dictate any format requirements for conceptual links, it can be anything, such as an RDF resource, or any other kind. If you want something more specific, or you want to link to multiple semantic resources, simply use your own ``conceptlink'' attribute in a different custom XML namespace.
+
+\section{Class Hierarchy}
+
+In FoLiA Set Definitions, classes can be nested to create more complex
+hierarchies or taxonomy trees, in which both nodes and leaves act as valid
+classes.  Consider the following set definition for named entities, in which
+the \emph{location} class has been extended into more fine-grained subclasses.
+
+\begin{lstlisting}[language=xml]
+<set xml:id="namedentities" type="closed">
+  <class xml:id="per" label="Person" />
+  <class xml:id="org" label="Organisation" />
+  <class xml:id="loc" label="Location">
+    <class xml:id="loc/country" label="Country" />
+    <class xml:id="loc/street" label="Street" />
+    <class xml:id="loc/building" label="Building">
+      <class xml:id="loc/building/hospital" label="Hospital" />
+      <class xml:id="loc/building/church" label="Church" />
+      <class xml:id="loc/building/station" label="Station" />
+    </class>
+  </class>
+</set>
+\end{lstlisting}
+
+It is recommended, but not mandatory, to set the class ID of any nested classes
+to represent a full path, as a full path makes substring queries possible.
+FoLiA, however, does not dictate this and neither does it prescribe a delimiter
+for such paths, so the slash in the above example is merely a convention.
 
 \section{Subsets}
 
