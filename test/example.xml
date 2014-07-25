@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="folia2html.xsl"?>
-<FoLiA xmlns="http://ilk.uvt.nl/folia" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="WR-P-E-J-0000000001" version="0.10.0" generator="manual">
+<FoLiA xmlns="http://ilk.uvt.nl/folia" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="WR-P-E-J-0000000001" version="0.11.1" generator="manual">
   <metadata type="native">
     <annotations>
       <token-annotation annotator="ilktok" annotatortype="auto" />
@@ -1152,10 +1152,19 @@
                         <w xml:id="example.table.1.w.13"><t>Tilburg</t></w>
                         <w xml:id="example.table.1.w.14"><t>University</t></w>
                         <entities>
-                        <entity set="http://raw.github.com/proycon/folia/master/setdefinitions/namedentities.foliaset.xml" class="org">
-                            <wref id="example.table.1.w.13" t="Tilburg" />
-                            <wref id="example.table.1.w.14" t="University" />
-                        </entity>
+                          <correction class="entity">
+                            <new>
+                              <entity set="http://raw.github.com/proycon/folia/master/setdefinitions/namedentities.foliaset.xml" class="org">
+                                  <wref id="example.table.1.w.13" t="Tilburg" />
+                                  <wref id="example.table.1.w.14" t="University" />
+                              </entity>
+                            </new>
+                            <original auth="no">
+                              <entity set="http://raw.github.com/proycon/folia/master/setdefinitions/namedentities.foliaset.xml" class="loc">
+                                  <wref id="example.table.1.w.13" t="Tilburg" />
+                              </entity>
+                            </original>
+                          </correction>
                         </entities>
                     </cell>
                 </row>
