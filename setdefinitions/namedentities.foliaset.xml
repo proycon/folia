@@ -6,5 +6,7 @@
     </class>
     <class xml:id="per" label="Person" conceptlink="http://www.isocat.org/datcat/DC-2978" />
     <class xml:id="org" label="Organisation" conceptlink="http://www.isocat.org/datcat/DC-2979" />
+    <class xml:id="pro" label="Product" />
+    <class xml:id="eve" label="Event" />
     <class xml:id="misc" label="Miscellaneous" />
 </set>
