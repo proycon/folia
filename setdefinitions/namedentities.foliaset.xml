@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <set xml:id="namedentities" type="closed" xmlns="http://ilk.uvt.nl/folia" conceptlink="http://www.isocat.org/datcat/DC-2275">
     <class xml:id="loc" label="Location">
-        <class xml:id="loc.street" label="Street" />
-        <class xml:id="loc.building" label="Building" />
+        <class xml:id="loc.street" label="Location - Street" />
+        <class xml:id="loc.building" label="Location - Building" />
     </class>
     <class xml:id="per" label="Person" conceptlink="http://www.isocat.org/datcat/DC-2978" />
     <class xml:id="org" label="Organisation" conceptlink="http://www.isocat.org/datcat/DC-2979" />
