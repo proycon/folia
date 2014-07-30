@@ -1120,7 +1120,7 @@
                             </entity>
                         </entities>
                     </cell>
-                    <cell>
+                    <cell xml:id="example.cell">
                         <w xml:id="example.table.1.w.6"><t>Radboud</t></w>
                         <w xml:id="example.table.1.w.7"><t>University</t></w>
                         <w xml:id="example.table.1.w.8"><t>Nijmegen</t></w>
@@ -1140,12 +1140,12 @@
                         <w xml:id="example.table.1.w.11"><t>der</t></w>
                         <w xml:id="example.table.1.w.12"><t>Sloot</t></w>
                         <entities>
-                        <entity set="http://raw.github.com/proycon/folia/master/setdefinitions/namedentities.foliaset.xml" class="per">
-                            <wref id="example.table.1.w.9" t="Ko" />
-                            <wref id="example.table.1.w.10" t="van" />
-                            <wref id="example.table.1.w.11" t="der" />
-                            <wref id="example.table.1.w.12" t="Sloot" />
-                        </entity>
+                          <entity set="http://raw.github.com/proycon/folia/master/setdefinitions/namedentities.foliaset.xml" class="per">
+                              <wref id="example.table.1.w.9" t="Ko" />
+                              <wref id="example.table.1.w.10" t="van" />
+                              <wref id="example.table.1.w.11" t="der" />
+                              <wref id="example.table.1.w.12" t="Sloot" />
+                          </entity>
                         </entities>
                     </cell>
                     <cell xml:id="example.last.cell">
