@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <set xml:id="namedentitycorrection" type="closed" xmlns="http://ilk.uvt.nl/folia">
     <class xml:id="noentity" label="Not a named entity" /> 
+    <class xml:id="wrongclass" label="Wrong class assigned" /> 
     <class xml:id="toowide" label="Entity span too wide" />
     <class xml:id="incomplete" label="Entity incomplete" />
 </set>
