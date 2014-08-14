@@ -7,7 +7,14 @@
         <class xml:id="loc.transport" label="Location - Transport infrastructure" />
         <class xml:id="loc.city" label="Location - City" />
         <class xml:id="loc.country" label="Location - Country" />
-        <class xml:id="loc.region" label="Location - Region" />
+        <class xml:id="loc.region" label="Location - Region">
+            <class xml:id="loc.region.province" label="Location - Region - Province">
+                <class xml:id="loc.region.state" label="Location - Region - State" />
+                <class xml:id="loc.region.county" label="Location - Region - County" />
+                <class xml:id="loc.region.estate" label="Location - Region - Estate" />
+                <class xml:id="loc.region.quarter" label="Location - Region - Quarter" />
+            </class>
+        </class>
         <class xml:id="loc.line" label="Location - Line" />
         <class xml:id="loc.point" label="Location - Point" />
         <class xml:id="loc.metaphysical" label="Location - Metaphysical" />
