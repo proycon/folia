@@ -17,6 +17,7 @@
         <class xml:id="loc.line" label="Location - Line" />
         <class xml:id="loc.point" label="Location - Point" />
         <class xml:id="loc.metaphysical" label="Location - Metaphysical" />
+        <class xml:id="loc.unspecified" label="Location - Unspecified" />
     </class>
     <class xml:id="per" label="Person" conceptlink="http://www.isocat.org/datcat/DC-2978" />
     <class xml:id="org" label="Organisation" conceptlink="http://www.isocat.org/datcat/DC-2979" />
