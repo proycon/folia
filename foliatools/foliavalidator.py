@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf8 -*-
 
+from __future__ import print_function, unicode_literals, division, absolute_import
+
 import getopt
 import sys
 import os
@@ -10,26 +12,26 @@ import lxml.etree
 try:
     from pynlpl.formats import folia
 except:
-    print >>sys.stderr,"ERROR: pynlpl not found, please obtain PyNLPL from the Python Package Manager ($ sudo easy_install pynlpl) or directly from github: $ git clone git://github.com/proycon/pynlpl.git"
+    print("ERROR: pynlpl not found, please obtain PyNLPL from the Python Package Manager ($ sudo easy_install pynlpl) or directly from github: $ git clone git://github.com/proycon/pynlpl.git", file=sys.stderr)
     sys.exit(2)
 
 def usage():
-    print >>sys.stderr, "foliavalidator"
-    print >>sys.stderr, "  by Maarten van Gompel (proycon)"
-    print >>sys.stderr, "  Radboud University Nijmegen"
-    print >>sys.stderr, "  2013 - Licensed under GPLv3"
-    print >>sys.stderr, ""
-    print >>sys.stderr, "FoLiA " + folia.FOLIAVERSION + ", library version " + folia.LIBVERSION
-    print >>sys.stderr, ""
-    print >>sys.stderr, "Validates FoLiA documents."
-    print >>sys.stderr, ""
-    print >>sys.stderr, "Usage: foliavalidator [options] file-or-dir1 file-or-dir2 ..etc.."
-    print >>sys.stderr, ""
-    print >>sys.stderr, "Parameters for processing directories:"
-    print >>sys.stderr, "  -r                           Process recursively"
-    print >>sys.stderr, "  -q                           Quick (more shallow) validation, only validate against RelaxNG schema - do not load document in FoLiA library"
-    print >>sys.stderr, "  -E [extension]               Set extension (default: xml)"
-    print >>sys.stderr, "  -V                           Show version info"
+    print("foliavalidator", file=sys.stderr)
+    print("  by Maarten van Gompel (proycon)", file=sys.stderr)
+    print("  Radboud University Nijmegen", file=sys.stderr)
+    print("  2014 - Licensed under GPLv3", file=sys.stderr)
+    print("", file=sys.stderr)
+    print("FoLiA " + folia.FOLIAVERSION + ", library version " + folia.LIBVERSION, file=sys.stderr)
+    print("", file=sys.stderr)
+    print("Validates FoLiA documents.", file=sys.stderr)
+    print("", file=sys.stderr)
+    print("Usage: foliavalidator [options] file-or-dir1 file-or-dir2 ..etc..", file=sys.stderr)
+    print("", file=sys.stderr)
+    print("Parameters for processing directories:", file=sys.stderr)
+    print("  -r                           Process recursively", file=sys.stderr)
+    print("  -q                           Quick (more shallow) validation, only validate against RelaxNG schema - do not load document in FoLiA library", file=sys.stderr)
+    print("  -E [extension]               Set extension (default: xml)", file=sys.stderr)
+    print("  -V                           Show version info", file=sys.stderr)
 
 
 
@@ -41,27 +43,27 @@ def validate(filename, schema = None, quick=False):
     try:
         folia.validate(filename, schema)
     except Exception as e:
-        print >>sys.stderr, "VALIDATION ERROR against RelaxNG schema (stage 1/2), in " + filename
-        print >>sys.stderr, str(e)
+        print("VALIDATION ERROR against RelaxNG schema (stage 1/2), in " + filename,file=sys.stderr)
+        print(str(e), file=sys.stderr)
         return False
     try:
-        d = folia.Document(file=filename)
+        folia.Document(file=filename)
     except Exception as e:
-        print >>sys.stderr, "VALIDATION ERROR on full parse by library (stage 2/2), in " + filename
-        print >>sys.stderr, e.__class__.__name__ + ": " + str(e)
-        print >>sys.stderr, "Full traceback follows:"
+        print("VALIDATION ERROR on full parse by library (stage 2/2), in " + filename,file=sys.stderr)
+        print(e.__class__.__name__ + ": " + str(e),file=sys.stderr)
+        print("Full traceback follows:",file=sys.stderr)
         ex_type, ex, tb = sys.exc_info()
         traceback.print_tb(tb)
         return False
 
-    print >>sys.stderr, "Validated successfully: " +  filename
+    print("Validated successfully: " +  filename,file=sys.stderr)
     return True
 
 
 
 
 def processdir(d, schema = None,quick=False):
-    print >>sys.stderr, "Searching in  " + d
+    print("Searching in  " + d,file=sys.stderr)
     for f in glob.glob(d + '/*'):
         if f[-len(settings.extension) - 1:] == '.' + settings.extension:
             validate(f, schema,quick)
@@ -79,7 +81,7 @@ def main():
     try:
         opts, args = getopt.getopt(sys.argv[1:], "E:srhqV", ["help"])
     except getopt.GetoptError, err:
-        print str(err)
+        print(str(err), file=sys.stderr)
         usage()
         sys.exit(2)
 
@@ -94,7 +96,7 @@ def main():
         elif o == '-q':
             quick = True
         elif o == '-V':
-            print >>sys.stderr, "FoLiA " + folia.FOLIAVERSION + ", library version " + folia.LIBVERSION
+            print("FoLiA " + folia.FOLIAVERSION + ", library version " + folia.LIBVERSION,file=sys.stderr)
             sys.exit(0)
         else:
             raise Exception("No such option: " + o)
@@ -109,10 +111,10 @@ def main():
                 elif os.path.isfile(x):
                     validate(x, schema,quick)
                 else:
-                    print >>sys.stderr, "ERROR: File or directory not found: " + x
+                    print("ERROR: File or directory not found: " + x,file=sys.stderr)
                     sys.exit(3)
     else:
-        print >>sys.stderr,"ERROR: No files specified"
+        print("ERROR: No files specified",file=sys.stderr)
         sys.exit(2)
 
 if __name__ == "__main__":

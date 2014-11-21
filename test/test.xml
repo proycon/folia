@@ -1,620 +1,1140 @@
-<?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="http://ilk.uvt.nl/FoLiA/FoLiA.xsl"?>
-<FoLiA xmlns:imdi="http://www.mpi.nl/IMDI/Schema/IMDI" xmlns="http://ilk.uvt.nl/FoLiA" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:d-coi="http://lands.let.ru.nl/projects/d-coi/ns/1.0" xml:id="WR-P-E-J-0000001137">
-  <metadata>
-     <annotations>
-        <token-annotation set="ucto-tokconfig-nl" annotator="ucto" annotatortype="auto" />
-        <sentence-annotation set="sentences" annotator="ucto" annotatortype="auto" />
-        <paragraph-annotation set="paragraphs" annotator="ucto" annotatortype="auto" />
-        <pos-annotation set="CGN" annotator="Frog" annotatortype="auto" />
-        <lemma-annotation annotator="Frog" annotatortype="auto" />    
-        <sense-annotation set="Cornetto" annotator="supwsd1" annotatortype="auto" />    
-        <lexicon-annotation annotator="dict1" annotatortype="auto" />    
-        <lexicon-annotation annotator="dict2" annotatortype="auto" />    
-        <syntax-annotation annotator="Frog" annotatortype="auto" />
-        <chunk-annotation annotator="mbsp" annotatortype="auto" />
-        <correction-annotation set="corrections1" annotator="correctionsystem1" annotatortype="auto" />    
-        <entity-annotation set="ner1" annotator="ner-1" annotatortype="auto" />    
-     </annotations>
-     <relations>
-     </relations>
-    <imdi:METATRANSCRIPT>
-    </imdi:METATRANSCRIPT>
-  </metadata>
-  <text xml:id="TEST-000000001.text">
-    <body>
-      <div0 xml:id="TEST-0000000001.div0.1">
-        <p xml:id="TEST-000000001.p.1" class="firstparagraph">
-            <t>Dit is een tesst. Deze test bestaat uit twee zinnen.</t>
-            <s xml:id="TEST-000000001.p.1.s.1">
-                <t>Dit is een tesst.</t>                
-                <w xml:id="TEST-000000001.p.1.s.1.w.1" class="WORD"> <!-- type refers to e.g. ucto token types (optional) -->
-                    <t>Dit</t>                
-                    <pos class="N" annotator="Antal" annotatortype="manual">
-                        <feat class="ntype" value="soort" />
-                        <feat class="number" value="ev" />
-                        <feat class="degree" value="basis" />
-                        <feat class="gender" value="zijd" />
-                        <feat class="case" value="stan" />
-                    </pos>
-                    <lemma>dit</lemma>
-                    
-                    
-                    
-                    <alt xml:id="TEST-000000001.p.1.s.1.w.1.alt.1"> <!-- alternative (multiple alt elements allowed), grouping things that go together -->
-                        <pos class="VNW" confidence="0.21" annotator="B">                        
-                        </pos>
-                        <lemma>
-                        </lemma>
-                    </alt>
-                </w>
-                <!-- -->
-                <w xml:id="TEST-000000001.p.1.s.1.w.4">
-                    <t>test</t>
-  
-                    </correction>
-                    <!-- NA CORRECTIE: -->
-                    <correction xml:id="TEST-000000001.p.1.s.1.c.1" original="tesst" class="spelling">
-                        <t>test</t>
-                        <lexicon set="lexiconX" annotator="wopr" known="no" used="yes"><suggestion>test</suggestion></lexicon>                        
-                                        
-                    <!-- VÓÓR CORRECTIE -->                
-                    <lexicon set="lexiconX" known="no"><suggestion>test</suggestion></lexicon>
-                    
-                    <!-- steve playing around (and example completed by Maarten) -->
-                    <correction annotator="tanja" annotatortype="manual" original="tet" class="spelling">
-                        <t>test</t>
-                        <correction annotator="renske" annotatortype="manual" original="tesst" class="spelling">
-                            <t>tet</t>
-                            <lexicon set="lexiconX" annotator="wopr" known="no" used="yes"><suggestion>test</suggestion></lexicon>                        
-                        </correction>
-                    </correction>
-                                            
-                </w>
-                
-                
-            <s xml:id="TEST-000000001.p.1.s.2">    
-                <t>Deze test bestaat uit twee zinnen.</t>     
-
-                <!-- .... more --->
-
-                
-            </s>
-        </p>      
-      
-        </p>
-      </div0>
-    </body>
-  </text>
-</FoLiA>
-
-
-PoS, Lemma, and Sense-annotation:
-        
-        <w xml:id="TEST-000000001.p.1.s.1.w.1" class="WORD">
-                <t>beelden</t>
-                <pos class="N">
-                    <feat class="number" value="mv" />
-                </pos>
-                <lemma>beeld</lemma>
-                <domain>kunst</domain>
-                <sense set="cornetto" class="r_n-6220" synset="d_n-32683">beeldhouwwerk</sense>
-        </w>
-<?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="http://ilk.uvt.nl/FoLiA/FoLiA.xsl"?>
-<FoLiA xmlns:imdi="http://www.mpi.nl/IMDI/Schema/IMDI" xmlns="http://ilk.uvt.nl/FoLiA" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:d-coi="http://lands.let.ru.nl/projects/d-coi/ns/1.0" xml:id="WR-P-E-J-0000001137">
-  <metadata>
-    <CMD>
-     <annotations>
-        <token-annotation set="ucto-tokconfig-nl" annotator="ucto" annotatortype="auto" />
-        <pos-annotation set="CGN" annotator="Frog" annotatortype="auto" />
-        <lemma-annotation annotator="Frog" annotatortype="auto" />    
-        <sense-annotation set="Cornetto" annotator="supwsd1" annotatortype="auto" />    
-        <lexicon-annotation annotator="dict1" annotatortype="auto" />    
-        <lexicon-annotation annotator="dict2" annotatortype="auto" />    
-        <syntax-annotation annotator="Frog" annotatortype="auto" />
-        <chunk-annotation annotator="mbsp" annotatortype="auto" />
-        <correction-annotation set="corrections1" annotator="correctionsystem1" annotatortype="auto" />    
-        <entity-annotation set="ner1" annotator="ner-1" annotatortype="auto" />    
-     </annotations>
-    </CMD>
-    <imdi:METATRANSCRIPT>
-    </imdi:METATRANSCRIPT>
-  </metadata>
-  <text xml:id="TEST-000000001.text">
-    <body>
-      <div0 xml:id="TEST-0000000001.div0.1">
-        <p xml:id="TEST-000000001.p.1">
-            <t>Dit is een tesst. Deze test bestaat uit twee zinnen.</t>
-            <s xml:id="TEST-000000001.p.1.s.1">
-                <t>Dit is een tesst.</t>                
-                <w xml:id="TEST-000000001.p.1.s.1.w.1" class="WORD"> <!-- type refers to e.g. ucto token types (optional) -->
-                    <t>Dit</t>                
-                    <pos class="N" annotator="Antal" annotatortype="manual">
-                        <feat class="ntype" value="soort" />
-                        <feat class="number" value="ev" />
-                        <feat class="degree" value="basis" />
-                        <feat class="gender" value="zijd" />
-                        <feat class="case" value="stan" />
-                    </pos>
-                    <lemma class="dit" />
-                    
-                    
-                    
-                    <alt xml:id="TEST-000000001.p.1.s.1.w.1.alt.1"> <!-- alternative (multiple alt elements allowed), grouping things that go together -->
-                        <pos class="VNW" confidence="0.21" annotator="B">                        
-                        </pos>
-                        <lemma>
-                        </lemma>
-                    </alt>
-                </w>
-                <!-- -->
-                <w xml:id="TEST-000000001.p.1.s.1.w.4">
-                    <t>test</t>
-  
-                    
-                    <!-- NA CORRECTIE: -->
-                    <correction xml:id="TEST-000000001.p.1.s.1.c.1" class="spelling" confidence="0.45">
-                        <t>test</t>
-                        <original>
-                            <t>tesst</t>
-                            <lexicon set="lexiconX" annotator="wopr" annotatortype="auto" known="no" used="yes"><suggestion>test</suggestion></lexicon>                        
-                        </original>
-                    </correction>                        
-                                        
-                    <!-- VÓÓR CORRECTIE -->                
-                    <lexicon set="lexiconX" known="no"><suggestion>test</suggestion></lexicon>
-                    
-                    <errorlist set="errorlist" known="yes"><suggestion>test</suggestion></errorlist>
-                                                        
-                    
-                    <!-- steve playing around (and example completed by Maarten) -->
-                    <correction annotator="tanja" annotatortype="manual" class="spelling">
-                        <t>test</t>
-                        <original>
-                            <correction annotator="renske" annotatortype="manual" class="spelling">
-                                <t>tet</t>
-                                <original>
-                                    <t>tesst</t>
-                                    <lexicon set="lexiconX" annotator="wopr" known="no" used="yes"><suggestion>test</suggestion></lexicon>                        
-                                </original>
-                            </correction>
-                        </original>
-                    </correction>
-                                            
-                </w>
-                
-                
-            <s xml:id="TEST-000000001.p.1.s.2">    
-                <t>Deze test bestaat uit twee zinnen.</t>     
-
-                <!-- .... more --->
-
-                
-            </s>
-        </p>      
-      
-        </p>
-      </div0>
-    </body>
-  </text>
-</FoLiA>
-
-
-PoS, Lemma, and Sense-annotation:
-        
-        <w xml:id="TEST-000000001.p.1.s.1.w.1" class="WORD">
-                <t>beelden</t>
-                <pos class="N">
-                    <feat class="number" value="mv" />
-                </pos>
-                <lemma>beeld</lemma>
-                <domain>kunst</domain>
-                <sense set="cornetto" class="r_n-6220" synset="d_n-32683">beeldhouwwerk</sense>
-        </w>
-
-
-NER and MWU:
-
-        <entity xml:id="TEST-000000001.p.1.s.1.e.1" class="person">
-            <w xml:id="TEST-000000001.p.1.s.1.w.1" class="WORD">
-                    <t>Maurice</t>
-            </w>        
-            <w xml:id="TEST-000000001.p.1.s.1.w.1" class="WORD">
-                    <t>de</t>
-            </w>
-            <w xml:id="TEST-000000001.p.1.s.1.w.1" class="WORD">
-                    <t>Hond</t>
-            </w>
-        </entity>
-
-Dependencies:
-        
-        <w xml:id="TEST-000000001.p.1.s.1.w.1"><t>ik</t></w>
-        <w xml:id="TEST-000000001.p.1.s.1.w.2">
-            <t>bel</t>
-            <dep class="?" ref="TEST-000000001.p.1.s.1.w.4" />
-        </w>
-        <w xml:id="TEST-000000001.p.1.s.1.w.3"><t>hem</t></w>
-        <w xml:id="TEST-000000001.p.1.s.1.w.4">
-            <t>op</t>
-            <dep class="?" ref="TEST-000000001.p.1.s.1.w.2" />
-        </w>
-    
-                
-Syntactic units and Layers
-
-    OLD:
-    
-        <s>
-          <syn class="NP" xml:id="TEST-000000001.p.1.s.1.syn.1">
-            <w><t>De</t></w>
-            <head><w><t>man</t></w></head>
-          </syn>
-          <syn class="VP" xml:id="TEST-000000001.p.1.s.1.syn.2">
-            <head><w><t>aait</t></w></head>
-            <syn class="NP" xml:id="TEST-000000001.p.1.s.1.syn.2_1">
-                <w><t>De</t></w>
-                <h><w><t>hond</t></w></h>
-            </syn>
-          </syn>
-        </s>
-        
-    De man bijt de hond
-    
-    <s>
-        <w xml:ïd="TEST-000000001.p.1.s.1.w.1"><t>De</t></w>
-        <w xml:ïd="TEST-000000001.p.1.s.1.w.2"><t>man</t></w>
-        <w xml:ïd="TEST-000000001.p.1.s.1.w.3"><t>bijt</t></w>
-        <w xml:ïd="TEST-000000001.p.1.s.1.w.4"><t>De</t></w>
-        <w xml:ïd="TEST-000000001.p.1.s.1.w.5"><t>Hond</t></w>            
-        <syntax>
-           <su class="S">
-            <su class="NP">
-                <c><ref xml:ïd="TEST-000000001.p.1.s.1.w.1" /></c>
-                <h><ref xml:ïd="TEST-000000001.p.1.s.1.w.2" /></h>
-            </su>
-            <su class="VP">
-                <h><ref xml:ïd="TEST-000000001.p.1.s.1.w.3" /></h>
-                <c><su class="NP">
-                    <c><ref xml:ïd="TEST-000000001.p.1.s.1.w.4" /></c>
-                    <h><ref xml:ïd="TEST-000000001.p.1.s.1.w.5" /></h>
-                </su></c>
-            </su>
-         </su>
-        </syntax>
-        <syntax alternative="1">
-                <su class="NP" blah="blah">
-                    <ref xml:ïd="TEST-000000001.p.1.s.1.w.1" />
-                    <ref xml:ïd="TEST-000000001.p.1.s.1.w.2" />
-                    <ref xml:ïd="TEST-000000001.p.1.s.1.w.3" />
-                </su>
-                <su class="VP">                
-                    <su class="NP">
-                        <ref xml:ïd="TEST-000000001.p.1.s.1.w.4" />
-                        <ref xml:ïd="TEST-000000001.p.1.s.1.w.5" />
-                    </su>
-                </su>
-        </syntax>        
-        <chunking>
-            <chunk>
-                <ref xml:ïd="TEST-000000001.p.1.s.1.w.1" />
-                <ref xml:ïd="TEST-000000001.p.1.s.1.w.2" />
-            </chunk>
-            <chunk>
-                <ref xml:ïd="TEST-000000001.p.1.s.1.w.3" />
-            </chunk>
-            <chunk>
-                <ref xml:ïd="TEST-000000001.p.1.s.1.w.4" />
-                <ref xml:ïd="TEST-000000001.p.1.s.1.w.5" />
-
-NER and MWU:
-
-        <entity xml:id="TEST-000000001.p.1.s.1.e.1" class="person">
-            <w xml:id="TEST-000000001.p.1.s.1.w.1" class="WORD">
-                    <t>Maurice</t>
-            </w>        
-            <w xml:id="TEST-000000001.p.1.s.1.w.1" class="WORD">
-                    <t>de</t>
-            </w>
-            <w xml:id="TEST-000000001.p.1.s.1.w.1" class="WORD">
-                    <t>Hond</t>
-            </w>
-        </entity>
-
-Dependencies:
-        
-        <w xml:id="TEST-000000001.p.1.s.1.w.1"><t>ik</t></w>
-        <w xml:id="TEST-000000001.p.1.s.1.w.2">
-            <t>bel</t>
-            <dep class="?" ref="TEST-000000001.p.1.s.1.w.4" />
-        </w>
-        <w xml:id="TEST-000000001.p.1.s.1.w.3"><t>hem</t></w>
-        <w xml:id="TEST-000000001.p.1.s.1.w.4">
-            <t>op</t>
-            <dep class="?" ref="TEST-000000001.p.1.s.1.w.2" />
-        </w>
-    
-                
-Syntactic units and Layers
-
-
-    De man bijt de hond
-    
-    <s>
-        <w xml:ïd="TEST-000000001.p.1.s.1.w.1"><t>De</t></w>
-        <w xml:ïd="TEST-000000001.p.1.s.1.w.2"><t>man</t></w>
-        <w xml:ïd="TEST-000000001.p.1.s.1.w.3"><t>bijt</t></w>
-        <w xml:ïd="TEST-000000001.p.1.s.1.w.4"><t>De</t></w>
-        <w xml:ïd="TEST-000000001.p.1.s.1.w.5"><t>Hond</t></w>            
-        <syntax>
-           <su class="S">
-            <su class="NP">
-                <comp><ref xml:ïd="TEST-000000001.p.1.s.1.w.1" /></comp>
-                <h><ref xml:ïd="TEST-000000001.p.1.s.1.w.2" /></h>
-            </su>
-            <su class="VP">
-                <h><ref xml:ïd="TEST-000000001.p.1.s.1.w.3" /></h>
-                <comp><su class="NP">
-                    <comp><ref xml:ïd="TEST-000000001.p.1.s.1.w.4" /></comp>
-                    <h><ref xml:ïd="TEST-000000001.p.1.s.1.w.5" /></h>
-                </su></comp>
-            </su>
-         </su>
-        </syntax>
-        <syntax alternative="1">
-                <su class="NP" blah="blah">
-                    <ref xml:ïd="TEST-000000001.p.1.s.1.w.1" />
-                    <ref xml:ïd="TEST-000000001.p.1.s.1.w.2" />
-                    <ref xml:ïd="TEST-000000001.p.1.s.1.w.3" />
-                </su>
-                <su class="VP">                
-                    <su class="NP">
-                        <ref xml:ïd="TEST-000000001.p.1.s.1.w.4" />
-                        <ref xml:ïd="TEST-000000001.p.1.s.1.w.5" />
-                    </su>
-                </su>
-        </syntax>        
-        <chunking>
-            <chunk>
-                <ref xml:ïd="TEST-000000001.p.1.s.1.w.1" />
-                <ref xml:ïd="TEST-000000001.p.1.s.1.w.2" />
-            </chunk>
-            <chunk>
-                <ref xml:ïd="TEST-000000001.p.1.s.1.w.3" />
-            </chunk>
-            <chunk>
-                <ref xml:ïd="TEST-000000001.p.1.s.1.w.4" />
-                <ref xml:ïd="TEST-000000001.p.1.s.1.w.5" />
-            </chunk>
-        </chunking>
-        <entities>
-            <entity class="person">
-                <ref xml:ïd="TEST-000000001.p.1.s.1.w.4" />
-                <ref xml:ïd="TEST-000000001.p.1.s.1.w.5" />                
-            </entity>            
-        </entities>        
-    </s>
-
-
-
-
-Inline spelling corrections (OCR corrections) *prior* to tokenisation (ticcl):
-
-        <p xml:id="TEST-000000001.p.1">
-            <t>Dit is een <correction xml:id="TEST-000000001.p.1.c.1" original="tesst">
-                <t>test</t>                
-                <lexicon name="lexiconX" known="no">
-                    <suggestion>test</suggestion>
-                </lexicon>
-            </correction>. Deze test bestaat uit twee zinnen.</t>            
-        </p>
-        
-Word Merges:
-        
-<w xml:id="document.p.1.s.1.w.1-2">
-    <t>hetgeen</t>
-    <w-parent xml:id="document.p.1.s.1.w.1">
-        <t>het</t>
-        <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.1" original="het geen" class="merge" seqnr="1" total="2">            
-        </correction>
-    </w-parent>
-    <w-parent xml:id="document.p.1.s.1.w.2">
-        <t>geen</t>
-        <correction xml:id="TEST-000000001.p.1.s.1.w.2.c.1" original="het geen" class="merge" seqnr="2" total="2">            
-        </correction>
-    </w-parent>
-    <correction xml:id="TEST-000000001.p.1.s.1.w.1-2.c.1" original="het geen" class="merge" parts="2">
-        <t>hetgeen</t>
-        <lexicon name="lexiconX" known="no"><suggestion>..</suggestion></lexicon>
-    </correction>                    
-</w>         
-
-
-Word Splits:
-
-<w-parent xml:id="document.p.1.s.1.w.1">
-    <t>eraf</t>
-    <w xml:id="document.p.1.s.1.w.1_1">
-        <t>er</t>
-        <correction xml:id="TEST-000000001.p.1.s.1.w.1_1.c.1" original="eraf" class="split" seqnr="1" total="2">
-            <txt>er</txt>
-            <lexicon name="lexiconX" known="no"><suggestion>..</suggestion></lexicon>
-        </correction>                    
-    </w>
-    <w xml:id="document.p1.s1.w.1_2">
-        <t>af</t>
-        <correction xml:id="TEST-000000001.p.1.s.1.w.1_2.c.1" original="eraf" class="split" seqnr="2" total="2">
-            <t>af</t>
-            <lexicon name="lexiconX" known="no"><suggestion>..</suggestion></lexicon>
-        </correction>                  
-    </w>
-    <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.1" class="split" parts="2">
-        <t>er af</t>
-        <lexicon name="lexiconX" known="no"><suggestion>..</suggestion></lexicon>
-    </correction>
-</w-parent>
-
-Sentence Merges:
-
-<s xml:id="document.p.1.s.1-2">
-    <t>Dit is een zin.</t>    
-    <s-parent xml:id="document.p.1.s.1">
-        <t>Dit is</t>
-    </s-parent>
-    <s-parent xml:id="document.p.1.s.2">
-        <t>een zin.</t>
-    </s-parent>
-    <correction xml:id="TEST-000000001.p.1.s.1-2.c.1" original="Dit is een zin." class="merge">
-        <t>hetgeen</t>
-        <lexicon set="lexiconX" known="no"><suggestion>..</suggestion></lexicon>
-    </correction>      
-</s>      
-
-
-Sentence Splits:
-
-
-
-Metadata (CMDI):
-
-
-<annotations>
-    <token-annotation set="" />
-    <lemma-annotation set="" annotator="" annotatortype="" />
-    <pos-annotation conceptlink="" set="http://ilk.uvt.nl/FoLiA/sets/PoS-CGN.xml" annotator="" />
-    <sense-annotation set="cornetto" annotator="" />
-    <syntax-annotation set="" annotator="" />
-    <entity-annotation set="" annotator="" />
-    <correction-annotation set="" annotator="" />
-    <lexicon-annotation set="" annotator="" />
-</annotations>
-
-<annotation type="">
-</annotation>
-
-<!-- FoLiA set -->
-
-<?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="http://ilk.uvt.nl/FoLiA/FoLiAset.xsl"?>
-<FoLiA-set type="pos" conceptlink="">
-    <class for="pos" key="WW" conceptlink="..">    <!-- default type root -->
-        <class for="feat" key="trans" />
-    </class>
-</FoLiA-set>
-
-
-
-CMDI brainstorm:
-
-component: cmdi-annotationtype !
-
-NEW CORRECTIONS:
-
-    <!-- NA CORRECTIE: -->
-    <correction xml:id="TEST-000000001.p.1.s.1.c.1" annotator="wopr" annotatortype="auto" class="spelling" confidence="0.8">
-        <new>
-            <t>test</t>
-        </new>
-        <original>
-            <t>tesst</t>                            
-        </original>                        
-        <options>
-            <option selected="yes" confidence="0.8"><t>test</t></option>
-            <option confidence="0.1"><t>testen</t></option>
-            <option confidence="0.1"><t>feest</t></option>                            
-        </options>                        
-    </correction>                        
-                      
-                      
-                      
-    <correction xml:id="TEST-000000001.p.1.s.1.c.1" annotator="wopr" annotatortype="auto" class="spelling" confidence="0.45" applied="no">
-        <original>
-            <t>tesst</t>                            
-        </original>                        
-        <options>
-            <option><t>test</t></option>
-            <option><t>testen</t></option>
-            <option><t>feest</t></option>                            
-        </options>
-    </correction>             
-                      
-                 
-                    
-    <correction annotator="tanja" annotatortype="manual" class="spelling">
-        <new>
-            <t>test</t>
-        </new>
-        <original>
-            <correction annotator="renske" annotatortype="manual" class="spelling">
-                <new>
-                    <t>tet</t>
-                </new>
-                <original>
-                    <t>tesst</t>
-                </original>
-            </correction>
-        </original>
-    </correction>         
-                      
-                                           
-    <w xml:id="document.p.1.s.1.w.1-2">
-        <t>hetgeen</t>
-        <w-parent xml:id="document.p.1.s.1.w.1">
-            <t>het</t>
-            <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.1" original="het geen" class="merge" seqnr="1" total="2">            
-            </correction>
-        </w-parent>
-        <w-parent xml:id="document.p.1.s.1.w.2">
-            <t>geen</t>
-            <correction xml:id="TEST-000000001.p.1.s.1.w.2.c.1" original="het geen" class="merge" seqnr="2" total="2">            
-            </correction>
-        </w-parent>
-        <correction xml:id="TEST-000000001.p.1.s.1.w.1-2.c.1" original="het geen" class="merge" parts="2">
-            <t>hetgeen</t>
-            <lexicon name="lexiconX" known="no"><suggestion>..</suggestion></lexicon>
-        </correction>                    
-    </w>                
-                                            
-           
-           
-           
-<metadata cmdiprofile="">
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="folia.xsl"?>
+<FoLiA xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://ilk.uvt.nl/folia" xml:id="test" generator="libfolia-v0.13" version="0.11.1">
+  <metadata type="native">
     <annotations>
-    
+      <token-annotation annotator="ucto" annotatortype="auto" datetime="2014-11-21T16:29:43" set="tokconfig-nl"/>
+      <pos-annotation annotator="frog-mbpos-1.0" annotatortype="auto" datetime="2014-11-22T00:10:21" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-cgn"/>
+      <lemma-annotation annotator="frog-mblem-1.1" annotatortype="auto" datetime="2014-11-22T00:10:21" set="http://ilk.uvt.nl/folia/sets/frog-mblem-nl"/>
+      <chunking-annotation annotator="frog-chunker-1.0" annotatortype="auto" datetime="2014-11-22T00:10:21" set="http://ilk.uvt.nl/folia/sets/frog-chunker-nl"/>
+      <entity-annotation annotator="frog-mwu-1.0" annotatortype="auto" datetime="2014-11-22T00:10:21" set="http://ilk.uvt.nl/folia/sets/frog-mwu-nl"/>
+      <entity-annotation annotator="frog-ner-1.0" annotatortype="auto" datetime="2014-11-22T00:10:21" set="http://ilk.uvt.nl/folia/sets/frog-ner-nl"/>
+      <morphological-annotation annotator="frog-mbma-1.0" annotatortype="auto" datetime="2014-11-22T00:10:21" set="http://ilk.uvt.nl/folia/sets/frog-mbma-nl"/>
+      <dependency-annotation annotator="frog-depparse-1.0" annotatortype="auto" set="http://ilk.uvt.nl/folia/sets/frog-depparse-nl"/>
     </annotations>
-    <relations>
-        <relation type="translation" xml:lang="fr" file="TEST-fr.xml">Titre français</translation>
-        <relation type="previous" file="TEST.xml">
-        <relation type="next" file="TEST.xml">
-    </relations>
-</metadata>           
-           
+  </metadata>
+  <text xml:id="test.text">
+    <p xml:id="test.p.1">
+      <t>Dit is de eerste zin van de paragraaf. Dit is de tweede zin van de paragraaf. En dit de laatste.</t>
+      <s xml:id="test.p.1.s.1">
+        <t>Dit is de eerste zin van de paragraaf.</t>
+        <w xml:id="test.p.1.s.1.w.1" class="WORD">
+          <t>Dit</t>
+          <pos class="VNW(aanw,pron,stan,vol,3o,ev)" confidence="0.777085" head="VNW">
+            <feat class="aanw" subset="vwtype"/>
+            <feat class="pron" subset="pdtype"/>
+            <feat class="stan" subset="naamval"/>
+            <feat class="vol" subset="status"/>
+            <feat class="3o" subset="persoon"/>
+            <feat class="ev" subset="getal"/>
+          </pos>
+          <lemma class="dit"/>
+          <morphology>
+            <morpheme>
+              <t offset="0">dit</t>
+            </morpheme>
+          </morphology>
+        </w>
+        <w xml:id="test.p.1.s.1.w.2" class="WORD">
+          <t>is</t>
+          <pos class="WW(pv,tgw,ev)" confidence="0.999635" head="WW">
+            <feat class="pv" subset="wvorm"/>
+            <feat class="tgw" subset="pvtijd"/>
+            <feat class="ev" subset="pvagr"/>
+          </pos>
+          <morphology>
+            <morpheme>
+              <t offset="0">zijn</t>
+            </morpheme>
+          </morphology>
+          <lemma class="zijn"/>
+        </w>
+        <w xml:id="test.p.1.s.1.w.3" class="WORD">
+          <t>de</t>
+          <pos class="LID(bep,stan,rest)" confidence="0.999244" head="LID">
+            <feat class="bep" subset="lwtype"/>
+            <feat class="stan" subset="naamval"/>
+            <feat class="rest" subset="npagr"/>
+          </pos>
+          <lemma class="de"/>
+          <morphology>
+            <morpheme>
+              <t offset="0">de</t>
+            </morpheme>
+          </morphology>
+        </w>
+        <w xml:id="test.p.1.s.1.w.4" class="WORD">
+          <t>eerste</t>
+          <pos class="TW(rang,prenom,stan)" confidence="0.996814" head="TW">
+            <feat class="rang" subset="numtype"/>
+            <feat class="prenom" subset="positie"/>
+            <feat class="stan" subset="naamval"/>
+          </pos>
+          <lemma class="een"/>
+          <alt xml:id="test.p.1.s.1.w.4.alt-lem.1" auth="no">
+            <lemma class="eerste"/>
+          </alt>
+          <alt xml:id="test.p.1.s.1.w.4.alt-lem.2" auth="no">
+            <lemma class="één"/>
+          </alt>
+          <morphology>
+            <morpheme>
+              <t offset="0">een</t>
+            </morpheme>
+            <morpheme>
+              <t offset="3">ste</t>
+            </morpheme>
+          </morphology>
+        </w>
+        <w xml:id="test.p.1.s.1.w.5" class="WORD">
+          <t>zin</t>
+          <pos class="N(soort,ev,basis,zijd,stan)" confidence="0.99861" head="N">
+            <feat class="soort" subset="ntype"/>
+            <feat class="ev" subset="getal"/>
+            <feat class="basis" subset="graad"/>
+            <feat class="zijd" subset="genus"/>
+            <feat class="stan" subset="naamval"/>
+          </pos>
+          <lemma class="zin"/>
+          <morphology>
+            <morpheme>
+              <t offset="0">zin</t>
+            </morpheme>
+          </morphology>
+        </w>
+        <w xml:id="test.p.1.s.1.w.6" class="WORD">
+          <t>van</t>
+          <pos class="VZ(init)" confidence="0.999948" head="VZ">
+            <feat class="init" subset="vztype"/>
+          </pos>
+          <lemma class="van"/>
+          <morphology>
+            <morpheme>
+              <t offset="0">van</t>
+            </morpheme>
+          </morphology>
+        </w>
+        <w xml:id="test.p.1.s.1.w.7" class="WORD">
+          <t>de</t>
+          <pos class="LID(bep,stan,rest)" confidence="0.999525" head="LID">
+            <feat class="bep" subset="lwtype"/>
+            <feat class="stan" subset="naamval"/>
+            <feat class="rest" subset="npagr"/>
+          </pos>
+          <morphology>
+            <morpheme>
+              <t offset="0">de</t>
+            </morpheme>
+          </morphology>
+          <lemma class="de"/>
+        </w>
+        <w xml:id="test.p.1.s.1.w.8" class="WORD" space="no">
+          <t>paragraaf</t>
+          <pos class="N(soort,ev,basis,zijd,stan)" confidence="0.998077" head="N">
+            <feat class="soort" subset="ntype"/>
+            <feat class="ev" subset="getal"/>
+            <feat class="basis" subset="graad"/>
+            <feat class="zijd" subset="genus"/>
+            <feat class="stan" subset="naamval"/>
+          </pos>
+          <lemma class="paragraaf"/>
+          <morphology>
+            <morpheme>
+              <t offset="0">paragraaf</t>
+            </morpheme>
+          </morphology>
+        </w>
+        <w xml:id="test.p.1.s.1.w.9" class="PUNCTUATION">
+          <t>.</t>
+          <pos class="LET()" confidence="1" head="LET"/>
+          <lemma class="."/>
+          <morphology>
+            <morpheme>
+              <t offset="0">.</t>
+            </morpheme>
+          </morphology>
+        </w>
+        <entities xml:id="test.p.1.s.1.entities.1"/>
+        <chunking xml:id="test.p.1.s.1.chunking.1">
+          <chunk xml:id="test.p.1.s.1.chunking.1.chunk.1" class="NP" confidence="0.992424">
+            <wref id="test.p.1.s.1.w.1" t="Dit"/>
+          </chunk>
+          <chunk xml:id="test.p.1.s.1.chunking.1.chunk.2" class="VP" confidence="0.972459">
+            <wref id="test.p.1.s.1.w.2" t="is"/>
+          </chunk>
+          <chunk xml:id="test.p.1.s.1.chunking.1.chunk.3" class="NP" confidence="0.742156">
+            <wref id="test.p.1.s.1.w.3" t="de"/>
+            <wref id="test.p.1.s.1.w.4" t="eerste"/>
+            <wref id="test.p.1.s.1.w.5" t="zin"/>
+          </chunk>
+          <chunk xml:id="test.p.1.s.1.chunking.1.chunk.4" class="PP" confidence="0.998718">
+            <wref id="test.p.1.s.1.w.6" t="van"/>
+          </chunk>
+          <chunk xml:id="test.p.1.s.1.chunking.1.chunk.5" class="NP" confidence="0.982437">
+            <wref id="test.p.1.s.1.w.7" t="de"/>
+            <wref id="test.p.1.s.1.w.8" t="paragraaf"/>
+          </chunk>
+        </chunking>
+        <dependencies xml:id="test.p.1.s.1.dependencies.1">
+          <dependency xml:id="test.p.1.s.1.dependencies.1.dependency.1" class="su">
+            <hd>
+              <wref id="test.p.1.s.1.w.2" t="is"/>
+            </hd>
+            <dep>
+              <wref id="test.p.1.s.1.w.1" t="Dit"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="test.p.1.s.1.dependencies.1.dependency.2" class="det">
+            <hd>
+              <wref id="test.p.1.s.1.w.5" t="zin"/>
+            </hd>
+            <dep>
+              <wref id="test.p.1.s.1.w.3" t="de"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="test.p.1.s.1.dependencies.1.dependency.3" class="mod">
+            <hd>
+              <wref id="test.p.1.s.1.w.5" t="zin"/>
+            </hd>
+            <dep>
+              <wref id="test.p.1.s.1.w.4" t="eerste"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="test.p.1.s.1.dependencies.1.dependency.4" class="predc">
+            <hd>
+              <wref id="test.p.1.s.1.w.2" t="is"/>
+            </hd>
+            <dep>
+              <wref id="test.p.1.s.1.w.5" t="zin"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="test.p.1.s.1.dependencies.1.dependency.5" class="mod">
+            <hd>
+              <wref id="test.p.1.s.1.w.5" t="zin"/>
+            </hd>
+            <dep>
+              <wref id="test.p.1.s.1.w.6" t="van"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="test.p.1.s.1.dependencies.1.dependency.6" class="det">
+            <hd>
+              <wref id="test.p.1.s.1.w.8" t="paragraaf"/>
+            </hd>
+            <dep>
+              <wref id="test.p.1.s.1.w.7" t="de"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="test.p.1.s.1.dependencies.1.dependency.7" class="obj1">
+            <hd>
+              <wref id="test.p.1.s.1.w.6" t="van"/>
+            </hd>
+            <dep>
+              <wref id="test.p.1.s.1.w.8" t="paragraaf"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="test.p.1.s.1.dependencies.1.dependency.8" class="punct">
+            <hd>
+              <wref id="test.p.1.s.1.w.8" t="paragraaf"/>
+            </hd>
+            <dep>
+              <wref id="test.p.1.s.1.w.9" t="."/>
+            </dep>
+          </dependency>
+        </dependencies>
+      </s>
+      <s xml:id="test.p.1.s.2">
+        <t>Dit is de tweede zin van de paragraaf.</t>
+        <w xml:id="test.p.1.s.2.w.1" class="WORD">
+          <t>Dit</t>
+          <pos class="VNW(aanw,pron,stan,vol,3o,ev)" confidence="0.777085" head="VNW">
+            <feat class="aanw" subset="vwtype"/>
+            <feat class="pron" subset="pdtype"/>
+            <feat class="stan" subset="naamval"/>
+            <feat class="vol" subset="status"/>
+            <feat class="3o" subset="persoon"/>
+            <feat class="ev" subset="getal"/>
+          </pos>
+          <lemma class="dit"/>
+          <morphology>
+            <morpheme>
+              <t offset="0">dit</t>
+            </morpheme>
+          </morphology>
+        </w>
+        <w xml:id="test.p.1.s.2.w.2" class="WORD">
+          <t>is</t>
+          <pos class="WW(pv,tgw,ev)" confidence="0.999635" head="WW">
+            <feat class="pv" subset="wvorm"/>
+            <feat class="tgw" subset="pvtijd"/>
+            <feat class="ev" subset="pvagr"/>
+          </pos>
+          <morphology>
+            <morpheme>
+              <t offset="0">zijn</t>
+            </morpheme>
+          </morphology>
+          <lemma class="zijn"/>
+        </w>
+        <w xml:id="test.p.1.s.2.w.3" class="WORD">
+          <t>de</t>
+          <pos class="LID(bep,stan,rest)" confidence="0.998382" head="LID">
+            <feat class="bep" subset="lwtype"/>
+            <feat class="stan" subset="naamval"/>
+            <feat class="rest" subset="npagr"/>
+          </pos>
+          <lemma class="de"/>
+          <morphology>
+            <morpheme>
+              <t offset="0">de</t>
+            </morpheme>
+          </morphology>
+        </w>
+        <w xml:id="test.p.1.s.2.w.4" class="WORD">
+          <t>tweede</t>
+          <pos class="TW(rang,prenom,stan)" confidence="0.99591" head="TW">
+            <feat class="rang" subset="numtype"/>
+            <feat class="prenom" subset="positie"/>
+            <feat class="stan" subset="naamval"/>
+          </pos>
+          <lemma class="twee"/>
+          <alt xml:id="test.p.1.s.2.w.4.alt-lem.1" auth="no">
+            <lemma class="tweede"/>
+          </alt>
+          <morphology>
+            <morpheme>
+              <t offset="0">twee</t>
+            </morpheme>
+            <morpheme>
+              <t offset="4">de</t>
+            </morpheme>
+          </morphology>
+        </w>
+        <w xml:id="test.p.1.s.2.w.5" class="WORD">
+          <t>zin</t>
+          <pos class="N(soort,ev,basis,zijd,stan)" confidence="0.99861" head="N">
+            <feat class="soort" subset="ntype"/>
+            <feat class="ev" subset="getal"/>
+            <feat class="basis" subset="graad"/>
+            <feat class="zijd" subset="genus"/>
+            <feat class="stan" subset="naamval"/>
+          </pos>
+          <lemma class="zin"/>
+          <morphology>
+            <morpheme>
+              <t offset="0">zin</t>
+            </morpheme>
+          </morphology>
+        </w>
+        <w xml:id="test.p.1.s.2.w.6" class="WORD">
+          <t>van</t>
+          <pos class="VZ(init)" confidence="0.999948" head="VZ">
+            <feat class="init" subset="vztype"/>
+          </pos>
+          <lemma class="van"/>
+          <morphology>
+            <morpheme>
+              <t offset="0">van</t>
+            </morpheme>
+          </morphology>
+        </w>
+        <w xml:id="test.p.1.s.2.w.7" class="WORD">
+          <t>de</t>
+          <pos class="LID(bep,stan,rest)" confidence="0.999525" head="LID">
+            <feat class="bep" subset="lwtype"/>
+            <feat class="stan" subset="naamval"/>
+            <feat class="rest" subset="npagr"/>
+          </pos>
+          <morphology>
+            <morpheme>
+              <t offset="0">de</t>
+            </morpheme>
+          </morphology>
+          <lemma class="de"/>
+        </w>
+        <w xml:id="test.p.1.s.2.w.8" class="WORD" space="no">
+          <t>paragraaf</t>
+          <pos class="N(soort,ev,basis,zijd,stan)" confidence="0.998077" head="N">
+            <feat class="soort" subset="ntype"/>
+            <feat class="ev" subset="getal"/>
+            <feat class="basis" subset="graad"/>
+            <feat class="zijd" subset="genus"/>
+            <feat class="stan" subset="naamval"/>
+          </pos>
+          <lemma class="paragraaf"/>
+          <morphology>
+            <morpheme>
+              <t offset="0">paragraaf</t>
+            </morpheme>
+          </morphology>
+        </w>
+        <w xml:id="test.p.1.s.2.w.9" class="PUNCTUATION">
+          <t>.</t>
+          <pos class="LET()" confidence="1" head="LET"/>
+          <morphology>
+            <morpheme>
+              <t offset="0">.</t>
+            </morpheme>
+          </morphology>
+          <lemma class="."/>
+        </w>
+        <entities xml:id="test.p.1.s.2.entities.1"/>
+        <chunking xml:id="test.p.1.s.2.chunking.1">
+          <chunk xml:id="test.p.1.s.2.chunking.1.chunk.1" class="NP" confidence="0.992424">
+            <wref id="test.p.1.s.2.w.1" t="Dit"/>
+          </chunk>
+          <chunk xml:id="test.p.1.s.2.chunking.1.chunk.2" class="VP" confidence="0.972459">
+            <wref id="test.p.1.s.2.w.2" t="is"/>
+          </chunk>
+          <chunk xml:id="test.p.1.s.2.chunking.1.chunk.3" class="NP" confidence="0.72655">
+            <wref id="test.p.1.s.2.w.3" t="de"/>
+            <wref id="test.p.1.s.2.w.4" t="tweede"/>
+            <wref id="test.p.1.s.2.w.5" t="zin"/>
+          </chunk>
+          <chunk xml:id="test.p.1.s.2.chunking.1.chunk.4" class="PP" confidence="0.998718">
+            <wref id="test.p.1.s.2.w.6" t="van"/>
+          </chunk>
+          <chunk xml:id="test.p.1.s.2.chunking.1.chunk.5" class="NP" confidence="0.982437">
+            <wref id="test.p.1.s.2.w.7" t="de"/>
+            <wref id="test.p.1.s.2.w.8" t="paragraaf"/>
+          </chunk>
+        </chunking>
+        <dependencies xml:id="test.p.1.s.2.dependencies.1">
+          <dependency xml:id="test.p.1.s.2.dependencies.1.dependency.1" class="su">
+            <hd>
+              <wref id="test.p.1.s.2.w.2" t="is"/>
+            </hd>
+            <dep>
+              <wref id="test.p.1.s.2.w.1" t="Dit"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="test.p.1.s.2.dependencies.1.dependency.2" class="det">
+            <hd>
+              <wref id="test.p.1.s.2.w.5" t="zin"/>
+            </hd>
+            <dep>
+              <wref id="test.p.1.s.2.w.3" t="de"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="test.p.1.s.2.dependencies.1.dependency.3" class="mod">
+            <hd>
+              <wref id="test.p.1.s.2.w.5" t="zin"/>
+            </hd>
+            <dep>
+              <wref id="test.p.1.s.2.w.4" t="tweede"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="test.p.1.s.2.dependencies.1.dependency.4" class="predc">
+            <hd>
+              <wref id="test.p.1.s.2.w.2" t="is"/>
+            </hd>
+            <dep>
+              <wref id="test.p.1.s.2.w.5" t="zin"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="test.p.1.s.2.dependencies.1.dependency.5" class="mod">
+            <hd>
+              <wref id="test.p.1.s.2.w.5" t="zin"/>
+            </hd>
+            <dep>
+              <wref id="test.p.1.s.2.w.6" t="van"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="test.p.1.s.2.dependencies.1.dependency.6" class="det">
+            <hd>
+              <wref id="test.p.1.s.2.w.8" t="paragraaf"/>
+            </hd>
+            <dep>
+              <wref id="test.p.1.s.2.w.7" t="de"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="test.p.1.s.2.dependencies.1.dependency.7" class="obj1">
+            <hd>
+              <wref id="test.p.1.s.2.w.6" t="van"/>
+            </hd>
+            <dep>
+              <wref id="test.p.1.s.2.w.8" t="paragraaf"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="test.p.1.s.2.dependencies.1.dependency.8" class="punct">
+            <hd>
+              <wref id="test.p.1.s.2.w.8" t="paragraaf"/>
+            </hd>
+            <dep>
+              <wref id="test.p.1.s.2.w.9" t="."/>
+            </dep>
+          </dependency>
+        </dependencies>
+      </s>
+      <s xml:id="test.p.1.s.3">
+        <t>En dit de laatste.</t>
+        <w xml:id="test.p.1.s.3.w.1" class="WORD">
+          <t>En</t>
+          <pos class="VG(neven)" confidence="0.992995" head="VG">
+            <feat class="neven" subset="conjtype"/>
+          </pos>
+          <morphology>
+            <morpheme>
+              <t offset="0">en</t>
+            </morpheme>
+          </morphology>
+          <lemma class="en"/>
+        </w>
+        <w xml:id="test.p.1.s.3.w.2" class="WORD">
+          <t>dit</t>
+          <pos class="VNW(aanw,pron,stan,vol,3o,ev)" confidence="0.992593" head="VNW">
+            <feat class="aanw" subset="vwtype"/>
+            <feat class="pron" subset="pdtype"/>
+            <feat class="stan" subset="naamval"/>
+            <feat class="vol" subset="status"/>
+            <feat class="3o" subset="persoon"/>
+            <feat class="ev" subset="getal"/>
+          </pos>
+          <lemma class="dit"/>
+          <morphology>
+            <morpheme>
+              <t offset="0">dit</t>
+            </morpheme>
+          </morphology>
+        </w>
+        <w xml:id="test.p.1.s.3.w.3" class="WORD">
+          <t>de</t>
+          <pos class="LID(bep,stan,rest)" confidence="0.981886" head="LID">
+            <feat class="bep" subset="lwtype"/>
+            <feat class="stan" subset="naamval"/>
+            <feat class="rest" subset="npagr"/>
+          </pos>
+          <lemma class="de"/>
+          <morphology>
+            <morpheme>
+              <t offset="0">de</t>
+            </morpheme>
+          </morphology>
+        </w>
+        <w xml:id="test.p.1.s.3.w.4" class="WORD" space="no">
+          <t>laatste</t>
+          <pos class="ADJ(nom,sup,met-e,zonder-n,stan)" confidence="0.787879" head="ADJ">
+            <feat class="nom" subset="positie"/>
+            <feat class="sup" subset="graad"/>
+            <feat class="met-e" subset="buiging"/>
+            <feat class="zonder-n" subset="getal-n"/>
+            <feat class="stan" subset="naamval"/>
+          </pos>
+          <lemma class="laat"/>
+          <morphology>
+            <morpheme>
+              <t offset="0">laat</t>
+            </morpheme>
+            <morpheme>
+              <t offset="4">st</t>
+            </morpheme>
+            <morpheme>
+              <t offset="6">e</t>
+            </morpheme>
+          </morphology>
+          <alt xml:id="test.p.1.s.3.w.4.alt-mor.1" auth="no">
+            <morphology>
+              <morpheme>
+                <t offset="0">laatst</t>
+              </morpheme>
+              <morpheme>
+                <t offset="6">e</t>
+              </morpheme>
+            </morphology>
+          </alt>
+        </w>
+        <w xml:id="test.p.1.s.3.w.5" class="PUNCTUATION">
+          <t>.</t>
+          <pos class="LET()" confidence="1" head="LET"/>
+          <morphology>
+            <morpheme>
+              <t offset="0">.</t>
+            </morpheme>
+          </morphology>
+          <lemma class="."/>
+        </w>
+        <entities xml:id="test.p.1.s.3.entities.1"/>
+        <chunking xml:id="test.p.1.s.3.chunking.1">
+          <chunk xml:id="test.p.1.s.3.chunking.1.chunk.1" class="PP" confidence="0.984615">
+            <wref id="test.p.1.s.3.w.1" t="En"/>
+          </chunk>
+          <chunk xml:id="test.p.1.s.3.chunking.1.chunk.2" class="NP" confidence="0.954545">
+            <wref id="test.p.1.s.3.w.2" t="dit"/>
+          </chunk>
+          <chunk xml:id="test.p.1.s.3.chunking.1.chunk.3" class="NP" confidence="0.898237">
+            <wref id="test.p.1.s.3.w.3" t="de"/>
+            <wref id="test.p.1.s.3.w.4" t="laatste"/>
+          </chunk>
+        </chunking>
+        <dependencies xml:id="test.p.1.s.3.dependencies.1">
+          <dependency xml:id="test.p.1.s.3.dependencies.1.dependency.1" class="None">
+            <hd>
+              <wref id="test.p.1.s.3.w.4" t="laatste"/>
+            </hd>
+            <dep>
+              <wref id="test.p.1.s.3.w.2" t="dit"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="test.p.1.s.3.dependencies.1.dependency.2" class="det">
+            <hd>
+              <wref id="test.p.1.s.3.w.4" t="laatste"/>
+            </hd>
+            <dep>
+              <wref id="test.p.1.s.3.w.3" t="de"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="test.p.1.s.3.dependencies.1.dependency.3" class="cnj">
+            <hd>
+              <wref id="test.p.1.s.3.w.1" t="En"/>
+            </hd>
+            <dep>
+              <wref id="test.p.1.s.3.w.4" t="laatste"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="test.p.1.s.3.dependencies.1.dependency.4" class="punct">
+            <hd>
+              <wref id="test.p.1.s.3.w.4" t="laatste"/>
+            </hd>
+            <dep>
+              <wref id="test.p.1.s.3.w.5" t="."/>
+            </dep>
+          </dependency>
+        </dependencies>
+      </s>
+    </p>
+    <p xml:id="test.p.2">
+      <t>Dit is één zin in een nieuwe paragraaf.</t>
+      <s xml:id="test.p.2.s.1">
+        <t>Dit is één zin in een nieuwe paragraaf.</t>
+        <w xml:id="test.p.2.s.1.w.1" class="WORD">
+          <t>Dit</t>
+          <pos class="VNW(aanw,pron,stan,vol,3o,ev)" confidence="0.777085" head="VNW">
+            <feat class="aanw" subset="vwtype"/>
+            <feat class="pron" subset="pdtype"/>
+            <feat class="stan" subset="naamval"/>
+            <feat class="vol" subset="status"/>
+            <feat class="3o" subset="persoon"/>
+            <feat class="ev" subset="getal"/>
+          </pos>
+          <lemma class="dit"/>
+          <morphology>
+            <morpheme>
+              <t offset="0">dit</t>
+            </morpheme>
+          </morphology>
+        </w>
+        <w xml:id="test.p.2.s.1.w.2" class="WORD">
+          <t>is</t>
+          <pos class="WW(pv,tgw,ev)" confidence="0.999447" head="WW">
+            <feat class="pv" subset="wvorm"/>
+            <feat class="tgw" subset="pvtijd"/>
+            <feat class="ev" subset="pvagr"/>
+          </pos>
+          <morphology>
+            <morpheme>
+              <t offset="0">zijn</t>
+            </morpheme>
+          </morphology>
+          <lemma class="zijn"/>
+        </w>
+        <w xml:id="test.p.2.s.1.w.3" class="WORD">
+          <t>één</t>
+          <pos class="TW(hoofd,prenom,stan)" confidence="0.976576" head="TW">
+            <feat class="hoofd" subset="numtype"/>
+            <feat class="prenom" subset="positie"/>
+            <feat class="stan" subset="naamval"/>
+          </pos>
+          <lemma class="een"/>
+          <alt xml:id="test.p.2.s.1.w.3.alt-lem.1" auth="no">
+            <lemma class="één"/>
+          </alt>
+          <morphology>
+            <morpheme>
+              <t offset="0">één</t>
+            </morpheme>
+          </morphology>
+        </w>
+        <w xml:id="test.p.2.s.1.w.4" class="WORD">
+          <t>zin</t>
+          <pos class="N(soort,ev,basis,zijd,stan)" confidence="0.99861" head="N">
+            <feat class="soort" subset="ntype"/>
+            <feat class="ev" subset="getal"/>
+            <feat class="basis" subset="graad"/>
+            <feat class="zijd" subset="genus"/>
+            <feat class="stan" subset="naamval"/>
+          </pos>
+          <lemma class="zin"/>
+          <morphology>
+            <morpheme>
+              <t offset="0">zin</t>
+            </morpheme>
+          </morphology>
+        </w>
+        <w xml:id="test.p.2.s.1.w.5" class="WORD">
+          <t>in</t>
+          <pos class="VZ(init)" confidence="0.941176" head="VZ">
+            <feat class="init" subset="vztype"/>
+          </pos>
+          <lemma class="in"/>
+          <morphology>
+            <morpheme>
+              <t offset="0">in</t>
+            </morpheme>
+          </morphology>
+        </w>
+        <w xml:id="test.p.2.s.1.w.6" class="WORD">
+          <t>een</t>
+          <pos class="LID(onbep,stan,agr)" confidence="0.995147" head="LID">
+            <feat class="onbep" subset="lwtype"/>
+            <feat class="stan" subset="naamval"/>
+            <feat class="agr" subset="npagr"/>
+          </pos>
+          <lemma class="een"/>
+          <morphology>
+            <morpheme>
+              <t offset="0">een</t>
+            </morpheme>
+          </morphology>
+        </w>
+        <w xml:id="test.p.2.s.1.w.7" class="WORD">
+          <t>nieuwe</t>
+          <pos class="ADJ(prenom,basis,met-e,stan)" confidence="0.975869" head="ADJ">
+            <feat class="prenom" subset="positie"/>
+            <feat class="basis" subset="graad"/>
+            <feat class="met-e" subset="buiging"/>
+            <feat class="stan" subset="naamval"/>
+          </pos>
+          <lemma class="nieuw"/>
+          <morphology>
+            <morpheme>
+              <t offset="0">nieuw</t>
+            </morpheme>
+            <morpheme>
+              <t offset="5">e</t>
+            </morpheme>
+          </morphology>
+        </w>
+        <w xml:id="test.p.2.s.1.w.8" class="WORD" space="no">
+          <t>paragraaf</t>
+          <pos class="N(soort,ev,basis,zijd,stan)" confidence="0.999705" head="N">
+            <feat class="soort" subset="ntype"/>
+            <feat class="ev" subset="getal"/>
+            <feat class="basis" subset="graad"/>
+            <feat class="zijd" subset="genus"/>
+            <feat class="stan" subset="naamval"/>
+          </pos>
+          <lemma class="paragraaf"/>
+          <morphology>
+            <morpheme>
+              <t offset="0">paragraaf</t>
+            </morpheme>
+          </morphology>
+        </w>
+        <w xml:id="test.p.2.s.1.w.9" class="PUNCTUATION">
+          <t>.</t>
+          <pos class="LET()" confidence="1" head="LET"/>
+          <morphology>
+            <morpheme>
+              <t offset="0">.</t>
+            </morpheme>
+          </morphology>
+          <lemma class="."/>
+        </w>
+        <entities xml:id="test.p.2.s.1.entities.1"/>
+        <chunking xml:id="test.p.2.s.1.chunking.1">
+          <chunk xml:id="test.p.2.s.1.chunking.1.chunk.1" class="NP" confidence="0.992424">
+            <wref id="test.p.2.s.1.w.1" t="Dit"/>
+          </chunk>
+          <chunk xml:id="test.p.2.s.1.chunking.1.chunk.2" class="VP" confidence="0.972459">
+            <wref id="test.p.2.s.1.w.2" t="is"/>
+          </chunk>
+          <chunk xml:id="test.p.2.s.1.chunking.1.chunk.3" class="NP" confidence="0.732858">
+            <wref id="test.p.2.s.1.w.3" t="één"/>
+            <wref id="test.p.2.s.1.w.4" t="zin"/>
+          </chunk>
+          <chunk xml:id="test.p.2.s.1.chunking.1.chunk.4" class="PP" confidence="0.977515">
+            <wref id="test.p.2.s.1.w.5" t="in"/>
+          </chunk>
+          <chunk xml:id="test.p.2.s.1.chunking.1.chunk.5" class="NP" confidence="0.747388">
+            <wref id="test.p.2.s.1.w.6" t="een"/>
+            <wref id="test.p.2.s.1.w.7" t="nieuwe"/>
+            <wref id="test.p.2.s.1.w.8" t="paragraaf"/>
+          </chunk>
+        </chunking>
+        <dependencies xml:id="test.p.2.s.1.dependencies.1">
+          <dependency xml:id="test.p.2.s.1.dependencies.1.dependency.1" class="su">
+            <hd>
+              <wref id="test.p.2.s.1.w.2" t="is"/>
+            </hd>
+            <dep>
+              <wref id="test.p.2.s.1.w.1" t="Dit"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="test.p.2.s.1.dependencies.1.dependency.2" class="det">
+            <hd>
+              <wref id="test.p.2.s.1.w.4" t="zin"/>
+            </hd>
+            <dep>
+              <wref id="test.p.2.s.1.w.3" t="één"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="test.p.2.s.1.dependencies.1.dependency.3" class="predc">
+            <hd>
+              <wref id="test.p.2.s.1.w.2" t="is"/>
+            </hd>
+            <dep>
+              <wref id="test.p.2.s.1.w.4" t="zin"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="test.p.2.s.1.dependencies.1.dependency.4" class="mod">
+            <hd>
+              <wref id="test.p.2.s.1.w.4" t="zin"/>
+            </hd>
+            <dep>
+              <wref id="test.p.2.s.1.w.5" t="in"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="test.p.2.s.1.dependencies.1.dependency.5" class="det">
+            <hd>
+              <wref id="test.p.2.s.1.w.8" t="paragraaf"/>
+            </hd>
+            <dep>
+              <wref id="test.p.2.s.1.w.6" t="een"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="test.p.2.s.1.dependencies.1.dependency.6" class="mod">
+            <hd>
+              <wref id="test.p.2.s.1.w.8" t="paragraaf"/>
+            </hd>
+            <dep>
+              <wref id="test.p.2.s.1.w.7" t="nieuwe"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="test.p.2.s.1.dependencies.1.dependency.7" class="obj1">
+            <hd>
+              <wref id="test.p.2.s.1.w.5" t="in"/>
+            </hd>
+            <dep>
+              <wref id="test.p.2.s.1.w.8" t="paragraaf"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="test.p.2.s.1.dependencies.1.dependency.8" class="punct">
+            <hd>
+              <wref id="test.p.2.s.1.w.8" t="paragraaf"/>
+            </hd>
+            <dep>
+              <wref id="test.p.2.s.1.w.9" t="."/>
+            </dep>
+          </dependency>
+        </dependencies>
+      </s>
+    </p>
+    <p xml:id="test.p.3">
+      <t>Dit is ook een zin. Deze staat in de derde paragraaf.</t>
+      <s xml:id="test.p.3.s.1">
+        <t>Dit is ook een zin.</t>
+        <w xml:id="test.p.3.s.1.w.1" class="WORD">
+          <t>Dit</t>
+          <pos class="VNW(aanw,pron,stan,vol,3o,ev)" confidence="0.777085" head="VNW">
+            <feat class="aanw" subset="vwtype"/>
+            <feat class="pron" subset="pdtype"/>
+            <feat class="stan" subset="naamval"/>
+            <feat class="vol" subset="status"/>
+            <feat class="3o" subset="persoon"/>
+            <feat class="ev" subset="getal"/>
+          </pos>
+          <lemma class="dit"/>
+          <morphology>
+            <morpheme>
+              <t offset="0">dit</t>
+            </morpheme>
+          </morphology>
+        </w>
+        <w xml:id="test.p.3.s.1.w.2" class="WORD">
+          <t>is</t>
+          <pos class="WW(pv,tgw,ev)" confidence="0.999791" head="WW">
+            <feat class="pv" subset="wvorm"/>
+            <feat class="tgw" subset="pvtijd"/>
+            <feat class="ev" subset="pvagr"/>
+          </pos>
+          <lemma class="zijn"/>
+          <morphology>
+            <morpheme>
+              <t offset="0">zijn</t>
+            </morpheme>
+          </morphology>
+        </w>
+        <w xml:id="test.p.3.s.1.w.3" class="WORD">
+          <t>ook</t>
+          <pos class="BW()" confidence="0.999979" head="BW"/>
+          <lemma class="ook"/>
+          <morphology>
+            <morpheme>
+              <t offset="0">ook</t>
+            </morpheme>
+          </morphology>
+        </w>
+        <w xml:id="test.p.3.s.1.w.4" class="WORD">
+          <t>een</t>
+          <pos class="LID(onbep,stan,agr)" confidence="0.999573" head="LID">
+            <feat class="onbep" subset="lwtype"/>
+            <feat class="stan" subset="naamval"/>
+            <feat class="agr" subset="npagr"/>
+          </pos>
+          <lemma class="een"/>
+          <morphology>
+            <morpheme>
+              <t offset="0">een</t>
+            </morpheme>
+          </morphology>
+        </w>
+        <w xml:id="test.p.3.s.1.w.5" class="WORD" space="no">
+          <t>zin</t>
+          <pos class="N(soort,ev,basis,zijd,stan)" confidence="0.99861" head="N">
+            <feat class="soort" subset="ntype"/>
+            <feat class="ev" subset="getal"/>
+            <feat class="basis" subset="graad"/>
+            <feat class="zijd" subset="genus"/>
+            <feat class="stan" subset="naamval"/>
+          </pos>
+          <lemma class="zin"/>
+          <morphology>
+            <morpheme>
+              <t offset="0">zin</t>
+            </morpheme>
+          </morphology>
+        </w>
+        <w xml:id="test.p.3.s.1.w.6" class="PUNCTUATION">
+          <t>.</t>
+          <pos class="LET()" confidence="1" head="LET"/>
+          <morphology>
+            <morpheme>
+              <t offset="0">.</t>
+            </morpheme>
+          </morphology>
+          <lemma class="."/>
+        </w>
+        <entities xml:id="test.p.3.s.1.entities.1"/>
+        <chunking xml:id="test.p.3.s.1.chunking.1">
+          <chunk xml:id="test.p.3.s.1.chunking.1.chunk.1" class="NP" confidence="0.992424">
+            <wref id="test.p.3.s.1.w.1" t="Dit"/>
+          </chunk>
+          <chunk xml:id="test.p.3.s.1.chunking.1.chunk.2" class="VP" confidence="0.972459">
+            <wref id="test.p.3.s.1.w.2" t="is"/>
+          </chunk>
+          <chunk xml:id="test.p.3.s.1.chunking.1.chunk.3" class="ADVP" confidence="0.978723">
+            <wref id="test.p.3.s.1.w.3" t="ook"/>
+          </chunk>
+          <chunk xml:id="test.p.3.s.1.chunking.1.chunk.4" class="NP" confidence="0.848147">
+            <wref id="test.p.3.s.1.w.4" t="een"/>
+            <wref id="test.p.3.s.1.w.5" t="zin"/>
+          </chunk>
+        </chunking>
+        <dependencies xml:id="test.p.3.s.1.dependencies.1">
+          <dependency xml:id="test.p.3.s.1.dependencies.1.dependency.1" class="su">
+            <hd>
+              <wref id="test.p.3.s.1.w.2" t="is"/>
+            </hd>
+            <dep>
+              <wref id="test.p.3.s.1.w.1" t="Dit"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="test.p.3.s.1.dependencies.1.dependency.2" class="mod">
+            <hd>
+              <wref id="test.p.3.s.1.w.2" t="is"/>
+            </hd>
+            <dep>
+              <wref id="test.p.3.s.1.w.3" t="ook"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="test.p.3.s.1.dependencies.1.dependency.3" class="det">
+            <hd>
+              <wref id="test.p.3.s.1.w.5" t="zin"/>
+            </hd>
+            <dep>
+              <wref id="test.p.3.s.1.w.4" t="een"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="test.p.3.s.1.dependencies.1.dependency.4" class="predc">
+            <hd>
+              <wref id="test.p.3.s.1.w.2" t="is"/>
+            </hd>
+            <dep>
+              <wref id="test.p.3.s.1.w.5" t="zin"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="test.p.3.s.1.dependencies.1.dependency.5" class="punct">
+            <hd>
+              <wref id="test.p.3.s.1.w.5" t="zin"/>
+            </hd>
+            <dep>
+              <wref id="test.p.3.s.1.w.6" t="."/>
+            </dep>
+          </dependency>
+        </dependencies>
+      </s>
+      <s xml:id="test.p.3.s.2">
+        <t>Deze staat in de derde paragraaf.</t>
+        <w xml:id="test.p.3.s.2.w.1" class="WORD">
+          <t>Deze</t>
+          <pos class="VNW(aanw,det,stan,prenom,met-e,rest)" confidence="0.5" head="VNW">
+            <feat class="aanw" subset="vwtype"/>
+            <feat class="det" subset="pdtype"/>
+            <feat class="stan" subset="naamval"/>
+            <feat class="prenom" subset="positie"/>
+            <feat class="met-e" subset="buiging"/>
+            <feat class="rest" subset="npagr"/>
+          </pos>
+          <lemma class="deze"/>
+          <morphology>
+            <morpheme>
+              <t offset="0">deze</t>
+            </morpheme>
+          </morphology>
+        </w>
+        <w xml:id="test.p.3.s.2.w.2" class="WORD">
+          <t>staat</t>
+          <pos class="WW(pv,tgw,met-t)" confidence="0.902017" head="WW">
+            <feat class="pv" subset="wvorm"/>
+            <feat class="tgw" subset="pvtijd"/>
+            <feat class="met-t" subset="pvagr"/>
+          </pos>
+          <lemma class="staan"/>
+          <morphology>
+            <morpheme>
+              <t offset="0">sta</t>
+            </morpheme>
+            <morpheme>
+              <t offset="3">t</t>
+            </morpheme>
+          </morphology>
+        </w>
+        <w xml:id="test.p.3.s.2.w.3" class="WORD">
+          <t>in</t>
+          <pos class="VZ(init)" confidence="0.99935" head="VZ">
+            <feat class="init" subset="vztype"/>
+          </pos>
+          <lemma class="in"/>
+          <morphology>
+            <morpheme>
+              <t offset="0">in</t>
+            </morpheme>
+          </morphology>
+        </w>
+        <w xml:id="test.p.3.s.2.w.4" class="WORD">
+          <t>de</t>
+          <pos class="LID(bep,stan,rest)" confidence="0.998276" head="LID">
+            <feat class="bep" subset="lwtype"/>
+            <feat class="stan" subset="naamval"/>
+            <feat class="rest" subset="npagr"/>
+          </pos>
+          <lemma class="de"/>
+          <morphology>
+            <morpheme>
+              <t offset="0">de</t>
+            </morpheme>
+          </morphology>
+        </w>
+        <w xml:id="test.p.3.s.2.w.5" class="WORD">
+          <t>derde</t>
+          <pos class="TW(rang,prenom,stan)" confidence="0.979487" head="TW">
+            <feat class="rang" subset="numtype"/>
+            <feat class="prenom" subset="positie"/>
+            <feat class="stan" subset="naamval"/>
+          </pos>
+          <lemma class="drie"/>
+          <morphology>
+            <morpheme>
+              <t offset="0">derde</t>
+            </morpheme>
+          </morphology>
+        </w>
+        <w xml:id="test.p.3.s.2.w.6" class="WORD" space="no">
+          <t>paragraaf</t>
+          <pos class="N(soort,ev,basis,zijd,stan)" confidence="0.998077" head="N">
+            <feat class="soort" subset="ntype"/>
+            <feat class="ev" subset="getal"/>
+            <feat class="basis" subset="graad"/>
+            <feat class="zijd" subset="genus"/>
+            <feat class="stan" subset="naamval"/>
+          </pos>
+          <lemma class="paragraaf"/>
+          <morphology>
+            <morpheme>
+              <t offset="0">paragraaf</t>
+            </morpheme>
+          </morphology>
+        </w>
+        <w xml:id="test.p.3.s.2.w.7" class="PUNCTUATION">
+          <t>.</t>
+          <pos class="LET()" confidence="1" head="LET"/>
+          <morphology>
+            <morpheme>
+              <t offset="0">.</t>
+            </morpheme>
+          </morphology>
+          <lemma class="."/>
+        </w>
+        <entities xml:id="test.p.3.s.2.entities.1"/>
+        <chunking xml:id="test.p.3.s.2.chunking.1">
+          <chunk xml:id="test.p.3.s.2.chunking.1.chunk.1" class="NP" confidence="0.980159">
+            <wref id="test.p.3.s.2.w.1" t="Deze"/>
+          </chunk>
+          <chunk xml:id="test.p.3.s.2.chunking.1.chunk.2" class="VP" confidence="0.886364">
+            <wref id="test.p.3.s.2.w.2" t="staat"/>
+          </chunk>
+          <chunk xml:id="test.p.3.s.2.chunking.1.chunk.3" class="PP" confidence="0.987457">
+            <wref id="test.p.3.s.2.w.3" t="in"/>
+          </chunk>
+          <chunk xml:id="test.p.3.s.2.chunking.1.chunk.4" class="NP" confidence="0.70565">
+            <wref id="test.p.3.s.2.w.4" t="de"/>
+            <wref id="test.p.3.s.2.w.5" t="derde"/>
+            <wref id="test.p.3.s.2.w.6" t="paragraaf"/>
+          </chunk>
+        </chunking>
+        <dependencies xml:id="test.p.3.s.2.dependencies.1">
+          <dependency xml:id="test.p.3.s.2.dependencies.1.dependency.1" class="ld">
+            <hd>
+              <wref id="test.p.3.s.2.w.2" t="staat"/>
+            </hd>
+            <dep>
+              <wref id="test.p.3.s.2.w.3" t="in"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="test.p.3.s.2.dependencies.1.dependency.2" class="det">
+            <hd>
+              <wref id="test.p.3.s.2.w.6" t="paragraaf"/>
+            </hd>
+            <dep>
+              <wref id="test.p.3.s.2.w.4" t="de"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="test.p.3.s.2.dependencies.1.dependency.3" class="mod">
+            <hd>
+              <wref id="test.p.3.s.2.w.6" t="paragraaf"/>
+            </hd>
+            <dep>
+              <wref id="test.p.3.s.2.w.5" t="derde"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="test.p.3.s.2.dependencies.1.dependency.4" class="obj1">
+            <hd>
+              <wref id="test.p.3.s.2.w.3" t="in"/>
+            </hd>
+            <dep>
+              <wref id="test.p.3.s.2.w.6" t="paragraaf"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="test.p.3.s.2.dependencies.1.dependency.5" class="punct">
+            <hd>
+              <wref id="test.p.3.s.2.w.6" t="paragraaf"/>
+            </hd>
+            <dep>
+              <wref id="test.p.3.s.2.w.7" t="."/>
+            </dep>
+          </dependency>
+        </dependencies>
+      </s>
+    </p>
+  </text>
+</FoLiA>
 
-
-types: 
-    translation
-    previous
-    next
-    first
-    last
-           
-           
-           
-<s xml:id="TEST-000000001.p.1.s.1">
-    <translation xml:lang="fr" ref="TEST-000000001.p.1.s.1" />
-</s>    
-
-
-
-
-
-<FoLiA-xmap>
-    <header>
-        <
-    </header>
-    <map xmlid="TEST.map.1">
-        
-    </map>
-    
-</FoLiA-xmap>

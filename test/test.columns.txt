@@ -1,0 +1,51 @@
+ID	TEXT	POS	LEMMA
+test.p.1.s.1.w.1	Dit	VNW(aanw,pron,stan,vol,3o,ev)	dit
+test.p.1.s.1.w.2	is	WW(pv,tgw,ev)	zijn
+test.p.1.s.1.w.3	de	LID(bep,stan,rest)	de
+test.p.1.s.1.w.4	eerste	TW(rang,prenom,stan)	een
+test.p.1.s.1.w.5	zin	N(soort,ev,basis,zijd,stan)	zin
+test.p.1.s.1.w.6	van	VZ(init)	van
+test.p.1.s.1.w.7	de	LID(bep,stan,rest)	de
+test.p.1.s.1.w.8	paragraaf	N(soort,ev,basis,zijd,stan)	paragraaf
+test.p.1.s.1.w.9	.	LET()	.
+
+test.p.1.s.2.w.1	Dit	VNW(aanw,pron,stan,vol,3o,ev)	dit
+test.p.1.s.2.w.2	is	WW(pv,tgw,ev)	zijn
+test.p.1.s.2.w.3	de	LID(bep,stan,rest)	de
+test.p.1.s.2.w.4	tweede	TW(rang,prenom,stan)	twee
+test.p.1.s.2.w.5	zin	N(soort,ev,basis,zijd,stan)	zin
+test.p.1.s.2.w.6	van	VZ(init)	van
+test.p.1.s.2.w.7	de	LID(bep,stan,rest)	de
+test.p.1.s.2.w.8	paragraaf	N(soort,ev,basis,zijd,stan)	paragraaf
+test.p.1.s.2.w.9	.	LET()	.
+
+test.p.1.s.3.w.1	En	VG(neven)	en
+test.p.1.s.3.w.2	dit	VNW(aanw,pron,stan,vol,3o,ev)	dit
+test.p.1.s.3.w.3	de	LID(bep,stan,rest)	de
+test.p.1.s.3.w.4	laatste	ADJ(nom,sup,met-e,zonder-n,stan)	laat
+test.p.1.s.3.w.5	.	LET()	.
+
+test.p.2.s.1.w.1	Dit	VNW(aanw,pron,stan,vol,3o,ev)	dit
+test.p.2.s.1.w.2	is	WW(pv,tgw,ev)	zijn
+test.p.2.s.1.w.3	één	TW(hoofd,prenom,stan)	een
+test.p.2.s.1.w.4	zin	N(soort,ev,basis,zijd,stan)	zin
+test.p.2.s.1.w.5	in	VZ(init)	in
+test.p.2.s.1.w.6	een	LID(onbep,stan,agr)	een
+test.p.2.s.1.w.7	nieuwe	ADJ(prenom,basis,met-e,stan)	nieuw
+test.p.2.s.1.w.8	paragraaf	N(soort,ev,basis,zijd,stan)	paragraaf
+test.p.2.s.1.w.9	.	LET()	.
+
+test.p.3.s.1.w.1	Dit	VNW(aanw,pron,stan,vol,3o,ev)	dit
+test.p.3.s.1.w.2	is	WW(pv,tgw,ev)	zijn
+test.p.3.s.1.w.3	ook	BW()	ook
+test.p.3.s.1.w.4	een	LID(onbep,stan,agr)	een
+test.p.3.s.1.w.5	zin	N(soort,ev,basis,zijd,stan)	zin
+test.p.3.s.1.w.6	.	LET()	.
+
+test.p.3.s.2.w.1	Deze	VNW(aanw,det,stan,prenom,met-e,rest)	deze
+test.p.3.s.2.w.2	staat	WW(pv,tgw,met-t)	staan
+test.p.3.s.2.w.3	in	VZ(init)	in
+test.p.3.s.2.w.4	de	LID(bep,stan,rest)	de
+test.p.3.s.2.w.5	derde	TW(rang,prenom,stan)	drie
+test.p.3.s.2.w.6	paragraaf	N(soort,ev,basis,zijd,stan)	paragraaf
+test.p.3.s.2.w.7	.	LET()	.

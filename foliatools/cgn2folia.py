@@ -15,17 +15,18 @@
 #
 #----------------------------------------------------------------
 
+from __future__ import print_function, unicode_literals, division, absolute_import
+
 import sys
 import glob
 import gzip
 import os
-from datetime import datetime
 from pynlpl.formats import folia
 
 CGN_ENCODING = 'iso-8859-15' #not yet used!
 
 if len(sys.argv) != 3:
-    print >> sys.stderr,"SYNTAX: ./cgn2folia.py cgnrootdir outputdir"
+    print("SYNTAX: ./cgn2folia.py cgnrootdir outputdir", file=sys.stderr)
     sys.exit(1)
 
 cgndir = sys.argv[1]
@@ -35,7 +36,7 @@ outdir = sys.argv[2]
 plkdir = cgndir + "/data/annot/text/plk/"
 for compdir in glob.glob(plkdir + "/comp-*"):
     collection_id = "CGN-" + os.path.basename(compdir)
-    print collection_id
+    print(collection_id)
     try:
         os.mkdir(outdir + '/' + collection_id)
     except:
@@ -43,7 +44,7 @@ for compdir in glob.glob(plkdir + "/comp-*"):
     files = list(glob.glob(compdir + "/nl/*.gz")) + list(glob.glob(compdir + "/vl/*.gz"))
     for path in files:
         text_id = os.path.basename(path).split(".")[0]
-        print "\t" + text_id
+        print("\t" + text_id)
         full_id = collection_id + "_" + text_id
         au_id = None
         sentence = None
@@ -72,7 +73,7 @@ for compdir in glob.glob(plkdir + "/comp-*"):
                     try:
                         wordtext,pos,lemma, extra = line.split("\t",3)
                     except ValueError:
-                        print >>sys.stderr,"\tWARNING: Line malformed: ", line
+                        print("\tWARNING: Line malformed: ", line, file=sys.stderr)
                         continue
                     word = sentence.append(folia.Word, wordtext)
                     word.append(folia.PosAnnotation, cls=pos)

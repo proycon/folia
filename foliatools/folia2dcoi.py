@@ -1,8 +1,9 @@
 #! /usr/bin/env python
 # -*- coding: utf8 -*-
 
-import xslt    
-    
+from __future__ import print_function, unicode_literals, division, absolute_import
+import foliatools.xslt as xslt
+
 def main():
     usage = """folia2dcoi
   by Maarten van Gompel (proycon)

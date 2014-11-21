@@ -1,53 +1,63 @@
 #!/usr/bin/env python
 #-*- coding:utf-8 -*-
 
+from __future__ import print_function, unicode_literals, division, absolute_import
+
 import getopt
-import codecs
+import io
 import sys
 import os
 import glob
 try:
     from pynlpl.formats import folia
 except:
-    print >>sys.stderr,"ERROR: pynlpl not found, please obtain PyNLPL from the Python Package Manager ($ sudo easy_install pynlpl) or directly from github: $ git clone git://github.com/proycon/pynlpl.git"
+    print("ERROR: pynlpl not found, please obtain PyNLPL from the Python Package Manager ($ sudo easy_install pynlpl) or directly from github: $ git clone git://github.com/proycon/pynlpl.git",file=sys.stderr)
     sys.exit(2)
 
 def usage():
-    print >>sys.stderr, "folia2txt"
-    print >>sys.stderr, "  by Maarten van Gompel (proycon)"
-    print >>sys.stderr, "  Tilburg University / Radboud University Nijmegen"
-    print >>sys.stderr, "  2012 - Licensed under GPLv3"
-    print >>sys.stderr, ""
-    print >>sys.stderr, "This conversion script reads a FoLiA XML document and outputs the"
-    print >>sys.stderr, "document's text as plain text, *without* any annotations."
-    print >>sys.stderr, "Use folia2annotatedtxt if you want limited support for inline annotations."
-    print >>sys.stderr, ""
-    print >>sys.stderr, "Usage: folia2txt [options] file-or-dir1 file-or-dir2 ..etc.."
-    print >>sys.stderr, ""
-    print >>sys.stderr, "Parameters for output:"
-    print >>sys.stderr, "  -t                           Retain tokenisation, do not detokenise"
-    print >>sys.stderr, "                               (By default output will be detokenised if"
-    print >>sys.stderr, "                               such information is explicitly available in the"
-    print >>sys.stderr, "                               FoLiA document)"
-    print >>sys.stderr, "  -w                           One word per line"
-    print >>sys.stderr, "  -s                           One sentence per line"
-    print >>sys.stderr, "  -p                           One paragraph per line"
-    print >>sys.stderr, "  -o [filename]                Output to a single file (instead of default stdout)"
-    print >>sys.stderr, "  -e [encoding]                Output encoding (default: utf-8)"
-    print >>sys.stderr, "Parameters for processing directories:"
-    print >>sys.stderr, "  -r                           Process recursively"
-    print >>sys.stderr, "  -E [extension]               Set extension (default: xml)"
-    print >>sys.stderr, "  -O                           Output each file to similarly named .txt file"
-    print >>sys.stderr, "  -P                           Like -O, but outputs to current working directory"
-    print >>sys.stderr, "  -q                           Ignore errors"
+    print("folia2txt",file=sys.stderr)
+    print("  by Maarten van Gompel (proycon)",file=sys.stderr)
+    print("  Tilburg University / Radboud University Nijmegen",file=sys.stderr)
+    print("  2012 - Licensed under GPLv3",file=sys.stderr)
+    print("",file=sys.stderr)
+    print("This conversion script reads a FoLiA XML document and outputs the",file=sys.stderr)
+    print("document's text as plain text, *without* any annotations.",file=sys.stderr)
+    print("Use folia2annotatedtxt if you want limited support for inline annotations.",file=sys.stderr)
+    print("",file=sys.stderr)
+    print("Usage: folia2txt [options] file-or-dir1 file-or-dir2 ..etc..",file=sys.stderr)
+    print("",file=sys.stderr)
+    print("Parameters for output:",file=sys.stderr)
+    print("  -t                           Retain tokenisation, do not detokenise",file=sys.stderr)
+    print("                               (By default output will be detokenised if",file=sys.stderr)
+    print("                               such information is explicitly available in the",file=sys.stderr)
+    print("                               FoLiA document)",file=sys.stderr)
+    print("  -w                           One word per line",file=sys.stderr)
+    print("  -s                           One sentence per line",file=sys.stderr)
+    print("  -p                           One paragraph per line",file=sys.stderr)
+    print("  -o [filename]                Output to a single file (instead of default stdout)",file=sys.stderr)
+    print("  -e [encoding]                Output encoding (default: utf-8)",file=sys.stderr)
+    print("Parameters for processing directories:",file=sys.stderr)
+    print("  -r                           Process recursively",file=sys.stderr)
+    print("  -E [extension]               Set extension (default: xml)",file=sys.stderr)
+    print("  -O                           Output each file to similarly named .txt file",file=sys.stderr)
+    print("  -P                           Like -O, but outputs to current working directory",file=sys.stderr)
+    print("  -q                           Ignore errors",file=sys.stderr)
 
-
-
-
+def out(s, outputfile):
+    if sys.version < '3':
+        if outputfile:
+            outputfile.write(s + "\n")
+        else:
+            print(s.encode(settings.encoding))
+    else:
+        if outputfile:
+            print(s,file=outputfile)
+        else:
+            print(s)
 
 
 def process(filename, outputfile = None):
-    print >>sys.stderr, "Converting " + filename
+    print("Converting " + filename,file=sys.stderr)
     try:
         doc = folia.Document(file=filename)
 
@@ -59,34 +69,20 @@ def process(filename, outputfile = None):
             if settings.autooutput_cwd:
                 outfilename = os.path.basename(outfilename)
 
-            print >>sys.stderr, " Saving as " + outfilename
-            outputfile = codecs.open(outfilename,'w',settings.encoding)
+            print(" Saving as " + outfilename,file=sys.stderr)
+            outputfile = io.open(outfilename,'w',encoding=settings.encoding)
 
         if settings.wordperline:
             for word in doc.words():
-                if outputfile:
-                    outputfile.write(word.text('current', settings.retaintokenisation) + "\n")
-                else:
-                    print word.text('current', settings.retaintokenisation).encode(settings.encoding)
+                out(word.text('current', settings.retaintokenisation), outputfile)
         elif settings.sentenceperline:
             for sentence in doc.sentences():
-                if outputfile:
-                    outputfile.write(sentence.text('current', settings.retaintokenisation) + "\n")
-                else:
-                    print sentence.text('current', settings.retaintokenisation).encode(settings.encoding)
+                out(sentence.text('current', settings.retaintokenisation) , outputfile)
         elif settings.paragraphperline:
             for paragraph in doc.paragraphs():
-                if outputfile:
-                    outputfile.write(paragraph.text('current', settings.retaintokenisation) + "\n")
-                else:
-                    print paragraph.text('current', settings.retaintokenisation).encode(settings.encoding)
+                out(paragraph.text('current', settings.retaintokenisation) , outputfile)
         else:
-            if outputfile:
-                print >>sys.stderr, " Outputting to file"
-                outputfile.write( doc.text(settings.retaintokenisation) )
-            else:
-                print >>sys.stderr, " Outputting"
-                print doc.text( settings.retaintokenisation).encode(settings.encoding)
+            out(doc.text(settings.retaintokenisation) , outputfile)
 
         if settings.autooutput:
             outputfile.close()
@@ -94,7 +90,7 @@ def process(filename, outputfile = None):
             outputfile.flush()
     except Exception as e:
         if settings.ignoreerrors:
-            print >>sys.stderr, "ERROR: An exception was raised whilst processing " + filename + ":", e
+            print("ERROR: An exception was raised whilst processing " + filename + ":", e, file=sys.stderr)
         else:
             raise
 
@@ -102,7 +98,7 @@ def process(filename, outputfile = None):
 
 
 def processdir(d, outputfile = None):
-    print >>sys.stderr, "Searching in  " + d
+    print("Searching in  " + d, file=sys.stderr)
     for f in glob.glob(d + '/*'):
         if f[-len(settings.extension) - 1:] == '.' + settings.extension:
             process(f, outputfile)
@@ -126,8 +122,8 @@ class settings:
 def main():
     try:
         opts, args = getopt.getopt(sys.argv[1:], "o:OPE:htspwrq", ["help"])
-    except getopt.GetoptError, err:
-        print str(err)
+    except getopt.GetoptError as err:
+        print(str(err), file=sys.stderr)
         usage()
         sys.exit(2)
 
@@ -166,7 +162,7 @@ def main():
             raise Exception("No such option: " + o)
 
 
-    if outputfile: outputfile = codecs.open(outputfile,'w',settings.encoding)
+    if outputfile: outputfile = io.open(outputfile,'w',encoding=settings.encoding)
 
     if args:
         for x in args:
@@ -175,10 +171,10 @@ def main():
             elif os.path.isfile(x):
                 process(x, outputfile)
             else:
-                print >>sys.stderr, "ERROR: File or directory not found: " + x
+                print("ERROR: File or directory not found: " + x, file=sys.stderr)
                 sys.exit(3)
     else:
-        print >>sys.stderr,"ERROR: Nothing to do, specify one or more files or directories"
+        print("ERROR: Nothing to do, specify one or more files or directories", file=sys.stderr)
 
     if outputfile: outputfile.close()
 

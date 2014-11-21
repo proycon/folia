@@ -2,9 +2,7 @@
 # -*- coding: utf8 -*-
 
 import os
-from setuptools import setup, find_packages
-
-
+from setuptools import setup
 
 
 def read(fname):
@@ -12,7 +10,7 @@ def read(fname):
 
 setup(
     name = "FoLiA-tools",
-    version = "0.11.0.22",
+    version = "0.11.0.23",
     author = "Maarten van Gompel",
     author_email = "proycon@anaproy.nl",
     description = ("FoLiA-tools contains various Python-based command line tools for working with FoLiA XML (Format for Linguistic Annotation)"),
@@ -25,6 +23,8 @@ setup(
         "Development Status :: 4 - Beta",
         "Topic :: Text Processing :: Linguistic",
         "Programming Language :: Python :: 2.6",
+        "Programming Language :: Python :: 2.7",
+        "Programming Language :: Python :: 3",
         "Operating System :: POSIX",
         "Intended Audience :: Developers",
         "Intended Audience :: Science/Research",
@@ -47,5 +47,5 @@ setup(
     },
     #include_package_data=True,
     package_data = {'foliatools': ['*.xsl'] },
-    install_requires=['pynlpl >= 0.6.5', 'lxml >= 2.2']
+    install_requires=['pynlpl >= 0.6.5', 'lxml >= 2.2','mistune']
 )

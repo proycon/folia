@@ -1,42 +1,44 @@
 # -*- coding: utf8 -*-
 
+from __future__ import print_function, unicode_literals, division, absolute_import
+
 import lxml.etree
 import sys
 import glob
 import getopt
 import os.path
 
-def transform(xsltfilename, sourcefilename, targetfilename = None, encoding = 'utf-8'):    
+def transform(xsltfilename, sourcefilename, targetfilename = None, encoding = 'utf-8'):
     xsldir = os.path.dirname(__file__)
     if xsltfilename[0] != '/': xsltfilename = xsldir + '/' + xsltfilename
     if not os.path.exists(xsltfilename):
         raise Exception("XSL Stylesheet not found: " + xsltfilename)
     elif not os.path.exists(sourcefilename):
-        raise Exception("File not found: " + sourcefilename)        
+        raise Exception("File not found: " + sourcefilename)
     xslt = lxml.etree.parse(xsltfilename)
     transformer = lxml.etree.XSLT(xslt)
     parsedsource = lxml.etree.parse(sourcefilename)
     transformed = transformer(parsedsource)
     if targetfilename:
-        f = open(targetfilename, 'w')
+        f = open(targetfilename, 'wb')
         f.write( lxml.etree.tostring(transformed, pretty_print=True, encoding=encoding) )
         f.close()
     else:
-        print lxml.etree.tostring(transformed, pretty_print=True, encoding=encoding)
-        
-        
-def usage():        
-    print >>sys.stderr, settings.usage
-    print >>sys.stderr, ""
-    print >>sys.stderr, "Parameters for output:"        
-    print >>sys.stderr, "  -o [filename]                Output to file (instead of default stdout)"    
-    print >>sys.stderr, "  -e [encoding]                Output encoding (default: utf-8)" 
-    print >>sys.stderr, "Parameters for processing directories:"
-    print >>sys.stderr, "  -r                           Process recursively"
-    print >>sys.stderr, "  -E [extension]               Set extension (default: xml)"
-    print >>sys.stderr, "  -q                           Ignore errors"
-    
-    
+        print(lxml.etree.tostring(transformed, pretty_print=True, encoding=encoding))
+
+
+def usage():
+    print(settings.usage,file=sys.stderr)
+    print("",file=sys.stderr)
+    print("Parameters for output:"        ,file=sys.stderr)
+    print("  -o [filename]                Output to file (instead of default stdout)"    ,file=sys.stderr)
+    print("  -e [encoding]                Output encoding (default: utf-8)" ,file=sys.stderr)
+    print("Parameters for processing directories:",file=sys.stderr)
+    print("  -r                           Process recursively",file=sys.stderr)
+    print("  -E [extension]               Set extension (default: xml)",file=sys.stderr)
+    print("  -q                           Ignore errors",file=sys.stderr)
+
+
 
 class settings:
     autooutput = False
@@ -49,38 +51,38 @@ class settings:
     usage = "UNDEFINED"
 
 def processdir(d, outputfilename = None):
-    print >>sys.stderr, "Searching in  " + d
-    for f in glob.glob(d + '/*'):        
-        if f[-len(settings.extension) - 1:] == '.' + settings.extension and f[-len(settings.outputextension) - 1:] != '.' + settings.outputextension: 
+    print("Searching in  " + d, file=sys.stderr)
+    for f in glob.glob(d + '/*'):
+        if f[-len(settings.extension) - 1:] == '.' + settings.extension and f[-len(settings.outputextension) - 1:] != '.' + settings.outputextension:
             outputfilename =  f[:-len(settings.extension) - 1] + '.' + settings.outputextension
             process(f, outputfilename)
         elif settings.recurse and os.path.isdir(f):
             processdir(f, outputfilename)
-    
-def process(inputfilename, outputfilename=None):    
+
+def process(inputfilename, outputfilename=None):
     try:
         transform(settings.xsltfilename, inputfilename, outputfilename, settings.encoding)
     except Exception as e:
         if settings.ignoreerrors:
-            print >>sys.stderr, "ERROR: An exception was raised whilst processing " + inputfilename + ":", e            
+            print("ERROR: An exception was raised whilst processing " + inputfilename + ":", e, file=sys.stderr)
         else:
-            raise        
-    
+            raise
 
-def main(xsltfilename, outputextension, usagetext):   
+
+def main(xsltfilename, outputextension, usagetext):
     try:
         opts, args = getopt.getopt(sys.argv[1:], "o:E:hrq", ["help"])
     except getopt.GetoptError, err:
-        print str(err)
+        print(str(err), file=sys.stderr)
         usage()
         sys.exit(2)
 
     settings.xsltfilename = xsltfilename
     settings.outputextension = outputextension
     settings.usage = usagetext
-    
+
     outputfilename = ""
-    
+
 
     for o, a in opts:
         if o == '-h' or o == '--help':
@@ -98,18 +100,18 @@ def main(xsltfilename, outputextension, usagetext):
             settings.recurse = True
         elif o == '-q':
             settings.ignoreerrors = True
-        else:            
+        else:
             raise Exception("No such option: " + o)
-                
-    if args:              
+
+    if args:
         for x in args:
             if os.path.isdir(x):
                 processdir(x)
             elif os.path.isfile(x):
                 if len(sys.argv) > 2: outputfilename = outputfilename =  x[:-len(settings.extension) - 1] + '.' + settings.outputextension
-                process(x, outputfilename)    
+                process(x, outputfilename)
             else:
-                print >>sys.stderr, "ERROR: File or directory not found: " + x
+                print("ERROR: File or directory not found: " + x, file=sys.stderr)
                 sys.exit(3)
     else:
-        print >>sys.stderr,"ERROR: Nothing to do, specify one or more files or directories"
+        print("ERROR: Nothing to do, specify one or more files or directories",file=sys.stderr)

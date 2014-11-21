@@ -1,57 +1,59 @@
 #!/usr/bin/env python
 #-*- coding:utf-8 -*-
 
+from __future__ import print_function, unicode_literals, division, absolute_import
+
 import getopt
-import codecs
+import io
 import sys
 import os
 import glob
 try:
     from pynlpl.formats import folia
 except:
-    print >>sys.stderr,"ERROR: pynlpl not found, please obtain PyNLPL from the Python Package Manager ($ sudo easy_install pynlpl) or directly from github: $ git clone git://github.com/proycon/pynlpl.git"
+    print("ERROR: pynlpl not found, please obtain PyNLPL from the Python Package Manager ($ sudo easy_install pynlpl) or directly from github: $ git clone git://github.com/proycon/pynlpl.git", file=sys.stderr)
     sys.exit(2)
 
 def usage():
-    print >>sys.stderr, "folia2columns"
-    print >>sys.stderr, "  by Maarten van Gompel (proycon)"
-    print >>sys.stderr, "  Tilburg University / Radboud University Nijmegen"
-    print >>sys.stderr, "  2012 - Licensed under GPLv3"
-    print >>sys.stderr, ""
-    print >>sys.stderr, "This conversion script reads a FoLiA XML document and produces a"
-    print >>sys.stderr, "simple columned output format in which each token appears on one"
-    print >>sys.stderr, "line. Note that only simple token annotations are supported and a lot"
-    print >>sys.stderr, "of FoLiA data can not be intuitively expressed in a simple columned format!"
-    print >>sys.stderr, ""
-    print >>sys.stderr, "Usage: folia2columns [options] -C [columns] file-or-dir1 file-or-dir2 ..etc.."
+    print("folia2columns", file=sys.stderr)
+    print("  by Maarten van Gompel (proycon)", file=sys.stderr)
+    print("  Tilburg University / Radboud University Nijmegen", file=sys.stderr)
+    print("  2012 - Licensed under GPLv3", file=sys.stderr)
+    print("", file=sys.stderr)
+    print("This conversion script reads a FoLiA XML document and produces a", file=sys.stderr)
+    print("simple columned output format in which each token appears on one", file=sys.stderr)
+    print("line. Note that only simple token annotations are supported and a lot", file=sys.stderr)
+    print("of FoLiA data can not be intuitively expressed in a simple columned format!", file=sys.stderr)
+    print("", file=sys.stderr)
+    print("Usage: folia2columns [options] -C [columns] file-or-dir1 file-or-dir2 ..etc..", file=sys.stderr)
 
-    print >>sys.stderr, "Parameters:"
-    print >>sys.stderr, "  -c [columns]                 Comma separated list of desired column layout (mandatory), choose from:"
-    print >>sys.stderr, "                               id      - output word ID"
-    print >>sys.stderr, "                               text    - output the text of the word (the word itself)"
-    print >>sys.stderr, "                               pos     - output PoS annotation class"
-    print >>sys.stderr, "                               poshead - output PoS annotation head feature"
-    print >>sys.stderr, "                               lemma   - output lemma annotation class"
-    print >>sys.stderr, "                               sense   - output sense annotation class"
-    print >>sys.stderr, "                               phon    - output phonetic annotation class"
-    print >>sys.stderr, "                               senid   - output sentence ID"
-    print >>sys.stderr, "                               parid   - output paragraph ID"
-    print >>sys.stderr, "                               N     - word/token number (absolute)"
-    print >>sys.stderr, "                               n     - word/token number (relative to sentence)"
-    print >>sys.stderr, "Options:"
-    print >>sys.stderr, "  --csv                        Output in CSV format"
-    print >>sys.stderr, "  -o [filename]                Output to a single output file instead of stdout"
-    print >>sys.stderr, "  -O                           Output each file to similarly named file (.columns or .csv)"
-    print >>sys.stderr, "  -e [encoding]                Output encoding (default: utf-8)"
-    print >>sys.stderr, "  -H                           Suppress header output"
-    print >>sys.stderr, "  -S                           Suppress sentence spacing  (no whitespace between sentences)"
-    print >>sys.stderr, "  -x [sizeinchars]             Space columns for human readability (instead of plain tab-separated columns)"
-    print >>sys.stderr, "Parameters for processing directories:"
-    print >>sys.stderr, "  -r                           Process recursively"
-    print >>sys.stderr, "  -E [extension]               Set extension (default: xml)"
-    print >>sys.stderr, "  -O                           Output each file to similarly named .txt file"
-    print >>sys.stderr, "  -P                           Like -O, but outputs to current working directory"
-    print >>sys.stderr, "  -q                           Ignore errors"
+    print("Parameters:", file=sys.stderr)
+    print("  -c [columns]                 Comma separated list of desired column layout (mandatory), choose from:", file=sys.stderr)
+    print("                               id      - output word ID", file=sys.stderr)
+    print("                               text    - output the text of the word (the word itself)", file=sys.stderr)
+    print("                               pos     - output PoS annotation class", file=sys.stderr)
+    print("                               poshead - output PoS annotation head feature", file=sys.stderr)
+    print("                               lemma   - output lemma annotation class", file=sys.stderr)
+    print("                               sense   - output sense annotation class", file=sys.stderr)
+    print("                               phon    - output phonetic annotation class", file=sys.stderr)
+    print("                               senid   - output sentence ID", file=sys.stderr)
+    print("                               parid   - output paragraph ID", file=sys.stderr)
+    print("                               N     - word/token number (absolute)", file=sys.stderr)
+    print("                               n     - word/token number (relative to sentence)", file=sys.stderr)
+    print("Options:", file=sys.stderr)
+    print("  --csv                        Output in CSV format", file=sys.stderr)
+    print("  -o [filename]                Output to a single output file instead of stdout", file=sys.stderr)
+    print("  -O                           Output each file to similarly named file (.columns or .csv)", file=sys.stderr)
+    print("  -e [encoding]                Output encoding (default: utf-8)", file=sys.stderr)
+    print("  -H                           Suppress header output", file=sys.stderr)
+    print("  -S                           Suppress sentence spacing  (no whitespace between sentences)", file=sys.stderr)
+    print("  -x [sizeinchars]             Space columns for human readability (instead of plain tab-separated columns)", file=sys.stderr)
+    print("Parameters for processing directories:", file=sys.stderr)
+    print("  -r                           Process recursively", file=sys.stderr)
+    print("  -E [extension]               Set extension (default: xml)", file=sys.stderr)
+    print("  -O                           Output each file to similarly named .txt file", file=sys.stderr)
+    print("  -P                           Like -O, but outputs to current working directory", file=sys.stderr)
+    print("  -q                           Ignore errors", file=sys.stderr)
 
 class settings:
     output_header = True
@@ -70,7 +72,7 @@ def main():
     try:
         opts, args = getopt.getopt(sys.argv[1:], "o:OPhHSc:x:E:rq", ["help", "csv"])
     except getopt.GetoptError, err:
-        print str(err)
+        print(str(err), file=sys.stderr)
         usage()
         sys.exit(2)
 
@@ -110,24 +112,24 @@ def main():
             raise Exception("No such option: " + o)
 
     if not settings.columnconf:
-        print >>sys.stderr,"ERROR: No column configuration specified (use -c)"
+        print("ERROR: No column configuration specified (use -c)", file=sys.stderr)
         usage()
         sys.exit(2)
 
 
     if args:
-        if outputfile: outputfile = codecs.open(outputfile,'w',settings.encoding)
+        if outputfile: outputfile = io.open(outputfile,'w',encoding=settings.encoding)
         for x in args:
             if os.path.isdir(x):
                 processdir(x,outputfile)
             elif os.path.isfile(x):
                 process(x, outputfile)
             else:
-                print >>sys.stderr, "ERROR: File or directory not found: " + x
+                print("ERROR: File or directory not found: " + x, file=sys.stderr)
                 sys.exit(3)
         if outputfile: outputfile.close()
     else:
-        print >>sys.stderr,"ERROR: Nothing to do, specify one or more files or directories"
+        print ("ERROR: Nothing to do, specify one or more files or directories", file=sys.stderr)
 
 
 
@@ -140,7 +142,7 @@ def resize(s, i, spacing):
     return s
 
 def processdir(d, outputfile = None):
-    print >>sys.stderr, "Searching in  " + d
+    print("Searching in  " + d, file=sys.stderr)
     for f in glob.glob(d + '/*'):
         if f[-len(settings.extension) - 1:] == '.' + settings.extension:
             process(f, outputfile)
@@ -149,7 +151,7 @@ def processdir(d, outputfile = None):
 
 def process(filename, outputfile=None):
     try:
-        print >>sys.stderr, "Processing " + filename
+        print("Processing " + filename, file=sys.stderr)
         doc = folia.Document(file=filename)
         prevsen = None
 
@@ -165,8 +167,8 @@ def process(filename, outputfile=None):
             if settings.autooutput_cwd:
                 outfilename = os.path.basename(outfilename)
 
-            print >>sys.stderr, " Saving as " + outfilename
-            outputfile = codecs.open(outfilename,'w',settings.encoding)
+            print(" Saving as " + outfilename, file=sys.stderr)
+            outputfile = io.open(outfilename,'w',encoding=settings.encoding)
 
 
         if settings.nicespacing:
@@ -197,9 +199,13 @@ def process(filename, outputfile=None):
                 line = '\t'.join(columns)
 
             if outputfile:
-                outputfile.write(line + '\n')
+                outputfile.write(line)
+                outputfile.write('\n')
             else:
-                print line.encode(settings.encoding)
+                if sys.version < '3':
+                    print(line.encode(settings.encoding))
+                else:
+                    print(line)
 
         wordnum = 0
 
@@ -211,7 +217,7 @@ def process(filename, outputfile=None):
                     if outputfile:
                         outputfile.write('\n')
                     else:
-                        print
+                        print()
                 wordnum = 0
             prevsen = w.sentence()
             wordnum += 1
@@ -258,7 +264,7 @@ def process(filename, outputfile=None):
                     except:
                         columns.append('-')
                 elif c:
-                    print >>sys.stderr,"ERROR: Unsupported configuration: " + c
+                    print("ERROR: Unsupported configuration: " + c, file=sys.stderr)
                     sys.exit(1)
 
             if settings.nicespacing and not settings.csv:
@@ -270,9 +276,13 @@ def process(filename, outputfile=None):
                 line = "\t".join(columns)
 
             if outputfile:
-                outputfile.write(line+'\n')
+                outputfile.write(line)
+                outputfile.write('\n')
             else:
-                print line.encode(settings.encoding)
+                if sys.version < '3':
+                    print(line.encode(settings.encoding))
+                else:
+                    print(line)
 
         if settings.autooutput:
             outputfile.close()
@@ -280,7 +290,7 @@ def process(filename, outputfile=None):
             outputfile.flush()
     except Exception as e:
         if settings.ignoreerrors:
-            print >>sys.stderr, "ERROR: An exception was raised whilst processing " + filename, e
+            print("ERROR: An exception was raised whilst processing " + filename, e, file=sys.stderr)
         else:
             raise
 
