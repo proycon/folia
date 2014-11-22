@@ -1,20 +1,22 @@
 #!/usr/bin/env python
 #-*- coding:utf-8 -*-
 
+from __future__ import print_function, unicode_literals, division, absolute_import
+
 import sys
 try:
     from pynlpl.formats import folia
 except ImportError:
-    print >>sys.stderr,"PyNLPL is required to run this script, obtain it from https://github.com/proycon/pynlpl and either install it or make sure the pynlpl/ dir is symlinked from the directory this script is in."
+    print("PyNLPL is required to run this script, obtain it from https://github.com/proycon/pynlpl and either install it or make sure the pynlpl/ dir is symlinked from the directory this script is in.",file=sys.stderr)
     sys.exit(3)
-import codecs
+import io
 
-print "Generating Relax NG schema"
+print("Generating Relax NG schema")
 folia.relaxng('folia-min.rng')
 
 #!/usr/bin/python
-data = codecs.open("folia-min.rng",'r','utf-8').readlines()
-data.insert(1,u"""<!--
+data = io.open("folia-min.rng",'r',encoding='utf-8').readlines()
+data.insert(1,"""<!--
 RelaxNG schema for FoLiA XML v%s
     by Maarten van Gompel
     Induction of Linguistic Knowledge Research group
@@ -38,8 +40,8 @@ RelaxNG schema for FoLiA XML v%s
     Licensed under the GNU General Public License v3
 -->
 """ %  (folia.FOLIAVERSION, folia.LIBVERSION))
-codecs.open('folia.rng','w','utf-8').writelines(data)
+io.open('folia.rng','w',encoding='utf-8').writelines(data)
 
 
-print "Validating example document"
+print("Validating example document")
 folia.validate('../test/example.xml')

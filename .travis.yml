@@ -5,6 +5,7 @@ python:
     - "3.3"
     - "3.4"
 before_install:
+  - sudo apt-get install libxml2-utils
   - pip install pynlpl
 install: 
   - python setup.py install
