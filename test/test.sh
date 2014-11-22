@@ -70,21 +70,21 @@ else
     fi
 fi
 
-#echo "Running folia2html" >&2
-#folia2html test.xml > test.tmp
-#if [ $? -ne 0 ]; then
-#    echo "...FAILED" >&2
-#    FAILURE=1
-#else
-#    diff test.tmp test.html > test.diff
-#    if [ $? -ne 0 ]; then
-#        echo "...FAILED" >&2
-#        FAILURE=1
-#        cat test.diff
-#    else
-#        echo "...OK" >&2
-#    fi
-#fi
+echo "Running folia2html" >&2
+folia2html test.xml > test.tmp
+if [ $? -ne 0 ]; then
+    echo "...FAILED" >&2
+    FAILURE=1
+else
+    diff test.tmp test.html > test.diff
+    if [ $? -ne 0 ]; then
+        echo "...FAILED" >&2
+        FAILURE=1
+        cat test.diff
+    else
+        echo "...OK" >&2
+    fi
+fi
 
 
 echo "Running foliaquery" >&2

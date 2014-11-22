@@ -3,7 +3,7 @@
 
 <xsl:output method="html" encoding="UTF-8" omit-xml-declaration="yes" doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" indent="yes" />
 
-<!-- FoLiA v0.10 -->
+<!-- FoLiA v0.11 -->
 
 <xsl:template match="/folia:FoLiA">
   <html>
@@ -21,13 +21,6 @@
                 <title><xsl:value-of select="@xml:id" /></title>
             </xsl:otherwise>
         </xsl:choose>
-        <!--
-        <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js" />
-        <script type="text/javascript">
-            $(document).ready(function(){
-            });
-        </script>
-        -->
         <style type="text/css">
  				body {
 					/*background: #222222;*/
@@ -143,17 +136,17 @@
 					z-index: 24;
 				}
 
-				.word>.attributes { display: none; font-size: 12px; font-weight: normal; }
+				.word .attributes { display: none; font-size: 12px; font-weight: normal; }
 				.word:hover {
 					/*text-decoration: underline;*/
 					z-index: 25;
 				}
-				.word:hover>.t {
+				.word:hover .t {
 					background: #bfc0ed;
 					text-decoration: underline;
 				}
 
-				.word:hover>.attributes {
+				.word:hover .attributes {
 					display: block;
 					position: absolute;
 					width: 340px;
@@ -236,7 +229,6 @@
                 font-weight: bold;
                 background: #ddd;
                 }
-
         </style>
   </head>
     <body>
@@ -251,6 +243,10 @@
 </xsl:template>
 
 <xsl:template match="folia:meta">
+    <!-- ignore -->
+</xsl:template>
+
+<xsl:template match="folia:t">
     <!-- ignore -->
 </xsl:template>
 

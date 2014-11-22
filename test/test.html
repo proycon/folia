@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:imdi="http://www.mpi.nl/IMDI/Schema/IMDI" xmlns:folia="http://ilk.uvt.nl/folia">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8" />
+    <meta name="generator" content="folia2html.xsl" />
+    <title>test</title>
+    <style type="text/css">
+ 				body {
+					/*background: #222222;*/
+					background: #b7c8c7;
+					font-family: sans-serif;
+					font-size: 12px;
+					margin-bottom:240px;
+				}
+
+				div.text {
+					width: 700px;
+					margin-top: 50px;
+					margin-left: auto;
+					margin-right: auto;
+					padding: 10px;
+					padding-left: 50px;
+					padding-right: 50px;
+					text-align: left;
+					background: white;
+					border: 2px solid black;
+				}
+
+				div.div {
+					padding-left: 0px;
+					padding-top: 10px;
+					padding-bottom: 10px;
+				}
+
+				#metadata {
+					font-family: sans-serif;
+					width: 700px;
+					font-size: 90%;
+					margin-left: auto;
+					margin-right: auto;
+					margin-top: 5px;
+					margin-bottom: 5px;
+					background: #b4d4d1; /*#FCFFD0;*/
+					border: 1px solid #628f8b;
+					width: 40%;
+					padding: 5px;
+				}
+				#metadata table {
+					text-align: left;
+				}
+
+				#text {
+					border: 1px solid #628f8b;
+					width: 60%;
+					max-width: 1024px;
+					background: white;
+					padding: 20px;
+					padding-right: 100px;
+					margin-top: 5px;
+					margin-left: auto;
+					margin-right: auto;
+					color: #222;
+				}
+				.s {
+					background: white;
+					display: inline;
+					border-left: 1px white solid;
+					border-right: 1px white solid;
+				}
+				.s:hover {
+					background: #e7e8f8;
+					border-left: 1px blue solid;
+					border-right: 1px blue solid;
+				}
+				.word {
+					display: inline;
+					color: black;
+					position: relative;
+					text-decoration: none;
+					z-index: 24;
+                }
+                .sh { 
+                    background: #f4f9ca;
+                }
+                .cor {
+                    background: #f9caca;
+                }
+                .s:hover .sh { 
+					background: #cfd0ed;
+                }
+                .s:hover .cor { 
+					background: #cfd0ed;
+                }
+
+				#text {
+					border: 1px solid #628f8b;
+					width: 60%;
+					max-width: 1024px;
+					background: white;
+					padding: 20px;
+					padding-right: 100px;
+					margin-top: 5px;
+					margin-left: auto;
+					margin-right: auto;
+					color: #222;
+				}
+
+				.word {
+					display: inline;
+					color: black;
+					position: relative;
+					text-decoration: none;
+					z-index: 24;
+				}
+
+				.t {
+					display: inline;
+					text-decoration: none;
+					z-index: 24;
+				}
+
+				.word .attributes { display: none; font-size: 12px; font-weight: normal; }
+				.word:hover {
+					/*text-decoration: underline;*/
+					z-index: 25;
+				}
+				.word:hover .t {
+					background: #bfc0ed;
+					text-decoration: underline;
+				}
+
+				.word:hover .attributes {
+					display: block;
+					position: absolute;
+					width: 340px;
+					font-size: 12px;
+					left: 2em;
+					top: 2em;
+					background: #b4d4d1; /*#FCFFD0;*/
+					opacity: 0.9; filter: alpha(opacity = 90);
+					border: 1px solid #628f8b;
+					padding: 5px;
+					text-decoration: none !important;
+                    text-align: left;
+				}
+				.attributes dt {
+					color: #254643;
+					font-weight: bold;
+				}
+				.attributes dd {
+					color: black;
+					font-family: monospace;
+				}
+				.attributes .wordid {
+					display: inline-block:
+					width: 100%;
+					font-size: 75%;
+					color: #555;
+					font-family: monospace;
+					text-align: center;
+				}
+				.event {
+					padding: 10px;
+					border: 1px solid #4f7d87;
+				}
+                pre.gap {
+                    width: 90%;
+					padding: 5px;
+                    border: 1px dashed #ddd;
+                    white-space: pre-wrap;
+				}
+				span.attrlabel {
+					display: inline-block;
+					color: #254643;
+					font-weight: bold;
+					width: 110px;
+				}
+				span.attrvalue {
+					font-weight: 12px;
+					font-family: monospace;
+                }
+                span.spanclass {
+                    color: #990000;
+                    text-weight: bold;
+                }
+                span.morpheme {
+                    font-style: italic;
+                }
+                span.details {
+                    font-style: normal;
+                    font-size: 80%;
+                }
+
+                div.caption {
+                    text-align: center;
+                    style: italic;
+                }
+
+
+				div#iewarning {
+					width: 90%;
+					padding: 10px;
+					color: red;
+					font-size: 16px;
+					font-weight: bold;
+					text-align: center;
+				}
+                td {
+                 border: 1px solid #ddd;
+                }
+                thead {
+                font-weight: bold;
+                background: #ddd;
+                }
+        </style>
+  </head>
+  <body><!--[if lte IE 10]>
+		<div id="iewarning">
+			The FoLiA viewer does not work properly with Internet Explorer, please consider upgrading to Mozilla Firefox or Google Chrome instead.
+		</div>
+		<![endif]-->
+  
+    
+      
+      
+      
+      
+      
+      
+      
+      
+    
+  
+  <div class="text">
+    <p id="test.p.1">
+      
+      <span id="test.p.1.s.1" class="s"><span id="test.p.1.s.1.w.1" class="word sh"><span class="t">Dit</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.1.s.1.w.1</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">Dit</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">VNW(aanw,pron,stan,vol,3o,ev)</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">dit</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">dit </span></span><br /><span class="spanannotations"><span class="attrlabel">Chunk</span><span class="attrvalue"><span class="spanclass">NP</span> <span class="span">Dit </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">su</span> <strong>Head:</strong> <span class="span">is </span><strong>Dep:</strong> <span class="span">Dit </span></span><br /></span></span></span> <span id="test.p.1.s.1.w.2" class="word sh"><span class="t">is</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.1.s.1.w.2</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">is</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">WW(pv,tgw,ev)</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">zijn</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">zijn </span></span><br /><span class="spanannotations"><span class="attrlabel">Chunk</span><span class="attrvalue"><span class="spanclass">VP</span> <span class="span">is </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">su</span> <strong>Head:</strong> <span class="span">is </span><strong>Dep:</strong> <span class="span">Dit </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">predc</span> <strong>Head:</strong> <span class="span">is </span><strong>Dep:</strong> <span class="span">zin </span></span><br /></span></span></span> <span id="test.p.1.s.1.w.3" class="word sh"><span class="t">de</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.1.s.1.w.3</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">de</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">LID(bep,stan,rest)</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">de</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">de </span></span><br /><span class="spanannotations"><span class="attrlabel">Chunk</span><span class="attrvalue"><span class="spanclass">NP</span> <span class="span">de eerste zin </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">det</span> <strong>Head:</strong> <span class="span">zin </span><strong>Dep:</strong> <span class="span">de </span></span><br /></span></span></span> <span id="test.p.1.s.1.w.4" class="word sh"><span class="t">eerste</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.1.s.1.w.4</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">eerste</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">TW(rang,prenom,stan)</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">een</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">een </span><span class="morpheme">ste </span></span><br /><span class="spanannotations"><span class="attrlabel">Chunk</span><span class="attrvalue"><span class="spanclass">NP</span> <span class="span">de eerste zin </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">mod</span> <strong>Head:</strong> <span class="span">zin </span><strong>Dep:</strong> <span class="span">eerste </span></span><br /></span></span></span> <span id="test.p.1.s.1.w.5" class="word sh"><span class="t">zin</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.1.s.1.w.5</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">zin</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">N(soort,ev,basis,zijd,stan)</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">zin</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">zin </span></span><br /><span class="spanannotations"><span class="attrlabel">Chunk</span><span class="attrvalue"><span class="spanclass">NP</span> <span class="span">de eerste zin </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">det</span> <strong>Head:</strong> <span class="span">zin </span><strong>Dep:</strong> <span class="span">de </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">mod</span> <strong>Head:</strong> <span class="span">zin </span><strong>Dep:</strong> <span class="span">eerste </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">predc</span> <strong>Head:</strong> <span class="span">is </span><strong>Dep:</strong> <span class="span">zin </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">mod</span> <strong>Head:</strong> <span class="span">zin </span><strong>Dep:</strong> <span class="span">van </span></span><br /></span></span></span> <span id="test.p.1.s.1.w.6" class="word sh"><span class="t">van</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.1.s.1.w.6</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">van</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">VZ(init)</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">van</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">van </span></span><br /><span class="spanannotations"><span class="attrlabel">Chunk</span><span class="attrvalue"><span class="spanclass">PP</span> <span class="span">van </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">mod</span> <strong>Head:</strong> <span class="span">zin </span><strong>Dep:</strong> <span class="span">van </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">obj1</span> <strong>Head:</strong> <span class="span">van </span><strong>Dep:</strong> <span class="span">paragraaf </span></span><br /></span></span></span> <span id="test.p.1.s.1.w.7" class="word sh"><span class="t">de</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.1.s.1.w.7</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">de</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">LID(bep,stan,rest)</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">de</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">de </span></span><br /><span class="spanannotations"><span class="attrlabel">Chunk</span><span class="attrvalue"><span class="spanclass">NP</span> <span class="span">de paragraaf </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">det</span> <strong>Head:</strong> <span class="span">paragraaf </span><strong>Dep:</strong> <span class="span">de </span></span><br /></span></span></span> <span id="test.p.1.s.1.w.8" class="word sh"><span class="t">paragraaf</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.1.s.1.w.8</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">paragraaf</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">N(soort,ev,basis,zijd,stan)</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">paragraaf</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">paragraaf </span></span><br /><span class="spanannotations"><span class="attrlabel">Chunk</span><span class="attrvalue"><span class="spanclass">NP</span> <span class="span">de paragraaf </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">det</span> <strong>Head:</strong> <span class="span">paragraaf </span><strong>Dep:</strong> <span class="span">de </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">obj1</span> <strong>Head:</strong> <span class="span">van </span><strong>Dep:</strong> <span class="span">paragraaf </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">punct</span> <strong>Head:</strong> <span class="span">paragraaf </span><strong>Dep:</strong> <span class="span">. </span></span><br /></span></span></span><span id="test.p.1.s.1.w.9" class="word sh"><span class="t">.</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.1.s.1.w.9</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">.</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">LET()</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">.</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">. </span></span><br /><span class="spanannotations"><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">punct</span> <strong>Head:</strong> <span class="span">paragraaf </span><strong>Dep:</strong> <span class="span">. </span></span><br /></span></span></span> </span>
+      <span id="test.p.1.s.2" class="s"><span id="test.p.1.s.2.w.1" class="word sh"><span class="t">Dit</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.1.s.2.w.1</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">Dit</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">VNW(aanw,pron,stan,vol,3o,ev)</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">dit</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">dit </span></span><br /><span class="spanannotations"><span class="attrlabel">Chunk</span><span class="attrvalue"><span class="spanclass">NP</span> <span class="span">Dit </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">su</span> <strong>Head:</strong> <span class="span">is </span><strong>Dep:</strong> <span class="span">Dit </span></span><br /></span></span></span> <span id="test.p.1.s.2.w.2" class="word sh"><span class="t">is</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.1.s.2.w.2</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">is</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">WW(pv,tgw,ev)</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">zijn</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">zijn </span></span><br /><span class="spanannotations"><span class="attrlabel">Chunk</span><span class="attrvalue"><span class="spanclass">VP</span> <span class="span">is </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">su</span> <strong>Head:</strong> <span class="span">is </span><strong>Dep:</strong> <span class="span">Dit </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">predc</span> <strong>Head:</strong> <span class="span">is </span><strong>Dep:</strong> <span class="span">zin </span></span><br /></span></span></span> <span id="test.p.1.s.2.w.3" class="word sh"><span class="t">de</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.1.s.2.w.3</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">de</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">LID(bep,stan,rest)</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">de</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">de </span></span><br /><span class="spanannotations"><span class="attrlabel">Chunk</span><span class="attrvalue"><span class="spanclass">NP</span> <span class="span">de tweede zin </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">det</span> <strong>Head:</strong> <span class="span">zin </span><strong>Dep:</strong> <span class="span">de </span></span><br /></span></span></span> <span id="test.p.1.s.2.w.4" class="word sh"><span class="t">tweede</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.1.s.2.w.4</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">tweede</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">TW(rang,prenom,stan)</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">twee</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">twee </span><span class="morpheme">de </span></span><br /><span class="spanannotations"><span class="attrlabel">Chunk</span><span class="attrvalue"><span class="spanclass">NP</span> <span class="span">de tweede zin </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">mod</span> <strong>Head:</strong> <span class="span">zin </span><strong>Dep:</strong> <span class="span">tweede </span></span><br /></span></span></span> <span id="test.p.1.s.2.w.5" class="word sh"><span class="t">zin</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.1.s.2.w.5</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">zin</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">N(soort,ev,basis,zijd,stan)</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">zin</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">zin </span></span><br /><span class="spanannotations"><span class="attrlabel">Chunk</span><span class="attrvalue"><span class="spanclass">NP</span> <span class="span">de tweede zin </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">det</span> <strong>Head:</strong> <span class="span">zin </span><strong>Dep:</strong> <span class="span">de </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">mod</span> <strong>Head:</strong> <span class="span">zin </span><strong>Dep:</strong> <span class="span">tweede </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">predc</span> <strong>Head:</strong> <span class="span">is </span><strong>Dep:</strong> <span class="span">zin </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">mod</span> <strong>Head:</strong> <span class="span">zin </span><strong>Dep:</strong> <span class="span">van </span></span><br /></span></span></span> <span id="test.p.1.s.2.w.6" class="word sh"><span class="t">van</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.1.s.2.w.6</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">van</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">VZ(init)</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">van</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">van </span></span><br /><span class="spanannotations"><span class="attrlabel">Chunk</span><span class="attrvalue"><span class="spanclass">PP</span> <span class="span">van </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">mod</span> <strong>Head:</strong> <span class="span">zin </span><strong>Dep:</strong> <span class="span">van </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">obj1</span> <strong>Head:</strong> <span class="span">van </span><strong>Dep:</strong> <span class="span">paragraaf </span></span><br /></span></span></span> <span id="test.p.1.s.2.w.7" class="word sh"><span class="t">de</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.1.s.2.w.7</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">de</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">LID(bep,stan,rest)</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">de</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">de </span></span><br /><span class="spanannotations"><span class="attrlabel">Chunk</span><span class="attrvalue"><span class="spanclass">NP</span> <span class="span">de paragraaf </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">det</span> <strong>Head:</strong> <span class="span">paragraaf </span><strong>Dep:</strong> <span class="span">de </span></span><br /></span></span></span> <span id="test.p.1.s.2.w.8" class="word sh"><span class="t">paragraaf</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.1.s.2.w.8</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">paragraaf</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">N(soort,ev,basis,zijd,stan)</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">paragraaf</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">paragraaf </span></span><br /><span class="spanannotations"><span class="attrlabel">Chunk</span><span class="attrvalue"><span class="spanclass">NP</span> <span class="span">de paragraaf </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">det</span> <strong>Head:</strong> <span class="span">paragraaf </span><strong>Dep:</strong> <span class="span">de </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">obj1</span> <strong>Head:</strong> <span class="span">van </span><strong>Dep:</strong> <span class="span">paragraaf </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">punct</span> <strong>Head:</strong> <span class="span">paragraaf </span><strong>Dep:</strong> <span class="span">. </span></span><br /></span></span></span><span id="test.p.1.s.2.w.9" class="word sh"><span class="t">.</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.1.s.2.w.9</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">.</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">LET()</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">.</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">. </span></span><br /><span class="spanannotations"><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">punct</span> <strong>Head:</strong> <span class="span">paragraaf </span><strong>Dep:</strong> <span class="span">. </span></span><br /></span></span></span> </span>
+      <span id="test.p.1.s.3" class="s"><span id="test.p.1.s.3.w.1" class="word sh"><span class="t">En</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.1.s.3.w.1</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">En</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">VG(neven)</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">en</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">en </span></span><br /><span class="spanannotations"><span class="attrlabel">Chunk</span><span class="attrvalue"><span class="spanclass">PP</span> <span class="span">En </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">cnj</span> <strong>Head:</strong> <span class="span">En </span><strong>Dep:</strong> <span class="span">laatste </span></span><br /></span></span></span> <span id="test.p.1.s.3.w.2" class="word sh"><span class="t">dit</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.1.s.3.w.2</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">dit</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">VNW(aanw,pron,stan,vol,3o,ev)</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">dit</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">dit </span></span><br /><span class="spanannotations"><span class="attrlabel">Chunk</span><span class="attrvalue"><span class="spanclass">NP</span> <span class="span">dit </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">None</span> <strong>Head:</strong> <span class="span">laatste </span><strong>Dep:</strong> <span class="span">dit </span></span><br /></span></span></span> <span id="test.p.1.s.3.w.3" class="word sh"><span class="t">de</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.1.s.3.w.3</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">de</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">LID(bep,stan,rest)</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">de</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">de </span></span><br /><span class="spanannotations"><span class="attrlabel">Chunk</span><span class="attrvalue"><span class="spanclass">NP</span> <span class="span">de laatste </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">det</span> <strong>Head:</strong> <span class="span">laatste </span><strong>Dep:</strong> <span class="span">de </span></span><br /></span></span></span> <span id="test.p.1.s.3.w.4" class="word sh"><span class="t">laatste</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.1.s.3.w.4</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">laatste</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">ADJ(nom,sup,met-e,zonder-n,stan)</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">laat</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">laat </span><span class="morpheme">st </span><span class="morpheme">e </span></span><br /><span class="spanannotations"><span class="attrlabel">Chunk</span><span class="attrvalue"><span class="spanclass">NP</span> <span class="span">de laatste </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">None</span> <strong>Head:</strong> <span class="span">laatste </span><strong>Dep:</strong> <span class="span">dit </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">det</span> <strong>Head:</strong> <span class="span">laatste </span><strong>Dep:</strong> <span class="span">de </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">cnj</span> <strong>Head:</strong> <span class="span">En </span><strong>Dep:</strong> <span class="span">laatste </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">punct</span> <strong>Head:</strong> <span class="span">laatste </span><strong>Dep:</strong> <span class="span">. </span></span><br /></span></span></span><span id="test.p.1.s.3.w.5" class="word sh"><span class="t">.</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.1.s.3.w.5</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">.</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">LET()</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">.</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">. </span></span><br /><span class="spanannotations"><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">punct</span> <strong>Head:</strong> <span class="span">laatste </span><strong>Dep:</strong> <span class="span">. </span></span><br /></span></span></span> </span>
+    </p>
+    <p id="test.p.2">
+      
+      <span id="test.p.2.s.1" class="s"><span id="test.p.2.s.1.w.1" class="word sh"><span class="t">Dit</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.2.s.1.w.1</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">Dit</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">VNW(aanw,pron,stan,vol,3o,ev)</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">dit</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">dit </span></span><br /><span class="spanannotations"><span class="attrlabel">Chunk</span><span class="attrvalue"><span class="spanclass">NP</span> <span class="span">Dit </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">su</span> <strong>Head:</strong> <span class="span">is </span><strong>Dep:</strong> <span class="span">Dit </span></span><br /></span></span></span> <span id="test.p.2.s.1.w.2" class="word sh"><span class="t">is</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.2.s.1.w.2</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">is</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">WW(pv,tgw,ev)</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">zijn</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">zijn </span></span><br /><span class="spanannotations"><span class="attrlabel">Chunk</span><span class="attrvalue"><span class="spanclass">VP</span> <span class="span">is </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">su</span> <strong>Head:</strong> <span class="span">is </span><strong>Dep:</strong> <span class="span">Dit </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">predc</span> <strong>Head:</strong> <span class="span">is </span><strong>Dep:</strong> <span class="span">zin </span></span><br /></span></span></span> <span id="test.p.2.s.1.w.3" class="word sh"><span class="t">één</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.2.s.1.w.3</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">één</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">TW(hoofd,prenom,stan)</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">een</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">één </span></span><br /><span class="spanannotations"><span class="attrlabel">Chunk</span><span class="attrvalue"><span class="spanclass">NP</span> <span class="span">één zin </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">det</span> <strong>Head:</strong> <span class="span">zin </span><strong>Dep:</strong> <span class="span">één </span></span><br /></span></span></span> <span id="test.p.2.s.1.w.4" class="word sh"><span class="t">zin</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.2.s.1.w.4</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">zin</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">N(soort,ev,basis,zijd,stan)</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">zin</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">zin </span></span><br /><span class="spanannotations"><span class="attrlabel">Chunk</span><span class="attrvalue"><span class="spanclass">NP</span> <span class="span">één zin </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">det</span> <strong>Head:</strong> <span class="span">zin </span><strong>Dep:</strong> <span class="span">één </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">predc</span> <strong>Head:</strong> <span class="span">is </span><strong>Dep:</strong> <span class="span">zin </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">mod</span> <strong>Head:</strong> <span class="span">zin </span><strong>Dep:</strong> <span class="span">in </span></span><br /></span></span></span> <span id="test.p.2.s.1.w.5" class="word sh"><span class="t">in</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.2.s.1.w.5</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">in</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">VZ(init)</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">in</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">in </span></span><br /><span class="spanannotations"><span class="attrlabel">Chunk</span><span class="attrvalue"><span class="spanclass">PP</span> <span class="span">in </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">mod</span> <strong>Head:</strong> <span class="span">zin </span><strong>Dep:</strong> <span class="span">in </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">obj1</span> <strong>Head:</strong> <span class="span">in </span><strong>Dep:</strong> <span class="span">paragraaf </span></span><br /></span></span></span> <span id="test.p.2.s.1.w.6" class="word sh"><span class="t">een</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.2.s.1.w.6</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">een</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">LID(onbep,stan,agr)</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">een</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">een </span></span><br /><span class="spanannotations"><span class="attrlabel">Chunk</span><span class="attrvalue"><span class="spanclass">NP</span> <span class="span">een nieuwe paragraaf </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">det</span> <strong>Head:</strong> <span class="span">paragraaf </span><strong>Dep:</strong> <span class="span">een </span></span><br /></span></span></span> <span id="test.p.2.s.1.w.7" class="word sh"><span class="t">nieuwe</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.2.s.1.w.7</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">nieuwe</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">ADJ(prenom,basis,met-e,stan)</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">nieuw</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">nieuw </span><span class="morpheme">e </span></span><br /><span class="spanannotations"><span class="attrlabel">Chunk</span><span class="attrvalue"><span class="spanclass">NP</span> <span class="span">een nieuwe paragraaf </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">mod</span> <strong>Head:</strong> <span class="span">paragraaf </span><strong>Dep:</strong> <span class="span">nieuwe </span></span><br /></span></span></span> <span id="test.p.2.s.1.w.8" class="word sh"><span class="t">paragraaf</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.2.s.1.w.8</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">paragraaf</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">N(soort,ev,basis,zijd,stan)</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">paragraaf</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">paragraaf </span></span><br /><span class="spanannotations"><span class="attrlabel">Chunk</span><span class="attrvalue"><span class="spanclass">NP</span> <span class="span">een nieuwe paragraaf </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">det</span> <strong>Head:</strong> <span class="span">paragraaf </span><strong>Dep:</strong> <span class="span">een </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">mod</span> <strong>Head:</strong> <span class="span">paragraaf </span><strong>Dep:</strong> <span class="span">nieuwe </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">obj1</span> <strong>Head:</strong> <span class="span">in </span><strong>Dep:</strong> <span class="span">paragraaf </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">punct</span> <strong>Head:</strong> <span class="span">paragraaf </span><strong>Dep:</strong> <span class="span">. </span></span><br /></span></span></span><span id="test.p.2.s.1.w.9" class="word sh"><span class="t">.</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.2.s.1.w.9</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">.</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">LET()</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">.</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">. </span></span><br /><span class="spanannotations"><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">punct</span> <strong>Head:</strong> <span class="span">paragraaf </span><strong>Dep:</strong> <span class="span">. </span></span><br /></span></span></span> </span>
+    </p>
+    <p id="test.p.3">
+      
+      <span id="test.p.3.s.1" class="s"><span id="test.p.3.s.1.w.1" class="word sh"><span class="t">Dit</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.3.s.1.w.1</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">Dit</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">VNW(aanw,pron,stan,vol,3o,ev)</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">dit</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">dit </span></span><br /><span class="spanannotations"><span class="attrlabel">Chunk</span><span class="attrvalue"><span class="spanclass">NP</span> <span class="span">Dit </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">su</span> <strong>Head:</strong> <span class="span">is </span><strong>Dep:</strong> <span class="span">Dit </span></span><br /></span></span></span> <span id="test.p.3.s.1.w.2" class="word sh"><span class="t">is</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.3.s.1.w.2</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">is</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">WW(pv,tgw,ev)</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">zijn</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">zijn </span></span><br /><span class="spanannotations"><span class="attrlabel">Chunk</span><span class="attrvalue"><span class="spanclass">VP</span> <span class="span">is </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">su</span> <strong>Head:</strong> <span class="span">is </span><strong>Dep:</strong> <span class="span">Dit </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">mod</span> <strong>Head:</strong> <span class="span">is </span><strong>Dep:</strong> <span class="span">ook </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">predc</span> <strong>Head:</strong> <span class="span">is </span><strong>Dep:</strong> <span class="span">zin </span></span><br /></span></span></span> <span id="test.p.3.s.1.w.3" class="word sh"><span class="t">ook</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.3.s.1.w.3</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">ook</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">BW()</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">ook</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">ook </span></span><br /><span class="spanannotations"><span class="attrlabel">Chunk</span><span class="attrvalue"><span class="spanclass">ADVP</span> <span class="span">ook </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">mod</span> <strong>Head:</strong> <span class="span">is </span><strong>Dep:</strong> <span class="span">ook </span></span><br /></span></span></span> <span id="test.p.3.s.1.w.4" class="word sh"><span class="t">een</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.3.s.1.w.4</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">een</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">LID(onbep,stan,agr)</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">een</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">een </span></span><br /><span class="spanannotations"><span class="attrlabel">Chunk</span><span class="attrvalue"><span class="spanclass">NP</span> <span class="span">een zin </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">det</span> <strong>Head:</strong> <span class="span">zin </span><strong>Dep:</strong> <span class="span">een </span></span><br /></span></span></span> <span id="test.p.3.s.1.w.5" class="word sh"><span class="t">zin</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.3.s.1.w.5</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">zin</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">N(soort,ev,basis,zijd,stan)</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">zin</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">zin </span></span><br /><span class="spanannotations"><span class="attrlabel">Chunk</span><span class="attrvalue"><span class="spanclass">NP</span> <span class="span">een zin </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">det</span> <strong>Head:</strong> <span class="span">zin </span><strong>Dep:</strong> <span class="span">een </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">predc</span> <strong>Head:</strong> <span class="span">is </span><strong>Dep:</strong> <span class="span">zin </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">punct</span> <strong>Head:</strong> <span class="span">zin </span><strong>Dep:</strong> <span class="span">. </span></span><br /></span></span></span><span id="test.p.3.s.1.w.6" class="word sh"><span class="t">.</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.3.s.1.w.6</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">.</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">LET()</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">.</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">. </span></span><br /><span class="spanannotations"><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">punct</span> <strong>Head:</strong> <span class="span">zin </span><strong>Dep:</strong> <span class="span">. </span></span><br /></span></span></span> </span>
+      <span id="test.p.3.s.2" class="s"><span id="test.p.3.s.2.w.1" class="word sh"><span class="t">Deze</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.3.s.2.w.1</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">Deze</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">VNW(aanw,det,stan,prenom,met-e,rest)</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">deze</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">deze </span></span><br /><span class="spanannotations"><span class="attrlabel">Chunk</span><span class="attrvalue"><span class="spanclass">NP</span> <span class="span">Deze </span></span><br /></span></span></span> <span id="test.p.3.s.2.w.2" class="word sh"><span class="t">staat</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.3.s.2.w.2</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">staat</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">WW(pv,tgw,met-t)</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">staan</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">sta </span><span class="morpheme">t </span></span><br /><span class="spanannotations"><span class="attrlabel">Chunk</span><span class="attrvalue"><span class="spanclass">VP</span> <span class="span">staat </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">ld</span> <strong>Head:</strong> <span class="span">staat </span><strong>Dep:</strong> <span class="span">in </span></span><br /></span></span></span> <span id="test.p.3.s.2.w.3" class="word sh"><span class="t">in</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.3.s.2.w.3</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">in</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">VZ(init)</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">in</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">in </span></span><br /><span class="spanannotations"><span class="attrlabel">Chunk</span><span class="attrvalue"><span class="spanclass">PP</span> <span class="span">in </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">ld</span> <strong>Head:</strong> <span class="span">staat </span><strong>Dep:</strong> <span class="span">in </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">obj1</span> <strong>Head:</strong> <span class="span">in </span><strong>Dep:</strong> <span class="span">paragraaf </span></span><br /></span></span></span> <span id="test.p.3.s.2.w.4" class="word sh"><span class="t">de</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.3.s.2.w.4</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">de</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">LID(bep,stan,rest)</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">de</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">de </span></span><br /><span class="spanannotations"><span class="attrlabel">Chunk</span><span class="attrvalue"><span class="spanclass">NP</span> <span class="span">de derde paragraaf </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">det</span> <strong>Head:</strong> <span class="span">paragraaf </span><strong>Dep:</strong> <span class="span">de </span></span><br /></span></span></span> <span id="test.p.3.s.2.w.5" class="word sh"><span class="t">derde</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.3.s.2.w.5</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">derde</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">TW(rang,prenom,stan)</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">drie</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">derde </span></span><br /><span class="spanannotations"><span class="attrlabel">Chunk</span><span class="attrvalue"><span class="spanclass">NP</span> <span class="span">de derde paragraaf </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">mod</span> <strong>Head:</strong> <span class="span">paragraaf </span><strong>Dep:</strong> <span class="span">derde </span></span><br /></span></span></span> <span id="test.p.3.s.2.w.6" class="word sh"><span class="t">paragraaf</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.3.s.2.w.6</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">paragraaf</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">N(soort,ev,basis,zijd,stan)</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">paragraaf</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">paragraaf </span></span><br /><span class="spanannotations"><span class="attrlabel">Chunk</span><span class="attrvalue"><span class="spanclass">NP</span> <span class="span">de derde paragraaf </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">det</span> <strong>Head:</strong> <span class="span">paragraaf </span><strong>Dep:</strong> <span class="span">de </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">mod</span> <strong>Head:</strong> <span class="span">paragraaf </span><strong>Dep:</strong> <span class="span">derde </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">obj1</span> <strong>Head:</strong> <span class="span">in </span><strong>Dep:</strong> <span class="span">paragraaf </span></span><br /><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">punct</span> <strong>Head:</strong> <span class="span">paragraaf </span><strong>Dep:</strong> <span class="span">. </span></span><br /></span></span></span><span id="test.p.3.s.2.w.7" class="word sh"><span class="t">.</span><span class="attributes"><span class="attrlabel">ID</span><span class="attrvalue">test.p.3.s.2.w.7</span><br /><span class="attrlabel">Text
+                </span><span class="attrvalue">.</span><br /><span class="attrlabel">PoS</span><span class="attrvalue">LET()</span><br /><span class="attrlabel">Lemma</span><span class="attrvalue">.</span><br /><span class="attrlabel">Morphology</span><span class="attrvalue"><span class="morpheme">. </span></span><br /><span class="spanannotations"><span class="attrlabel">Dependency</span><span class="attrvalue"><span class="spanclass">punct</span> <strong>Head:</strong> <span class="span">paragraaf </span><strong>Dep:</strong> <span class="span">. </span></span><br /></span></span></span> </span>
+    </p>
+  </div>
+</body>
+</html>
