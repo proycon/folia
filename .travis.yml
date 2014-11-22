@@ -9,4 +9,4 @@ before_install:
 install: 
   - python setup.py install
 script:  
-  - bash test/test.sh
+  - cd test && bash test.sh
