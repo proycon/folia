@@ -22,7 +22,10 @@ def transform(xsltfilename, sourcefilename, targetfilename = None, encoding = 'u
     transformed = transformer(parsedsource)
     if targetfilename:
         f = io.open(targetfilename, 'w',encoding='utf-8')
-        f.write( lxml.etree.tostring(transformed, pretty_print=True, encoding=encoding) )
+        if sys.version < '3':
+            f.write( lxml.etree.tostring(transformed, pretty_print=True, encoding=encoding) )
+        else:
+            f.write(str(lxml.etree.tostring(transformed, pretty_print=True, encoding=encoding),encoding))
         f.close()
     else:
         if sys.version < '3':
