@@ -71,7 +71,7 @@ class settings:
 def main():
     try:
         opts, args = getopt.getopt(sys.argv[1:], "o:OPhHSc:x:E:rq", ["help", "csv"])
-    except getopt.GetoptError, err:
+    except getopt.GetoptError as err:
         print(str(err), file=sys.stderr)
         usage()
         sys.exit(2)
