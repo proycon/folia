@@ -88,9 +88,9 @@ def process(filename, patterns):
         print("Processing " + filename, file=sys.stderr)
         doc = folia.Document(file=filename)
         for match in doc.findwords(*patterns ):
-            s = u""
+            s = ""
             for token in match:
-                s += u"\t" + token.text()
+                s += "\t" + token.text()
             s = filename + "\t" + match[0].id + s
             if sys.version < '3':
                 print(s.encode(settings.encoding))
