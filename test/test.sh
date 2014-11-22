@@ -76,7 +76,7 @@ if [ $? -ne 0 ]; then
     echo "...FAILED" >&2
     FAILURE=1
 else
-    diff test.tmp test.html > test.diff
+    diff -ZBEb test.tmp test.html > test.diff
     if [ $? -ne 0 ]; then
         echo "...FAILED" >&2
         FAILURE=1
