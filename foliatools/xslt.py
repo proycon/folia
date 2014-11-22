@@ -7,6 +7,7 @@ import sys
 import glob
 import getopt
 import os.path
+import io
 
 def transform(xsltfilename, sourcefilename, targetfilename = None, encoding = 'utf-8'):
     xsldir = os.path.dirname(__file__)
@@ -20,11 +21,14 @@ def transform(xsltfilename, sourcefilename, targetfilename = None, encoding = 'u
     parsedsource = lxml.etree.parse(sourcefilename)
     transformed = transformer(parsedsource)
     if targetfilename:
-        f = open(targetfilename, 'wb')
+        f = io.open(targetfilename, 'w',encoding='utf-8')
         f.write( lxml.etree.tostring(transformed, pretty_print=True, encoding=encoding) )
         f.close()
     else:
-        print(lxml.etree.tostring(transformed, pretty_print=True, encoding=encoding))
+        if sys.version < '3':
+            print(lxml.etree.tostring(transformed, pretty_print=True, encoding=encoding))
+        else:
+            print(str(lxml.etree.tostring(transformed, pretty_print=True, encoding=encoding),encoding))
 
 
 def usage():
