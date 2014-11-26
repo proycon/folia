@@ -472,7 +472,7 @@
           <s xml:id="WR-P-E-J-0000000001.p.1.s.4">
             <t>De hoofdletter A wordt gebruikt voor het originele handschrift.</t>
             <t class="original">De hoofdletter A wordt gebruikt voor het originele handschrift.</t>
-            <part>
+            <part xml:id="WR-P-E-J-0000000001.p.1.s.4.part.1">
               <w xml:id="WR-P-E-J-0000000001.p.1.s.4.w.1">
                 <t offset="0">De</t>
                 <t offset="0" class="original">De</t>
@@ -490,7 +490,7 @@
                 <lemma class="_"/>
               </w>
             </part>
-            <part>
+            <part xml:id="WR-P-E-J-0000000001.p.1.s.4.part.2">
               <w xml:id="WR-P-E-J-0000000001.p.1.s.4.w.4">
                 <t>wordt</t>
                 <pos class="WW(pv,tgw,met-t)"/>
