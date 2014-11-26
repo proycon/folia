@@ -53,12 +53,12 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
 
 \HRule \\[0.5cm]
 { \Large \bfseries FoLiA: Format for Linguistic Annotation}\\[0.5cm] % Title of your document
-{\bf \small version 0.11.1 -- Revision 3.8} \\[0.5cm]
+{\bf \small version 0.11.2 -- Revision 3.9} \\[0.5cm]
 { \Large \bfseries Documentation}\\[0.5cm]
 {\large \emph{Maarten van Gompel}}\\[0.5cm]
 \HRule \\[1.0cm]
 
-\emph{January 2nd, 2014 \small{(published)} -- July 24th, 2014 \small{(last revision)}} \\[0.3cm] 
+\emph{January 2nd, 2014 \small{(published)} -- November 26th, 2014 \small{(last revision)}} \\[0.3cm] 
 \includegraphics[width=20.0mm]{ru-beeldmerk-zwart.eps}
 \end{center}
 \vspace{0.5cm}
@@ -970,6 +970,51 @@ in FoLiA:
 \end{lstlisting}
 
 The reference element itself needs no declaration.
+
+\subsection{Parts}
+
+\status{since FoLiA 0.11.2}{pynlpl, libfolia}
+
+The structure element \texttt{part} is a fairly abstract structure element that
+should only be used when a more specific structure element is not available. Most
+notably, the part element should never be used for representation of morphemes
+or phonemes! 
+
+Part can be used to divide a larger structure element, such as a division, or a
+paragraph into arbitrary subparts. 
+
+\begin{lstlisting}[language=xml]
+<p>
+  <part>
+    <t>First part of the paragraph.</t>
+  </part>
+  <part>
+    <t>Last part of the paragraph.</t>
+  </part>
+</p>
+\end{lstlisting}
+
+Part elements have to be declared, and can therefore take classes:
+
+\begin{lstlisting}[language=xml]
+<annotations>
+    <part-annotation set="http://ilk.uvt.nl/folia/sets/parts"  />
+</annotations>
+\end{lstlisting}
+
+The part element may seem alike to the division element, but divisions are used
+for text blocks larger than a paragraph, typically correspondings to chapters,
+sections or subsections and often carrying a \texttt{head} element. Do not use
+parts for these structures.
+
+The part element, on the other hand, is more abstract and plays a role on
+a deeper level. It can be embedded within paragraphs, sentences, and most other
+structure elements, even words, though we have to again emphasize it should not
+be used for morphology, there are other solutions for that!
+
+Contact the FoLiA authors if you find yourself using part and you feel a
+more specific FoLiA element is missing.
+
 
 \section{Token Annotation}
 \label{sec:tokenannotation}
