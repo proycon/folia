@@ -9,7 +9,7 @@ FoLiA is an XML-based annotation format, suitable for the representation
 of linguistically annotated language resources. FoLiA’s intended use is
 as a format for storing and/or exchanging language resources, including
 corpora. Our aim is to introduce a single rich format that can
-accomodate a wide variety of linguistic annotation types through a
+accommodate a wide variety of linguistic annotation types through a
 single generalised paradigm. We do not commit to any label set, language
 or linguistic theory. This is always left to the developer of the
 language resource, and provides maximum flexibility.
@@ -20,7 +20,7 @@ D-Coi format, which posits to be loosely based on a minimal subset of
 TEI. Because of the introduction of a new and much broader paradigm,
 FoLiA is not backwards-compatible with D-Coi, i.e. validators for D-Coi
 will not accept FoLiA XML. It is however easy to convert FoLiA to less
-complex or verbose format s such as the D-Coi format, or plain-text.
+complex or verbose formats such as the D-Coi format, or plain-text.
 Converters are provided.
 
 The main characteristics of FoLiA are:
