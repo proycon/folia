@@ -40,7 +40,7 @@ def concat(target, source):
 def foliacat(id, outputfile, *files):
     totalmerges = 0
     outputdoc = folia.Document(id=id)
-    text = folia.append(folia.Text, id=id + ".text")
+    text = outputdoc.append(folia.Text(outputdoc,id=id + ".text"))
     for i, filename in enumerate(files):
         merges = 0
         print("Processing " + filename, file=sys.stderr)
@@ -65,7 +65,7 @@ def foliacat(id, outputfile, *files):
 
 def main():
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "o:ih", ["help"])
+        opts, args = getopt.getopt(sys.argv[1:], "o:i:h", ["help"])
     except getopt.GetoptError as err:
         print(str(err),file=sys.stderr)
         usage()
@@ -74,6 +74,7 @@ def main():
     outputfile = None
     substitute = False
 
+    id = None
     for o, a in opts:
         if o == '-h' or o == '--help':
             usage()
@@ -81,13 +82,17 @@ def main():
         elif o == '-o':
             outputfile = a
         elif o == '-i':
-            folia = True
+            id = a
         else:
             raise Exception("No such option: " + o)
 
     if len(args) < 2:
         print("ERROR: At least two files need to be specified",file=sys.stderr)
         sys.exit(2)
+    if not id:
+        print("ERROR: Please specify an ID for the result document with the -i option",file=sys.stderr)
+        sys.exit(2)
+
 
     if substitute:
         outputfile = args[0]
