@@ -87,8 +87,7 @@ def main():
             raise Exception("No such option: " + o)
 
     if len(args) < 2:
-        print("ERROR: At least two files need to be specified",file=sys.stderr)
-        sys.exit(2)
+        print("WARNING: only one file specified", file=sys.stderr)
     if not id:
         print("ERROR: Please specify an ID for the result document with the -i option",file=sys.stderr)
         sys.exit(2)
