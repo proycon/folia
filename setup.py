@@ -41,6 +41,7 @@ setup(
             'folia2dcoi = foliatools.folia2dcoi:main',
             'folia2html = foliatools.folia2html:main',
             'foliaquery = foliatools.foliaquery:main',
+            'foliaquery1 = foliatools.foliaquery1:main', #old version
             'foliatextcontent = foliatools.foliatextcontent:main',
             'dcoi2folia = foliatools.dcoi2folia:main',
             'foliacat = foliatools.foliacat:main',
@@ -48,5 +49,5 @@ setup(
     },
     #include_package_data=True,
     package_data = {'foliatools': ['*.xsl'] },
-    install_requires=['pynlpl >= 0.6.18', 'lxml >= 2.2']
+    install_requires=['pynlpl >= 0.7.0', 'lxml >= 2.2']
 )
