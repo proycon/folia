@@ -96,8 +96,8 @@ else
 fi
 
 
-echo "Running foliaquery" >&2
-foliaquery --text "zin" test.xml > test.tmp
+echo "Running foliaquery1" >&2
+foliaquery1 --text "zin" test.xml > test.tmp
 if [ $? -ne 0 ]; then
     echo "...FAILED" >&2
     FAILURE=1
@@ -112,8 +112,8 @@ else
     fi
 fi
 
-echo "Running foliaquery (2)" >&2
-foliaquery --pos "{(A|T).*} {N\(.*}" test.xml > test.tmp
+echo "Running foliaquery1 (2)" >&2
+foliaquery1 --pos "{(A|T).*} {N\(.*}" test.xml > test.tmp
 if [ $? -ne 0 ]; then
     echo "...FAILED" >&2
     FAILURE=1
