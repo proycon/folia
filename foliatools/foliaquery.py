@@ -38,9 +38,14 @@ def process(filename, queries):
     try:
         print("Processing " + filename, file=sys.stderr)
         doc = folia.Document(file=filename)
+        dosave = False
         for query in queries:
             query(doc)
-        #TODO: save document if changes are made
+            if query.action and query.action in ('EDIT','DELETE','SUBSTITUTE','PREPEND','APPEND'):
+                dosave = True
+        #save document if changes are made
+        if dosave:
+            doc.save()
     except Exception as e:
         if settings.ignoreerrors:
             print("ERROR: An exception was raised whilst processing " + filename + ":", e            ,file=sys.stderr)
@@ -121,10 +126,11 @@ def main():
             docs.append( folia.Document(file=x) )
 
         import readline
-        print("Starting interactive mode, enter your FQL queries, QUIT to end.",file=sys.stderr)
+        print("Starting interactive mode, enter your FQL queries, QUIT to save changes and exit.",file=sys.stderr)
+        savedocs = set()
         while True:
             query = input("FQL> ")
-            if query == "QUIT":
+            if query == "QUIT" or query == "EXIT":
                 break
             if query.startswith == "LOAD ":
                 print("Loading " + x + "...",file=sys.stderr)
@@ -143,8 +149,16 @@ def main():
             for doc in docs:
                 output = query(doc)
                 print(output)
+                if query.action and query.action in ('EDIT','DELETE','SUBSTITUTE','PREPEND','APPEND'):
+                    savedocs.add(doc)
 
-        #TODO: save documents if changes are made
+
+        print("Saving changes to documents, please wait...",file=sys.stderr)
+        #save documents if changes are made
+        for doc in savedocs:
+            doc.save()
+        print("done.",file=sys.stderr)
+
     else:
         print("ERROR: Nothing to do, specify one or more files or directories",file=sys.stderr)
 
