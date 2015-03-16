@@ -102,6 +102,7 @@ class FoLiATranslator(nodes.NodeVisitor):
         self.id_store = defaultdict( lambda: defaultdict(int) )
         self.docid = document.settings.docid
         self.list_enumerated = [] #contains a 2-list of boolean, int pairs, indicating whether the list is enumerated or not, and the number of items in it thus-far (used for labels), support nesting.
+        self.rootdiv = False #create a root div element?
         nodes.NodeVisitor.__init__(self, document)
 
     ############# HELPERS ###############
@@ -133,14 +134,14 @@ class FoLiATranslator(nodes.NodeVisitor):
             id = self.generate_id(parentid, tag)
         self.path.append( (tag, id ) )
         indentation = (len(self.path)-1) * " "
-        o = indentation + "<" + tag + " xml:id=\"" + id
+        o = indentation + "<" + tag + " xml:id=\"" + id + "\""
         if attribs:
             for key, value in attribs.items():
-                if sys.version < '3' and not isinstance(key, unicode):
+                if sys.version < '3':
                     o += " " + key + "=\"" + unicode(value) + "\""
-                elif sys.version >= '3' and not isinstance(key, str):
+                elif sys.version >= '3':
                     o += " " + key + "=\"" + str(value) + "\""
-        o += "\">\n"
+        o += ">\n"
         self.content.append(o)
 
     def closestructure(self, tag):
@@ -159,6 +160,22 @@ class FoLiATranslator(nodes.NodeVisitor):
         return parentid + "." + tag + "." + str(self.id_store[parentid][tag])
 
 
+    def rightsibling(self, node):
+        fetch = False
+        for sibling in node.traverse(None,1,0,1,0):
+            if sibling is node:
+                fetch = True
+            elif fetch:
+                return sibling
+        return None
+
+
+    def ignore_depart(self, node):
+        try:
+            if node.ignore_depart:
+                return True
+        except AttributeError:
+            return False
 
     ############# TRANSLATION HOOKS (STRUCTURE) ################
 
@@ -167,13 +184,24 @@ class FoLiATranslator(nodes.NodeVisitor):
         self.initstructure('text')
 
     def depart_document(self, node):
+        if self.rootdiv:
+            self.closestructure('div')
         self.closestructure('text')
 
     def visit_paragraph(self, node):
-        self.initstructure('p')
+        if node.parent.__class__.__name__ == 'list_item':
+            #this paragraph is in an item, we don't want paragraphs in items unless there actually are multiple elements in the item
+            sibling = self.rightsibling(node)
+            if sibling:
+                self.initstructure('p')
+            else:
+                node.ignore_depart = True
+        else:
+            self.initstructure('p')
 
     def depart_paragraph(self, node):
-        self.closestructure('p')
+        if not self.ignore_depart(node):
+            self.closestructure('p')
 
     def visit_section(self, node):
         self.initstructure('div')
@@ -182,6 +210,9 @@ class FoLiATranslator(nodes.NodeVisitor):
         self.closestructure('div')
 
     def visit_title(self, node):
+        if node.parent.__class__.__name__ == 'document':
+            self.rootdiv = True
+            self.initstructure('div')
         self.initstructure('head')
 
     def depart_title(self, node):
