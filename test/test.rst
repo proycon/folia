@@ -66,4 +66,8 @@ Prologue
 
 In the unix shell, variables are *prepended* by a dollar sign, like: ``$var``.
 
+The FoLiA website can be found at https://github.com/proycon/folia, also check
+out the website of `Language Machines <http://cls.ru.nl/languagemachines>`_.
+
+
 

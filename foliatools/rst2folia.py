@@ -55,6 +55,7 @@ class Writer(writers.Writer):
         'div': 'https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/divisions.foliaset.xml',
         'style': 'https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/styles.foliaset.xml',
         'note': 'https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/notes.foliaset.xml',
+        'string': None,
     }
 
     #Formats this writer supports
@@ -197,6 +198,11 @@ class FoLiATranslator(nodes.NodeVisitor):
         self.declare('style')
         self.textbuffer.append(  '<t-style class="' + style + '">' + self.encode(node.astext()) + '</t-style>' )
 
+    def addlink(self,node,url):
+        self.texthandled = True
+        self.declare('string')
+        self.textbuffer.append(  '<t-str xlink:type="simple" xlink:href="' + url + '">' + self.encode(node.astext()) + '</t-str>' )
+
     def addmetadata(self, key, node):
         self.texthandled = True
         self.metadata.append(  " <meta id=\"" + key + "\">" + self.encode(node.astext()) + "</meta>\n" )
@@ -204,8 +210,11 @@ class FoLiATranslator(nodes.NodeVisitor):
 
     def declare(self, annotationtype):
         if not annotationtype in self.declared:
-            if annotationtype in self.sets and self.sets[annotationtype]:
-                self.declarations.append("   <" + annotationtype + "-annotation set=\"" + self.sets[annotationtype] + "\" />\n")
+            if annotationtype in self.sets:
+                if self.sets[annotationtype]:
+                    self.declarations.append("   <" + annotationtype + "-annotation set=\"" + self.sets[annotationtype] + "\" />\n")
+                else:
+                    self.declarations.append("   <" + annotationtype + "-annotation />\n")
                 self.declared[annotationtype] = True
 
     ############# TRANSLATION HOOKS (MAIN STRUCTURE) ################
@@ -292,6 +301,7 @@ class FoLiATranslator(nodes.NodeVisitor):
     def depart_caption(self,node):
         self.closestructure('caption')
 
+
     ############# TRANSLATION HOOKS (TEXT & MARKUP) ################
 
     def visit_Text(self, node):
@@ -315,6 +325,17 @@ class FoLiATranslator(nodes.NodeVisitor):
         self.addstyle(node,"literal")
     def depart_literal(self, node):
         self.texthandled = False
+
+    def visit_reference(self, node):
+        self.addlink(node,node.attributes['refuri'])
+    def depart_reference(self, node):
+        self.texthandled = False
+
+    def visit_target(self, node): #TODO? Seems to work, am I missing something?
+        pass
+    def depart_target(self, node):
+        pass
+
 
     ############# TRANSLATION HOOKS (OTHER STRUCTURE) ################
 
