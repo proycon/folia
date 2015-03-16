@@ -192,6 +192,22 @@ class FoLiATranslator(nodes.NodeVisitor):
         except AttributeError:
             return False
 
+    def addstyle(self,node,style):
+        self.texthandled = True
+        self.declare('style')
+        self.textbuffer.append(  '<t-style class="' + style + '">' + self.encode(node.astext()) + '</t-style>' )
+
+    def addmetadata(self, key, node):
+        self.texthandled = True
+        self.metadata.append(  " <meta id=\"" + key + "\">" + self.encode(node.astext()) + "</meta>\n" )
+
+
+    def declare(self, annotationtype):
+        if not annotationtype in self.declared:
+            if annotationtype in self.sets and self.sets[annotationtype]:
+                self.declarations.append("   <" + annotationtype + "-annotation set=\"" + self.sets[annotationtype] + "\" />\n")
+                self.declared[annotationtype] = True
+
     ############# TRANSLATION HOOKS (MAIN STRUCTURE) ################
 
 
@@ -260,21 +276,6 @@ class FoLiATranslator(nodes.NodeVisitor):
         self.closestructure('item')
 
 
-    def addstyle(self,node,style):
-        self.texthandled = True
-        self.declare('style')
-        self.textbuffer.append(  '<t-style class="' + style + '">' + self.encode(node.astext()) + '</t-style>' )
-
-    def addmetadata(self, key, node):
-        self.texthandled = True
-        self.metadata.append(  " <meta id=\"" + key + "\">" + self.encode(node.astext()) + "</meta>\n" )
-
-
-    def declare(self, annotationtype):
-        if not annotationtype in self.declared:
-            if annotationtype in self.sets and self.sets[annotationtype]:
-                self.declarations.append("   <" + annotationtype + "-annotation set=\"" + self.sets[annotationtype] + "\" />\n")
-                self.declared[annotationtype] = True
 
     ############# TRANSLATION HOOKS (TEXT & MARKUP) ################
 
