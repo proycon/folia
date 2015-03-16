@@ -1,3 +1,6 @@
+Chapter One
+==============
+
 This is a test. The test contains multiple sentences in one paragraph. This one contains no newlines, unlike the next three paragraphs.
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.
@@ -13,9 +16,33 @@ porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa.
 Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus,
 ullamcorper vel, tincidunt sed, euismod in, nibh. 
 
+Section One
+-------------
+
 Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora
 torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Sed lacinia,
 urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante
 quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi
 a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices.
 Suspendisse in justo eu magna luctus suscipit. 
+
+Section Two
+------------
+
+Let's make a grocery list, shall we?
+
+- Milk
+- Bread
+- Apples
+- Bananas
+
+We forgot to add numbers, let's do it again:
+
+1) Milk
+2) Bread
+3) Apples
+4) Bananas
+
+Now we know what to buy.
+
+

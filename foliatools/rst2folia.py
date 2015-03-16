@@ -101,6 +101,7 @@ class FoLiATranslator(nodes.NodeVisitor):
         self.declarations = []
         self.id_store = defaultdict( lambda: defaultdict(int) )
         self.docid = document.settings.docid
+        self.list_enumerated = [] #contains a 2-list of boolean, int pairs, indicating whether the list is enumerated or not, and the number of items in it thus-far (used for labels), support nesting.
         nodes.NodeVisitor.__init__(self, document)
 
     ############# HELPERS ###############
@@ -121,7 +122,7 @@ class FoLiATranslator(nodes.NodeVisitor):
             ord('>'): u'&gt;',
         })
 
-    def initstructure(self, tag):
+    def initstructure(self, tag, **attribs):
         """Generic visit function for structure elements"""
         #Generate an ID
         if not self.path:
@@ -132,10 +133,17 @@ class FoLiATranslator(nodes.NodeVisitor):
             id = self.generate_id(parentid, tag)
         self.path.append( (tag, id ) )
         indentation = (len(self.path)-1) * " "
-        o = indentation + "<" + tag + " xml:id=\"" + id  + "\">\n"
+        o = indentation + "<" + tag + " xml:id=\"" + id
+        if attribs:
+            for key, value in attribs.items():
+                if sys.version < '3' and not isinstance(key, unicode):
+                    o += " " + key + "=\"" + unicode(value) + "\""
+                elif sys.version >= '3' and not isinstance(key, str):
+                    o += " " + key + "=\"" + str(value) + "\""
+        o += "\">\n"
         self.content.append(o)
 
-    def addstructure(self, tag):
+    def closestructure(self, tag):
         """Generic depart function for structure elements"""
         tag, id = self.path.pop()
         indentation = len(self.path) * " "
@@ -159,27 +167,51 @@ class FoLiATranslator(nodes.NodeVisitor):
         self.initstructure('text')
 
     def depart_document(self, node):
-        self.addstructure('text')
+        self.closestructure('text')
 
     def visit_paragraph(self, node):
         self.initstructure('p')
 
     def depart_paragraph(self, node):
-        self.addstructure('p')
+        self.closestructure('p')
 
     def visit_section(self, node):
         self.initstructure('div')
 
     def depart_section(self, node):
-        self.addstructure('div')
+        self.closestructure('div')
 
     def visit_title(self, node):
         self.initstructure('head')
 
     def depart_title(self, node):
-        self.addstructure('head')
+        self.closestructure('head')
 
+    def visit_bullet_list(self,node):
+        self.list_enumerated.append([False,0])
+        self.initstructure('list')
 
+    def depart_bullet_list(self,node):
+        self.list_enumerated.pop()
+        self.closestructure('list')
+
+    def visit_enumerated_list(self,node):
+        self.list_enumerated.append([True,0])
+        self.initstructure('list')
+
+    def depart_enumerated_list(self,node):
+        self.list_enumerated.pop()
+        self.closestructure('list')
+
+    def visit_list_item(self,node):
+        if self.list_enumerated[-1][0]:
+            self.list_enumerated[-1][1] += 1
+            self.initstructure('item',n=self.list_enumerated[-1][1])
+        else:
+            self.initstructure('item')
+
+    def depart_list_item(self,node):
+        self.closestructure('item')
 
     ############# TRANSLATION HOOKS (TEXT & MARKUP) ################
 
