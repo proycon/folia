@@ -1,7 +1,10 @@
 Chapter One
 ==============
 
-This is a test. The test contains multiple sentences in one paragraph. This one contains no newlines, unlike the next three paragraphs.
+:Author: proycon
+:Date: 2015-03-16
+
+This is a test. The test contains *multiple sentences* in one paragraph. This one contains no newlines, unlike the next three paragraphs.
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.
 Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh
@@ -36,7 +39,7 @@ Let's make a grocery list, shall we?
 - Apples
 - Bananas
 
-We forgot to add numbers, let's do it again:
+We forgot to add numbers, let's do it **again**:
 
 1) Milk
 2) Bread
@@ -44,5 +47,9 @@ We forgot to add numbers, let's do it again:
 4) Bananas
 
 Now we know what to buy.
+
+In the unix shell, variables are *prepended* by a dollar sign, like: ``$var``.
+
+.. WARNING:: Never touch a hot stove!
 
 
