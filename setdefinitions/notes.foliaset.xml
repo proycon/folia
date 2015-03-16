@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This set is intended for use with the FoLiA structure element: note -->
+<set xml:id="notes" type="closed" xmlns="http://ilk.uvt.nl/folia">
+    <class xml:id="attention" label="Attention">
+    <class xml:id="caution" label="Caution">
+    <class xml:id="danger" label="Danger">
+    <class xml:id="error" label="Error">
+    <class xml:id="hint" label="Hint">
+    <class xml:id="note" label="Note">
+    <class xml:id="footnote" label="Footnote">
+    <class xml:id="tip" label="Tip">
+    <class xml:id="warning" label="Warning">
+    <class xml:id="important" label="Important">
+    <class xml:id="admonition" label="Admonition">
+</set>
