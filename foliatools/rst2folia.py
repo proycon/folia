@@ -39,7 +39,7 @@ class Writer(writers.Writer):
     DEFAULTID = "untitled"
     TEMPLATE = """<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="folia2html.xsl"?>
-<FoLiA xmlns="http://ilk.uvt.nl/folia" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="WR-P-E-J-0000000001" version="0.9" generator="docutils-rst2folia-%(docutilsversion)s-%(libversion)s">
+<FoLiA xmlns="http://ilk.uvt.nl/folia" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="%(docid)s" version="0.9" generator="docutils-rst2folia-%(libversion)s">
 <metadata type="native">
  <annotations>
 %(declarations)s
@@ -66,19 +66,21 @@ class Writer(writers.Writer):
     def translate(self):
         self.visitor =  FoLiATranslator(self.document)
         self.document.walkabout(self.visitor)
-        self.output = ''.join(self.visitor.content)
+        for attr in self.visitor_attributes:
+            setattr(self, attr, getattr(self.visitor, attr))
+        self.output = self.apply_template()
 
     def apply_template(self):
         subs = self.interpolation_dict()
-        return TEMPLATE % subs
+        return self.TEMPLATE % subs
 
     def interpolation_dict(self):
         subs = {}
         for attr in self.visitor_attributes:
             subs[attr] = ''.join(getattr(self, attr)).rstrip('\n')
         subs['encoding'] = self.document.settings.output_encoding
-        subs['docutilsversion'] = docutils.__version__
         subs['libversion'] = LIBVERSION
+        subs['docid'] = self.document.settings.docid
         return subs
 
     def assemble_parts(self):
@@ -93,12 +95,11 @@ class FoLiATranslator(nodes.NodeVisitor):
 
     def __init__(self, document):
         self.textbuffer = []
-        self.head = [xml_declaration, folia_declaration]
         self.path = [] #(tag, id) tuples of the current FoLiA path
         self.content = [] #will contain all XML content as strings
         self.metadata = []
-        self.closure = [folia_closure]
-        self.id_store = defauldict( lambda: defauldict(int) )
+        self.declarations = []
+        self.id_store = defaultdict( lambda: defaultdict(int) )
         self.docid = document.settings.docid
         nodes.NodeVisitor.__init__(self, document)
 
@@ -111,7 +112,7 @@ class FoLiATranslator(nodes.NodeVisitor):
         """Encode special characters in `text` & return."""
         if sys.version < '3' and not isinstance(text, unicode):
             text = unicode(text, 'utf-8')
-        elif sys.version >= '3' and isinstance(text, str):
+        elif sys.version >= '3' and not isinstance(text, str):
             text = str(text, 'utf-8')
         return text.translate({
             ord('&'): u'&amp;',
@@ -125,16 +126,20 @@ class FoLiATranslator(nodes.NodeVisitor):
         #Generate an ID
         if not self.path:
             assert tag == "text"
-            self.path.append( ("text",self.docid + ".text") )
+            id = self.docid + ".text"
         else:
             parenttag, parentid = self.path[-1]
-            self.path.append( (tag, self.generate_id(parentid) ) )
+            id = self.generate_id(parentid, tag)
+        self.path.append( (tag, id ) )
+        indentation = (len(self.path)-1) * " "
+        o = indentation + "<" + tag + " xml:id=\"" + id  + "\">\n"
+        self.content.append(o)
 
-    def addstructure(self, tag, id):
+    def addstructure(self, tag):
         """Generic depart function for structure elements"""
         tag, id = self.path.pop()
         indentation = len(self.path) * " "
-        o = indentation + "<" + tag + " xml:id=\"" + id  + "\">\n"
+        o = ""
         if self.textbuffer:
             o += indentation + " <t>"  + "".join(self.textbuffer) + "</t>\n"
         o += indentation + "</" + tag + ">\n"
@@ -186,7 +191,7 @@ class FoLiATranslator(nodes.NodeVisitor):
 
 def main():
     description = 'Generates FoLiA documents from reStructuredText. ' + default_description
-    publish_cmdline(writer=Writer, writer_name='folia', description=description)
+    publish_cmdline(writer=Writer(), writer_name='folia', description=description)
 
 if __name__ == '__main__':
     main()
