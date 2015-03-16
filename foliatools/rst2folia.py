@@ -113,7 +113,7 @@ class FoLiATranslator(nodes.NodeVisitor):
         self.rootdiv = False #create a root div element?
         self.sets = sets
         self.declared = {}
-        self.inmarkup = False
+        self.texthandled = False
         nodes.NodeVisitor.__init__(self, document)
 
     ############# HELPERS ###############
@@ -159,7 +159,9 @@ class FoLiATranslator(nodes.NodeVisitor):
 
     def closestructure(self, tag):
         """Generic depart function for structure elements"""
-        tag, id = self.path.pop()
+        _tag, id = self.path.pop()
+        if not tag == _tag:
+            raise Exception("Mismatch in closestructure, expected closure for " + tag + ", got " + _tag)
         indentation = len(self.path) * " "
         o = ""
         if self.textbuffer:
@@ -259,11 +261,12 @@ class FoLiATranslator(nodes.NodeVisitor):
 
 
     def addstyle(self,node,style):
-        self.inmarkup = True
+        self.texthandled = True
         self.declare('style')
         self.textbuffer.append(  '<t-style class="' + style + '">' + self.encode(node.astext()) + '</t-style>' )
 
     def addmetadata(self, key, node):
+        self.texthandled = True
         self.metadata.append(  " <meta id=\"" + key + "\">" + self.encode(node.astext()) + "</meta>\n" )
 
 
@@ -276,7 +279,7 @@ class FoLiATranslator(nodes.NodeVisitor):
     ############# TRANSLATION HOOKS (TEXT & MARKUP) ################
 
     def visit_Text(self, node):
-        if not self.inmarkup:
+        if not self.texthandled:
             self.textbuffer.append(  self.encode(node.astext()) )
 
     def depart_Text(self, node):
@@ -284,70 +287,77 @@ class FoLiATranslator(nodes.NodeVisitor):
 
     def visit_strong(self, node):
         self.addstyle(node,"strong")
-
     def depart_strong(self, node):
-        self.inmarkup = False
+        self.texthandled = False
 
     def visit_emphasis(self, node):
         self.addstyle(node,"emphasis")
-
     def depart_emphasis(self, node):
-        self.inmarkup = False
+        self.texthandled = False
 
     def visit_literal(self, node):
         self.addstyle(node,"literal")
-
     def depart_literal(self, node):
-        self.inmarkup = False
+        self.texthandled = False
+
     ############# TRANSLATION HOOKS (OTHER STRUCTURE) ################
 
-    def visit_attention(self,node):
-        self.initstructure('div',cls='attention')
-    def depart_attention(self,node):
-        pass
-
-    def visit_hint(self,node):
-        self.initstructure('div',cls='hint')
-    def depart_hint(self,node):
-        pass
     def visit_footnote(self,node):
         #TODO: handle footnote numbering:  http://code.nabla.net/doc/docutils/api/docutils/transforms/references/docutils.transforms.references.Footnotes.html
         self.initstructure('note',cls='footnote')
     def depart_footnote(self,node):
-        pass
+        self.closestructure('note')
+
+    def visit_attention(self,node):
+        self.initstructure('note',cls='attention')
+    def depart_attention(self,node):
+        self.initstructure('note')
+
+    def visit_hint(self,node):
+        self.initstructure('note',cls='hint')
+    def depart_hint(self,node):
+        self.closestructure('note')
+
+
     def visit_note(self,node):
         self.initstructure('note',cls='note')
     def depart_note(self,node):
-        pass
+        self.closestructure('note')
 
     def visit_caution(self,node):
         self.initstructure('note',cls='caution')
     def depart_caution(self,node):
-        pass
+        self.closestructure('note')
+
     def visit_warning(self,node):
         self.initstructure('note',cls='warning')
     def depart_warning(self,node):
-        pass
+        self.closestructure('note')
+
     def visit_danger(self,node):
         self.initstructure('note',cls='danger')
     def depart_danger(self,node):
-        pass
+        self.closestructure('note')
+
     def visit_admonition(self,node):
         self.initstructure('note',cls='admonition')
     def depart_admonition(self,node):
-        pass
+        self.closestructure('note')
+
     def visit_tip(self,node):
         self.initstructure('note',cls='tip')
     def depart_tip(self,node):
-        pass
+        self.closestructure('note')
+
     def visit_error(self,node):
         self.initstructure('note',cls='error')
     def depart_error(self,node):
-        pass
+        self.closestructure('note')
+
     def visit_important(self,node):
         self.initstructure('note',cls='important')
     def depart_important(self,node):
-        pass
+        self.closestructure('note')
     ############# TRANSLATION HOOKS (METADATA, rst-specific fields) ################
 
     def visit_docinfo(self, node):
@@ -361,59 +371,62 @@ class FoLiATranslator(nodes.NodeVisitor):
 
     def visit_author(self, node):
         self.addmetadata('author', node)
-
     def depart_author(self, node):
-        pass
+        self.texthandled = False
 
     def visit_date(self, node):
         self.addmetadata('date', node)
 
     def depart_date(self, node):
-        pass
+        self.texthandled = False
 
     def visit_contact(self, node):
         self.addmetadata('contact', node)
 
     def depart_contact(self, node):
-        pass
+        self.texthandled = False
 
     def visit_status(self, node):
         self.addmetadata('status', node)
 
     def depart_status(self, node):
-        pass
+        self.texthandled = False
 
 
     def visit_version(self, node):
         self.addmetadata('version', node)
 
     def depart_version(self, node):
-        pass
+        self.texthandled = False
 
     def visit_copyright(self, node):
         self.addmetadata('copyright', node)
 
     def depart_copyright(self, node):
-        pass
+        self.texthandled = False
+
 
     def visit_organization(self, node):
         self.addmetadata('organization', node)
 
     def depart_organization(self, node):
-        pass
+        self.texthandled = False
+
 
 
     def visit_address(self, node):
         self.addmetadata('address', node)
 
     def depart_address(self, node):
-        pass
+        self.texthandled = False
+
 
     def visit_contact(self, node):
         self.addmetadata('contact', node)
 
     def depart_contact(self, node):
-        pass
+        self.texthandled = False
+
 
 def main():
     description = 'Generates FoLiA documents from reStructuredText. ' + default_description
