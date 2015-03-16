@@ -275,7 +275,22 @@ class FoLiATranslator(nodes.NodeVisitor):
     def depart_list_item(self,node):
         self.closestructure('item')
 
+    def visit_image(self,node):
+        self.initstructure('figure',src=node['uri'])
+    def depart_image(self,node):
+        #parent figure will do the closing if image in figure
+        if node.parent.__class__.__name__ != "figure":
+            self.closestructure('figure')
 
+    def visit_figure(self,node):
+        pass
+    def depart_figure(self,node):
+        self.closestructure('figure')
+
+    def visit_caption(self,node):
+        self.initstructure('caption')
+    def depart_caption(self,node):
+        self.closestructure('caption')
 
     ############# TRANSLATION HOOKS (TEXT & MARKUP) ################
 

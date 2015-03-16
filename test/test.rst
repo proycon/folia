@@ -19,7 +19,7 @@ porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa.
 Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus,
 ullamcorper vel, tincidunt sed, euismod in, nibh. 
 
-Section One
+Section 1
 -------------
 
 Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora
@@ -29,8 +29,13 @@ quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi
 a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices.
 Suspendisse in justo eu magna luctus suscipit. 
 
-Section Two
-------------
+Subsection 1.1
+~~~~~~~~~~~~~~~
+
+This is a subsection.
+
+Section 2: Groceries
+-------------------------
 
 Let's make a grocery list, shall we?
 
@@ -46,10 +51,19 @@ We forgot to add numbers, let's do it **again**:
 3) Apples
 4) Bananas
 
+In case you forgot what bananas look like, here's a picture:
+
+.. figure:: http://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Bananas_white_background.jpg/440px-Bananas_white_background.jpg 
+   
+   I'm a banana! Look at me move!
+
 Now we know what to buy.
 
-In the unix shell, variables are *prepended* by a dollar sign, like: ``$var``.
+.. WARNING:: Don't eat bananas when they are green, wait until they are ready for consumption!
 
-.. WARNING:: Never touch a hot stove!
+Prologue
+----------
+
+In the unix shell, variables are *prepended* by a dollar sign, like: ``$var``.
 
 
