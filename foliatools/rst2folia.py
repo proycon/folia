@@ -141,7 +141,7 @@ class FoLiATranslator(nodes.NodeVisitor):
         self.textbuffer.clear()
         self.content.append(o)
 
-    def generate_id(parentid, tag ):
+    def generate_id(self, parentid, tag ):
         self.id_store[parentid][tag] += 1
         return parentid + "." + tag + "." + str(self.id_store[parentid][tag])
 
@@ -185,8 +185,8 @@ class FoLiATranslator(nodes.NodeVisitor):
         pass
 
 def main():
-    description = ('Generates FoLiA documents from reStructuredText. ' + default_description, )
-    public_cmdline(writer=Writer, description=description)
+    description = 'Generates FoLiA documents from reStructuredText. ' + default_description
+    publish_cmdline(writer=Writer, writer_name='folia', description=description)
 
 if __name__ == '__main__':
     main()
