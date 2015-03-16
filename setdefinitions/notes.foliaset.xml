@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- This set is intended for use with the FoLiA structure element: note -->
-<set xml:id="notes" type="closed" xmlns="http://ilk.uvt.nl/folia">
+<set xml:id="notes" type="mixed" xmlns="http://ilk.uvt.nl/folia">
     <class xml:id="attention" label="Attention">
     <class xml:id="caution" label="Caution">
     <class xml:id="danger" label="Danger">

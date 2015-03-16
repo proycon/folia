@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- This set is intended for use with the FoLiA markup element: t-style,
      or alternatively with t-str -->
-<set xml:id="styles" type="closed" xmlns="http://ilk.uvt.nl/folia">
+<set xml:id="styles" type="mixed" xmlns="http://ilk.uvt.nl/folia">
     <class xml:id="strong" label="Strong">
     <class xml:id="emphasis" label="Emphasis">
     <class xml:id="literal" label="Literal">
