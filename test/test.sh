@@ -128,6 +128,21 @@ else
     fi
 fi
 
+echo "Running rst2folia" >&2
+rst2folia --traceback test.rst > test.tmp
+if [ $? -ne 0 ]; then
+    echo "...FAILED" >&2
+    FAILURE=1
+else
+  foliavalidator test.tmp
+  if [ $? -ne 0 ]; then
+      echo "...VALIDATOR FAILED" >&2
+      FAILURE=1
+  else
+      echo "...OK" >&2
+  fi
+fi
+
 exit $FAILURE
 
 

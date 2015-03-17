@@ -132,7 +132,6 @@ class FoLiATranslator(nodes.NodeVisitor):
         return text.translate({
             ord('&'): u'&amp;',
             ord('<'): u'&lt;',
-            ord('"'): u'&quot;',
             ord('>'): u'&gt;',
         })
 
@@ -322,6 +321,11 @@ class FoLiATranslator(nodes.NodeVisitor):
         o += indentation + "</" + tag + ">\n"
         self.content.append(o)
         self.texthandled = False
+
+    def visit_block_quote(self, node):
+        self.initstructure('quote')
+    def depart_block_quote(self, node):
+        self.closestructure('quote')
 
     ############# TRANSLATION HOOKS (TEXT & MARKUP) ################
 

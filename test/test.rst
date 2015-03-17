@@ -29,8 +29,8 @@ quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi
 a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices.
 Suspendisse in justo eu magna luctus suscipit. 
 
-Subsection 1.1
-~~~~~~~~~~~~~~~
+Subsection 1.1: Blocks
+~~~~~~~~~~~~~~~~~~~~~~~
 
 This is a subsection, here we have some explicit Python code in the document, which will render verbatim as a
 FoLiA gap, and can not contain further annotations (useless for code and other
@@ -38,8 +38,30 @@ literals anyway)::
 
     print("Mind the gap")
 
+Martin Luther King once held a famous speech, it went like this and will be rendered as a Quote element:
 
-Section 2: Groceries
+    I have a dream that one day this nation will rise up and live out the true
+    meaning of its creed: "We hold these truths to be self-evident, that all men
+    are created equal."
+
+    I have a dream that one day on the red hills of Georgia, the sons of former
+    slaves and the sons of former slave owners will be able to sit down together at
+    the table of brotherhood.
+
+    I have a dream that one day even the state of Mississippi, a state sweltering
+    with the heat of injustice, sweltering with the heat of oppression, will be
+    transformed into an oasis of freedom and justice.
+
+    I have a dream that my four little children will one day live in a nation where
+    they will not be judged by the color of their skin but by the content of their
+    character. 
+
+Subsection 1.2: Literals
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In the unix shell, variables are *prepended* by a dollar sign, like: ``$var``.
+
+Section 2: Lists
 -------------------------
 
 Let's make a grocery list, shall we?
@@ -49,7 +71,7 @@ Let's make a grocery list, shall we?
 - Apples
 - Bananas
 
-We forgot to add numbers, let's do it **again**:
+We can do it in an enumerated fashion as well, let's do it **again**:
 
 1) Milk
 2) Bread
@@ -69,7 +91,6 @@ Now we know what to buy.
 Prologue
 ----------
 
-In the unix shell, variables are *prepended* by a dollar sign, like: ``$var``.
 
 The FoLiA website can be found at https://github.com/proycon/folia, also check
 out the website of `Language Machines <http://cls.ru.nl/languagemachines>`_.
