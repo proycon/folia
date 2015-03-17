@@ -74,7 +74,7 @@ Resources
 -  **Example** of a FoLiA document (with in-browser visualisation
    through XSL, use view source for XML):
    http://proycon.github.io/folia/example.xml
--  **FoLiA library for Python**: ``pynlpl.formats.folia`` <http://github.com/proycon/pynlpl/blob/master/formats/folia.py>`__
+-  **FoLiA library for Python**: `pynlpl.formats.folia <http://github.com/proycon/pynlpl/blob/master/formats/folia.py>`_
 -  **C++ Library**: ``libfolia`` <http://ilk.uvt.nl/folia/download-libfolia.php>`_, *by Ko van der Sloot (Tilburg University)*
 
 Publications
