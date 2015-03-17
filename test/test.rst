@@ -61,6 +61,11 @@ Subsection 1.2: Literals
 
 In the unix shell, variables are *prepended* by a dollar sign, like: ``$var``.
 
+Subsection 1.3: Unicode
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Фолиа пользовается с многих языков!
+
 Section 2: Lists
 -------------------------
 

@@ -130,9 +130,9 @@ class FoLiATranslator(nodes.NodeVisitor):
         elif sys.version >= '3' and not isinstance(text, str):
             text = str(text, 'utf-8')
         return text.translate({
-            ord('&'): u'&amp;',
-            ord('<'): u'&lt;',
-            ord('>'): u'&gt;',
+            ord('&'): '&amp;',
+            ord('<'): '&lt;',
+            ord('>'): '&gt;',
         })
 
     def initstructure(self, tag, **attribs):
