@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ This set is intended for use with the FoLiA structure element: gap 
+ Some elements are inherited from DCOI gap 'reasons'
+-->
+<set xml:id="gaps" type="mixed" xmlns="http://ilk.uvt.nl/folia">
+    <class xml:id="frontmatter" label="Front Matter"/>
+    <class xml:id="backmatter" label="Back Matter"/>
+    <class xml:id="illegible" label="Illegible"/>
+    <class xml:id="inaudible" label="Inaudible"/>
+    <class xml:id="code" label="Code"/>
+    <class xml:id="verbatim" label="Verbatim"/>
+    <class xml:id="other-language" label="Other Language"/>
+    <class xml:id="cancelled" label="Cancelled"/>
+</set>

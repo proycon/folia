@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- This set is intended for use with the FoLiA structure element: div -->
 <set xml:id="divisions" type="mixed" xmlns="http://ilk.uvt.nl/folia">
-    <class xml:id="document" label="Document">
-    <class xml:id="chapter" label="Chapter">
-    <class xml:id="section" label="Section">
-    <class xml:id="subsection" label="Subsection">
-    <class xml:id="abstract" label="Abstract">
-    <class xml:id="introduction" label="Introduction">
-    <class xml:id="conclusion" label="Conclusion">
-    <class xml:id="bibliography" label="Bibliography">
+    <class xml:id="document" label="Document"/>
+    <class xml:id="chapter" label="Chapter"/>
+    <class xml:id="section" label="Section"/>
+    <class xml:id="subsection" label="Subsection"/>
+    <class xml:id="abstract" label="Abstract"/>
+    <class xml:id="introduction" label="Introduction"/>
+    <class xml:id="conclusion" label="Conclusion"/>
+    <class xml:id="bibliography" label="Bibliography"/>
 </set>
