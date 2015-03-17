@@ -68,9 +68,9 @@ Notable features are:
 Resources
 ---------
 
--  **`Website <http://proycon.github.io/folia>`_**
--  **`Documentation <http://github.com/proycon/folia/blob/master/docs/folia.pdf?raw=true>`_**
--  **`RelaxNG schema <http://github.com/proycon/folia/blob/master/schemas/folia.rng>`_**
+-  `Website <http://proycon.github.io/folia>`_
+-  `Documentation <http://github.com/proycon/folia/blob/master/docs/folia.pdf?raw=true>`_
+-  `RelaxNG schema <http://github.com/proycon/folia/blob/master/schemas/folia.rng>`_
 -  **Example** of a FoLiA document (with in-browser visualisation
    through XSL, use view source for XML):
    http://proycon.github.io/folia/example.xml
