@@ -55,6 +55,7 @@ class Writer(writers.Writer):
         'division': 'https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/divisions.foliaset.xml',
         'style': 'https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/styles.foliaset.xml',
         'note': 'https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/notes.foliaset.xml',
+        'gap': 'https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/gaps.foliaset.xml',
         'string': None,
     }
 
@@ -307,6 +308,20 @@ class FoLiATranslator(nodes.NodeVisitor):
     def depart_caption(self,node):
         self.closestructure('caption')
 
+
+    def visit_literal_block(self,node):
+        self.initstructure('gap',cls="verbatim")
+        self.texthandled = True
+    def depart_literal_block(self,node):
+        tag = "gap"
+        _tag, id = self.path.pop()
+        if not tag == _tag:
+            raise Exception("Mismatch in closestructure, expected closure for " + tag + ", got " + _tag)
+        indentation = len(self.path) * " "
+        o = indentation + " <content><![CDATA["  + node.astext() + "]]></content>\n"
+        o += indentation + "</" + tag + ">\n"
+        self.content.append(o)
+        self.texthandled = False
 
     ############# TRANSLATION HOOKS (TEXT & MARKUP) ################
 

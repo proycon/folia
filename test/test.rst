@@ -32,7 +32,12 @@ Suspendisse in justo eu magna luctus suscipit.
 Subsection 1.1
 ~~~~~~~~~~~~~~~
 
-This is a subsection.
+This is a subsection, here we have some explicit Python code in the document, which will render verbatim as a
+FoLiA gap, and can not contain further annotations (useless for code and other
+literals anyway)::
+
+    print("Mind the gap")
+
 
 Section 2: Groceries
 -------------------------
