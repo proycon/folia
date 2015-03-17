@@ -74,8 +74,8 @@ Resources
 -  **Example** of a FoLiA document (with in-browser visualisation
    through XSL, use view source for XML):
    http://proycon.github.io/folia/example.xml
--  **FoLiA library for Python**: `pynlpl.formats.folia <http://github.com/proycon/pynlpl/blob/master/formats/folia.py>`_
--  **C++ Library**: ``libfolia`` <http://ilk.uvt.nl/folia/download-libfolia.php>`_, *by Ko van der Sloot (Tilburg University)*
+-  **FoLiA library for Python**: ``pynlpl.formats.folia`` (`source <http://github.com/proycon/pynlpl/blob/master/formats/folia.py>`_, `documentation <https://pythonhosted.org/PyNLPl/folia.html>`_)
+-  **C++ Library**: ``libfolia`` (`download <http://ilk.uvt.nl/folia/download-libfolia.php>`_, *by Ko van der Sloot (Tilburg University)*
 
 Publications
 ------------
@@ -106,8 +106,7 @@ A number of command-line tools are readily available for working with FoLiA, to 
 - ``dcoi2folia`` -- Convert D-Coi XML to FoLiA XML
 - ``rst2folia`` -- Convert ReStructuredText, a lightweight non-intrusive text markup language, to FoLiA, using `docutils <http://docutils.sourceforge.net/>`_.
 
-All of these tools are written in Python, and thus require a Python ($2.7$ or
-higher) installation to run. More tools are added as time progresses. 
+All of these tools are written in Python, and thus require a Python (2.7, 3 or higher) installation to run. More tools are added as time progresses. 
 
 Installation
 ---------------
