@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="folia2html.xsl"?>
-<FoLiA xmlns="http://ilk.uvt.nl/folia" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="WR-P-E-J-0000000001" version="0.11.1" generator="manual">
+<FoLiA xmlns="http://ilk.uvt.nl/folia" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="WR-P-E-J-0000000001" version="0.11.3" generator="manual">
   <metadata type="native">
     <annotations>
       <token-annotation annotator="ilktok" annotatortype="auto" />
@@ -1177,7 +1177,7 @@
            </div>
         <note xml:id="footnote.1" class="footnote">
           <s xml:id="footnote.1.s.1">
-            <t>Deze pagina komt oorspronkelijk van wikipedia</t>
+            <t>Deze pagina komt oorspronkelijk van <t-str xlink:type="simple" xlink:href="http://www.wikipedia.org">wikipedia</t-str>.</t>
           </s>
         </note>
       </div>

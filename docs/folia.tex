@@ -53,7 +53,7 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
 
 \HRule \\[0.5cm]
 { \Large \bfseries FoLiA: Format for Linguistic Annotation}\\[0.5cm] % Title of your document
-{\bf \small version 0.11.2 -- Revision 3.9} \\[0.5cm]
+{\bf \small version 0.11.3 -- Revision 3.10} \\[0.5cm]
 { \Large \bfseries Documentation}\\[0.5cm]
 {\large \emph{Maarten van Gompel}}\\[0.5cm]
 \HRule \\[1.0cm]
@@ -3517,6 +3517,42 @@ The element \texttt{<br />} may be used both as a structural element as well
 as a text markup element. It is exempted from needing a declaration.
 
 
+\subsection{Hyperlinks}
+\label{sec:hyperlinks}
+
+\status{new in FoLiA v0.11.3}{pynlpl}
+
+Hyperlinks are ubiquitous in documents from the web and are therefore supported
+in FoLiA as well. A hyperlink is defined as a pointer from a span of text to an
+external resource. In FoLiA, it is therefore implemented as a simple property
+of text itself. Text content elements (\texttt{t}) as well as any Text Markup
+elements that may be contained there in, may act as a hyperlink. The link
+itself is implemented through XLink semantics:
+
+\begin{lstlisting}[language=xml]
+<s>
+ <w><t>The</t></w>
+ <w><t>FoLiA</t></w>
+ <w><t>website</t></w>
+ <w><t>is</t></w>
+ <w><t xlink:type="simple" xlink:href="http://proycon.github.io/folia">here</t></w>
+ <w><t>.</t></w>
+</s>
+\end{lstlisting}
+
+Or on a substring in untokenised text:
+
+\begin{lstlisting}[language=xml]
+<s>
+ <t>The FoLiA website is <t-str xlink:type="simple"
+ xlink:href="http://proycon.github.io/folia">here</t-str>.</t>
+</s>
+\end{lstlisting}
+
+Note that hyperlinks offer a simpler and less extensive notion of linking than
+FoLiA's \emph{alignments}. Always use alignments when linking between
+FoLiA elements, in-document or cross-document, as alignments are actual
+annotations, unlike these hyperlinks.
 
 
 \section{Metadata}

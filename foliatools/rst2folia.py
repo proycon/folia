@@ -40,7 +40,7 @@ class Writer(writers.Writer):
     DEFAULTID = "untitled"
     TEMPLATE = """<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="folia2html.xsl"?>
-<FoLiA xmlns="http://ilk.uvt.nl/folia" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="%(docid)s" version="0.11" generator="docutils-rst2folia-%(libversion)s">
+<FoLiA xmlns="http://ilk.uvt.nl/folia" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="%(docid)s" version="0.11.3" generator="docutils-rst2folia-%(libversion)s">
 <metadata type="native">
  <annotations>
 %(declarations)s
@@ -52,7 +52,7 @@ class Writer(writers.Writer):
 """
 
     DEFAULTSETS = {
-        'div': 'https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/divisions.foliaset.xml',
+        'division': 'https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/divisions.foliaset.xml',
         'style': 'https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/styles.foliaset.xml',
         'note': 'https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/notes.foliaset.xml',
         'string': None,
@@ -209,6 +209,12 @@ class FoLiATranslator(nodes.NodeVisitor):
 
 
     def declare(self, annotationtype):
+        if annotationtype == 'div':
+            annotationtype = 'division'
+        elif annotationtype == 's':
+            annotationtype = 'sentence'
+        elif annotationtype == 'p':
+            annotationtype = 'paragraph'
         if not annotationtype in self.declared:
             if annotationtype in self.sets:
                 if self.sets[annotationtype]:
