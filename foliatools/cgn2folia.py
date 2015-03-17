@@ -33,15 +33,15 @@ cgndir = sys.argv[1]
 outdir = sys.argv[2]
 
 
-plkdir = cgndir + "/data/annot/text/plk/"
-for compdir in glob.glob(plkdir + "/comp-*"):
+plkdir = os.path.join(cgndir,"data","annot","text","plk")
+for compdir in glob.glob(os.path.join(plkdir, "comp-*")):
     collection_id = "CGN-" + os.path.basename(compdir)
     print(collection_id)
     try:
-        os.mkdir(outdir + '/' + collection_id)
+        os.mkdir(os.path.join(outdir, collection_id))
     except:
         pass
-    files = list(glob.glob(compdir + "/nl/*.gz")) + list(glob.glob(compdir + "/vl/*.gz"))
+    files = list(glob.glob(os.path.join(compdir,"nl","*.gz"))) + list(glob.glob(os.path.join(compdir, "vl","*.gz")))
     for path in files:
         text_id = os.path.basename(path).split(".")[0]
         print("\t" + text_id)
@@ -79,7 +79,7 @@ for compdir in glob.glob(plkdir + "/comp-*"):
                     word.append(folia.PosAnnotation, cls=pos)
                     word.append(folia.LemmaAnnotation, cls=lemma)
         fin.close()
-        doc.save(outdir + '/' + collection_id + '/' + full_id + '.folia.xml')
+        doc.save(os.path.join(outdir ,collection_id, full_id , '.folia.xml'))
 
 
 

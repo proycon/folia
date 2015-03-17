@@ -4278,85 +4278,99 @@ A number of command-line tools are readily available for working with FoLiA, to 
 
 \begin{itemize}
 \item \texttt{folia2txt} -- Convert FoLiA XML to plain text (pure text, without any annotations)
-\item \texttt{foliaquery} -- A query tool that searches FoLiA documents for a specified pattern, or combination of patterns. Supports various token annotations.
+\item \texttt{foliaquery} -- A query tool that searches FoLiA documents for a specified pattern, or modifies a document according to the query. Supports FQL (FoLiA Query Language) and CQL (Corpus Query Language).
 \item \texttt{foliavalidator} -- Tests if documents are valid FoLiA XML.
 \item \texttt{folia2dcoi} -- Convert FoLiA XML to D-Coi XML (only for annotations supported by D-Coi)
 \item \texttt{dcoi2folia} -- Convert D-Coi XML to FoLiA XML
 \item \texttt{folia2html} -- Converts a FoLiA document to a semi-interactive HTML document, with limited support for certain token annotations.
+\item \texttt{rst2folia} -- Convert ReStructuredText, a lightweight non-intrusive text markup language, to FoLiA
 \end{itemize}
 
-All of these tools are written in Python, and thus require a Python ($2.6$ or higher) installation to run. As FoLiA matures and is adopted more widely, more tools are likely to be added.
+All of these tools are written in Python, and thus require a Python ($2.7$ or higher) installation to run. As FoLiA matures and is adopted more widely, mmore tools are likely to be added.
 
 \section{Installation}
 
-The FoLiA tools are published to the Python Package Index and can be installed effortlessly using \texttt{easy install}, on any Linux/BSD system:
+The FoLiA tools are published to the Python Package Index and can be installed effortlessly using \texttt{pip}, from the command-line, type:
  
 \begin{verbatim}
-$ sudo easy_install folia-tools
+$ pip install folia-tools
 \end{verbatim}
 
-If \texttt{easy install} is not yet available, install it as follows:
+Add \texttt{sudo} to install it globally on your system, if you install locally, we strongly
+recommend you use virtualenv to make a self-contained Python environment.
+
+If \texttt{pip} is not yet available, install it as follows:
 
 On Debian/Ubuntu-based systems:
 
 \begin{verbatim}
-$ sudo apt-get install python-setuptools
+$ sudo apt-get install python-pip
 \end{verbatim}
 
 On RedHat-based systems:
 
 \begin{verbatim}
-$ yum install python-setuptools
+$ yum install python-pip
 \end{verbatim}
 
-Alternatively, the FoLiA tools can be obtained from github
-(\url{https://github.com/proycon/folia}), and once downloaded and extracted,
-can be installed using \texttt{sudo ./setup.py install}.
+On Arch Linux systems:
+
+\begin{verbatim}
+$ pacman -Syu python-pip
+\end{verbatim}
+
+On Mac OS X and Windows we recommend you install Anaconda\footnote{See
+http://continuum.io/} or another Python distribution.
+
+Alternatively, you can use \texttt{easy_install}. The FoLiA tools can also be
+obtained from github (\url{https://github.com/proycon/folia}), and once
+downloaded and extracted, can be installed using \texttt{sudo ./setup.py
+install}.
 
 \section{Usage}
 
 To obtain help regarding the usage of any of the available FoLiA tools, please pass the $-h$ option on the command line to the tool you intend to use. This will provide a summary on available options and usage examples. Most of the tools can run on both a single FoLiA document, as well as a whole directory of documents, allowing also for recursion. The tools generally take one or more file names or directory names as parameters.
 
-\section{FoLiA Query tool}
+%\section{FoLiA Query tool}
+%
+%The query tool, \texttt{foliaquery}, deserves some extra attention. This can be used out-of-the-box to search one or more FoLiA documents for certain patterns. These patterns can be textual, but can also be patterns of (token) annotation. 
 
-The query tool, \texttt{foliaquery}, deserves some extra attention. This can be used out-of-the-box to search one or more FoLiA documents for certain patterns. These patterns can be textual, but can also be patterns of (token) annotation. 
+%Consider a use case in which you have several FoLiA documents in a directory \texttt{/tmp/foliadocs/}. If you are interested in for instance finding all occurrences of the Shakespearean phrase ``to be or not to be'' in these documents, then this can be accomplished using the following command:
 
-Consider a use case in which you have several FoLiA documents in a directory \texttt{/tmp/foliadocs/}. If you are interested in for instance finding all occurrences of the Shakespearean phrase ``to be or not to be'' in these documents, then this can be accomplished using the following command:
+%\begin{verbatim}
+%$ foliaquery --text="to be or not to be" /tmp/foliadocs/
+%\end{verbatim}
 
-\begin{verbatim}
-$ foliaquery --text="to be or not to be" /tmp/foliadocs/
-\end{verbatim}
+%The query tool also allows you to specify this using wildcards of either fixed or variable length, as illustrated respectively in the next example:
 
-The query tool also allows you to specify this using wildcards of either fixed or variable length, as illustrated respectively in the next example:
+%\begin{verbatim}
+%$ foliaquery --text="to be ^ ^ to be" /tmp/foliadocs/
+%$ foliaquery --text="to be * to be" /tmp/foliadocs/
+%\end{verbatim}
 
-\begin{verbatim}
-$ foliaquery --text="to be ^ ^ to be" /tmp/foliadocs/
-$ foliaquery --text="to be * to be" /tmp/foliadocs/
-\end{verbatim}
+%In addition to querying on mere text, you may query on annotations such as for example part-of-speech tags or lemmata:
 
-In addition to querying on mere text, you may query on annotations such as for example part-of-speech tags or lemmata:
+%\begin{verbatim}
+%$ foliaquery --pos="ADJ N" /tmp/foliadocs/
+%$ foliaquery --pos="ADJ ^ N" /tmp/foliadocs/
+%$ foliaquery --lemma="be happy" /tmp/foliadocs/
+%\end{verbatim}
 
-\begin{verbatim}
-$ foliaquery --pos="ADJ N" /tmp/foliadocs/
-$ foliaquery --pos="ADJ ^ N" /tmp/foliadocs/
-$ foliaquery --lemma="be happy" /tmp/foliadocs/
-\end{verbatim}
+%Various patterns may be combined, and matches have to satisfy all:
 
-Various patterns may be combined, and matches have to satisfy all:
+%\begin{verbatim}
+%$ foliaquery --pos="ADJ N" --lemma="beautiful house" /tmp/foliadocs/
+%$ foliaquery --pos="ADJ N" --lemma="beautiful ^" /tmp/foliadocs/
+%\end{verbatim}
 
-\begin{verbatim}
-$ foliaquery --pos="ADJ N" --lemma="beautiful house" /tmp/foliadocs/
-$ foliaquery --pos="ADJ N" --lemma="beautiful ^" /tmp/foliadocs/
-\end{verbatim}
+%Disjunctions, on the level of single tokens, may be specified using the pipe character:
 
-Disjunctions, on the level of single tokens, may be specified using the pipe character:
+%\begin{verbatim}
+%$ foliaquery --pos="ADJ|DET N" --lemma="the|beautiful house|houses" \
+%/tmp/foliadocs/
+%\end{verbatim}
 
-\begin{verbatim}
-$ foliaquery --pos="ADJ|DET N" --lemma="the|beautiful house|houses" \
-/tmp/foliadocs/
-\end{verbatim}
-
-As you see, the query tool is a powerful tool for finding desired patterns in your corpus data. The output will invariably consist of the filename in which the occurrence was found, the ID of the first matching token, and the text of the entire match.
+%As you see, the query tool is a powerful tool for finding desired patterns in your corpus data. The output will invariably consist of the filename in which the occurrence was found, the ID of the first matching token, and the text of the entire match.
 
 
 

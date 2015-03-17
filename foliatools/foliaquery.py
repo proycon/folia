@@ -55,7 +55,7 @@ def process(filename, queries):
 
 def processdir(d, patterns):
     print("Searching in  " + d,file=sys.stderr)
-    for f in glob.glob(d + '/*'):
+    for f in glob.glob(os.path.join(d ,'*')):
         if f[-len(settings.extension) - 1:] == '.' + settings.extension:
             process(f, patterns)
         elif settings.recurse and os.path.isdir(f):

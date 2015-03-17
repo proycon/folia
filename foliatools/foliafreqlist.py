@@ -85,7 +85,7 @@ def process(filename):
 def processdir(d, freqlist = None):
     if not freqlist: freqlist = FrequencyList()
     print("Searching in  " + d,file=sys.stderr)
-    for f in glob.glob(d + '/*'):
+    for f in glob.glob(os.path.join(d ,'*')):
         if f[-len(settings.extension) - 1:] == '.' + settings.extension:
             freqlist += process(f)
         elif settings.recurse and os.path.isdir(f):

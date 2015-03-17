@@ -11,7 +11,7 @@ import io
 
 def transform(xsltfilename, sourcefilename, targetfilename = None, encoding = 'utf-8'):
     xsldir = os.path.dirname(__file__)
-    if xsltfilename[0] != '/': xsltfilename = xsldir + '/' + xsltfilename
+    if xsltfilename[0] != '/': xsltfilename = os.path.join(xsldir, xsltfilename)
     if not os.path.exists(xsltfilename):
         raise Exception("XSL Stylesheet not found: " + xsltfilename)
     elif not os.path.exists(sourcefilename):
@@ -59,7 +59,7 @@ class settings:
 
 def processdir(d, outputfilename = None):
     print("Searching in  " + d, file=sys.stderr)
-    for f in glob.glob(d + '/*'):
+    for f in glob.glob(os.path.join(d,'*')):
         if f[-len(settings.extension) - 1:] == '.' + settings.extension and f[-len(settings.outputextension) - 1:] != '.' + settings.outputextension:
             outputfilename =  f[:-len(settings.extension) - 1] + '.' + settings.outputextension
             process(f, outputfilename)

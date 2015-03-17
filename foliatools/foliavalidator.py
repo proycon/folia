@@ -64,7 +64,7 @@ def validate(filename, schema = None, quick=False):
 
 def processdir(d, schema = None,quick=False):
     print("Searching in  " + d,file=sys.stderr)
-    for f in glob.glob(d + '/*'):
+    for f in glob.glob(os.path.join(d ,'*')):
         if f[-len(settings.extension) - 1:] == '.' + settings.extension:
             validate(f, schema,quick)
         elif settings.recurse and os.path.isdir(f):
