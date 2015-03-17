@@ -4277,16 +4277,24 @@ D-Coi read compatibility      & partial\footnote{Only basic elements, no List, F
 A number of command-line tools are readily available for working with FoLiA, to various ends. The following tools are currently available:
 
 \begin{itemize}
-\item \texttt{folia2txt} -- Convert FoLiA XML to plain text (pure text, without any annotations)
-\item \texttt{foliaquery} -- A query tool that searches FoLiA documents for a specified pattern, or modifies a document according to the query. Supports FQL (FoLiA Query Language) and CQL (Corpus Query Language).
 \item \texttt{foliavalidator} -- Tests if documents are valid FoLiA XML.
+  \textbf{Always use this to test your documents if you produce your own FoLiA documents!}
+\item \texttt{foliaquery} -- Advanced query tool that searches FoLiA documents for a specified pattern, or modifies a document according to the query. Supports FQL (FoLiA Query Language) and CQL (Corpus Query Language).
+\item \texttt{folia2txt} -- Convert FoLiA XML to plain text (pure text, without any annotations)
+\item \texttt{folia2annotatedtxt} -- Like above, but produces output simple
+  token annotations inline, by appending them directly to the word using a specific delimiter.
+\item \texttt{folia2columns} -- This conversion tool reads a FoLiA XML document
+  and produces a simple columned output format (including CSV) in which each token appears on one line. Note that only simple token annotations are supported and a lot of FoLiA data can not be intuitively expressed in a simple columned format!
+\item \texttt{folia2html} -- Converts a FoLiA document to a semi-interactive HTML document, with limited support for certain token annotations.
 \item \texttt{folia2dcoi} -- Convert FoLiA XML to D-Coi XML (only for annotations supported by D-Coi)
 \item \texttt{dcoi2folia} -- Convert D-Coi XML to FoLiA XML
-\item \texttt{folia2html} -- Converts a FoLiA document to a semi-interactive HTML document, with limited support for certain token annotations.
-\item \texttt{rst2folia} -- Convert ReStructuredText, a lightweight non-intrusive text markup language, to FoLiA
+\item \texttt{rst2folia} -- Convert ReStructuredText, a lightweight
+  non-intrusive text markup language, to FoLiA, using
+  docutils\footnote{http://docutils.sourceforge.net/}.
 \end{itemize}
 
-All of these tools are written in Python, and thus require a Python ($2.7$ or higher) installation to run. As FoLiA matures and is adopted more widely, mmore tools are likely to be added.
+All of these tools are written in Python, and thus require a Python ($2.7$ or
+higher) installation to run. More tools are added as time progresses. 
 
 \section{Installation}
 
@@ -4322,9 +4330,9 @@ $ pacman -Syu python-pip
 On Mac OS X and Windows we recommend you install Anaconda\footnote{See
 http://continuum.io/} or another Python distribution.
 
-Alternatively, you can use \texttt{easy_install}. The FoLiA tools can also be
+Alternatively, you can use \texttt{easy\_install}. The FoLiA tools can also be
 obtained from github (\url{https://github.com/proycon/folia}), and once
-downloaded and extracted, can be installed using \texttt{sudo ./setup.py
+downloaded and extracted, can be installed using \texttt{python setup.py
 install}.
 
 \section{Usage}
