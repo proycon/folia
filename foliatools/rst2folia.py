@@ -168,7 +168,7 @@ class FoLiATranslator(nodes.NodeVisitor):
         if self.textbuffer:
             o += indentation + " <t>"  + "".join(self.textbuffer) + "</t>\n"
         o += indentation + "</" + tag + ">\n"
-        self.textbuffer.clear()
+        self.textbuffer = []
         self.content.append(o)
 
     def generate_id(self, parentid, tag ):
