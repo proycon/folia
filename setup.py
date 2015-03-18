@@ -46,6 +46,7 @@ setup(
             'dcoi2folia = foliatools.dcoi2folia:main',
             'rst2folia = foliatools.rst2folia:main',
             'foliacat = foliatools.foliacat:main',
+            'folia2rst = foliatools.folia2rst:main',
         ]
     },
     #include_package_data=True,
