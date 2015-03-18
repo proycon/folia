@@ -39,7 +39,7 @@ class Writer(writers.Writer):
 
     DEFAULTID = "untitled"
     TEMPLATE = """<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="folia2html.xsl"?>
+%(stylesheet)s
 <FoLiA xmlns="http://ilk.uvt.nl/folia" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="%(docid)s" version="0.11.3" generator="docutils-rst2folia-%(libversion)s">
 <metadata type="native">
  <annotations>
@@ -50,6 +50,8 @@ class Writer(writers.Writer):
 %(content)s
 </FoLiA>
 """
+
+    DEFAULTSTYLESHEET = "folia2html.xsl"
 
     DEFAULTSETS = {
         'division': 'https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/divisions.foliaset.xml',
@@ -67,6 +69,12 @@ class Writer(writers.Writer):
         None,
         (
             ('Document ID.  Default is "%s".' % DEFAULTID, ['--docid'], {'default': DEFAULTID, 'metavar': '<string>'}),
+            ('Parent ID. Assign IDs under the specified element, this can be used to merge output back into a larger document', ['--parentid'], {'metavar': '<string>'}),
+            ('Parent Type. Assume all new elements start under an element of this type (FoLiA tag), this can be used to merge output back into a larger document, use with --parentid', ['--parenttype'], {'default': 'div', 'metavar': '<string>'}),
+            ("Excerpt only. Output only the text node and all elements under it. No standalone document, results may be inserted verbatim into a larger document if used with --parentid/--parenttype and --declare-all", ['--excerpt'], {'default': False, 'action': 'store_true'}),
+            ("Declare all possible sets, even if they're not used.", ['--declare-all'], {'default': False, 'action': 'store_true'}),
+            ("Sets. Comma separated list of annotationtype:seturl pairs. Example: division:https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/divisions.foliaset.xml", ['--sets'],{'default':""}),
+            ("Stylesheet. XSL Stylesheet to associate with the document. Defaults to '%s'" % DEFAULTSTYLESHEET, ['--stylesheet'], {'default': "folia2html.xsl",'metavar':'<string>'}),
         )
     )
 
@@ -74,6 +82,10 @@ class Writer(writers.Writer):
 
     def translate(self):
         sets = copy(self.DEFAULTSETS)
+        for setassignment in self.document.settings.sets.split(','):
+            if setassignment:
+                annotationtype,set = setassignment.split(':')
+                sets[annotationtype] = set
         self.visitor =  FoLiATranslator(self.document, sets)
         self.document.walkabout(self.visitor)
         for attr in self.visitor_attributes:
@@ -82,7 +94,10 @@ class Writer(writers.Writer):
 
     def apply_template(self):
         subs = self.interpolation_dict()
-        return self.TEMPLATE % subs
+        if self.document.settings.excerpt:
+            return "%(content)s" % subs
+        else:
+            return self.TEMPLATE % subs
 
     def interpolation_dict(self):
         subs = {}
@@ -91,6 +106,7 @@ class Writer(writers.Writer):
         subs['encoding'] = self.document.settings.output_encoding
         subs['libversion'] = LIBVERSION
         subs['docid'] = self.document.settings.docid
+        subs['stylesheet'] =  "<?xml-stylesheet type=\"text/xsl\" href=\"" + self.document.settings.stylesheet + "\"?>"
         return subs
 
     def assemble_parts(self):
@@ -116,6 +132,19 @@ class FoLiATranslator(nodes.NodeVisitor):
         self.sets = sets
         self.declared = {}
         self.texthandled = False
+        if document.settings.declare_all:
+            for key in self.sets:
+                self.declare(key)
+        if document.settings.parentid:
+            self.parentid = document.settings.parentid
+            self.path.append( (document.settings.parenttype, self.parentid ) )
+            self.textid = "temporary-container-only"
+        else:
+            self.textid = self.docid + ".text"
+            self.parentid = None
+        self.excerpt = document.settings.excerpt
+
+
         nodes.NodeVisitor.__init__(self, document)
 
     ############# HELPERS ###############
@@ -138,9 +167,8 @@ class FoLiATranslator(nodes.NodeVisitor):
     def initstructure(self, tag, **attribs):
         """Generic visit function for structure elements"""
         #Generate an ID
-        if not self.path:
-            assert tag == "text"
-            id = self.docid + ".text"
+        if tag == "text":
+            id = self.textid
         else:
             parenttag, parentid = self.path[-1]
             id = self.generate_id(parentid, tag)
@@ -148,6 +176,8 @@ class FoLiATranslator(nodes.NodeVisitor):
         self.path.append( (tag, id ) )
         indentation = (len(self.path)-1) * " "
         o = indentation + "<" + tag + " xml:id=\"" + id + "\""
+        if tag == "text" and self.excerpt: #this is the root of our output, add namespace stuff
+            o += ' xmlns="http://ilk.uvt.nl/folia" xmlns:xlink="http://www.w3.org/1999/xlink"'
         if attribs:
             for key, value in attribs.items():
                 if key == "cls": key = "class"
@@ -172,8 +202,12 @@ class FoLiATranslator(nodes.NodeVisitor):
         self.content.append(o)
 
     def generate_id(self, parentid, tag ):
-        self.id_store[parentid][tag] += 1
-        return parentid + "." + tag + "." + str(self.id_store[parentid][tag])
+        if parentid == "temporary-container-only" and self.parentid:
+            self.id_store[self.parentid][tag] += 1
+            return self.parentid + "." + tag + "." + str(self.id_store[parentid][tag])
+        else:
+            self.id_store[parentid][tag] += 1
+            return parentid + "." + tag + "." + str(self.id_store[parentid][tag])
 
 
     def rightsibling(self, node):
@@ -258,7 +292,7 @@ class FoLiATranslator(nodes.NodeVisitor):
     def visit_title(self, node):
         if node.parent.__class__.__name__ == 'document':
             self.rootdiv = True
-            self.initstructure('div',cls="document")
+            self.initstructure('div',cls="document" if not self.parentid else "section")
         self.initstructure('head')
 
     def depart_title(self, node):
