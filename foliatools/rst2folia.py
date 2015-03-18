@@ -395,6 +395,12 @@ class FoLiATranslator(nodes.NodeVisitor):
     def depart_target(self, node):
         pass
 
+    def visit_comment(self, node):
+        self.texthandled = True
+    def depart_comment(self, node):
+        self.content.append("<!-- " + node.astext() + " -->\n")
+        self.texthandled = False
+
 
     ############# TRANSLATION HOOKS (OTHER STRUCTURE) ################
 
