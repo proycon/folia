@@ -96,7 +96,7 @@ Now we know what to buy.
 Prologue
 ----------
 
-.. this s just a comment, it will not appear in the document and will just be an XML comment
+.. this is just a comment, it will not appear in the document and will just be an XML comment
 
 The FoLiA website can be found at https://github.com/proycon/folia, also check
 out the website of `Language Machines <http://cls.ru.nl/languagemachines>`_.
