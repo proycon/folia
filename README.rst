@@ -1,6 +1,9 @@
 FoLiA: Format for Linguistic Annotation
 =======================================
 
+.. image:: https://travis-ci.org/proycon/folia.svg?branch=master
+    :target: https://travis-ci.org/proycon/folia
+
 *by Maarten van Gompel, Radboud University Nijmegen*
 
 http://proycon.github.io/folia
