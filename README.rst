@@ -72,13 +72,13 @@ Resources
 ---------
 
 -  `Website <http://proycon.github.io/folia>`_
--  `Documentation <http://github.com/proycon/folia/blob/master/docs/folia.pdf?raw=true>`_
--  `RelaxNG schema <http://github.com/proycon/folia/blob/master/schemas/folia.rng>`_
+-  `Documentation <http://github.com/proycon/folia/blob/master/docs/folia.pdf?raw=true>`__
+-  `RelaxNG schema <http://github.com/proycon/folia/blob/master/schemas/folia.rng>`__
 -  **Example** of a FoLiA document (with in-browser visualisation
    through XSL, use view source for XML):
    http://proycon.github.io/folia/example.xml
--  **FoLiA library for Python**: ``pynlpl.formats.folia`` (`source <http://github.com/proycon/pynlpl/blob/master/formats/folia.py>`_, `documentation <https://pythonhosted.org/PyNLPl/folia.html>`_)
--  **C++ Library**: ``libfolia`` (`download <http://ilk.uvt.nl/folia/download-libfolia.php>`_, *by Ko van der Sloot (Tilburg University)*
+-  **FoLiA library for Python**: ``pynlpl.formats.folia`` (`source <http://github.com/proycon/pynlpl/blob/master/formats/folia.py>`__, `documentation <https://pythonhosted.org/PyNLPl/folia.html>`__)
+-  **C++ Library**: ``libfolia`` (`download <http://ilk.uvt.nl/folia/download-libfolia.php>`__, *by Ko van der Sloot (Tilburg University)*
 
 Publications
 ------------
