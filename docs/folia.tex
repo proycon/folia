@@ -53,12 +53,12 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
 
 \HRule \\[0.5cm]
 { \Large \bfseries FoLiA: Format for Linguistic Annotation}\\[0.5cm] % Title of your document
-{\bf \small version 0.11.3 -- Revision 3.10} \\[0.5cm]
+{\bf \small version 0.12.0 -- Revision 4} \\[0.5cm]
 { \Large \bfseries Documentation}\\[0.5cm]
 {\large \emph{Maarten van Gompel}}\\[0.5cm]
 \HRule \\[1.0cm]
 
-\emph{January 2nd, 2014 \small{(published)} -- November 26th, 2014 \small{(last revision)}} \\[0.3cm] 
+\emph{January 2nd, 2014 \small{(published)} -- March 22nd, 2015 \small{(last revision)}} \\[0.3cm] 
 \includegraphics[width=20.0mm]{ru-beeldmerk-zwart.eps}
 \end{center}
 \vspace{0.5cm}
@@ -1957,7 +1957,7 @@ The same approach can be followed for other kinds of span annotation. Note that 
 \subsection{Speech Structure Annotation}
 \label{sec:speech}
 
-\status{Proposed in v0.9}{not implemented yet}
+\status{Proposed in v0.9, some parts final in v0.12}{partially implemented in pynlpl}
 
 FoLiA is not just suited for the annotation of text, but also accommodates annotation of transcribed speech. This generally asks for a different document structure than text documents. The top-level element for speech-centred resources is \texttt{speech}. Certain elements described in the section on text structure may be used under \texttt{speech} as well; such as divisions (\texttt{div}), sentences (\texttt{s)} and words (\texttt{w}). Notions such as paragraphs and figures make less sense in a speech context.
 
@@ -1992,9 +1992,11 @@ Non-speech events are simply covered by \texttt{event} annotation as seen in Sec
 
 \subsection{Phonetic Content}
 
-\status{Proposed in v0.9}{not implemented yet}
+\status{final in v0.12}{pynlpl}
 
-Written text is always contained in the text content element (\texttt{t}), for phonetics there is a similar counterpart: \texttt{ph}. The \texttt{ph} element holds a phonetic transcription. It is used in a very similar fashion:
+Written text is always contained in the text content element (\texttt{t}), for
+phonetics there is a similar counterpart: \texttt{ph}. The \texttt{ph} element
+holds a phonetic transcription. It is used in a very similar fashion:
 
 \begin{lstlisting}[language=xml]
 <utt src="helloworld.mp3"  begintime="..." endtime="...">
