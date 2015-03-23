@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="folia2html.xsl"?>
-<FoLiA xmlns="http://ilk.uvt.nl/folia" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="WR-P-E-J-0000000001" version="0.11.3" generator="manual">
+<FoLiA xmlns="http://ilk.uvt.nl/folia" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="WR-P-E-J-0000000001" version="0.12.0" generator="manual">
   <metadata type="native">
     <annotations>
       <token-annotation annotator="ilktok" annotatortype="auto" />
@@ -70,6 +70,7 @@
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.1.w.5">
               <t>woord</t>
+              <ph>wort</ph>
               <pos class="N(soort,ev,basis,onz,stan)"/>
               <lemma class="woord"/>
             </w>

@@ -317,7 +317,7 @@ The FoLiA paradigm is visualised in Figure~\ref{fig:paradigm}. Note that the mor
 \subsection{Speech}
 \label{sec:speechparadigm}
 
-\status{PROPOSED in v0.9)}{not implemented yet}
+\status{Final since v0.12}{pynlpl}
 
 FoLiA is also suited for annotation of speech data. The following additional FoLiA attributes are available for \emph{all} structure annotation elements in a speech context: 
 
@@ -325,12 +325,16 @@ FoLiA is also suited for annotation of speech data. The following additional FoL
   \item \texttt{src} -- \textbf{source} -- Points to a file or full URL of a sound or video file. This attribute is inheritable.
    
   \item \texttt{begintime} -- \textbf{begin time} --  A timestamp in
-    \texttt{HH:MM:SS.MMMM} format, indicating the begin time of the speech. If a sound clip is specified (\texttt{src}); the timestamp refers to a location in the soundclip (minus \texttt{srcoffset}).
+    \texttt{HH:MM:SS.MMM} format, indicating the begin time of the speech. If a
+    sound clip is specified (\texttt{src}); the timestamp refers to a location
+    in the soundclip. %(minus \texttt{srcoffset}).
     
   \item \texttt{endtime} -- \textbf{end time} --  A timestamp in
-    \texttt{HH:MM:SS.MMMM} format, indicating the end time of the speech. If a sound clip is specified (\texttt{src}); the timestamp refers to a location in the soundclip (minus \texttt{srcoffset}).
+    \texttt{HH:MM:SS.MMM} format, indicating the end time of the speech. If a
+    sound clip is specified (\texttt{src}); the timestamp refers to a location
+    in the soundclip. %(minus \texttt{srcoffset}).
   
-  \item \texttt{srcoffset} -- \textbf{source offset} -- A timestamp in \texttt{HH:MM:SS.MMMM} format that is \emph{subtracted} from all \texttt{begintime}, and \texttt{endtime} designations within its scope, to find the position in the audio clip. This attribute enables the use of global timings in all begintime/endtime attributes, across different sound clips. Defaults to zero.
+  %\item \texttt{srcoffset} -- \textbf{source offset} -- A timestamp in \texttt{HH:MM:SS.MMMM} format that is \emph{subtracted} from all \texttt{begintime}, and \texttt{endtime} designations within its scope, to find the position in the audio clip. This attribute enables the use of global timings in all begintime/endtime attributes, across different sound clips. Defaults to zero.
   
   \item \texttt{speaker} -- \textbf{speaker} -- A string identifying the
     speaker. This attribute is inheritable. Multiple speakers are not allowed,
@@ -1965,7 +1969,7 @@ All structure elements in a speech context may take the extra FoLiA attributes f
 
 \subsubsection{Utterances}
 
-\status{Proposed in v0.9}{not implemented yet}
+\status{Final in v0.12}{pynlpl}
 
 
 An utterance may consist of words or sentences, which in turn may contain words. The opposite is also true, a sentence may consist of multiple utterances. The utterance element in FoLiA is \texttt{utt}. 
