@@ -39,7 +39,7 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
 \hfill {\footnotesize \textbf{Status: } {#1} $\cdot$ \textbf{Implementations: } {#2} }
 }
 
-\title{FoLiA: Format for Linguistic Annotatation}
+\title{FoLiA: Format for Linguistic Annotation}
 \author{Maarten van Gompel}
 
 \begin{document}
@@ -58,7 +58,7 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
 {\large \emph{Maarten van Gompel}}\\[0.5cm]
 \HRule \\[1.0cm]
 
-\emph{January 2nd, 2014 \small{(published)} -- March 22nd, 2015 \small{(last revision)}} \\[0.3cm] 
+\emph{January 2nd, 2014 \small{(published)} -- March 24th, 2015 \small{(last revision)}} \\[0.3cm] 
 \includegraphics[width=20.0mm]{ru-beeldmerk-zwart.eps}
 \end{center}
 \vspace{0.5cm}
@@ -1078,7 +1078,7 @@ within the term itself. This is where a glossary can for instance obtain
 part-of-speech or lexical semantic sense information, to name just a few
 examples.
 
-Below you see an example of a glossary entry, the sense set used comes from WordNet. The other sets are ficticious.
+Below you see an example of a glossary entry, the sense set used comes from WordNet. The other sets are fictitious.
 
 \begin{lstlisting}[language=xml]
 <entry xml:id="entry.1">
@@ -1093,7 +1093,7 @@ Below you see an example of a glossary entry, the sense set used comes from Word
   </w>
  </term>
  <term xml:id="entry.1.term.2">
-  <w xml:id="entry.1.term.1.w.2">
+  <w xml:id="entry.1.term.2.w.1">
     <t>houses/t>
     <pos class="n">
       <feat subset="number" class="plural" />
@@ -1109,7 +1109,7 @@ Below you see an example of a glossary entry, the sense set used comes from Word
  </def>
  <ex>
   <s xml:id="entry.1.ex.1.s.1> 
-    <t>My house was constructed ten years ago</t>
+    <t>My house was constructed ten years ago.</t>
   </s>
  </ex>
 </entry>
@@ -1119,7 +1119,7 @@ Other semantic senses would be represented as separate entries.
 
 The definitions (\texttt{def}) are a generic element that can be used for
 multiple types of definition. As always, the set is not predefined and purely
-ficticious in our examples, giving the user flexibility. Definitions are for instance suited for dictionaries:
+fictitious in our examples, giving the user flexibility. Definitions are for instance suited for dictionaries:
 
 \begin{lstlisting}[language=xml]
 <entry xml:id="entry.1">
@@ -1211,7 +1211,7 @@ Spanish part, \texttt{doc-spanish.xml}:
 For simple multilingual documents, explicit alignments may be too much hassle,
 see Section~\ref{sec:translations} for a simpler methods based on convention.
 
-The declarations:
+The declarations (fictitious sets):
 
 \begin{lstlisting}[language=xml]
 <annotations>
@@ -1406,7 +1406,26 @@ The declaration (the actual set is fictitious):
 \section{Span Annotation}
 \label{sec:spanannotation}
 
-Not all annotations can be realised as token annotations. Some typically span multiple tokens. For these we introduce a kind of offset notation in separate \emph{annotation layers}. These annotation layers are generally embedded at the sentence level, \emph{after} the word tokens, though they may also be embedded on higher levels. Within these layers, references are made to all of the word tokens spanned using the \texttt{wref} element. Each annotation layer is specific to a kind of span annotation and associated with a set, for which a declaration should be present in the metadata section of the document. 
+Not all annotations can be realised as token annotations. Some typically span
+multiple tokens. For these we introduce a kind of offset notation in separate
+\emph{annotation layers}.  Within these layers, references are made to all of
+the word tokens spanned using the \texttt{wref} element. Each annotation layer
+is specific to a kind of span annotation and associated with a set, for which a
+declaration should be present in the metadata section of the document.  The
+annotation layers are generally embedded within the structure element that also
+contains all the words that are referenced. Often this corresponds to the
+sentence level. Any other higher level is fine too, though. Layers are always
+embedded \emph{after} the word tokens or other structural elements.
+
+Depending on the type of span annotation, it is possible that the element may
+be nested. This is for example the case for syntactic annotation, where the
+nesting of syntactic units allows the building of syntax trees. Other span
+annotation elements of a more complex nature may require other span annotation
+elements within them, these latter span annotation elements are then known as
+\emph{span roles}. Span roles can only be used in
+the scope of a certain span annotation element, not standalone, and therefore
+do not have their own dedicated layer.
+
 
 %The layer elements themselves may also take the \texttt{set}, \texttt{annotator}, \texttt{annotatortype}, or \texttt{confidence} attributes. Which introduces the defaults for all the span annotations under it. They in turn may of course always chose to override this. %DISABLED FOR NOW, LIBRARIES DON't IMPLEMENT THIS YET
 
@@ -1493,19 +1512,26 @@ The declaration is as follows (the actual set is fictitious):
 
 \status{slightly revised in v0.8 (no ``su'' attribute on hd/dep)}{pynlpl,libfolia}
 
-Dependency relations are relations between tokens, in most cases equal to syntactic units. A dependency relation is often of a particular class and consists of a single head component and a single dependent component. In the sample ``He sees'', there is  syntactic dependency between the two words: ``sees'' is the head, and ``He'' is the dependant, and the relation class is something like ``subject'', as the dependant is the subject of the head word. Each dependency relation is explicitly noted in FoLiA.
+Dependency relations are relations between tokens, in most cases equal to
+syntactic units. A dependency relation is often of a particular class and
+consists of a single head component and a single dependent component. In the
+sample ``He sees'', there is  syntactic dependency between the two words:
+``sees'' is the head, and ``He'' is the dependant, and the relation class is
+something like ``subject'', as the dependant is the subject of the head word.
+Each dependency relation is explicitly noted in FoLiA.
 
-The element \texttt{dependencies} introduces this annotation layer. Within it, \texttt{dependency} elements describe all dependency pairs. 
+The element \texttt{dependencies} introduces this annotation layer. Within it,
+\texttt{dependency} elements describe all dependency pairs. 
 
 In the example below, we show a Dutch sentence parsed with the Alpino Parser
 \cite{ALPINO}. We show not only the dependency layer, but also the syntax layer
-to which it is related. The \texttt{dependency} element always contains one
-head element (\texttt{hd}) and one dependant element (\texttt{dep}). The words
-they cover are reiterated in the usual fashion, using \texttt{wref}. For a
-better understanding, Figure~\ref{fig:depparse} illustrates the syntactic
-parse with the dependency relations. Both \texttt{hd} and \texttt{dep} can
-optionally make extra reference to a syntactic unit (or anything else for that
-matter) by means of the \texttt{aref} element. 
+to which it is related. The \texttt{dependency} element always contains two
+span roles: one head element (\texttt{hd}) and one dependent element
+(\texttt{dep}). The words they cover are reiterated in the usual fashion, using
+\texttt{wref}. For a better understanding, Figure~\ref{fig:depparse}
+illustrates the syntactic parse with the dependency relations. Both span roles \texttt{hd}
+and \texttt{dep} can optionally make extra reference to a syntactic unit (or
+anything else for that matter) by means of the \texttt{aref} element. 
 
 \begin{figure}[h]
 \begin{center}
@@ -1872,7 +1898,14 @@ The mandatory declaration for semantic role annotation is as follows:
 
 \status{new in 0.9}{pynlpl}
 
-Relations between words that refer to the same referent are expressed in FoLiA using the \texttt{coreferencechain} and \texttt{coreferencelink} span-annotation elements, within the \texttt{coreferences} annotation layer. This is done by specifying the entire chain in which all links are coreferent. The head of a coreference may optionally be marked with the \texttt{hd} element. This annotation layer itself may be embedded on whatever level is preferred. The following example uses paragraph level, but you can for instance also embed it at sentence level or a global text level:  
+Relations between words that refer to the same referent are expressed in FoLiA
+using the \texttt{coreferencechain} span annotation element and the \texttt{coreferencelink}
+span role within it. The annotation layer is \texttt{coreferences}.
+The co-reference relations are expressed by specifying the entire chain in which all links are coreferent.
+The head of a coreference may optionally be marked with the \texttt{hd}
+element, another span role. This annotation layer itself may be embedded
+on whatever level is preferred. The following example uses paragraph level, but
+you can for instance also embed it at sentence level or a global text level:  
 
 \begin{lstlisting}[language=xml]
 <p xml:id="example.p.1">
