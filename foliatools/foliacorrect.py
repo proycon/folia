@@ -55,29 +55,29 @@ def correct(filename,original, acceptsuggestion, keepcorrection,setfilter,classf
     changed = False
     doc = folia.Document(file=filename)
     for text in doc:
-        correction = text.select(folia.Correction, setfilter)
-        if not classfilter or correction.cls == classfilter:
-            if output:
-                print(correction.xmlstring())
-            elif original and correction.hasoriginal():
-                #restore original
-                replace(correction, correction.original())
-                changed = True
-            elif not original:
-                if correction.hasnew():
-                    replace(correction, correction.new())
+        for correction in text.select(folia.Correction, setfilter):
+            if not classfilter or correction.cls == classfilter:
+                if output:
+                    print(correction.xmlstring())
+                elif original and correction.hasoriginal():
+                    #restore original
+                    replace(correction, correction.original())
                     changed = True
-                if correction.hassuggestions() and acceptsuggestion:
-                    bestsuggestion = None
-                    changed = True
-                    for suggestion in correction.hassuggestions():
-                        if not bestsuggestion or (suggestion.confidence and not bestsuggestion.confidence) or (suggestion.confidence and bestsuggestion.confidence and suggestion.confidence > bestsuggestion.confidence):
-                            bestsuggestion = suggestion
-                    if bestsuggestion:
-                        if keepcorrection:
-                            raise NotImplementedError #TODO
-                        else:
-                            replace(correction, bestsuggestion)
+                elif not original:
+                    if correction.hasnew():
+                        replace(correction, correction.new())
+                        changed = True
+                    if correction.hassuggestions() and acceptsuggestion:
+                        bestsuggestion = None
+                        changed = True
+                        for suggestion in correction.hassuggestions():
+                            if not bestsuggestion or (suggestion.confidence and not bestsuggestion.confidence) or (suggestion.confidence and bestsuggestion.confidence and suggestion.confidence > bestsuggestion.confidence):
+                                bestsuggestion = suggestion
+                        if bestsuggestion:
+                            if keepcorrection:
+                                raise NotImplementedError #TODO
+                            else:
+                                replace(correction, bestsuggestion)
     if changed:
         doc.save()
 
