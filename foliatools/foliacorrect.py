@@ -30,6 +30,7 @@ def usage():
     print("  -r                           Process recursively", file=sys.stderr)
     print("  -E [extension]               Set extension (default: xml)", file=sys.stderr)
     print("  -V                           Show version info", file=sys.stderr)
+    print("  -q                           Ignore errors",file=sys.stderr)
     print("  --original                   Restore the originals, rather than setting the the corrected versions", file=sys.stderr)
     print("  --acceptsuggestion           Automatically accept the suggestion with the hightest confidence (can not be used with --original)", file=sys.stderr)
     print("  --keepcorrection             For use with --acceptsuggestion: do not remove the correction", file=sys.stderr)
@@ -53,33 +54,40 @@ def replace(correction, correctionchild):
 
 def correct(filename,original, acceptsuggestion, keepcorrection,setfilter,classfilter, output):
     changed = False
-    doc = folia.Document(file=filename)
-    for text in doc:
-        for correction in text.select(folia.Correction, setfilter):
-            if not classfilter or correction.cls == classfilter:
-                if output:
-                    print(correction.xmlstring())
-                elif original and correction.hasoriginal():
-                    #restore original
-                    replace(correction, correction.original())
-                    changed = True
-                elif not original:
-                    if correction.hasnew():
-                        replace(correction, correction.new())
+    try:
+        doc = folia.Document(file=filename)
+        for text in doc:
+            for correction in text.select(folia.Correction, setfilter):
+                if not classfilter or correction.cls == classfilter:
+                    if output:
+                        print(correction.xmlstring())
+                    elif original and correction.hasoriginal():
+                        #restore original
+                        replace(correction, correction.original())
                         changed = True
-                    if correction.hassuggestions() and acceptsuggestion:
-                        bestsuggestion = None
-                        changed = True
-                        for suggestion in correction.hassuggestions():
-                            if not bestsuggestion or (suggestion.confidence and not bestsuggestion.confidence) or (suggestion.confidence and bestsuggestion.confidence and suggestion.confidence > bestsuggestion.confidence):
-                                bestsuggestion = suggestion
-                        if bestsuggestion:
-                            if keepcorrection:
-                                raise NotImplementedError #TODO
-                            else:
-                                replace(correction, bestsuggestion)
-    if changed:
-        doc.save()
+                    elif not original:
+                        if correction.hasnew():
+                            replace(correction, correction.new())
+                            changed = True
+                        if correction.hassuggestions() and acceptsuggestion:
+                            bestsuggestion = None
+                            changed = True
+                            for suggestion in correction.hassuggestions():
+                                if not bestsuggestion or (suggestion.confidence and not bestsuggestion.confidence) or (suggestion.confidence and bestsuggestion.confidence and suggestion.confidence > bestsuggestion.confidence):
+                                    bestsuggestion = suggestion
+                            if bestsuggestion:
+                                if keepcorrection:
+                                    raise NotImplementedError #TODO
+                                else:
+                                    replace(correction, bestsuggestion)
+        if changed:
+            doc.save()
+    except Exception as e:
+        if settings.ignoreerrors:
+            print("ERROR: An exception was raised whilst processing " + filename + ":", e, file=sys.stderr)
+        else:
+            raise
+
 
 
 
@@ -96,6 +104,7 @@ class settings:
     extension = 'xml'
     recurse = False
     encoding = 'utf-8'
+    ignoreerrors = False
 
 def main():
     original = acceptsuggestion = keepcorrection = output = False
@@ -116,7 +125,7 @@ def main():
         elif o == '-r':
             settings.recurse = True
         elif o == '-q':
-            quick = True
+            settings.ignoreerrors = True
         elif o == '-V':
             print("FoLiA " + folia.FOLIAVERSION + ", library version " + folia.LIBVERSION,file=sys.stderr)
             sys.exit(0)
