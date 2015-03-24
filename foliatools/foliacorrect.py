@@ -45,7 +45,7 @@ def usage():
 def replace(correction, correctionchild):
     parent = correction.parent
     index = parent.getindex(correction)
-    elements = correctionchild.copychildren(doc)
+    elements = correctionchild.copychildren(correction.doc)
     parent.remove(correction)
     for i, e in enumerate(elements):
         parent.insert(index+i, e)
