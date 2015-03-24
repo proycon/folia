@@ -5425,7 +5425,7 @@ annotation is one that exists alongside the actual annotation of the same type
 and set, and is not authoritative.
 
 The following example is a correction but not in the FoLiA sense, it bluntly changes part-of-speech
-annotation of all occurrences of the word "fly" from "n" to "v", for example to
+annotation of all occurrences of the word ``fly'' from ``n'' to ``v'', for example to
 correct erroneous tagger output:
 %
 \begin{lstlisting}[language=sql]
@@ -5545,9 +5545,12 @@ correction, you can do:
 EDIT pos (AS CORRECTION OF "some/correctionset" WITH class "poscorrection" SUGGESTION class "n") FOR w ID some.word.1
 \end{lstlisting}
 
-The absence of a WITH statement in the action clause indicates that this is purely a suggestion. The actual suggestion follows the \textbf{SUGGESTION} keyword.
+The absence of a WITH statement in the action clause indicates that this is
+purely a suggestion. The actual suggestion follows the \textbf{SUGGESTION}
+keyword.
 
-Any attributes associated with the suggestion can be set with a \textbf{WITH} statement after the suggestion:
+Any attributes associated with the suggestion can be set with a \textbf{WITH}
+statement after the suggestion:
 %
 \begin{lstlisting}[language=sql]
 EDIT pos (AS CORRECTION OF "some/correctionset" WITH class "poscorrection" SUGGESTION class "n" WITH confidence 0.8) FOR w ID some.word.1
@@ -5660,13 +5663,13 @@ FOR w WHERE text="eachother"
 
 \subsection{Dealing with context}
 
-We've seen that with the \textbf{FOR} keyword we can move to bigger elements in the FoLiA
+We have seen that with the \textbf{FOR} keyword we can move to bigger elements in the FoLiA
 document, and with the \textbf{HAS} keyword we can move to siblings. There are
 several \emph{context keywords} that give us all the tools we need to peek at the
 context. Like \textbf{HAS} expressions, these need always be enclosed in
 parentheses.
 
-For instance, consider part-of-speech tagging scenario. If we have a word where
+For instance, consider a part-of-speech tagging scenario. If we have a word where
 the left neighbour is a determiner, and the right neighbour a noun, we can be
 pretty sure the word under our consideration (our target expression) is an
 adjective. Let's add the pos tag:
@@ -5694,7 +5697,7 @@ Within a \textbf{SPAN} keyword, an \textbf{expansion expression} can be used to 
 any number, or a certain number, of elements. You can do this by appending
 curly braces after the element name (but not attached to it) and specifying the
 minimum and maximum number of elements. The following expression selects from
-zero up to three adjectives between the words "the" and "house":
+zero up to three adjectives between the words ``the'' and ``house'':
 %
 \begin{lstlisting}[language=sql]
 SELECT FOR SPAN w WHERE text = "the" & w {0,3} WHERE (pos HAS class == "adj") & w WHERE text = "house"
@@ -5748,7 +5751,7 @@ SELECT su WHERE class = "np" AND (NEXT su WHERE class = "pp") IN su WHERE class 
 }
 
 Classes are prevalent all throughout FoLiA, it is very common to want to select
-on classes. To select words with pos tag "n" for example you can do:
+on classes. To select words with pos tag ``n'' for example you can do:
 %
 \begin{lstlisting}[language=sql]
 SELECT w WHERE (pos HAS class = "n")
@@ -5775,14 +5778,14 @@ This illustrates that there are often multiple ways of obtaining the same
 result set. Due to lazy evaluation in the FQL library, there is not much
 difference performance-wise.
 
-Another kind of shortcut exists for setting text on structural elements. You
-can add a word with text like this:
+Another kind of shortcut exists for setting text on structural elements. The
+explicit procedure to add a word goes as follows:
 %
 \begin{lstlisting}[language=sql]
 ADD w (ADD t WITH text "hello") IN ID some.sentence
 \end{lstlisting}
 
-Or using the shortcut:
+The shortcut is:
 %
 \begin{lstlisting}[language=sql]
 ADD w WITH text "hello" IN ID some.sentence
