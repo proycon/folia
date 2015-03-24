@@ -35,6 +35,7 @@ def usage():
     print("  --keepcorrection             For use with --acceptsuggestion: do not remove the correction", file=sys.stderr)
     print("  --set                        Correction set to filter on", file=sys.stderr)
     print("  --class                      Correction class to filter on", file=sys.stderr)
+    print("  --print                      Print all corrections, do not change the document", file=sys.stderr)
 
 
 
@@ -50,13 +51,15 @@ def replace(correction, correctionchild):
 
 
 
-def correct(filename,original, acceptsuggestion, keepcorrection,setfilter,classfilter):
+def correct(filename,original, acceptsuggestion, keepcorrection,setfilter,classfilter, output):
     changed = False
     doc = folia.Document(file=filename)
     for text in doc:
         correction = text.select(folia.Correction, setfilter)
         if not classfilter or correction.cls == classfilter:
-            if original and correction.hasoriginal():
+            if output:
+                print(correction.xmlstring())
+            elif original and correction.hasoriginal():
                 #restore original
                 replace(correction, correction.original())
                 changed = True
@@ -80,13 +83,13 @@ def correct(filename,original, acceptsuggestion, keepcorrection,setfilter,classf
 
 
 
-def processdir(d, acceptsuggestion, keepcorrection,setfilter,classfilter):
+def processdir(d, acceptsuggestion, keepcorrection,setfilter,classfilter,output):
     print("Searching in  " + d,file=sys.stderr)
     for f in glob.glob(os.path.join(d ,'*')):
         if f[-len(settings.extension) - 1:] == '.' + settings.extension:
-            correct(f, acceptsuggestion, keepcorrection,setfilter,classfilter)
+            correct(f, acceptsuggestion, keepcorrection,setfilter,classfilter,output)
         elif settings.recurse and os.path.isdir(f):
-            processdir(f, acceptsuggestion, keepcorrection,setfilter,classfilter)
+            processdir(f, acceptsuggestion, keepcorrection,setfilter,classfilter,output)
 
 
 class settings:
@@ -95,10 +98,10 @@ class settings:
     encoding = 'utf-8'
 
 def main():
-    original = acceptsuggestion = keepcorrection = False
+    original = acceptsuggestion = keepcorrection = output = False
     setfilter = classfilter = None
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "E:srhqV", ["help","original","acceptsuggestion","keepcorrection","set=","class="])
+        opts, args = getopt.getopt(sys.argv[1:], "E:srhqV", ["help","original","acceptsuggestion","keepcorrection","set=","class=","print"])
     except getopt.GetoptError as err:
         print(str(err), file=sys.stderr)
         usage()
@@ -132,6 +135,9 @@ def main():
         elif o == '--class' or o == '--class=':
             classfilter = a
             break
+        elif o == '--print':
+            output = True
+            break
         else:
             raise Exception("No such option: " + o)
 
@@ -140,9 +146,9 @@ def main():
         for x in sys.argv[1:]:
             if x[0] != '-':
                 if os.path.isdir(x):
-                    processdir(x,original, acceptsuggestion, keepcorrection,setfilter,classfilter)
+                    processdir(x,original, acceptsuggestion, keepcorrection,setfilter,classfilter,output)
                 elif os.path.isfile(x):
-                    correct(x, original, acceptsuggestion, keepcorrection,setfilter,classfilter)
+                    correct(x, original, acceptsuggestion, keepcorrection,setfilter,classfilter,output)
                 else:
                     print("ERROR: File or directory not found: " + x,file=sys.stderr)
                     sys.exit(3)
