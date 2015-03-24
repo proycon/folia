@@ -48,6 +48,8 @@ def replace(correction, correctionchild):
     elements = correctionchild.copychildren(doc)
     parent.remove(correction)
     for i, e in enumerate(elements):
+        if isinstance(e, folia.TextContent) and e.cls == 'original':
+            e.cls = 'current'
         parent.insert(index+i, e)
 
 
