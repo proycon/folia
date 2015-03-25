@@ -57,7 +57,7 @@ def correct(filename,corrected, original, acceptsuggestion, setfilter,classfilte
     try:
         doc = folia.Document(file=filename)
         for text in doc:
-            for correction in text.select(folia.Correction, setfilter):
+            for correction in list(text.select(folia.Correction, setfilter)):
                 if not classfilter or correction.cls == classfilter:
                     if original and correction.hasoriginal():
                         #restore original
