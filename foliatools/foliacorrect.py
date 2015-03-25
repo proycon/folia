@@ -22,7 +22,7 @@ def usage():
     print("", file=sys.stderr)
     print("FoLiA " + folia.FOLIAVERSION + ", library version " + folia.LIBVERSION, file=sys.stderr)
     print("", file=sys.stderr)
-    print("Removes all corrections from a document so only the corrected or original elements remain. Can also apply suggestions for correction.",file=sys.stderr)
+    print("Corrections are one of the most complex forms of annotation in FoLiA. It may occur that you want to strip explicit corrections from a document, and leave only either the corrected or original version. The document can then be parsed by simpler parsers that can not handle explicit corrections. Alternatively, you may want to accept the best suggestion for correction (with or without stripping the correction element). This tool provides the means to do all that.", file=sys.stderr)
     print("", file=sys.stderr)
     print("Usage: foliacorrect [options] file-or-dir1 file-or-dir2 ..etc..", file=sys.stderr)
     print("", file=sys.stderr)
@@ -31,14 +31,12 @@ def usage():
     print("  -E [extension]               Set extension (default: xml)", file=sys.stderr)
     print("  -V                           Show version info", file=sys.stderr)
     print("  -q                           Ignore errors",file=sys.stderr)
-    print("  --original                   Restore the originals, rather than setting the the corrected versions", file=sys.stderr)
-    print("  --acceptsuggestion           Automatically accept the suggestion with the hightest confidence (can not be used with --original)", file=sys.stderr)
-    print("  --keepcorrection             For use with --acceptsuggestion: do not remove the correction", file=sys.stderr)
+    print("  --corrected                  Keep the corrected versions, removing all explicit corrections", file=sys.stderr)
+    print("  --original                   Keep the original versions,  removing all explicit corrections", file=sys.stderr)
+    print("  --acceptsuggestion           Automatically accept the suggestion with the hightest confidence (can not be used with --original, can be used with --corrected)", file=sys.stderr)
     print("  --set                        Correction set to filter on", file=sys.stderr)
     print("  --class                      Correction class to filter on", file=sys.stderr)
     print("  --print                      Print all corrections, do not change the document", file=sys.stderr)
-
-
 
 
 
@@ -54,36 +52,41 @@ def replace(correction, correctionchild):
 
 
 
-def correct(filename,original, acceptsuggestion, keepcorrection,setfilter,classfilter, output):
+def correct(filename,corrected, original, acceptsuggestion, setfilter,classfilter, output):
     changed = False
     try:
         doc = folia.Document(file=filename)
         for text in doc:
             for correction in text.select(folia.Correction, setfilter):
                 if not classfilter or correction.cls == classfilter:
-                    if output:
-                        print(correction.xmlstring())
-                    elif original and correction.hasoriginal():
+                    if original and correction.hasoriginal():
                         #restore original
+                        print("Restoring original version for " + correction.id,file=sys.stderr)
                         replace(correction, correction.original())
                         changed = True
-                    elif not original:
+                    elif corrected:
                         if correction.hasnew():
+                            print("Keeping corrected version for " + correction.id,file=sys.stderr)
                             replace(correction, correction.new())
                             changed = True
-                        if correction.hassuggestions() and acceptsuggestion:
-                            bestsuggestion = None
-                            changed = True
-                            for suggestion in correction.hassuggestions():
-                                if not bestsuggestion or (suggestion.confidence and not bestsuggestion.confidence) or (suggestion.confidence and bestsuggestion.confidence and suggestion.confidence > bestsuggestion.confidence):
-                                    bestsuggestion = suggestion
-                            if bestsuggestion:
-                                if keepcorrection:
-                                    raise NotImplementedError #TODO
-                                else:
-                                    replace(correction, bestsuggestion)
+                    elif correction.hassuggestions() and acceptsuggestion:
+                        bestsuggestion = None
+                        changed = True
+                        for suggestion in correction.hassuggestions():
+                            if not bestsuggestion or (suggestion.confidence and not bestsuggestion.confidence) or (suggestion.confidence and bestsuggestion.confidence and suggestion.confidence > bestsuggestion.confidence):
+                                bestsuggestion = suggestion
+                        if bestsuggestion:
+                            if corrected:
+                                replace(correction, bestsuggestion)
+                            else:
+                                raise NotImplementedError #TODO
+                    if output:
+                        print(correction.xmlstring())
         if changed:
-            doc.save()
+            if settings.stdout:
+                print(doc.xmlstring())
+            else:
+                doc.save()
     except Exception as e:
         if settings.ignoreerrors:
             print("ERROR: An exception was raised whilst processing " + filename + ":", e, file=sys.stderr)
@@ -93,13 +96,13 @@ def correct(filename,original, acceptsuggestion, keepcorrection,setfilter,classf
 
 
 
-def processdir(d, acceptsuggestion, keepcorrection,setfilter,classfilter,output):
+def processdir(d,corrected, original, acceptsuggestion, setfilter,classfilter,output):
     print("Searching in  " + d,file=sys.stderr)
     for f in glob.glob(os.path.join(d ,'*')):
         if f[-len(settings.extension) - 1:] == '.' + settings.extension:
-            correct(f, acceptsuggestion, keepcorrection,setfilter,classfilter,output)
+            correct(f,corrected,original,  acceptsuggestion, setfilter,classfilter,output)
         elif settings.recurse and os.path.isdir(f):
-            processdir(f, acceptsuggestion, keepcorrection,setfilter,classfilter,output)
+            processdir(f, corrected,original, acceptsuggestion, setfilter,classfilter,output)
 
 
 class settings:
@@ -107,12 +110,13 @@ class settings:
     recurse = False
     encoding = 'utf-8'
     ignoreerrors = False
+    stdout = False
 
 def main():
-    original = acceptsuggestion = keepcorrection = output = False
+    original = acceptsuggestion = output = corrected = False
     setfilter = classfilter = None
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "E:srhqV", ["help","original","acceptsuggestion","keepcorrection","set=","class=","print"])
+        opts, args = getopt.getopt(sys.argv[1:], "E:srhqVO", ["help","original","corrected","acceptsuggestion","set=","class=","print"])
     except getopt.GetoptError as err:
         print(str(err), file=sys.stderr)
         usage()
@@ -128,27 +132,23 @@ def main():
             settings.recurse = True
         elif o == '-q':
             settings.ignoreerrors = True
+        elif o == '-O':
+            settings.stdout = True
         elif o == '-V':
             print("FoLiA " + folia.FOLIAVERSION + ", library version " + folia.LIBVERSION,file=sys.stderr)
             sys.exit(0)
         elif o == '--original':
             original = True
-            break
+        elif o == '--corrected':
+            corrected = True
         elif o == '--acceptsuggestion':
             acceptsuggestion = True
-            break
-        elif o == '--keepcorrection':
-            keepcorrecton = True
-            break
         elif o == '--set' or o == '--set=':
             setfilter = a
-            break
         elif o == '--class' or o == '--class=':
             classfilter = a
-            break
         elif o == '--print':
             output = True
-            break
         else:
             raise Exception("No such option: " + o)
 
@@ -157,9 +157,9 @@ def main():
         for x in sys.argv[1:]:
             if x[0] != '-':
                 if os.path.isdir(x):
-                    processdir(x,original, acceptsuggestion, keepcorrection,setfilter,classfilter,output)
+                    processdir(x,corrected,original, acceptsuggestion, setfilter,classfilter,output)
                 elif os.path.isfile(x):
-                    correct(x, original, acceptsuggestion, keepcorrection,setfilter,classfilter,output)
+                    correct(x,corrected, original, acceptsuggestion, setfilter,classfilter,output)
                 else:
                     print("ERROR: File or directory not found: " + x,file=sys.stderr)
                     sys.exit(3)
