@@ -35,6 +35,25 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
     \end{tabular}
 \end{center}}
 
+\newenvironment{declaration}{
+\begin{center}
+    \begin{tabular}[h!]{|p{0.9\textwidth}|}
+    \hline
+    {\bf \textsf{Declaration}}\\\hline}
+{
+    \footnotesize{(Note: The given sets are just examples, you are free to create and
+    use any set of your own)} \\\hline
+    \end{tabular} 
+\end{center}}
+
+\newenvironment{nodeclaration}{
+\begin{center}
+    \begin{tabular}[h!]{|p{0.9\textwidth}|}
+    \hline
+    {\bf \textsf{Declaration}}\\\hline}
+{   \\ \hline
+    \end{tabular} 
+\end{center}}
 
 \newcommand{\status}[2]{
 \hfill {\footnotesize \textbf{Status: } {#1} $\cdot$ \textbf{Implementations: } {#2} }
@@ -287,15 +306,18 @@ new resource and break compatibility with the old one.
 The FoLiA format has a very uniform setup and its XML notation for annotation
 follows a generalised paradigm. We distinguish several different categories of
 annotation, three main categories and several higher-order annotation
-categories.
+categories, each contain a number of annotation types.
 
 \begin{itemize}
 \item \textbf{Structural annotation} - Annotations marking global structure, such as chapters, sections, subsections, figures, list items, paragraphs, sentences, words, morphemes, phonemes etc... Section~\ref{sec:structureannotation} will discuss most structure annotation elements in FoLiA. Morphemes and phonemes are discusses in separate sections. 
-\item \textbf{Token annotation} - Annotations pertaining to a specific token. These will be elements of the token element (\texttt{w}) in inline notation. Linguistic annotations in this category are for example: part-of-speech annotation (lexical categories), lemma annotation, sense annotation. Various token annotation elements may be used on higher levels (e.g. sentence/paragraph) as well and may then be referred to as \textbf{Extended Token Annotation}. Section~\ref{sec:tokenannotation} will discuss all token annotations.
+\item \textbf{Token annotation} - Annotations pertaining to a specific
+  structural element, most often a word token (\texttt{w}) (hence the name). These
+  annoations appear within of the element they apply to. Linguistic annotations in this category are for example: part-of-speech annotation (lexical categories), lemma annotation, sense annotation. Various token annotation elements may be used on higher levels (e.g. sentence/paragraph) as well and may then be referred to as \textbf{Extended Token Annotation}. Section~\ref{sec:tokenannotation} will discuss all token annotations.
 \item \textbf{Span annotation} - Annotations spanning over multiple tokens.
   Each type of annotation will be in a separate \textbf{annotation layer} with
-  stand-off notation. These layers are typically embedded on the sentence
-  level, or possibly also on higher levels (paragraph/division/text) for
+  stand-off notation. These layers are typically embedded on the level that
+  also contains all the element that are being reference. This is often the
+  sentence level, but possibly also higher levels (paragraph/division/text) for
   certain annotation types. Examples in this category are: the labelling of
   syntactic constituent structure, syntactic dependencies, chunks, co-reference, semantic roles and named entities. Section~\ref{sec:spanannotation} will discuss all span annotations.
 \item \textbf{Higher-order annotation} - Higher-order annotation consists of several categories of annotation. These all have in common that they annotate either other annotations, or in some way modify or point at other annotations. 
@@ -315,14 +337,18 @@ annotation. An element of such a set is referred to as a \textbf{class}. For
 example, we may have a document with Part-of-speech annotation according to the
 CGN set, a tagset for Dutch part-of-speech tags \cite{CGN}. The CGN set defines
 main tag classes such as \emph{WW}, \emph{BW}, \emph{ADJ}, \emph{VZ}. FoLiA
-itself thus never commits to any tagset but leaves you to define this. You can
+itself \emph{never commits to any tagset} but leaves you to define this. You can
 also use multiple tagsets in the same document if so desired, even for the same
 type of annotation.
 
 Any annotation element may have a \texttt{set} attribute, the value of which
 points to the URL of the set definition file that defines the set. Such an
-element then also carries a \texttt{class} attribute, which selects a
+element then usually also carries a \texttt{class} attribute, which selects a
 particular class from the set.
+
+In the metadata section of the FoLiA document, sets are \emph{declared}. This
+means that for each annotation type you specify the set you are going to use,
+this is again done by means of a URL pointing to a set definition file.
 
 In addition to this, various other generic FoLiA attributes are available for
 all annotation elements. These are never mandatory:
@@ -386,15 +412,17 @@ a speech context:
     link the speech to a specific (single) speaker.
 \end{itemize}
  
-More about speech annotation in Section~\ref{sec:speech}.
+Read more about speech annotation in Section~\ref{sec:speech}.
 
 \section{Annotation Declaration}
 \label{sec:declarations}
 
 The annotation declaration is a mandatory part of the metadata that declares
-all types of annotation and all sets that are present in the document.
-Annotations are declared in the \texttt{annotations} block, as shown in the
-following example. We here define four annotation levels with fictitious sets:
+all types of annotation and the sets that are present in the document.
+Annotations are declared in the \texttt{annotations} block.
+
+The follow example declares four annotation levels with fictitious sets and
+several \emph{default attributes}:
 
 \begin{lstlisting}[language=xml]
 <annotations>
@@ -415,25 +443,39 @@ then the set defaults to ``undefined''. This is allowed for flexibility and
 less explicit usage of FoLiA in limited settings, but not recommended!} and
 refers to a URL of a FoLiA Set Definition file (see
 Chapter~\ref{chapter:setdefinitions}). In the above example, the set URLs are
-fictitious, make sure to list your own appropriate sets. A Set Definition
-specifies exactly what classes are allowed in the set. It for examples
+mostly fictitious. Throughout the documentation, we will either be using the dummy
+value \texttt{http://url/to/your/set} for sets, or we will point to an actual
+set definition, in which case you need to be aware this is merely and example
+or suggestion which you are never obliged to use. You can always point to your
+own sets.
+
+A Set Definition specifies exactly what classes are allowed in the set. It for example
 specifies exactly what Part-of-speech tags exist. This information is necessary
-to x validate the document completely at its deepest level. If the sets point
+to validate the document completely at its deepest level. If the sets point
 to URLs that do not exist or are not URLs at all, warnings will be issued.
 Validation can still proceed but with the notable exception of deep validation
 of these sets.
 
-If multiple sets are used for the same annotation type, they each need a separate declaration:
+Though we recommend using and creating actual sets. FoLiA itself is rather
+agnostic about their existence for most purposes. For deep validation, proper
+formalisation, and for certain applications they may be required; but as long
+as they serve as proper \emph{unique identifiers} you can work with
+non-existing sets. In this case, simply do not use a URL but another arbitrary
+identification string.
+
+If multiple sets are used for the same annotation type, they each need a
+separate declaration, as illustrated with the following fictitious sets:
 
 \begin{lstlisting}[language=xml]
-        <pos-annotation set="http://ilk.uvt.nl/folia/sets/CGN" 
-          annotator="Frog" annotatortype="auto" />
-        <pos-annotation set="http://ilk.uvt.nl/folia/sets/brown" />
+      <pos-annotation set="http://ilk.uvt.nl/folia/sets/CGN" 
+        annotator="Frog" annotatortype="auto" />
+      <pos-annotation set="http://ilk.uvt.nl/folia/sets/brown" />
 \end{lstlisting}
 
 If only one set is declared, then in the document itself you are allowed to
 skip the set attribute on these specific annotation elements. The declared set
-will automatically be the default. 
+will automatically be the default. This is common practice as usually there is
+only one set per annotation type.
 
 The \texttt{annotator} and \texttt{annotatortype} attributes act as defaults
 for the specific annotation type and set. Unlike \texttt{set}, you do
@@ -610,16 +652,16 @@ behaves similarly to the paragraph element and holds sentences.
 
 Paragraphs, sentences and words (or tokens) are amongst the most elementary
 structure elements. As we saw in a previous section, word elements (\texttt{w})
-can take a class, pertaining to a certain set, at which point a definition must
-be present in the metadata, note that the actual set URL is just an example.
-You should assign your own:
+can take a class, pertaining to a certain set, at which point a declaration must
+be present in the metadata:
 
+\begin{declaration}
 \begin{lstlisting}[language=xml]
 <annotations>
-    <token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl"
-      annotator="ucto" annotatortype="auto" />
+ <token-annotation set="http://url/to/your/set" />
 </annotations>
 \end{lstlisting}
+\end{declaration}
 
 Being part of a set, this implies that tokens themselves \emph{may} be assigned
 a class, as is for example done by the tokeniser \emph{ucto}:
@@ -640,6 +682,15 @@ a class, as is for example done by the tokeniser \emph{ucto}:
 The same can be applied to paragraphs and sentences, which requires a
 declaration of \texttt{paragraph-annotation} and \texttt{sentence-annotation}
 respectively.
+
+\begin{declaration}
+\begin{lstlisting}[language=xml]
+<annotations>
+ <paragraph-annotation set="http://url/to/your/set" />
+ <sentence-annotation set="http://url/to/your/set" />
+</annotations>
+\end{lstlisting}
+\end{declaration}
 
 \subsection{Divisions}
 
@@ -693,6 +744,14 @@ larger structures can be divisions.
 
 The \texttt{head} element may be used for the header of any division. It may
 hold \texttt{s} and \texttt{w} elements (not \texttt{p}).
+
+\begin{declaration}
+\begin{lstlisting}[language=xml]
+<annotations>
+ <division-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/divisions.foliaset.xml"
+</annotations>
+\end{lstlisting}
+\end{declaration}
 
 \subsection{Quotes}
 
@@ -772,7 +831,9 @@ A quote may consist of one or more sentences, but may also consist of mere token
  </s>
 \end{lstlisting}
 
-Quotes need no declaration.
+\begin{nodeclaration}
+Quotes are undeclarable elements
+\end{nodeclaration}
 
 \subsection{Gaps}
 
@@ -838,13 +899,15 @@ The gap element may optionally take two elements:
   </text>
 \end{lstlisting}
 
-Gaps have to be declared, the actual set used here is just a fictitious example:
+Gaps have to be declared:
 
+\begin{declaration}
 \begin{lstlisting}[language=xml]
 <annotations>
-    <gap-annotation set="http://ilk.uvt.nl/folia/sets/dcoi-gaps" />
+ <gap-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/gaps.foliaset.xml"
 </annotations>
 \end{lstlisting}
+\end{declaration}
 
 
 
@@ -877,6 +940,10 @@ specifies that only a linebreak was present, not forcing any vertical
 whitespace, whilst the latter actually generates an empty space, which would
 comparable to two successive \texttt{br} statements. Both elements can be used
 inside divisions, paragraphs, headers, and sentences.
+
+\begin{nodeclaration}
+Whitespace and linebreaks are undeclarable elements.
+\end{nodeclaration}
 
 \subsection{Events}
 \label{sec:events}
@@ -918,19 +985,19 @@ the time at which the annotation was recorded, rather than when the event took
 place! Also, \texttt{begindatetime} and \texttt{enddatetime} are so-called
 \emph{features} (see Section~\ref{sec:features})
 
-The declaration, the actual set is fictitious:
-
-\begin{lstlisting}[language=xml]
-<annotations>
-    <event-annotation set="http://ilk.uvt.nl/folia/sets/events" />
-</annotations>
-\end{lstlisting}
-
 For more fine-grained control over timed events, for example within sentences.
 It is recommended to use the \texttt{timesegment} span annotation element
 instead! This works in a very similar fashion but uses a stand-off annotation
 layer. See Section~\ref{sec:timesegment}.
 
+\begin{declaration}
+\begin{lstlisting}[language=xml]
+<annotations>
+ <event-annotation
+ set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/events.foliaset.xml"
+</annotations>
+\end{lstlisting}
+\end{declaration}
 
 \subsection{Lists}
 
@@ -950,8 +1017,9 @@ The item element may hold sentences \texttt{(s)} and words \texttt{(w)}. The
 D-Coi format has a \texttt{label} element, this is deprecated in favour of the
 \texttt{n} attribute in the item itself.
 
-Lists, like paragraphs, sentences and headers are content elements that need
-not be declared and are not associated with a set or class.
+\begin{nodeclaration}
+Lists are undeclarable elements.
+\end{nodeclaration}
 
 \subsection{Figures}
 
@@ -969,8 +1037,12 @@ including such a reference (\texttt{src} attribute) is optional.
  </figure>
 \end{lstlisting}
 
-Figures are not declared. The \texttt{caption} element may hold sentences
+The \texttt{caption} element may hold sentences
 \texttt{(s)} and words \texttt{(w)}.
+
+\begin{nodeclaration}
+Figures are undeclarable elements.
+\end{nodeclaration}
 
 \subsection{Tables}
 
@@ -1022,11 +1094,13 @@ brevity):
 Tables, rows and cells can all be assigned classes, the declaration is as
 follows:
 
+\begin{declaration}
 \begin{lstlisting}[language=xml]
 <annotations>
-    <table-annotation set="http://ilk.uvt.nl/folia/sets/some-table-set"  />
+ <table-annotation set="http://url/to/your/set" />
 </annotations>
 \end{lstlisting}
+\end{declaration}
 
 \subsection{Notes}
 
@@ -1063,13 +1137,14 @@ Radboud University Nijmegen</t>
 Whereas this section just presented the notes themselve, the next section will
 discuss out to point to notes from within the text.
 
-Notes have to be declared, which can be done as follows (the set is fictitious):
-
+\begin{declaration}
 \begin{lstlisting}[language=xml]
 <annotations>
-    <note-annotation set="http://ilk.uvt.nl/folia/sets/notes"  />
+ <note-annotation
+ set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/notes.foliaset.xml"
 </annotations>
 \end{lstlisting}
+\end{declaration}
 
 \subsection{Structure References}
 
@@ -1139,7 +1214,9 @@ linguistic annotation, whereas this reference element is a structural element
 that is explicitly shown in the text and ddraws a reference that is explicitly
 reflected in the text.
 
-The reference element itself needs no declaration.
+\begin{nodeclaration}
+The reference element itself it not declarable
+\end{nodeclaration}
 
 \subsection{Parts}
 
@@ -1164,13 +1241,6 @@ paragraph into arbitrary subparts.
 </p>
 \end{lstlisting}
 
-Part elements have to be declared, and can therefore take classes:
-
-\begin{lstlisting}[language=xml]
-<annotations>
-    <part-annotation set="http://ilk.uvt.nl/folia/sets/parts"  />
-</annotations>
-\end{lstlisting}
 
 The part element may seem alike to the division element, but divisions are used
 for text blocks larger than a paragraph, typically correspondings to chapters,
@@ -1184,6 +1254,14 @@ be used for morphology, there are other solutions for that!
 
 Contact the FoLiA authors if you find yourself using part and you feel a
 more specific FoLiA element is missing.
+
+\begin{declaration}
+\begin{lstlisting}[language=xml]
+<annotations>
+ <part-annotation set="http://url/to/your/set" />
+</annotations>
+\end{lstlisting}
+\end{declaration}
 
 \subsection{Entries, definitions \& examples}
 \label{sec:definitions}
@@ -1349,22 +1427,23 @@ Spanish part, \texttt{doc-spanish.xml}:
 For simple multilingual documents, explicit alignments may be too much hassle,
 see Section~\ref{sec:translations} for a simpler methods based on convention.
 
-The declarations (fictitious sets):
 
+\begin{declaration}
 \begin{lstlisting}[language=xml]
 <annotations>
-    <term-annotation set="http://ilk.uvt.nl/folia/sets/terms"  />
-    <def-annotation set="http://ilk.uvt.nl/folia/sets/definitions"  />
-    <ex-annotation set="http://ilk.uvt.nl/folia/sets/examples"  />
+ <term-annotation set="http://url/to/your/set" />
+ <definition-annotation set="http://url/to/your/set" />
+ <example-annotation set="http://url/to/your/set" />
 </annotations>
 \end{lstlisting}
+\end{declaration}
 
 \section{Token Annotation}
 \label{sec:tokenannotation}
 
-Token annotations are annotations that are placed within the word (\texttt{w})
-element, or by extension within other structure elements, in which case we
-speak of \emph{extended token annotation}. 
+Token annotations are annotations that are placed within the structural
+elements, often words/tokens (\texttt{w}) (hence the name), but also other
+structure elements, in which case we speak of \emph{extended token annotation}. 
 
 All token annotation elements may take all of the generic attributes described
 in  Section~\ref{sec:paradigm}; this has to be kept in mind when reading this
@@ -1398,12 +1477,13 @@ further attributes are optional and are used to set defaults. In the
 declaration example here it is as if the annotations were made by the software
 \emph{Frog}, but you will want to use your own. 
 
+\begin{declaration}
 \begin{lstlisting}[language=xml]
 <annotations>
-    <pos-annotation set="http://ilk.uvt.nl/folia/sets/CGN" 
-     annotator="Frog" annotatortype="auto" />
+ <pos-annotation set="http://url/to/your/set" />
 </annotations>
 \end{lstlisting}
+\end{declaration}
 
 As mentioned earlier, the declaration only sets defaults for annotator and
 annotatortype. They can be overridden in the \texttt{pos} element itself (or
@@ -1423,14 +1503,14 @@ open) set of all possible lemmas. Their annotation proceeds as follows:
 </w>
 \end{lstlisting}
 
-And the example declaration:
 
+\begin{declaration}
 \begin{lstlisting}[language=xml]
 <annotations>
-    <lemma-annotation set="http://ilk.uvt.nl/folia/sets/mblem-nl"
-     annotator="Frog" annotatortype="auto" />
+ <lemma-annotation set="http://url/to/your/set" />
 </annotations>
 \end{lstlisting}
+\end{declaration}
 
 %\subsection{Phonetic Annotation}
 
@@ -1476,13 +1556,13 @@ language:
 This is an extended token annotation element that can also be used directly on
 other levels, such as a sentence, paragraph, division, or text level
 
-And the example declaration:
-
+\begin{declaration}
 \begin{lstlisting}[language=xml]
 <annotations>
-    <lang-annotation set="http://ilk.uvt.nl/folia/sets/iso639-3" />
+ <lang-annotation set="http://url/to/your/set" />
 </annotations>
 \end{lstlisting}
+\end{declaration}
 
 \subsection{Lexical Semantic Sense Annotation}
 
@@ -1508,11 +1588,13 @@ could be placed inside a \texttt{desc} element, but this is optional.
 
 The example declaration is as follows:
 
+\begin{declaration}
 \begin{lstlisting}[language=xml]
 <annotations>
-    <sense-annotation set="http://ilk.uvt.nl/folia/sets/cornetto" />
+ <sense-annotation set="http://url/to/your/set" />
 </annotations>
 \end{lstlisting}
+\end{declaration}
 
 \subsection{Domain Tags}
 
@@ -1533,11 +1615,13 @@ itself. Example:
 
 The declaration (the actual set is fictitious):
 
+\begin{declaration}
 \begin{lstlisting}[language=xml]
 <annotations>
-    <domain-annotation set="http://ilk.uvt.nl/folia/sets/domains-nl" />
+ <domain-annotation set="http://url/to/your/set" />
 </annotations>
 \end{lstlisting}
+\end{declaration}
 
 \subsection{Subjectivity/Sentiment Analysis}
 
@@ -1556,11 +1640,13 @@ Example:
 
 The declaration (the actual set is fictitious):
 
+\begin{declaration}
 \begin{lstlisting}[language=xml]
 <annotations>
-    <subjectivity-annotation set="http://ilk.uvt.nl/folia/sets/sentiments" />
+ <subjectivity-annotation set="http://url/to/your/set" />
 </annotations>
 \end{lstlisting}
+\end{declaration}
 
 
 
@@ -1594,7 +1680,9 @@ do not have their own dedicated layer.
 
 \status{final}{pynlpl,libfolia}
 
-Named entities or other multi-word units can be encoded in the \texttt{entities} layer. Below is an example of a full sentence in which one name is tagged. It is recommended for each entity to have a unique identifier.
+Named entities or other multi-word units can be encoded in the
+\texttt{entities} layer. Below is an example of a full sentence in which one
+name is tagged. It is recommended for each entity to have a unique identifier.
 
 \begin{lstlisting}[language=xml]
 <s xml:id="example.p.1.s.1">
@@ -1606,7 +1694,7 @@ Named entities or other multi-word units can be encoded in the \texttt{entities}
   <w xml:id="example.p.1.s.1.w.5"><t>him</t></w>
   <w xml:id="example.p.1.s.1.w.6"><t>.</t></w>
   <entities>
-    <entity xml:id="example.p.1.s.1.entity.1" class="person">
+    <entity xml:id="example.p.1.s.1.entity.1" class="per">
         <wref id="example.p.1.s.1.w.2" t="Dalai" />
         <wref id="example.p.1.s.1.w.3" t="Lama" />
     </entity>
@@ -1614,7 +1702,20 @@ Named entities or other multi-word units can be encoded in the \texttt{entities}
 </s>
 \end{lstlisting}
 
-Note that elements that are not part of any span annotation need never be included in the layer. The \texttt{wref} element takes an \emph{optional} \texttt{t} attribute which contains a copy of the text of the word pointed at. This is to facilitate human readability and prevent the need for resolving words for simple applications in which only the textual content is of interest.
+Note that elements that are not part of any span annotation need never be
+included in the layer. The \texttt{wref} element takes an \emph{optional}
+\texttt{t} attribute which contains a copy of the text of the word pointed at.
+This is to facilitate human readability and prevent the need for resolving
+words for simple applications in which only the textual content is of interest.
+
+\begin{declaration}
+\begin{lstlisting}[language=xml]
+<annotations>
+ <entity-annotation
+ set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/namedentities.foliaset.xml"
+</annotations>
+\end{lstlisting}
+\end{declaration}
 
 \subsection{Syntax}
 
@@ -1668,13 +1769,13 @@ The above example illustrates a fairly simple syntactic parse. Dependency
 parses are possible too. Dependencies are listed separate from the syntax in an
 extra annotation layer, see Section~\ref{sec:deprel}.
 
-The declaration is as follows (the actual set is fictitious):
-
+\begin{declaration}
 \begin{lstlisting}[language=xml]
 <annotations>
-    <syntax-annotation set="http://ilk.uvt.nl/folia/sets/syntax-nl" />
+ <syntax-annotation set="http://path/to/your/set"
 </annotations>
 \end{lstlisting}
+\end{declaration}
 
 \subsection{Dependency Relations}
 \label{sec:deprel}
@@ -1783,18 +1884,14 @@ rather than ``de man'' . That is, we point only to the head of dependants, the
 full scope follows automatically when building the dependency tree.
 
 
-The declaration (the actual sets are fictitious):
-
+\begin{declaration}
 \begin{lstlisting}[language=xml]
 <annotations>
-    <syntax-annotation 
-     set="http://ilk.uvt.nl/folia/sets/alpino-syntax" /> 
-    <dependency-annotation 
-     set="http://ilk.uvt.nl/folia/sets/alpino-dep" />
+ <syntax-annotation set="http://url/to/your/set" />
+ <dependency-annotation set="http://url/to/your/set" />
 </annotations>
 \end{lstlisting}
-
-
+\end{declaration}
 
 \subsection{Chunking}
 
@@ -1833,12 +1930,13 @@ annotation element itself is \texttt{chunk}.
 
 The declaration (the actual sets are fictitious):
 
+\begin{declaration}
 \begin{lstlisting}[language=xml]
 <annotations>
-    <chunking-annotation 
-     set="http://ilk.uvt.nl/folia/sets/syntax-nl" />
+ <chunking-annotation set="http://url/to/your/set" />
 </annotations>
 \end{lstlisting}
+\end{declaration}
 
 \subsection{Time Segmentation}
 \label{sec:timesegment}
@@ -1890,14 +1988,6 @@ so the format shown here is just an example.
 
 
 
-The declaration for time segmentation is as follows:
-
-\begin{lstlisting}[language=xml]
-<annotations>
-    <timesegment-annotation
-     set="http://ilk.uvt.nl/folia/sets/events" />
-</annotations>
-\end{lstlisting}
 
 
 If you are only interested in an annotation of events, and a coarser level of
@@ -1911,6 +2001,13 @@ backward compatibility, libraries should implement \texttt{timedevent} as an
 alias for \texttt{timesegment}, and \texttt{timedevent-annotation} as an alias
 for \texttt{timesegment-annotation}.
 
+\begin{declaration}
+\begin{lstlisting}[language=xml]
+<annotations>
+ <timesegment-annotation set="http://url/to/your/set" />
+</annotations>
+\end{lstlisting}
+\end{declaration}
 
 \subsubsection{Time segmentation in a speech context}
 
@@ -2093,13 +2190,14 @@ The \texttt{hd} element can optionally be used to mark the head of a semantic ro
 	</semrole>
 \end{lstlisting}
 
-The mandatory declaration for semantic role annotation is as follows:
 
+\begin{declaration}
 \begin{lstlisting}[language=xml]
 <annotations>
-    <semrole-annotation set="http://ilk.uvt.nl/folia/sets/semroles" />
+ <semrole-annotation set="http://url/to/your/set" />
 </annotations>
 \end{lstlisting}
+\end{declaration}
 
 \subsection{Coreference Relations}
 \label{sec:coref}
@@ -2190,14 +2288,14 @@ on the set used and are thus user-definable and never predefined:
 
 %TODO: more examples?
 
-The declaration for coreference relations is done as follows:
 
+\begin{declaration}
 \begin{lstlisting}[language=xml]
 <annotations>
-    <coreference-annotation 
-     set="http://ilk.uvt.nl/folia/sets/coref" />
+ <coreference-annotation set="http://url/to/your/set" />
 </annotations>
 \end{lstlisting}
+\end{declaration}
 
 \section{Morphological Annotation}
 
@@ -2216,14 +2314,7 @@ this.
 
 Furthermore, a morpheme may take a class, referring to its type. As always, the
 classes are defined by the declared set, and not predefined by the FoLiA set.
-Declaration proceeds as follows, the actual set is fictitious:
 
-\begin{lstlisting}[language=xml]
-<annotations>
-    <morphology-annotation 
-     set="http://ilk.uvt.nl/folia/sets/morphology" />
-</annotations>
-\end{lstlisting}
 
 Morphemes are grouped in a \texttt{morphology} layer, which itself takes no
 attributes. An example of morphology in use:
@@ -2374,6 +2465,14 @@ the span annotation layer (\texttt{entities} in the example) may be embedded on
 various levels. Most commonly on sentence level, but also on word level,
 paragraph level or the global text level.
 
+\begin{declaration}
+\begin{lstlisting}[language=xml]
+<annotations>
+ <morphology-annotation set="http://url/to/your/set" />
+</annotations>
+\end{lstlisting}
+\end{declaration}
+
 %\subsection{Named Entities within a token}
 
 %\status{final since v0.4}{pynlpl,libfolia}
@@ -2430,17 +2529,15 @@ An utterance may consist of words or sentences, which in turn may contain
 words. The opposite is also true, a sentence may consist of multiple
 utterances. The utterance element in FoLiA is \texttt{utt}. 
 
-Utterances need not be declared necessarily, but may be if classes are
-assigned. The actual set in the example is fictitious:
+An actual example of utterances is shown later in the section on phonetic content.
 
+\begin{declaration}
 \begin{lstlisting}[language=xml]
 <annotations>
-    <utterance-annotation 
-     set="http://ilk.uvt.nl/folia/sets/utterances" />
+ <utterance-annotation set="http://url/to/your/set" />
 </annotations>
 \end{lstlisting}
-
-An actual example of utterances is shown later in the section on phonetic content.
+\end{declaration}
 
 \subsubsection{Non-speech events}
 
@@ -2527,15 +2624,14 @@ if no words are distinguished:
 </utt>
 \end{lstlisting}
 
-Phoneme annotation needs to be declared if classes are assigned to the phonemes:
 
+\begin{declaration}
 \begin{lstlisting}[language=xml]
 <annotations>
-    <phoneme-annotation 
-     set="http://ilk.uvt.nl/folia/sets/utterances" />
+ <phonetics-annotation set="http://url/to/your/set" />
 </annotations>
 \end{lstlisting}
-
+\end{declaration}
 
 \subsection{Distortion}
 
@@ -2567,13 +2663,14 @@ depending of course on the set used:
 
 The mandatory declaration goes as follows (the set is fictitious):
 
+
+\begin{declaration}
 \begin{lstlisting}[language=xml]
 <annotations>
-    <distortion-annotation 
-     set="http://ilk.uvt.nl/folia/sets/distortion" />
+ <distortion-annotation set="http://url/to/your/set" />
 </annotations>
 \end{lstlisting}
-
+\end{declaration}
 
 
 
@@ -2956,14 +3053,14 @@ Example:
 </w>
 \end{lstlisting}
 
-The declaration (the actual sets are fictitious):
 
+\begin{declaration}
 \begin{lstlisting}[language=xml]
 <annotations>
-    <metric-annotation 
-     set="http://ilk.uvt.nl/folia/sets/metrics" />
+ <metric-annotation set="http://url/to/your/set" />
 </annotations>
 \end{lstlisting}
+\end{declaration}
 
 
 \subsection{Corrections}
@@ -3175,14 +3272,14 @@ to be declared separately. However, nothing stops you from pointing them both
 to the same set. Suggestions fall under the scope of corrections and need not
 be declared separately.
 
+\begin{declaration}
 \begin{lstlisting}[language=xml]
 <annotations>
-    <errordetection-annotation 
-     set="http://ilk.uvt.nl/folia/sets/corrections" />
-    <correction-annotation
-     set="http://ilk.uvt.nl/folia/sets/corrections" />
+ <correction-annotation set="http://url/to/your/set" />
+ <errordetection-annotation set="http://url/to/your/set" />
 </annotations>
 \end{lstlisting}
+\end{declaration}
 
 \subsubsection{Merges, Splits and Swaps} 
 
@@ -3789,13 +3886,13 @@ to these two pre-defined classes, any other custom classes may be added as you
 see fit. If you add custom classes, you need a declaration, otherwise it may be
 omitted:
 
+\begin{declaration}
 \begin{lstlisting}[language=xml]
 <annotations>
-    <text-annotation 
-     set="http://ilk.uvt.nl/folia/sets/text-annotation" />
+ <text-annotation set="http://url/to/your/set" />
 </annotations>
 \end{lstlisting}
-
+\end{declaration}
 
 Below is an example illustrating the usage of multiple classes. To show the
 flexibility, offsets are added, but these are of course always optional. Note
@@ -4012,12 +4109,13 @@ their relation explicit:
 
 The declaration:
 
+\begin{declaration}
 \begin{lstlisting}[language=xml]
 <annotations>
-    <string-annotation 
-     set="http://ilk.uvt.nl/folia/sets/string-annotation" />
+ <string-annotation set="http://url/to/your/set" />
 </annotations>
 \end{lstlisting}
+\end{declaration}
 
 
 \subsection{Text Markup}
@@ -4079,13 +4177,14 @@ Text-markup elements may always be nested, as the following example shows:
 </s>
 \end{lstlisting}
 
-The declaration:
 
+\begin{declaration}
 \begin{lstlisting}[language=xml]
 <annotations>
-    <style-annotation set="http://ilk.uvt.nl/folia/sets/style" />
+ <style-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/style.foliaset.xml"
 </annotations>
 \end{lstlisting}
+\end{declaration}
 
 \subsubsection{Gaps}
 \label{sec:tgap}
@@ -4131,11 +4230,15 @@ example:
 
 Being related, the \texttt{t-gap} uses the same declaration as the \texttt{gap} element.
 
+
+\begin{declaration}
 \begin{lstlisting}[language=xml]
 <annotations>
-    <gap-annotation set="http://ilk.uvt.nl/folia/sets/gaps" />
+ <gap-annotation
+ set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/gaps.foliaset.xml"
 </annotations>
 \end{lstlisting}
+\end{declaration}
 
 \subsubsection{Substrings}
 \label{sec:tstr}
@@ -4172,8 +4275,7 @@ The declaration:
 
 \begin{lstlisting}[language=xml]
 <annotations>
-    <string-annotation 
-     set="http://ilk.uvt.nl/folia/sets/string-annotation" />
+    <string-annotation set="http://path/to/your/set" />
 </annotations>
 \end{lstlisting}
 
@@ -4191,12 +4293,10 @@ preferred when possible.
 </s>
 \end{lstlisting}
 
-The declaration:
 
 \begin{lstlisting}[language=xml]
 <annotations>
-  <errordetection-annotation 
-   set="http://ilk.uvt.nl/folia/sets/corrections" />
+    <errordetection-annotation set="http://path/to/your/set" />
 </annotations>
 \end{lstlisting}
 
@@ -4234,17 +4334,19 @@ The \texttt{t-correction} element allows an additional attribute
 
 The declaration:
 
+\begin{declaration}
 \begin{lstlisting}[language=xml]
 <annotations>
-    <correction-annotation 
-     set="http://ilk.uvt.nl/folia/sets/corrections" />
+ <correction-annotation
+ set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/spellingcorrection.foliaset.xml"
 </annotations>
 \end{lstlisting}
+\end{declaration}
 
 \subsubsection{Linebreaks}
 
 The element \texttt{<br />} may be used both as a structural element as well
-as a text markup element. It is exempted from needing a declaration.
+as a text markup element. It is not declared.
 
 
 \subsection{Hyperlinks}
