@@ -2501,12 +2501,10 @@ paragraph level or the global text level.
 
 \section{Speech Annotation}
 
-\status{Proposed in v0.9}{not implemented yet}
-
 \subsection{Speech Structure Annotation}
 \label{sec:speech}
 
-\status{Proposed in v0.9, some parts final in v0.12}{partially implemented in pynlpl}
+\status{proposed in v0.9, most parts final in v0.12}{all final parts implemented in pynlpl}
 
 FoLiA is not just suited for the annotation of text, but also accommodates
 annotation of transcribed speech. This generally asks for a different document
@@ -2542,7 +2540,7 @@ An actual example of utterances is shown later in the section on phonetic conten
 \subsubsection{Non-speech events}
 
 Non-speech events are simply covered by \texttt{event} annotation as seen in
-Section \ref{sec:events}. Consider the following small example, with
+Section~\ref{sec:events}. Consider the following small example, with
 speech-context attributes associated:
 
 \begin{lstlisting}[language=xml]
@@ -2595,7 +2593,7 @@ content can also go together without problem:
 \subsection{Phoneme Annotation}
 \label{sec:phonemes}
 
-\status{PROPOSED in v0.9}{not implemented yet}
+\status{final in v0.12}{pynlpl}
 
 The smallest unit of annotatable speech in FoLiA is the phoneme level. The
 \texttt{phoneme} element is a form of structure annotation used for phonemes.
@@ -2628,7 +2626,7 @@ if no words are distinguished:
 \begin{declaration}
 \begin{lstlisting}[language=xml]
 <annotations>
- <phonetics-annotation set="http://url/to/your/set" />
+ <phonetic-annotation set="http://url/to/your/set" />
 </annotations>
 \end{lstlisting}
 \end{declaration}
