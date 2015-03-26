@@ -142,8 +142,8 @@ Inspiration for this was in part obtained from the Kyoto Annotation Format
 \cite{KYOTO}.
 
 In publication of research that makes use of FoLiA, a citation should be given
-of: {\em ``Maarten van Gompel (2013). FoLiA: Format for Linguistic Annotation.
-Documentation. Language and Speech Technology Technical Report Series 13-01.
+of: {\em ``Maarten van Gompel (2014). FoLiA: Format for Linguistic Annotation.
+Documentation. Language and Speech Technology Technical Report Series 14-01.
 Radboud University Nijmegen.''}. The latest version of the documentation is
 always available from {\tt http://proycon.github.io/folia}.  FoLiA is
 open-source and all technical resources are licensed under the GNU Public
@@ -1033,10 +1033,11 @@ follows:
 \status{since FoLiA 0.11.0}{pynlpl, libfolia}
 
 The structure element \texttt{note} allows for notes to be included in FoLiA
-documents. A footnote is an example of a note. The notes form an integral part
-of the text. For notes that are merely descriptive comments on the texts or
-its annotations, rather than a part of it, consider using \texttt{desc}
-instead. Notes themselves can contain all the usual forms of annotations.
+documents. A footnote as well as a bibliographical reference is an example of a
+note. The notes form an integral part of the text. For notes that are merely
+descriptive comments on the texts or its annotations, rather than a part of it,
+consider using \texttt{desc} instead. Notes themselves can contain all the
+usual forms of annotations.
 
 The place of a note in the text is where it will appear. References to the note
 are made using a specific tag, \texttt{ref}, discussed in the next section.
@@ -1048,6 +1049,19 @@ are made using a specific tag, \texttt{ref}, discussed in the next section.
   </note>
 </text>
 \end{lstlisting}
+
+Notes are also suited for building a bibliography:
+
+\begin{lstlisting}[language=xml]
+  <note xml:id="bib" class="bibref">
+    <t>Maarten van Gompel (2014). FoLiA: Format for Linguistic Annotation.
+Documentation. Language and Speech Technology Technical Report Series 14-01.
+Radboud University Nijmegen</t>
+  </note>
+\end{lstlisting}
+
+Whereas this section just presented the notes themselve, the next section will
+discuss out to point to notes from within the text.
 
 Notes have to be declared, which can be done as follows (the set is fictitious):
 
@@ -1095,9 +1109,18 @@ You can optionally make explicit the symbol used for the reference:
 </s>
 \end{lstlisting}
 
+This is often needed for bibliographical references:
+
+\begin{lstlisting}[language=xml]
+<s>
+  <t>We demonstrated this earlier.</t>
+  <ref id="bib.1" type="note"><t>(van Gompel et al, 2014)</t></ref>
+</s>
+\end{lstlisting}
+
 Although we framed this in the context of notes, the \texttt{ref} element is
-more general and can be used whereever you need to explicitly refer to other structure
-elements. Common targets are figures, tables, divisions (sections, chapters,
+more general and can be used whereever you need to explicitly refer to other \emph{structure
+elements}. Common targets are figures, tables, divisions (sections, chapters,
 etc). 
 
 Being a structure element, the note reference itself may carry an ID as well.
@@ -1108,6 +1131,13 @@ in FoLiA:
 <s><t>We demonstrated this earlier.</t></s>
 <ref xml:id="myreference" id="mynote" />
 \end{lstlisting}
+
+The difference between the reference element and the higher-order alignments
+(Section~\ref{sec:alignments}) needs to be clearly understood. Alignments lay
+relations between annotations of any kind and thus pertain strongly to
+linguistic annotation, whereas this reference element is a structural element
+that is explicitly shown in the text and ddraws a reference that is explicitly
+reflected in the text.
 
 The reference element itself needs no declaration.
 
