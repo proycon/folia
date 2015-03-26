@@ -413,10 +413,14 @@
 
 
 <xsl:template match="folia:t">
-    <!-- Test presence of text indeeper structure elements, if they exist we don't
+    <!-- Test presence of text in deeper structure elements, if they exist we don't
          render this text but rely on the text in the deeper structure  -->
     <!-- Next, check if text element is authoritative and have the proper class -->
     <xsl:if test="not(following-sibling::*//folia:t[(not(./@class) or ./@class='current') and not(ancestor-or-self::*/@auth) and not(ancestor::folia:suggestion) and not(ancestor::folia:alt) and not(ancestor::folia:altlayers) and not(ancestor::folia:morpheme) and not(ancestor::folia:str)])"><xsl:if test="(not(./@class) or ./@class='current') and not(ancestor-or-self::*/@auth) and not(ancestor::folia:suggestion) and not(ancestor::folia:alt) and not(ancestor::folia:altlayers) and not(ancestor::folia:morpheme) and not(ancestor::folia:str)"><xsl:apply-templates /></xsl:if></xsl:if>
+</xsl:template>
+
+<xsl:template match="folia:desc">
+    <!-- ignore -->
 </xsl:template>
 
 <xsl:template match="folia:t-style">
