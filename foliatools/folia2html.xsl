@@ -416,7 +416,46 @@
     <!-- Test presence of text indeeper structure elements, if they exist we don't
          render this text but rely on the text in the deeper structure  -->
     <!-- Next, check if text element is authoritative and have the proper class -->
-    <xsl:if test="not(following-sibling::*//folia:t[(not(./@class) or ./@class='current') and not(ancestor-or-self::*/@auth) and not(ancestor::folia:suggestion) and not(ancestor::folia:alt) and not(ancestor::folia:altlayers) and not(ancestor::folia:morpheme)])"><xsl:if test="(not(./@class) or ./@class='current') and not(ancestor-or-self::*/@auth) and not(ancestor::folia:suggestion) and not(ancestor::folia:alt) and not(ancestor::folia:altlayers) and not(ancestor::folia:morpheme)"><xsl:value-of select="." /></xsl:if></xsl:if>
+    <xsl:if test="not(following-sibling::*//folia:t[(not(./@class) or ./@class='current') and not(ancestor-or-self::*/@auth) and not(ancestor::folia:suggestion) and not(ancestor::folia:alt) and not(ancestor::folia:altlayers) and not(ancestor::folia:morpheme) and not(ancestor::folia:str)])"><xsl:if test="(not(./@class) or ./@class='current') and not(ancestor-or-self::*/@auth) and not(ancestor::folia:suggestion) and not(ancestor::folia:alt) and not(ancestor::folia:altlayers) and not(ancestor::folia:morpheme) and not(ancestor::folia:str)"><xsl:apply-templates /></xsl:if></xsl:if>
+</xsl:template>
+
+<xsl:template match="folia:t-style">
+    <!-- guess class names that may be indicative of certain styles, we're
+         unaware of any sets here -->
+    <xsl:choose>
+    <xsl:when test="@class = 'bold' or @class = 'b'">
+        <b><xsl:apply-templates /></b>
+    </xsl:when>
+    <xsl:when test="@class = 'italic' or @class = 'i' or @class = 'italics'">
+        <i><xsl:apply-templates /></i>
+    </xsl:when>
+     <xsl:when test="@class = 'strong'">
+        <strong><xsl:apply-templates /></strong>
+    </xsl:when>
+    <xsl:when test="@class = 'em' or @class = 'emph' or @class = 'emphasis'">
+        <em><xsl:apply-templates /></em>
+    </xsl:when>
+    <xsl:otherwise>
+        <span class="style_{@class}"><xsl:apply-templates /></span>
+    </xsl:otherwise>
+    </xsl:choose>
+</xsl:template>
+
+
+
+<xsl:template match="folia:t-str">
+    <xsl:choose>
+        <xsl:when test="@xlink:href">
+            <a href="{@xlink:href}"><span class="str_{@class}"><xsl:apply-templates /></span></a>
+        </xsl:when>
+        <xsl:otherwise>
+            <span class="str_{@class}"><xsl:apply-templates /></span>
+        </xsl:otherwise>
+    </xsl:choose>
+</xsl:template>
+
+<xsl:template match="folia:t-gap">
+    <span class="gap"><xsl:apply-templates /></span>
 </xsl:template>
 
 
@@ -677,7 +716,7 @@
   </img>
   <xsl:if test="folia:caption">
    <div class="caption">
-     <xsl:apply-templates select="folia:caption/*" />
+     <xsl:apply-templates />
    </div>
   </xsl:if>
  </div>
@@ -687,7 +726,7 @@
     <table>
       <xsl:apply-templates select="folia:tablehead" />
       <tbody>
-        <xsl:apply-templates select="folia:row" />
+        <xsl:apply-templates select="*[name()!='tablehead']" />
       </tbody>
     </table>
 </xsl:template>
@@ -696,20 +735,20 @@
 
 <xsl:template match="folia:tablehead">
   <thead>
-        <xsl:apply-templates select="folia:row" />
+        <xsl:apply-templates />
   </thead>
 </xsl:template>
 
 
 <xsl:template match="folia:row">
   <tr>
-        <xsl:apply-templates select="folia:cell" />
+        <xsl:apply-templates />
  </tr>
 </xsl:template>
 
 <xsl:template match="folia:cell">
   <td>
-    <xsl:apply-templates select="folia:p|folia:s|folia:w" />
+    <xsl:apply-templates />
   </td>
 </xsl:template>
 
