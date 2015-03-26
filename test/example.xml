@@ -1018,7 +1018,7 @@
         </coreferences>
       </div>
       <div xml:id="glossary">
-        <head>Woordenboek-voorbeeld</head>
+        <head xml:id="glossary.head">Woordenboek-voorbeeld</head>
         <entry xml:id="entry.1">
             <term xml:id="entry.1.term.1">
                 <w xml:id="entry.1.term.1.w.1">
@@ -1048,7 +1048,7 @@
         </entry>
       </div>
       <div xml:id="sandbox">
-          <head xml:id="sandbox.head"><t>Tests van verschillende structuur en annotatieelementent</t></head>
+          <head xml:id="sandbox.head"><t>Tests van verschillende structuur en annotatieelementen</t></head>
           <list xml:id="sandbox.list.1">
               <item xml:id="sandbox.list.1.listitem.1" n="1">
                   <s xml:id="sandbox.list.1.listitem.1.s.1">
