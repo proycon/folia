@@ -3,7 +3,7 @@
 
 <xsl:output method="html" encoding="UTF-8" omit-xml-declaration="yes" doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" indent="yes" />
 
-<!-- FoLiA v0.11 -->
+<!-- FoLiA v0.12 -->
 
 <xsl:template match="/folia:FoLiA">
   <html>
@@ -225,9 +225,27 @@
                 td {
                  border: 1px solid #ddd;
                 }
+
                 thead {
-                font-weight: bold;
-                background: #ddd;
+                    font-weight: bold;
+                    background: #ddd;
+                }
+
+                div.note {
+                    font-size: 80%;
+                    border-bottom: 1px #ddd dotted;
+                }
+
+                dl.entry {
+                    border: 1px #aaa solid;
+                    background: #ddd;
+                    padding: 10px;
+                }
+                dt {
+                    font-weight: bold;
+                }
+                dd.example {
+                    font-style: italic;
                 }
         </style>
   </head>
@@ -246,10 +264,6 @@
     <!-- ignore -->
 </xsl:template>
 
-<xsl:template match="folia:t">
-    <!-- ignore -->
-</xsl:template>
-
 <xsl:template match="folia:text">
  <div class="text">
  	<xsl:apply-templates />
@@ -264,14 +278,7 @@
 
 <xsl:template match="folia:p">
  <p id="{@xml:id}">    
-        <xsl:choose>
-        <xsl:when test=".//folia:s or .//folia:w">
-            <xsl:apply-templates />
-        </xsl:when>
-        <xsl:when test=".//folia:t[not(@class) and not(ancestor::folia:original) and not(ancestor::folia:suggestion) and not(ancestor::folia:alternative) and not(ancestor-or-self::*/auth)]">
-            <xsl:call-template name="textcontent" />
-        </xsl:when>
-        </xsl:choose>
+    <xsl:apply-templates />
  </p>
 </xsl:template>
 
@@ -320,20 +327,34 @@
 
 <xsl:template name="headinternal">
     <span id="{@xml:id}" class="head">
-        <xsl:choose>
-        <xsl:when test=".//folia:s">
-            <xsl:apply-templates select=".//folia:s|folia:whitespace|folia:br" />
-        </xsl:when>
-        <xsl:when test=".//folia:w">
-            <xsl:apply-templates select=".//folia:w|folia:whitespace|folia:br" />
-        </xsl:when>
-        <xsl:when test=".//folia:t[not(@class) and not(ancestor::folia:original) and not(ancestor::folia:suggestion) and not(ancestor::folia:alternative) and not(ancestor-or-self::*/auth) and not(ancestor::folia:str)]">
-            <xsl:call-template name="textcontent" />
-        </xsl:when>
-        </xsl:choose>
+        <xsl:apply-templates />
     </span>
 </xsl:template>
 
+
+<xsl:template match="folia:entry">
+<dl class="entry">
+    <xsl:apply-templates />
+</dl>
+</xsl:template>
+
+<xsl:template match="folia:term">
+<dt>
+    <xsl:apply-templates />
+</dt>
+</xsl:template>
+
+<xsl:template match="folia:def">
+<dd>
+    <xsl:apply-templates />
+</dd>
+</xsl:template>
+
+<xsl:template match="folia:ex">
+<dd class="example">
+    <xsl:apply-templates />
+</dd>
+</xsl:template>
 
 <xsl:template match="folia:list">
 <ul>
@@ -341,30 +362,44 @@
 </ul>
 </xsl:template>
 
-<xsl:template match="folia:listitem">
-<li><xsl:apply-templates /></li>
+<xsl:template match="folia:item">
+    <li><xsl:apply-templates /></li>
 </xsl:template>
 
+<xsl:template match="folia:note">
+<div class="note">
+    <a name="ref.{@xml:id}"></a>
+    <xsl:apply-templates />
+</div>
+</xsl:template>
 
+<xsl:template match="folia:ref">
+    <xsl:choose>
+    <xsl:when test="*">
+        <xsl:apply-templates />
+    </xsl:when>
+    <xsl:otherwise>
+    <!-- No child elements -->
+    <a href="#ref.{@id}">*</a>
+    </xsl:otherwise>
+    </xsl:choose>
+</xsl:template>
 
 
 <xsl:template match="folia:s">
     <span id="{@xml:id}" class="s">
-        <xsl:choose>
-        <xsl:when test=".//folia:w">
-            <xsl:apply-templates select=".//folia:w|folia:whitespace|folia:br" />
-        </xsl:when>
-        <xsl:when test=".//folia:t[not(@class) and not(ancestor::folia:original) and not(ancestor::folia:suggestion) and not(ancestor::folia:alternative) and not(ancestor-or-self::*/auth)]">
-            <xsl:call-template name="textcontent" />
-        </xsl:when>
-        </xsl:choose>
+        <xsl:apply-templates />
     </span>
+</xsl:template>
+
+<xsl:template match="folia:part">
+    <span class="part"><xsl:apply-templates /></span>
 </xsl:template>
 
 <xsl:template match="folia:w">
     <xsl:variable name="wid" select="@xml:id" />
     <xsl:if test="not(ancestor::folia:original) and not(ancestor::folia:suggestion) and not(ancestor::folia:alternative) and not(ancestor-or-self::*/auth)">
-        <span id="{@xml:id}"><xsl:attribute name="class">word<xsl:if test="//folia:wref[@id=$wid and not(ancestor::folia:altlayers)]"> sh</xsl:if><xsl:if test=".//folia:correction or .//folia:errordetection"> cor</xsl:if></xsl:attribute><xsl:call-template name="textcontent" /><xsl:call-template name="tokenannotations" /></span>
+        <span id="{@xml:id}"><xsl:attribute name="class">word<xsl:if test="//folia:wref[@id=$wid and not(ancestor::folia:altlayers)]"> sh</xsl:if><xsl:if test=".//folia:correction or .//folia:errordetection"> cor</xsl:if></xsl:attribute><span class="t"><xsl:value-of select="string(.//folia:t[not(ancestor-or-self::*/@auth) and not(ancestor::folia:morpheme) and not(ancestor::folia:str) and not(@class)])"/></span><xsl:call-template name="tokenannotations" /></span>
     <xsl:choose>
        <xsl:when test="@space = 'no'"></xsl:when>
        <xsl:otherwise>
@@ -374,10 +409,16 @@
     </xsl:if>
 </xsl:template>
 
-<xsl:template name="textcontent">
-    <span class="t"><xsl:value-of select="string(.//folia:t[not(ancestor-or-self::*/@auth)
-        and not(ancestor::folia:morpheme) and not(ancestor::folia:str) and not(@class)])"/></span>
+
+
+
+<xsl:template match="folia:t">
+    <!-- Test presence of text indeeper structure elements, if they exist we don't
+         render this text but rely on the text in the deeper structure  -->
+    <!-- Next, check if text element is authoritative and have the proper class -->
+    <xsl:if test="not(following-sibling::*//folia:t[(not(./@class) or ./@class='current') and not(ancestor-or-self::*/@auth) and not(ancestor::folia:suggestion) and not(ancestor::folia:alt) and not(ancestor::folia:altlayers) and not(ancestor::folia:morpheme)])"><xsl:if test="(not(./@class) or ./@class='current') and not(ancestor-or-self::*/@auth) and not(ancestor::folia:suggestion) and not(ancestor::folia:alt) and not(ancestor::folia:altlayers) and not(ancestor::folia:morpheme)"><xsl:value-of select="." /></xsl:if></xsl:if>
 </xsl:template>
+
 
 <xsl:template name="tokenannotation_text">
     <xsl:if test="folia:t">
