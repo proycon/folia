@@ -1049,6 +1049,7 @@
       </div>
       <div xml:id="sandbox">
           <head xml:id="sandbox.head"><t>Tests van verschillende structuur en annotatieelementen</t></head>
+          <event xml:id="sandbox.event.0" class="applause" actor="audience" />
           <list xml:id="sandbox.list.1">
               <item xml:id="sandbox.list.1.listitem.1" n="1">
                   <s xml:id="sandbox.list.1.listitem.1.s.1">
@@ -1061,7 +1062,6 @@
                       </w>                      
                   </s>                  
               </item>
-              <event xml:id="sandbox.event.0" class="applause" actor="audience" />
               <item xml:id="sandbox.list.1.listitem.2" n="2">
                   <s xml:id="sandbox.list.1.listitem.2.s.1">
                       <w xml:id="sandbox.list.1.listitem.2.s.1.w.1">

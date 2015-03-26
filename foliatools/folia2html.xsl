@@ -3,6 +3,8 @@
 
 <xsl:output method="html" encoding="UTF-8" omit-xml-declaration="yes" doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" indent="yes" />
 
+<xsl:strip-space elements="*" />
+
 <!-- FoLiA v0.12 -->
 
 <xsl:template match="/folia:FoLiA">
