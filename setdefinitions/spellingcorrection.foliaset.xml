@@ -10,7 +10,6 @@
     <class xml:id="redundantpunctuation" label="Redundant Punctuation" />
     <class xml:id="capitalizationerror" label="Capitalization Error" />
     <class xml:id="archaic" label="Archaic Spelling" />
-    <class xml:id="contexterror" label="Error according to context" />
     <class xml:id="uncertain" label="Uncertain" />
 </set>
 
