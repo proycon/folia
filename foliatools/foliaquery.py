@@ -127,7 +127,7 @@ def main():
 
         import readline
         print("Starting interactive mode, enter your FQL queries, QUIT to save changes and exit.",file=sys.stderr)
-        savedocs = set()
+        savedocs = []
         while True:
             query = input("FQL> ")
             if query == "QUIT" or query == "EXIT":
@@ -149,13 +149,15 @@ def main():
             for doc in docs:
                 output = query(doc)
                 print(output)
-                if query.action and query.action in ('EDIT','DELETE','SUBSTITUTE','PREPEND','APPEND'):
-                    savedocs.add(doc)
+                if query.action and query.action.action in ('EDIT','DELETE','SUBSTITUTE','PREPEND','APPEND'):
+                    if not doc in savedocs:
+                        savedocs.append(doc)
 
 
         print("Saving changes to documents, please wait...",file=sys.stderr)
         #save documents if changes are made
         for doc in savedocs:
+            print("Saving " + doc.filename)
             doc.save()
         print("done.",file=sys.stderr)
 
