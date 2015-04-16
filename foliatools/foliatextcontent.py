@@ -80,38 +80,82 @@ def linkstrings(element, cls='current'):
                 if fits:
                     text.data[replaceindex] = replace
 
-def gettextsequence(element, cls):
+def gettextsequence(element, cls, debug=False):
     assert element.PRINTABLE
+    if debug: print(" Getting text for ", repr(element),file=sys.stderr)
     if element.TEXTCONTAINER:
-        if isinstance(element.TextContent) and element.cls != cls:
+        if debug: print("  Found textcontainer ", repr(element),file=sys.stderr)
+
+        if isinstance(element,folia.TextContent) and element.cls != cls:
+            if debug: print("  Class mismatch", element.cls,"vs",cls,file=sys.stderr)
             raise StopIteration
 
         for e in element:
             if isinstance(e, str):
-                yield element
+                if debug: print("  Found: ", e,file=sys.stderr)
+                yield e
             else: #markup (don't recurse)
-                yield subelement
-                yield subelement.gettextdelimiter()
+                if debug: print("  Found markup: ", repr(e),file=sys.stderr)
+                yield e
+                yield e.gettextdelimiter()
+
+        yield None #Break after this, if we have text content we needn't delve deeper
     else:
+        #Do we have a text content?
+        foundtext = False
         for e in element:
-            if e.PRINTABLE and not isinstance(e, folia.String):
-                for subelement in gettextsequence(e):
+            if isinstance(e, folia.TextContent) and e.cls == cls:
+                foundtext = True
+                for subelement in gettextsequence(e, cls, debug):
                     yield subelement
-                    yield subelement.gettextdelimiter()
+            elif isinstance(e, folia.Correction):
+                try:
+                    if e.hascurrent() and e.current().textcontent(cls):
+                        foundtext = True
+                        for subelement in gettextsequence(e.current().textcontent(cls), cls, debug):
+                            yield subelement
+                        break
+                except folia.NoSuchText:
+                    pass
+                try:
+                    if e.hasnew() and e.new().textcontent(cls):
+                        foundtext = True
+                        for subelement in gettextsequence(e.new().textcontent(cls), cls, debug):
+                            yield subelement
+                        break
+                except folia.NoSuchText:
+                    pass
 
+        if not foundtext:
+            for e in element:
+                if debug: print(" Looking for text in ", repr(e),file=sys.stderr)
+                if e.PRINTABLE and not isinstance(e, folia.String):
+                    abort = False
+                    for subelement in gettextsequence(e, cls, debug):
+                        if subelement is None:
+                            abort = True
+                            break
+                        yield subelement
+                    if abort: break
+                yield element.gettextdelimiter()
 
-def settext(element, cls='current', offsets=True, forceoffsetref=False):
+def settext(element, cls='current', offsets=True, forceoffsetref=False, debug=False):
     assert element.PRINTABLE
+
+    if debug: print("Setting text for ", repr(element),file=sys.stderr)
+
     #get the raw text sequence
     try:
-        textsequence = list(gettextsequence(element,cls))
+        textsequence = list(gettextsequence(element,cls,debug))
     except folia.NoSuchText:
         return None
+
+    if debug: print("Raw text:  ", textsequence,file=sys.stderr)
 
     if textsequence:
         newtextsequence = []
         offset = 0
-        for e in textsequence:
+        for i, e in enumerate(textsequence):
             if e: #filter out empty strings
                 if isinstance(e,str):
                     length = len(e)
@@ -125,19 +169,27 @@ def settext(element, cls='current', offsets=True, forceoffsetref=False):
                             elif forceoffsetref:
                                 e.offset = offset
                                 e.ref = element
+                if not e.strip():
+                    if not [x for x in textsequence[i+1:] if x.strip() ]: #strip trailing stuff
+                        offset += length
+                        continue
                 newtextsequence.append(e)
                 offset += length
 
-        return element.replace(folia.TextContent, *newtextsequence, cls=cls) #appends if new
+        if newtextsequence:
+            return element.replace(folia.TextContent, *newtextsequence, cls=cls) #appends if new
 
 
 def processelement(element, settings):
-    for e in elements:
-        processelement(e,settings)
-    if element.PRINTABLE:
-        if any( isinstance(element,C) for C in settings.Classes):
-            for cls in element.doc.textclasses:
-                settext(element, cls, settings.offsets, settings.forceoffsetref)
+    if not isinstance(element, folia.AbstractSpanAnnotation): #prevent infinite recursion
+        for e in element:
+            if isinstance(e, folia.AbstractElement):
+                if settings.debug: print("Processing ", repr(e),file=sys.stderr)
+                processelement(e,settings)
+        if element.PRINTABLE:
+            if any( isinstance(element,C) for C in settings.Classes):
+                for cls in element.doc.textclasses:
+                    settext(element, cls, settings.offsets, settings.forceoffsetref, settings.debug)
 
 
 def process(filename, outputfile = None):
@@ -151,7 +203,7 @@ def process(filename, outputfile = None):
 
     if settings.Classes:
         for e in doc.data:
-            processelement(e, settings.Classes)
+            processelement(e, settings)
 
 
     if settings.inplaceedit:
@@ -179,6 +231,8 @@ class settings:
     extension = 'xml'
     recurse = False
     encoding = 'utf-8'
+
+    debug = False
 
     textclasses =[]
 
@@ -223,6 +277,8 @@ def main():
             settings.inplaceedit = True
         elif o == '-r':
             settings.recurse = True
+        elif o == '-D':
+            settings.debug = True
         else:
             raise Exception("No such option: " + o)
 
