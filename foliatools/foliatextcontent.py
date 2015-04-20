@@ -84,7 +84,7 @@ def gettextsequence(element, cls, debug=False):
     assert element.PRINTABLE
     if debug: print(" Getting text for ", repr(element),file=sys.stderr)
     if element.TEXTCONTAINER:
-        if debug: print("  Found textcontainer ", repr(element),file=sys.stderr)
+        if debug: print("  Found textcontainer ", repr(element), "in", repr(element.ancestor(folia.AbstractStructureElement)),file=sys.stderr)
 
         if isinstance(element,folia.TextContent) and element.cls != cls:
             if debug: print("  Class mismatch", element.cls,"vs",cls,file=sys.stderr)
@@ -103,6 +103,7 @@ def gettextsequence(element, cls, debug=False):
     else:
         #Do we have a text content?
         foundtext = False
+        if debug: print(" Looking for text in ", repr(element),file=sys.stderr)
         for e in element:
             if isinstance(e, folia.TextContent) and e.cls == cls:
                 foundtext = True
@@ -127,24 +128,31 @@ def gettextsequence(element, cls, debug=False):
                     pass
 
         if not foundtext:
+            if debug: print(" Looking for text in children of ", repr(element),file=sys.stderr)
             for e in element:
-                if debug: print(" Looking for text in ", repr(e),file=sys.stderr)
                 if e.PRINTABLE and not isinstance(e, folia.String):
                     #abort = False
                     for x in gettextsequence(e, cls, debug):
+                        foundtext = True
                         if x[0] is None:
                             abort = True
                             break
                         yield x
-                    #if abort: break
-                delimiter = e.gettextdelimiter()
-                print(" Got delimiter " + repr(delimiter) + " from " + repr(element), file=sys.stderr)
-                yield e.gettextdelimiter(), None
+                    #if abort:
+                    #    print(" Abort signal received, not processing further elements in ", repr(element),file=sys.stderr)
+                    #    break
+                if foundtext:
+                    delimiter = e.gettextdelimiter()
+                    print(" Got delimiter " + repr(delimiter) + " from " + repr(element), file=sys.stderr)
+                    yield e.gettextdelimiter(), None
+                elif isinstance(e, folia.AbstractStructureElement) and not isinstance(e, folia.Linebreak) and not isinstance(e, folia.Whitespace):
+                    raise folia.NoSuchText("No text was found in the scope of the structure element")
+
 
 def settext(element, cls='current', offsets=True, forceoffsetref=False, debug=False):
     assert element.PRINTABLE
 
-    if debug: print("Setting text for ", repr(element),file=sys.stderr)
+    if debug: print("In settext for  ", repr(element),file=sys.stderr)
 
     #get the raw text sequence
     try:
@@ -157,6 +165,7 @@ def settext(element, cls='current', offsets=True, forceoffsetref=False, debug=Fa
     if textsequence:
         newtextsequence = []
         offset = 0
+        prevsrc = None
         for i, (e, src) in enumerate(textsequence):
             if e: #filter out empty strings
                 if isinstance(e,str):
@@ -174,19 +183,21 @@ def settext(element, cls='current', offsets=True, forceoffsetref=False, debug=Fa
                     e = e.copy()
                     length = len(e.text())
 
-                if src and offsets:
+                if src and offsets and src is not prevsrc:
                     ancestors = list(src.ancestors(folia.AbstractStructureElement))
                     if len(ancestors) >= 2 and ancestors[1] is element:
+                        if debug: print("Setting offset for text in  " + repr(ancestors[0]) + " to " + str(offset) + ", reference " + repr(element) ,file=sys.stderr)
                         src.offset = offset
                     elif forceoffsetref:
                         src.offset = offset
                         src.ref = element
+                    prevsrc = src
 
                 newtextsequence.append(e)
                 offset += length
 
         if newtextsequence:
-            print(" Setting text: ", newtextsequence, file=sys.stderr)
+            if debug: print("Setting text for " + repr(element) + ":" , newtextsequence, file=sys.stderr)
             return element.replace(folia.TextContent, *newtextsequence, cls=cls) #appends if new
 
 
