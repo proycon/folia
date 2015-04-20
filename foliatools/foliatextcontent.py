@@ -93,35 +93,35 @@ def gettextsequence(element, cls, debug=False):
         for e in element:
             if isinstance(e, str):
                 if debug: print("  Found: ", e,file=sys.stderr)
-                yield e
+                yield e, element
             else: #markup (don't recurse)
                 if debug: print("  Found markup: ", repr(e),file=sys.stderr)
-                yield e
-                yield e.gettextdelimiter()
+                yield e, element
+                yield e.gettextdelimiter(), None
 
-        yield None #Break after this, if we have text content we needn't delve deeper
+        yield None,None #Signals a break after this, if we have text content we needn't delve deeper
     else:
         #Do we have a text content?
         foundtext = False
         for e in element:
             if isinstance(e, folia.TextContent) and e.cls == cls:
                 foundtext = True
-                for subelement in gettextsequence(e, cls, debug):
-                    yield subelement
+                for x in gettextsequence(e, cls, debug):
+                    yield x
             elif isinstance(e, folia.Correction):
                 try:
                     if e.hascurrent() and e.current().textcontent(cls):
                         foundtext = True
-                        for subelement in gettextsequence(e.current().textcontent(cls), cls, debug):
-                            yield subelement
+                        for x in gettextsequence(e.current().textcontent(cls), cls, debug):
+                            yield x
                         break
                 except folia.NoSuchText:
                     pass
                 try:
                     if e.hasnew() and e.new().textcontent(cls):
                         foundtext = True
-                        for subelement in gettextsequence(e.new().textcontent(cls), cls, debug):
-                            yield subelement
+                        for x in gettextsequence(e.new().textcontent(cls), cls, debug):
+                            yield x
                         break
                 except folia.NoSuchText:
                     pass
@@ -130,14 +130,16 @@ def gettextsequence(element, cls, debug=False):
             for e in element:
                 if debug: print(" Looking for text in ", repr(e),file=sys.stderr)
                 if e.PRINTABLE and not isinstance(e, folia.String):
-                    abort = False
-                    for subelement in gettextsequence(e, cls, debug):
-                        if subelement is None:
+                    #abort = False
+                    for x in gettextsequence(e, cls, debug):
+                        if x[0] is None:
                             abort = True
                             break
-                        yield subelement
-                    if abort: break
-                yield element.gettextdelimiter()
+                        yield x
+                    #if abort: break
+                delimiter = e.gettextdelimiter()
+                print(" Got delimiter " + repr(delimiter) + " from " + repr(element), file=sys.stderr)
+                yield e.gettextdelimiter(), None
 
 def settext(element, cls='current', offsets=True, forceoffsetref=False, debug=False):
     assert element.PRINTABLE
@@ -155,29 +157,38 @@ def settext(element, cls='current', offsets=True, forceoffsetref=False, debug=Fa
     if textsequence:
         newtextsequence = []
         offset = 0
-        for i, e in enumerate(textsequence):
+        for i, (e, src) in enumerate(textsequence):
             if e: #filter out empty strings
                 if isinstance(e,str):
                     length = len(e)
-                else:
+
+                    #only whitespace from here on?
+                    if not e.strip():
+                        onlywhitespace = True
+                        for x,y in textsequence[i+1:]:
+                            if y is not None:
+                                onlywhitespace = False
+                        if onlywhitespace:
+                            break
+                elif isinstance(e, folia.AbstractTextMarkup):
                     e = e.copy()
                     length = len(e.text())
-                    if offsets:
-                        if e.offset is None:
-                            if e.ancestor(folia.AbstractStructureElement) is element:
-                                e.offset = offset
-                            elif forceoffsetref:
-                                e.offset = offset
-                                e.ref = element
-                if not e.strip():
-                    if not [x for x in textsequence[i+1:] if x.strip() ]: #strip trailing stuff
-                        offset += length
-                        continue
+
+                if src and offsets:
+                    ancestors = list(src.ancestors(folia.AbstractStructureElement))
+                    if len(ancestors) >= 2 and ancestors[1] is element:
+                        src.offset = offset
+                    elif forceoffsetref:
+                        src.offset = offset
+                        src.ref = element
+
                 newtextsequence.append(e)
                 offset += length
 
         if newtextsequence:
+            print(" Setting text: ", newtextsequence, file=sys.stderr)
             return element.replace(folia.TextContent, *newtextsequence, cls=cls) #appends if new
+
 
 
 def processelement(element, settings):
