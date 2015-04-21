@@ -41,44 +41,60 @@ def usage():
     print("  -E [extension]               Set extension (default: xml)",file=sys.stderr)
 
 
-def linkstrings(element, cls='current'):
-    if element.hastext(cls,strict=True):
-        text = element.textcontent(cls)
+def linkstrings(element, cls='current',debug=False):
+    if element.hastext(cls,strict=True) and element.hasannotation(folia.String):
+        text = element.textcontent(cls, correctionhandling=folia.CorrectionHandling.EITHER)
+
         for string in element.select(folia.String, None, False):
-            if string.hastext(cls):
-                stringtext = string.textcontent(cls)
-                if stringtext.offset is not None:
-                    #find the right insertion point
-                    offset = stringtext.offset
-                    length = len(stringtext.text())
+            try:
+                stringtextcontent = string.textcontent(cls, correctionhandling=folia.CorrectionHandling.EITHER)
+                stringtext = stringtextcontent.text()
+                stringoffset = stringtextcontent.offset
+            except folia.NoSuchText:
+                continue
 
-                    cursor = 0
-                    fits = False
-                    replaceindex = 0
-                    replace = []
-                    for i, subtext in enumerate(text):
-                        if isinstance(subtext, str):
-                            subtextlength = len(subtext.text())
-                            if offset >= cursor and offset+length <= cursor+subtextlength:
-                                #string fits here
-                                fits = True
-                                replaceindex = i
-                                kwargs = {}
-                                if string.id:
-                                    kwargs['idref'] = string.id
-                                if string.set:
-                                    kwargs['set'] = string.set
-                                if string.cls:
-                                    kwargs['cls'] = string.cls
-                                replace = [subtextlength[:cursor], folia.TextMarkupString(element.doc, **kwargs), subtextlength[cursor+length:]]
-                                break
+            if not stringtext:
+                continue
 
-                            cursor += subtextlength
-                        elif isinstance(subtext, folia.AbstractTextMarkup):
-                            raise NotImplementedError
+            if debug: print("Finding string '" + stringtext + "' in text: ", text.text(), file=sys.stderr)
 
-                if fits:
-                    text.data[replaceindex] = replace
+            offset = 0 #current offset cursor
+            length = len(stringtext)
+            replaceindex = 0
+            replace = []
+            for i, subtext in enumerate(text):
+                if isinstance(subtext, str):
+                    subtextlength = len(subtext)
+                    if stringoffset >= offset and stringoffset+length <= offset+subtextlength:
+                        reloffset = stringoffset-offset
+
+                        if subtext[reloffset:reloffset+length] != stringtext:
+                            print(" String refers to offset " + str(stringoffset) + ", but is not found there ! Found '" + subtext[reloffset:reloffset+length] + "' instead.",file=sys.stderr)
+                        else:
+                            #match!
+                            kwargs = {}
+                            replaceindex = i
+                            if string.id:
+                                kwargs['idref'] = string.id
+                            replace = [subtext[:reloffset], folia.TextMarkupString(element.doc, *stringtext, **kwargs), subtext[reloffset+length:]]
+                            break
+
+                elif isinstance(subtext, folia.AbstractTextMarkup):
+                    subtextlength = len(subtext.text())
+                    if stringoffset >= offset and stringoffset+length <= offset+subtextlength:
+                        raise NotImplementedError("String fits within other markup element (possibly another string), not implemented yet")
+
+                offset += subtextlength
+
+            if replace:
+                if debug: print("Replacing item " + str(replaceindex) + " with: ", replace,file=sys.stderr)
+                del text.data[replaceindex]
+                for x in reversed(replace):
+                    if x:
+                        text.data.insert(replaceindex,x)
+            else:
+                if string.id:
+                    print("Could not find string " + string.id + " !!!",file=sys.stderr)
 
 def gettextsequence(element, cls, debug=False):
     assert element.PRINTABLE
@@ -110,22 +126,37 @@ def gettextsequence(element, cls, debug=False):
                 for x in gettextsequence(e, cls, debug):
                     yield x
             elif isinstance(e, folia.Correction):
-                try:
-                    if e.hascurrent() and e.current().textcontent(cls):
-                        foundtext = True
-                        for x in gettextsequence(e.current().textcontent(cls), cls, debug):
-                            yield x
-                        break
-                except folia.NoSuchText:
-                    pass
+                foundtextincorrection =False
                 try:
                     if e.hasnew() and e.new().textcontent(cls):
-                        foundtext = True
+                        foundtextincorrection = True
                         for x in gettextsequence(e.new().textcontent(cls), cls, debug):
                             yield x
-                        break
                 except folia.NoSuchText:
                     pass
+                except folia.NoSuchAnnotation:
+                    pass
+                if not foundtextincorrection:
+                    try:
+                        if e.hascurrent() and e.current().textcontent(cls):
+                            foundtextincorrection = True
+                            for x in gettextsequence(e.current().textcontent(cls), cls, debug):
+                                yield x
+                    except folia.NoSuchText:
+                        pass
+                    except folia.NoSuchAnnotation:
+                        pass
+                if not foundtextincorrection:
+                    try:
+                        if e.hasoriginal() and e.original().textcontent(cls):
+                            foundtextincorrection = True
+                            for x in gettextsequence(e.current().textcontent(cls), cls, debug):
+                                yield x
+                    except folia.NoSuchText:
+                        pass
+                    except folia.NoSuchAnnotation:
+                        pass
+                foundtext = foundtextincorrection
 
         if not foundtext:
             if debug: print(" Looking for text in children of ", repr(element),file=sys.stderr)
@@ -143,7 +174,7 @@ def gettextsequence(element, cls, debug=False):
                     #    break
                 if foundtext:
                     delimiter = e.gettextdelimiter()
-                    print(" Got delimiter " + repr(delimiter) + " from " + repr(element), file=sys.stderr)
+                    if debug: print(" Got delimiter " + repr(delimiter) + " from " + repr(element), file=sys.stderr)
                     yield e.gettextdelimiter(), None
                 elif isinstance(e, folia.AbstractStructureElement) and not isinstance(e, folia.Linebreak) and not isinstance(e, folia.Whitespace):
                     raise folia.NoSuchText("No text was found in the scope of the structure element")
@@ -219,9 +250,10 @@ def process(filename, outputfile = None):
     doc = folia.Document(file=filename)
 
     if settings.linkstrings:
-        for element in folia.select(AbstractStructureElement):
+        for element in doc.select(folia.AbstractStructureElement):
             if settings.linkstrings:
-                linkstrings(element, cls)
+                for cls in element.doc.textclasses:
+                    linkstrings(element, cls, settings.debug)
 
     if settings.Classes:
         for e in doc.data:
