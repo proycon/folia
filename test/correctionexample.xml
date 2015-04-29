@@ -196,10 +196,6 @@
             <t class="original" offset="14">.</t>
         </w>
     </s>
-    <!-- Simple pre-tokenised correction as markup-->
-    <s xml:id="correctionexample.s.11">
-        <t>Ik hoor <t-correction>onweer</t-.</t>
-    </s>
     <!-- Structural correction on sentence level-->
     <p xml:id="correctionexample.p.1">
         <correction xml:id="correctionexample.p.1.correction.1" class="redundantpunctuation">
@@ -228,13 +224,5 @@
             </original>
         </correction>
     </p>
-    <!-- Correction in untokenised text -->
-    <p xml:id="correctionexample.p.2">
-        <t>
-    </p>
-        
-    
-    
-
 </text>  
 </FoLiA>
