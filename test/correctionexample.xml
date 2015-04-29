@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="folia2html.xsl"?>
+<FoLiA xmlns="http://ilk.uvt.nl/folia" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="correctionexample" version="0.12.0" generator="manual">
+<metadata type="native">
+<annotations>
+    <token-annotation annotator="ilktok" annotatortype="auto" />
+    <pos-annotation />
+    <correction-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/spellingcorrection.foliaset.xml" annotator="proycon" annotatortype="manual" />
+    <errordetection-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/spellingcorrection.foliaset.xml" annotator="proycon" annotatortype="manual" />
+</annotations>
+</metadata>
+<text xml:id="correctionexample.text">
+    <!-- Text correction -->
+    <s xml:id="correctionexample.s.1">
+        <w xml:id="correctionexample.s.1.w.1" class="WORD"><t>Het</t></w>
+        <w xml:id="correctionexample.s.1.w.2" class="WORD">
+            <correction xml:id="correctionexample.s.1.w.2.correction.1" class="confusion">
+                <new>
+                    <t>wordt</t>
+                </new>
+                <original auth="no">
+                    <t>word</t>
+                </original>
+            </correction> 
+        </w>
+        <w xml:id="correctionexample.s.1.w.4" class="WORD"><t>goed</t></w>
+        <w xml:id="correctionexample.s.1.w.5" class="WORD"><t>weer</t></w>
+        <w xml:id="correctionexample.s.1.w.6" class="WORD"><t>.</t></w>
+    </s>
+    <!-- Suggestion for correction -->
+    <s xml:id="correctionexample.s.2">
+        <w xml:id="correctionexample.s.2.w.1" class="WORD"><t>Het</t></w>
+        <w xml:id="correctionexample.s.2.w.2" class="WORD">
+            <t>word</t>
+            <pos class="v" />
+            <correction xml:id="correctionexample.s.2.w.2.correction.1" class="confusion">
+                <suggestion auth="no">
+                    <t>wordt</t>
+                </suggestion>
+                <suggestion auth="no">
+                    <t>werd</t>
+                </suggestion>
+            </correction> 
+            <correction xml:id="correctionexample.s.2.w.2.correction.2" class="confusion">
+                <suggestion auth="no">
+                    <t>woord</t>
+                    <pos class="n" />
+                </suggestion>
+            </correction>
+        </w>
+        <w xml:id="correctionexample.s.2.w.4" class="WORD"><t>goed</t></w>
+        <w xml:id="correctionexample.s.2.w.5" class="WORD"><t>weer</t></w>
+        <w xml:id="correctionexample.s.2.w.6" class="WORD"><t>.</t></w>
+    </s>
+    <!-- Structural element correction (splits and merges) -->
+    <s xml:id="correctionexample.s.3">
+        <correction xml:id="correctionexample.s.3.correction.1" class="runonerror">
+            <new>
+                <w xml:id="correctionexample.s.3.w.1a" class="WORD"><t>Ik</t></w>
+                <w xml:id="correctionexample.s.3.w.1b" class="WORD"><t>hoor</t></w>
+            </new>
+            <original auth="no">
+                <w xml:id="correctionexample.s.3.w.1" class="WORD"><t>Ikhoor</t></w>
+            </original>
+        </correction>
+        <correction xml:id="correctionexample.s.3.correction.2" class="spliterror">
+            <new>
+                <w xml:id="correctionexample.s.3.w.2a" class="WORD"><t>onweer</t></w>
+            </new>
+            <original auth="no">
+                <w xml:id="correctionexample.s.3.w.2" class="WORD"><t>on</t></w>
+                <w xml:id="correctionexample.s.3.w.3" class="WORD"><t>weer</t></w> 
+            </original>
+        </correction>
+        <w xml:id="correctionexample.s.3.w.4" class="WORD"><t>.</t></w>
+    </s>
+    <!-- Structural element suggestions for correction (splits and merges) -->
+    <s xml:id="correctionexample.s.4">
+        <correction xml:id="correctionexample.s.4.correction.1" class="runonerror">
+            <current>
+                <w xml:id="correctionexample.s.4.w.1" class="WORD"><t>Ikhoor</t></w>
+            </current>
+            <suggestion auth="no">
+                <w xml:id="correctionexample.s.4.w.1a" class="WORD"><t>Ik</t></w>
+                <w xml:id="correctionexample.s.4.w.1b" class="WORD"><t>hoor</t></w>
+            </suggestion>
+        </correction>
+        <correction xml:id="correctionexample.s.4.correction.2" class="spliterror">
+            <current>
+                <w xml:id="correctionexample.s.4.w.2" class="WORD"><t>on</t></w>
+                <w xml:id="correctionexample.s.4.w.3" class="WORD"><t>weer</t></w> 
+            </current>
+            <suggestion auth="no">
+                <w xml:id="correctionexample.s.4.w.2a" class="WORD"><t>onweer</t></w>
+            </suggestion>
+        </correction>original
+        <w xml:id="correctionexample.s.4.w.4" class="WORD"><t>.</t></w>
+    </s>
+    <!-- Complex nested structural corrections -->
+    <s xml:id="correctionexample.s.5">
+        <w xml:id="correctionexample.s.5.w.1a" class="WORD"><t>Ik</t></w>
+        <w xml:id="correctionexample.s.5.w.1b" class="WORD"><t>hoor</t></w>
+        <correction xml:id="correctionexample.s.5.correction.2" class="spliterror">
+            <current>
+                <correction xml:id="correctionexample.s.5.correction.1">
+                    <new> 
+                        <w xml:id="correctionexample.s.5.w.2a" class="WORD"><t>on</t></w>
+                        <w xml:id="correctionexample.s.5.w.3b" class="WORD"><t>weer</t></w> 
+                    </new>
+                    <original auth="no">
+                        <w xml:id="correctionexample.s.5.w.2c" class="WORD"><t>om</t></w>
+                        <w xml:id="correctionexample.s.5.w.3d" class="WORD"><t>weer</t></w> 
+                    </original>
+                </correction>
+            </current>
+            <suggestion auth="no">
+                <w xml:id="correctionexample.s.5.w.2a" class="WORD"><t>onweer</t></w>
+            </suggestion>
+        </correction>
+        <w xml:id="correctionexample.s.5.w.4" class="WORD"><t>.</t></w>
+    </s>
+    <!-- Structural corrections: deletions -->
+    <s xml:id="correctionexample.s.6">
+        <w xml:id="correctionexample.s.6.w.1" class="WORD"><t>Ik</t></w>
+        <w xml:id="correctionexample.s.6.w.2" class="WORD"><t>hoor</t></w>
+        <correction xml:id="correctionexample.s.6.correction.1">
+            <new/>
+            <original auth="no">
+                <w xml:id="correctionexample.s.6.w.3" class="WORD"><t>een</t></w>
+            </original>
+        </correction>
+        <w xml:id="correctionexample.s.6.w.4" class="WORD"><t>onweer</t></w>
+        <w xml:id="correctionexample.s.6.w.5" class="WORD"><t>.</t></w>
+    </s>
+    <!-- Structural corrections: insertions -->
+    <s xml:id="correctionexample.s.7">
+        <w xml:id="correctionexample.s.7.w.1" class="WORD"><t>Ik</t></w>
+        <w xml:id="correctionexample.s.7.w.2" class="WORD"><t>hoor</t></w>
+        <w xml:id="correctionexample.s.7.w.4" class="WORD"><t>onweer</t></w>
+        <correction xml:id="correctionexample.s.7.correction.1" class="missingpunctuation">
+            <new>
+                <w xml:id="correctionexample.s.7.w.5" class="WORD"><t>.</t></w>
+            </new>
+            <original auth="no" />
+        </correction>
+    </s>
+    <!-- Structural corrections: suggestion for deletion -->
+    <s xml:id="correctionexample.s.8">
+        <w xml:id="correctionexample.s.8.w.1" class="WORD"><t>Ik</t></w>
+        <w xml:id="correctionexample.s.8.w.2" class="WORD"><t>hoor</t></w>
+        <correction xml:id="correctionexample.s.8.correction.1">
+            <suggestion auth="no"/>
+            <current auth="no">
+                <w xml:id="correctionexample.s.8.w.3" class="WORD"><t>een</t></w>
+            </current>
+        </correction>
+        <w xml:id="correctionexample.s.8.w.4" class="WORD"><t>onweer</t></w>
+        <w xml:id="correctionexample.s.8.w.5" class="WORD"><t>.</t></w>
+    </s>
+    <!-- Structural corrections: suggestion for insertion -->
+    <s xml:id="correctionexample.s.9">
+        <w xml:id="correctionexample.s.9.w.1" class="WORD"><t>Ik</t></w>
+        <w xml:id="correctionexample.s.9.w.2" class="WORD"><t>hoor</t></w>
+        <w xml:id="correctionexample.s.9.w.4" class="WORD"><t>onweer</t></w>
+        <correction xml:id="correctionexample.s.9.correction.1" class="missingpunctuation">
+            <suggestion auth="no">
+                <w xml:id="correctionexample.s.9.w.5" class="WORD"><t>.</t></w>
+            </suggestion>
+            <current auth="no" />
+        </correction>
+    </s>
+    <!-- Structural correction on sentence level-->
+    <p xml:id="correctionexample.p.1">
+        <correction xml:id="correctionexample.p.1.correction.1" class="redundantpunctuation">
+            <new>
+                <s xml:id="correctionexample.p.1.s.1a">
+                    <w xml:id="correctionexample.p.1.s.1a.w.1" class="WORD"><t>Ik</t></w>
+                    <w xml:id="correctionexample.p.1.s.1a.w.2" class="WORD"><t>denk</t></w>
+                    <w xml:id="correctionexample.p.1.s.1a.w.3" class="WORD"><t>dus</t></w>
+                    <w xml:id="correctionexample.p.1.s.1a.w.4" class="WORD"><t>ik</t></w>
+                    <w xml:id="correctionexample.p.1.s.1a.w.5" class="WORD"><t>besta</t></w>
+                    <w xml:id="correctionexample.p.1.s.1a.w.6" class="WORD"><t>.</t></w>
+                </s>
+            </new>
+            <original auth="no">
+                <s xml:id="correctionexample.p.1.s.1">
+                    <w xml:id="correctionexample.p.1.s.1.w.1" class="WORD"><t>Ik</t></w>
+                    <w xml:id="correctionexample.p.1.s.1.w.2" class="WORD"><t>denk</t></w>
+                    <w xml:id="correctionexample.p.1.s.1.w.3" class="WORD"><t>.</t></w>
+                </s>
+                <s xml:id="correctionexample.p.1.s.2">
+                    <w xml:id="correctionexample.p.1.s.2.w.1" class="WORD"><t>dus</t></w>
+                    <w xml:id="correctionexample.p.1.s.2.w.2" class="WORD"><t>ik</t></w>
+                    <w xml:id="correctionexample.p.1.s.2.w.3" class="WORD"><t>besta</t></w>
+                    <w xml:id="correctionexample.p.1.s.2.w.4" class="WORD"><t>.</t></w>
+                </s>
+            </original>
+        </correction>
+    </p>
+        
+    
+    
+
+</text>  
+</FoLiA>
