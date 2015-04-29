@@ -41,103 +41,208 @@ def usage():
     print("  -E [extension]               Set extension (default: xml)",file=sys.stderr)
 
 
-def linkstrings(element, cls='current'):
-    if element.hastext(cls,strict=True):
-        text = element.textcontent(cls)
+def linkstrings(element, cls='current',debug=False):
+    if element.hastext(cls,strict=True) and element.hasannotation(folia.String):
+        text = element.textcontent(cls, correctionhandling=folia.CorrectionHandling.EITHER)
+
         for string in element.select(folia.String, None, False):
-            if string.hastext(cls):
-                stringtext = string.textcontent(cls)
-                if stringtext.offset is not None:
-                    #find the right insertion point
-                    offset = stringtext.offset
-                    length = len(stringtext.text())
+            try:
+                stringtextcontent = string.textcontent(cls, correctionhandling=folia.CorrectionHandling.EITHER)
+                stringtext = stringtextcontent.text()
+                stringoffset = stringtextcontent.offset
+            except folia.NoSuchText:
+                continue
 
-                    cursor = 0
-                    fits = False
-                    replaceindex = 0
-                    replace = []
-                    for i, subtext in enumerate(text):
-                        if isinstance(subtext, str):
-                            subtextlength = len(subtext.text())
-                            if offset >= cursor and offset+length <= cursor+subtextlength:
-                                #string fits here
-                                fits = True
-                                replaceindex = i
-                                kwargs = {}
-                                if string.id:
-                                    kwargs['idref'] = string.id
-                                if string.set:
-                                    kwargs['set'] = string.set
-                                if string.cls:
-                                    kwargs['cls'] = string.cls
-                                replace = [subtextlength[:cursor], folia.TextMarkupString(element.doc, **kwargs), subtextlength[cursor+length:]]
-                                break
+            if not stringtext:
+                continue
 
-                            cursor += subtextlength
-                        elif isinstance(subtext, folia.AbstractTextMarkup):
-                            raise NotImplementedError
+            if debug: print("Finding string '" + stringtext + "' in text: ", text.text(), file=sys.stderr)
 
-                if fits:
-                    text.data[replaceindex] = replace
+            offset = 0 #current offset cursor
+            length = len(stringtext)
+            replaceindex = 0
+            replace = []
+            for i, subtext in enumerate(text):
+                if isinstance(subtext, str):
+                    subtextlength = len(subtext)
+                    if stringoffset >= offset and stringoffset+length <= offset+subtextlength:
+                        reloffset = stringoffset-offset
 
-def gettextsequence(element, cls):
+                        if subtext[reloffset:reloffset+length] != stringtext:
+                            print(" String refers to offset " + str(stringoffset) + ", but is not found there ! Found '" + subtext[reloffset:reloffset+length] + "' instead.",file=sys.stderr)
+                        else:
+                            #match!
+                            kwargs = {}
+                            replaceindex = i
+                            if string.id:
+                                kwargs['idref'] = string.id
+                            replace = [subtext[:reloffset], folia.TextMarkupString(element.doc, *stringtext, **kwargs), subtext[reloffset+length:]]
+                            break
+
+                elif isinstance(subtext, folia.AbstractTextMarkup):
+                    subtextlength = len(subtext.text())
+                    if stringoffset >= offset and stringoffset+length <= offset+subtextlength:
+                        raise NotImplementedError("String fits within other markup element (possibly another string), not implemented yet")
+
+                offset += subtextlength
+
+            if replace:
+                if debug: print("Replacing item " + str(replaceindex) + " with: ", replace,file=sys.stderr)
+                del text.data[replaceindex]
+                for x in reversed(replace):
+                    if x:
+                        text.data.insert(replaceindex,x)
+            else:
+                if string.id:
+                    print("Could not find string " + string.id + " !!!",file=sys.stderr)
+
+def gettextsequence(element, cls, debug=False):
     assert element.PRINTABLE
+    if debug: print(" Getting text for ", repr(element),file=sys.stderr)
     if element.TEXTCONTAINER:
-        if isinstance(element.TextContent) and element.cls != cls:
+        if debug: print("  Found textcontainer ", repr(element), "in", repr(element.ancestor(folia.AbstractStructureElement)),file=sys.stderr)
+
+        if isinstance(element,folia.TextContent) and element.cls != cls:
+            if debug: print("  Class mismatch", element.cls,"vs",cls,file=sys.stderr)
             raise StopIteration
 
         for e in element:
             if isinstance(e, str):
-                yield element
+                if debug: print("  Found: ", e,file=sys.stderr)
+                yield e, element
             else: #markup (don't recurse)
-                yield subelement
-                yield subelement.gettextdelimiter()
+                if debug: print("  Found markup: ", repr(e),file=sys.stderr)
+                yield e, element
+                yield e.gettextdelimiter(), None
+
+        yield None,None #Signals a break after this, if we have text content we needn't delve deeper
     else:
+        #Do we have a text content?
+        foundtext = False
+        if debug: print(" Looking for text in ", repr(element),file=sys.stderr)
         for e in element:
-            if e.PRINTABLE and not isinstance(e, folia.String):
-                for subelement in gettextsequence(e):
-                    yield subelement
-                    yield subelement.gettextdelimiter()
+            if isinstance(e, folia.TextContent) and e.cls == cls:
+                foundtext = True
+                for x in gettextsequence(e, cls, debug):
+                    yield x
+            elif isinstance(e, folia.Correction):
+                foundtextincorrection =False
+                try:
+                    if e.hasnew() and e.new().textcontent(cls):
+                        foundtextincorrection = True
+                        for x in gettextsequence(e.new().textcontent(cls), cls, debug):
+                            yield x
+                except folia.NoSuchText:
+                    pass
+                except folia.NoSuchAnnotation:
+                    pass
+                if not foundtextincorrection:
+                    try:
+                        if e.hascurrent() and e.current().textcontent(cls):
+                            foundtextincorrection = True
+                            for x in gettextsequence(e.current().textcontent(cls), cls, debug):
+                                yield x
+                    except folia.NoSuchText:
+                        pass
+                    except folia.NoSuchAnnotation:
+                        pass
+                if not foundtextincorrection:
+                    try:
+                        if e.hasoriginal() and e.original().textcontent(cls):
+                            foundtextincorrection = True
+                            for x in gettextsequence(e.current().textcontent(cls), cls, debug):
+                                yield x
+                    except folia.NoSuchText:
+                        pass
+                    except folia.NoSuchAnnotation:
+                        pass
+                foundtext = foundtextincorrection
+
+        if not foundtext:
+            if debug: print(" Looking for text in children of ", repr(element),file=sys.stderr)
+            for e in element:
+                if e.PRINTABLE and not isinstance(e, folia.String):
+                    #abort = False
+                    for x in gettextsequence(e, cls, debug):
+                        foundtext = True
+                        if x[0] is None:
+                            abort = True
+                            break
+                        yield x
+                    #if abort:
+                    #    print(" Abort signal received, not processing further elements in ", repr(element),file=sys.stderr)
+                    #    break
+                if foundtext:
+                    delimiter = e.gettextdelimiter()
+                    if debug: print(" Got delimiter " + repr(delimiter) + " from " + repr(element), file=sys.stderr)
+                    yield e.gettextdelimiter(), None
+                elif isinstance(e, folia.AbstractStructureElement) and not isinstance(e, folia.Linebreak) and not isinstance(e, folia.Whitespace):
+                    raise folia.NoSuchText("No text was found in the scope of the structure element")
 
 
-def settext(element, cls='current', offsets=True, forceoffsetref=False):
+def settext(element, cls='current', offsets=True, forceoffsetref=False, debug=False):
     assert element.PRINTABLE
+
+    if debug: print("In settext for  ", repr(element),file=sys.stderr)
+
     #get the raw text sequence
     try:
-        textsequence = list(gettextsequence(element,cls))
+        textsequence = list(gettextsequence(element,cls,debug))
     except folia.NoSuchText:
         return None
+
+    if debug: print("Raw text:  ", textsequence,file=sys.stderr)
 
     if textsequence:
         newtextsequence = []
         offset = 0
-        for e in textsequence:
+        prevsrc = None
+        for i, (e, src) in enumerate(textsequence):
             if e: #filter out empty strings
                 if isinstance(e,str):
                     length = len(e)
-                else:
+
+                    #only whitespace from here on?
+                    if not e.strip():
+                        onlywhitespace = True
+                        for x,y in textsequence[i+1:]:
+                            if y is not None:
+                                onlywhitespace = False
+                        if onlywhitespace:
+                            break
+                elif isinstance(e, folia.AbstractTextMarkup):
                     e = e.copy()
                     length = len(e.text())
-                    if offsets:
-                        if e.offset is None:
-                            if e.ancestor(folia.AbstractStructureElement) is element:
-                                e.offset = offset
-                            elif forceoffsetref:
-                                e.offset = offset
-                                e.ref = element
+
+                if src and offsets and src is not prevsrc:
+                    ancestors = list(src.ancestors(folia.AbstractStructureElement))
+                    if len(ancestors) >= 2 and ancestors[1] is element:
+                        if debug: print("Setting offset for text in  " + repr(ancestors[0]) + " to " + str(offset) + ", reference " + repr(element) ,file=sys.stderr)
+                        src.offset = offset
+                    elif forceoffsetref:
+                        src.offset = offset
+                        src.ref = element
+                    prevsrc = src
+
                 newtextsequence.append(e)
                 offset += length
 
-        return element.replace(folia.TextContent, *newtextsequence, cls=cls) #appends if new
+        if newtextsequence:
+            if debug: print("Setting text for " + repr(element) + ":" , newtextsequence, file=sys.stderr)
+            return element.replace(folia.TextContent, *newtextsequence, cls=cls) #appends if new
+
 
 
 def processelement(element, settings):
-    for e in elements:
-        processelement(e,settings)
-    if element.PRINTABLE:
-        if any( isinstance(element,C) for C in settings.Classes):
-            for cls in element.doc.textclasses:
-                settext(element, cls, settings.offsets, settings.forceoffsetref)
+    if not isinstance(element, folia.AbstractSpanAnnotation): #prevent infinite recursion
+        for e in element:
+            if isinstance(e, folia.AbstractElement):
+                if settings.debug: print("Processing ", repr(e),file=sys.stderr)
+                processelement(e,settings)
+        if element.PRINTABLE:
+            if any( isinstance(element,C) for C in settings.Classes):
+                for cls in element.doc.textclasses:
+                    settext(element, cls, settings.offsets, settings.forceoffsetref, settings.debug)
 
 
 def process(filename, outputfile = None):
@@ -145,13 +250,14 @@ def process(filename, outputfile = None):
     doc = folia.Document(file=filename)
 
     if settings.linkstrings:
-        for element in folia.select(AbstractStructureElement):
+        for element in doc.select(folia.AbstractStructureElement):
             if settings.linkstrings:
-                linkstrings(element, cls)
+                for cls in element.doc.textclasses:
+                    linkstrings(element, cls, settings.debug)
 
     if settings.Classes:
         for e in doc.data:
-            processelement(e, settings.Classes)
+            processelement(e, settings)
 
 
     if settings.inplaceedit:
@@ -179,6 +285,8 @@ class settings:
     extension = 'xml'
     recurse = False
     encoding = 'utf-8'
+
+    debug = False
 
     textclasses =[]
 
@@ -223,6 +331,8 @@ def main():
             settings.inplaceedit = True
         elif o == '-r':
             settings.recurse = True
+        elif o == '-D':
+            settings.debug = True
         else:
             raise Exception("No such option: " + o)
 
