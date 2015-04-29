@@ -169,6 +169,37 @@
             <current auth="no" />
         </correction>
     </s>
+    <!-- Keeping two text versions, and linking multiple levels -->
+    <s xml:id="correctionexample.s.10">
+        <t>Ik hoor <t-correction id="correctionexample.s.10.correction.1" class="nonworderror" origina="omweer">onweer</t-correction>.</t>
+        <t class="original">Ik hoor <t-correction id="correctionexample.s.10.correction.1" class="nonworderror">omweer</t-correction>.</t>
+        <w xml:id="correctionexample.s.10.w.1" class="WORD">
+            <t offset="0">Ik</t>
+            <t class="original" offset="0">Ik</t>
+        </w>
+        <w xml:id="correctionexample.s.10.w.2" class="WORD">
+            <t offset="3">hoor</t>
+            <t class="original" offset="3">hoor</t>
+        </w>
+        <w xml:id="correctionexample.s.10.w.3" class="WORD" space="no">
+            <correction xml:id="correctionexample.s.10.correction.1" class="nonworderror">
+                <new>
+                    <t offset="8">onweer</t>
+                </new>
+                <original auth="no">
+                    <t class="original" offset="8">omweer</t>
+                </original>
+            </correction>
+        </w>
+        <w xml:id="correctionexample.s.10.w.4" class="WORD">
+            <t offset="14">.</t>
+            <t class="original" offset="14">.</t>
+        </w>
+    </s>
+    <!-- Simple pre-tokenised correction as markup-->
+    <s xml:id="correctionexample.s.11">
+        <t>Ik hoor <t-correction>onweer</t-.</t>
+    </s>
     <!-- Structural correction on sentence level-->
     <p xml:id="correctionexample.p.1">
         <correction xml:id="correctionexample.p.1.correction.1" class="redundantpunctuation">
@@ -196,6 +227,10 @@
                 </s>
             </original>
         </correction>
+    </p>
+    <!-- Correction in untokenised text -->
+    <p xml:id="correctionexample.p.2">
+        <t>
     </p>
         
     
