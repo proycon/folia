@@ -93,7 +93,7 @@
             <suggestion auth="no">
                 <w xml:id="correctionexample.s.4.w.2a" class="WORD"><t>onweer</t></w>
             </suggestion>
-        </correction>original
+        </correction>
         <w xml:id="correctionexample.s.4.w.4" class="WORD"><t>.</t></w>
     </s>
     <!-- Complex nested structural corrections -->
@@ -114,7 +114,7 @@
                 </correction>
             </current>
             <suggestion auth="no">
-                <w xml:id="correctionexample.s.5.w.2a" class="WORD"><t>onweer</t></w>
+                <w xml:id="correctionexample.s.5.w.2d" class="WORD"><t>onweer</t></w>
             </suggestion>
         </correction>
         <w xml:id="correctionexample.s.5.w.4" class="WORD"><t>.</t></w>
@@ -171,7 +171,7 @@
     </s>
     <!-- Keeping two text versions, and linking multiple levels -->
     <s xml:id="correctionexample.s.10">
-        <t>Ik hoor <t-correction id="correctionexample.s.10.correction.1" class="nonworderror" origina="omweer">onweer</t-correction>.</t>
+        <t>Ik hoor <t-correction id="correctionexample.s.10.correction.1" class="nonworderror" original="omweer">onweer</t-correction>.</t>
         <t class="original">Ik hoor <t-correction id="correctionexample.s.10.correction.1" class="nonworderror">omweer</t-correction>.</t>
         <w xml:id="correctionexample.s.10.w.1" class="WORD">
             <t offset="0">Ik</t>
