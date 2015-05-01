@@ -143,12 +143,13 @@
             </new>
             <original auth="no" />
         </correction>
+        <w xml:id="correctionexample.s.7.w.6" class="WORD"><t>.</t></w>
     </s>
     <!-- Structural corrections: suggestion for deletion -->
     <s xml:id="correctionexample.s.8">
         <w xml:id="correctionexample.s.8.w.1" class="WORD"><t>Ik</t></w>
         <w xml:id="correctionexample.s.8.w.2" class="WORD"><t>hoor</t></w>
-        <correction xml:id="correctionexample.s.8.correction.1">
+        <correction xml:id="correctionexample.s.8.correction.1" class="redundantword">
             <suggestion auth="no"/>
             <current auth="no">
                 <w xml:id="correctionexample.s.8.w.3" class="WORD"><t>een</t></w>
@@ -168,6 +169,7 @@
             </suggestion>
             <current auth="no" />
         </correction>
+        <w xml:id="correctionexample.s.9.w.6" class="WORD"><t>.</t></w>
     </s>
     <!-- Keeping two text versions, and linking multiple levels -->
     <s xml:id="correctionexample.s.10">
