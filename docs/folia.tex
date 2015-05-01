@@ -3151,7 +3151,17 @@ element, or group thereof.
 </w>    
 \end{lstlisting}
 
-\subsubsection{Error detection and correction with suggestions} 
+Corrections need to be be declared:
+
+\begin{declaration}
+\begin{lstlisting}[language=xml]
+<annotations>
+ <correction-annotation set="http://url/to/your/set" />
+</annotations>
+\end{lstlisting}
+\end{declaration}
+
+\subsubsection{Error detection} 
 
 \status{Revised in v0.8.2, no error attribute}{pynlpl,libfolia}
 
@@ -3185,16 +3195,31 @@ This kind of error detection is very simple and does not provide actual
 correction nor suggestions for correction. In some cases, it is desirable to
 record suggestions for correction, but without making the actual correction.
 
+Error detection has to be declared seperately from corrections, as they can be
+used independently. However, nothing stops you from pointing them both
+to the same set. 
+
+\begin{declaration}
+\begin{lstlisting}[language=xml]
+<annotations>
+ <errordetection-annotation set="http://url/to/your/set" />
+</annotations>
+\end{lstlisting}
+\end{declaration}
+
+\subsubsection{Suggestions for correction} 
+
 The correction tag can also be used in such situations in which you want to
-list suggestions for correction, but not yet commit to any single one. You may
-for example want to postponed this actual selection to another module or human
-annotator. Recall that the actual correction is always included in the ``new''
+list \emph{suggestions for correction}, but not yet commit to any single one. You may
+for example want to postpone this actual selection to another module or human
+annotator. The output of a speller check is typically a suggestion for
+correction. Recall that the actual correction is always included in the ``new''
 tag, non-committing suggestions are included in the ``suggestion'' tag. All
 suggestions may take an ID and may specify an annotator, if no annotator is
 specified it will be inherited from the \texttt{correction} element itself.
 Suggestions never take sets or classes by themselves, the class and set pertain
 to the correction as a whole, and apply to all suggestions within. This implies
-that you will need multiple correction elements if you want to make suggestions
+that you will need \emph{multiple} correction elements if you want to make suggestions
 of very distinct types. The following example shows two suggestions for
 correction:
  
@@ -3268,22 +3293,8 @@ embeds the \texttt{errordetection} element:
 In the above example, ``treee'' was detected by an automated error list as
 being an error, and was corrected to ``tree'' by human annotator John Doe.
 
-Like everything, corrections and error detection have to be declared, and have
-to be declared separately. However, nothing stops you from pointing them both
-to the same set. Suggestions fall under the scope of corrections and need not
-be declared separately.
-
-\begin{declaration}
-\begin{lstlisting}[language=xml]
-<annotations>
- <correction-annotation set="http://url/to/your/set" />
- <errordetection-annotation set="http://url/to/your/set" />
-</annotations>
-\end{lstlisting}
-\end{declaration}
 
 \subsubsection{Merges, Splits and Swaps} 
-
 
 Sometimes, one wants to merge multiple tokens into one single new token, or the
 other way around; split one token into multiple new ones. The FoLiA format does
@@ -3293,8 +3304,8 @@ backward compatibility. So such a change is therefore by definition a
 correction, and one uses the \texttt{correction} tag to merge and split tokens.
 
 We will first demonstrate a merge of two tokens (``on line'') into one
-(``online''). The original tokens are always retained as \texttt{w-original}
-elements. First a peek at the XML prior to merging:
+(``online''). The original tokens are always retained within the \texttt{original}
+element. First a peek at the XML prior to merging:
 
 \begin{lstlisting}[language=xml]
 <s xml:id="example.p.1.s.1">
@@ -3330,10 +3341,9 @@ And after merging:
 \end{lstlisting} 
 
 Note that the correction element here is a member of the sentence (\texttt{s}),
-rather than the word token (\texttt{w}) as in all previous examples. The new
-identifier denotes the span of the merge, but this is mere convention.
-Moreover, the class, as always, is just a fictitious example and users can assign their
-own according to their own sets.
+rather than the word token (\texttt{w}) as in all previous examples.  The
+class, as always, is just a fictitious example and users can assign their own
+according to their own sets.
 
 Now we will look at a split, the reverse of the above situation. Prior to
 splitting, assume we have:
@@ -3399,12 +3409,12 @@ Note that in such a swap situation, the identifiers of the swapped tokens
 tokens are new. They are essentially copies of the originals. Likewise, any
 token annotations you want to preserve explicitly need to be copies.
 
-\subsubsection{Omissions and Insertions}
+\subsubsection{Insertions and Deletions}
 
-Omissions are words that are omitted in the original and have to be inserted in
-correction, while insertions are words that are erroneously inserted in the
+Insertions are words that are omitted in the original and have to be inserted in
+correction, while deletions are words that are erroneously inserted in the
 original and have to be removed in correction. FoLiA deals with these in a
-similar way to merges, splits and swaps. For insertions, the  \texttt{new}
+similar way to merges, splits and swaps. For deletions, the  \texttt{new}
 element is simply empty. In the following example the word ``the'' was
 duplicated and removed in correction:
 
@@ -3415,8 +3425,7 @@ duplicated and removed in correction:
     <t>the</t>
  </w>
  <correction xml:id="example.p.1.s.1.c.1" class="duplicate">
-    <new>                        
-    </new>
+    <new/>                        
     <original auth="no">
         <w xml:id="example.p.1.s.1.w.2">
             <t>the</t>
@@ -3429,7 +3438,7 @@ duplicated and removed in correction:
 </s>
 \end{lstlisting}
 
-For omissions, the \texttt{original} element is empty. 
+For insertions, the \texttt{original} element is empty: 
 
 \begin{lstlisting}[language=xml]
 <s xml:id="example.p.1.s.1">
@@ -3442,14 +3451,59 @@ For omissions, the \texttt{original} element is empty.
             <t>old</t>
         </w>
     </new>
-    <original auth="no">
-    </original>
+    <original auth="no"/>
  </correction>  
  <w xml:id="example.p.1.s.1.w.2">
     <t>man</t>
  </w>
 </s>
 \end{lstlisting}
+
+Although we limited our discussion to merges, splits, insertions and deletions
+applied to words/tokens, they may be applied to any other structural element
+just as well.
+
+\subsubsection{Suggestions for correction: structural changes} 
+
+The earlier described suggestions for correction can be extended to merges,
+splits, insertions and deletions as well. This is done by embedding the newly
+suggested structure in \texttt{suggestion} elements. The current version of the
+structure is moved to within the scope of a \texttt{current} element.
+
+We illustrate the splitting of online to on line as a suggestion for
+correction:
+
+\begin{lstlisting}[language=xml]
+
+<s xml:id="example.p.1.s.1">
+ <correction xml:id="example.p.1.s.1.c.1" class="split">
+    <current>
+        <w xml:id="example.p.1.s.1.w.1">
+            <t>online</t>
+        </w>
+    </current>
+    <suggestion auth="no">    
+        <w xml:id="example.p.1.s.1.w.1_1">
+            <t>on</t>
+        </w>
+        <w xml:id="example.p.1.s.1.w.1_2">
+            <t>line</t>
+        </w>                        
+    </suggestion>
+ </correction>               
+</s>
+\end{lstlisting}
+
+Special cases are insertions and deletions. In case of suggested insertions, the current
+element is empty (but always present!), in case of deletions, the suggestion
+element is empty (but always present!). 
+
+For non-structural suggestions for correction, we simply have multiple
+correction elements if there are suggestions for correction of different
+classes. When structural changes are proposed, however, this is not possible,
+as there can be only one \texttt{current} element. The remedy here is to nest
+corrections, a current element may hold a correction with its own current
+element, and so on.
 
 
 %\subsubsection{Correction prior to tokenisation} 
