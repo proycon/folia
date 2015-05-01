@@ -150,7 +150,7 @@
         <w xml:id="correctionexample.s.8.w.2" class="WORD"><t>hoor</t></w>
         <correction xml:id="correctionexample.s.8.correction.1" class="redundantword">
             <suggestion auth="no"/>
-            <current auth="no">
+            <current>
                 <w xml:id="correctionexample.s.8.w.3" class="WORD"><t>een</t></w>
             </current>
         </correction>
