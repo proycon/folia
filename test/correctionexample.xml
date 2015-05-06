@@ -166,7 +166,7 @@
             <suggestion auth="no">
                 <w xml:id="correctionexample.s.9.w.5" class="WORD"><t>.</t></w>
             </suggestion>
-            <current auth="no" />
+            <current />
         </correction>
     </s>
     <!-- Keeping two text versions, and linking multiple levels -->
