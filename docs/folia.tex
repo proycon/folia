@@ -73,7 +73,7 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
 
 \HRule \\[0.5cm]
 { \Large \bfseries FoLiA: Format for Linguistic Annotation}\\[0.5cm] % Title of your document
-{\bf \small version 0.12.0 -- Revision 4.1} \\[0.5cm]
+{\bf \small version 0.12.1 -- Revision 4.2} \\[0.5cm]
 { \Large \bfseries Documentation}\\[0.5cm]
 {\large \emph{Maarten van Gompel}}\\[0.5cm]
 \HRule \\[1.0cm]
@@ -2556,8 +2556,8 @@ speech-context attributes associated:
 \status{final in v0.12}{pynlpl}
 
 Written text is always contained in the text content element (\texttt{t}), for
-phonetics there is a similar counterpart: \texttt{ph}. The \texttt{ph} element
-holds a phonetic transcription. It is used in a very similar fashion:
+phonology there is a similar counterpart: \texttt{ph}. The \texttt{ph} element
+holds a phonetic or phonological transcription. It is used in a very similar fashion:
 
 \begin{lstlisting}[language=xml]
 <utt src="helloworld.mp3"  begintime="..." endtime="...">
@@ -2593,14 +2593,14 @@ content can also go together without problem:
 </utt>
 \end{lstlisting}
 
-\subsection{Phoneme Annotation}
+\subsection{Phonological Annotation}
 \label{sec:phonemes}
 
 \status{final in v0.12}{pynlpl}
 
 The smallest unit of annotatable speech in FoLiA is the phoneme level. The
 \texttt{phoneme} element is a form of structure annotation used for phonemes.
-Alike to morphology, it is embedded within a layer \texttt{phonetics} which can
+Alike to morphology, it is embedded within a layer \texttt{phonology} which can
 be used within word/token elements (\texttt{w}) or directly within \texttt{utt}
 if no words are distinguished:
 
@@ -2610,7 +2610,7 @@ if no words are distinguished:
   <w xml:id="word" src="book.wav">
     <t>book</t>
     <ph>bʊk</ph>
-    <phonetics>
+    <phonology>
       <phoneme begintime="..."  endtime="...">
           <ph>b</ph>
       </phoneme>
@@ -2620,7 +2620,7 @@ if no words are distinguished:
       <phoneme begintime="..." endtime="...">
           <ph>k</ph>
       </phoneme>
-    </phonetics>
+    </phonology>
   </w>
 </utt>
 \end{lstlisting}
@@ -2629,7 +2629,7 @@ if no words are distinguished:
 \begin{declaration}
 \begin{lstlisting}[language=xml]
 <annotations>
- <phonetic-annotation set="http://url/to/your/set" />
+ <phonological-annotation set="http://url/to/your/set" />
 </annotations>
 \end{lstlisting}
 \end{declaration}
@@ -5247,7 +5247,7 @@ that filters on one or more FoLiA attributes:
 \end{itemize}
 
 The following attributes are also available on when the elements contains text
-and/or phonetic content:
+and/or phonetic/phonological content:
 \begin{itemize}
 \item {text}
 \item {phon}
@@ -6049,12 +6049,12 @@ libraries:
 Programming Language   & python & $C++$ \\
 \hline
 Text content           & yes & yes \\
-Phonetic content (v0.12)   & yes & not yet \\
+Phonetic/phonological content (v0.12)   & yes & not yet \\
 Structure annotation   & yes & yes \\
 Token annotation       & yes & yes \\
 Span annotation        & yes & yes \\
 Morphology             & yes & yes \\
-Phonetics (v0.12)      & not yet & not yet \\
+Phonology (v0.12)      & yes & not yet \\
 \hline
 Alternatives           & yes & yes \\
 Corrections            & yes & yes \\
