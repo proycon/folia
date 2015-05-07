@@ -18,11 +18,11 @@
     <entity-annotation set="mwu-set" />
     <entity-annotation set="http://raw.github.com/proycon/folia/master/setdefinitions/namedentities.foliaset.xml" />
     <syntax-annotation set="syntax-set" />
-    <dependency-annotation set="alpino-set" />   
-    <alignment-annotation set="alignment-set" />   
+    <dependency-annotation set="alpino-set" />
+    <alignment-annotation set="alignment-set" />
     <semrole-annotation set="semrole-set" />
     <chunking-annotation set="chunk-set" />
-    <coreference-annotation set="coreference-set" />  
+    <coreference-annotation set="coreference-set" />
     <lang-annotation set="lang-set" />
     <metric-annotation set="metric-set" />
     <table-annotation set="table-set" />
@@ -78,7 +78,7 @@
               <pos class="N(soort,ev,basis,onz,stan)"/>
               <lemma class="woord"/>
         </w>
-            <w xml:id="WR-P-E-J-0000000001.p.1.s.1.w.6">              
+            <w xml:id="WR-P-E-J-0000000001.p.1.s.1.w.6">
               <t>voor</t>
               <desc>Dit woordje is een voorzetsel, het is maar dat je het weet...</desc>
               <pos class="VZ(init)"/>
@@ -97,7 +97,7 @@
             <entities>
                 <entity set="mwu-set" class="ander_woord">
                     <wref id="WR-P-E-J-0000000001.p.1.s.1.w.4" t="ander" />
-                    <wref id="WR-P-E-J-0000000001.p.1.s.1.w.5" t="woord" />                    
+                    <wref id="WR-P-E-J-0000000001.p.1.s.1.w.5" t="woord" />
                 </entity>
             </entities>
             <syntax>
@@ -134,7 +134,7 @@
                     <dep>
                         <wref id="WR-P-E-J-0000000001.p.1.s.1.w.5" t="woord" />
                     </dep>
-                </dependency>                
+                </dependency>
                 <dependency xml:id="WR-P-E-J-0000000001.p.1.s.1.dep.3" class="det">
                     <hd>
                         <wref id="WR-P-E-J-0000000001.p.1.s.1.w.5" t="woord" />
@@ -142,7 +142,7 @@
                     <dep>
                         <wref id="WR-P-E-J-0000000001.p.1.s.1.w.3" t="een" />
                     </dep>
-                </dependency>                 
+                </dependency>
                 <dependency xml:id="WR-P-E-J-0000000001.p.1.s.1.dep.4" class="mod">
                     <hd>
                         <wref id="WR-P-E-J-0000000001.p.1.s.1.w.5" t="woord" />
@@ -150,7 +150,7 @@
                     <dep>
                         <wref id="WR-P-E-J-0000000001.p.1.s.1.w.4" t="ander" />
                     </dep>
-                </dependency>                 
+                </dependency>
                 <dependency xml:id="WR-P-E-J-0000000001.p.1.s.1.dep.5" class="mod">
                     <hd>
                         <wref id="WR-P-E-J-0000000001.p.1.s.1.w.5" t="woord" />
@@ -158,39 +158,39 @@
                     <dep>
                         <wref id="WR-P-E-J-0000000001.p.1.s.1.w.6" t="voor" />
                     </dep>
-                </dependency>                     
+                </dependency>
                 <dependency xml:id="WR-P-E-J-0000000001.p.1.s.1.dep.6" class="obj1">
                     <hd>
                         <wref id="WR-P-E-J-0000000001.p.1.s.1.w.6" t="voor" />
                     </hd>
                     <dep>
-                        <wref id="WR-P-E-J-0000000001.p.1.s.1.w.7" t="stamboom" /> 
+                        <wref id="WR-P-E-J-0000000001.p.1.s.1.w.7" t="stamboom" />
                     </dep>
-                </dependency>       
-            </dependencies>            
+                </dependency>
+            </dependencies>
             <chunking>
                 <chunk>
                         <wref id="WR-P-E-J-0000000001.p.1.s.1.w.3" t="een" />
                         <wref id="WR-P-E-J-0000000001.p.1.s.1.w.4" t="ander" />
-                        <wref id="WR-P-E-J-0000000001.p.1.s.1.w.5" t="woord" />                
+                        <wref id="WR-P-E-J-0000000001.p.1.s.1.w.5" t="woord" />
                 </chunk>
                 <chunk>
                         <wref id="WR-P-E-J-0000000001.p.1.s.1.w.6" t="voor" />
                         <wref id="WR-P-E-J-0000000001.p.1.s.1.w.7" t="stamboom" />
                 </chunk>
-            </chunking>            
+            </chunking>
             <timing>
                 <timesegment actor="speaker" class="utterance" begindatetime="2011-12-15T19:00" enddatetime="2011-12-15T19:02">
                         <wref id="WR-P-E-J-0000000001.p.1.s.1.w.3" t="een" />
                         <wref id="WR-P-E-J-0000000001.p.1.s.1.w.4" t="ander" />
-                        <wref id="WR-P-E-J-0000000001.p.1.s.1.w.5" t="woord" />                
+                        <wref id="WR-P-E-J-0000000001.p.1.s.1.w.5" t="woord" />
                 </timesegment>
                 <timesegment actor="annoying_person" class="cough" begindatetime="2011-12-15T19:03" enddatetime="2011-12-15T19:05" />
                 <timesegment actor="speaker" class="utterance" begindatetime="2011-12-15T19:06" enddatetime="2011-12-15T19:07">
                         <wref id="WR-P-E-J-0000000001.p.1.s.1.w.6" t="voor" />
-                        <wref id="WR-P-E-J-0000000001.p.1.s.1.w.7" t="stamboom" />       
+                        <wref id="WR-P-E-J-0000000001.p.1.s.1.w.7" t="stamboom" />
                 </timesegment>
-            </timing>            
+            </timing>
           </s>
           <s xml:id="WR-P-E-J-0000000001.p.1.s.2">
             <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.1">
@@ -386,9 +386,9 @@
                     <t offset="0">handschrift</t>
                 </morpheme>
                 <morpheme class="suffix" function="inflexional">
-                    <t offset="11">en</t>                   
+                    <t offset="11">en</t>
                 </morpheme>
-              </morphology>              
+              </morphology>
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.3.w.6">
               <t>genummerd</t>
@@ -414,8 +414,8 @@
               <t>ze</t>
               <pos class="VNW(pers,pron,stan,red,3,ev,fem)"/>
               <lemma class="ze"/>
-			  <alignment class="reference">
-              	 <aref id="WR-P-E-J-0000000001.p.1.s.3.w.5" t="handschriften" type="w"/>
+	      <alignment class="reference">
+              	<aref id="WR-P-E-J-0000000001.p.1.s.3.w.5" t="handschriften" type="w"/>
               </alignment>
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.3.w.11">
@@ -810,7 +810,7 @@
               <t>haken</t>
               <pos class="N(soort,mv,basis)"/>
               <correction xml:id="WR-P-E-J-0000000001.p.1.s.6.w.32.c.1">
-                <new>              
+                <new>
                  <lemma class="haak"/>
                 </new>
                 <original auth="no">
@@ -882,13 +882,13 @@
               <lemma class="."/>
             </w>
             <semroles>
-            	<semrole class="actor">
-            		<wref id="WR-P-E-J-0000000001.p.1.s.7.w.3" />
-            	</semrole>
-				<semrole class="patient">
-            		<wref id="WR-P-E-J-0000000001.p.1.s.7.w.4" />
-            		<hd><wref id="WR-P-E-J-0000000001.p.1.s.7.w.5" /></hd>
-            	</semrole>
+              <semrole class="actor">
+            	<wref id="WR-P-E-J-0000000001.p.1.s.7.w.3" t="men" />
+              </semrole>
+	      <semrole class="patient">
+            	<wref id="WR-P-E-J-0000000001.p.1.s.7.w.4" t="de" />
+            	<hd><wref id="WR-P-E-J-0000000001.p.1.s.7.w.5" t="verwantschap" /></hd>
+              </semrole>
             </semroles>
           </s>
           <s xml:id="WR-P-E-J-0000000001.p.1.s.8">
@@ -991,32 +991,32 @@
           </s>
         </p>
         <coreferences>
-        	<coreferencechain class="handschriften">
-        		<coreferencelink>
-        			<wref id="WR-P-E-J-0000000001.p.1.s.3.w.5" />
-        		</coreferencelink>
-        		<coreferencelink>
-        			<wref id="WR-P-E-J-0000000001.p.1.s.3.w.10" />
-        		</coreferencelink>        		
-        		<coreferencelink>
-        			<wref id="WR-P-E-J-0000000001.p.1.s.3.w.16" />
-        		</coreferencelink>        		        		
-        		<coreferencelink>
-        			<wref id="WR-P-E-J-0000000001.p.1.s.7.w.7" />
-        			<wref id="WR-P-E-J-0000000001.p.1.s.7.w.8" />
-        		</coreferencelink>        		        		
-        	</coreferencechain>
-        	<coreferencechain class="verdwenen_handschriften">
-        		<coreferencelink>
-        			<wref id="WR-P-E-J-0000000001.p.1.s.6.w.1" />
-        			<hd>
-        				<wref id="WR-P-E-J-0000000001.p.1.s.6.w.2" />
-        			</hd>
-        		</coreferencelink>
-        	    <coreferencelink>
-        			<wref id="WR-P-E-J-0000000001.p.1.s.6.w.8" />
-        		</coreferencelink>
-        	</coreferencechain>
+          <coreferencechain class="handschriften">
+            <coreferencelink>
+              <wref id="WR-P-E-J-0000000001.p.1.s.3.w.5" t="handschriften" />
+            </coreferencelink>
+            <coreferencelink>
+              <wref id="WR-P-E-J-0000000001.p.1.s.3.w.10" t="ze" />
+            </coreferencelink>
+            <coreferencelink>
+              <wref id="WR-P-E-J-0000000001.p.1.s.3.w.16" t="hun" />
+            </coreferencelink>
+            <coreferencelink>
+              <wref id="WR-P-E-J-0000000001.p.1.s.7.w.7" t="de" />
+              <wref id="WR-P-E-J-0000000001.p.1.s.7.w.8" t="handschriften" />
+            </coreferencelink>
+          </coreferencechain>
+          <coreferencechain class="verdwenen_handschriften">
+            <coreferencelink>
+              <wref id="WR-P-E-J-0000000001.p.1.s.6.w.1" t="Verdwenen" />
+              <hd>
+        	<wref id="WR-P-E-J-0000000001.p.1.s.6.w.2" t="handschriften" />
+              </hd>
+            </coreferencelink>
+            <coreferencelink>
+              <wref id="WR-P-E-J-0000000001.p.1.s.6.w.8" t="ze" />
+            </coreferencelink>
+          </coreferencechain>
         </coreferences>
       </div>
       <div xml:id="glossary">
@@ -1068,8 +1068,8 @@
                       </w>
                       <w xml:id="sandbox.list.1.listitem.1.s.1.w.2">
                           <t>testitem</t>
-                      </w>                      
-                  </s>                  
+                      </w>
+                  </s>
               </item>
               <item xml:id="sandbox.list.1.listitem.2" n="2">
                   <s xml:id="sandbox.list.1.listitem.2.s.1">
@@ -1078,13 +1078,13 @@
                       </w>
                       <w xml:id="sandbox.list.1.listitem.2.s.1.w.2">
                           <t>testitem</t>
-                      </w>                      
-                  </s>                  
+                      </w>
+                  </s>
               </item>
           </list>
-          <event xml:id="sandbox.event.1" class="presentation" actor="proycon" begindatetime="2011-12-15T19:01" enddatetime="2011-12-15T19:05">                
+          <event xml:id="sandbox.event.1" class="presentation" actor="proycon" begindatetime="2011-12-15T19:01" enddatetime="2011-12-15T19:05">
               <figure xml:id="sandbox.figure.1" src="http://upload.wikimedia.org/wikipedia/commons/8/8e/Family_tree.svg">
-                  <desc>Stamboom plaatje van wikipedia</desc>              
+                  <desc>Stamboom plaatje van wikipedia</desc>
                   <caption xml:id="sandbox.figure.1.caption.1">
                       <s xml:id="sandbox.figure.1.caption.s.1">
                           <w xml:id="sandbox.figure.1.caption.s.1.w.1">
@@ -1092,7 +1092,7 @@
                           </w>
                           <w xml:id="sandbox.figure.1.caption.s.1.w.2">
                               <t>stamboom</t>
-                          </w>                      
+                          </w>
                       </s>
                   </caption>
               </figure>
@@ -1115,36 +1115,36 @@
 		       					<lemma class="lijsttrekker" />
 		       				</morpheme>
 		       			</morphology>
-		       		</w> 
+		       		</w>
 		       		<w xml:id="WR-P-E-J-0000000001.sandbox.2.s.1.w.3">
 		       			<t offset="18">heeft</t>
-		       		</w> 
+		       		</w>
 		       		<w xml:id="WR-P-E-J-0000000001.sandbox.2.s.1.w.4">
 		       			<t offset="24">fors</t>
-		       		</w>  
+		       		</w>
 		       		<w xml:id="WR-P-E-J-0000000001.sandbox.2.s.1.w.5">
 		       			<t offset="29">verloren</t>
-		       		</w>  
+		       		</w>
 		       		<w xml:id="WR-P-E-J-0000000001.sandbox.2.s.1.w.6">
 		       			<t offset="37">.</t>
-		       		</w>  
+		       		</w>
 		       		<entities>
-		       			<entity set="mwu-set" class="politicalparty">
-		       				<wref id="WR-P-E-J-0000000001.sandbox.2.s.1.w.1.m.1" />
-		       			</entity>
+		       		  <entity set="mwu-set" class="politicalparty">
+		       		    <wref id="WR-P-E-J-0000000001.sandbox.2.s.1.w.1.m.1" t="CDA" />
+		       		  </entity>
 		       		</entities>
                 </s>
             </div>
             <div xml:id="sandbox.3">
                 <head xml:id="sandbox.3.head">
                     <!-- Not tokenised! -->
-                    <t>De <t-str id="sandbox.3.str"><t-style xml:id="sandbox.3.str.bold" class="bold">FoLiA</t-style> developers</t-str> zijn:</t> 
+                    <t>De <t-str id="sandbox.3.str"><t-style xml:id="sandbox.3.str.bold" class="bold">FoLiA</t-style> developers</t-str> zijn:</t>
                     <str xml:id="sandbox.3.str">
                         <t offset="3">FoLiA developers</t>
                         <lang class="eng" />
                         <metric class="wordcount" value="2" />
                     </str>
-                </head> 
+                </head>
                 <table xml:id="example.table.1">
                 <tablehead>
                     <row>
@@ -1225,7 +1225,7 @@
             <t>Een deel van deze pagina komt oorspronkelijk van <t-str xlink:type="simple" xlink:href="http://www.wikipedia.org">wikipedia</t-str>.</t>
           </s>
         </note>
-        
+
       </div>
       <div xml:id="bibliography" class="bibliography">
         <head xml:id="bibhead"><t>Bibliography</t></head>
@@ -1241,6 +1241,6 @@ De tekst is beschikbaar onder de licentie Creative Commons Naamsvermelding/Gelij
 Wikipedia® is een geregistreerd handelsmerk van de Wikimedia Foundation, Inc., een organisatie zonder winstoogmerk.
 ]]>
        </content>
-      </gap>      
-  </text>  
+      </gap>
+  </text>
 </FoLiA>
