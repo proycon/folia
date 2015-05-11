@@ -257,7 +257,7 @@
             </correction>
             <w xml:id="correctionexample.p.3.s.1.w.4" class="WORD">
                 <t>ik</t>
-                <correction xml:id="correctionexample.p.3.correction.2" class="missingpunctuation">
+                <correction xml:id="correctionexample.p.3.correction.2" class="capitalizationerror">
                     <suggestion auth="no">
                         <t>ik</t>
                     </suggestion>
