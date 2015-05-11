@@ -255,7 +255,7 @@
                 </suggestion>
                 <current />
             </correction>
-            <w xml:id="correctionexample.p.3.s.1.w.1" class="WORD">
+            <w xml:id="correctionexample.p.3.s.1.w.4" class="WORD">
                 <t>ik</t>
                 <correction xml:id="correctionexample.p.3.correction.2" class="missingpunctuation">
                     <suggestion auth="no">
@@ -263,9 +263,9 @@
                     </suggestion>
                 </correction>
             </w>
-            <w xml:id="correctionexample.p.3.s.1.w.2" class="WORD"><t>zie</t></w>
-            <w xml:id="correctionexample.p.3.s.1.w.3" class="WORD"><t>iets</t></w>
-            <w xml:id="correctionexample.p.3.s.1.w.4" class="WORD"><t>.</t></w>
+            <w xml:id="correctionexample.p.3.s.1.w.5" class="WORD"><t>zie</t></w>
+            <w xml:id="correctionexample.p.3.s.1.w.6" class="WORD"><t>iets</t></w>
+            <w xml:id="correctionexample.p.3.s.1.w.7" class="WORD"><t>.</t></w>
         </s>
     </p>
 </text>  
