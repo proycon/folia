@@ -2,15 +2,16 @@
 # -*- coding: utf8 -*-
 
 import os
+import io
 from setuptools import setup
 
 
 def read(fname):
-    return open(os.path.join(os.path.dirname(__file__), fname),'r',encoding='utf-8').read()
+    return io.open(os.path.join(os.path.dirname(__file__), fname),'r',encoding='utf-8').read()
 
 setup(
     name = "FoLiA-tools",
-    version = "0.12.1.34",
+    version = "0.12.1.35",
     author = "Maarten van Gompel",
     author_email = "proycon@anaproy.nl",
     description = ("FoLiA-tools contains various Python-based command line tools for working with FoLiA XML (Format for Linguistic Annotation)"),
