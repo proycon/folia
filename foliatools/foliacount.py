@@ -58,7 +58,7 @@ def process(filename, outputfile = None):
                 count[e.XMLTAG] += 1
 
         for constraintag, constrainf in settings.constraints:
-            if not constrainf(count[constraintag]): return Counter()
+            if not constrainf(count[constraintag]): return Counter({'skipped_documents':1})
 
     except Exception as e:
         if settings.ignoreerrors:
@@ -138,6 +138,9 @@ def main():
                     tag, value = rawconstraint.split('!=')
                     value = int(value)
                     settings.constraints.append( (tag, lambda x: x != value) )
+                else:
+                    tag = a
+                    settings.constraints.append( (tag, lambda x: x > 0) )
         elif o == '-q':
             settings.ignoreerrors = True
         else:
