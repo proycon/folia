@@ -8,7 +8,7 @@ import io
 import sys
 import os
 import glob
-from collections import defaultdict
+from collections import Counter
 try:
     from pynlpl.formats import folia
 except:
@@ -47,7 +47,7 @@ def out(s, outputfile):
 
 def process(filename, outputfile = None):
     print("Counting " + filename,file=sys.stderr)
-    count = defaultdict(int)
+    count = Counter()
     try:
         doc = folia.Document(file=filename)
 
@@ -68,7 +68,7 @@ def process(filename, outputfile = None):
 
 def processdir(d, outputfile = None):
     print("Searching in  " + d, file=sys.stderr)
-    count = defaultdict(int)
+    count = Counter()
     for f in glob.glob(os.path.join(d, '*')):
         if f[-len(settings.extension) - 1:] == '.' + settings.extension:
             count.update(process(f, outputfile))
