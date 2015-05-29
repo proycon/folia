@@ -47,7 +47,7 @@ def out(s, outputfile):
 
 
 def process(filename, outputfile = None):
-    print("Counting " + filename,file=sys.stderr)
+    print("Processing " + filename,file=sys.stderr)
     count = Counter()
     try:
         doc = folia.Document(file=filename)
@@ -61,6 +61,8 @@ def process(filename, outputfile = None):
             if not constrainf(count[constraintag]): 
                 print("Skipping due to unmet constraints (" + constraintag+"): " + filename,file=sys.stderr)
                 return Counter({'skipped_documents':1})
+
+        print("Counted " + filename,file=sys.stderr)
 
     except Exception as e:
         if settings.ignoreerrors:
