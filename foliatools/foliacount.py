@@ -58,6 +58,7 @@ def process(filename, outputfile = None):
                 count[e.XMLTAG] += 1
 
         for constraintag, constrainf in settings.constraints:
+            print("Skipping due to unmet constraints (" + correctiontag+"): " + filename,file=sys.stderr)
             if not constrainf(count[constraintag]): return Counter({'skipped_documents':1})
 
     except Exception as e:
