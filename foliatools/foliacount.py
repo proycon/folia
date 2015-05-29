@@ -87,7 +87,7 @@ class settings:
     recurse = False
     ignoreerrors = False
     types = None
-    settings.constraints = []
+    constraints = []
 
 
 def main():
