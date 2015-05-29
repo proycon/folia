@@ -28,6 +28,7 @@ def usage():
     print("Parameters for processing directories:",file=sys.stderr)
     print("  -r                           Process recursively",file=sys.stderr)
     print("  -E [extension]               Set extension (default: xml)",file=sys.stderr)
+    print("  -C [type>count,type<count]   Count only documents that match the constraints", file=sys.stderr)
     print("  -t [types]                   Output only these elements (comma separated list)", file=sys.stderr)
     print("  -P                           Like -O, but outputs to current working directory",file=sys.stderr)
     print("  -q                           Ignore errors",file=sys.stderr)
@@ -50,10 +51,14 @@ def process(filename, outputfile = None):
     count = Counter()
     try:
         doc = folia.Document(file=filename)
+        count['documents'] += 1
 
         for e in doc.select(folia.AbstractElement):
             if e.XMLTAG and (not settings.types or e.XMLTAG in settings.types):
                 count[e.XMLTAG] += 1
+
+        for constraintag, constrainf in settings.constraints:
+            if not constrainf(count[constraintag]): return Counter()
 
     except Exception as e:
         if settings.ignoreerrors:
@@ -82,11 +87,12 @@ class settings:
     recurse = False
     ignoreerrors = False
     types = None
+    settings.constraints = []
 
 
 def main():
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "o:OPE:ht:spwrqc:", ["help"])
+        opts, args = getopt.getopt(sys.argv[1:], "o:OPE:ht:spwrqC:", ["help"])
     except getopt.GetoptError as err:
         print(str(err), file=sys.stderr)
         usage()
@@ -106,6 +112,32 @@ def main():
             settings.recurse = True
         elif o == '-t':
             settings.types = a.split(',')
+        elif o == '-C':
+            for rawconstraint in a.split(','):
+                if '>' in rawconstraint:
+                    tag, value = rawconstraint.split('>')
+                    value = int(value)
+                    settings.constraints.append( (tag, lambda x: x > value) )
+                elif '<' in rawconstraint:
+                    tag, value = rawconstraint.split('<')
+                    value = int(value)
+                    settings.constraints.append( (tag, lambda x: x < value) )
+                elif rawconstraint.find('>=') != -1:
+                    tag, value = rawconstraint.split('>=')
+                    value = int(value)
+                    settings.constraints.append( (tag, lambda x: x >= value) )
+                elif rawconstraint.find('<=') != -1:
+                    tag, value = rawconstraint.split('<=')
+                    value = int(value)
+                    settings.constraints.append( (tag, lambda x: x <= value) )
+                elif rawconstraint.find('==') != -1:
+                    tag, value = rawconstraint.split('==')
+                    value = int(value)
+                    settings.constraints.append( (tag, lambda x: x == value) )
+                elif rawconstraint.find('!=') != -1:
+                    tag, value = rawconstraint.split('!=')
+                    value = int(value)
+                    settings.constraints.append( (tag, lambda x: x != value) )
         elif o == '-q':
             settings.ignoreerrors = True
         else:
