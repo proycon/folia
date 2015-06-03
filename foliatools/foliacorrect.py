@@ -61,12 +61,12 @@ def correct(filename,corrected, original, acceptsuggestion, setfilter,classfilte
                 if not classfilter or correction.cls == classfilter:
                     if original and correction.hasoriginal():
                         #restore original
-                        print("Restoring original version for " + correction.id,file=sys.stderr)
+                        print("Restoring original version for " + str(correction.id),file=sys.stderr)
                         replace(correction, correction.original())
                         changed = True
                     elif corrected:
                         if correction.hasnew():
-                            print("Keeping corrected version for " + correction.id,file=sys.stderr)
+                            print("Keeping corrected version for " + str(correction.id),file=sys.stderr)
                             replace(correction, correction.new())
                             changed = True
                     elif correction.hassuggestions() and acceptsuggestion:
