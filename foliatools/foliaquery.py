@@ -76,7 +76,7 @@ class settings:
 
 def main():
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "o:OE:hqnr", ["help","text=","pos=","lemma=","sense=","phon="])
+        opts, args = getopt.getopt(sys.argv[1:], "o:OE:hq:nr", ["help","text=","pos=","lemma=","sense=","phon="])
     except getopt.GetoptError as err:
         print(str(err), file=sys.stderr)
         usage()
