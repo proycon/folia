@@ -53,13 +53,13 @@ def process(filename, queries):
             raise
 
 
-def processdir(d, patterns):
+def processdir(d, queries):
     print("Searching in  " + d,file=sys.stderr)
     for f in glob.glob(os.path.join(d ,'*')):
         if f[-len(settings.extension) - 1:] == '.' + settings.extension:
-            process(f, patterns)
+            process(f, queries)
         elif settings.recurse and os.path.isdir(f):
-            processdir(f, patterns)
+            processdir(f, queries)
 
 
 class settings:
@@ -99,7 +99,7 @@ def main():
         elif o == '-q':
             try:
                 queries.append(fql.Query(a))
-            except:
+            except Exception as e:
                 print("FQL SYNTAX ERROR: " + str(e), file=sys.stderr)
         else:
             raise Exception("No such option: " + o)
