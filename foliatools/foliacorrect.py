@@ -59,11 +59,15 @@ def correct(filename,corrected, original, acceptsuggestion, setfilter,classfilte
         for text in doc:
             for correction in list(text.select(folia.Correction, setfilter)):
                 if not classfilter or correction.cls == classfilter:
-                    if original and correction.hasoriginal():
-                        #restore original
-                        print("Restoring original version for " + str(correction.id),file=sys.stderr)
-                        replace(correction, correction.original())
-                        changed = True
+                    if original:
+                        if correction.hasoriginal():
+                            #restore original
+                            print("Restoring original version for " + str(correction.id),file=sys.stderr)
+                            replace(correction, correction.original())
+                            changed = True
+                        elif correction.hasoriginal(True): #check for empty original
+                            #insertion, remove it
+                            correction.parent.remove(correction)
                     elif corrected:
                         if correction.hasnew():
                             print("Keeping corrected version for " + str(correction.id),file=sys.stderr)
