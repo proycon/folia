@@ -40,7 +40,10 @@ def process(filename, queries):
         doc = folia.Document(file=filename)
         dosave = False
         for query in queries:
-            query(doc)
+            if query.format == "python":
+                query.format = "xml"
+            output = query(doc)
+            print(output)
             if query.action and query.action in ('EDIT','DELETE','SUBSTITUTE','PREPEND','APPEND'):
                 dosave = True
         #save document if changes are made
