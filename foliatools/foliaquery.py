@@ -48,6 +48,7 @@ def process(filename, queries):
                 dosave = True
         #save document if changes are made
         if dosave:
+            print("Saving " + filename, file=sys.stderr)
             doc.save()
     except Exception as e:
         if settings.ignoreerrors:
