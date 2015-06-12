@@ -44,7 +44,7 @@ def process(filename, queries):
                 query.format = "xml"
             output = query(doc)
             print(output)
-            if query.action and query.action in ('EDIT','DELETE','SUBSTITUTE','PREPEND','APPEND'):
+            if query.action and query.action.action in ('EDIT','DELETE','SUBSTITUTE','PREPEND','APPEND'):
                 dosave = True
         #save document if changes are made
         if dosave:
