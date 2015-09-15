@@ -17,30 +17,30 @@ def usage():
     print("alpino2folia",file=sys.stderr)
     print("  by Maarten van Gompel (proycon)",file=sys.stderr)
     print("  Radboud University Nijmegen",file=sys.stderr)
-    print("  2012 - Licensed under GPLv3",file=sys.stderr)
+    print("  2012-2015 - Licensed under GPLv3",file=sys.stderr)
     print("",file=sys.stderr)
     print("This conversion script reads an Alpino XML document and converts",file=sys.stderr)
-    print("it to FoLiA. If the output FoLiA document already exists, then the",file=sys.stderr)
+    print("it to FoLiA. If multiple input files are specified, and/or the output FoLiA document already exists, then the",file=sys.stderr)
     print("converter will append it.",file=sys.stderr)
     print("",file=sys.stderr)
-    print("Usage: alpino2folia [options] alpino-input folia-output"   ,file=sys.stderr)
+    print("Usage: alpino2folia [options] alpino-input [alpino-input 2..] folia-output"   ,file=sys.stderr)
 
 def extract_syntax(alpinonode, folianode, foliasentence, alpinoroot):
     for node in alpinonode:
-        print("SYNTAX:", node,file=sys.stderr)
+        #print("SYNTAX:", node,file=sys.stderr)
         if 'word' in node.attrib:
             folianode.append(folia.SyntacticUnit, foliasentence[int(node.attrib['begin'])], cls=node.attrib['pos'])
         elif 'cat' in node.attrib:
             su = folianode.append(folia.SyntacticUnit, cls=node.attrib['cat'])
             extract_syntax(node, su, foliasentence,alpinoroot)
         elif 'index' in node.attrib:
-                pos = foliasentence[int(node.attrib['index'])-1].annotation(folia.PosAnnotation)
+            pos = foliasentence[int(node.attrib['index'])-1].annotation(folia.PosAnnotation)
 
-                if pos.feat('head'):
-                    pos = pos.feat('head')
-                else:
-                    pos = pos.cls
-                folianode.append(folia.SyntacticUnit, foliasentence[int(node.attrib['index'])-1], cls=pos )
+            if pos.feat('head'):
+                pos = pos.feat('head')
+            else:
+                pos = pos.cls
+            folianode.append(folia.SyntacticUnit, foliasentence[int(node.attrib['index'])-1], cls=pos )
         else:
             print("SYNTAX: Don't know what to do with node...", repr(node.attrib) ,file=sys.stderr)
 
@@ -48,7 +48,7 @@ def extract_dependencies(alpinonode, deplayer, foliasentence):
     deps = []
     head = None
     for node in alpinonode:
-        print("DEP:", node,file=sys.stderr)
+        #print("DEP:", node,file=sys.stderr)
         if not 'word' in node.attrib:
             extract_dependencies(node, deplayer, foliasentence )
         if 'rel' in node.attrib:
@@ -62,18 +62,13 @@ def extract_dependencies(alpinonode, deplayer, foliasentence):
             deplayer.append( folia.Dependency, head, dep, cls=cls)
 
 
-def alpino2folia(alpinofile, foliadoc=None):
-    tree = lxml.etree.parse(alpinofile)
-    alpinoroot = tree.getroot()
-    if alpinoroot.tag != 'alpino_ds':
-        raise Exception("source file is not an alpino file")
-    sentencenode = alpinoroot.xpath('//sentence')[0]
+def makefoliadoc(outputfile):
+    baseid = os.path.basename(outputfile).replace('.folia.xml','').replace('.xml','')
+    foliadoc = folia.Document(id=baseid)
+    foliadoc.append(folia.Text(foliadoc, id=baseid+'.text'))
 
-    baseid = os.path.basename(alpinofile.replace('.xml',''))
-    if not foliadoc:
-        foliadoc = folia.Document(id=baseid)
-        foliadoc.append(folia.Text(foliadoc, id=baseid+'.text'))
-
+    if not foliadoc.declared(folia.AnnotationType.TOKEN, 'alpino-tokens'):
+        foliadoc.declare(folia.AnnotationType.TOKEN, 'alpino-tokens')
     if not foliadoc.declared(folia.LemmaAnnotation, 'alpino-lemmas'):
         foliadoc.declare(folia.LemmaAnnotation, 'alpino-lemmas')
     if not foliadoc.declared(folia.SenseAnnotation, 'alpino-sense'):
@@ -86,6 +81,17 @@ def alpino2folia(alpinofile, foliadoc=None):
         foliadoc.declare(folia.AnnotationType.SYNTAX, 'alpino-syntax')
     if not foliadoc.declared(folia.AnnotationType.MORPHOLOGICAL, 'alpino-morphology'):
         foliadoc.declare(folia.AnnotationType.MORPHOLOGICAL, 'alpino-morphology')
+
+    return foliadoc
+
+
+def alpino2folia(alpinofile, foliadoc):
+    tree = lxml.etree.parse(alpinofile)
+    alpinoroot = tree.getroot()
+    if alpinoroot.tag != 'alpino_ds':
+        raise Exception("source file is not an alpino file")
+    sentencenode = alpinoroot.xpath('//sentence')[0]
+
 
     foliatextbody = foliadoc[-1]
     foliasentence = foliatextbody.append(folia.Sentence)
@@ -122,8 +128,8 @@ def alpino2folia(alpinofile, foliadoc=None):
             for key, value in node.attrib.items():
                 if key in ('wh','per','num','gen','case','def','infl','sc','buiging','refl','tense','comparative','positie','pvagr','pvtijd','graad','pdtype','wvorm','ntype','vwtype','getal','status','naamval','persoon','genus'):
                     foliapos.append(folia.Feature, subset=key, cls=value)
-                elif not (key in ('sense','pos','rel','postag','pt','frame','root','lemma','id','begin','end','word','index')):
-                    print("WARNING: Ignored attribute " + key + "=\"" + value + "\" on node...",file=sys.stderr)
+                elif not key in ('sense','pos','rel','postag','pt','frame','root','lemma','id','begin','end','word','index'):
+                    print("WARNING: Ignored attribute " + key + "=\"" + value + "\" on node ",file=sys.stderr)
 
     foliasyntaxlayer = foliasentence.append(folia.SyntaxLayer)
     foliasyntaxtop = foliasyntaxlayer.append(folia.SyntacticUnit, cls='top')
@@ -154,17 +160,22 @@ def main():
         else:
             raise Exception("No such option: " + o)
 
-    try:
-        alpinofile, foliafile = args
-    except:
+    if len(args) < 2:
         usage()
         sys.exit(2)
+    else:
+        alpinofiles = []
+        for i, arg in enumerate(args):
+            if i < len(args) - 1:
+                alpinofiles.append(arg)
+        foliafile = args[-1]
 
     if os.path.exists(foliafile):
         doc = folia.Document(file=foliafile)
     else:
-        doc = None
-    doc = alpino2folia(alpinofile, doc)
+        doc = makefoliadoc(foliafile)
+    for alpinofile in alpinofiles:
+        doc = alpino2folia(alpinofile, doc)
     doc.save(foliafile)
 
 if __name__ == "__main__":
