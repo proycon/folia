@@ -184,13 +184,6 @@ h1 span.subtitle {
 	float: right;
 }
 
-#langbox {
-	float: right;
-}
-#langbox img {
-	border: 2px white solid;
-	margin-bottom: 2px;
-}
 
 section {
     background: white;
@@ -237,4 +230,30 @@ img.big {
     margin-left: auto;
     margin-right: auto;
     width: 60%;
+}
+img.langicon {
+    border: none;
+}
+#langbox {
+    position: fixed;
+    right: 10px;
+    top: 520px;
+    text-align: center;
+    font-size: 75%;
+    background: rgba(216,213,208,0.5);
+    border-radius: 25px;
+}
+#langbox ul {
+    list-style: none outside none;
+}
+#langbox span.label {
+    display: inline-block;
+    width: 100px;
+}
+#langbox a span.label {
+    color: #444;
+    text-decoration: underline;
+}
+#langbox a:hover span.label {
+	color: red;	
 }

@@ -26,4 +26,17 @@ defaults:
         url: example.xml
       - label: FoLiA Tools @PyPi
         url: https://pypi.python.org/pypi/FoLiA-tools
+     languages:
+      - lang: en
+        label: English
+      - lang: nl
+        label: Nederlands
+      - lang: de
+        label: Deutsch
+      - lang: fr
+        label: Français
+      - lang: es
+        label: Español
+      - lang: pt
+        label: Português
 ---

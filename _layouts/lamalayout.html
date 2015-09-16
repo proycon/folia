@@ -46,6 +46,21 @@
     <div id="covershadow"></div>
     {% endif %}
 
+    {% if page.languages %}
+    <div id="langbox">
+        <ul>
+            {% for item in page.languages %}
+            <li>
+                {% if item.lang == "en" %}
+                <a href="index.html"><img class="langicon" src="style/{{ item.lang }}.png"/><span class="label">{{ item.label }}</span></a>
+                {% else %}
+                <a href="index.{{ item.lang }}.html"><img class="langicon" src="style/{{ item.lang }}.png"/><span class="label">{{ item.label }}</span></a>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
 
 	<div id="content">    	
  		{{ content }}
