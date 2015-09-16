@@ -1,25 +1,26 @@
 ---
-layout: ilkng
+cover: true
 title: FoLiA
 subtitle: Format pour l'Annotation Linguistique
 keywords: folia, format pour l'annotation linguistique, xml, tei, d-coi, clarin
 description: FoLiA est un format de base XML pour la représentation des ressources linguistiques annotées. L'objectif de FoLiA est d'être un format pour stockage et échange des ressources linguistique, corpora inclus.
 lang: fr
-homelabel: Accueil
-sourcelabel: Source
-documentationlabel: Documentation
-schemalabel: Schéma RelaxNG
-examplelabel: Exemple
-pynlpldoclabel: Documentation de la bibliothèque python
 ---
 
-<div class="leftbox">
+<section>
+
+<h2>FoLiA c'est quoi?</h2>
 
 <p><strong>FoLiA</strong> est un format de base XML pour la représentation des ressources linguistiques annotées. L'objectif de FoLiA est d'être un format pour stockage et échange des ressources linguistiques, corpora inclus. Nous voulons introduire un seul format riche capable de représenter les différents types d'annotation, à travers un paradigme général. FoLiA n'est pas limité à aucun ensemble d'étiquettes linguistiques, aucune langue ou aucune théorie linguistique spécifique. On laisse toujours ça à l'utilisateur, pour ainsi offrir une flexibilité maximale.</p> 
 
+<p>XML est un format hiérarchique. <strong>FoLiA</strong> en profite en utilisant une structure in-line et hierarchique. </p>
 
-<p>XML est un format hiérarchique. <strong>FoLiA</strong> en profite en utilisant une structure in-line et hierarchique. Nous héritons de notre prédécesseur, le format <strong>D-Coi</strong>. Ce format postule d'être lâchement basé sur une sous-ensemble du format <strong>TEI</strong>. À cause de l'introduction d'un nouveau et plus large paradigme, FoLiA n'est pas compatible avec le format D-Coi. Cependant, il est facile de convertir FoLiA à des formats moins expressifs. Nous fournissons des convertisseurs à cet effet.</p> 
+<p>Le but de <strong>FoLiA</strong> n'est pas d'offir encore un autre format, mais de construire une infrastructure riche et pratique de logiciels et bibliothèques qui utilisent ce format.</p>
 
+</section>
+
+<section>
+<h2>Charactéristiques</h2>
 
 <p>Les charactéristiques principales de FoLiA sont:</p>
 
@@ -34,10 +35,14 @@ pynlpldoclabel: Documentation de la bibliothèque python
 <p>
 FoLiA combine l'utilisation d'annotation 'in-line' et 'stand-off'. Ce premier est utilisé pour des annotations concernants des mots/termes uniques, alors que l'annotation stand-off est utilisé pour les annotations sur plusieurs termes. Ceci donne à FoLiA la flexibilité et expressivité essentiel pour le soutien de divers types d'annotation linguistique.</p>
 
-</div>
+</section>
 
+<section>
+<h2>Schème du paradigme</h2>
+<img class="big"src="folia_paradigm_s.png" alt="FoLiA paradigma" />
+</section>
 
-<div class="rightbox">
+<section>
 <h2>Ressources</h2>
 
 <p>
@@ -79,24 +84,31 @@ Il y a aussi un logiciel d'annotation pour FoLiA.
 Pour soutien supplémentaire vous pouvez vous inscrire à la <a href="https://lists.uvt.nl/mailman/listinfo/folia">liste de diffusion de FoLiA</a>.
 </p>
 
-</div>
+</section>
 
-<div class="rightbox">
+<section>
+
+<h2>Publications &amp; Utilisation</h2>
 
 <p>FoLiA est utilisé dans divers projects dans les communautés Néerlandaises et Flamandes de linguistique computationnelle. Le plus grand corpus néerlandais, SoNaR, est publié au format FoLiA. On l'utilise aussi dans certains projets de <a href="http://www.clarin.eu">CLARIN</a>. FoLiA a aussi été integré dans software comme  <a href="http://ilk.uvt.nl/ucto">ucto</a>, <a href="http://ilk.uvt.nl/frog">Frog</a>, <a href="http://valkuil.net">Valkuil.net</a>.</p>
 
-<p>FoLiA est développé par Maarten van Gompel à l'université de Tilburg et maintenant à l'université Radboud Nijmegen, avec soutien de  Antal van den Bosch, Ko van der Sloot, Martin Reynaert et des autres collègues de la communauté universitaire. Si vous utilisez FoLiA, vous pouvez nous citer comme:
-</br></br>
-<tt>Maarten van Gompel (2012). <emph>FoLiA: Format for Linguistic Annotation.</emph> Documentation. 
- ILK Technical Report 12-03. Available from <a href="http://ilk.uvt.nl/downloads/pub/papers/ilk.1203.pdf">http://ilk.uvt.nl/downloads/pub/papers/ilk.1203.pdf</a></tt>
-</p>
+<p>FoLiA est développé par Maarten van Gompel à l'université de Tilburg et maintenant à l'université Radboud Nijmegen, avec soutien de  Antal van den Bosch, Ko van der Sloot, Martin Reynaert et des autres collègues de la communauté universitaire. Si vous utilisez FoLiA, vous pouvez nous citer comme:</p>
+
+<ul>
+    <li>[<a href="http://www.clinjournal.org/sites/default/files/05-vanGompel-Reynaert-CLIN2013.pdf">PDF</a>|<a href="http://www.clinjournal.org/biblio/export/bibtex/39">BibTex</a>] Maarten van Gompel &amp; Martin Reynaert (2014). <strong>FoLiA: A practical XML format for linguistic annotation - a descriptive and comparative study</strong>; Computational Linguistics in the Netherlands Journal; 3:63-81; 2013.</li>
+    <li>[<a href="http://github.com/proycon/folia/blob/master/docs/folia.pdf?raw=true">PDF</a>] Maarten van Gompel (2014). <strong>FoLiA: Format for Linguistic Annotation. Documentation</strong> Language and Speech Technology Technical Report Series LST-14-01. Radboud University Nijmegen.</li>
+    <li>Maarten van Gompel (2012). <strong>FoLiA: Format for Linguistic Annotation. Documentation.</strong> ILK Technical Report 12-03. Tilburg University</li>
+</ul>
+
+<p>On à aussi quelques présentations:</p>
+
+<ul>
+    <li>[<a href="http://proycon.anaproy.nl/pubs/folia_poster2.png">PNG</a>] Maarten van Gompel (2013). <em>Poster:</em> <strong>FoLiA: Format for Linguistic Annotation</strong>.  CLARIN-NL, Utrecht University</li>    <li>[<a href="http://proycon.anaproy.nl/pubs/folia_pres_clin.pdf">PDF</a>] Maarten van Gompel (2012). <em>Presentation:</em> <strong>FoLiA: Format for Linguistic Annotation</strong>. CLIN22. Tilburg University</li>
+</ul>
+
 
 <p>FoLiA est logiciel livre et sous license <a href="http://www.gnu.org/licenses/gpl-3.0.html">GNU License Publique v3</a>.</p>
 
 
-</div>
+</section>
 
-<h2 style="clear:both; margin-top: 20px;">Schème du paradigme</h2>
-<div style="margin-top: 20px;">
-	<img src="folia_paradigm_s.png" alt="FoLiA paradigme" />
-</div>
