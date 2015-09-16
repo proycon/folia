@@ -1,0 +1,29 @@
+---
+exclude: [bundle]
+defaults:
+   - 
+    scope:
+     path: ""
+     type: pages
+    values: 
+     layout: lamalayout
+     title: FoLiA 
+     subtitle: Format for Linguistic Annotation
+     author: Maarten van Gompel (proycon)
+     keywords: folia, format for linguistic annotation, xml, tei, d-coi, clarin
+     description: FoLiA is an XML-based format for Linguistic Annotation suitable for representing written language resources such as corpora. Its goal is to unify a variety of linguistic annotations in one single rich format, without committing to any particular standard annotation set.
+     lang: en
+     menu: 
+      - label: Home
+        url: https://proycon.github.io/folia/
+      - label: Source
+        url: https://github.com/proycon/folia/
+      - label: Documentation
+        url: https://github.com/proycon/folia/raw/master/docs/folia.pdf
+      - label: Python Library Documentation 
+        url: http://packages.python.org/PyNLPl/folia.html
+      - label: Example Document
+        url: example.xml
+      - label: FoLiA Tools @PyPi
+        url: https://pypi.python.org/pypi/FoLiA-tools
+---
