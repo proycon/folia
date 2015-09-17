@@ -39,4 +39,6 @@ defaults:
         label: Español
       - lang: pt
         label: Português
+      - lang: tr
+        label: Türkçe
 ---
