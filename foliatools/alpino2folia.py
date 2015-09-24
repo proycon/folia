@@ -100,13 +100,15 @@ def alpino2folia(alpinofile, foliadoc):
     #first pass, extract words
     alpinowords = sentencenode.text.split(' ')
     for alpinoword in alpinowords:
-        foliasentence.append(folia.Word,alpinoword)
+        foliasentence.append(folia.Word,alpinoword.strip())
+
 
     #loop over lexical nodes
     for node in alpinoroot.xpath('//node'):
         if 'word' in node.attrib and 'pos' in node.attrib:
             index = int(node.attrib['begin'])
-            assert alpinowords[index] == node.attrib['word']
+            if alpinowords[index].strip() != node.attrib['word'].strip():
+                raise Exception("Node@begin refers to word index " + str(index) + ", which has value \"" + alpinowords[index] + "\" and does not correspond with node@word \"" + node.attrib['word'] +  "\"")
             foliaword = foliasentence[index]
 
             if 'lemma' in node.attrib:
