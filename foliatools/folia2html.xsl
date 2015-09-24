@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<xsl:stylesheet version="1.0" xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:imdi="http://www.mpi.nl/IMDI/Schema/IMDI" xmlns:folia="http://ilk.uvt.nl/folia">
+<xsl:stylesheet version="1.0" xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:imdi="http://www.mpi.nl/IMDI/Schema/IMDI" xmlns:folia="http://ilk.uvt.nl/folia" xmlns:exsl="http://exslt.org/common">
 
 <xsl:output method="html" encoding="UTF-8" omit-xml-declaration="yes" doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" indent="yes" />
 
@@ -604,6 +604,7 @@
 
 
     <xsl:variable name="ancestors" select="ancestor::*"></xsl:variable>
+
     <xsl:for-each select="$ancestors">
     <xsl:for-each select="folia:chunking">
         <xsl:for-each select="folia:chunk">
@@ -622,6 +623,13 @@
 
     <xsl:for-each select="$ancestors">
     <xsl:for-each select="folia:syntax">
+        <span class="attrlabel">Syntactic Unit</span>
+        <span class="attrvalue">
+            <xsl:call-template name="su2svg" />
+        </span><br/>
+    </xsl:for-each>
+    <!--
+    <xsl:for-each select="folia:syntax">
         <xsl:for-each select="//folia:su">
             <xsl:if test=".//folia:wref[@id=$id]">
                 <span class="attrlabel">Syntactic Unit</span>
@@ -634,6 +642,7 @@
             </xsl:if>
         </xsl:for-each>
     </xsl:for-each>
+    -->
     </xsl:for-each>
 
 
@@ -757,6 +766,130 @@
     <xsl:apply-templates />
   </td>
 </xsl:template>
+
+
+<xsl:template match="folia:su" mode="xml2layout">
+ <!-- Enrich SU for conversion to SVG --> 
+
+  <xsl:param name="depth" select="1"/>
+  <xsl:variable name="subTree">
+    <xsl:apply-templates select="folia:su" mode="xml2layout">
+      <xsl:with-param name="depth" select="$depth+1"/>
+    </xsl:apply-templates>
+  </xsl:variable>
+
+  <xsl:variable name="childwidth"><xsl:value-of select="sum(exsl:node-set($subTree)/folia:su/@width)" /></xsl:variable>
+
+  <xsl:variable name="width">
+    <xsl:choose>
+        <xsl:when test="$childwidth > 1"><xsl:value-of select="$childwidth"/></xsl:when>
+        <xsl:otherwise>1</xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
+
+  <!-- Add layout attributes to the existing node -->
+  <folia:su depth="{$depth}" width="{$width}">
+    <xsl:copy-of select="@class"/>
+    <xsl:copy-of select="$subTree"/>
+  </folia:su>
+
+</xsl:template>
+
+<!-- Magnifying factor -->
+<xsl:param name="su.scale" select="25"/>
+
+<!-- Convert layout to SVG -->
+<xsl:template name="layout2svg">
+  <xsl:param name="layout"/>
+
+  <!-- Find depth of the tree -->
+  <xsl:variable name="maxDepth">
+    <xsl:for-each select="$layout//folia:su">
+      <xsl:sort select="@depth" data-type="number" order="descending"/>
+      <xsl:if test="position() = 1">
+        <xsl:value-of select="@depth"/>
+      </xsl:if>
+    </xsl:for-each>
+  </xsl:variable>
+
+  <!-- Create SVG wrapper -->
+  <svg viewbox="0 0 {sum($layout/folia:su/@width) * 2 * $su.scale} {$maxDepth * 2 * $su.scale}"
+            width="{sum($layout/folia:su/@width)*5}mm"
+            height="{$maxDepth*5}mm"
+            preserveAspectRatio="xMidYMid meet">
+    <g transform="translate(0,-{$su.scale div 2}) scale({$su.scale})">
+      <xsl:apply-templates select = "$layout/folia:su" mode = "layout2svg"/>
+    </g>
+  </svg>
+</xsl:template>
+
+<!-- Draw one node -->
+<xsl:template match="folia:su" mode="layout2svg">
+  <!-- Calculate X coordinate -->
+  <xsl:variable name="x" select = "(sum(preceding::folia:su[@depth = current()/@depth or (not(folia:su) and @depth &lt;= current()/@depth)]/@width) + (@width div 2)) * 2"/>
+  <!-- Calculate Y coordinate -->
+  <xsl:variable name = "y" select = "@depth * 2"/>
+  <!-- Draw label of su -->
+  <text x="{$x}"
+            y="{$y - 0.2}"
+            style="text-anchor: middle; font-size: 0.2;">
+    <xsl:value-of select="@class"/> ::
+    <xsl:for-each select=".//folia:wref">
+        <xsl:variable name="wrefid" select="@id" />
+        <xsl:choose>
+            <xsl:when test="@t">
+                <xsl:value-of select="@t" />
+                <xsl:text> </xsl:text>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:if test="//folia:w[@xml:id=$wrefid]">
+                    <xsl:value-of select="//folia:w[@xml:id=$wrefid]/folia:t[not(ancestor::folia:original) and not(ancestor::folia:suggestion) and not(ancestor::folia:alternative) and not(ancestor-or-self::*/auth)]"/>
+                </xsl:if>
+                <xsl:text> </xsl:text>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:for-each>
+  </text>
+  <!-- Draw rounded rectangle around label -->
+  <rect x="{$x - 0.9}" y="{$y - 1}" width="1.8" height="1"
+            rx="0.4" ry="0.4"
+            style = "fill: none; stroke: black; stroke-width: 0.1;"/>
+  <!-- Draw connector lines to all sub-nodes -->
+  <xsl:for-each select="folia:su">
+    <line x1 = "{$x}"
+              y1 = "{$y}"
+              x2 = "{(sum(preceding::folia:su[@depth = current()/@depth or (not(folia:su) and @depth &lt;= current()/@depth)]/@width) + (@width div 2)) * 2}"
+              y2 = "{@depth * 2 - 1}"
+              style = "stroke-width: 0.1; stroke: black;"/>
+  </xsl:for-each>
+  <!-- Draw sub-nodes -->
+  <xsl:apply-templates select="folia:su" mode="layout2svg"/>
+</xsl:template>
+
+
+
+<xsl:template name="su2svg">
+
+  <xsl:variable name="tree">
+    <xsl:copy-of select="folia:su" />
+  </xsl:variable>
+
+
+  <!-- Add layout information to XML nodes -->
+  <xsl:variable name="layoutTree">
+    <xsl:apply-templates select="exsl:node-set($tree)/folia:su" mode="xml2layout"/>
+  </xsl:variable>
+
+
+  <!-- Turn XML nodes into SVG image -->
+  <xsl:call-template name="layout2svg">
+    <xsl:with-param name="layout" select="exsl:node-set($layoutTree)"/>
+  </xsl:call-template>
+
+</xsl:template>
+
+
+
 
 </xsl:stylesheet>
 
