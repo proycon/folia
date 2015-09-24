@@ -27,11 +27,11 @@ def usage():
 
 def extract_syntax(alpinonode, folianode, foliasentence, alpinoroot):
     for node in alpinonode:
-        #print("SYNTAX:", node,file=sys.stderr)
+        print("SYNTAX:", node,file=sys.stderr)
         if 'word' in node.attrib:
-            folianode.append(folia.SyntacticUnit, foliasentence[int(node.attrib['begin'])], cls=node.attrib['pos'])
+            folianode.append(folia.SyntacticUnit, foliasentence[int(node.attrib['begin'])], cls=node.attrib['pos'],id=foliasentence.id+'.alpinonode.'+node.attrib['id'] )
         elif 'cat' in node.attrib:
-            su = folianode.append(folia.SyntacticUnit, cls=node.attrib['cat'])
+            su = folianode.append(folia.SyntacticUnit, cls=node.attrib['cat'],id=foliasentence.id+'.alpinonode.'+node.attrib['id'] )
             extract_syntax(node, su, foliasentence,alpinoroot)
         elif 'index' in node.attrib:
             pos = foliasentence[int(node.attrib['index'])-1].annotation(folia.PosAnnotation)
@@ -40,7 +40,7 @@ def extract_syntax(alpinonode, folianode, foliasentence, alpinoroot):
                 pos = pos.feat('head')
             else:
                 pos = pos.cls
-            folianode.append(folia.SyntacticUnit, foliasentence[int(node.attrib['index'])-1], cls=pos )
+            folianode.append(folia.SyntacticUnit, foliasentence[int(node.attrib['index'])-1], cls=pos,id=foliasentence.id+'.alpinonode.'+node.attrib['id'] )
         else:
             print("SYNTAX: Don't know what to do with node...", repr(node.attrib) ,file=sys.stderr)
 
@@ -108,7 +108,7 @@ def alpino2folia(alpinofile, foliadoc):
         if 'word' in node.attrib and 'pos' in node.attrib:
             index = int(node.attrib['begin'])
             if alpinowords[index].strip() != node.attrib['word'].strip():
-                raise Exception("Node@begin refers to word index " + str(index) + ", which has value \"" + alpinowords[index] + "\" and does not correspond with node@word \"" + node.attrib['word'] +  "\"")
+                raise Exception("Inconsistency in Alpino XML! Node@begin refers to word index " + str(index) + ", which has value \"" + alpinowords[index] + "\" and does not correspond with node@word \"" + node.attrib['word'] +  "\"")
             foliaword = foliasentence[index]
 
             if 'lemma' in node.attrib:
