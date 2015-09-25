@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<xsl:stylesheet version="1.0" xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:imdi="http://www.mpi.nl/IMDI/Schema/IMDI" xmlns:folia="http://ilk.uvt.nl/folia">
+<xsl:stylesheet version="1.0" xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:imdi="http://www.mpi.nl/IMDI/Schema/IMDI" xmlns:folia="http://ilk.uvt.nl/folia" xmlns:exsl="http://exslt.org/common">
 
 <xsl:output method="html" encoding="UTF-8" omit-xml-declaration="yes" doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" indent="yes" />
 
@@ -109,6 +109,11 @@
                 }
                 .s:hover .cor { 
 					background: #cfd0ed;
+                }
+                .word:hover svg.bigtree {
+                    position: fixed;
+                    left: 0px;
+                    margin: 0px;
                 }
 
 				#text {
@@ -604,6 +609,7 @@
 
 
     <xsl:variable name="ancestors" select="ancestor::*"></xsl:variable>
+
     <xsl:for-each select="$ancestors">
     <xsl:for-each select="folia:chunking">
         <xsl:for-each select="folia:chunk">
@@ -620,21 +626,6 @@
     </xsl:for-each>
     </xsl:for-each>
 
-    <xsl:for-each select="$ancestors">
-    <xsl:for-each select="folia:syntax">
-        <xsl:for-each select="//folia:su">
-            <xsl:if test=".//folia:wref[@id=$id]">
-                <span class="attrlabel">Syntactic Unit</span>
-                <span class="attrvalue">
-                    <span class="spanclass"><xsl:value-of select="@class" /></span>
-                        <xsl:call-template name="span">
-                            <xsl:with-param name="id" select="$id" />
-                        </xsl:call-template>
-                </span><br/>
-            </xsl:if>
-        </xsl:for-each>
-    </xsl:for-each>
-    </xsl:for-each>
 
 
     <xsl:for-each select="$ancestors">
@@ -699,6 +690,16 @@
     </xsl:for-each>
     </xsl:for-each>
 
+    <xsl:for-each select="$ancestors">
+    <xsl:for-each select="folia:syntax">
+        <span class="attrlabel">Syntax</span>
+        <span class="attrvalue">
+            <xsl:call-template name="su2svg">
+                <xsl:with-param name="id" select="$id" />
+            </xsl:call-template>
+        </span><br/>
+    </xsl:for-each>
+    </xsl:for-each>
 </xsl:template>
 
 
@@ -757,6 +758,173 @@
     <xsl:apply-templates />
   </td>
 </xsl:template>
+
+
+<xsl:template match="folia:su" mode="xml2layout">
+ <!-- Enrich SU for conversion to SVG --> 
+
+  <xsl:param name="id" />
+
+  <xsl:param name="depth" select="1"/>
+  <xsl:variable name="subTree">
+    <xsl:copy-of select="folia:wref" />
+    <xsl:apply-templates select="folia:su" mode="xml2layout">
+      <xsl:with-param name="depth" select="$depth+1"/>
+      <xsl:with-param name="id" select="$id"/>
+    </xsl:apply-templates>
+  </xsl:variable>
+
+  <xsl:variable name="childwidth"><xsl:value-of select="sum(exsl:node-set($subTree)/folia:su/@width)" /></xsl:variable>
+
+  <xsl:variable name="width">
+    <xsl:choose>
+        <xsl:when test="$childwidth > 1"><xsl:value-of select="$childwidth"/></xsl:when>
+        <xsl:otherwise>1</xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
+
+  <!-- Add layout attributes to the existing node -->
+  <folia:su depth="{$depth}" width="{$width}">
+    <xsl:if test="folia:wref[@id=$id]">
+        <xsl:attribute name="selected">selected</xsl:attribute>
+    </xsl:if>
+    <xsl:copy-of select="@class"/>
+    <xsl:copy-of select="$subTree"/>
+  </folia:su>
+
+</xsl:template>
+
+<!-- Magnifying factor -->
+<xsl:param name="su.scale" select="30"/>
+
+<!-- Convert layout to SVG -->
+<xsl:template name="layout2svg">
+  <xsl:param name="layout"/>
+
+  <!-- Find depth of the tree -->
+  <xsl:variable name="maxDepth">
+    <xsl:for-each select="$layout//folia:su">
+      <xsl:sort select="@depth" data-type="number" order="descending"/>
+      <xsl:if test="position() = 1">
+        <xsl:value-of select="@depth"/>
+      </xsl:if>
+    </xsl:for-each>
+  </xsl:variable>
+
+  <xsl:variable name="viewwidth"><xsl:value-of select="sum($layout/folia:su/@width) * 2 * $su.scale" /></xsl:variable>
+  <xsl:variable name="viewheight"><xsl:value-of select="$maxDepth * 2 * $su.scale" /></xsl:variable>
+
+
+   <xsl:choose>
+        <xsl:when test="$viewwidth &gt; 1920">(Syntax tree too large to show)</xsl:when>
+        <xsl:otherwise>
+
+            <xsl:variable name="rescale">
+                <xsl:choose>
+                    <xsl:when test="$viewwidth &gt; 1024"><xsl:value-of select="1024 div $viewwidth" /></xsl:when>
+                    <xsl:otherwise>1</xsl:otherwise>
+                </xsl:choose>
+            </xsl:variable>
+
+                <xsl:if test="$viewwidth &gt; 800">(See pop out)</xsl:if>
+            <!-- Create SVG wrapper -->
+            <svg viewbox="0 0 {$viewwidth}px {$viewheight}px" width="{$viewwidth}" height="{$viewheight + 25}px" preserveAspectRatio="xMidYMid meet">
+                <xsl:if test="$viewwidth &gt; 800">
+                    <xsl:attribute name="class">bigtree</xsl:attribute>
+                </xsl:if>
+                <g transform="scale({$rescale})">-->
+                    <rect x="0" y="0" width="{$viewwidth}" height="{$viewheight+25}" style="fill: #b4d4d1;"  />
+                    <xsl:apply-templates select="$layout/folia:su" mode="layout2svg"/>
+                </g>
+            </svg>
+
+    </xsl:otherwise>
+  </xsl:choose>
+
+</xsl:template>
+
+<!-- Draw one node -->
+<xsl:template match="folia:su" mode="layout2svg">
+
+  <!-- Calculate X coordinate -->
+  <xsl:variable name="x" select = "(sum(preceding::folia:su[@depth = current()/@depth or (not(folia:su) and @depth &lt;= current()/@depth)]/@width) + (@width div 2)) * 2"/>
+  <!-- Calculate Y coordinate -->
+  <xsl:variable name = "y" select = "@depth * 2"/>
+
+  <xsl:variable name="fill">
+      <xsl:choose>
+          <xsl:when test="@selected">#faffa3</xsl:when>
+          <xsl:otherwise>none</xsl:otherwise>
+      </xsl:choose>
+  </xsl:variable>
+
+  <!-- Draw rounded rectangle around label -->
+  <rect x="{($x - 0.9) * $su.scale}" y="{($y - 1) * $su.scale}" width="{1.8 * $su.scale}" height="{1 * $su.scale}" rx="{0.4 * $su.scale}" ry="{0.4 * $su.scale}"
+      style = "fill: {$fill}; stroke: black; stroke-width: 1px;"/>
+
+  <!-- Draw label of su -->
+  <text x="{$x  * $su.scale}" y="{($y - 0.5) * $su.scale}" style="text-anchor: middle; font-size: 9px; font-weight: normal; fill: #000055;">
+    <xsl:value-of select="@class"/>
+  </text>
+  <text x="{$x  * $su.scale}" y="{($y + 0.3) * $su.scale}" style="text-anchor: middle; font-size: 9px; font-weight: normal;">
+    <xsl:for-each select="folia:wref">
+        <xsl:choose>
+            <xsl:when test="@t">
+                <xsl:value-of select="@t" />
+                <xsl:text> </xsl:text>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:if test="//folia:w[@xml:id=$wrefid]">
+                    <xsl:value-of select="//folia:w[@xml:id=$wrefid]/folia:t[not(ancestor::folia:original) and not(ancestor::folia:suggestion) and not(ancestor::folia:alternative) and not(ancestor-or-self::*/auth)]"/>
+                </xsl:if>
+                <xsl:text> </xsl:text>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:for-each>
+  </text>
+
+
+  <!-- Draw connector lines to all sub-nodes -->
+  <xsl:for-each select="folia:su">
+    <line x1 = "{$x*$su.scale}"
+              y1 = "{$y*$su.scale}"
+              x2 = "{(sum(preceding::folia:su[@depth = current()/@depth or (not(folia:su) and @depth &lt;= current()/@depth)]/@width) + (@width div 2)) * 2 * $su.scale}"
+              y2 = "{(@depth * 2 - 1)*$su.scale}"
+              style = "stroke-width: 1px; stroke: black;"/>
+  </xsl:for-each>
+  <!-- Draw sub-nodes -->
+  <xsl:apply-templates select="folia:su" mode="layout2svg"/>
+</xsl:template>
+
+
+
+<xsl:template name="su2svg">
+  <xsl:param name="id" />
+
+  <xsl:variable name="tree">
+    <xsl:copy-of select="folia:su" />
+  </xsl:variable>
+
+
+  <!-- Add layout information to XML nodes -->
+  <xsl:variable name="layoutTree">
+    <xsl:apply-templates select="exsl:node-set($tree)/folia:su" mode="xml2layout">
+        <xsl:with-param name="id" select="$id" />
+    </xsl:apply-templates>
+  </xsl:variable>
+
+
+
+  <!-- Turn XML nodes into SVG image -->
+  <xsl:call-template name="layout2svg">
+    <xsl:with-param name="layout" select="exsl:node-set($layoutTree)"/>
+    <xsl:with-param name="id" select="$id" />
+  </xsl:call-template>
+
+</xsl:template>
+
+
+
 
 </xsl:stylesheet>
 
