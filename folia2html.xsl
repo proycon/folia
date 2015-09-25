@@ -832,7 +832,7 @@
                 <xsl:if test="$viewwidth &gt; 800">
                     <xsl:attribute name="class">bigtree</xsl:attribute>
                 </xsl:if>
-                <g transform="scale({$rescale})">-->
+                <g transform="scale({$rescale})">
                     <rect x="0" y="0" width="{$viewwidth}" height="{$viewheight+25}" style="fill: #b4d4d1;"  />
                     <xsl:apply-templates select="$layout/folia:su" mode="layout2svg"/>
                 </g>
