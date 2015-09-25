@@ -106,6 +106,7 @@ A number of command-line tools are readily available for working with FoLiA, to 
   and produces a simple columned output format (including CSV) in which each token appears on one line. Note that only simple token annotations are supported and a lot of FoLiA data can not be intuitively expressed in a simple columned format!
 - ``folia2html`` -- Converts a FoLiA document to a semi-interactive HTML document, with limited support for certain token annotations.
 - ``folia2dcoi`` -- Convert FoLiA XML to D-Coi XML (only for annotations supported by D-Coi)
+- ``alpino2folia`` -- Convert Alpino-DS XML to FoLiA XML
 - ``dcoi2folia`` -- Convert D-Coi XML to FoLiA XML
 - ``rst2folia`` -- Convert ReStructuredText, a lightweight non-intrusive text markup language, to FoLiA, using `docutils <http://docutils.sourceforge.net/>`_.
 
