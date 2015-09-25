@@ -1,0 +1,118 @@
+---
+subtitle: Dilbilimsel İşaretleme Formatı
+cover: true
+lang: tr
+---
+
+<section>
+
+<p><strong>FoLiA</strong> dilbilimsel olarak işaretlenmiş dil kaynaklarının temsil edilebileceği XML-tabanlı bir işaretleme formatıdır. <strong>FoLiA</strong>’nın amacı dil kaynaklarının saklanmasını ve/veya paylaşılmasını sağlayacak bir format olmaktır, derlemler buna dahildir. Amacımız tek bir genel paradigma kullanarak çok çeşitli olabilen dilbilimsel işaretleme şekillerini destekleyebilecek zengin bir format tanıtmaktır. Kendimizi herhangi bir etiket kümesiyle, dille veya dilbilimsel teoriyle sınırlandırmıyoruz. Bu her zaman dil kaynağı geliştiricisine bırakılmakta, ayrıca bu şekilde maksimum esneklik sağlanmaktadır.</p>
+
+<p>XML tanımı gereği hiyerarşik bir yapıdadır. FoLiA da buna hiyerarşik ve satıriçi yapıyı kullanarak uyar. </p>
+
+</section>
+
+
+<section>
+
+<p><strong>FoLiA</strong>’nın temel özellikleri aşağıdaki gibidir:</p>
+
+<ul>
+<li><strong>Genelleştirilmiş paradigma:</strong> Genel bir paradigma kullanıyoruz, işaretleme şekilleri için özel eklemeleri olabildiğince az sayıda tutuyoruz.</li>
+<li><strong>Açıklayıcılık:</strong> Format yüksek oranda açıklayıcı olarak tasarlanmıştır, işaret tipleri kullanıcının gereksinimlerine göre ayrıntılı ve esnek bir şekilde tanımlanabilir, istenmeyen ayrıntılar konusunda bir gereklilik yoktur. Ayrıca, FoLiA işaretleme alternatifleri ve işaretleyici bilgisi, işaretleme zamanı ve işaretlemeye olan güven gibi işaretleme meta verilerini genelleştirilmiş bir şekilde desteklemektedir.</li>
+<li><strong>Genişletilebilir:</strong> Genel paradigma ve herhangi bir etiket kümesine bağlı olmamasından dolayı FoLiA oldukça kolay bir şekilde genişletilebilir.</li>
+<li><strong>Formallik:</strong> Format formal bir yapıya sahiptir, ve yüzeysel veya derin seviyede geçerliliği kontrol edilebilir (sonuncusu etiket seti kontrolü içerir), ve kolaylıkla otomatik bir şekilde dilbilimsel ünitelerine ayrıştırılabilir, bunlar için gerekli araçlar sağlanmaktadır.</li>
+<li><strong>Pratiklik:</strong> FoLiA aşağıdan yukarıya bir tarzda uygulamalar, kütüphaneler ve diğer araçlar ve çeviricilerle birlikte geliştirilmiştir. Format zengin bir içeriğe sahipken, onu olabildiğince basit ve açık tutmaya çalışıyoruz, bu şekilde bu formatın öğrenilebilmesini kolaylaştırmak ve pratik uygulamalarda kullanılabilmesini sağlamak amacındayız.</li>
+</ul>
+
+<p>
+<strong>FoLiA</strong> formatı satıriçi ve satıriçi olmayan işaretlemeleri birlikte kullanır. Satıriçi işaretlemeler tek bir simge (token) için kullanılırken, satıriçi olmayan işaretlemeler birkaç simgeyi kapsayan işaretleme şekilleri için ayrı katmanlar halinde kullanılır. Bu FoLiA’ya pek çok çeşit işaretleme şeklini temsil edebilmesi için gerekli olan esnekliği ve genişletilebilirliği sağlamaktadır.</p>
+
+</section>
+
+
+
+
+<section>
+<h2>Paradigma Şeması</h2>
+<img class="big"src="folia_paradigm_s.png" alt="FoLiA paradigma" />
+</section>
+
+<section>
+
+<h2>Kaynaklar</h2>
+
+<p>
+FoLiA’nın son sürümüne ait dökümantasyon, geçerlilik şeması ve diğer kaynakları aşağıda bulabilirsiniz. Mevcut tüm kaynaklara ulaşmak için <a href="http://github.com/proycon/folia">FoLiA’nın GitHub deposunu kontrol</a> ediniz.</p>
+
+
+<ul>
+<li><a href="http://github.com/proycon/folia/blob/master/docs/folia.pdf?raw=true">FoLiA dökümantasyonu (PDF)</a></li>
+<li><a href="http://github.com/proycon/folia">FoLiA github kod deposu</a> (çevirici betikler, şemalar XML stylesheet'ler, vb.)</li>
+<li><a href="http://github.com/proycon/folia/blob/master/schemas/folia.rng">FoLiA RelaxNG schema</a> (geçerliliği kontol için)</li>
+<li><a href="example.xml">Bit FoLiA dökümanı örneği</a> (XSL aracılığıyla tarayıcı içi görüntüleme içerecek şekilde, XML için kaynak koduna bakınız)</li>
+</ul>
+
+<p>Kendi betiklerinizin ve uygulamalarınızın içinden FoLiA formatı ile çalışabilmeniz için iki yazılım kütüphanesi bulunmaktadır. Bu kütüphanelerin geliştirilmesi aktif bir şekilde devam ettiği için güncellemeleri takip ettiğinizden emin olunuz.</p> 
+
+<ul>
+<li><tt><a href="http://github.com/proycon/pynlpl/blob/master/formats/folia.py">pynlpl.formats.folia</a></tt> (Python kütüphanesi) - yazarı Maarten van Gompel,  PyNLPl kütüphanesinin bir bölümü olarak dağıtılmaktadır.
+<ul>
+	<li><a href="http://packages.python.org/PyNLPl/folia.html">Kütüphane dökümantasyonu (Tanıtıcı notlar ve API referans dökümanı)</a></li>
+	<li>pynlpl <a href="http://pypi.python.org/pypi/PyNLPl/">Python Paket İndeksi</a> veya direkt GitHub kod deposundan edinmenizi öneririz, bu şekilde son versiyonu edindiğinizden emin olabilirsiniz, güncellemeleri takip etmek için: <tt>$ sudo pip install pynlpl</tt></li> 
+</ul>
+</li>
+<li><tt><a href="http://ilk.uvt.nl/folia/download-libfolia.php">libfolia</a></tt> (C++ library) - yazari Ko van der Sloot, Tilburg Üniversitesi.
+<ul>
+	<li>Daha herhangi bir dökümantasyon bulunmamaktadır.</li>
+	<li><strong>Not:</strong> libfolia hem Frog hem de ucto araçları için gereklidir. Onları derlemeniz gerekecektir.</li>
+</ul>
+</li>
+</ul>
+	
+<p>Web tabanlı bir işaretleme ortamı mevcuttur, FoLiA dökümanlarını yaratmayı ve düzenlemeyi sağlar:</p>
+
+<ul>
+    <li><a href="https://github.com/proycon/flat/">FLAT: FoLiA Linguistic Annotation Tool</a> - FoLiA için web tabanlı işaretleme ortamı</li>
+</ul>
+
+<p>
+Ek destek ve duyurular için kayıt olabileceğiniz adres: <a href="https://lists.uvt.nl/mailman/listinfo/folia">FoLiA email listesi</a>.
+</p>
+
+</section>
+
+<section>
+
+<h2>Yayınlar</h2>
+
+<p>
+Çalışmalarınızda FoLiA’yı kullanırsanız, lütfen aşağıdaki yayınların birini veya daha çoğunu referans olarak gösteriniz:
+</p>
+
+<ul>
+    <li>[<a href="http://www.clinjournal.org/sites/default/files/05-vanGompel-Reynaert-CLIN2013.pdf">PDF</a>|<a href="http://www.clinjournal.org/biblio/export/bibtex/39">BibTex</a>] Maarten van Gompel &amp; Martin Reynaert (2014). <strong>FoLiA: A practical XML format for linguistic annotation - a descriptive and comparative study</strong>; Computational Linguistics in the Netherlands Journal; 3:63-81; 2013.</li>
+    <li>[<a href="http://github.com/proycon/folia/blob/master/docs/folia.pdf?raw=true">PDF</a>] Maarten van Gompel (2014). <strong>FoLiA: Format for Linguistic Annotation. Documentation</strong> Language and Speech Technology Technical Report Series LST-14-01. Radboud University Nijmegen.</li>
+    <li>Maarten van Gompel (2012). <strong>FoLiA: Format for Linguistic Annotation. Documentation.</strong> ILK Technical Report 12-03. Tilburg University</li>
+</ul>
+</section>
+
+
+<section>
+<h2>Poster &amp; Sunumlar</h2>
+
+<ul>
+    <li>[<a href="http://proycon.anaproy.nl/pubs/folia_poster2.png">PNG</a>] Maarten van Gompel (2013). <em>Poster:</em> <strong>FoLiA: Format for Linguistic Annotation</strong>. Gepresenteerd voor CLARIN-NL, Utrecht University</li>    <li>[<a href="http://proycon.anaproy.nl/pubs/folia_pres_clin.pdf">PDF</a>] Maarten van Gompel (2012). <em>Presentation:</em> <strong>FoLiA: Format for Linguistic Annotation</strong>. Gepresenteerd tijdens CLIN22. Tilburg University</li>
+</ul>
+
+
+<p>FoLiA halihazırda Hollandaca ve Flemenkçe doğal dil işleme alanı araştırma camiası tarafından pek çok projede kullanılmaktadır. En büyük Hollandaca derlemi olan SoNaR FoLiA formatı ile dağıtılmaktadır, ayrıca çeşitli <a href="http://www.clarin.eu/">CLARIN</a> projeleri de bu formatı kullanmaktadır. FoLiA desteği çeşitli yazılım projelerine entegre edilmiştir; mesela <a href="http://ilk.uvt.nl/ucto">ucto</a>, <a href="http://ilk.uvt.nl/frog">Frog</a>, <a href="http://valkuil.net">Valkuil.net</a>.</p>
+
+<p>FoLiA Maarten van Gompel tarafından,  Antal van den Bosch, Ko van der Sloot, Martin Reynaert ve akademik camiadan pek çok kişinin katkılarıyla Tilburg üniversitesinde geliştirilmiş ve şimdi Radboud Üniversitesinde devam etmektedir.</p>
+
+<p>FoLiA açık kaynaktır ve tüm teknik kaynaklar <a href="http://www.gnu.org/licenses/gpl-3.0.html">GNU Public Licence v3</a> ile lisanslanmıştır.</p>
+
+</section>
+
+
+
