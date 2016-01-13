@@ -1,0 +1,157 @@
+\chapter{A practical format and infrastructure for Linguistic Annotation}
+
+\section{Introduction}
+
+CLARIN's aim to deliver an infrastructure for researchers that work with
+language data and tools can not be made possible without agreeing on standards
+with regard to data formats. Standardisation is an important prerequisite for
+good interoperability between the many language tools that emerged in the scope
+of the CLARIN project, and for dissemination of the data set constructed in the
+scope of CLARIN.
+
+In the field, we often encounter an abundance of \emph{ad-hoc formats}. These are
+data formats that are often characterised by one or more of the following traits:
+
+\begin{itemize}
+    \item They are only used once, often by one specific tool or for just one specific purpose.
+    \item They are poorly formalised or not formalised at all, i.e. there is a lack of a formal schema and semantics.
+    \item They are poorly documented.
+    \item They are often rigid and hard to extend.
+\end{itemize}
+
+The use of such ad-hoc formats can be considered the opposite end of proper standardisation and is to be avoided. 
+
+CLARIN adheres to the following principles when it comes standardisation:
+
+\begin{itemize}
+    \item Open standards are preferred over proprietary standards
+    \item Formats and protocols should be:
+    \begin{itemize}
+        \item well-documented
+        \item verifiable
+        \item proven (being used in practice)
+    \end{itemize}
+    \item Text-based formats are (where possible) preferred over binary formats
+\end{itemize}
+
+With respect to linguistically annotated text, however, the Dutch and Flemish
+NLP community lacked such a proper standard and ad-hoc formats were prevalent
+in the field.  In the scope of CLARIN-NL project TTNWW, the NWO project
+DutchSemCor, and the STEVIN project SoNaR, a new format for linguistic
+annotation was developed as a solution to accommodate their representational needs, and so
+FoLiA (Format for Linguistic Annotation) was created.
+
+The aim of FoLiA is to provide a practical standard, following a generic
+paradigm, for the linguistic annotation of primarily written text. To this end,
+a wide variety of linguistic annotation types is supported. 
+
+An extensive overview of the FoLiA format is given in \cite{FOLIAPAPER}, as
+well as a comparison with competing standards and motivation for the creation
+of FoLiA. Full documentation of the format can be found in \cite{FOLIADOC}.
+Only a brief summary of key features will be repeated in Section~\ref{sec:overview}.
+
+In the remainder of this current chapter, we intend to focus on the
+\emph{practical} nature of the format instead, or rather, on the infrastructure
+that is built around the format and the ways in which it had been put to use in
+the scope of CLARIN and beyond.
+
+\section{Overview}
+
+FoLiA is an XML-based format and defines \emph{specific} XML elements for \textbf{structure
+annotation} (e.g. paragraphs, sentences, word tokens, lists, figures..) and
+\textbf{linguistic annotation} (e.g. part-of-speech, dependency relations,
+syntax, named entites, etc..). FoLiA makes use of a combination of inline and
+stand-off annotation, making proper use of the hierarchical nature of XML and
+facilitating the job for parsers where possible. The format is fully language and
+tagset independent as tagsets are defined seperately in \emph{FoLiA Set Definitions}
+by users and never prescribed by FoLiA itself. Validation can proceed
+on a shallow level, against a RelaxNG schema, as well as a deep level which
+validates used tagsets against the set definition files.
+
+The sets are at the core of the FoLiA paradigm, annotation elements take an
+generic attribute named ``class''. These classes pertain to a set and are
+defined by whatever set definition the user decides to use. The set definition
+defines all allowed classes and allows for links with data category registries
+for formal semantic closure.
+
+Other generic attributes besides ``class'', are attributes to denote the
+annotator of a particular annotation, the annotator type (human or machine),
+the confidence level of the annotation, the time of the annotation, and more.
+
+There are also has various types of \textbf{higher-order annotation}, such as
+the ability to include alternative annotations, as well as extensive support
+for corrections on annotations. There is also the ability to link other
+modalities such as audio fragments of speech, to structural elements. So even
+though FoLiA is a primarily a format to annotate text documents, speech
+transcripts are supported as well. 
+
+For metadata CLARIN has been committed to the CMDI standard \cite{CMDI}.
+Although FoLiA has some rudimentary native support for metadata, we see no
+sense in reinventing the wheel and FoLiA is ideally used in combination with an
+external metadata format such as CMDI whenever extensive metadata is desired. A
+reference to the metadata file can be made from within the FoLiA document.
+
+\section{NLP tools}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+and attributes 
+
+
+\section{}
+
+\section{Conclusion}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
