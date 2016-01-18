@@ -1,15 +1,15 @@
-\chapter{A practical format and infrastructure for Linguistic Annotation}
+\chapter{FoLiA in practice: The infrastructure of a linguistic annotation format}
 
 \section{Introduction}
 
-CLARIN's aim to deliver an infrastructure for researchers that work with
-language data and tools can not be made possible without agreeing on standards
+CLARIN's aim is to deliver an infrastructure for researchers that work with
+language data and tools. This can not be made possible without agreeing on standards
 with regard to data formats. Standardisation is an important prerequisite for
-good interoperability between the many language tools that emerged in the scope
-of the CLARIN project, and for dissemination of the data set constructed in the
-scope of CLARIN.
+good interoperability between the many language tools that have emerged in the scope
+of the CLARIN project, and to ensure the various data sets released are usable
+in practice..
 
-In the field, we often encounter an abundance of \emph{ad-hoc formats}. These are
+In the field, however, we often encounter an abundance of \emph{ad-hoc formats}. These are
 data formats that are often characterised by one or more of the following traits:
 
 \begin{itemize}
@@ -19,7 +19,8 @@ data formats that are often characterised by one or more of the following traits
     \item They are often rigid and hard to extend.
 \end{itemize}
 
-The use of such ad-hoc formats can be considered the opposite end of proper standardisation and is to be avoided. 
+The use of such ad-hoc formats can be considered the opposite of proper
+standardisation and is to be avoided in any large infrastructure project. 
 
 CLARIN adheres to the following principles when it comes standardisation:
 
@@ -35,7 +36,7 @@ CLARIN adheres to the following principles when it comes standardisation:
 \end{itemize}
 
 With respect to linguistically annotated text, however, the Dutch and Flemish
-NLP community lacked such a proper standard and ad-hoc formats were prevalent
+Natural Language Processing (NLP) community lacked such a proper standard and ad-hoc formats were prevalent
 in the field.  In the scope of CLARIN-NL project TTNWW, the NWO project
 DutchSemCor, and the STEVIN project SoNaR, a new format for linguistic
 annotation was developed as a solution to accommodate their representational needs, and so
@@ -45,15 +46,17 @@ The aim of FoLiA is to provide a practical standard, following a generic
 paradigm, for the linguistic annotation of primarily written text. To this end,
 a wide variety of linguistic annotation types is supported. 
 
-An extensive overview of the FoLiA format is given in \cite{FOLIAPAPER}, as
-well as a comparison with competing standards and motivation for the creation
-of FoLiA. Full documentation of the format can be found in \cite{FOLIADOC}.
-Only a brief summary of key features will be repeated in Section~\ref{sec:overview}.
+An extensive overview of the FoLiA format is presented in \cite{FOLIAPAPER},
+which also features a comparison with competing standards and full motivation
+for the creation of FoLiA. Documentation of the format  can be found in
+\cite{FOLIADOC} and offers and a reference guide to all elements and attributes
+that FoLiA defines.  A brief summary of key features will be repeated in
+Section~\ref{sec:overview}, but for the remainder we refer to these two prior
+works.
 
-In the remainder of this current chapter, we intend to focus on the
-\emph{practical} nature of the format instead, or rather, on the infrastructure
-that is built around the format and the ways in which it had been put to use in
-the scope of CLARIN and beyond.
+In this current paper, we intend to focus on the \emph{practical} nature of the
+format, or rather, on the infrastructure that is built around the format and
+the ways in which it had been put to use in the scope of CLARIN and beyond.
 
 \section{Overview}
 
@@ -85,13 +88,291 @@ modalities such as audio fragments of speech, to structural elements. So even
 though FoLiA is a primarily a format to annotate text documents, speech
 transcripts are supported as well. 
 
-For metadata CLARIN has committed to the CMDI standard \cite{CMDI}.
+For metadata CLARIN-NL has committed to the CMDI standard \cite{CMDI}.
 Although FoLiA has some rudimentary native support for metadata, we see no
 sense in reinventing the wheel and FoLiA is ideally used in combination with an
 external metadata format such as CMDI whenever extensive metadata is desired. A
 reference to the metadata file can be made in the header of the FoLiA document.
 
-\section{NLP tools}
+\section{Our philosophy}
+
+Recall the CLARIN principle that a format should be proven and used in
+practice. FoLiA has been designed in a bottom-up fashion taking this especially
+principle to heart. Our focus is to solve real problems people face in the field
+with regards to their linguistic representation needs, and to do so in a
+generic fashion. The ambition is to deliver a single file format that can
+effectively handle the needs of many. The main motivation is to prevent the
+need to switch formats whenever an extra annotation type is introduced, and to
+prevent the scenario in which a plethora of different formats is used for
+different annotation types.
+
+It is nevertheless always conceivable that a user's particular need is not yet
+covered by the latest version of FoLiA; in such cases we gladly hear from the
+user and expand FoLiA where necessary, in collaboration with the user. The
+development of FoLiA has already proceeded for several years in such a fashion,
+and various annotation types have been added in close contact with end-users
+both from within CLARIN and beyond.
+
+In our philosophy, the creation of a file format is useless without
+similtaneously creating an infrastructure of tools to work with said format.
+This has therefore been our main focus over the years and will the the subject
+of the next section.
+
+\section{Software Infrastructure}
+
+When we speak of a FoLiA infrastructure we refer to a published set of
+software, from whatever sources and for whatever architecture, that enable
+people to work with FoLiA.  Such an infrastructure in simple
+terms encompasses anything that can either process or deliver the format, we
+can subdivide it into the following components:
+
+\begin{enumerate}
+\item programming libraries
+\item tools for validation
+\item tools for conversions from and to other formats
+\item tools for visualisation
+\item tools for searching/querying
+\item editing tools
+\item special-purpose tools; i.e. specialised tools that use the format but are
+    not necessarily focussed on it. In the case of FoLiA, This includes Natural
+    Language Processing or Information Retrieval tools that use the format as a
+    input and/or output.
+\end{enumerate}
+
+The programming libraries and tools that are purely designed to visualise,
+manipulate, or convert the format in basic ways can consider part of a
+\emph{core layer} of the infrastructure, whereas the special-purpose tools can
+be considered to constitute an outer layer.
+
+As FoLiA is an XML-based format, the very rich and well-established XML
+infrastructure is open to its users as well. In fact, almost all FoLiA tools
+effectively rely on the existing software infrastructure available for XML. 
+
+It is possible to not use any of the FoLiA-specific tools and use the
+infrastructure offered by XML directly. For instance, one can use XPath to
+query a FoLiA document and XSL to transform it. To do so effectively, however,
+the user/developer needs to be more familiar with the intricacies of FoLiA,
+than when using a tool from the FoLiA infrastructure that abstracts over this
+for the benefit of the user/developer.
+
+Many of the tools of the core layer are available as command-line tools and are
+bundled in two \emph{FoLiA tools} software packages: there is a Python-based
+package\footnote{https://pypi.python.org/pypi/FoLiA-tools} and a C++
+package\footnote{https://github.com/LanguageMachines/foliatools}, both are
+built on the respective libraries.  There is some overlap in tools, but each
+also offers distinct tools the other does not. It is therefore recommended to
+install both. These packages, and all others tools pertaining to the FoLiA
+infrastructure developed at Radboud University Nijmegen, are also bundled in our
+LaMachine distribution.\footnote{http://proycon.github.io/LaMachine/, available
+as a Virtual Machine, Docker package or local installation script}
+
+We subscribe strongly to the CLARIN principle that standards should be open and
+place a similar requirement on the infrastructure components we build. 
+
+\subsection{Programming Libraries}
+
+At the heart of the FoLiA infrastructure are the programming libraries that
+enable developers to work with documents in the format in their software. We
+ourselves offer libraries for both Python and for C++.
+
+Python is a widely popular high-level programming language in the academic
+world, and the NLP world in particular.  The Python library for FoLiA enables
+develops to quickly integrate support for FoLiA in their scripts. The library
+is part of the larger PyNLPl
+library\footnote{https://github.com/proycon/pynlpl} and also available from the
+Python Package Index. It is extensively documented and comes with tutorials for
+users.
+
+The Python library suffers from the performance drawback that any high-level
+interpreted language has. Whenever faster processing is required, or
+integration in high-performance tools is desired, \emph{libfolia}, the FoliA
+library for C++, offers a better solution. The library is modelled after the
+Python library, so both are similarly structured and with a similar syntax.
+
+A third popular language in the field is Java, but there is no Java-based FoLiA
+library is available yet to our knowledge. Nevertheless, there are a number of
+big java-based tools in the FoLiA infrastructure.
+
+\subsection{Validation}
+
+We already touched upon the notion of shallow and deep validation earlier.
+FoLiA's syntax is formalized in a RelaxNG schema, and shallow validation can
+therefore be done using any XML validator with support for RelaxNG. 
+
+The tools \emph{foliavalidator} and \emph{folialint}\footnote{Part of the two
+FoLiA tools software packages mentioned earlier.} also perform shallow
+validation, and their usage is strongly recommended, or should be considered
+mandatory, for anybody producing FoLiA documents. Moreover, the former tool can
+perform deep validation as well, i.e. it can validate the used classes against
+the set definitions.
+
+\subsection{Conversion}
+
+The two FoLiA tools collections contain tools for the conversion from and to
+various different other formats:
+
+\begin{itemize}
+    \item Conversion to plaintext
+    \item Conversion to HTML
+    \item Conversion to simple columned data or CSV
+    \item Conversion from/to ReStructuredText
+    \item Conversion from/to DCOI XML format
+    \item Conversion from the Alpino XML format
+    \item Conversion from ALTO DIDL format %TODO: martin, link?
+    \item Conversion from hocr format  %TODO: martin, link?
+    \item Conversion from page format  %TODO: martin, link?
+\end{itemize}
+
+Conversions may be limited by the source or target format. Conversion to
+FoLiA's predecessor DCOI XML, for instance, is only possible for the subset of
+elements that DCOI supports. Similarly, conversion to ReStructuredText is
+limited to text, its structure and markup, and not not include linguistic
+annotations.
+
+Besides the in-house developed FoLiA tools, third parties also make available
+convertors from or to FoLiA, notable is
+OpenConvert\footnote{https://github.com/INL/OpenConvert}, developed by the INL,
+which can convert from TEI, plaintext, Alto, Microsoft Word, and HTML to
+FoLiA.
+
+\subsection{Visualisation}
+
+An XSL stylesheet is available to visualise FoLiA documents. It renders
+documents and unobtrusively pops up with annotation information when hovering
+over structural items such as words. The \texttt{folia2html} conversion tool
+employs the very same stylesheet.
+
+\subsection{Searching}
+
+Tools for searching and querying FoLiA documents can be divided into two
+categories:
+
+\begin{enumerate}
+ \item In-document search
+ \item Document retrieval systems / Corpus Search tools
+\end{enumerate}
+
+At a low-level, in-document search can be conducted with the command-line tool
+\texttt{foliaquery}, part of the FoLiA tools. This tool reads one or more FoLiA
+documents in memory, sequentially, executes a search query, and presents the
+matching results. This, however, is not a solution that scales to a large
+number of documents as it takes time and memory to process a document.
+
+Full document retrieval systems do not rely on real-time processing of the FoLiA
+documents, but construct smart indices from the original documents and operate
+on these indices. The software Blacklab (back-end) and Whitelab (front-end) are
+examples of this. They were constructed in the CLARIN-NL project OpenSoNaR, and
+can operate on FoLiA documents. It has to be added though, that unlike the
+low-level in-document search, such engines typically only support a simpler subset of
+the annotation types supported by FoLiA, such as Part-of-Speech tags and
+lemmas. To our knowledge, span annotation types such as dependency relations,
+syntax and named entities, are not supported yet.
+
+As FoLiA is a highly expressive format, the need arose for a query language
+tuned specifically to the ideosyncracies of FoLiA. Although FoLiA can be
+perfectly searched with XPath, formulating a robust query is not always trivial
+and may require more in-depth knowledge of FoLiA. The \emph{FoLiA Query
+Language} (FQL) was designed as a higher-level query language, covering all of
+FoLiA, to make querying FoLiA documents easier. FQL is implemented alongside
+the FoLiA Python library in
+PyNLPl\footnote{https://pypi.python.org/pypi/PyNLPl/}. It is documented as part
+of the FoLiA documentation \cite{FOLIA}.
+
+FQL is a new and expressive query language. People in the field may be more
+accustomed to simpler and established query languages such as the Corpus Query
+Language (CQL), developed at the Corpora and Lexicons group, IMS, at the
+University of Stuttgart in the early 1990s. For this reason, a library that
+converts CQL to FQL has been implemented as well. The aforementioned
+\texttt{foliaquery} tool makes use of both these libraries. In the next section
+we will discuss FQL further and introduce higher-level tools in the FoLiA
+infrastructure that make use of it.
+
+\subsection{Editing}
+
+FQL has been designed in such a way that it is not just a language for
+passive querying, but a language that allows active manipulation of FoLiA
+documents. In other words, FQL is for FoLiA like SQL is for relational
+databases. Therefore, the \texttt{foliaquery} command-line tool and the FQL
+library it relies on can be used to edit documents. 
+
+A FoLiA document server \footnote{https://github.com/proycon/foliadocserve} has
+been constructed as a back-end for the editing of FoLiA documents. It is a
+RESTful webservice, with a simple human-interface to manually enter queries,
+and takes care of on demand loading and unloading documents in memory and
+serialising them to disk. It maintains a document repository, which features
+version control support (git).
+
+Obviously, neither the command-line tool nor the document server offer an
+interface adequate enough for human end-users to easily work with. To provide
+that, we have been developing the FoLiA Linguistic Annotation Tool
+(FLAT)\footnote{https://github.com/proycon/flat}. It is a modern
+web-application that offers an interface for the visualisation and editing of
+FoLiA documents. Under the hood, user interactions are translated to FQL
+queries and communicated to the aforementioned FoLiA document server.
+
+Although not yet supporting all of FoLiA at the current stage, FLAT has already
+been used succesfully in several annotation projects featuring student
+assistants at Radboud University Nijmegen. Further development of FLAT is
+planned for the CLARIN-NL successor project CLARIAH.
+
+\subsection{Special purpose tools}
+
+The previous sections discussed tools that can be considered part of the
+core layer. In this section we will discuss the outer layer of tools, these are
+tools that either take FoLiA as their input or deliver it as their output to
+perform a specific and specialised task, usually an NLP task given our context.
+It is a most essential layer to the infrastructure.
+
+\begin{tabular}
+\item \textbf{Cesax} -- A co-reference editor for syntactically annotated XML corpora.
+    Supports FoLiA import and output.\cite{CESAX} 
+\item \textbf{Colibri Core} -- A tool for the computation
+    of corpus statistics on ngrams and skipgrams in a quick and
+    memory-efficient way. It can import FoLiA documents, which it subsequently
+    compresses to an internal optimised binary format.
+\item \textbf{CLAM} -- Turns command-line NLP tools into RESTful webservice with an
+    interface for human end-users. It integrates the FoLiA viewer to visualise
+    FoLiA documents.\cite{CLAM}
+\item \textbf{Frog} -- An NLP-suite for Dutch, implementing tokenisation (through
+    ucto), Part-of-Speech tagging, Lemmatisation, Dependency Parsing, Named
+    Entity Recognition, Shallow parsing and Morphological Analysis. Supports
+    FoLiA input and output.
+\item \textbf{Gecco} -- Generic Environment for Context-Aware Correction
+    of Orthography: A spelling correction engine fully based on FoLiA. Powers
+    \emph{Valkuil.net} and soon also \emph{Fowlt.net}.
+\item \textbf{Ucto} -- An advanced rule-based tokeniser for a variety of
+    languages\footnote{https://languagemachines.github.io/ucto}. Support FoLiA
+    input and output.\cite{UCTO}
+\item \textbf{Ticcl} -- Text-Induced Corpus Clean-up. Outputs FoLiA. Used in the
+    CLARIN-NL project Ticclops and PhilosTEI.\cite{TICCL}
+\item \textbf{T-Scan} -- A Dutch text analytics tool for readability
+    prediction.\cite{TSCAN}
+\end{tabular}
+
+
+\section{Data Infrastructure}
+
+A format's usefulness is not just determined by the tools
+available, but also by the the data sets delivered in the format.
+The following corpora are delivered in FoLiA:
+
+\begin{itemize}
+    \item \textbf{Basilex} -- The Basilex corpus collects Dutch written language by children,
+        and counts about 11.5 million words. \cite{BASILEX}
+    \item \textbf{DutchSemCor} -- The DutchSemCor project delivered a Dutch corpus annotated
+        with lexical semantic senses, part of the annotation was manual, and a
+        part was tagged automatically with Word Sense Disambiguation system trained on
+        the manual part. The corpus is based on SoNaR, as well as extra
+        sources. \cite{DUTCHSEMCOR}
+    \item \textbf{SoNaR-500} --  The STEVIN project SoNaR aimed to deliver a 500 million
+        word corpus of written Dutch (including Flemish) from numerous sources.
+        The corpus is annotated with Part-of-Speech tags, lemmas, and named
+        entitie. \cite{SONAR}
+    \item \textbf{Nederlab} - A digitisation of a huge collection of dutch
+        newspapers throughout the ages. \cite{NEDERLAB}.
+    \item \textbf{VU-DNC} -- A diachronic Dutch newspaper corpus with annotations of
+        subjectivity.\cite{VUDNC}
+\end{itemize}
 
 
 
@@ -103,55 +384,4 @@ reference to the metadata file can be made in the header of the FoLiA document.
 
 
 
-
-
-
-
-
-
-
-and attributes 
-
-
-\section{}
-
-\section{Conclusion}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\end{document}
