@@ -1,4 +1,15 @@
-\chapter{FoLiA in practice: The infrastructure of a linguistic annotation format}
+\documentclass[a4paper,10pt,twoside]{article}
+\usepackage[english]{babel}
+\usepackage{hyperref}{}
+\usepackage{clin}
+
+\usepackage{harvard}
+
+
+\pagestyle{empty}
+\begin{document}
+
+\title{FoLiA in practice: The infrastructure of a linguistic annotation format}
 
 \section{Introduction}
 
@@ -216,7 +227,7 @@ various different other formats:
     \item Conversion to HTML
     \item Conversion to simple columned data or CSV
     \item Conversion from/to ReStructuredText
-    \item Conversion from/to DCOI XML format
+    \item Conversion from/to DCOI XML format (\cite{DCOI})
     \item Conversion from the Alpino XML format
     \item Conversion from ALTO DIDL format %TODO: martin, link?
     \item Conversion from hocr format  %TODO: martin, link?
@@ -323,7 +334,7 @@ tools that either take FoLiA as their input or deliver it as their output to
 perform a specific and specialised task, usually an NLP task given our context.
 It is a most essential layer to the infrastructure.
 
-\begin{tabular}
+\begin{itemize}
 \item \textbf{Cesax} -- A co-reference editor for syntactically annotated XML corpora.
     Supports FoLiA import and output.\cite{CESAX} 
 \item \textbf{Colibri Core}\footnote{https://proycon.github.io/colibri-core}-- A tool for the computation
@@ -347,7 +358,7 @@ It is a most essential layer to the infrastructure.
     CLARIN-NL project Ticclops and PhilosTEI.\cite{TICCL}
 \item \textbf{T-Scan}\footnote{https://github.com/proycon/tscan} -- A Dutch text analytics tool for readability
     prediction.\cite{TSCAN}
-\end{tabular}
+\end{itemize}
 
 
 \section{Data Infrastructure}
@@ -376,12 +387,24 @@ The following corpora are delivered in FoLiA:
 \end{itemize}
 
 In addition to corpora, the data part of the infrastructure also consists of a
-slowly growing number of Set Definitions. 
+growing number of Set
+Definitions\footnote{https://github.com/proycon/folia/tree/master/setdefinitions}.
 
 \section{Conclusion}
 
+In this paper we have seen that a rich infrastructure has been developed around
+the Format for Linguistic Annotation (FoLiA). We emphasise the need for a
+practical and proven format, in line with CLARIN's standardisation principle,
+and hence placed the focus for this paper on the software and data
+infrastructure. A more extensive overview of FoLiA and motivation for its
+inception can be found in \cite{FOLIAPAPER}.
+
+Continued efforts in the
+CLARIN-NL successor CLARIAH ensure that the developments on the infrastructure
+surrounding FoLiA will continue in the foreseeable future.
 
 
-
+\bibliographystyle{clin} 
+\bibliography{folia}  
 
 \end{document}
