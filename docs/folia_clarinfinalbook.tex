@@ -197,15 +197,16 @@ than when using a tool from the FoLiA infrastructure that abstracts over this
 for the benefit of the user/developer.
 
 Many of the tools of the core layer are available as command-line tools and are
-bundled in two \emph{FoLiA tools} software packages: there is a Python-based
-package\footnote{https://pypi.python.org/pypi/FoLiA-tools} and a C++
-package\footnote{https://github.com/LanguageMachines/foliatools}, both are
-built on the respective libraries.  There is some overlap in tools, but each
-also offers distinct tools the other does not. It is therefore recommended to
-install both. These packages, and all others tools pertaining to the FoLiA
-infrastructure developed at Radboud University Nijmegen, are also bundled in our
-LaMachine distribution.\footnote{http://proycon.github.io/LaMachine/, available
-as a Virtual Machine, Docker package or local installation script}
+bundled in two software packages: there is a Python-based \emph{FoLia Tools}
+package\footnote{https://pypi.python.org/pypi/FoLiA-tools} and a \emph{FoLiA
+Utilities} package\footnote{https://github.com/LanguageMachines/foliautils}
+consisting of tools written in C++. Both are built on the respective libraries.
+There is some overlap in tools, but each also offers distinct tools the other
+does not. It is therefore recommended to install both. These packages, and all
+others tools pertaining to the FoLiA infrastructure developed at Radboud
+University Nijmegen, are also bundled in our LaMachine
+distribution.\footnote{http://proycon.github.io/LaMachine/, available as a
+Virtual Machine, Docker package or local installation script}
 
 We subscribe strongly to the CLARIN principle that standards should be open and
 place a similar requirement on the infrastructure components we build. 
@@ -243,16 +244,16 @@ We already touched upon the notion of shallow and deep validation.
 FoLiA's syntax is formalized in a RelaxNG schema, and shallow validation can
 therefore be done using any XML validator with support for RelaxNG. 
 
-The tools \emph{foliavalidator} and \emph{folialint}\footnote{Part of the two
-FoLiA tools software packages mentioned earlier.} also perform shallow
-validation, and their usage is strongly recommended, or should even be considered
-mandatory, for anybody producing FoLiA documents. Moreover, the former tool can
-perform deep validation as well, i.e. it can validate the used classes against
-the set definitions.
+The tools \emph{foliavalidator} and \emph{folialint}\footnote{Part of
+respective foliatools and foliautils} also perform shallow validation, and
+their usage is strongly recommended, or should even be considered mandatory,
+for anybody producing FoLiA documents. Moreover, the former tool can perform
+deep validation as well, i.e. it can validate the used classes against the set
+definitions.
 
 \subsection{Conversion}
 
-The two FoLiA tools collections contain tools for the conversion from and to
+The FoLiA tools \& utilities collections contain tools for the conversion from and to
 various different other formats:
 
 \begin{itemize}
