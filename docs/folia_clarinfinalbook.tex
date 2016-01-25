@@ -1,13 +1,12 @@
 \documentclass[a4paper,11pt]{article}
 \usepackage{CLARIN2015}
 \usepackage[english]{babel}
-\usepackage{hyperref}{}
+%\usepackage{hyperref}{}
 
 \usepackage{times}  
 \usepackage{url}
 
-\usepackage{harvard}
-\usepackage{etoolbox}
+
 
 \pagestyle{empty}
 \begin{document}
@@ -87,10 +86,10 @@ The aim of FoLiA is to provide a practical standard, following a generic
 paradigm, for the linguistic annotation of primarily written text. To this end,
 a wide variety of linguistic annotation types is supported. 
 
-An extensive overview of the FoLiA format is presented in \citeasnoun{FOLIACLIN2013},
+An extensive overview of the FoLiA format is presented in earlier work \cite{FOLIACLIN2013},
 which also features a comparison with competing standards and full motivation
-for the creation of FoLiA. Documentation of the format  can be found in
-\citeasnoun{FOLIADOC2014} and offers a reference guide to all elements and attributes
+for the creation of FoLiA. Documentation of the format is also available
+elsewhere \cite{FOLIADOC2014} and offers a reference guide to all elements and attributes
 that FoLiA defines.  A brief summary of key features will be repeated in
 Section~\ref{sec:overview}, but for the remainder we refer to these two prior
 works.
@@ -383,7 +382,7 @@ It is a most essential layer to the infrastructure.
 
 \begin{itemize}
 \item \textbf{\textbf{Cesax}} -- A co-reference editor for syntactically annotated XML corpora.
-    Supports FoLiA import and output.\cite{CESAX} 
+    Supports FoLiA import and output. \cite{CESAX} 
 \item \textbf{\textbf{Colibri Core}}\footnote{https://proycon.github.io/colibri-core}-- A tool for the computation
     of corpus statistics on ngrams and skipgrams in a quick and
     memory-efficient way. It can import FoLiA documents, which it subsequently
@@ -402,7 +401,7 @@ It is a most essential layer to the infrastructure.
     of Orthography: A spelling correction engine fully based on FoLiA. Powers
     \emph{Valkuil.net} and soon also \emph{Fowlt.net}.
 \item \textbf{\textbf{Ticcl}} -- Text-Induced Corpus Clean-up. Outputs FoLiA. Used in the
-    CLARIN-NL project Ticclops and PhilosTEI. \cite{TICCL}
+    CLARIN-NL project Ticclops and PhilosTEI. \cite{Reynaert2010} %TODO martin: is dit de goede om te citeren?
 \item \textbf{\textbf{T-Scan}}\footnote{https://github.com/proycon/tscan} -- A Dutch text analytics tool for readability
     prediction. \cite{TSCAN}
 \end{itemize}
@@ -431,7 +430,7 @@ The following corpora are currently delivered in FoLiA:
     \item \textbf{Nederlab} - A digitisation of a huge collection of dutch
         newspapers throughout the ages. \cite{NEDERLAB}.
     \item \textbf{VU-DNC} -- A diachronic Dutch newspaper corpus with annotations of
-        subjectivity.\cite{VUDNC}
+        subjectivity. \cite{VUDNC}
 \end{itemize}
 
 In addition to corpora, the data part of the infrastructure also consists of a
@@ -446,13 +445,14 @@ the Format for Linguistic Annotation (FoLiA). We emphasised the need for a
 practical and proven format, in line with CLARIN's standardisation principle,
 and hence placed the focus for this paper on the software and data
 infrastructure. A more extensive overview of FoLiA itself and motivation for its
-inception can be found in \cite{FOLIACLIN2013}.
+inception was presented in earlier work \cite{FOLIACLIN2013}.
 
 Continued efforts in the CLARIN-NL successor CLARIAH ensure that the
 developments on the infrastructure surrounding FoLiA will continue in the
 foreseeable future.
 
 
+\bibliographystyle{acl}
 \bibliography{folia}  
 
 \end{document}
