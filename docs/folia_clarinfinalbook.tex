@@ -7,16 +7,25 @@
 \usepackage{url}
 
 \usepackage{harvard}
-
+\usepackage{etoolbox}
 
 \pagestyle{empty}
 \begin{document}
 
+
+
 \title{FoLiA in practice: The infrastructure of a linguistic annotation format}
-\author{Maarten van Gompel\footnote{Centre for Language and Speech Technology, Radboud University} \and Ko van der Sloot\footnotemark[\value{footnote}] \and Martin Reynaert\footnotemark[\value{footnote}] \footnote{Tilburg Centre for Cognition and Communication, Tilburg University}  \and Antal van den Bosch\footnote{Centre for Language Studies, Radboud University} }
+\author{Maarten van Gompel$^a$ \and Ko van der
+    Sloot$^a$ \and Martin Reynaert$^{ab}$ \and Antal van den Bosch$^c$} %cheating to get the affiliation footnotes right
 \date{}
 
+
 \maketitle
+\renewcommand{\thefootnote}{\alph{footnote}}
+\footnotetext[1]{Centre for Language and Speech Technology, Radboud University}
+\footnotetext[2]{Tilburg Centre for Cognition and Communication, Tilburg University}
+\footnotetext[3]{Centre for Language Studies, Radboud University}
+\renewcommand{\thefootnote}{\arabic{footnote}}
 
 \begin{abstract}
 We present an overview of the software and data infrastructure around FoLiA, a
@@ -24,7 +33,7 @@ We present an overview of the software and data infrastructure around FoLiA, a
 scope of the CLARIN-NL project and other projects.  FoLiA aims to provide a
 single unified file format accommodating a wide variety of linguistic
 annotation types, preventing the proliferation of using different formats for
-different annotation types. FoLiA is being develed in a bottom-up and
+different annotation types. FoLiA is being developed in a bottom-up and
 practice-driven fashion.  We have invested mainly in the creation of a rich
 infrastructure of tools that enable developers and end-users to work with the
 format. This work will present the current state of this infrastructure.
