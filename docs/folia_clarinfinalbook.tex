@@ -267,12 +267,13 @@ various different other formats:
     \item Conversion to plaintext
     \item Conversion to HTML
     \item Conversion to simple columned data or CSV
-    \item Conversion from/to ReStructuredText\footnote{http://docutils.sourceforge.net/rst.html}
+    \item Conversion from/to ReStructuredText\footnote{\url{http://docutils.sourceforge.net/rst.html}}
     \item Conversion from/to DCOI XML format \cite{DCOI}
     \item Conversion from the Alpino XML format \cite{ALPINO}
-    \item Conversion from ALTO DIDL format %TODO: martin, link?
-    \item Conversion from hocr format  %TODO: martin, link?
-    \item Conversion from page format  %TODO: martin, link?
+    \item Conversion from ALTO DIDL format\footnote{\url{http://www.loc.gov/standards/alto/}}
+    \item Conversion from hOCR HTML format  \cite{Breuel2007}
+    \item Conversion from Page XML format\footnote{\url{http://www.primaresearch.org/tools}}
+    %\item Conversion to TEI XML
 \end{itemize}
 
 Conversions may be limited by the source or target format. Conversion to
@@ -314,14 +315,15 @@ numbers of documents as it takes a fair amount of time and memory to process a d
 Full document retrieval systems do not rely on such costly real-time processing
 of the FoLiA documents, but construct smart indices from the original documents
 and operate on these indices. The software \textbf{Blacklab} (back-end)
-\cite{BLACKLAB} (front-end) \textbf{Whitelab} \cite{WHITELAB} are examples of this. They were
-%TODO martin: referenties blacklab & whitelab and Whitelab constructed in the
+and (front-end) \textbf{Whitelab} \cite{ReynaertVandecampVanzaanen2014ColingDemo} are examples of this. They were
+%TODO martin: referenties blacklab & whitelab and Whitelab 
+constructed in the
 CLARIN-NL project OpenSoNaR, and can operate on FoLiA documents. It has to be
 added though, that unlike the low-level in-document search, such engines
 typically only support a simpler subset of the annotation types supported by
 FoLiA, such as Part-of-Speech tags and lemmas. At this moment, span annotation
 types such as dependency relations, syntax and named entities, are not
-supported yet. %TODO martin: is dat inderdaad zo?
+supported yet. %TODO martin: is dat inderdaad zo? 
 
 As FoLiA is a highly expressive format, the need arose for a query language
 tuned specifically to the idiosyncrasies of FoLiA. Although FoLiA can be
@@ -382,7 +384,7 @@ It is a most essential layer to the infrastructure.
 
 \begin{itemize}
 \item \textbf{\textbf{Ucto}}\footnote{https://languagemachines.github.io/ucto} -- An advanced rule-based tokeniser for a variety of
-    languages. Support FoLiA
+    languages. Supports FoLiA
     input and output. \cite{UCTO}
 \item \textbf{\textbf{Frog}}\footnote{https://languagemachines.github.io/frog} -- An NLP suite for Dutch, implementing tokenisation (through
     ucto), Part-of-Speech tagging, Lemmatisation, Dependency Parsing, Named
@@ -391,8 +393,9 @@ It is a most essential layer to the infrastructure.
 \item \textbf{\textbf{CLAM}}\footnote{https://proycon.github.io/clam} -- Turns command-line NLP tools into RESTful webservice with an
     interface for human end-users. It integrates the FoLiA viewer to visualise
     FoLiA documents. \cite{CLAM}
-\item \textbf{\textbf{Ticcl}} -- Text-Induced Corpus Clean-up. Outputs FoLiA. Used in the
-    CLARIN-NL project Ticclops and PhilosTEI. \cite{Reynaert2010} %TODO martin: is dit de goede om te citeren?
+\item \textbf{\textbf{Ticcl}} -- Text-Induced Corpus Clean-up. Supports FoLiA
+    input and output. Used in the
+    CLARIN-NL projects TICCLops and @PhilosTEI. \cite{Reynaert2010} %TODO martin: is dit de goede om te citeren?
 \item \textbf{\textbf{Gecco}}\footnote{https://github.com/proycon/gecco}  -- Generic Environment for Context-Aware Correction
     of Orthography: A spelling correction engine fully based on FoLiA. Powers
     \emph{Valkuil.net} and soon also \emph{Fowlt.net}.
@@ -423,14 +426,13 @@ The following corpora are currently delivered in FoLiA:
         part was tagged automatically with Word Sense Disambiguation system trained on
         the manual part. The corpus is based on SoNaR, as well as extra
         sources. \cite{DUTCHSEMCOR}
-    \item \textbf{SoNaR-500} --  The STEVIN project SoNaR aimed to deliver a 500 million
+    \item \textbf{SoNaR-500} --  The STEVIN project SoNaR delivered a 540 million
         word corpus of written Dutch (including Flemish) from numerous sources.
         The corpus is annotated with Part-of-Speech tags, lemmas, and named
         entities. \cite{StevinSONAR2013}
-    \item \textbf{Nederlab} - A digitisation of a huge collection of dutch
-        newspapers throughout the ages. \cite{NEDERLAB}. %TODO martin: referentie?
-    \item \textbf{VU-DNC} -- A diachronic Dutch newspaper corpus with annotations of
-        subjectivity. \cite{VUDNC}
+    \item \textbf{Nederlab} -- The Nederlab project attempts to collect all digitized texts relevant to the history of Dutch language, culture and heritage (circa 800 -- present) in one user friendly and tool enriched open access web interface. \cite{Nederlab2016}. 
+    \item \textbf{VU-DNC} -- A diachronic Dutch newspaper corpus (2 million tokens) with annotations of
+        subjectivity and providing a gold standard for OCRed newspapers published in 1950. \cite{VUDNC}
 \end{itemize}
 
 In addition to corpora, the data part of the infrastructure also consists of a
@@ -452,7 +454,7 @@ developments on the infrastructure surrounding FoLiA will continue in the
 foreseeable future.
 
 
-\bibliographystyle{acl}
+%\bibliographystyle{acl}
 \bibliography{folia}  
 
 \end{document}
