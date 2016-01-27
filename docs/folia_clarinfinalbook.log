@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.8.17)  26 JAN 2016 15:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.8.17)  27 JAN 2016 14:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -96,17 +96,17 @@ LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
 
 {/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 208.
- [3]
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 255.
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 270.
+(Font)              <10.95> on input line 207.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 207.
 
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-) [4] [5]
-[6] (./folia_clarinfinalbook.bbl
+) [3]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 254.
+ [4]
+[5] [6] (./folia_clarinfinalbook.bbl
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ” in font ptmr7t!
@@ -118,13 +118,13 @@ Missing character: There is no € in font ptmr7t!
 Missing character: There is no “ in font ptmr7t!
 ) [8] (./folia_clarinfinalbook.aux) ) 
 Here is how much of TeX's memory you used:
- 898 strings out of 493089
- 11289 string characters out of 6134842
- 71802 words of memory out of 5000000
- 4405 multiletter control sequences out of 15000+600000
+ 900 strings out of 493089
+ 11318 string characters out of 6134842
+ 73802 words of memory out of 5000000
+ 4407 multiletter control sequences out of 15000+600000
  28608 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 24i,10n,23p,312b,299s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 24i,10n,23p,605b,306s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/
 enc/dvips/base/8r.enc}</usr/local/texlive/2015/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmmi8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsf
@@ -132,7 +132,7 @@ onts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/courier/
 ucrr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmb8a.pfb
 ></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/loc
 al/texlive/2015/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on folia_clarinfinalbook.pdf (8 pages, 100229 bytes).
+Output written on folia_clarinfinalbook.pdf (8 pages, 105176 bytes).
 PDF statistics:
  56 PDF objects out of 1000 (max. 8388607)
  39 compressed objects within 1 object stream

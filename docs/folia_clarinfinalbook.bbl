@@ -10,7 +10,7 @@ Wilko Apperloo.
 \bibitem[\protect\citename{Bouma \bgroup et al.\egroup }2000]{ALPINO}
 Gosse Bouma, Gertjan van Noord, and Rob Malouf.
 \newblock 2000.
-\newblock Alpino: Wide-coverage computational analysis of {D}utch.
+\newblock {A}lpino: {W}ide-coverage {C}omputational {A}nalysis of {D}utch.
 \newblock In Walter Daelemans, Khalil Sima'an, Jorn Veenstra, and Jakub Zavrel,
   editors, {\em CLIN}, volume~37 of {\em Language and Computers - Studies in
   Practical Linguistics}, pages 45--59. Rodopi.
@@ -18,7 +18,7 @@ Gosse Bouma, Gertjan van Noord, and Rob Malouf.
 \bibitem[\protect\citename{Breuel}2007]{Breuel2007}
 Thomas Breuel.
 \newblock 2007.
-\newblock The h{OCR} microformat for {OCR} workflow and results.
+\newblock The h{OCR} {M}icroformat for {OCR} {W}orkflow and {R}esults.
 \newblock In {\em Proceedings of the Ninth International Conference on Document
   Analysis and Recognition}, volume~2, pages 1063--1067. IEEE Computer Society.
 
@@ -26,8 +26,8 @@ Thomas Breuel.
 Daan Broeder, Oliver Schonefeld, Thorsten Trippel, Dieter Van~Uytvanck, and
   Andreas Witt.
 \newblock 2011.
-\newblock {A pragmatic approach to XML interoperability — the Component
-  Metadata Infrastructure (CMDI)}.
+\newblock A pragmatic approach to {XML} interoperability — the {C}omponent
+  {M}etadata {I}nfrastructure ({CMDI}).
 \newblock In {\em Balisage: The Markup Conference 2011}, volume~7.
 
 \bibitem[\protect\citename{Brugman \bgroup et al.\egroup }2016]{Nederlab2016}
@@ -36,7 +36,7 @@ Hennie Brugman, Martin Reynaert, Nicoline van~der Sijs, Ren{\'e} van Stipriaan,
   Dieuwertje Kooij, Ineke Brussee, Matthijs Brouwer, Marc Kemps-Snijders, and
   Hans Bennis.
 \newblock 2016.
-\newblock Nederlab: Towards a single portal and research environment for
+\newblock {N}ederlab: {T}owards a single portal and research environment for
   diachronic {D}utch text corpora.
 \newblock In Nicoletta~Calzolari et~al., editor, {\em Proceedings of the Tenth
   International Language Resources and Evaluation Conference (LREC-2016)},
@@ -45,7 +45,7 @@ Hennie Brugman, Martin Reynaert, Nicoline van~der Sijs, Ren{\'e} van Stipriaan,
 \bibitem[\protect\citename{Chris and Schulze}1996]{CQL}
 Oliver Chris and Bruno~M. Schulze.
 \newblock 1996.
-\newblock Ein flexibles und modulares anfragesystem f\"ur textcorpora.
+\newblock Ein flexibles und modulares {A}nfragesystem f\"ur {T}extcorpora.
 \newblock In {\em Lexikon und Text}, pages 121--133. Max Niemeyer Verlag.
 
 \bibitem[\protect\citename{G\"orog and Vossen}2010]{DUTCHSEMCOR}
@@ -60,7 +60,7 @@ Attila G\"orog and Piek Vossen.
 Henk~Pander Maat, Rogier Kraf, Antal van~den Bosch, Nick Dekker, Maarten van
   Gompel, Suzanne Kleijn, Ted Sanders, and Ko~van~der Sloot.
 \newblock 2014.
-\newblock T-scan: a new tool for analyzing dutch text.
+\newblock {T}-{S}can: a new tool for analyzing {D}utch text.
 \newblock {\em Computational Linguistics in the Netherlands Journal}, 4.
 
 \bibitem[\protect\citename{Oostdijk \bgroup et al.\egroup
@@ -82,19 +82,35 @@ Martin Reynaert, Matje van~de Camp, and Menno van Zaanen.
   124--128, Dublin, Ireland. Dublin City University and Association for
   Computational Linguistics.
 
+\bibitem[\protect\citename{Reynaert \bgroup et al.\egroup }2015]{Reynaert2015}
+Martin Reynaert, Maarten van Gompel, Ko~van~der Sloot, and Antal van~den Bosch.
+\newblock 2015.
+\newblock {PICCL}: {P}hilosophical {I}ntegrator of {C}omputational and {C}orpus
+  {L}ibraries.
+\newblock In {\em Proceedings of {CLARIN} {A}nnual {C}onference 2015 -- {B}ook
+  of {A}bstracts}, pages 75--79, Wroclaw, Poland. CLARIN ERIC.
+
 \bibitem[\protect\citename{Reynaert}2010]{Reynaert2010}
 Martin Reynaert.
 \newblock 2010.
 \newblock {Character confusion versus focus word-based correction of spelling
-  and OCR variants in corpora}.
+  and {OCR} variants in corpora}.
 \newblock {\em International Journal on Document Analysis and Recognition},
   14:173--187.
 \newblock 10.1007/s10032-010-0133-5.
 
+\bibitem[\protect\citename{Reynaert}2014]{Reynaert2014b}
+Martin Reynaert.
+\newblock 2014.
+\newblock Synergy of {Ne}derlab and @{P}hilos{TEI}: diachronic and multilingual
+  {T}ext-{I}nduced {C}orpus {C}lean-up.
+\newblock In {\em Proceedings of the Sixth International Language Resources and
+  Evaluation (LREC'14)}, Reykjavik, Iceland. ELRA.
+
 \bibitem[\protect\citename{Tellings \bgroup et al.\egroup }2014]{BASILEX}
 Agnes Tellings, Micha Hulsbosch, Anne Vermeer, and Antal van~den Bosch.
 \newblock 2014.
-\newblock Basilex: an 11.5 million words corpus of dutch texts written for
+\newblock {B}asilex: an 11.5 million words corpus of {D}utch texts written for
   children.
 \newblock {\em Computational Linguistics in the Netherlands Journal},
   4:191--208, 12/2014.
@@ -102,8 +118,8 @@ Agnes Tellings, Micha Hulsbosch, Anne Vermeer, and Antal van~den Bosch.
 \bibitem[\protect\citename{van Gompel and Reynaert}2013]{FOLIACLIN2013}
 Maarten van Gompel and Martin Reynaert.
 \newblock 2013.
-\newblock Folia: A practical xml format for linguistic annotation - a
-  descriptive and comparative study.
+\newblock {F}o{L}i{A}: {A} practical {XML} {F}ormat for {L}inguistic
+  {A}nnotation - a descriptive and comparative study.
 \newblock {\em Computational Linguistics in the Netherlands Journal}, 3.
 
 \bibitem[\protect\citename{van Gompel \bgroup et al.\egroup }2012]{UCTO}
@@ -118,7 +134,7 @@ Maarten van Gompel, Ko~van~der Sloot, and Antal van~den Bosch.
 Maarten van Gompel.
 \newblock 2012.
 \newblock {CLAM}: {C}omputational {L}inguistics {A}pplication {M}ediator.
-  documentation.
+  {D}ocumentation.
 \newblock Technical report, Tilburg Centre for Cognition and Communication,
   Tilburg University and Radboud Centre for Language Studies, Radboud
   University Nijmegen.
@@ -126,14 +142,14 @@ Maarten van Gompel.
 \bibitem[\protect\citename{van Gompel}2014]{FOLIADOC2014}
 Maarten van Gompel.
 \newblock 2014.
-\newblock Folia: Format for linguistic annotation. documentation.
+\newblock {F}o{L}i{A}: {F}ormat for {L}inguistic {A}nnotation. {D}ocumentation.
 \newblock Technical report, Radboud University Nijmegen.
 
 \bibitem[\protect\citename{Vis \bgroup et al.\egroup }2012]{VUDNC}
 Kirsten Vis, José Sanders, and Wilbert Spooren.
 \newblock 2012.
-\newblock Diachronic changes in subjectivity and stance -- a corpus linguistic
-  study of dutch news texts.
+\newblock {D}iachronic changes in subjectivity and stance -- {A} corpus
+  linguistic study of {D}utch news texts.
 \newblock {\em Discourse, Context \& Media}, 1(2–3):95 -- 102.
 \newblock The view from here, there and nowhere: discursive approaches to
   journalistic stance.
