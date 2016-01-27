@@ -5,6 +5,7 @@
 
 \usepackage{times}  
 \usepackage{url}
+\usepackage{graphicx}
 
 
 
@@ -139,6 +140,19 @@ Although FoLiA has simple native support for metadata, we see no
 sense in reinventing the wheel and FoLiA is ideally used in combination with an
 external metadata format such as CMDI whenever extensive metadata is desired. A
 reference to the metadata file can be made in the header of the FoLiA document.
+
+The FoLiA paradigm laid out here is schematically illustrated in
+Figure~\ref{fig:paradigm} \cite{FOLIADOC2014}. A more in-depth treatise is beyond the scope of this
+current paper.
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=160.0mm]{folia_paradigm.png}
+\end{center}
+\caption{A schematic overview of the most important aspects of the FoLiA
+paradigm, including XML examples \cite{FOLIADOC2014}.}
+\label{fig:paradigm} 
+\end{figure}
 
 \section{Our philosophy}
 \label{sec:philosophy}
@@ -422,7 +436,7 @@ The following corpora are currently delivered in FoLiA:
         part was tagged automatically with a Word Sense Disambiguation system trained on
         the manual part. The corpus is based on SoNaR, as well as extra
         sources. \cite{DUTCHSEMCOR}
-            \item \textbf{VU-DNC} -- A diachronic Dutch newspaper corpus (2 million tokens) with annotations of subjectivity. Provides a gold standard for OCRed newspapers published in 1950. \cite{VUDNC}
+    \item \textbf{VU-DNC} -- A diachronic Dutch newspaper corpus (2 million tokens) with annotations of subjectivity. Provides a gold standard for OCRed newspapers published in 1950. \cite{VUDNC}
     \item \textbf{SoNaR-500} --  The STEVIN project SoNaR delivered a 540 million
         word corpus of written Dutch (including Flemish) from numerous sources.
         The corpus is annotated with Part-of-Speech tags, lemmas, and named
@@ -446,7 +460,9 @@ inception was presented in earlier work \cite{FOLIACLIN2013}.
 
 Continued efforts in the CLARIN-NL successor CLARIAH ensure that the
 developments on the infrastructure surrounding FoLiA will continue in the
-foreseeable future. FoLiA XML is the pivot format in CLARIAH project `Philosophical Integrator of Computational and Corpus Libraries' or PICCL \cite{Reynaert2015}.
+foreseeable future. FoLiA XML is the pivot format in CLARIAH project
+`Philosophical Integrator of Computational and Corpus Libraries' or PICCL
+\cite{Reynaert2015}.
 
 \section*{Acknowledgements}
 
