@@ -3,44 +3,46 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: folia_clarinfinalbook.aux
 The style file: acl.bst
 Database file #1: folia.bib
+Warning--empty booktitle in CWB-Christ94
 You've used 19 entries,
             2490 wiz_defined-function locations,
-            691 strings with 9326 characters,
-and the built_in function-call counts, 8461 in all, are:
-= -- 889
-> -- 379
-< -- 10
-+ -- 132
-- -- 129
-* -- 619
-:= -- 1374
-add.period$ -- 86
+            689 strings with 9399 characters,
+and the built_in function-call counts, 8215 in all, are:
+= -- 854
+> -- 373
+< -- 9
++ -- 130
+- -- 127
+* -- 602
+:= -- 1347
+add.period$ -- 84
 call.type$ -- 19
-change.case$ -- 142
+change.case$ -- 141
 chr.to.int$ -- 19
-cite$ -- 19
-duplicate$ -- 358
-empty$ -- 603
-format.name$ -- 151
-if$ -- 1794
+cite$ -- 20
+duplicate$ -- 348
+empty$ -- 588
+format.name$ -- 148
+if$ -- 1730
 int.to.chr$ -- 1
 int.to.str$ -- 0
 missing$ -- 15
-newline$ -- 119
+newline$ -- 118
 num.names$ -- 61
-pop$ -- 144
+pop$ -- 146
 preamble$ -- 1
-purify$ -- 157
+purify$ -- 156
 quote$ -- 0
-skip$ -- 272
+skip$ -- 259
 stack$ -- 0
-substring$ -- 344
-swap$ -- 97
-text.length$ -- 10
+substring$ -- 312
+swap$ -- 87
+text.length$ -- 9
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 152
-warning$ -- 0
-while$ -- 58
+warning$ -- 1
+while$ -- 55
 width$ -- 21
-write$ -- 286
+write$ -- 282
+(There was 1 warning)

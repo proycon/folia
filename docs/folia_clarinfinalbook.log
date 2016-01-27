@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.8.17)  27 JAN 2016 14:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.8.17)  27 JAN 2016 15:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -119,7 +119,7 @@ Missing character: There is no “ in font ptmr7t!
 ) [8] (./folia_clarinfinalbook.aux) ) 
 Here is how much of TeX's memory you used:
  900 strings out of 493089
- 11318 string characters out of 6134842
+ 11327 string characters out of 6134842
  73802 words of memory out of 5000000
  4407 multiletter control sequences out of 15000+600000
  28608 words of font info for 56 fonts, out of 8000000 for 9000
@@ -132,7 +132,7 @@ onts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/courier/
 ucrr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmb8a.pfb
 ></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/loc
 al/texlive/2015/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on folia_clarinfinalbook.pdf (8 pages, 105176 bytes).
+Output written on folia_clarinfinalbook.pdf (8 pages, 105081 bytes).
 PDF statistics:
  56 PDF objects out of 1000 (max. 8388607)
  39 compressed objects within 1 object stream
