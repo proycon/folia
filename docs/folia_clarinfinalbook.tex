@@ -222,11 +222,15 @@ package\footnote{\url{https://pypi.python.org/pypi/FoLiA-tools}} and a \textbf{F
 Utilities} package\footnote{\url{https://github.com/LanguageMachines/foliautils}}
 consisting of tools written in C++. Both are built on the respective libraries.
 There is some overlap in tools, but each also offers distinct tools the other
-does not. It is therefore recommended to install both. These packages, and all
-others tools pertaining to the FoLiA infrastructure developed at Radboud
-University, are also bundled in our \textbf{LaMachine}
-distribution.\footnote{\url{http://proycon.github.io/LaMachine/}, available as a
-Virtual Machine, Docker package or local installation script}
+does not. It is therefore recommended to install both.
+
+These packages, and all other tools pertaining to the FoLiA infrastructure
+which have been developed at Radboud University, are bundled in our
+\textbf{LaMachine}
+distribution.\footnote{\url{http://proycon.github.io/LaMachine/} LaMachine
+greatly facilitates installation of this software and is a recommended starting
+point if you work with FoLiA. It is available as a Virtual Machine, a Docker
+package or a local compilation \& installation script.
 
 We subscribe strongly to the CLARIN principle that standards should be open and
 place a similar requirement on the infrastructure components we build. 
@@ -297,8 +301,9 @@ to text, its structure and markup, and does not include linguistic annotations.
 
 Besides the in-house developed FoLiA tools, third parties also make available
 converters from or to FoLiA. A notable case is
-\textbf{OpenConvert}\footnote{\url{https://github.com/INL/OpenConvert}}, developed by the Institute for Dutch Lexicology (INL), which can convert from TEI, plaintext, ALTO, Microsoft Word, and HTML to
-FoLiA.
+\textbf{OpenConvert}\footnote{\url{https://github.com/INL/OpenConvert}},
+developed by the Institute for Dutch Lexicology (INL), which can convert from
+TEI, plaintext, ALTO, Microsoft Word, and HTML to FoLiA.
 
 \subsection{Visualisation}
 
@@ -327,9 +332,26 @@ numbers of documents as it takes a fair amount of time and memory to process a d
 
 Full document retrieval systems do not rely on such costly real-time processing
 of the FoLiA documents, but construct smart indices from the original documents
-and operate on these indices. The corpus retrieval engine \textbf{Blacklab}\footnote{\url{https://github.com/INL/BlackLab}}, based on based on Apache Lucene, and the front-end \textbf{Whitelab} \cite{ReynaertVandecampVanzaanen2014ColingDemo} are examples of this. WhiteLab was developed in the CLARIN-NL project OpenSoNaR\footnote{\url{https://github.com/TiCCSoftware/WhiteLab}}, and can operate on FoLiA documents, as does BlackLab. So far, these engines typically only supported a simpler subset of the annotation types supported by
-FoLiA, such as Part-of-Speech tags and lemmas. %At this moment, span annotation types such as dependency relations, syntax and named entities, are not supported yet. %TODO martin: is dat inderdaad zo? 
-At the time of writing, there is collaboration, and some competition, between the various developers in the Netherlands to support span annotation types such as dependency relations, syntax and named entities. In WhiteLab version 2 this is achieved by way of a Neo4J-plugin\footnote{\url{https://github.com/Taalmonsters/WhiteLab2.0}}.
+and operate on these indices. The corpus retrieval engine
+\textbf{Blacklab}\footnote{\url{https://github.com/INL/BlackLab}}, based on
+Apache Lucene, and the front-end \textbf{Whitelab}
+\cite{ReynaertVandecampVanzaanen2014ColingDemo} are examples of this. WhiteLab
+was developed in the CLARIN-NL project
+OpenSoNaR\footnote{\url{https://github.com/TiCCSoftware/WhiteLab}}, and can
+operate on FoLiA documents, as does BlackLab. So far, these engines typically
+only supported a simpler subset of the annotation types supported by FoLiA,
+such as Part-of-Speech tags and lemmas.  At the time of writing, there is
+collaboration, and some competition, between the various developers in the
+Netherlands to support span annotation types such as dependency relations,
+syntax and named entities. In WhiteLab version 2 this is achieved by way of a
+Neo4J-plugin\footnote{\url{https://github.com/Taalmonsters/WhiteLab2.0}}, as an
+alternative to do BlackLab backend. Another FoLiA-capable search and retrieval
+system called Multi-Tier Annotation Search (\textbf{MTAS}) has been promised by
+the Meertens Institute, and builds upon Solr and Lucene. It is being developed in
+the scope of the Nederlab project \cite{Nederlab2016} and the CLARIAH project.
+This system, however, is still in early stages of development and not released
+yet.
+
 
 As FoLiA is a highly expressive format, the need arose for a query language
 tuned specifically to the idiosyncrasies of FoLiA. Although FoLiA can be
@@ -417,7 +439,8 @@ It is a most essential layer to the infrastructure.
     compresses to an internal optimised binary format.
 \end{itemize}
 
-%%ToDo: Ik mis van de tools die Ko ontwikkeld heeft zoals FoLiA-stats en FoLiA-langcat. Over FoLiA-Alto valt ook nog meer te zeggen, die kan harvesten van de KB op basis van de DIDL files.
+%%ToDo: Ik mis van de tools die Ko ontwikkeld heeft zoals FoLiA-stats en FoLiA-langcat. Over FoLiA-Alto valt ook nog meer te zeggen, die kan harvesten van de KB op basis van de DIDL files. (mre)
+%(proycon): Die vallen minder onder the special-purpose tools maar zijn deel van de core layer en zitten in FoLiA-utils. FoLiA-alto staat bij convertors genoemd op zich.  langcat en stats had ik idd nog niet expliciet genoemd ergens.
 
 \section{Data Infrastructure}
 \label{sec:datainfrastructure}
