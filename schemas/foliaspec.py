@@ -46,7 +46,7 @@ def outputvar(var, value, target, declare = False):
             if quote:
                 return var + ' = "' + value  + '"'
             else:
-                return var + ' = ' + value  + '"
+                return var + ' = ' + value
     elif target == 'c++':
         typedeclaration = ''
         if isinstance(value, bool):
