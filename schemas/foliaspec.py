@@ -3,96 +3,86 @@
 #Used by respectively pynlpl and libfolia
 import sys
 import yaml
+import datetime
+import os
 
 
-
+#Load specification
 spec = yaml.load(open('folia.yml','r'))
 
-varmap_pynlpl = {
-    'xmltag': 'XMLTAG',
-    'required_attributes': 'REQUIRED_ATTRIBS',
-    'optional_attributes': 'OPTIONAL_ATTRIBS',
-    'occurrences': 'OCCURRENCES',
-    'occurrences_per_set': 'OCCURRENCES_PER_SET',
-    'accepted_data': 'ACCEPTED_DATA',
-    'annotationtype': 'ANNOTATIONTYPE',
-    'textdelimiter': 'TEXTDELIMITER',
-    'printable': 'PRINTABLE',
-    'speakable': 'SPEAKABLE',
-    'xlink': 'XLINK',
-    'authoritative': 'AUTH',
-    'textcontainer': 'TEXTCONTAINER',
-    'phoncontainer': 'PHONCONTAINER',
-    'rootelement': 'ROOTELEMENT',
-}
+elements = getelements(spec) #gathers all class names
+elements.sort(key=lambda x: x['class'])
+elementnames = [ e['class'] for e in elements ]
 
-varmap_libfolia = {
-    'xmltag': '_xmltag',
-    'required_attributes': '_required_attributes',
-    'optional_attributes': '_optional_attributes',
-    'occurrences': '_occurences',
-    'occurrences_per_set': '_occurrences_per_set',
-    'accepted_data': '_accepted_data',
-    'annotationtype': '_annotation_type',
-    'textdelimiter': 'TEXTDELIMITER',
-    'printable': 'PRINTABLE',
-    'speakable': 'SPEAKABLE',
-    'xlink': 'XLINK',
-    'authoritative': '',
-    'textcontainer': '',
-    'phoncontainer': '',
-    'rootelement': ''
-}
+def getelements(d):
+    elements = []
+    if 'elements' in d:
+        for e in d['elements']:
+            elements.append(e)
+            elements += getelements(e)
 
+    return elements
 
+################################################################
 
-def outputvar(var):
-    if target == 'pynlpl':
+def outputvar(var, value, target, declare = False):
+    quote = var in ('version','namespace','TEXTDELIMITER','XMLTAG')  #values are string literals rather than enums or classes
 
-        if var in varmap_pynlpl:
-            libvar = varmap_pynlpl[var]
-        else:
-            libvar = var
-        if libvar:
-            if isinstance(spec[var], bool):
-                if spec[var]:
-                    print(libvar + ' = True')
-                else:
-                    print(libvar + ' = False')
-            elif isinstance(spec[var], (int, float) ):
-                print(libvar + ' = ' + str(spec[var]))
+    if target == 'python':
+        if isinstance(value, bool):
+            if value:
+                return var + ' = True'
             else:
-                print(libvar + ' = "' + spec[var] + '"')
-
-    elif target == 'libfolia':
-
-        if var in varmap_libfolia:
-            libvar = varmap_libfolia[var]
-        else:
-            libvar = var
-
-        if libvar:
-            if isinstance(spec[var], bool):
-                if spec[var]:
-                    print(libvar + ' = true')
-                else:
-                    print(libvar + ' = false')
-            elif isinstance(spec[var], int ):
-                print(libvar + ' = ' + str(spec[var]) + ';')
+                return var + ' = False'
+        elif isinstance(value, (int, float) ):
+            return var + ' = ' + str(value)
+        elif isinstance(value, list):
+            #list items are  enums or classes, never string literals
+            if quote:
+                return var + ' = (' + ', '.join([ '"' + x + '"' for x in value]) + ',)'
             else:
-                print(libvar + ' = "' + spec[var] + '";')
+                return var + ' = (' + ', '.join(value) + ',)'
+        else:
+            if quote:
+                return var + ' = "' + value  + '"'
+            else:
+                return var + ' = ' + value  + '"
+    elif target == 'c++':
+        typedeclaration = ''
+        if isinstance(value, bool):
+            if declare: typedeclaration = 'const bool '
+            if value:
+                return typedeclaration + var + ' = true;'
+            else:
+                return typedeclaration + var + ' = false;'
+        elif isinstance(value, int ):
+            if declare: typedeclaration = 'const int '
+            return typedeclaration + var + ' = ' + str(value) + ';'
+        elif isinstance(value, float ):
+            if declare: typedeclaration = 'const double '
+            return typedeclaration + var + ' = ' + str(value) + ';'
+        elif isinstance(value, list):
+            #list items are  enums or classes, never string literals
+            if all([ x in elementnames for x in value ]):
+                if declare:
+                    typedeclarion = 'const set<ElementType> '
+                    operator = '='
+                else:
+                    operator += '+='
+                value = [ x + '_t' for x in value ]
 
-def outputdefaultproperties():
-    if target == 'libfolia':
-	for element in allelements:
-
-
-out = {
-    'foliaspec.py': open('foliaspec.py','w',encoding='utf-8'),
-    'folia_properties.cxx': open('folia_properties.cxx','w',encoding='utf-8'),
-    'folia_types.h': open('folia_types.h','w',encoding='utf-8'),
-}
-
+                return var + ' ' + operator + ' {' + ', '.join(value) + '}'
+            elif all([ x in spec['attributes'] for x in value ]):
+                return var + ' = ' + '|'.join(values)
+            else:
+                return var + ' = { ' + ', '.join([ '"' + x + '"' for x in value]) + ', }'
+        else:
+            if quote:
+                if declare: typedeclaration = 'const string '
+                return typedeclaration + var + ' = "' + value+ '";'
+            else:
+                if declare: typedeclaration = 'const auto '
+                return typedeclaration + var + ' = ' + value+ ";'
 
 
 def outputblock(block, target, indent = ""):
@@ -102,21 +92,50 @@ def outputblock(block, target, indent = ""):
         commentsign = '//'
 
     s = '' #the output
-    if block == 'header'
+    if block == 'header':
         s += indent + commentsign + "This file was last updated according to the FoLiA specification for version " + str(spec['version']) + " on " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S") + ", using foliaspec.py"
         s += indent + commentsign + "Do not remove any foliaspec comments!!!"
 
-    if block == 'attributes':
+    elif block == 'attributes':
         if target == 'python':
             s += indent + "class Attrib:\n"
-            s += indent + "    " +  ", ".join(spec['attributes']) + " = range(len( " + str(spec['attributes']) + "))" )
+            s += indent + "    " +  ", ".join(spec['attributes']) + " = range(len( " + str(spec['attributes']) + "))"
         elif target == 'c++':
-            s += indent + "enum Attrib : int { NO_ATT=0, ")
+            s += indent + "enum Attrib : int { NO_ATT=0, "
             value = 1
             for attrib in spec['attributes']:
-                s =  attrib + '=' + str(value) + ', ')
+                s =  attrib + '=' + str(value) + ', '
                 value *= 2
             s += 'ALL='+str(value) + ' };'
+    elif block == 'annotationtype':
+        if target == 'python':
+            s += indent + "class AnnotationType:\n"
+            s += indent + "    " +  ", ".join(spec['annotationtype']) + " = range(len( " + str(spec['annotationtype']) + "))"
+        elif target == 'c++':
+            s += indent + "enum AnnotationType : int { NO_ANN, "
+            s += indent + ", ".join(spec['annotationtype']) + ", LAST_ANN };"
+    elif block == 'initelementproperties':
+        if target == 'c++':
+            for element in elements:
+                s += indent + "properties " + element['class'] + '::PROPS = DEFAULT_PROPERTIES;\n'
+    elif block == 'setelementproperties':
+        if target == 'python':
+            for element in elements:
+                s += commentsign + "------ " + element['class'] + " -------\n"
+                if 'properties' in element:
+                    for prop, value in element['properties'].items:
+                        s += indent + outputvar(element['class'] + '.' + prop.upper(),  value, target) + '\n'
+        elif target == 'c++':
+            for element in elements:
+                s += commentsign + "------ " + element['class'] + " -------\n"
+                s += indent + element['class'] + '::PROPS.ELEMENT_ID = ' + element['class'] + '_t;\n'
+                if 'properties' in element:
+                    for prop, value in element['properties'].items:
+                        s += indent + outputvar(element['class'] + '::PROPS.' + prop.upper(),  value, target) + '\n'
+    else:
+        if block in spec:
+            outputvar(block, spec[block], target, True, quote)
+        raise Exception("No such block exists in foliaspec: " + block)
 
 
     if s and s[-1] != '\n': s += '\n'

@@ -2,16 +2,13 @@
 #    This is a technical specification of FoLiA, for use by FoLiA libraries
 
 #The FoLiA version
-version: 0.12.2
+version: "0.12.2"
 
 #The FoLiA namespace
-namespace: http://ilk.uvt.nl/folia
+namespace: "http://ilk.uvt.nl/folia"
 
 #all possible common FoLiA attributes
-attributes: [ ID, CLASS, ANNOTATOR, CONFIDENCE, N, DATETIME, SETONLY, BEGINTIME, ENDTIME, SRC, SPEAKER ]
-
-#the full most permissive set of attributes (referred to as ALL)
-all_attributes: [ ID, CLASS, ANNOTATOR, CONFIDENCE, N, DATETIME, BEGINTIME, ENDTIME, SRC, SPEAKER ]
+attributes: [ ID, CLASS, ANNOTATOR, CONFIDENCE, N, DATETIME, BEGINTIME, ENDTIME, SRC, SPEAKER ]
 
 #All possible annotation types, each must be declared in the FoLiA header when used
 annotationtype: [ TEXT, TOKEN, DIVISION, PARAGRAPH, LIST, FIGURE, WHITESPACE, LINEBREAK, SENTENCE, POS, LEMMA, DOMAIN, SENSE, SYNTAX, CHUNKING, ENTITY, CORRECTION, SUGGESTION, ERRORDETECTION, ALTERNATIVE, PHON, SUBJECTIVITY, MORPHOLOGICAL, EVENT, DEPENDENCY, TIMESEGMENT, GAP, NOTE, ALIGNMENT, COMPLEXALIGNMENT, COREFERENCE, SEMROLE, METRIC, LANG, STRING, TABLE, STYLE, PART, UTTERANCE, TERM, DEFINITION, EXAMPLE, PHONOLOGICAL ]
@@ -21,23 +18,23 @@ default_properties:
     element_id: BASE
     xmltag: null
     accepted_data: [ Description ]
-    required_attributes: null
-    optional_attributes: null
+    required_attribs: null
+    optional_attribs: null
     occurrences: 0
     occurrences_per_set: 1
     textdelimiter: null
     printable: false
     speakable: false
     xlink: false
-    authoritative: true
+    auth: true
     textcontainer: false
     phoncontainer: false
 
 elements:
     - class: AbstractStructureElement
       properties:
-            required_attributes: [ ID ]
-            optional_attributes: ALL
+            required_attribs: [ ID ]
+            optional_attribs: ALL
             printable: true
             speakable: true
             textdelimiter: "\n\n"
