@@ -37,6 +37,9 @@ def outputvar(var, value, target, declare = False):
         elif isinstance(value, (int, float) ):
             return var + ' = ' + str(value)
         elif isinstance(value, list):
+            if all([ x in elementnames for x in value ]) or  all([ x in spec['attributes'] for x in value ]):
+                return var + ' = (' + ', '.join(value) + ',)'
+
             #list items are  enums or classes, never string literals
             if quote:
                 return var + ' = (' + ', '.join([ '"' + x + '"' for x in value]) + ',)'
@@ -68,21 +71,22 @@ def outputvar(var, value, target, declare = False):
                     typedeclarion = 'const set<ElementType> '
                     operator = '='
                 else:
+                    typedeclaration = ''
                     operator += '+='
                 value = [ x + '_t' for x in value ]
 
-                return var + ' ' + operator + ' {' + ', '.join(value) + '}'
+                return typedeclaration + var + ' ' + operator + ' {' + ', '.join(value) + '};'
             elif all([ x in spec['attributes'] for x in value ]):
-                return var + ' = ' + '|'.join(values)
+                return var + ' = ' + '|'.join(value)
             else:
-                return var + ' = { ' + ', '.join([ '"' + x + '"' for x in value]) + ', }'
+                return typedeclaration + var + ' = { ' + ', '.join([ '"' + x + '"' for x in value]) + ', }'
         else:
             if quote:
                 if declare: typedeclaration = 'const string '
                 return typedeclaration + var + ' = "' + value+ '";'
             else:
                 if declare: typedeclaration = 'const auto '
-                return typedeclaration + var + ' = ' + value+ ";'
+                return typedeclaration + var + ' = ' + value+ ';'
 
 
 def outputblock(block, target, indent = ""):

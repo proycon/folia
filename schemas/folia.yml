@@ -39,17 +39,17 @@ elements:
             speakable: true
             textdelimiter: "\n\n"
       elements:
+            - class: Division
+              properties:
+                annotationtype: DIVISION 
+                xmltag: div
+                accepted_data: [ Division, Quote, Gap, Event, Example, Entry, Head, Utterance, Paragraph, Sentence, List, Figure, Table, Note, Reference,AbstractExtendedTokenAnnotation, Description, Linebreak, Whitespace, Alternative, AlternativeLayers, AbstractAnnotationLayer, Correction, Part, TextContent, PhonContent, Feature ]
             - class: Sentence
               properties:
                 annotationtype: SENTENCE
                 xmltag: s
                 accepted_data: [ AbstractStructureElement, AbstractTokenAnnotation, TextContent, PhonContent, String, Gap, AbstractAnnotationLayer, Correction, Alignment, Metric, AlternativeLayers ]
                 textdelimiter: " "
-            - class: Division
-              properties:
-                annotationtype: DIVISION 
-                xmltag: div
-                accepted_data: [ Division, Quote, Gap, Event, Example, Entry, Head, Utterance, Paragraph, Sentence, List, Figure, Table, Note, Reference,AbstractExtendedTokenAnnotation, Description, Linebreak, Whitespace, Alternative, AlternativeLayers, AbstractAnnotationLayer, Correction, Part, TextContent, PhonContent, Feature ]
     - class: AbstractTokenAnnotation
     - class: AbstractSpanAnnotation
     - class: AbstractCorrectionChild
