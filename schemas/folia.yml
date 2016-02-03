@@ -29,6 +29,9 @@ default_properties:
     printable: false
     speakable: false
     xlink: false
+    authoritative: true
+    textcontainer: false
+    phoncontainer: false
 
 elements:
     - class: AbstractStructureElement
