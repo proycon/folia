@@ -9,7 +9,7 @@ FoLiA: Format for Linguistic Annotation
 
 *by Maarten van Gompel, Radboud University Nijmegen*
 
-http://proycon.github.io/folia
+https://proycon.github.io/folia
 
 FoLiA is an XML-based annotation format, suitable for the representation
 of linguistically annotated language resources. FoLiA’s intended use is
