@@ -25,6 +25,9 @@ def getelements(d):
 
 ################################################################
 
+
+
+
 def outputvar(var, value, target, declare = False):
     """Output a variable ``var`` with value ``value`` in the specified target language."""
 
@@ -32,7 +35,9 @@ def outputvar(var, value, target, declare = False):
     quote = var in ('version','namespace','TEXTDELIMITER','XMLTAG')  #these values are string literals rather than enums or classes, so yes
 
     if target == 'python':
-        if isinstance(value, bool):
+        if value is None:
+                return var + ' = None'
+        elif isinstance(value, bool):
             if value:
                 return var + ' = True'
             else:
@@ -55,7 +60,17 @@ def outputvar(var, value, target, declare = False):
                 return var + ' = ' + value
     elif target == 'c++':
         typedeclaration = ''
-        if isinstance(value, bool):
+        if value is None:
+            if declare: raise NotImplementedError("Declare not supported for None values")
+            if var in ('REQUIRED_ATTRIBS','OPTIONAL_ATTRIBS'):
+                return var + ' = NO_ATT;'
+            elif var == 'ANNOTATIONTYPE':
+                return var + ' = AnnotationType::NO_ANN;'
+            elif var in ('XMLTAG','TEXTDELIMITER'):
+                return var + ' = "NONE"'
+            else:
+                raise NotImplementedError("Don't know how to handle None for " + var)
+        elif isinstance(value, bool):
             if declare: typedeclaration = 'const bool '
             if value:
                 return typedeclaration + var + ' = true;'
@@ -154,50 +169,13 @@ def outputblock(block, target, varname, indent = ""):
         if target == 'c++':
             s += indent + "properties DEFAULT_PROPERTIES;\n"
             s += indent + "DEFAULT_PROPERTIES.ELEMENT_ID = BASE;\n"
-            s += indent + "DEFAULT_PROPERTIES.XMLTAG = \"ThIsIsSoWrOnG\";\n" #no default xml tag
             s += indent + "DEFAULT_PROPERTIES.ACCEPTED_DATA.insert(XmlComment_t);\n"
-            s += indent + "DEFAULT_PROPERTIES.ACCEPTED_DATA += { " +  ", ".join([ e + '_t' for e in spec['defaultproperties']['ACCEPTED_DATA'] ] ) + " };\n"
-            if not spec['defaultproperties']['required_attribs']:
-                s += indent + "DEFAULT_PROPERTIES.REQUIRED_ATTRIBS = NO_ATT;\n"
-            else:
-                s += indent + "DEFAULT_PROPERTIES.REQUIRED_ATTRIBS = " + "|".join(spec['defaultproperties']['required_attribs']) + ";\n"
-            if not spec['defaultproperties']['optional_attribs']:
-                s += indent + "DEFAULT_PROPERTIES.OPTIONAL_ATTRIBS = NO_ATT;\n"
-            else:
-                s += indent + "DEFAULT_PROPERTIES.OPTIONAL_ATTRIBS = " + "|".join(spec['defaultproperties']['optional_attribs']) + ";\n"
-            s += indent + "DEFAULT_PROPERTIES.ANNOTATIONTYPE = AnnotationType::NO_ANN;\n"
-            s += indent + "DEFAULT_PROPERTIES.OCCURRENCES = "  + str(spec['defaultproperties']['occurrences']) + ";\n"
-            s += indent + "DEFAULT_PROPERTIES.OCCURRENCES_PER_SET = "  + str(spec['defaultproperties']['occurrences_per_set']) + ";\n"
-            if not spec['defaultproperties']['textdelimiter']:
-                s += indent + "DEFAULT_PROPERTIES.TEXTDELIMITER = \"NONE\";\n"
-            else:
-                s += indent + "DEFAULT_PROPERTIES.TEXTDELIMITER = \"" +  spec['defaultproperties']['textdelimiter'] + "\";\n"
-            s += indent + "DEFAULT_PROPERTIES.PRINTABLE = " + ("true" if spec['defaultproperties']['printable'] else "false") + ";\n"
-            s += indent + "DEFAULT_PROPERTIES.SPEAKABLE = " + ("true" if spec['defaultproperties']['speakable'] else "false") + ";\n"
-            s += indent + "DEFAULT_PROPERTIES.XLINK = " + ("true" if spec['defaultproperties']['xlink'] else "false") + ";\n"
-            #MAYBE TODO:  textcontainer/phoncontainer not a property in libfolia?
+            for prop, value in element['defaultproperties'].items():
+                if prop not in ('textcontainer','phoncontainer'): #these two are not yet handled in libfolia, filter out (MAYBE TODO, add it libfolia?)
+                    s += indent + outputvar('DEFAULT_PROPERTIES.' + prop.upper(),  value, target) + '\n'
         elif target == 'python':
-            s += indent + "AbstractElement.XMLTAG = None\n" #no default xml tag
-            s += indent + "AbstractElement.ACCEPTED_DATA = (" +  ", ".join([ e + '_t' for e in spec['defaultproperties']['ACCEPTED_DATA'] ] ) + " ,)\n"
-            if not spec['defaultproperties']['required_attribs']:
-                s += indent + "AbstractElement.REQUIRED_ATTRIBS = ()\n"
-            else:
-                s += indent + "AbstractElement.REQUIRED_ATTRIBS = (" +  ",".join(spec['defaultproperties']['required_attribs']) + ")\n"
-            if not spec['defaultproperties']['optional_attribs']:
-                s += indent + "AbstractElement.OPTIONAL_ATTRIBS  =()\n"
-            else:
-                s += indent + "AbstractElement.OPTIONAL_ATTRIBS = (" + ",".join(spec['defaultproperties']['optional_attribs']) + ")\n"
-            s += indent + "AbstractElement.ANNOTATIONTYPE = None\n"
-            s += indent + "AbstractElement.OCCURRENCES = "  + str(spec['defaultproperties']['occurrences']) + "\n"
-            s += indent + "AbstractElement.OCCURRENCES_PER_SET = "  + str(spec['defaultproperties']['occurrences_per_set']) + "\n"
-            if not spec['defaultproperties']['textdelimiter']:
-                s += indent + "AbstractElement.TEXTDELIMITER = None\n"
-            else:
-                s += indent + "AbstractElement.TEXTDELIMITER = \"" +  spec['defaultproperties']['textdelimiter'] + "\"\n"
-            s += indent + "AbstractElement.PRINTABLE = " + ("True" if spec['defaultproperties']['printable'] else "False") + ";\n"
-            s += indent + "AbstractElement.SPEAKABLE = " + ("True" if spec['defaultproperties']['speakable'] else "False") + ";\n"
-            s += indent + "AbstractElement.XLINK = " + ("True" if spec['defaultproperties']['xlink'] else "False") + ";\n"
-
+            for prop, value in element['defaultproperties'].items():
+                s += indent + outputvar('AbstractElement.' + prop.upper(),  value, target) + '\n'
     elif block == 'instantiateelementproperties':
         if target == 'c++':
             for element in elements:
