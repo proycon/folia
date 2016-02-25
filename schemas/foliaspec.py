@@ -108,7 +108,6 @@ def outputvar(var, value, target, declare = False):
 
 #concise description for all available template blocks
 blockhelp = {
-        'header': 'Outputs a simple commented header stating the file was auto-generated, on what time and using what FoLiA version, and that foliaspec comments should not be removed',
         'namespace': 'The FoLiA XML namespace',
         'version': 'The FoLiA version',
         'version_major': 'The FoLiA version (major)',
@@ -120,6 +119,11 @@ blockhelp = {
         'setelementproperties': 'Sets all element properties for all elements',
         'annotationtype_string_map': 'A mapping from annotation types to strings (xml tag)',
         'string_annotationtype_map': 'A mapping from strings (xml tag) to annotation types',
+        'structurescope': 'Structure scope above the sentence level, used by next() and previous() methods',
+        'defaultproperties': 'Default properties which all elements inherit',
+        'default_ignore': 'Default ignore list for the select() method, do not descend into these',
+        'default_ignore_annotations': 'Default ignore list for token annotation',
+        'default_ignore_structure': 'Default ignore list for structure annotation',
 }
 
 def outputblock(block, target, varname, indent = ""):
@@ -137,7 +141,7 @@ def outputblock(block, target, varname, indent = ""):
 
     if block == 'header':
         s += indent + commentsign + "This file was last updated according to the FoLiA specification for version " + str(spec['version']) + " on " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S") + ", using foliaspec.py"
-        s += indent + commentsign + "Do not remove any foliaspec comments!!!"
+        s += indent + commentsign + "Code blocks after a foliaspec comment (until the next newline) are automatically generated. **DO NOT EDIT THOSE** and **DO NOT REMOVE ANY FOLIASPEC COMMENTS** !!!"
     elif block == 'version_major':
         versionfields = [ int(x) for x in spec['version'].split('.') ]
         outputvar(varname, versionfields[0], target, True)
@@ -175,7 +179,7 @@ def outputblock(block, target, varname, indent = ""):
                     s += indent + outputvar('DEFAULT_PROPERTIES.' + prop.upper(),  value, target) + '\n'
         elif target == 'python':
             for prop, value in spec['defaultproperties'].items():
-                s += indent + outputvar('AbstractElement.' + prop.upper(),  value, target) + '\n'
+                s += indent + outputvar(prop.upper(),  value, target) + '\n'
     elif block == 'instantiateelementproperties':
         if target == 'c++':
             for element in elements:
@@ -246,7 +250,7 @@ def outputblock(block, target, varname, indent = ""):
             s += indent + "default_ignore_annotations = ( " + ", ".join(spec['default_ignore_annotations']) + ",)\n"
     elif block == 'default_ignore_structure':
         if target == 'c++':
-            s += indent + "const set<ElementType> default_ignor_structure = { " + ", ".join([ e + '_t' for e in spec['default_ignore_structure'] ]) + " };\n"
+            s += indent + "const set<ElementType> default_ignore_structure = { " + ", ".join([ e + '_t' for e in spec['default_ignore_structure'] ]) + " };\n"
         elif target == 'python':
             s += indent + "default_ignore_structure = ( " + ", ".join(spec['default_ignore_structure']) + ",)\n"
     elif block in spec:
