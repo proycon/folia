@@ -103,6 +103,8 @@ blockhelp = {
         'annotationtype': 'Defines all annotation types (as part of the AnnotationType enumeration)',
         'instantiateelementproperties': 'Instantiates all element properties for the first time, setting them to the default properties',
         'setelementproperties': 'Sets all element properties for all elements',
+        'annotationtype_string_map': 'A mapping from annotation types to strings (xml tag)',
+        'string_annotationtype_map': 'A mapping from strings (xml tag) to annotation types',
 }
 
 def outputblock(block, target, varname, indent = ""):
@@ -157,15 +159,35 @@ def outputblock(block, target, varname, indent = ""):
             for element in elements:
                 s += commentsign + "------ " + element['class'] + " -------\n"
                 if 'properties' in element:
-                    for prop, value in element['properties'].items:
+                    for prop, value in element['properties'].items():
                         s += indent + outputvar(element['class'] + '.' + prop.upper(),  value, target) + '\n'
         elif target == 'c++':
             for element in elements:
                 s += commentsign + "------ " + element['class'] + " -------\n"
                 s += indent + element['class'] + '::PROPS.ELEMENT_ID = ' + element['class'] + '_t;\n'
                 if 'properties' in element:
-                    for prop, value in element['properties'].items:
+                    for prop, value in element['properties'].items():
                         s += indent + outputvar(element['class'] + '::PROPS.' + prop.upper(),  value, target) + '\n'
+    elif block == 'annotationtype_string_map':
+        if target == 'c++':
+            s += indent + "const map<AnnotationType::AnnotationType,string> ant_s_map = {\n"
+            s += indent + "  { AnnotationType::NO_ANN, \"NoNe\" },\n"
+            for element in elements:
+                if 'properties' in element and 'xmltag' in element['properties']:
+                    s += indent + "  { AnnotationType::" + element['class'] + '_t,  "' + element['properties']['xmltag'] + '" },\n'
+            s += indent + "};\n"
+        else:
+            raise NotImplementedError
+    elif block == 'string_annotationtype_map':
+        if target == 'c++':
+            s += indent + "const map<string,AnnotationType::AnnotationType> s_ant_map = {\n"
+            s += indent + "  { \"NoNe\", AnnotationType::NO_ANN },\n"
+                for element in elements:
+                    if 'properties' in element and 'xmltag' in element['properties']:
+                        s += indent + "  { "' + element['properties']['xmltag'] + '", AnnotationType::" + element['class'] + '_t  },\n'
+            s += indent + "};\n"
+        else:
+            raise NotImplementedError
     elif block in spec:
         #simple variable blocks
         outputvar(varname, spec[block], target, True, quote)
