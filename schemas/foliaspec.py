@@ -236,6 +236,21 @@ def outputblock(block, target, varname, indent = ""):
             s += indent + "};\n"
         else:
             raise NotImplementedError
+    elif block == 'default_ignore':
+        if target == 'c++':
+            s += indent + "const set<ElementType> default_ignore = { " + ", ".join([ e + '_t' for e in spec['default_ignore'] ]) + " };\n"
+        elif target == 'python':
+            s += indent + "default_ignore = ( " + ", ".join(spec['default_ignore']) + ",)\n"
+    elif block == 'default_ignore_annotations':
+        if target == 'c++':
+            s += indent + "const set<ElementType> default_ignore_annotations = { " + ", ".join([ e + '_t' for e in spec['default_ignore_annotations'] ]) + " };\n"
+        elif target == 'python':
+            s += indent + "default_ignore_annotations = ( " + ", ".join(spec['default_ignore_annotations']) + ",)\n"
+    elif block == 'default_ignore_structure':
+        if target == 'c++':
+            s += indent + "const set<ElementType> default_ignor_structure = { " + ", ".join([ e + '_t' for e in spec['default_ignore_structure'] ]) + " };\n"
+        elif target == 'python':
+            s += indent + "default_ignore_structure = ( " + ", ".join(spec['default_ignore_structure']) + ",)\n"
     elif block in spec:
         #simple variable blocks
         outputvar(varname, spec[block], target, True)
