@@ -140,7 +140,7 @@ def outputblock(block, target, varname, indent = ""):
             s += indent + "enum Attrib : int { NO_ATT=0, "
             value = 1
             for attrib in spec['attributes']:
-                s =  attrib + '=' + str(value) + ', '
+                s +=  attrib + '=' + str(value) + ', '
                 value *= 2
             s += 'ALL='+str(value) + ' };'
     elif block == 'annotationtype':
@@ -148,8 +148,36 @@ def outputblock(block, target, varname, indent = ""):
             s += indent + "class AnnotationType:\n"
             s += indent + "    " +  ", ".join(spec['annotationtype']) + " = range(len( " + str(spec['annotationtype']) + "))"
         elif target == 'c++':
-            s += indent + "enum AnnotationType : int { NO_ANN, "
-            s += indent + ", ".join(spec['annotationtype']) + ", LAST_ANN };"
+            s += indent + "enum AnnotationType : int { NO_ANN,"
+            s += ", ".join(spec['annotationtype']) + ", LAST_ANN };\n"
+    elif block == 'defaultproperties':
+        if target == 'c++':
+            s += indent + "properties DEFAULT_PROPERTIES;\n"
+            s += indent + "DEFAULT_PROPERTIES.ELEMENT_ID = BASE;\n"
+            s += indent + "DEFAULT_PROPERTIES.XMLTAG = \"ThIsIsSoWrOnG\";\n" #no default xml tag
+            s += indent + "DEFAULT_PROPERTIES.ACCEPTED_DATA.insert(XmlComment_t);\n"
+            s += indent + "DEFAULT_PROPERTIES.ACCEPTED_DATA += { " +  ", ".join([ e + '_t' for e in spec['defaultproperties']['ACCEPTED_DATA'] ] ) + " };\n"
+            if not spec['defaultproperties']['required_attribs']:
+                s += indent + "DEFAULT_PROPERTIES.REQUIRED_ATTRIBS = NO_ATT;\n"
+            else:
+                s += indent + "DEFAULT_PROPERTIES.REQUIRED_ATTRIBS = " + "|".join(spec['defaultproperties']['required_attribs']) + ";\n"
+            if not spec['defaultproperties']['optional_attribs']:
+                s += indent + "DEFAULT_PROPERTIES.OPTIONAL_ATTRIBS = NO_ATT;\n"
+            else:
+                s += indent + "DEFAULT_PROPERTIES.OPTIONAL_ATTRIBS = " + "|".join(spec['defaultproperties']['optional_attribs']) + ";\n"
+            s += indent + "DEFAULT_PROPERTIES.ANNOTATIONTYPE = AnnotationType::NO_ANN;\n"
+            s += indent + "DEFAULT_PROPERTIES.OCCURRENCES = "  + str(spec['defaultproperties']['occurrences']) + ";\n"
+            s += indent + "DEFAULT_PROPERTIES.OCCURRENCES_PER_SET = "  + str(spec['defaultproperties']['occurrences_per_set']) + ";\n"
+            if not spec['defaultproperties']['textdelimiter']:
+                s += indent + "DEFAULT_PROPERTIES.TEXTDELIMITER = \"NONE\";\n"
+            else:
+                s += indent + "DEFAULT_PROPERTIES.TEXTDELIMITER = \"" +  spec['defaultproperties']['textdelimiter'] + "\";\n"
+            s += indent + "DEFAULT_PROPERTIES.PRINTABLE = " + ("true" if spec['defaultproperties']['printable'] else "false") + ";\n"
+            s += indent + "DEFAULT_PROPERTIES.SPEAKABLE = " + ("true" if spec['defaultproperties']['speakable'] else "false") + ";\n"
+            s += indent + "DEFAULT_PROPERTIES.XLINK = " + ("true" if spec['defaultproperties']['xlink'] else "false") + ";\n"
+            #MAYBE TODO:  textcontainer/phoncontainer not a property in libfolia?
+        else:
+            raise NotImplementedError
     elif block == 'instantiateelementproperties':
         if target == 'c++':
             for element in elements:
