@@ -176,8 +176,28 @@ def outputblock(block, target, varname, indent = ""):
             s += indent + "DEFAULT_PROPERTIES.SPEAKABLE = " + ("true" if spec['defaultproperties']['speakable'] else "false") + ";\n"
             s += indent + "DEFAULT_PROPERTIES.XLINK = " + ("true" if spec['defaultproperties']['xlink'] else "false") + ";\n"
             #MAYBE TODO:  textcontainer/phoncontainer not a property in libfolia?
-        else:
-            raise NotImplementedError
+        elif target == 'python':
+            s += indent + "AbstractElement.XMLTAG = None\n" #no default xml tag
+            s += indent + "AbstractElement.ACCEPTED_DATA = (" +  ", ".join([ e + '_t' for e in spec['defaultproperties']['ACCEPTED_DATA'] ] ) + " ,)\n"
+            if not spec['defaultproperties']['required_attribs']:
+                s += indent + "AbstractElement.REQUIRED_ATTRIBS = ()\n"
+            else:
+                s += indent + "AbstractElement.REQUIRED_ATTRIBS = (" +  ",".join(spec['defaultproperties']['required_attribs']) + ")\n"
+            if not spec['defaultproperties']['optional_attribs']:
+                s += indent + "AbstractElement.OPTIONAL_ATTRIBS  =()\n"
+            else:
+                s += indent + "AbstractElement.OPTIONAL_ATTRIBS = (" + ",".join(spec['defaultproperties']['optional_attribs']) + ")\n"
+            s += indent + "AbstractElement.ANNOTATIONTYPE = None\n"
+            s += indent + "AbstractElement.OCCURRENCES = "  + str(spec['defaultproperties']['occurrences']) + "\n"
+            s += indent + "AbstractElement.OCCURRENCES_PER_SET = "  + str(spec['defaultproperties']['occurrences_per_set']) + "\n"
+            if not spec['defaultproperties']['textdelimiter']:
+                s += indent + "AbstractElement.TEXTDELIMITER = None\n"
+            else:
+                s += indent + "AbstractElement.TEXTDELIMITER = \"" +  spec['defaultproperties']['textdelimiter'] + "\"\n"
+            s += indent + "AbstractElement.PRINTABLE = " + ("True" if spec['defaultproperties']['printable'] else "False") + ";\n"
+            s += indent + "AbstractElement.SPEAKABLE = " + ("True" if spec['defaultproperties']['speakable'] else "False") + ";\n"
+            s += indent + "AbstractElement.XLINK = " + ("True" if spec['defaultproperties']['xlink'] else "False") + ";\n"
+
     elif block == 'instantiateelementproperties':
         if target == 'c++':
             for element in elements:
