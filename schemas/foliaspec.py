@@ -201,8 +201,8 @@ def outputblock(block, target, varname, indent = ""):
             s += indent + "const map<AnnotationType::AnnotationType,string> ant_s_map = {\n"
             s += indent + "  { AnnotationType::NO_ANN, \"NoNe\" },\n"
             for element in elements:
-                if 'properties' in element and 'xmltag' in element['properties']:
-                    s += indent + "  { AnnotationType::" + element['class'] + '_t,  "' + element['properties']['xmltag'] + '" },\n'
+                if 'properties' in element and 'xmltag' in element['properties'] and 'annotationtype' in element['properties']:
+                    s += indent + "  { AnnotationType::" + element['properties']['annotationtype'] + ',  "' + element['properties']['xmltag'] + '" },\n'
             s += indent + "};\n"
         else:
             raise NotImplementedError
@@ -211,8 +211,28 @@ def outputblock(block, target, varname, indent = ""):
             s += indent + "const map<string,AnnotationType::AnnotationType> s_ant_map = {\n"
             s += indent + "  { \"NoNe\", AnnotationType::NO_ANN },\n"
             for element in elements:
+                if 'properties' in element and 'xmltag' in element['properties'] and 'annotationtype' in element['properties']:
+                    s += indent + '  { "' + element['properties']['xmltag'] + '", AnnotationType::' + element['properties']['annotationtype'] + ' },\n'
+            s += indent + "};\n"
+        else:
+            raise NotImplementedError
+    elif block == 'elementtype_string_map':
+        if target == 'c++':
+            s += indent + "const map<ElementType,string> et_s_map = {\n"
+            s += indent + "  { BASE, \"FoLiA\" },\n"
+            for element in elements:
                 if 'properties' in element and 'xmltag' in element['properties']:
-                    s += indent + '  { "' + element['properties']['xmltag'] + '", AnnotationType::' + element['class'] + '_t  },\n'
+                    s += indent + "  { " + element['class'] + '_t,  "' + element['properties']['xmltag'] + '" },\n'
+            s += indent + "};\n"
+        else:
+            raise NotImplementedError
+    elif block == 'string_elementtype_map':
+        if target == 'c++':
+            s += indent + "const map<string,ElementType> s_et_map = {\n"
+            s += indent + "  { \"FoLiA\", BASE },\n"
+            for element in elements:
+                if 'properties' in element and 'xmltag' in element['properties']:
+                    s += indent + '  { "' + element['properties']['xmltag'] + '", ' + element['class'] + '_t  },\n'
             s += indent + "};\n"
         else:
             raise NotImplementedError
