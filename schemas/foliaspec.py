@@ -133,6 +133,8 @@ def outputblock(block, target, varname, indent = ""):
         commentsign = '#'
     elif target == 'c++':
         commentsign = '//'
+    else:
+        raise NotImplementedError("Unknown target language: " + target)
 
     if block in blockhelp:
         s = indent + commentsign + blockhelp[block]  #output what each block does
@@ -162,6 +164,8 @@ def outputblock(block, target, varname, indent = ""):
                 s +=  attrib + '=' + str(value) + ', '
                 value *= 2
             s += 'ALL='+str(value) + ' };'
+        else:
+            raise NotImplementedError("Block " + block + " not implemented for " + target)
     elif block == 'annotationtype':
         if target == 'python':
             s += indent + "class AnnotationType:\n"
@@ -169,6 +173,8 @@ def outputblock(block, target, varname, indent = ""):
         elif target == 'c++':
             s += indent + "enum AnnotationType : int { NO_ANN,"
             s += ", ".join(spec['annotationtype']) + ", LAST_ANN };\n"
+        else:
+            raise NotImplementedError("Block " + block + " not implemented for " + target)
     elif block == 'defaultproperties':
         if target == 'c++':
             s += indent + "properties DEFAULT_PROPERTIES;\n"
@@ -180,10 +186,14 @@ def outputblock(block, target, varname, indent = ""):
         elif target == 'python':
             for prop, value in spec['defaultproperties'].items():
                 s += indent + outputvar(prop.upper(),  value, target) + '\n'
+        else:
+            raise NotImplementedError("Block " + block + " not implemented for " + target)
     elif block == 'instantiateelementproperties':
         if target == 'c++':
             for element in elements:
                 s += indent + "properties " + element['class'] + '::PROPS = DEFAULT_PROPERTIES;\n'
+        else:
+            raise NotImplementedError("Block " + block + " not implemented for " + target)
     elif block == 'setelementproperties':
         if target == 'python':
             for element in elements:
@@ -198,6 +208,8 @@ def outputblock(block, target, varname, indent = ""):
                 if 'properties' in element:
                     for prop, value in element['properties'].items():
                         s += indent + outputvar(element['class'] + '::PROPS.' + prop.upper(),  value, target) + '\n'
+        else:
+            raise NotImplementedError("Block " + block + " not implemented for " + target)
     elif block == 'annotationtype_string_map':
         if target == 'c++':
             s += indent + "const map<AnnotationType::AnnotationType,string> ant_s_map = {\n"
@@ -207,7 +219,7 @@ def outputblock(block, target, varname, indent = ""):
                     s += indent + "  { AnnotationType::" + element['properties']['annotationtype'] + ',  "' + element['properties']['xmltag'] + '" },\n'
             s += indent + "};\n"
         else:
-            raise NotImplementedError
+            raise NotImplementedError("Block " + block + " not implemented for " + target)
     elif block == 'string_annotationtype_map':
         if target == 'c++':
             s += indent + "const map<string,AnnotationType::AnnotationType> s_ant_map = {\n"
@@ -217,7 +229,7 @@ def outputblock(block, target, varname, indent = ""):
                     s += indent + '  { "' + element['properties']['xmltag'] + '", AnnotationType::' + element['properties']['annotationtype'] + ' },\n'
             s += indent + "};\n"
         else:
-            raise NotImplementedError
+            raise NotImplementedError("Block " + block + " not implemented for " + target)
     elif block == 'elementtype_string_map':
         if target == 'c++':
             s += indent + "const map<ElementType,string> et_s_map = {\n"
@@ -227,7 +239,7 @@ def outputblock(block, target, varname, indent = ""):
                     s += indent + "  { " + element['class'] + '_t,  "' + element['properties']['xmltag'] + '" },\n'
             s += indent + "};\n"
         else:
-            raise NotImplementedError
+            raise NotImplementedError("Block " + block + " not implemented for " + target)
     elif block == 'string_elementtype_map':
         if target == 'c++':
             s += indent + "const map<string,ElementType> s_et_map = {\n"
@@ -237,22 +249,28 @@ def outputblock(block, target, varname, indent = ""):
                     s += indent + '  { "' + element['properties']['xmltag'] + '", ' + element['class'] + '_t  },\n'
             s += indent + "};\n"
         else:
-            raise NotImplementedError
+            raise NotImplementedError("Block " + block + " not implemented for " + target)
     elif block == 'default_ignore':
         if target == 'c++':
             s += indent + "const set<ElementType> default_ignore = { " + ", ".join([ e + '_t' for e in spec['default_ignore'] ]) + " };\n"
         elif target == 'python':
             s += indent + "default_ignore = ( " + ", ".join(spec['default_ignore']) + ",)\n"
+        else:
+            raise NotImplementedError("Block " + block + " not implemented for " + target)
     elif block == 'default_ignore_annotations':
         if target == 'c++':
             s += indent + "const set<ElementType> default_ignore_annotations = { " + ", ".join([ e + '_t' for e in spec['default_ignore_annotations'] ]) + " };\n"
         elif target == 'python':
             s += indent + "default_ignore_annotations = ( " + ", ".join(spec['default_ignore_annotations']) + ",)\n"
+        else:
+            raise NotImplementedError("Block " + block + " not implemented for " + target)
     elif block == 'default_ignore_structure':
         if target == 'c++':
             s += indent + "const set<ElementType> default_ignore_structure = { " + ", ".join([ e + '_t' for e in spec['default_ignore_structure'] ]) + " };\n"
         elif target == 'python':
             s += indent + "default_ignore_structure = ( " + ", ".join(spec['default_ignore_structure']) + ",)\n"
+        else:
+            raise NotImplementedError("Block " + block + " not implemented for " + target)
     elif block in spec:
         #simple variable blocks
         outputvar(varname, spec[block], target, True)
@@ -288,30 +306,30 @@ def parser(filename):
             if not inblock:
                 if strippedline.startswith(commentsign + 'foliaspec:'):
                     fields = strippedline[len(commentsign):].split(':')
-                    if field[1] in ('begin','start'):
+                    if fields[1] in ('begin','start'):
                         blocktype = 'explicit'
-                        blockname = field[2]
+                        blockname = fields[2]
                         try:
-                            varname = field[3]
+                            varname = fields[3]
                         except:
                             varname = blockname
                     elif len(fields) >= 2:
                         blocktype = 'implicit'
-                        blockname = field[1]
+                        blockname = fields[1]
                         try:
-                            varname = field[2]
+                            varname = fields[2]
                         except:
                             varname = blockname
                     else:
                         raise Exception("Syntax error: " + strippedline)
                     inblock = True
                     out.write(line)
-                elif strippedline.split(' ')[-1].startswith(comment + 'foliaspec:'):
+                elif strippedline.split(' ')[-1].startswith(commentsign + 'foliaspec:'):
                     fields = strippedline.split(' ')[-1][len(commentsign):].split(':')
                     blocktype = 'line'
-                    blockname = field[1]
+                    blockname = fields[1]
                     try:
-                        varname = field[2]
+                        varname = fields[2]
                     except:
                         varname = blockname
                     if varname != blockname:
@@ -333,7 +351,7 @@ def parser(filename):
 if __name__ == '__main__':
     if len(sys.argv) == 1:
         print("Syntax: foliaspec.py [filename] [filename].." ,file=sys.stderr)
-        print("Filenames are Python or C++ files containing foliaspec instructions, the files will be updated according to the latest specification in folia.yml",file=sys.stderr)
+        print("Filenames are Python or C++ files that may contain foliaspec instructions, the files will be updated according to the latest specification in folia.yml",file=sys.stderr)
 
     for filename in sys.argv[1:]:
         parser(filename)
