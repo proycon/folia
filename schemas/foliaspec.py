@@ -96,13 +96,16 @@ blockhelp = {
         'header': 'Outputs a simple commented header stating the file was auto-generated, on what time and using what FoLiA version, and that foliaspec comments should not be removed',
         'namespace': 'The FoLiA XML namespace',
         'version': 'The FoLiA version',
+        'version_major': 'The FoLiA version (major)',
+        'version_minor': 'The FoLiA version (minor)',
+        'version_sub': 'The FoLiA version (sub/rev)',
         'attributes': 'Defines all common FoLiA attributes (as part of the Attrib enumeration)',
         'annotationtype': 'Defines all annotation types (as part of the AnnotationType enumeration)',
         'instantiateelementproperties': 'Instantiates all element properties for the first time, setting them to the default properties',
         'setelementproperties': 'Sets all element properties for all elements',
 }
 
-def outputblock(block, target, indent = ""):
+def outputblock(block, target, varname, indent = ""):
     """Output the template block (identified by ``block``) for the target language"""
 
     if target == 'python':
@@ -110,14 +113,23 @@ def outputblock(block, target, indent = ""):
     elif target == 'c++':
         commentsign = '//'
 
-    if not block in blockhelp:
-        raise Exception("Invalid block found: " + block)
+    if block in blockhelp:
+        s = indent + commentsign + blockhelp[block]  #output what each block does
+    else:
+        s = ''
 
-    s = indent + commentsign + blockhelp[block]  #output what each block does
     if block == 'header':
         s += indent + commentsign + "This file was last updated according to the FoLiA specification for version " + str(spec['version']) + " on " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S") + ", using foliaspec.py"
         s += indent + commentsign + "Do not remove any foliaspec comments!!!"
-
+    elif block == 'version_major':
+        versionfields = [ int(x) for x in spec['version'].split('.') ]
+        outputvar(varname, versionfields[0], target, True)
+    elif block == 'version_minor':
+        versionfields = [ int(x) for x in spec['version'].split('.') ]
+        outputvar(varname, versionfields[1] if len(versionfields) > 1 else 0, target, True)
+    elif block == 'version_sub' or block == 'version_rev':
+        versionfields = [ int(x) for x in spec['version'].split('.') ]
+        outputvar(varname, versionfields[2] if len(versionfields) > 2 else 0, target, True)
     elif block == 'attributes':
         if target == 'python':
             s += indent + "class Attrib:\n"
@@ -136,7 +148,7 @@ def outputblock(block, target, indent = ""):
         elif target == 'c++':
             s += indent + "enum AnnotationType : int { NO_ANN, "
             s += indent + ", ".join(spec['annotationtype']) + ", LAST_ANN };"
-    elif block == 'initelementproperties':
+    elif block == 'instantiateelementproperties':
         if target == 'c++':
             for element in elements:
                 s += indent + "properties " + element['class'] + '::PROPS = DEFAULT_PROPERTIES;\n'
@@ -154,9 +166,10 @@ def outputblock(block, target, indent = ""):
                 if 'properties' in element:
                     for prop, value in element['properties'].items:
                         s += indent + outputvar(element['class'] + '::PROPS.' + prop.upper(),  value, target) + '\n'
+    elif block in spec:
+        #simple variable blocks
+        outputvar(varname, spec[block], target, True, quote)
     else:
-        if block in spec:
-            outputvar(block, spec[block], target, True, quote)
         raise Exception("No such block exists in foliaspec: " + block)
 
 
@@ -188,12 +201,20 @@ def parser(filename):
             if not inblock:
                 if strippedline.startswith(commentsign + 'foliaspec:'):
                     fields = strippedline[len(commentsign):].split(':')
-                    if len(fields) == 3 and field[1] in ('begin','start'):
+                    if field[1] in ('begin','start'):
                         blocktype = 'explicit'
                         blockname = field[2]
-                    elif len(fields) == 2:
+                        try:
+                            varname = field[3]
+                        except:
+                            varname = blockname
+                    elif:
                         blocktype = 'implicit'
                         blockname = field[1]
+                        try:
+                            varname = field[2]
+                        except:
+                            varname = blockname
                     else:
                         raise Exception("Syntax error: " + strippedline)
                     inblock = True
@@ -202,15 +223,22 @@ def parser(filename):
                     fields = strippedline.split(' ')[-1][len(commentsign):].split(':')
                     blocktype = 'line'
                     blockname = field[1]
-                    out.write( outputblock(blockname, target) + " " + commentsign + "foliaspec:" + blockname + "\n")
+                    try:
+                        varname = field[2]
+                    except:
+                        varname = blockname
+                    if varname != blockname:
+                        out.write( outputblock(blockname, target, varname) + " " + commentsign + "foliaspec:" + blockname + ":" + varname + "\n")
+                    else:
+                        out.write( outputblock(blockname, target, varname) + " " + commentsign + "foliaspec:" + blockname + "\n")
                 else:
                     out.write(line)
             else:
                 if not strippedline and blocktype == 'implicit':
-                    out.write(outputblock(blockname, target) + "\n")
+                    out.write(outputblock(blockname, target, varname) + "\n")
                     inblock = False
                 elif blocktype == 'explicit' and strippedline.startswith(commentsign + 'foliaspec:end:'):
-                    out.write(outputblock(blockname, target) + "\n")
+                    out.write(outputblock(blockname, target, varname) + "\n")
                     inblock = False
 
     os.rename(filename+'.foliaspec.out', filename)
