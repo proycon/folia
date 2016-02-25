@@ -2,9 +2,9 @@
 #Generate library specification code (for either Python or C++) on the the basis of folia.yml
 #Used by respectively pynlpl and libfolia
 import sys
-import yaml
 import datetime
 import os
+import yaml
 
 
 #Load specification
