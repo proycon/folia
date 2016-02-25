@@ -26,7 +26,10 @@ def getelements(d):
 ################################################################
 
 def outputvar(var, value, target, declare = False):
-    quote = var in ('version','namespace','TEXTDELIMITER','XMLTAG')  #values are string literals rather than enums or classes
+    """Output a variable ``var`` with value ``value`` in the specified target language."""
+
+    #do we need to quote the value? (bool)
+    quote = var in ('version','namespace','TEXTDELIMITER','XMLTAG')  #these values are string literals rather than enums or classes, so yes
 
     if target == 'python':
         if isinstance(value, bool):
@@ -88,14 +91,29 @@ def outputvar(var, value, target, declare = False):
                 if declare: typedeclaration = 'const auto '
                 return typedeclaration + var + ' = ' + value+ ';'
 
+#concise description for all available template blocks
+blockhelp = {
+        'header': 'Outputs a simple commented header stating the file was auto-generated, on what time and using what FoLiA version, and that foliaspec comments should not be removed',
+        'namespace': 'The FoLiA XML namespace',
+        'version': 'The FoLiA version',
+        'attributes': 'Defines all common FoLiA attributes (as part of the Attrib enumeration)',
+        'annotationtype': 'Defines all annotation types (as part of the AnnotationType enumeration)',
+        'instantiateelementproperties': 'Instantiates all element properties for the first time, setting them to the default properties',
+        'setelementproperties': 'Sets all element properties for all elements',
+}
 
 def outputblock(block, target, indent = ""):
+    """Output the template block (identified by ``block``) for the target language"""
+
     if target == 'python':
         commentsign = '#'
     elif target == 'c++':
         commentsign = '//'
 
-    s = '' #the output
+    if not block in blockhelp:
+        raise Exception("Invalid block found: " + block)
+
+    s = indent + commentsign + blockhelp[block]  #output what each block does
     if block == 'header':
         s += indent + commentsign + "This file was last updated according to the FoLiA specification for version " + str(spec['version']) + " on " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S") + ", using foliaspec.py"
         s += indent + commentsign + "Do not remove any foliaspec comments!!!"
