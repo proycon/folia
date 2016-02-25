@@ -238,7 +238,7 @@ def outputblock(block, target, varname, indent = ""):
             raise NotImplementedError
     elif block in spec:
         #simple variable blocks
-        outputvar(varname, spec[block], target, True, quote)
+        outputvar(varname, spec[block], target, True)
     else:
         raise Exception("No such block exists in foliaspec: " + block)
 
