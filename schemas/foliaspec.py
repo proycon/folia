@@ -182,9 +182,9 @@ def outputblock(block, target, varname, indent = ""):
         if target == 'c++':
             s += indent + "const map<string,AnnotationType::AnnotationType> s_ant_map = {\n"
             s += indent + "  { \"NoNe\", AnnotationType::NO_ANN },\n"
-                for element in elements:
-                    if 'properties' in element and 'xmltag' in element['properties']:
-                        s += indent + "  { "' + element['properties']['xmltag'] + '", AnnotationType::" + element['class'] + '_t  },\n'
+            for element in elements:
+                if 'properties' in element and 'xmltag' in element['properties']:
+                    s += indent + '  { "' + element['properties']['xmltag'] + '", AnnotationType::' + element['class'] + '_t  },\n'
             s += indent + "};\n"
         else:
             raise NotImplementedError
@@ -230,7 +230,7 @@ def parser(filename):
                             varname = field[3]
                         except:
                             varname = blockname
-                    elif:
+                    elif len(fields) >= 2:
                         blocktype = 'implicit'
                         blockname = field[1]
                         try:
