@@ -170,11 +170,11 @@ def outputblock(block, target, varname, indent = ""):
             s += indent + "properties DEFAULT_PROPERTIES;\n"
             s += indent + "DEFAULT_PROPERTIES.ELEMENT_ID = BASE;\n"
             s += indent + "DEFAULT_PROPERTIES.ACCEPTED_DATA.insert(XmlComment_t);\n"
-            for prop, value in element['defaultproperties'].items():
+            for prop, value in spec['defaultproperties'].items():
                 if prop not in ('textcontainer','phoncontainer'): #these two are not yet handled in libfolia, filter out (MAYBE TODO, add it libfolia?)
                     s += indent + outputvar('DEFAULT_PROPERTIES.' + prop.upper(),  value, target) + '\n'
         elif target == 'python':
-            for prop, value in element['defaultproperties'].items():
+            for prop, value in spec['defaultproperties'].items():
                 s += indent + outputvar('AbstractElement.' + prop.upper(),  value, target) + '\n'
     elif block == 'instantiateelementproperties':
         if target == 'c++':
@@ -197,7 +197,7 @@ def outputblock(block, target, varname, indent = ""):
     elif block == 'annotationtype_string_map':
         if target == 'c++':
             s += indent + "const map<AnnotationType::AnnotationType,string> ant_s_map = {\n"
-            s += indent + "  { AnnotationType::NO_ANN, \"NoNe\" },\n"
+            s += indent + "  { AnnotationType::NO_ANN, \"NONE\" },\n"
             for element in elements:
                 if 'properties' in element and 'xmltag' in element['properties'] and 'annotationtype' in element['properties']:
                     s += indent + "  { AnnotationType::" + element['properties']['annotationtype'] + ',  "' + element['properties']['xmltag'] + '" },\n'
@@ -207,7 +207,7 @@ def outputblock(block, target, varname, indent = ""):
     elif block == 'string_annotationtype_map':
         if target == 'c++':
             s += indent + "const map<string,AnnotationType::AnnotationType> s_ant_map = {\n"
-            s += indent + "  { \"NoNe\", AnnotationType::NO_ANN },\n"
+            s += indent + "  { \"NONE\", AnnotationType::NO_ANN },\n"
             for element in elements:
                 if 'properties' in element and 'xmltag' in element['properties'] and 'annotationtype' in element['properties']:
                     s += indent + '  { "' + element['properties']['xmltag'] + '", AnnotationType::' + element['properties']['annotationtype'] + ' },\n'
