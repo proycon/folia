@@ -30,6 +30,7 @@ defaultproperties:
     textcontainer: false #Does the element directly take textual content (e.g. TextContent (t) is a textcontainer)
     phoncontainer: false #Does the element directly take phonetic content (e.g. PhonContent (ph) is a phoncontainer)
     subset: null #used for Feature subclasses
+    auth: true #The default authoritative state for this element
 
 
 elements:
@@ -90,20 +91,17 @@ elements:
       elements:
           - class: Current
             properties:
-                required_attribs: [  ]
-                optional_attribs: [  ]
+                optional_attribs: null
                 xmltag: "current"
                 occurrences: 1
           - class: New
             properties:
-                required_attribs: [  ]
-                optional_attribs: [  ]
+                optional_attribs: null
                 xmltag: "new"
                 occurrences: 1
           - class: Original
             properties:
-                required_attribs: [  ]
-                optional_attribs: [  ]
+                optional_attribs: null
                 xmltag: "original"
                 occurrences: 1
                 auth: false
