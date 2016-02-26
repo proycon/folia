@@ -4,6 +4,7 @@
 import sys
 import datetime
 import os
+from collections import defaultdict
 import yaml
 
 
@@ -11,21 +12,32 @@ import yaml
 spec = yaml.load(open('folia.yml','r'))
 
 
+parents = defaultdict(set)
+
 def getelements(d):
+    global parents
     elements = []
     if 'elements' in d:
         for e in d['elements']:
             elements.append(e)
-            elements += getelements(e)
-
+            children = getelements(e)
+            elements += children
+            for c in children:
+                parents[c['class']].add(e['class'])
     return elements
 
 elements = getelements(spec) #gathers all class names
 elements.sort(key=lambda x: x['class'])
 elementnames = [ e['class'] for e in elements ]
 
+
 ################################################################
 
+def addfromparents(elementname, key, value):
+    newvalue = set()
+    for parent in parents[key]:
+        newvalue |= addfromparents(parent, key, newvalue)
+    return newvalue
 
 
 
@@ -201,6 +213,7 @@ def outputblock(block, target, varname, indent = ""):
                 s += commentsign + "------ " + element['class'] + " -------\n"
                 if 'properties' in element:
                     for prop, value in element['properties'].items():
+                        if prop == 'accepted_data': value = tuple(addfromparents(element['class'],'accepted_data',value))
                         s += indent + outputvar(element['class'] + '.' + prop.upper(),  value, target) + '\n'
         elif target == 'c++':
             for element in elements:
@@ -208,6 +221,7 @@ def outputblock(block, target, varname, indent = ""):
                 s += indent + element['class'] + '::PROPS.ELEMENT_ID = ' + element['class'] + '_t;\n'
                 if 'properties' in element:
                     for prop, value in element['properties'].items():
+                        if prop == 'accepted_data': value = tuple(addfromparents(element['class'],'accepted_data',value))
                         s += indent + outputvar(element['class'] + '::PROPS.' + prop.upper(),  value, target) + '\n'
         else:
             raise NotImplementedError("Block " + block + " not implemented for " + target)
