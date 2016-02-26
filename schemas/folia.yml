@@ -498,7 +498,6 @@ elements:
           accepted_data: [ Feature, ValueFeature ]
     - class: PhonContent
       properties:
-          textcontainer: false
           printable: false
           accepted_data: null
           phoncontainer: true
@@ -517,6 +516,7 @@ elements:
       properties:
           textcontainer: true
           printable: true
+          speakable: false
           accepted_data: [ AbstractTextMarkup, Linebreak ] #Linebreak doubles as a AbstractTextMarkup and AbstractStructureAnnotation element
           optional_attribs: [ CLASS, ANNOTATOR, CONFIDENCE, DATETIME ]
           occurrences: 0
