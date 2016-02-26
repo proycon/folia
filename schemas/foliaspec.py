@@ -10,9 +10,6 @@ import yaml
 #Load specification
 spec = yaml.load(open('folia.yml','r'))
 
-elements = getelements(spec) #gathers all class names
-elements.sort(key=lambda x: x['class'])
-elementnames = [ e['class'] for e in elements ]
 
 def getelements(d):
     elements = []
@@ -22,6 +19,10 @@ def getelements(d):
             elements += getelements(e)
 
     return elements
+
+elements = getelements(spec) #gathers all class names
+elements.sort(key=lambda x: x['class'])
+elementnames = [ e['class'] for e in elements ]
 
 ################################################################
 
