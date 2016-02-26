@@ -14,13 +14,13 @@ attributes: [ ID, CLASS, ANNOTATOR, CONFIDENCE, N, DATETIME, BEGINTIME, ENDTIME,
 annotationtype: [ TEXT, TOKEN, DIVISION, PARAGRAPH, LIST, FIGURE, WHITESPACE, LINEBREAK, SENTENCE, POS, LEMMA, DOMAIN, SENSE, SYNTAX, CHUNKING, ENTITY, CORRECTION, SUGGESTION, ERRORDETECTION, ALTERNATIVE, PHON, SUBJECTIVITY, MORPHOLOGICAL, EVENT, DEPENDENCY, TIMESEGMENT, GAP, NOTE, ALIGNMENT, COMPLEXALIGNMENT, COREFERENCE, SEMROLE, METRIC, LANG, STRING, TABLE, STYLE, PART, UTTERANCE, TERM, DEFINITION, EXAMPLE, PHONOLOGICAL ]
 
 
-#default properties for all elements if not overriden
+#default properties for all elements. Are inherited from parent classes when not set, overridden when set for subclasses, except for accepted_data, which is cumulative with respect to the parents
 defaultproperties:
     xmltag: null   #The XML tag for the element
-    accepted_data: [ Description ]  #Elements that are allowed as children of this element, this property is inherited automatically
-    required_data: null #Elements that are required as children of this element
+    accepted_data: [ Description ]  #Elements that are allowed as children of this element, this property is inherited automatically in the specification, rather than overriden!
+    required_data: null #Elements that are required as children of this element 
     required_attribs: null #Common attributes that are required on this element
-    optional_attribs: null #Other allowed common attributes
+    optional_attribs: null #Other allowed common attributes 
     occurrences: 0 #How often can this element occur under the parent? (0 = unlimited)
     occurrences_per_set: 1 #How often can a particular element+set combination occur under the parent (0 = unlimited)
     textdelimiter: null #Delimiter to use when dynamically gathering text
@@ -39,7 +39,6 @@ elements:
       properties:
           printable: false
           speakable: false
-          optional_attribs: [ SETONLY ]
           accepted_data: [ Correction ]
           primaryelement: false
       elements:
