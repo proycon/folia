@@ -45,42 +45,52 @@ elements:
             properties:
                 accepted_data: [ Chunk]
                 xmltag: "chunking"
+                annotationtype: CHUNKING
           - class: ComplexAlignmentLayer
             properties:
                 accepted_data: [ ComplexAlignment]
                 xmltag: "complexalignments"
+                annotationtype: COMPLEXALIGNMENT
           - class: CoreferenceLayer
             properties:
                 accepted_data: [ CoreferenceChain]
                 xmltag: "coreferences"
+                annotationtype: COREFERENCE
           - class: DependenciesLayer
             properties:
                 accepted_data: [ Dependency]
                 xmltag: "dependencies"
+                annotationtype: DEPENDENCY
           - class: EntitiesLayer
             properties:
                 accepted_data: [ Entity]
                 xmltag: "entities"
+                annotationtype: ENTITY
           - class: MorphologyLayer
             properties:
                 accepted_data: [ Morpheme]
                 xmltag: "morphology"
+                annotationtype: MORPHEME
           - class: PhonologyLayer
             properties:
                 accepted_data: [ Phoneme ]
                 xmltag: "phonology"
+                annotationtype: PHONEME
           - class: SemanticRolesLayer
             properties:
                 accepted_data: [ SemanticRole ]
                 xmltag: "semroles"
+                annotationtype: SEMROLE
           - class: SyntaxLayer
             properties:
                 accepted_data: [ SyntacticUnit ]
                 xmltag: "syntax"
+                annotationtype: SYNTAX
           - class: TimingLayer
             properties:
                 accepted_data: [ TimeSegment ]
                 xmltag: "timing"
+                annotationtype: TIMESEGMENT 
     - class: AbstractCorrectionChild
       properties:
           speakable: true
@@ -124,6 +134,7 @@ elements:
             elements:
                 - class: CoreferenceLink
                   properties:
+                      annotationtype: COREFERENCE
                       xmltag: "coreferencelink"
                       accepted_data: [Headspan, LevelFeature, ModalityFeature, TimeFeature]
                 - class: DependencyDependent
@@ -134,33 +145,40 @@ elements:
                       xmltag: "hd"
           - class: Chunk
             properties:
+                annotationtype: CHUNKING
                 accepted_data: [ Feature, WordReference ]
                 xmltag: "chunk"
           - class: CoreferenceChain
             properties:
+                annotationtype: COREFERENCE
                 accepted_data: [ CoreferenceLink ]
                 xmltag: "coreferencechain"
                 required_data: [ CoreferenceLink ]
           - class: Dependency
             properties:
+                annotationtype: DEPENDENCY
                 accepted_data: [ DependencyDependent, Feature, Headspan ]
                 xmltag: "dependency"
                 required_data: [ DependencyDependent, Headspan ]
           - class: Entity
             properties:
+                annotationtype: ENTITY
                 accepted_data: [ Feature, WordReference ]
                 xmltag: "entity"
           - class: SemanticRole
             properties:
+                annotationtype: SEMROLE
                 required_attribs: [ CLASS ]
                 accepted_data: [ Feature, Headspan, WordReference ]
                 xmltag: "semrole"
           - class: SyntacticUnit
             properties:
+                annotationtype: SYNTAX
                 accepted_data: [Feature, SyntacticUnit, WordReference]
                 xmltag: "su"
           - class: TimeSegment
             properties:
+                annotationtype: TIMESEGMENT
                 accepted_data: [ActorFeature, BegindatetimeFeature, EnddatetimeFeature, Feature, WordReference]
                 xmltag: "timesegment"
     - class: AbstractStructureElement
@@ -184,28 +202,34 @@ elements:
                 xmltag: "cell"
           - class: Definition
             properties:
+                annotationtype: DEFINITION
                 accepted_data: [AbstractExtendedTokenAnnotation, Figure, List, Metric, Paragraph, PhonContent, Reference, Sentence, String, Table, TextContent, Utterance, Word]
                 xmltag: "def"
           - class: Division
             properties:
+                annotationtype: DIVISION
                 optional_attribs: [ CLASS, N, SRC, BEGINTIME, ENDTIME, SPEAKER ]
                 xmltag: "div"
                 textdelimiter: "\n\n\n"
                 accepted_data: [AbstractExtendedTokenAnnotation, Division, Entry, Event, Example, Figure, Gap, Head, Linebreak, List, Note, Paragraph, Part, PhonContent, Quote, Reference, Sentence, Table, TextContent, Utterance, Whitespace]
           - class: Entry
             properties:
+                annotationtype: ENTRY
                 accepted_data: [Definition, Example, Term]
                 xmltag: "entry"
           - class: Event
             properties:
+                annotationtype: EVENT
                 accepted_data: [AbstractExtendedTokenAnnotation, ActorFeature, BegindatetimeFeature, Division, EnddatetimeFeature, Event, Example, Figure, Head, Linebreak, List, Paragraph, PhonContent, Reference, Sentence, String, Table, TextContent, Utterance, Whitespace, Word]
                 xmltag: "event"
           - class: Example
             properties:
+                annotationtype: EXAMPLE
                 accepted_data: [AbstractExtendedTokenAnnotation, Figure, Linebreak, List, Paragraph, PhonContent, Reference, Sentence, String, Table, TextContent, Utterance, Word, Whitespace]
                 xmltag: "ex"
           - class: Figure
             properties:
+                annotationtype: FIGURE
                 xmltag: "figure"
                 speakable: false
                 textdelimiter: "\n\n"
@@ -226,6 +250,7 @@ elements:
                 textdelimiter: ""
           - class: List
             properties:
+                annotationtype: LIST
                 textdelimiter: "\n\n"
                 accepted_data: [AbstractExtendedTokenAnnotation, Alignment, Caption, Event, ListItem, Metric, Note, PhonContent, Reference, String, TextContent]
                 xmltag: "list"
@@ -236,26 +261,31 @@ elements:
                 xmltag: "item" #was listitem in an early erroneous version of FoLiA, libraries will unfortunately need to support that too for backward compatibility
           - class: Morpheme
             properties:
+                annotationtype: MORPHOLOGICAL
                 optional_attribs: [ CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
                 xmltag: "morpheme"
                 textdelimiter: ""
                 accepted_data: [AbstractTokenAnnotation, FunctionFeature, PhonContent, String, TextContent]
           - class: Note
             properties:
+                annotationtype: NOTE
                 accepted_data: [AbstractExtendedTokenAnnotation, Example, Figure, Head, Linebreak, List, Paragraph, PhonContent, Reference, Sentence, String, Table, TextContent, Utterance, Whitespace, Word]
                 xmltag: "note"
           - class: Paragraph
             properties:
+                annotationtype: PARAGRAPH
                 textdelimiter: "\n\n"
                 accepted_data: [AbstractExtendedTokenAnnotation, Entry, Event, Example, Figure, Gap, Head, Linebreak, List, Note, PhonContent, Quote, Reference, Sentence, String, TextContent, Whitespace, Word]
                 xmltag: "p"
           - class: Part
             properties:
+                annotationtype: PART
                 textdelimiter: null
                 accepted_data: [ AbstractStructureElement, AbstractExtendedTokenAnnotation] #too permissive really, should be context dependent
                 xmltag: "part"
           - class: Phoneme
             properties:
+                annotationtype: PHONOLOGICAL
                 optional_attribs: [ CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
                 xmltag: "phoneme"
                 textdelimiter: ""
@@ -277,6 +307,7 @@ elements:
                 xmltag: "row"
           - class: Sentence
             properties:
+                annotationtype: SENTENCE
                 accepted_data: [AbstractExtendedTokenAnnotation, Entry, Event, Example, Gap, Linebreak, Note, PhonContent, Quote, Reference, String, TextContent, Whitespace, Word]
                 xmltag: "s"
                 textdelimiter: " "
@@ -288,6 +319,7 @@ elements:
                 accepted_data: [AbstractExtendedTokenAnnotation, Division, Entry, Event, Example, Gap, List, Note, Paragraph, PhonContent, Quote, Reference, Sentence, String, TextContent, Utterance, Word]
           - class: Table
             properties:
+                annotationtype: TABLE
                 accepted_data: [AbstractExtendedTokenAnnotation, Row, TableHead]
                 xmltag: "table"
           - class: TableHead
@@ -296,6 +328,7 @@ elements:
                 xmltag: "tablehead"
           - class: Term
             properties:
+                annotationtype: TERM
                 accepted_data: [AbstractExtendedTokenAnnotation, Event, Figure, Gap, List, Paragraph, PhonContent, Reference, Sentence, String, Table, TextContent, Utterance, Word]
                 xmltag: "term"
           - class: Text
@@ -307,15 +340,18 @@ elements:
                 accepted_data: [AbstractExtendedTokenAnnotation, Division, Entry, Event, Example, Figure, Gap, List, Note, Paragraph, PhonContent, Quote, Reference, Sentence, String, Table, TextContent, Word]
           - class: Utterance
             properties:
+                annotationtype: UTTERANCE
                 textdelimiter: " "
                 accepted_data: [AbstractExtendedTokenAnnotation, Gap, Note, PhonContent, Quote, Reference, Sentence, String, TextContent, Word]
                 xmltag: "utt"
           - class: Whitespace
             properties:
+                annotationtype: WHITESPACE
                 xmltag: "whitespace"
                 textdelimiter: ""
           - class: Word
             properties:
+                annotationtype: TOKEN
                 accepted_data: [AbstractTokenAnnotation, PhonContent, Reference, String, TextContent]
                 xmltag: "w"
     - class: AbstractTextMarkup
@@ -329,18 +365,23 @@ elements:
       elements:
           - class: TextMarkupCorrection
             properties:
+                annotationtype: CORRECTION
                 xmltag: "t-correction"
           - class: TextMarkupError
             properties:
+                annotationtype: ERRORDETECTION
                 xmltag: "t-error"
           - class: TextMarkupGap
             properties:
+                annotationtype: GAP
                 xmltag: "t-gap"
           - class: TextMarkupString
             properties:
+                annotationtype: STRING
                 xmltag: "t-str"
           - class: TextMarkupStyle
             properties:
+                annotationtype: STYLE
                 xmltag: "t-style"
     - class: AbstractTokenAnnotation
       properties:
@@ -352,32 +393,40 @@ elements:
             elements:
                 - class: DomainAnnotation
                   properties:
+                      annotationtype: DOMAIN
                       xmltag: "domain"
                 - class: ErrorDetection
                   properties:
+                      annotationtype: ERRORDETECTION
                       xmltag: "errordetection"
                 - class: LangAnnotation
                   properties:
+                      annotationtype: LANG
                       xmltag: "lang"
           - class: LemmaAnnotation
             properties:
+                annotationtype: LEMMA
                 xmltag: "lemma"
           - class: PosAnnotation
             properties:
+                annotationtype: POS
                 accepted_data: [ HeadFeature ]
                 xmltag: "pos"
           - class: SenseAnnotation
             properties:
+                annotationtype: SENSE
                 accepted_data: [ SynsetFeature ]
                 xmltag: "sense"
           - class: SubjectivityAnnotation
             properties:
+                annotationtype: SUBJECTIVITY
                 xmltag: "subjectivity"
     - class: AlignReference
       properties:
           xmltag: "aref"
     - class: Alignment
       properties:
+          annotationtype: ALIGNMENT
           speakable: false
           optional_attribs: [ CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
           printable: false
@@ -405,6 +454,7 @@ elements:
           xmltag: "altlayers"
     - class: ComplexAlignment
       properties:
+          annotationtype: COMPLEXALIGNMENT
           speakable: false
           optional_attribs: [ CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
           printable: false
@@ -417,6 +467,7 @@ elements:
           occurrences: 1
     - class: Correction
       properties:
+          annotationtype: CORRECTION
           printable: true
           accepted_data: [ New, Original, Current, Suggestion, ErrorDetection, Metric, Feature ]
           speakable: true
@@ -486,16 +537,19 @@ elements:
                 subset: "value"
     - class: Gap
       properties:
+          annotationtype: GAP
           optional_attribs: [ CLASS, ANNOTATOR, CONFIDENCE, N ]
           xmltag: "gap"
           accepted_data: [Content, Feature, Metric, Part]
     - class: Metric
       properties:
+          annotationtype: METRIC
           optional_attribs: [ CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
           xmltag: "metric"
           accepted_data: [ Feature, ValueFeature ]
     - class: PhonContent
       properties:
+          annotationtype: PHON
           printable: false
           accepted_data: null
           phoncontainer: true
@@ -505,6 +559,7 @@ elements:
           xmltag: "ph"
     - class: String
       properties:
+          annotationtype: STRING
           optional_attribs: [ CLASS, ANNOTATOR, CONFIDENCE, DATETIME ]
           occurrences: 0
           printable: true
@@ -512,6 +567,7 @@ elements:
           xmltag: "str"
     - class: TextContent
       properties:
+          annotationtype: TEXT
           textcontainer: true
           printable: true
           speakable: false
