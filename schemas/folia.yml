@@ -16,22 +16,20 @@ annotationtype: [ TEXT, TOKEN, DIVISION, PARAGRAPH, LIST, FIGURE, WHITESPACE, LI
 
 #default properties for all elements if not overriden
 defaultproperties:
-    xmltag: null
-    accepted_data: [ Description ]
-    required_data: null
-    required_attribs: null
-    optional_attribs: null
-    occurrences: 0
-    occurrences_per_set: 1
-    textdelimiter: null
-    printable: false
-    speakable: false
-    xlink: false
-    textcontainer: false
-    phoncontainer: false
+    xmltag: null   #The XML tag for the element
+    accepted_data: [ Description ]  #Elements that are allowed as children of this element
+    required_data: null #Elements that are required as children of this element
+    required_attribs: null #Common attributes that are required on this element
+    optional_attribs: null #Other allowed common attributes
+    occurrences: 0 #How often can this element occur under the parent? (0 = unlimited)
+    occurrences_per_set: 1 #How often can a particular element+set combination occur under the parent (0 = unlimited)
+    textdelimiter: null #Delimiter to use when dynamically gathering text
+    printable: false #Is this element printable? (i.e. can the text() method be called?)
+    speakable: false #Is this element phonetically representablly? (i.e. can the phon() method be called?)
+    xlink: false #Can the element carry xlink references?
+    textcontainer: false #Does the element directly take textual content (e.g. TextContent (t) is a textcontainer)
+    phoncontainer: false #Does the element directly take phonetic content (e.g. PhonContent (ph) is a phoncontainer)
 
-
-            
 
 elements:
     - class: AbstractAnnotationLayer
