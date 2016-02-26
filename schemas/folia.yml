@@ -17,7 +17,7 @@ annotationtype: [ TEXT, TOKEN, DIVISION, PARAGRAPH, LIST, FIGURE, WHITESPACE, LI
 #default properties for all elements if not overriden
 defaultproperties:
     xmltag: null   #The XML tag for the element
-    accepted_data: [ Description ]  #Elements that are allowed as children of this element
+    accepted_data: [ Description ]  #Elements that are allowed as children of this element, this property is inherited automatically
     required_data: null #Elements that are required as children of this element
     required_attribs: null #Common attributes that are required on this element
     optional_attribs: null #Other allowed common attributes
@@ -29,6 +29,7 @@ defaultproperties:
     xlink: false #Can the element carry xlink references?
     textcontainer: false #Does the element directly take textual content (e.g. TextContent (t) is a textcontainer)
     phoncontainer: false #Does the element directly take phonetic content (e.g. PhonContent (ph) is a phoncontainer)
+    subset: null #used for Feature subclasses
 
 
 elements:
@@ -37,46 +38,47 @@ elements:
           printable: false
           speakable: false
           optional_attribs: [ SETONLY ]
+          accepted_data: [ Correction ]
       elements:
           - class: ChunkingLayer
             properties:
-                accepted_data: [ Chunk, Description, Correction ]
+                accepted_data: [ Chunk]
                 xmltag: "chunking"
           - class: ComplexAlignmentLayer
             properties:
-                accepted_data: [ ComplexAlignment, Description, Correction ]
+                accepted_data: [ ComplexAlignment]
                 xmltag: "complexalignments"
           - class: CoreferenceLayer
             properties:
-                accepted_data: [ CoreferenceChain, Description, Correction ]
+                accepted_data: [ CoreferenceChain]
                 xmltag: "coreferences"
           - class: DependenciesLayer
             properties:
-                accepted_data: [ Dependency, Description, Correction ]
+                accepted_data: [ Dependency]
                 xmltag: "dependencies"
           - class: EntitiesLayer
             properties:
-                accepted_data: [ Entity, Description, Correction ]
+                accepted_data: [ Entity]
                 xmltag: "entities"
           - class: MorphologyLayer
             properties:
-                accepted_data: [ Morpheme, Correction ]
+                accepted_data: [ Morpheme]
                 xmltag: "morphology"
           - class: PhonologyLayer
             properties:
-                accepted_data: [ Phoneme, Correction ]
+                accepted_data: [ Phoneme ]
                 xmltag: "phonology"
           - class: SemanticRolesLayer
             properties:
-                accepted_data: [ SemanticRole, Description, Correction ]
+                accepted_data: [ SemanticRole ]
                 xmltag: "semroles"
           - class: SyntaxLayer
             properties:
-                accepted_data: [ SyntacticUnit, Description, Correction ]
+                accepted_data: [ SyntacticUnit ]
                 xmltag: "syntax"
           - class: TimingLayer
             properties:
-                accepted_data: [ TimeSegment, Description, Correction ]
+                accepted_data: [ TimeSegment ]
                 xmltag: "timing"
     - class: AbstractCorrectionChild
       properties:
@@ -84,7 +86,7 @@ elements:
           optional_attribs: [ ANNOTATOR, CONFIDENCE, DATETIME, N ]
           printable: true
           textdelimiter: null
-          accepted_data: [ AbstractTokenAnnotation, AbstractSpanAnnotation, AbstractStructureElement, TextContent, PhonContent, Correction, String, Description, Metric ]
+          accepted_data: [ AbstractTokenAnnotation, AbstractSpanAnnotation, AbstractStructureElement, Correction, Metric, PhonContent, String, TextContent]
       elements:
           - class: Current
             properties:
@@ -115,61 +117,53 @@ elements:
           printable: true
           speakable: true
           optional_attribs: [ CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
+          accepted_data: [ Metric, Alignment ]
       elements:
           - class: AbstractSpanRole
             properties:
                 optional_attribs: [ ANNOTATOR, N, DATETIME ]
+                accepted_data: [ Feature, WordReference]
             elements:
                 - class: CoreferenceLink
                   properties:
                       xmltag: "coreferencelink"
-                      accepted_data: [ WordReference, Description, Headspan, Alignment, Feature, ModalityFeature, TimeFeature, LevelFeature, Metric ]
+                      accepted_data: [Headspan, LevelFeature, ModalityFeature, TimeFeature]
                 - class: DependencyDependent
                   properties:
-                      accepted_data: [ WordReference, Description, Feature, Alignment, Metric ]
                       xmltag: "dep"
                 - class: Headspan
                   properties:
-                      accepted_data: [ WordReference, Description, Feature, Alignment, Metric ]
-                      xmltag: "hd"
-                - class: Headspan
-                  properties:
-                      accepted_data: [ WordReference, Description, Feature, Alignment, Metric ]
                       xmltag: "hd"
           - class: Chunk
             properties:
-                accepted_data: [ WordReference, Description, Feature, Metric ]
+                accepted_data: [ Feature, WordReference ]
                 xmltag: "chunk"
           - class: CoreferenceChain
             properties:
-                accepted_data: [ CoreferenceLink, Description, Metric ]
+                accepted_data: [ CoreferenceLink ]
                 xmltag: "coreferencechain"
                 required_data: [ CoreferenceLink ]
           - class: Dependency
             properties:
-                accepted_data: [ Description, Feature, Headspan, DependencyDependent, Alignment, Metric ]
+                accepted_data: [ DependencyDependent, Feature, Headspan ]
                 xmltag: "dependency"
-                required_data: [ Headspan, DependencyDependent ]
+                required_data: [ DependencyDependent, Headspan ]
           - class: Entity
             properties:
-                accepted_data: [ WordReference, Description, Feature, Metric ]
+                accepted_data: [ Feature, WordReference ]
                 xmltag: "entity"
           - class: SemanticRole
             properties:
                 required_attribs: [ CLASS ]
-                accepted_data: [ WordReference, Description, Headspan, Alignment, Metric, Feature ]
+                accepted_data: [ Feature, Headspan, WordReference ]
                 xmltag: "semrole"
           - class: SyntacticUnit
             properties:
-                accepted_data: [ SyntacticUnit, WordReference, Description, Feature, Metric ]
+                accepted_data: [Feature, SyntacticUnit, WordReference]
                 xmltag: "su"
           - class: TimeSegment
             properties:
-                accepted_data: [ WordReference, Description, Feature, ActorFeature, BegindatetimeFeature, EnddatetimeFeature, Metric ]
-                xmltag: "timesegment"
-          - class: TimeSegment
-            properties:
-                accepted_data: [ WordReference, Description, Feature, ActorFeature, BegindatetimeFeature, EnddatetimeFeature, Metric ]
+                accepted_data: [ActorFeature, BegindatetimeFeature, EnddatetimeFeature, Feature, WordReference]
                 xmltag: "timesegment"
     - class: AbstractStructureElement
       properties:
@@ -178,142 +172,133 @@ elements:
           textdelimiter: "\n\n"
           speakable: true
           optional_attribs: [ CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
+          accepted_data: [AbstractAnnotationLayer, Alignment, Alternative, AlternativeLayers, Correction, Feature, Metric, Part]
       elements:
           - class: Caption
             properties:
                 occurrences: 1
-                accepted_data: [ Sentence, Reference, Description, TextContent, PhonContent, String, Alignment, Gap, Metric, Alternative, Alternative, AlternativeLayers, AbstractAnnotationLayer, Correction, Part, Feature ]
+                accepted_data: [AbstractExtendedTokenAnnotation, Gap, Linebreak, PhonContent, Reference, Sentence, String, TextContent, Whitespace]
                 xmltag: "caption"
           - class: Cell
             properties:
                 textdelimiter: " | "
-                accepted_data: [ Paragraph, Head, Sentence, Word, Correction, Event, Example, Entry, Note, Reference, Linebreak, Whitespace, Gap, AbstractAnnotationLayer, AlternativeLayers, AbstractExtendedTokenAnnotation, Correction, Part, Feature ]
-                required_attribs: [  ]
+                accepted_data: [AbstractExtendedTokenAnnotation, Entry, Event, Example, Gap, Head, Linebreak, Note, Paragraph, Reference, Sentence, String, TextContent, Whitespace, Word]
                 xmltag: "cell"
           - class: Definition
             properties:
-                accepted_data: [ Paragraph, Sentence, Word, Utterance, List, Figure, Table, Reference, Feature, TextContent, PhonContent, String, Metric, AbstractExtendedTokenAnnotation, Correction, Part ]
+                accepted_data: [AbstractExtendedTokenAnnotation, Figure, List, Metric, Paragraph, PhonContent, Reference, Sentence, String, Table, TextContent, Utterance, Word]
                 xmltag: "def"
           - class: Division
             properties:
-                required_attribs: [  ]
                 optional_attribs: [ CLASS, N, SRC, BEGINTIME, ENDTIME, SPEAKER ]
                 xmltag: "div"
                 textdelimiter: "\n\n\n"
-                accepted_data: [ Division, Quote, Gap, Event, Example, Entry, Head, Utterance, Paragraph, Sentence, List, Figure, Table, Note, Reference, AbstractExtendedTokenAnnotation, Description, Linebreak, Whitespace, Alternative, AlternativeLayers, AbstractAnnotationLayer, Correction, Part, TextContent, PhonContent, Feature ]
+                accepted_data: [AbstractExtendedTokenAnnotation, Division, Entry, Event, Example, Figure, Gap, Head, Linebreak, List, Note, Paragraph, Part, PhonContent, Quote, Reference, Sentence, Table, TextContent, Utterance, Whitespace]
           - class: Entry
             properties:
-                accepted_data: [ Term, Definition, Example, Correction, Description, Metric, Alignment, AlternativeLayers, AbstractAnnotationLayer ]
+                accepted_data: [Definition, Example, Term]
                 xmltag: "entry"
           - class: Event
             properties:
-                accepted_data: [ Event, Example, Paragraph, Sentence, Division, Word, Head, Utterance, List, Figure, Table, Reference, Feature, ActorFeature, BegindatetimeFeature, EnddatetimeFeature, TextContent, PhonContent, String, Metric, AbstractExtendedTokenAnnotation, Correction, Part ]
+                accepted_data: [AbstractExtendedTokenAnnotation, ActorFeature, BegindatetimeFeature, Division, EnddatetimeFeature, Event, Example, Figure, Head, Linebreak, List, Paragraph, PhonContent, Reference, Sentence, String, Table, TextContent, Utterance, Whitespace, Word]
                 xmltag: "event"
           - class: Example
             properties:
-                accepted_data: [ Paragraph, Sentence, Word, Utterance, List, Figure, Table, Reference, Feature, TextContent, PhonContent, String, Metric, AbstractExtendedTokenAnnotation, Correction, Part ]
+                accepted_data: [AbstractExtendedTokenAnnotation, Figure, Linebreak, List, Paragraph, PhonContent, Reference, Sentence, String, Table, TextContent, Utterance, Word, Whitespace]
                 xmltag: "ex"
           - class: Figure
             properties:
                 xmltag: "figure"
+                speakable: false
                 textdelimiter: "\n\n"
-                accepted_data: [ Sentence, Description, Caption, TextContent, PhonContent, String, Alignment, Metric, Alternative, Alternative, AlternativeLayers, AbstractAnnotationLayer, Correction, Part ]
+                accepted_data: [Caption, Sentence, String, TextContent]
           - class: Head
             properties:
                 textdelimiter: "\n\n"
                 occurrences: 1
-                accepted_data: [ Sentence, Word, Description, Event, Reference, TextContent, PhonContent, String, Alignment, Metric, Linebreak, Whitespace, Gap, Alternative, AlternativeLayers, AbstractAnnotationLayer, AbstractExtendedTokenAnnotation, Correction, Part ]
+                accepted_data: [AbstractExtendedTokenAnnotation, Event, Gap, Linebreak, PhonContent, Reference, Sentence, String, TextContent, Whitespace, Word]
                 xmltag: "head"
           - class: Label
             properties:
-                accepted_data: [ Word, Reference, Description, TextContent, PhonContent, String, Alignment, Metric, Alternative, Alternative, AlternativeLayers, AbstractAnnotationLayer, AbstractExtendedTokenAnnotation, Correction, Part ]
+                accepted_data: [ Word, Reference, TextContent, PhonContent, String, Alignment, Metric, Alternative, Alternative, AlternativeLayers, AbstractAnnotationLayer, AbstractExtendedTokenAnnotation, Correction, Part ]
                 xmltag: "label"
           - class: Linebreak
             properties:
-                required_attribs: null
                 xmltag: "br"
                 textdelimiter: ""
-                accepted_data: [ Feature, Metric, Description ]
           - class: List
             properties:
                 textdelimiter: "\n\n"
-                accepted_data: [ ListItem, Description, Caption, Event, Note, Reference, TextContent, PhonContent, String, Alignment, Metric, Alternative, Alternative, AlternativeLayers, AbstractAnnotationLayer, AbstractExtendedTokenAnnotation, Correction, Part, Feature ]
+                accepted_data: [AbstractExtendedTokenAnnotation, Alignment, Caption, Event, ListItem, Metric, Note, PhonContent, Reference, String, TextContent]
                 xmltag: "list"
           - class: ListItem
             properties:
                 textdelimiter: "\n"
-                accepted_data: [ List, Sentence, Description, Label, Event, Note, Reference, TextContent, PhonContent, String, Gap, Alignment, Metric, Alternative, AlternativeLayers, AbstractAnnotationLayer, AbstractExtendedTokenAnnotation, Correction, Part, Feature ]
-                xmltag: "item"
+                accepted_data: [AbstractExtendedTokenAnnotation, Event, Gap, Label, Linebreak, List, Note, PhonContent, Reference, Sentence, String, TextContent, Whitespace]
+                xmltag: "item" #was listitem in an early erroneous version of FoLiA, libraries will unfortunately need to support that too for backward compatibility
           - class: Morpheme
             properties:
-                required_attribs: [  ]
                 optional_attribs: [ CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
                 xmltag: "morpheme"
-                accepted_data: [ FunctionFeature, Feature, TextContent, PhonContent, String, Metric, Alignment, AbstractTokenAnnotation, Correction, Description ]
+                textdelimiter: ""
+                accepted_data: [AbstractTokenAnnotation, FunctionFeature, PhonContent, String, TextContent]
           - class: Note
             properties:
-                accepted_data: [ Paragraph, Sentence, Word, Example, Head, Utterance, List, Figure, Table, Reference, Feature, TextContent, PhonContent, String, Metric, AbstractExtendedTokenAnnotation, Correction, Part ]
+                accepted_data: [AbstractExtendedTokenAnnotation, Example, Figure, Head, Linebreak, List, Paragraph, PhonContent, Reference, Sentence, String, Table, TextContent, Utterance, Whitespace, Word]
                 xmltag: "note"
           - class: Paragraph
             properties:
                 textdelimiter: "\n\n"
-                accepted_data: [ Word, Sentence, Quote, Example, Entry, AbstractExtendedTokenAnnotation, Correction, TextContent, PhonContent, String, Description, Linebreak, Whitespace, Gap, List, Figure, Event, Head, Note, Reference, Alignment, Metric, Alternative, AlternativeLayers, AbstractAnnotationLayer, Part ]
+                accepted_data: [AbstractExtendedTokenAnnotation, Entry, Event, Example, Figure, Gap, Head, Linebreak, List, Note, PhonContent, Quote, Reference, Sentence, String, TextContent, Whitespace, Word]
                 xmltag: "p"
           - class: Part
             properties:
                 textdelimiter: null
-                accepted_data: [ AbstractStructureElement, AbstractExtendedTokenAnnotation, AlternativeLayers, AbstractAnnotationLayer, Correction ]
+                accepted_data: [ AbstractStructureElement, AbstractExtendedTokenAnnotation] #too permissive really, should be context dependent
                 xmltag: "part"
           - class: Phoneme
             properties:
-                required_attribs: [  ]
                 optional_attribs: [ CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
                 xmltag: "phoneme"
-                accepted_data: [ FunctionFeature, Feature, TextContent, PhonContent, String, Metric, Alignment, AbstractTokenAnnotation, Correction, Description ]
+                textdelimiter: ""
+                accepted_data: [AbstractTokenAnnotation, FunctionFeature, PhonContent, String, TextContent]
           - class: Quote
             properties:
-                required_attribs: null
-                accepted_data: [ Word, Sentence, Paragraph, Utterance, Division, Quote, TextContent, String, Gap, Feature, Description, Alignment, Metric, Alternative, AlternativeLayers, AbstractAnnotationLayer, Correction, Part ]
+                accepted_data: [Division, Gap, Paragraph, Quote, Sentence, String, TextContent, Utterance, Word]
                 xmltag: "quote"
           - class: Reference
             properties:
                 textdelimiter: null
-                speakable: true
                 optional_attribs: [ ANNOTATOR, CONFIDENCE, DATETIME ]
                 xmltag: "ref"
-                required_attribs: null
-                accepted_data: [ TextContent, PhonContent, String, Description, Metric ]
-                printable: true
+                accepted_data: [PhonContent, String, TextContent]
           - class: Row
             properties:
                 textdelimiter: "\n"
-                accepted_data: [ Cell, AbstractAnnotationLayer, AlternativeLayers, AbstractExtendedTokenAnnotation, Correction, Part ]
-                required_attribs: [  ]
+                accepted_data: [ Cell, AbstractExtendedTokenAnnotation ]
                 xmltag: "row"
           - class: Sentence
             properties:
-                accepted_data: [ Word, Quote, AbstractExtendedTokenAnnotation, Correction, TextContent, PhonContent, String, Gap, Description, Linebreak, Whitespace, Event, Example, Entry, Note, Reference, Alignment, Metric, Alternative, AlternativeLayers, AbstractAnnotationLayer, Part ]
+                accepted_data: [AbstractExtendedTokenAnnotation, Entry, Event, Example, Gap, Linebreak, Note, PhonContent, Quote, Reference, String, TextContent, Whitespace, Word]
                 xmltag: "s"
                 textdelimiter: " "
           - class: Speech
             properties:
-                required_attribs: [  ]
                 optional_attribs: [ N, SRC, BEGINTIME, ENDTIME, SPEAKER ]
                 xmltag: "speech"
                 textdelimiter: "\n\n\n"
-                accepted_data: [ Utterance, Gap, Event, Entry, Example, Division, Paragraph, Quote, Sentence, Word, List, Note, Reference, AbstractAnnotationLayer, AbstractExtendedTokenAnnotation, Description, TextContent, PhonContent, String, Metric, Correction ]
+                accepted_data: [AbstractExtendedTokenAnnotation, Division, Entry, Event, Example, Gap, List, Note, Paragraph, PhonContent, Quote, Reference, Sentence, String, TextContent, Utterance, Word]
           - class: Table
             properties:
-                accepted_data: [ TableHead, Row, AbstractAnnotationLayer, AlternativeLayers, AbstractExtendedTokenAnnotation, Correction, Part ]
+                accepted_data: [AbstractExtendedTokenAnnotation, Row, TableHead]
                 xmltag: "table"
           - class: TableHead
             properties:
-                required_attribs: [  ]
-                accepted_data: [ Row, AbstractAnnotationLayer, AlternativeLayers, AbstractExtendedTokenAnnotation, Correction, Part ]
+                accepted_data: [AbstractExtendedTokenAnnotation, Row]
                 xmltag: "tablehead"
           - class: Term
             properties:
-                accepted_data: [ Paragraph, Event, Sentence, Word, Utterance, List, Figure, Table, Reference, Feature, TextContent, PhonContent, String, Metric, AbstractExtendedTokenAnnotation, Correction, Part ]
+                accepted_data: [AbstractExtendedTokenAnnotation, Event, Figure, Gap, List, Paragraph, PhonContent, Reference, Sentence, String, Table, TextContent, Utterance, Word]
                 xmltag: "term"
           - class: Text
             properties:
@@ -321,23 +306,19 @@ elements:
                 optional_attribs: [ N ]
                 xmltag: "text"
                 textdelimiter: "\n\n\n"
-                accepted_data: [ Gap, Event, Entry, Example, Division, Paragraph, Quote, Sentence, Word, List, Figure, Table, Note, Reference, AbstractAnnotationLayer, AbstractExtendedTokenAnnotation, Description, TextContent, PhonContent, String, Metric, Correction ]
+                accepted_data: [AbstractExtendedTokenAnnotation, Division, Entry, Event, Example, Figure, Gap, List, Note, Paragraph, PhonContent, Quote, Reference, Sentence, String, Table, TextContent, Word]
           - class: Utterance
             properties:
-                speakable: true
-                printable: true
                 textdelimiter: " "
-                accepted_data: [ Word, Sentence, Quote, AbstractExtendedTokenAnnotation, Correction, TextContent, PhonContent, String, Gap, Description, Note, Reference, Alignment, Metric, Alternative, AlternativeLayers, AbstractAnnotationLayer, Part, Feature ]
+                accepted_data: [AbstractExtendedTokenAnnotation, Gap, Note, PhonContent, Quote, Reference, Sentence, String, TextContent, Word]
                 xmltag: "utt"
           - class: Whitespace
             properties:
-                required_attribs: null
                 xmltag: "whitespace"
                 textdelimiter: ""
-                accepted_data: [ Feature, Metric, Description ]
           - class: Word
             properties:
-                accepted_data: [ AbstractTokenAnnotation, Correction, TextContent, PhonContent, String, Alternative, AlternativeLayers, Description, AbstractAnnotationLayer, Alignment, Metric, Reference, Feature ]
+                accepted_data: [AbstractTokenAnnotation, PhonContent, Reference, String, TextContent]
                 xmltag: "w"
     - class: AbstractTextMarkup
       properties:
@@ -367,39 +348,35 @@ elements:
       properties:
           required_attribs: [ CLASS ]
           optional_attribs: [ CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
+          accepted_data: [ Feature , Metric ]
       elements:
           - class: AbstractExtendedTokenAnnotation
             elements:
                 - class: DomainAnnotation
                   properties:
-                      accepted_data: [ Feature, Description, Metric ]
                       xmltag: "domain"
                 - class: ErrorDetection
                   properties:
                       xmltag: "errordetection"
                 - class: LangAnnotation
                   properties:
-                      accepted_data: [ Feature, Description, Metric ]
                       xmltag: "lang"
           - class: LemmaAnnotation
             properties:
-                accepted_data: [ Feature, Description, Metric ]
                 xmltag: "lemma"
           - class: PosAnnotation
             properties:
-                accepted_data: [ Feature, HeadFeature, Description, Metric ]
+                accepted_data: [ HeadFeature ]
                 xmltag: "pos"
           - class: SenseAnnotation
             properties:
-                accepted_data: [ Feature, SynsetFeature, Description, Metric ]
+                accepted_data: [ SynsetFeature ]
                 xmltag: "sense"
           - class: SubjectivityAnnotation
             properties:
-                accepted_data: [ Feature, Description, Metric ]
                 xmltag: "subjectivity"
     - class: AlignReference
       properties:
-          required_attribs: [  ]
           xmltag: "aref"
     - class: Alignment
       properties:
@@ -408,7 +385,7 @@ elements:
           printable: false
           required_attribs: null
           xlink: true
-          accepted_data: [ AlignReference, Description, Metric, Feature ]
+          accepted_data: [ AlignReference, Metric, Feature ]
           xmltag: "alignment"
     - class: Alternative
       properties:
@@ -434,7 +411,7 @@ elements:
           optional_attribs: [ CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
           printable: false
           required_attribs: null
-          accepted_data: [ Alignment, Metric, Feature, Description ]
+          accepted_data: [ Alignment, Metric, Feature ]
           xmltag: "complexalignment"
     - class: Content
       properties:
@@ -443,7 +420,7 @@ elements:
     - class: Correction
       properties:
           printable: true
-          accepted_data: [ New, Original, Current, Suggestion, ErrorDetection, Description, Metric, Feature ]
+          accepted_data: [ New, Original, Current, Suggestion, ErrorDetection, Metric, Feature ]
           speakable: true
           optional_attribs: [ CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
           xmltag: "correction"
@@ -468,46 +445,57 @@ elements:
           - class: ActorFeature
             properties:
                 xmltag: null
+                subset: "actor"
           - class: BegindatetimeFeature
             properties:
                 xmltag: null
+                subset: "begindatetime"
           - class: EnddatetimeFeature
             properties:
                 xmltag: null
+                subset: "enddatetime"
           - class: FunctionFeature
             properties:
                 xmltag: null
+                subset: "function"
           - class: HeadFeature
             properties:
                 xmltag: null
+                subset: "head"
           - class: LevelFeature
             properties:
                 xmltag: null
+                subset: "level"
           - class: ModalityFeature
             properties:
                 xmltag: null
+                subset: "modality"
           - class: StyleFeature
             properties:
                 xmltag: null
+                subset: "style"
           - class: SynsetFeature
             properties:
                 xmltag: null
+                subset: "synset"
           - class: TimeFeature
             properties:
                 xmltag: null
+                subset: "time"
           - class: ValueFeature
             properties:
                 xmltag: null
+                subset: "value"
     - class: Gap
       properties:
           optional_attribs: [ CLASS, ANNOTATOR, CONFIDENCE, N ]
           xmltag: "gap"
-          accepted_data: [ Content, Feature, Metric, Description, Part ]
+          accepted_data: [Content, Feature, Metric, Part]
     - class: Metric
       properties:
           optional_attribs: [ CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
           xmltag: "metric"
-          accepted_data: [ Feature, ValueFeature, Description ]
+          accepted_data: [ Feature, ValueFeature ]
     - class: PhonContent
       properties:
           textcontainer: false
@@ -520,24 +508,22 @@ elements:
           xmltag: "ph"
     - class: String
       properties:
-          required_attribs: null
           optional_attribs: [ CLASS, ANNOTATOR, CONFIDENCE, DATETIME ]
           occurrences: 0
           printable: true
-          accepted_data: [ TextContent, PhonContent, Alignment, Description, Metric, Correction, AbstractExtendedTokenAnnotation, Feature ]
+          accepted_data: [AbstractExtendedTokenAnnotation, Alignment, Correction, Feature, Metric, PhonContent, TextContent]
           xmltag: "str"
     - class: TextContent
       properties:
           textcontainer: true
           printable: true
-          accepted_data: [ AbstractTextMarkup, Linebreak ]
+          accepted_data: [ AbstractTextMarkup, Linebreak ] #Linebreak doubles as a AbstractTextMarkup and AbstractStructureAnnotation element
           optional_attribs: [ CLASS, ANNOTATOR, CONFIDENCE, DATETIME ]
           occurrences: 0
           xmltag: "t"
           xlink: true
     - class: WordReference
       properties:
-          required_attribs: [  ]
           xmltag: "wref"
 
 #Default ignore list for the select() method, do not descend into these
