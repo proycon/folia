@@ -230,9 +230,17 @@ def outputblock(block, target, varname, indent = ""):
             s += indent + "const map<AnnotationType::AnnotationType,string> ant_s_map = {\n"
             s += indent + "  { AnnotationType::NO_ANN, \"NONE\" },\n"
             for element in elements:
-                if 'properties' in element and 'xmltag' in element['properties'] and 'annotationtype' in element['properties']:
+                if 'properties' in element and 'xmltag' in element['properties'] and element['properties']['xmltag'] and 'annotationtype' in element['properties']:
+                    if 'primaryelement' in element['properties'] and not element['properties']['primaryelement']: continue #not primary, skip
                     s += indent + "  { AnnotationType::" + element['properties']['annotationtype'] + ',  "' + element['properties']['xmltag'] + '" },\n'
             s += indent + "};\n"
+        elif target == 'python':
+            s += indent + "ANNOTATIONTYPE2XML = {\n"
+            for element in elements:
+                if 'properties' in element and 'xmltag' in element['properties'] and element['properties']['xmltag'] and 'annotationtype' in element['properties']:
+                    if 'primaryelement' in element['properties'] and not element['properties']['primaryelement']: continue #not primary, skip
+                    s += indent + "  AnnotationType." + element['properties']['annotationtype'] + ':  "' + element['properties']['xmltag'] + '" ,\n'
+            s += indent + "}"
         else:
             raise NotImplementedError("Block " + block + " not implemented for " + target)
     elif block == 'string_annotationtype_map':
@@ -240,7 +248,7 @@ def outputblock(block, target, varname, indent = ""):
             s += indent + "const map<string,AnnotationType::AnnotationType> s_ant_map = {\n"
             s += indent + "  { \"NONE\", AnnotationType::NO_ANN },\n"
             for element in elements:
-                if 'properties' in element and 'xmltag' in element['properties'] and 'annotationtype' in element['properties']:
+                if 'properties' in element and 'xmltag' in element['properties'] and element['properties']['xmltag'] and 'annotationtype' in element['properties']:
                     s += indent + '  { "' + element['properties']['xmltag'] + '", AnnotationType::' + element['properties']['annotationtype'] + ' },\n'
             s += indent + "};\n"
         else:
@@ -250,7 +258,7 @@ def outputblock(block, target, varname, indent = ""):
             s += indent + "const map<ElementType,string> et_s_map = {\n"
             s += indent + "  { BASE, \"FoLiA\" },\n"
             for element in elements:
-                if 'properties' in element and 'xmltag' in element['properties']:
+                if 'properties' in element and 'xmltag' in element['properties'] and element['properties']['xmltag']:
                     s += indent + "  { " + element['class'] + '_t,  "' + element['properties']['xmltag'] + '" },\n'
             s += indent + "};\n"
         else:
@@ -260,9 +268,28 @@ def outputblock(block, target, varname, indent = ""):
             s += indent + "const map<string,ElementType> s_et_map = {\n"
             s += indent + "  { \"FoLiA\", BASE },\n"
             for element in elements:
-                if 'properties' in element and 'xmltag' in element['properties']:
+                if 'properties' in element and 'xmltag' in element['properties'] and element['properties']['xmltag']:
                     s += indent + '  { "' + element['properties']['xmltag'] + '", ' + element['class'] + '_t  },\n'
             s += indent + "};\n"
+        else:
+            raise NotImplementedError("Block " + block + " not implemented for " + target)
+    elif block == 'string_class_map':
+        if target == 'python':
+            s += indent + "XML2CLASS = {\n"
+            for element in elements:
+                if 'properties' in element and 'xmltag' in element['properties'] and element['properties']['xmltag']:
+                    s += indent + '  "' + element['properties']['xmltag'] + '": ' + element['class'] + ',\n'
+            s += indent + "}\n"
+        else:
+            raise NotImplementedError("Block " + block + " not implemented for " + target)
+    elif block == 'annotationtype_layerclass_map':
+        if target == 'python':
+            s += indent + "ANNOTATIONTYPE2LAYERCLASS = {\n"
+            for element in elements:
+                if element['class'].endswith('Layer'):
+                    if 'properties' in element and 'xmltag' in element['properties'] and element['properties']['xmltag'] and 'annotationtype' in element['properties']:
+                        s += indent + "  AnnotationType." + element['properties']['annotationtype'] + ':  ' + element['class'] + ' ,\n'
+            s += indent + "}"
         else:
             raise NotImplementedError("Block " + block + " not implemented for " + target)
     elif block == 'default_ignore':
