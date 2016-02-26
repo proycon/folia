@@ -31,6 +31,7 @@ defaultproperties:
     phoncontainer: false #Does the element directly take phonetic content (e.g. PhonContent (ph) is a phoncontainer)
     subset: null #used for Feature subclasses
     auth: true #The default authoritative state for this element
+    primaryelement: true #Is this the primary element for the advertised annotation type?
 
 
 elements:
@@ -40,6 +41,7 @@ elements:
           speakable: false
           optional_attribs: [ SETONLY ]
           accepted_data: [ Correction ]
+          primaryelement: false
       elements:
           - class: ChunkingLayer
             properties:
@@ -137,6 +139,7 @@ elements:
                       annotationtype: COREFERENCE
                       xmltag: "coreferencelink"
                       accepted_data: [Headspan, LevelFeature, ModalityFeature, TimeFeature]
+                      primaryelement: false
                 - class: DependencyDependent
                   properties:
                       xmltag: "dep"
@@ -362,6 +365,7 @@ elements:
           textdelimiter: ""
           optional_attribs: [ CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
           xlink: true
+          primaryelement: false
       elements:
           - class: TextMarkupCorrection
             properties:
