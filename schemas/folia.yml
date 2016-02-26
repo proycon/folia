@@ -34,148 +34,6 @@ defaultproperties:
             
 
 elements:
-    - class: AbstractAnnotation
-      elements:
-          - class: AbstractSpanAnnotation
-            properties:
-                printable: true
-                speakable: true
-                optional_attribs: [ CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
-            elements:
-                - class: AbstractSpanRole
-                  properties:
-                      optional_attribs: [ ANNOTATOR, N, DATETIME ]
-                  elements:
-                      - class: CoreferenceLink
-                        properties:
-                            xmltag: "coreferencelink"
-                            accepted_data: [ WordReference, Description, Headspan, Alignment, Feature, ModalityFeature, TimeFeature, LevelFeature, Metric ]
-                      - class: DependencyDependent
-                        properties:
-                            accepted_data: [ WordReference, Description, Feature, Alignment, Metric ]
-                            xmltag: "dep"
-                      - class: Headspan
-                        properties:
-                            accepted_data: [ WordReference, Description, Feature, Alignment, Metric ]
-                            xmltag: "hd"
-                      - class: Headspan
-                        properties:
-                            accepted_data: [ WordReference, Description, Feature, Alignment, Metric ]
-                            xmltag: "hd"
-                - class: Chunk
-                  properties:
-                      accepted_data: [ WordReference, Description, Feature, Metric ]
-                      xmltag: "chunk"
-                - class: CoreferenceChain
-                  properties:
-                      accepted_data: [ CoreferenceLink, Description, Metric ]
-                      xmltag: "coreferencechain"
-                      required_data: [ CoreferenceLink ]
-                - class: Dependency
-                  properties:
-                      accepted_data: [ Description, Feature, Headspan, DependencyDependent, Alignment, Metric ]
-                      xmltag: "dependency"
-                      required_data: [ Headspan, DependencyDependent ]
-                - class: Entity
-                  properties:
-                      accepted_data: [ WordReference, Description, Feature, Metric ]
-                      xmltag: "entity"
-                - class: SemanticRole
-                  properties:
-                      required_attribs: [ CLASS ]
-                      accepted_data: [ WordReference, Description, Headspan, Alignment, Metric, Feature ]
-                      xmltag: "semrole"
-                - class: SyntacticUnit
-                  properties:
-                      accepted_data: [ SyntacticUnit, WordReference, Description, Feature, Metric ]
-                      xmltag: "su"
-                - class: TimeSegment
-                  properties:
-                      accepted_data: [ WordReference, Description, Feature, ActorFeature, BegindatetimeFeature, EnddatetimeFeature, Metric ]
-                      xmltag: "timesegment"
-                - class: TimeSegment
-                  properties:
-                      accepted_data: [ WordReference, Description, Feature, ActorFeature, BegindatetimeFeature, EnddatetimeFeature, Metric ]
-                      xmltag: "timesegment"
-          - class: AbstractSubtokenAnnotation
-            properties:
-                speakable: true
-                optional_attribs: [ CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
-                printable: true
-          - class: AbstractTextMarkup
-            properties:
-                textcontainer: true
-                printable: true
-                accepted_data: [ AbstractTextMarkup ]
-                textdelimiter: ""
-                optional_attribs: [ CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
-                xlink: true
-            elements:
-                - class: TextMarkupCorrection
-                  properties:
-                      xmltag: "t-correction"
-                - class: TextMarkupError
-                  properties:
-                      xmltag: "t-error"
-                - class: TextMarkupGap
-                  properties:
-                      xmltag: "t-gap"
-                - class: TextMarkupString
-                  properties:
-                      xmltag: "t-str"
-                - class: TextMarkupStyle
-                  properties:
-                      xmltag: "t-style"
-          - class: AbstractTokenAnnotation
-            properties:
-                required_attribs: [ CLASS ]
-                optional_attribs: [ CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
-            elements:
-                - class: AbstractExtendedTokenAnnotation
-                  elements:
-                      - class: DomainAnnotation
-                        properties:
-                            accepted_data: [ Feature, Description, Metric ]
-                            xmltag: "domain"
-                      - class: ErrorDetection
-                        properties:
-                            xmltag: "errordetection"
-                      - class: LangAnnotation
-                        properties:
-                            accepted_data: [ Feature, Description, Metric ]
-                            xmltag: "lang"
-                - class: LemmaAnnotation
-                  properties:
-                      accepted_data: [ Feature, Description, Metric ]
-                      xmltag: "lemma"
-                - class: PosAnnotation
-                  properties:
-                      accepted_data: [ Feature, HeadFeature, Description, Metric ]
-                      xmltag: "pos"
-                - class: SenseAnnotation
-                  properties:
-                      accepted_data: [ Feature, SynsetFeature, Description, Metric ]
-                      xmltag: "sense"
-                - class: SubjectivityAnnotation
-                  properties:
-                      accepted_data: [ Feature, Description, Metric ]
-                      xmltag: "subjectivity"
-          - class: ComplexAlignment
-            properties:
-                speakable: false
-                optional_attribs: [ CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
-                printable: false
-                required_attribs: null
-                accepted_data: [ Alignment, Metric, Feature, Description ]
-                xmltag: "complexalignment"
-          - class: Correction
-            properties:
-                printable: true
-                accepted_data: [ New, Original, Current, Suggestion, ErrorDetection, Description, Metric, Feature ]
-                speakable: true
-                optional_attribs: [ CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
-                xmltag: "correction"
-                textdelimiter: null
     - class: AbstractAnnotationLayer
       properties:
           printable: false
@@ -254,6 +112,67 @@ elements:
                 xmltag: "suggestion"
                 occurrences: 0
                 auth: false
+    - class: AbstractSpanAnnotation
+      properties:
+          printable: true
+          speakable: true
+          optional_attribs: [ CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
+      elements:
+          - class: AbstractSpanRole
+            properties:
+                optional_attribs: [ ANNOTATOR, N, DATETIME ]
+            elements:
+                - class: CoreferenceLink
+                  properties:
+                      xmltag: "coreferencelink"
+                      accepted_data: [ WordReference, Description, Headspan, Alignment, Feature, ModalityFeature, TimeFeature, LevelFeature, Metric ]
+                - class: DependencyDependent
+                  properties:
+                      accepted_data: [ WordReference, Description, Feature, Alignment, Metric ]
+                      xmltag: "dep"
+                - class: Headspan
+                  properties:
+                      accepted_data: [ WordReference, Description, Feature, Alignment, Metric ]
+                      xmltag: "hd"
+                - class: Headspan
+                  properties:
+                      accepted_data: [ WordReference, Description, Feature, Alignment, Metric ]
+                      xmltag: "hd"
+          - class: Chunk
+            properties:
+                accepted_data: [ WordReference, Description, Feature, Metric ]
+                xmltag: "chunk"
+          - class: CoreferenceChain
+            properties:
+                accepted_data: [ CoreferenceLink, Description, Metric ]
+                xmltag: "coreferencechain"
+                required_data: [ CoreferenceLink ]
+          - class: Dependency
+            properties:
+                accepted_data: [ Description, Feature, Headspan, DependencyDependent, Alignment, Metric ]
+                xmltag: "dependency"
+                required_data: [ Headspan, DependencyDependent ]
+          - class: Entity
+            properties:
+                accepted_data: [ WordReference, Description, Feature, Metric ]
+                xmltag: "entity"
+          - class: SemanticRole
+            properties:
+                required_attribs: [ CLASS ]
+                accepted_data: [ WordReference, Description, Headspan, Alignment, Metric, Feature ]
+                xmltag: "semrole"
+          - class: SyntacticUnit
+            properties:
+                accepted_data: [ SyntacticUnit, WordReference, Description, Feature, Metric ]
+                xmltag: "su"
+          - class: TimeSegment
+            properties:
+                accepted_data: [ WordReference, Description, Feature, ActorFeature, BegindatetimeFeature, EnddatetimeFeature, Metric ]
+                xmltag: "timesegment"
+          - class: TimeSegment
+            properties:
+                accepted_data: [ WordReference, Description, Feature, ActorFeature, BegindatetimeFeature, EnddatetimeFeature, Metric ]
+                xmltag: "timesegment"
     - class: AbstractStructureElement
       properties:
           printable: true
@@ -422,6 +341,64 @@ elements:
             properties:
                 accepted_data: [ AbstractTokenAnnotation, Correction, TextContent, PhonContent, String, Alternative, AlternativeLayers, Description, AbstractAnnotationLayer, Alignment, Metric, Reference, Feature ]
                 xmltag: "w"
+    - class: AbstractTextMarkup
+      properties:
+          textcontainer: true
+          printable: true
+          accepted_data: [ AbstractTextMarkup ]
+          textdelimiter: ""
+          optional_attribs: [ CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
+          xlink: true
+      elements:
+          - class: TextMarkupCorrection
+            properties:
+                xmltag: "t-correction"
+          - class: TextMarkupError
+            properties:
+                xmltag: "t-error"
+          - class: TextMarkupGap
+            properties:
+                xmltag: "t-gap"
+          - class: TextMarkupString
+            properties:
+                xmltag: "t-str"
+          - class: TextMarkupStyle
+            properties:
+                xmltag: "t-style"
+    - class: AbstractTokenAnnotation
+      properties:
+          required_attribs: [ CLASS ]
+          optional_attribs: [ CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
+      elements:
+          - class: AbstractExtendedTokenAnnotation
+            elements:
+                - class: DomainAnnotation
+                  properties:
+                      accepted_data: [ Feature, Description, Metric ]
+                      xmltag: "domain"
+                - class: ErrorDetection
+                  properties:
+                      xmltag: "errordetection"
+                - class: LangAnnotation
+                  properties:
+                      accepted_data: [ Feature, Description, Metric ]
+                      xmltag: "lang"
+          - class: LemmaAnnotation
+            properties:
+                accepted_data: [ Feature, Description, Metric ]
+                xmltag: "lemma"
+          - class: PosAnnotation
+            properties:
+                accepted_data: [ Feature, HeadFeature, Description, Metric ]
+                xmltag: "pos"
+          - class: SenseAnnotation
+            properties:
+                accepted_data: [ Feature, SynsetFeature, Description, Metric ]
+                xmltag: "sense"
+          - class: SubjectivityAnnotation
+            properties:
+                accepted_data: [ Feature, Description, Metric ]
+                xmltag: "subjectivity"
     - class: AlignReference
       properties:
           required_attribs: [  ]
@@ -453,10 +430,26 @@ elements:
           accepted_data: [ AbstractAnnotationLayer ]
           auth: false
           xmltag: "altlayers"
+    - class: ComplexAlignment
+      properties:
+          speakable: false
+          optional_attribs: [ CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
+          printable: false
+          required_attribs: null
+          accepted_data: [ Alignment, Metric, Feature, Description ]
+          xmltag: "complexalignment"
     - class: Content
       properties:
           xmltag: "content"
           occurrences: 1
+    - class: Correction
+      properties:
+          printable: true
+          accepted_data: [ New, Original, Current, Suggestion, ErrorDetection, Description, Metric, Feature ]
+          speakable: true
+          optional_attribs: [ CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
+          xmltag: "correction"
+          textdelimiter: null
     - class: Description
       properties:
           occurrences: 1
