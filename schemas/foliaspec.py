@@ -182,7 +182,7 @@ def outputblock(block, target, varname, indent = ""):
     elif block == 'annotationtype':
         if target == 'python':
             s += indent + "class AnnotationType:\n"
-            s += indent + "    " +  ", ".join(spec['annotationtype']) + " = range(" + str(len(spec['annotationtype'])) + "))"
+            s += indent + "    " +  ", ".join(spec['annotationtype']) + " = range(" + str(len(spec['annotationtype'])) + ")"
         elif target == 'c++':
             s += indent + "enum AnnotationType : int { NO_ANN,"
             s += ", ".join(spec['annotationtype']) + ", LAST_ANN };\n"
@@ -342,11 +342,13 @@ def parser(filename):
 
     inblock = False
     blockname = blocktype = ""
+    indent = ""
     with open(filename,'r',encoding='utf-8') as f:
         for line in f:
             strippedline = line.strip()
             if not inblock:
                 if strippedline.startswith(commentsign + 'foliaspec:'):
+                    indent = line.find(strippedline) * ' '
                     fields = strippedline[len(commentsign):].split(':')
                     if fields[1] in ('begin','start'):
                         blocktype = 'explicit'
@@ -382,10 +384,10 @@ def parser(filename):
                     out.write(line)
             else:
                 if not strippedline and blocktype == 'implicit':
-                    out.write(outputblock(blockname, target, varname) + "\n")
+                    out.write(outputblock(blockname, target, varname,indent) + "\n")
                     inblock = False
                 elif blocktype == 'explicit' and strippedline.startswith(commentsign + 'foliaspec:end:'):
-                    out.write(outputblock(blockname, target, varname) + "\n")
+                    out.write(outputblock(blockname, target, varname,indent) + "\n")
                     inblock = False
 
     os.rename(filename+'.foliaspec.out', filename)
