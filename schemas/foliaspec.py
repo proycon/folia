@@ -150,7 +150,7 @@ def outputblock(block, target, varname, indent = ""):
         raise NotImplementedError("Unknown target language: " + target)
 
     if block in blockhelp:
-        s = indent + commentsign + blockhelp[block]  #output what each block does
+        s = indent + commentsign + blockhelp[block] + "\n" #output what each block does
     else:
         s = ''
 
@@ -169,7 +169,7 @@ def outputblock(block, target, varname, indent = ""):
     elif block == 'attributes':
         if target == 'python':
             s += indent + "class Attrib:\n"
-            s += indent + "    " +  ", ".join(spec['attributes']) + " = range(len( " + str(spec['attributes']) + "))"
+            s += indent + "    " +  ", ".join(spec['attributes']) + " = range(" + str(len(spec['attributes'])) + ")"
         elif target == 'c++':
             s += indent + "enum Attrib : int { NO_ATT=0, "
             value = 1
@@ -182,7 +182,7 @@ def outputblock(block, target, varname, indent = ""):
     elif block == 'annotationtype':
         if target == 'python':
             s += indent + "class AnnotationType:\n"
-            s += indent + "    " +  ", ".join(spec['annotationtype']) + " = range(len( " + str(spec['annotationtype']) + "))"
+            s += indent + "    " +  ", ".join(spec['annotationtype']) + " = range(" + str(len(spec['annotationtype'])) + "))"
         elif target == 'c++':
             s += indent + "enum AnnotationType : int { NO_ANN,"
             s += ", ".join(spec['annotationtype']) + ", LAST_ANN };\n"
@@ -328,7 +328,7 @@ def parser(filename):
     if filename[-2:] in ('.h','.c') or filename[-4:] in ('.cxx','.cpp','.hpp'):
         target = 'c++' #libfolia
         commentsign = '//'
-    elif filename[-3] == '.py':
+    elif filename[-3:] == '.py':
         target = 'python' #pynlpl.formats.folia
         commentsign = '#'
     else:
