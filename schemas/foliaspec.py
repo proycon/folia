@@ -14,11 +14,13 @@ spec = yaml.load(open('folia.yml','r'))
 
 parents = defaultdict(set)
 
+elementdict = {} #flat (unnested) dictionary
+
 def getelements(d):
-    global parents
     elements = []
     if 'elements' in d:
         for e in d['elements']:
+            elementdict[e['class']] = e
             elements.append(e)
             children = getelements(e)
             elements += children
@@ -31,13 +33,18 @@ elements.sort(key=lambda x: x['class'])
 elementnames = [ e['class'] for e in elements ]
 
 
+
 ################################################################
 
-def addfromparents(elementname, key, value):
-    newvalue = set()
-    for parent in parents[key]:
-        newvalue |= addfromparents(parent, key, newvalue)
-    return newvalue
+def addfromparents(elementname, key):
+    value = set(spec['defaultproperties']['accepted_data'])
+    if 'properties' in elementdict[elementname] and key in elementdict[elementname]['properties'] and elementdict[elementname]['properties'][key]:
+        value |= set(elementdict[elementname]['properties'][key])
+    else:
+        value |= set()
+    for parent in parents[elementname]:
+        value |= addfromparents(parent, key)
+    return value
 
 
 
@@ -45,9 +52,21 @@ def outputvar(var, value, target, declare = False):
     """Output a variable ``var`` with value ``value`` in the specified target language."""
 
     #do we need to quote the value? (bool)
-    quote = var in ('version','namespace','TEXTDELIMITER','XMLTAG')  #these values are string literals rather than enums or classes, so yes
+    varname = var.split('.')[-1]
+
+    if isinstance(value, str) and varname.upper() in ('ACCEPTED_DATA','REQUIRED_DATA','REQUIRED_ATTRIBS', 'OPTIONAL_ATTRIBS','ANNOTATIONTYPE'):
+        quote = False
+    else:
+        quote = True
+
+
+    if isinstance(value, str):
+        value = value.replace("\n","\\n").replace("\t","\\t")
 
     if target == 'python':
+        if varname == 'ANNOTATIONTYPE' and isinstance(value,str):
+            value = 'AnnotationType.' + value
+
         if value is None:
                 return var + ' = None'
         elif isinstance(value, bool):
@@ -58,14 +77,16 @@ def outputvar(var, value, target, declare = False):
         elif isinstance(value, (int, float) ):
             return var + ' = ' + str(value)
         elif isinstance(value, (list,tuple,set) ):
-            if all([ x in elementnames for x in value ]) or  all([ x in spec['attributes'] for x in value ]):
-                return var + ' = (' + ', '.join(value) + ',)'
+            if all([ x in elementnames for x in value ]) :
+                return var + ' = (' + ', '.join(value) + ')'
+            elif all([ x in spec['attributes'] for x in value ]):
+                return var + ' = (' + ', '.join(['Attrib.' + x for x in value]) + ')'
 
             #list items are  enums or classes, never string literals
             if quote:
-                return var + ' = (' + ', '.join([ '"' + x + '"' for x in value]) + ',)'
+                return var + ' = (' + ', '.join([ '"' + x + '"' for x in value]) + ')'
             else:
-                return var + ' = (' + ', '.join(value) + ',)'
+                return var + ' = (' + ', '.join(value) + ')'
         else:
             if quote:
                 return var + ' = "' + value  + '"'
@@ -110,7 +131,7 @@ def outputvar(var, value, target, declare = False):
             elif all([ x in spec['attributes'] for x in value ]):
                 return var + ' = ' + '|'.join(value)
             else:
-                return typedeclaration + var + ' = { ' + ', '.join([ '"' + x + '"' for x in value]) + ', }'
+                return typedeclaration + var + ' = { ' + ', '.join([ '"' + x + '"' for x in value if x]) + ', }'
         else:
             if quote:
                 if declare: typedeclaration = 'const string '
@@ -159,13 +180,13 @@ def outputblock(block, target, varname, indent = ""):
         s += indent + commentsign + "Code blocks after a foliaspec comment (until the next newline) are automatically generated. **DO NOT EDIT THOSE** and **DO NOT REMOVE ANY FOLIASPEC COMMENTS** !!!"
     elif block == 'version_major':
         versionfields = [ int(x) for x in spec['version'].split('.') ]
-        outputvar(varname, versionfields[0], target, True)
+        s += indent + outputvar(varname, versionfields[0], target, True)
     elif block == 'version_minor':
         versionfields = [ int(x) for x in spec['version'].split('.') ]
-        outputvar(varname, versionfields[1] if len(versionfields) > 1 else 0, target, True)
+        s += indent + outputvar(varname, versionfields[1] if len(versionfields) > 1 else 0, target, True)
     elif block == 'version_sub' or block == 'version_rev':
         versionfields = [ int(x) for x in spec['version'].split('.') ]
-        outputvar(varname, versionfields[2] if len(versionfields) > 2 else 0, target, True)
+        s += indent + outputvar(varname, versionfields[2] if len(versionfields) > 2 else 0, target, True)
     elif block == 'attributes':
         if target == 'python':
             s += indent + "class Attrib:\n"
@@ -213,7 +234,7 @@ def outputblock(block, target, varname, indent = ""):
                 s += commentsign + "------ " + element['class'] + " -------\n"
                 if 'properties' in element:
                     for prop, value in element['properties'].items():
-                        if prop == 'accepted_data': value = tuple(addfromparents(element['class'],'accepted_data',value))
+                        if prop == 'accepted_data': value = tuple(sorted(addfromparents(element['class'],'accepted_data')))
                         s += indent + outputvar(element['class'] + '.' + prop.upper(),  value, target) + '\n'
         elif target == 'c++':
             for element in elements:
@@ -221,7 +242,7 @@ def outputblock(block, target, varname, indent = ""):
                 s += indent + element['class'] + '::PROPS.ELEMENT_ID = ' + element['class'] + '_t;\n'
                 if 'properties' in element:
                     for prop, value in element['properties'].items():
-                        if prop == 'accepted_data': value = tuple(addfromparents(element['class'],'accepted_data',value))
+                        if prop == 'accepted_data': value = tuple(sorted(addfromparents(element['class'],'accepted_data')))
                         s += indent + outputvar(element['class'] + '::PROPS.' + prop.upper(),  value, target) + '\n'
         else:
             raise NotImplementedError("Block " + block + " not implemented for " + target)
@@ -315,7 +336,7 @@ def outputblock(block, target, varname, indent = ""):
             raise NotImplementedError("Block " + block + " not implemented for " + target)
     elif block in spec:
         #simple variable blocks
-        outputvar(varname, spec[block], target, True)
+        s += indent + outputvar(varname, spec[block], target, True)
     else:
         raise Exception("No such block exists in foliaspec: " + block)
 
