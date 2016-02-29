@@ -219,7 +219,7 @@ def outputblock(block, target, varname, indent = ""):
                     s += indent + outputvar('DEFAULT_PROPERTIES.' + prop.upper(),  value, target) + '\n'
         elif target == 'python':
             for prop, value in spec['defaultproperties'].items():
-                s += indent + outputvar(prop.upper(),  value, target) + '\n'
+                s += indent + outputvar('AbstractElement.' + prop.upper(),  value, target) + '\n'
         else:
             raise NotImplementedError("Block " + block + " not implemented for " + target)
     elif block == 'instantiateelementproperties':
