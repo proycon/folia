@@ -57,7 +57,7 @@ def outputvar(var, value, target, declare = False):
                 return var + ' = False'
         elif isinstance(value, (int, float) ):
             return var + ' = ' + str(value)
-        elif isinstance(value, list):
+        elif isinstance(value, (list,tuple,set) ):
             if all([ x in elementnames for x in value ]) or  all([ x in spec['attributes'] for x in value ]):
                 return var + ' = (' + ', '.join(value) + ',)'
 
