@@ -176,7 +176,7 @@ def outputblock(block, target, varname, indent = ""):
         s = ''
 
     if block == 'header':
-        s += indent + commentsign + "This file was last updated according to the FoLiA specification for version " + str(spec['version']) + " on " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S") + ", using foliaspec.py"
+        s += indent + commentsign + "This file was last updated according to the FoLiA specification for version " + str(spec['version']) + " on " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S") + ", using foliaspec.py\n"
         s += indent + commentsign + "Code blocks after a foliaspec comment (until the next newline) are automatically generated. **DO NOT EDIT THOSE** and **DO NOT REMOVE ANY FOLIASPEC COMMENTS** !!!"
     elif block == 'version_major':
         versionfields = [ int(x) for x in spec['version'].split('.') ]
