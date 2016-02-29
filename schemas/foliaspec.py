@@ -214,11 +214,11 @@ def outputblock(block, target, varname, indent = ""):
             s += indent + "properties DEFAULT_PROPERTIES;\n"
             s += indent + "DEFAULT_PROPERTIES.ELEMENT_ID = BASE;\n"
             s += indent + "DEFAULT_PROPERTIES.ACCEPTED_DATA.insert(XmlComment_t);\n"
-            for prop, value in spec['defaultproperties'].items():
+            for prop, value in sorted(spec['defaultproperties'].items()):
                 if prop not in ('textcontainer','phoncontainer'): #these two are not yet handled in libfolia, filter out (MAYBE TODO, add it libfolia?)
                     s += indent + outputvar('DEFAULT_PROPERTIES.' + prop.upper(),  value, target) + '\n'
         elif target == 'python':
-            for prop, value in spec['defaultproperties'].items():
+            for prop, value in sorted(spec['defaultproperties'].items()):
                 s += indent + outputvar('AbstractElement.' + prop.upper(),  value, target) + '\n'
         else:
             raise NotImplementedError("Block " + block + " not implemented for " + target)
@@ -233,7 +233,7 @@ def outputblock(block, target, varname, indent = ""):
             for element in elements:
                 s += commentsign + "------ " + element['class'] + " -------\n"
                 if 'properties' in element:
-                    for prop, value in element['properties'].items():
+                    for prop, value in sorted(element['properties'].items()):
                         if prop == 'accepted_data': value = tuple(sorted(addfromparents(element['class'],'accepted_data')))
                         s += indent + outputvar(element['class'] + '.' + prop.upper(),  value, target) + '\n'
         elif target == 'c++':
@@ -241,7 +241,7 @@ def outputblock(block, target, varname, indent = ""):
                 s += commentsign + "------ " + element['class'] + " -------\n"
                 s += indent + element['class'] + '::PROPS.ELEMENT_ID = ' + element['class'] + '_t;\n'
                 if 'properties' in element:
-                    for prop, value in element['properties'].items():
+                    for prop, value in sorted(element['properties'].items()):
                         if prop == 'accepted_data': value = tuple(sorted(addfromparents(element['class'],'accepted_data')))
                         s += indent + outputvar(element['class'] + '::PROPS.' + prop.upper(),  value, target) + '\n'
         else:
