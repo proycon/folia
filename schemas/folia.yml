@@ -40,58 +40,67 @@ elements:
           printable: false
           speakable: false
           accepted_data: [ Correction ]
-          primaryelement: false
       elements:
           - class: ChunkingLayer
             properties:
                 accepted_data: [ Chunk]
                 xmltag: "chunking"
                 annotationtype: CHUNKING
+                primaryelement: false
           - class: ComplexAlignmentLayer
             properties:
                 accepted_data: [ ComplexAlignment]
                 xmltag: "complexalignments"
                 annotationtype: COMPLEXALIGNMENT
+                primaryelement: false
           - class: CoreferenceLayer
             properties:
                 accepted_data: [ CoreferenceChain]
                 xmltag: "coreferences"
                 annotationtype: COREFERENCE
+                primaryelement: false
           - class: DependenciesLayer
             properties:
                 accepted_data: [ Dependency]
                 xmltag: "dependencies"
                 annotationtype: DEPENDENCY
+                primaryelement: false
           - class: EntitiesLayer
             properties:
                 accepted_data: [ Entity]
                 xmltag: "entities"
                 annotationtype: ENTITY
+                primaryelement: false
           - class: MorphologyLayer
             properties:
                 accepted_data: [ Morpheme]
                 xmltag: "morphology"
                 annotationtype: MORPHEME
+                primaryelement: false
           - class: PhonologyLayer
             properties:
                 accepted_data: [ Phoneme ]
                 xmltag: "phonology"
                 annotationtype: PHONEME
+                primaryelement: false
           - class: SemanticRolesLayer
             properties:
                 accepted_data: [ SemanticRole ]
                 xmltag: "semroles"
                 annotationtype: SEMROLE
+                primaryelement: false
           - class: SyntaxLayer
             properties:
                 accepted_data: [ SyntacticUnit ]
                 xmltag: "syntax"
                 annotationtype: SYNTAX
+                primaryelement: false
           - class: TimingLayer
             properties:
                 accepted_data: [ TimeSegment ]
                 xmltag: "timing"
                 annotationtype: TIMESEGMENT 
+                primaryelement: false
     - class: AbstractCorrectionChild
       properties:
           speakable: true
