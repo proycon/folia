@@ -260,7 +260,7 @@ def outputblock(block, target, varname, indent = ""):
             for element in elements:
                 if 'properties' in element and 'xmltag' in element['properties'] and element['properties']['xmltag'] and 'annotationtype' in element['properties']:
                     if 'primaryelement' in element['properties'] and not element['properties']['primaryelement']: continue #not primary, skip
-                    s += indent + "  AnnotationType." + element['properties']['annotationtype'] + ':  "' + element['properties']['xmltag'] + '" ,\n'
+                    s += indent + "    AnnotationType." + element['properties']['annotationtype'] + ':  "' + element['properties']['xmltag'] + '" ,\n'
             s += indent + "}"
         else:
             raise NotImplementedError("Block " + block + " not implemented for " + target)
@@ -299,7 +299,7 @@ def outputblock(block, target, varname, indent = ""):
             s += indent + "XML2CLASS = {\n"
             for element in elements:
                 if 'properties' in element and 'xmltag' in element['properties'] and element['properties']['xmltag']:
-                    s += indent + '  "' + element['properties']['xmltag'] + '": ' + element['class'] + ',\n'
+                    s += indent + '    "' + element['properties']['xmltag'] + '": ' + element['class'] + ',\n'
             s += indent + "}\n"
         else:
             raise NotImplementedError("Block " + block + " not implemented for " + target)
@@ -309,7 +309,7 @@ def outputblock(block, target, varname, indent = ""):
             for element in elements:
                 if element['class'].endswith('Layer'):
                     if 'properties' in element and 'xmltag' in element['properties'] and element['properties']['xmltag'] and 'annotationtype' in element['properties']:
-                        s += indent + "  AnnotationType." + element['properties']['annotationtype'] + ':  ' + element['class'] + ' ,\n'
+                        s += indent + "    AnnotationType." + element['properties']['annotationtype'] + ':  ' + element['class'] + ' ,\n'
             s += indent + "}"
         else:
             raise NotImplementedError("Block " + block + " not implemented for " + target)
