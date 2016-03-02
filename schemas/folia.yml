@@ -75,13 +75,13 @@ elements:
             properties:
                 accepted_data: [ Morpheme]
                 xmltag: "morphology"
-                annotationtype: MORPHEME
+                annotationtype: MORPHOLOGICAL
                 primaryelement: false
           - class: PhonologyLayer
             properties:
                 accepted_data: [ Phoneme ]
                 xmltag: "phonology"
-                annotationtype: PHONEME
+                annotationtype: PHONOLOGICAL
                 primaryelement: false
           - class: SemanticRolesLayer
             properties:
