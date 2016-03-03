@@ -144,6 +144,9 @@ def outputvar(var, value, target, declare = False):
             else:
                 return typedeclaration + var + ' = { ' + ', '.join([ '"' + x + '"' for x in value if x]) + ', };'
         else:
+            if varname == 'ANNOTATIONTYPE':
+                value = "AnnotationType::" + value
+
             if quote:
                 if declare: typedeclaration = 'const string '
                 return typedeclaration + var + ' = "' + value+ '";'
