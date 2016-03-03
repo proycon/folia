@@ -78,15 +78,18 @@ def outputvar(var, value, target, declare = False):
             return var + ' = ' + str(value)
         elif isinstance(value, (list,tuple,set) ):
             if all([ x in elementnames for x in value ]) :
-                return var + ' = (' + ', '.join(value) + ')'
+                return var + ' = (' + ', '.join(value) + ',)'
             elif all([ x in spec['attributes'] for x in value ]):
-                return var + ' = (' + ', '.join(['Attrib.' + x for x in value]) + ')'
+                return var + ' = (' + ', '.join(['Attrib.' + x for x in value]) + ',)'
+
+            if not value:
+                return var + ' = ()'
 
             #list items are  enums or classes, never string literals
             if quote:
-                return var + ' = (' + ', '.join([ '"' + x + '"' for x in value]) + ')'
+                return var + ' = (' + ', '.join([ '"' + x + '"' for x in value]) + ',)'
             else:
-                return var + ' = (' + ', '.join(value) + ')'
+                return var + ' = (' + ', '.join(value) + ',)'
         else:
             if quote:
                 return var + ' = "' + value  + '"'
