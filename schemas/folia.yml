@@ -34,6 +34,7 @@ defaultproperties:
     auth: true #The default authoritative state for this element
     primaryelement: true #Is this the primary element for the advertised annotation type?
     auto_generate_id: false #Automatically generate an ID if none was provided?
+    setonly: false #States that the element may take a set property only, and not a class property
 
 elements:
     - class: AbstractAnnotationLayer
@@ -42,6 +43,7 @@ elements:
           speakable: false
           accepted_data: [ Correction ]
           optional_attribs: [ ID ]
+          setonly: true
       elements:
           - class: ChunkingLayer
             properties:
