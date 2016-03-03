@@ -17,12 +17,13 @@ annotationtype: [ TEXT, TOKEN, DIVISION, PARAGRAPH, LIST, FIGURE, WHITESPACE, LI
 #default properties for all elements. Are inherited from parent classes when not set, overridden when set for subclasses, except for accepted_data, which is cumulative with respect to the parents
 defaultproperties:
     xmltag: null   #The XML tag for the element
+    annotationtype: null
     accepted_data: [ Description ]  #Elements that are allowed as children of this element, this property is inherited automatically in the specification, rather than overriden!
     required_data: null #Elements that are required as children of this element 
     required_attribs: null #Common attributes that are required on this element
     optional_attribs: null #Other allowed common attributes 
     occurrences: 0 #How often can this element occur under the parent? (0 = unlimited)
-    occurrences_per_set: 1 #How often can a particular element+set combination occur under the parent (0 = unlimited)
+    occurrences_per_set: 0 #How often can a particular element+set combination occur under the parent (0 = unlimited)
     textdelimiter: null #Delimiter to use when dynamically gathering text
     printable: false #Is this element printable? (i.e. can the text() method be called?)
     speakable: false #Is this element phonetically representablly? (i.e. can the phon() method be called?)
@@ -394,6 +395,7 @@ elements:
           required_attribs: [ CLASS ]
           optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
           accepted_data: [ Feature , Metric ]
+          occurrences_per_set: 1 #How often can a particular element+set combination occur under the parent (0 = unlimited)
       elements:
           - class: AbstractExtendedTokenAnnotation
             elements:
