@@ -38,7 +38,6 @@ elements.sort(key=lambda x: x['class'])
 elementnames = [ e['class'] for e in elements ]
 
 
-
 ################################################################
 
 def addfromparents(elementname, key):
@@ -82,7 +81,7 @@ def outputvar(var, value, target, declare = False):
         elif isinstance(value, (int, float) ):
             return var + ' = ' + str(value)
         elif isinstance(value, (list,tuple,set) ):
-            if all([ x in elementnames for x in value ]) :
+            if varname in ('ACCEPTED_DATA','REQUIRED_DATA') or  all([ x in elementnames for x in value ]):
                 return var + ' = (' + ', '.join(value) + ',)'
             elif all([ x in spec['attributes'] for x in value ]):
                 return var + ' = (' + ', '.join(['Attrib.' + x for x in value]) + ',)'
@@ -109,7 +108,7 @@ def outputvar(var, value, target, declare = False):
             elif varname == 'ANNOTATIONTYPE':
                 return var + ' = AnnotationType::NO_ANN;'
             elif varname in ('XMLTAG','TEXTDELIMITER'):
-                return var + ' = "NONE"'
+                return var + ' = "NONE";'
             elif varname  == 'REQUIRED_DATA':
                 return var + ' = {};'
             elif varname  == 'SUBSET':
@@ -130,7 +129,7 @@ def outputvar(var, value, target, declare = False):
             return typedeclaration + var + ' = ' + str(value) + ';'
         elif isinstance(value, (list,tuple,set)):
             #list items are  enums or classes, never string literals
-            if all([ x in elementnames for x in value ]):
+            if varname in ('ACCEPTED_DATA','REQUIRED_DATA') or  all([ x in elementnames for x in value ]):
                 if declare:
                     typedeclarion = 'const set<ElementType> '
                     operator = '='
@@ -217,7 +216,7 @@ def outputblock(block, target, varname, indent = ""):
     elif block == 'elementtype':
         if target == 'c++':
             s += indent + "enum ElementType : unsigned int { BASE=0,"
-            s += ", ".join([ e + '_t' for e in elementnames]) + ", XmlText_t, XmlComment_t, PlaceHolder_t, LastElement };\n"
+            s += ", ".join([ e + '_t' for e in elementnames]) + ", PlaceHolder_t, XmlComment_t, XmlText_t,  LastElement };\n"
         else:
             raise NotImplementedError("Block " + block + " not implemented for " + target)
     elif block == 'annotationtype':
@@ -231,12 +230,11 @@ def outputblock(block, target, varname, indent = ""):
             raise NotImplementedError("Block " + block + " not implemented for " + target)
     elif block == 'defaultproperties':
         if target == 'c++':
-            s += indent + "properties DEFAULT_PROPERTIES;\n"
-            s += indent + "DEFAULT_PROPERTIES.ELEMENT_ID = BASE;\n"
-            s += indent + "DEFAULT_PROPERTIES.ACCEPTED_DATA.insert(XmlComment_t);\n"
+            s += indent + "ELEMENT_ID = BASE;\n"
+            s += indent + "ACCEPTED_DATA.insert(XmlComment_t);\n"
             for prop, value in sorted(spec['defaultproperties'].items()):
                 if target not in skip_properties or prop not in skip_properties[target]:
-                    s += indent + outputvar('DEFAULT_PROPERTIES.' + prop.upper(),  value, target) + '\n'
+                    s += indent + outputvar( prop.upper(),  value, target) + '\n'
         elif target == 'python':
             for prop, value in sorted(spec['defaultproperties'].items()):
                 s += indent + outputvar('AbstractElement.' + prop.upper(),  value, target) + '\n'
