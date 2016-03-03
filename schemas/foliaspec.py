@@ -258,7 +258,7 @@ def outputblock(block, target, varname, indent = ""):
                         if prop == 'accepted_data':
                             value = tuple(sorted(addfromparents(element['class'],'accepted_data')))
                             if ('textcontainer' in element['properties'] and element['properties']['textcontainer']) or ('phoncontainer' in element['properties'] and element['properties']['phoncontainer']):
-                                value += ('XmlText')
+                                value += ('XmlText',)
                         s += indent + outputvar(element['class'] + '::PROPS.' + prop.upper(),  value, target) + '\n'
         else:
             raise NotImplementedError("Block " + block + " not implemented for " + target)
