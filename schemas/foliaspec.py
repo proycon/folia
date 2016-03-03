@@ -82,7 +82,7 @@ def outputvar(var, value, target, declare = False):
             elif all([ x in spec['attributes'] for x in value ]):
                 return var + ' = (' + ', '.join(['Attrib.' + x for x in value]) + ',)'
 
-            if not value:
+            if len(value) == 0:
                 return var + ' = ()'
 
             #list items are  enums or classes, never string literals

@@ -40,6 +40,7 @@ elements:
           printable: false
           speakable: false
           accepted_data: [ Correction ]
+          optional_attribs: [ ID ]
       elements:
           - class: ChunkingLayer
             properties:
@@ -104,7 +105,7 @@ elements:
     - class: AbstractCorrectionChild
       properties:
           speakable: true
-          optional_attribs: [ ANNOTATOR, CONFIDENCE, DATETIME, N ]
+          optional_attribs: [ ID, ANNOTATOR, CONFIDENCE, DATETIME, N ]
           printable: true
           textdelimiter: null
           accepted_data: [ AbstractTokenAnnotation, AbstractSpanAnnotation, AbstractStructureElement, Correction, Metric, PhonContent, String, TextContent]
@@ -134,12 +135,12 @@ elements:
       properties:
           printable: true
           speakable: true
-          optional_attribs: [ CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
+          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
           accepted_data: [ Metric, Alignment ]
       elements:
           - class: AbstractSpanRole
             properties:
-                optional_attribs: [ ANNOTATOR, N, DATETIME ]
+                optional_attribs: [ ID, ANNOTATOR, N, DATETIME ]
                 accepted_data: [ Feature, WordReference]
             elements:
                 - class: CoreferenceLink
@@ -195,10 +196,10 @@ elements:
     - class: AbstractStructureElement
       properties:
           printable: true
-          required_attribs: [  ]
+          required_attribs: null
           textdelimiter: "\n\n"
           speakable: true
-          optional_attribs: [ CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
+          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
           accepted_data: [AbstractAnnotationLayer, Alignment, Alternative, AlternativeLayers, Correction, Feature, Metric, Part]
       elements:
           - class: Caption
@@ -219,7 +220,6 @@ elements:
           - class: Division
             properties:
                 annotationtype: DIVISION
-                optional_attribs: [ CLASS, N, SRC, BEGINTIME, ENDTIME, SPEAKER ]
                 xmltag: "div"
                 textdelimiter: "\n\n\n"
                 accepted_data: [AbstractExtendedTokenAnnotation, Division, Entry, Event, Example, Figure, Gap, Head, Linebreak, List, Note, Paragraph, Part, PhonContent, Quote, Reference, Sentence, Table, TextContent, Utterance, Whitespace]
@@ -273,7 +273,6 @@ elements:
           - class: Morpheme
             properties:
                 annotationtype: MORPHOLOGICAL
-                optional_attribs: [ CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
                 xmltag: "morpheme"
                 textdelimiter: ""
                 accepted_data: [AbstractTokenAnnotation, FunctionFeature, PhonContent, String, TextContent]
@@ -297,7 +296,6 @@ elements:
           - class: Phoneme
             properties:
                 annotationtype: PHONOLOGICAL
-                optional_attribs: [ CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
                 xmltag: "phoneme"
                 textdelimiter: ""
                 accepted_data: [AbstractTokenAnnotation, FunctionFeature, PhonContent, String, TextContent]
@@ -308,7 +306,6 @@ elements:
           - class: Reference
             properties:
                 textdelimiter: null
-                optional_attribs: [ ANNOTATOR, CONFIDENCE, DATETIME ]
                 xmltag: "ref"
                 accepted_data: [PhonContent, String, TextContent]
           - class: Row
@@ -324,7 +321,6 @@ elements:
                 textdelimiter: " "
           - class: Speech
             properties:
-                optional_attribs: [ N, SRC, BEGINTIME, ENDTIME, SPEAKER ]
                 xmltag: "speech"
                 textdelimiter: "\n\n\n"
                 accepted_data: [AbstractExtendedTokenAnnotation, Division, Entry, Event, Example, Gap, List, Note, Paragraph, PhonContent, Quote, Reference, Sentence, String, TextContent, Utterance, Word]
@@ -344,8 +340,6 @@ elements:
                 xmltag: "term"
           - class: Text
             properties:
-                required_attribs: [  ]
-                optional_attribs: [ N ]
                 xmltag: "text"
                 textdelimiter: "\n\n\n"
                 accepted_data: [AbstractExtendedTokenAnnotation, Division, Entry, Event, Example, Figure, Gap, List, Note, Paragraph, PhonContent, Quote, Reference, Sentence, String, Table, TextContent, Word]
@@ -371,7 +365,7 @@ elements:
           printable: true
           accepted_data: [ AbstractTextMarkup ]
           textdelimiter: ""
-          optional_attribs: [ CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
+          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
           xlink: true
           primaryelement: false
       elements:
@@ -398,7 +392,7 @@ elements:
     - class: AbstractTokenAnnotation
       properties:
           required_attribs: [ CLASS ]
-          optional_attribs: [ CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
+          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
           accepted_data: [ Feature , Metric ]
       elements:
           - class: AbstractExtendedTokenAnnotation
@@ -440,7 +434,7 @@ elements:
       properties:
           annotationtype: ALIGNMENT
           speakable: false
-          optional_attribs: [ CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
+          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
           printable: false
           required_attribs: null
           xlink: true
@@ -450,7 +444,7 @@ elements:
       properties:
           required_attribs: null
           speakable: false
-          optional_attribs: [ CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
+          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
           printable: false
           accepted_data: [ AbstractTokenAnnotation, Correction, MorphologyLayer, PhonologyLayer ]
           auth: false
@@ -459,7 +453,7 @@ elements:
       properties:
           required_attribs: null
           speakable: false
-          optional_attribs: [ CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
+          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
           printable: false
           accepted_data: [ AbstractAnnotationLayer ]
           auth: false
@@ -468,7 +462,7 @@ elements:
       properties:
           annotationtype: COMPLEXALIGNMENT
           speakable: false
-          optional_attribs: [ CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
+          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
           printable: false
           required_attribs: null
           accepted_data: [ Alignment, Metric, Feature ]
@@ -483,7 +477,7 @@ elements:
           printable: true
           accepted_data: [ New, Original, Current, Suggestion, ErrorDetection, Metric, Feature ]
           speakable: true
-          optional_attribs: [ CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
+          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
           xmltag: "correction"
           textdelimiter: null
     - class: Description
@@ -550,13 +544,13 @@ elements:
     - class: Gap
       properties:
           annotationtype: GAP
-          optional_attribs: [ CLASS, ANNOTATOR, CONFIDENCE, N ]
+          optional_attribs: [ ID, CLASS, ANNOTATOR, N,  DATETIME, SRC, BEGINTIME, ENDTIME ]
           xmltag: "gap"
           accepted_data: [Content, Feature, Metric, Part]
     - class: Metric
       properties:
           annotationtype: METRIC
-          optional_attribs: [ CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
+          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
           xmltag: "metric"
           accepted_data: [ Feature, ValueFeature ]
     - class: PhonContent
@@ -572,7 +566,7 @@ elements:
     - class: String
       properties:
           annotationtype: STRING
-          optional_attribs: [ CLASS, ANNOTATOR, CONFIDENCE, DATETIME ]
+          optional_attribs: [ ID, CLASS, ANNOTATOR, CONFIDENCE, DATETIME, N, SRC, BEGINTIME, ENDTIME ]
           occurrences: 0
           printable: true
           accepted_data: [AbstractExtendedTokenAnnotation, Alignment, Correction, Feature, Metric, PhonContent, TextContent]
