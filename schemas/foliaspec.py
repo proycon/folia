@@ -209,7 +209,7 @@ def outputblock(block, target, varname, indent = ""):
     elif block == 'elementtype':
         if target == 'c++':
             s += indent + "enum ElementType : unsigned int { BASE=0,"
-            s += ", ".join([ e + '_t' for e in elementnames]) + ", XmlComment_t, PlaceHolder_t, LastElement };\n"
+            s += ", ".join([ e + '_t' for e in elementnames]) + ", XmlText_t, XmlComment_t, PlaceHolder_t, LastElement };\n"
         else:
             raise NotImplementedError("Block " + block + " not implemented for " + target)
     elif block == 'annotationtype':
@@ -246,7 +246,8 @@ def outputblock(block, target, varname, indent = ""):
                 s += commentsign + "------ " + element['class'] + " -------\n"
                 if 'properties' in element:
                     for prop, value in sorted(element['properties'].items()):
-                        if prop == 'accepted_data': value = tuple(sorted(addfromparents(element['class'],'accepted_data')))
+                        if prop == 'accepted_data':
+                            value = tuple(sorted(addfromparents(element['class'],'accepted_data')))
                         s += indent + outputvar(element['class'] + '.' + prop.upper(),  value, target) + '\n'
         elif target == 'c++':
             for element in elements:
@@ -254,7 +255,10 @@ def outputblock(block, target, varname, indent = ""):
                 s += indent + element['class'] + '::PROPS.ELEMENT_ID = ' + element['class'] + '_t;\n'
                 if 'properties' in element:
                     for prop, value in sorted(element['properties'].items()):
-                        if prop == 'accepted_data': value = tuple(sorted(addfromparents(element['class'],'accepted_data')))
+                        if prop == 'accepted_data':
+                            value = tuple(sorted(addfromparents(element['class'],'accepted_data')))
+                            if ('textcontainer' in element['properties'] and element['properties']['textcontainer']) or ('phoncontainer' in element['properties'] and element['properties']['phoncontainer']):
+                                value += ('XmlText')
                         s += indent + outputvar(element['class'] + '::PROPS.' + prop.upper(),  value, target) + '\n'
         else:
             raise NotImplementedError("Block " + block + " not implemented for " + target)
