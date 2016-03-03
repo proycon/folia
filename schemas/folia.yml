@@ -33,7 +33,7 @@ defaultproperties:
     subset: null #used for Feature subclasses
     auth: true #The default authoritative state for this element
     primaryelement: true #Is this the primary element for the advertised annotation type?
-
+    auto_generate_id: false #Automatically generate an ID if none was provided?
 
 elements:
     - class: AbstractAnnotationLayer
@@ -202,6 +202,7 @@ elements:
           speakable: true
           optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
           accepted_data: [AbstractAnnotationLayer, Alignment, Alternative, AlternativeLayers, Correction, Feature, Metric, Part]
+          auto_generate_id: true
       elements:
           - class: Caption
             properties:
