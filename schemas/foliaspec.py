@@ -99,12 +99,16 @@ def outputvar(var, value, target, declare = False):
         typedeclaration = ''
         if value is None:
             if declare: raise NotImplementedError("Declare not supported for None values")
-            if var in ('REQUIRED_ATTRIBS','OPTIONAL_ATTRIBS'):
+            if varname in ('REQUIRED_ATTRIBS','OPTIONAL_ATTRIBS'):
                 return var + ' = NO_ATT;'
-            elif var == 'ANNOTATIONTYPE':
+            elif varname == 'ANNOTATIONTYPE':
                 return var + ' = AnnotationType::NO_ANN;'
-            elif var in ('XMLTAG','TEXTDELIMITER'):
+            elif varname in ('XMLTAG','TEXTDELIMITER'):
                 return var + ' = "NONE"'
+            elif varname  == 'REQUIRED_DATA':
+                return var + ' = {};'
+            elif varname  == 'SUBSET':
+                return var + ' = "";'
             else:
                 raise NotImplementedError("Don't know how to handle None for " + var)
         elif isinstance(value, bool):
@@ -119,7 +123,7 @@ def outputvar(var, value, target, declare = False):
         elif isinstance(value, float ):
             if declare: typedeclaration = 'const double '
             return typedeclaration + var + ' = ' + str(value) + ';'
-        elif isinstance(value, list):
+        elif isinstance(value, (list,tuple,set)):
             #list items are  enums or classes, never string literals
             if all([ x in elementnames for x in value ]):
                 if declare:
@@ -127,14 +131,13 @@ def outputvar(var, value, target, declare = False):
                     operator = '='
                 else:
                     typedeclaration = ''
-                    operator += '+='
+                    operator = '+='
                 value = [ x + '_t' for x in value ]
-
                 return typedeclaration + var + ' ' + operator + ' {' + ', '.join(value) + '};'
             elif all([ x in spec['attributes'] for x in value ]):
-                return var + ' = ' + '|'.join(value)
+                return var + ' = ' + '|'.join(value) + ';'
             else:
-                return typedeclaration + var + ' = { ' + ', '.join([ '"' + x + '"' for x in value if x]) + ', }'
+                return typedeclaration + var + ' = { ' + ', '.join([ '"' + x + '"' for x in value if x]) + ', };'
         else:
             if quote:
                 if declare: typedeclaration = 'const string '
@@ -224,7 +227,7 @@ def outputblock(block, target, varname, indent = ""):
             s += indent + "DEFAULT_PROPERTIES.ELEMENT_ID = BASE;\n"
             s += indent + "DEFAULT_PROPERTIES.ACCEPTED_DATA.insert(XmlComment_t);\n"
             for prop, value in sorted(spec['defaultproperties'].items()):
-                if prop not in ('textcontainer','phoncontainer'): #these two are not yet handled in libfolia, filter out (MAYBE TODO, add it libfolia?)
+                if prop not in ('textcontainer','phoncontainer','auto_generate_id'): #these are not yet handled in libfolia, filter out (MAYBE TODO, add it libfolia?)
                     s += indent + outputvar('DEFAULT_PROPERTIES.' + prop.upper(),  value, target) + '\n'
         elif target == 'python':
             for prop, value in sorted(spec['defaultproperties'].items()):
@@ -346,7 +349,7 @@ def outputblock(block, target, varname, indent = ""):
     elif block == 'typehierarchy':
         if target == 'c++':
             s += indent + "static const map<ElementType, set<ElementType> > typeHierarchy = { "
-            for child, parentset in parents.items():
+            for child, parentset in sorted(parents.items()):
                 s += indent + "   " + child + '_t' + ", { " + ",".join([p + '_t' for p in parentset ]) + " },\n"
             s += indent + "};\n";
         else:
@@ -426,7 +429,7 @@ def parser(filename):
                     out.write(outputblock(blockname, target, varname,indent) + "\n")
                     inblock = False
                 elif blocktype == 'explicit' and strippedline.startswith(commentsign + 'foliaspec:end:'):
-                    out.write(outputblock(blockname, target, varname,indent) + "\n")
+                    out.write(outputblock(blockname, target, varname,indent) + "\n" + commentsign + "foliaspec:end:" + blockname + "\n")
                     inblock = False
 
     os.rename(filename+'.foliaspec.out', filename)
