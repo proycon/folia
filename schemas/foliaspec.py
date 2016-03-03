@@ -8,6 +8,11 @@ from collections import defaultdict
 import yaml
 
 
+
+skip_properties = {
+    'c++': ('textcontainer','phoncontainer','auto_generate_id','primaryelement'), #these are not handled in libfolia, or handled differently, don't output these in the source
+}
+
 #Load specification
 spec = yaml.load(open('folia.yml','r'))
 
@@ -227,7 +232,7 @@ def outputblock(block, target, varname, indent = ""):
             s += indent + "DEFAULT_PROPERTIES.ELEMENT_ID = BASE;\n"
             s += indent + "DEFAULT_PROPERTIES.ACCEPTED_DATA.insert(XmlComment_t);\n"
             for prop, value in sorted(spec['defaultproperties'].items()):
-                if prop not in ('textcontainer','phoncontainer','auto_generate_id'): #these are not yet handled in libfolia, filter out (MAYBE TODO, add it libfolia?)
+                if target not in skip_properties or prop not in skip_properties[target]:
                     s += indent + outputvar('DEFAULT_PROPERTIES.' + prop.upper(),  value, target) + '\n'
         elif target == 'python':
             for prop, value in sorted(spec['defaultproperties'].items()):
@@ -255,11 +260,12 @@ def outputblock(block, target, varname, indent = ""):
                 s += indent + element['class'] + '::PROPS.ELEMENT_ID = ' + element['class'] + '_t;\n'
                 if 'properties' in element:
                     for prop, value in sorted(element['properties'].items()):
-                        if prop == 'accepted_data':
-                            value = tuple(sorted(addfromparents(element['class'],'accepted_data')))
-                            if ('textcontainer' in element['properties'] and element['properties']['textcontainer']) or ('phoncontainer' in element['properties'] and element['properties']['phoncontainer']):
-                                value += ('XmlText',)
-                        s += indent + outputvar(element['class'] + '::PROPS.' + prop.upper(),  value, target) + '\n'
+                        if target not in skip_properties or prop not in skip_properties[target]:
+                            if prop == 'accepted_data':
+                                value = tuple(sorted(addfromparents(element['class'],'accepted_data')))
+                                if ('textcontainer' in element['properties'] and element['properties']['textcontainer']) or ('phoncontainer' in element['properties'] and element['properties']['phoncontainer']):
+                                    value += ('XmlText',)
+                            s += indent + outputvar(element['class'] + '::PROPS.' + prop.upper(),  value, target) + '\n'
         else:
             raise NotImplementedError("Block " + block + " not implemented for " + target)
     elif block == 'annotationtype_string_map':
