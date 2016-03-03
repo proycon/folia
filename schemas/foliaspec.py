@@ -203,6 +203,12 @@ def outputblock(block, target, varname, indent = ""):
             s += 'ALL='+str(value) + ' };'
         else:
             raise NotImplementedError("Block " + block + " not implemented for " + target)
+    elif block == 'elementtype':
+        if target == 'c++':
+            s += indent + "enum ElementType : unsigned int { BASE=0,"
+            s += ", ".join([ e + '_t' for e in elementnames]) + ", LastElement };\n"
+        else:
+            raise NotImplementedError("Block " + block + " not implemented for " + target)
     elif block == 'annotationtype':
         if target == 'python':
             s += indent + "class AnnotationType:\n"
