@@ -339,7 +339,7 @@ def outputblock(block, target, varname, indent = ""):
             raise NotImplementedError("Block " + block + " not implemented for " + target)
     elif block == 'typehierarchy':
         if target == 'c++':
-            s += indent + "static map<ElementType, set<ElementType> > typeHierarchy = { "
+            s += indent + "static const map<ElementType, set<ElementType> > typeHierarchy = { "
             for child, parentset in parents.items():
                 s += indent + "   " + child + '_t' + ", { " + ",".join([p + '_t' for p in parentset ]) + " },\n"
             s += indent + "};\n";
