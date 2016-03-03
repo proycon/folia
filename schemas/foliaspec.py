@@ -209,7 +209,7 @@ def outputblock(block, target, varname, indent = ""):
     elif block == 'elementtype':
         if target == 'c++':
             s += indent + "enum ElementType : unsigned int { BASE=0,"
-            s += ", ".join([ e + '_t' for e in elementnames]) + ", PlaceHolder_t, LastElement };\n"
+            s += ", ".join([ e + '_t' for e in elementnames]) + ", XmlComment_t, PlaceHolder_t, LastElement };\n"
         else:
             raise NotImplementedError("Block " + block + " not implemented for " + target)
     elif block == 'annotationtype':
