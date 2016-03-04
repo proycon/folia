@@ -496,7 +496,7 @@ elements:
           speakable: false
           optional_attribs: null
           xmltag: "external"
-          required_attribs: null
+          required_attribs: [ SRC ]
           accepted_data: null
           auth: true
           printable: true
