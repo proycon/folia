@@ -306,6 +306,9 @@ def outputblock(block, target, varname, indent = ""):
                     s += indent + "  { " + element['class'] + '_t,  "' + element['properties']['xmltag'] + '" },\n'
                 else:
                     s += indent + "  { " + element['class'] + '_t,  "_' + element['class'] + '" },\n'
+            s += indent + '  { PlaceHolder_t, "_PlaceHolder" },\n'
+            s += indent + '  { XmlComment_t, "_XmlComment" },\n'
+            s += indent + '  { XmlText_t, "_XmlText" }\n'
             s += indent + "};\n"
         else:
             raise NotImplementedError("Block " + block + " not implemented for " + target)
@@ -318,6 +321,9 @@ def outputblock(block, target, varname, indent = ""):
                     s += indent + '  { "' + element['properties']['xmltag'] + '", ' + element['class'] + '_t  },\n'
                 else:
                     s += indent + '  { "_' + element['class'] + '", ' + element['class'] + '_t  },\n'
+            s += indent + '  { "_PlaceHolder", PlaceHolder_t  },\n'
+            s += indent + '  { "_XmlComment", XmlComment_t  },\n'
+            s += indent + '  { "_XmlText", XmlText_t  }\n'
             s += indent + "};\n"
         else:
             raise NotImplementedError("Block " + block + " not implemented for " + target)
