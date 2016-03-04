@@ -304,6 +304,8 @@ def outputblock(block, target, varname, indent = ""):
             for element in elements:
                 if 'properties' in element and 'xmltag' in element['properties'] and element['properties']['xmltag']:
                     s += indent + "  { " + element['class'] + '_t,  "' + element['properties']['xmltag'] + '" },\n'
+                else:
+                    s += indent + "  { " + element['class'] + '_t,  "_' + element['class'] + '" },\n'
             s += indent + "};\n"
         else:
             raise NotImplementedError("Block " + block + " not implemented for " + target)
@@ -314,6 +316,8 @@ def outputblock(block, target, varname, indent = ""):
             for element in elements:
                 if 'properties' in element and 'xmltag' in element['properties'] and element['properties']['xmltag']:
                     s += indent + '  { "' + element['properties']['xmltag'] + '", ' + element['class'] + '_t  },\n'
+                else:
+                    s += indent + '  { "_' + element['class'] + '", ' + element['class'] + '_t  },\n'
             s += indent + "};\n"
         else:
             raise NotImplementedError("Block " + block + " not implemented for " + target)
