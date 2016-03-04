@@ -280,7 +280,7 @@ elements:
                 annotationtype: MORPHOLOGICAL
                 xmltag: "morpheme"
                 textdelimiter: ""
-                accepted_data: [AbstractTokenAnnotation, FunctionFeature, PhonContent, String, TextContent]
+                accepted_data: [AbstractTokenAnnotation, FunctionFeature, Morpheme, PhonContent, String, TextContent]
           - class: Note
             properties:
                 annotationtype: NOTE
@@ -303,7 +303,7 @@ elements:
                 annotationtype: PHONOLOGICAL
                 xmltag: "phoneme"
                 textdelimiter: ""
-                accepted_data: [AbstractTokenAnnotation, FunctionFeature, PhonContent, String, TextContent]
+                accepted_data: [AbstractTokenAnnotation, FunctionFeature, PhonContent, Phoneme, String, TextContent]
           - class: Quote
             properties:
                 accepted_data: [Division, Gap, Paragraph, Quote, Sentence, String, TextContent, Utterance, Word]
