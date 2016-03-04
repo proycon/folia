@@ -191,7 +191,10 @@ def setelementproperties_cpp(element,indent, defer,done):
     if 'properties' in element:
         for prop, value in sorted(element['properties'].items()):
             if target not in skip_properties or prop not in skip_properties[target]:
-                if prop == 'accepted_data':
+                if prop == 'xmltag':
+                    if 'Feature' in parents[element['class']] and 'subset' in element['properties'] and element['properties']['subset']:
+                        value = element['properties']['subset']
+                elif prop == 'accepted_data':
                     value = tuple(sorted(addfromparents(element['class'],'accepted_data')))
                     if ('textcontainer' in element['properties'] and element['properties']['textcontainer']) or ('phoncontainer' in element['properties'] and element['properties']['phoncontainer']):
                         value += ('XmlText',)
