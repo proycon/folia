@@ -428,6 +428,7 @@ def outputblock(block, target, varname, indent = ""):
             s += indent + "static const map<ElementType, set<ElementType> > typeHierarchy = { "
             for child, parentset in sorted(parents.items()):
                 s += indent + "   { " + child + '_t' + ", { " + ",".join([p + '_t' for p in parentset ]) + " } },\n"
+                s += indent + "   { PlaceHolder_t , { AbstractStructureElement_t } }\n"
             s += indent + "};\n";
         else:
             raise NotImplementedError("Block " + block + " not implemented for " + target)
