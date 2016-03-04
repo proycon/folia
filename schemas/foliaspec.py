@@ -17,7 +17,7 @@ skip_properties = {
 spec = yaml.load(open('folia.yml','r'))
 
 
-parents = defaultdict(set)
+parents = defaultdict(list)
 
 elementdict = {} #flat (unnested) dictionary
 
@@ -30,7 +30,8 @@ def getelements(d):
             children = getelements(e)
             elements += children
             for c in children:
-                parents[c['class']].add(e['class'])
+                if e['class'] not in parents[c['class']]:
+                    parents[c['class']].append(e['class'])
     return elements
 
 elements = getelements(spec) #gathers all class names
