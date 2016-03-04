@@ -310,9 +310,11 @@ def outputblock(block, target, varname, indent = ""):
         if target == 'c++':
             s += indent + "const map<string,AnnotationType::AnnotationType> s_ant_map = {\n"
             s += indent + "  { \"NONE\", AnnotationType::NO_ANN },\n"
+            done = {}
             for element in elements:
-                if 'properties' in element and  'annotationtype' in element['properties']:
+                if 'properties' in element and  'annotationtype' in element['properties'] and element['properties']['annotationtype'] not in done:
                     s += indent + '  { "' + element['properties']['annotationtype'].lower() + '", AnnotationType::' + element['properties']['annotationtype'] + ' },\n'
+                    done[element['properties']['annotationtype']] = True #prevent duplicates
             s += indent + "};\n"
         else:
             raise NotImplementedError("Block " + block + " not implemented for " + target)
