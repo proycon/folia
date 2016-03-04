@@ -328,7 +328,7 @@ elements:
             properties:
                 xmltag: "speech"
                 textdelimiter: "\n\n\n"
-                accepted_data: [AbstractExtendedTokenAnnotation, Division, Entry, Event, Example, Gap, List, Note, Paragraph, PhonContent, Quote, Reference, Sentence, String, TextContent, Utterance, Word]
+                accepted_data: [AbstractExtendedTokenAnnotation, Division, Entry, Event, Example, External, Gap, List, Note, Paragraph, PhonContent, Quote, Reference, Sentence, String, TextContent, Utterance, Word]
           - class: Table
             properties:
                 annotationtype: TABLE
@@ -347,7 +347,7 @@ elements:
             properties:
                 xmltag: "text"
                 textdelimiter: "\n\n\n"
-                accepted_data: [AbstractExtendedTokenAnnotation, Division, Entry, Event, Example, Figure, Gap, List, Note, Paragraph, PhonContent, Quote, Reference, Sentence, String, Table, TextContent, Word]
+                accepted_data: [AbstractExtendedTokenAnnotation, Division, Entry, Event, Example, External, Figure, Gap, List, Note, Paragraph, PhonContent, Quote, Reference, Sentence, String, Table, TextContent, Word]
           - class: Utterance
             properties:
                 annotationtype: UTTERANCE
