@@ -173,6 +173,30 @@ blockhelp = {
         'default_ignore_structure': 'Default ignore list for structure annotation',
 }
 
+def setelementproperties_cpp(element,indent, defer,done):
+    commentsign = "//"
+    target = 'c++'
+    s = commentsign + "------ " + element['class'] + " -------\n"
+    if element['class'] in parents:
+        for parent in parents[element['class']]:
+            if parent not in done:
+                defer[parent].append(element)
+                return None
+            else:
+                s += indent + element['class'] + '::PROPS = ' + parent + '::PROPS;\n'
+            break
+    s += indent + element['class'] + '::PROPS.ELEMENT_ID = ' + element['class'] + '_t;\n'
+    if 'properties' in element:
+        for prop, value in sorted(element['properties'].items()):
+            if target not in skip_properties or prop not in skip_properties[target]:
+                if prop == 'accepted_data':
+                    value = tuple(sorted(addfromparents(element['class'],'accepted_data')))
+                    if ('textcontainer' in element['properties'] and element['properties']['textcontainer']) or ('phoncontainer' in element['properties'] and element['properties']['phoncontainer']):
+                        value += ('XmlText',)
+                s += indent + outputvar(element['class'] + '::PROPS.' + prop.upper(),  value, target) + '\n'
+    done[element['class']] = True
+    return s
+
 def outputblock(block, target, varname, indent = ""):
     """Output the template block (identified by ``block``) for the target language"""
 
@@ -256,17 +280,16 @@ def outputblock(block, target, varname, indent = ""):
                             value = tuple(sorted(addfromparents(element['class'],'accepted_data')))
                         s += indent + outputvar(element['class'] + '.' + prop.upper(),  value, target) + '\n'
         elif target == 'c++':
+            done = {}
+            defer = defaultdict(list) #defer output of some elements until parent elements are processed:  hook => deferred_elements
             for element in elements:
-                s += commentsign + "------ " + element['class'] + " -------\n"
-                s += indent + element['class'] + '::PROPS.ELEMENT_ID = ' + element['class'] + '_t;\n'
-                if 'properties' in element:
-                    for prop, value in sorted(element['properties'].items()):
-                        if target not in skip_properties or prop not in skip_properties[target]:
-                            if prop == 'accepted_data':
-                                value = tuple(sorted(addfromparents(element['class'],'accepted_data')))
-                                if ('textcontainer' in element['properties'] and element['properties']['textcontainer']) or ('phoncontainer' in element['properties'] and element['properties']['phoncontainer']):
-                                    value += ('XmlText',)
-                            s += indent + outputvar(element['class'] + '::PROPS.' + prop.upper(),  value, target) + '\n'
+                output = setelementproperties_cpp(element,indent, defer,done)
+                if output:
+                    s += output
+                    if element['class'] in defer:
+                        for deferred in defer[element['class']]:
+                            s += setelementproperties_cpp(deferred,indent, defer,done)
+
         else:
             raise NotImplementedError("Block " + block + " not implemented for " + target)
     elif block == 'annotationtype_string_map':
