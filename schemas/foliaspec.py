@@ -204,6 +204,21 @@ def setelementproperties_cpp(element,indent, defer,done):
     done[element['class']] = True
     return s
 
+def flattenclasses(candidates):
+    done = {}
+    resolved = set()
+    for c in candidates:
+        for child, parentlist in parents.items():
+            if c in parentlist:
+                if child not in done and child not in candidates:
+                    candidates.append(child)
+        if c[:8] != 'Abstract':
+            resolved.add(c)
+    return resolved
+
+
+
+
 def outputblock(block, target, varname, indent = ""):
     """Output the template block (identified by ``block``) for the target language"""
 
@@ -389,21 +404,21 @@ def outputblock(block, target, varname, indent = ""):
             raise NotImplementedError("Block " + block + " not implemented for " + target)
     elif block == 'default_ignore':
         if target == 'c++':
-            s += indent + "const set<ElementType> default_ignore = { " + ", ".join([ e + '_t' for e in spec['default_ignore'] ]) + " };\n"
+            s += indent + "const set<ElementType> default_ignore = { " + ", ".join([ e + '_t' for e in sorted(flattenclasses(spec['default_ignore'])) ]) + " };\n"
         elif target == 'python':
             s += indent + "default_ignore = ( " + ", ".join(spec['default_ignore']) + ",)\n"
         else:
             raise NotImplementedError("Block " + block + " not implemented for " + target)
     elif block == 'default_ignore_annotations':
         if target == 'c++':
-            s += indent + "const set<ElementType> default_ignore_annotations = { " + ", ".join([ e + '_t' for e in spec['default_ignore_annotations'] ]) + " };\n"
+            s += indent + "const set<ElementType> default_ignore_annotations = { " + ", ".join([ e + '_t' for e in sorted(flattenclasses(spec['default_ignore_annotations'])) ]) + " };\n"
         elif target == 'python':
             s += indent + "default_ignore_annotations = ( " + ", ".join(spec['default_ignore_annotations']) + ",)\n"
         else:
             raise NotImplementedError("Block " + block + " not implemented for " + target)
     elif block == 'default_ignore_structure':
         if target == 'c++':
-            s += indent + "const set<ElementType> default_ignore_structure = { " + ", ".join([ e + '_t' for e in spec['default_ignore_structure'] ]) + " };\n"
+            s += indent + "const set<ElementType> default_ignore_structure = { " + ", ".join([ e + '_t' for e in sorted(flattenclasses(spec['default_ignore_structure'])) ]) + " };\n"
         elif target == 'python':
             s += indent + "default_ignore_structure = ( " + ", ".join(spec['default_ignore_structure']) + ",)\n"
         else:
