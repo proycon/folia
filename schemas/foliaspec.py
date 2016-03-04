@@ -194,6 +194,8 @@ def setelementproperties_cpp(element,indent, defer,done):
                     value = tuple(sorted(addfromparents(element['class'],'accepted_data')))
                     if ('textcontainer' in element['properties'] and element['properties']['textcontainer']) or ('phoncontainer' in element['properties'] and element['properties']['phoncontainer']):
                         value += ('XmlText',)
+                    if 'WordReference' in value:
+                        value += ('Word','Morpheme','Phoneme')
                 s += indent + outputvar(element['class'] + '::PROPS.' + prop.upper(),  value, target) + '\n'
     done[element['class']] = True
     return s
