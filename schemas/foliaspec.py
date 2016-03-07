@@ -10,7 +10,7 @@ import yaml
 
 
 skip_properties = {
-    'c++': ('textcontainer','phoncontainer','auto_generate_id','primaryelement'), #these are not handled in libfolia, or handled differently, don't output these in the source
+    'c++': ('textcontainer','phoncontainer','primaryelement'), #these are not handled in libfolia, or handled differently, don't output these in the source
 }
 
 #Load specification
