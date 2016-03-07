@@ -357,7 +357,10 @@ def outputblock(block, target, varname, indent = ""):
                 if 'properties' in element and 'xmltag' in element['properties'] and element['properties']['xmltag']:
                     s += indent + "  { " + element['class'] + '_t,  "' + element['properties']['xmltag'] + '" },\n'
                 elif 'properties' in element and 'subset' in element['properties'] and element['properties']['subset']:
-                    s += indent + "  { " + element['class'] + '_t,  "' + element['properties']['subset'] + '" },\n'
+                    if element['class'] == 'HeadFeature':
+                        s += indent + "  { HeadFeature_t,  \"headfeature\" },\n"
+                    else:
+                        s += indent + "  { " + element['class'] + '_t,  "' + element['properties']['subset'] + '" },\n'
                 else:
                     s += indent + "  { " + element['class'] + '_t,  "_' + element['class'] + '" },\n'
             s += indent + '  { PlaceHolder_t, "_PlaceHolder" },\n'
@@ -374,7 +377,10 @@ def outputblock(block, target, varname, indent = ""):
                 if 'properties' in element and 'xmltag' in element['properties'] and element['properties']['xmltag']:
                     s += indent + '  { "' + element['properties']['xmltag'] + '", ' + element['class'] + '_t  },\n'
                 elif 'properties' in element and 'subset' in element['properties'] and element['properties']['subset']:
-                    s += indent + '  { "' + element['properties']['subset'] + '", ' + element['class'] + '_t  },\n'
+                    if element['class'] == 'HeadFeature':
+                        s += indent + "  { \"headfeature\", HeadFeature_t },\n"
+                    else:
+                        s += indent + '  { "' + element['properties']['subset'] + '", ' + element['class'] + '_t  },\n'
                 else:
                     s += indent + '  { "_' + element['class'] + '", ' + element['class'] + '_t  },\n'
             s += indent + '  { "_PlaceHolder", PlaceHolder_t  },\n'
