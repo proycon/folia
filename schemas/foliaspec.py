@@ -438,7 +438,19 @@ def outputblock(block, target, varname, indent = ""):
             s += indent + "};\n";
         else:
             raise NotImplementedError("Block " + block + " not implemented for " + target)
-
+    elif block == 'attributefeatures':
+        if target == 'c++':
+            l = []
+            for element in elements:
+                if 'properties' in element and 'subset' in element['properties'] and element['properties']['subset']:
+                    if element['class'] == 'HeadFeature':
+                        l.append("headfeature")
+                    else:
+                        l.append(element['properties']['subset'])
+            l.sort()
+            s += indent + "const set<string> AttributeFeatures = { " + ", ".join([ '"' + x + '"' for x in l ]) + " };\n"
+        else:
+            raise NotImplementedError("Block " + block + " not implemented for " + target)
     elif block in spec:
         #simple variable blocks
         s += indent + outputvar(varname, spec[block], target, True)
