@@ -14,7 +14,7 @@ for doc in $DIR/*.xml; do
     echo "Processing $doc">&2
 
     echo "    Validating using RelaxNG stylesheet..." >&2
-    xmllint --relaxng ../schemas/folia.rng example.xml >/dev/null
+    xmllint --relaxng ../schemas/folia.rng "$doc" >/dev/null
     if [ $? -ne 0 ]; then
         echo "...FAILED" >&2
         FAILURE=1
@@ -23,7 +23,7 @@ for doc in $DIR/*.xml; do
     fi
 
     echo "    Running foliavalidator..." >&2
-    foliavalidator example.xml >/dev/null
+    foliavalidator "$doc" >/dev/null
     if [ $? -ne 0 ]; then
         echo "...FAILED" >&2
         FAILURE=1
@@ -32,7 +32,7 @@ for doc in $DIR/*.xml; do
     fi
 
     echo "    Running folialint..." >&2
-    folialint example.xml >/dev/null
+    folialint "$doc" >/dev/null
     if [ $? -ne 0 ]; then
         echo "...FAILED" >&2
         FAILURE=1
