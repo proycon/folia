@@ -385,7 +385,7 @@ categories, will be introduced later in Section~\ref{sec:higherorder}.
 \subsection{Speech}
 \label{sec:speechparadigm}
 
-\status{Final since v0.12}{pynlpl}
+\status{Final since v0.12}{pynlpl,libfolia}
 
 FoLiA is also suited for annotation of speech data. The following additional
 FoLiA attributes are available for \emph{all} structure annotation elements in
@@ -1944,7 +1944,7 @@ The declaration (the actual sets are fictitious):
 \subsection{Time Segmentation}
 \label{sec:timesegment}
 
-\status{final since v0.8, renamed in v0.9}{pynlpl}
+\status{final since v0.8, renamed in v0.9}{pynlpl,libfolia}
 
 FoLiA supports time segmentation using the \texttt{timing} layer and the
 \texttt{timesegment} span annotation element. This element is useful for
@@ -2014,7 +2014,7 @@ for \texttt{timesegment-annotation}.
 
 \subsubsection{Time segmentation in a speech context}
 
-\status{PROPOSED in v0.9}{pynlpl}
+\status{final since v0.10}{pynlpl,libfolia}
 
 If used in a speech context, all the generic speech attributes become available
 (See Section~\ref{sec:speech}). This introduces  \texttt{begintime} and
@@ -2302,7 +2302,7 @@ on the set used and are thus user-definable and never predefined:
 
 \section{Morphological Annotation}
 
-\status{heavily revised since v0.9}{pynlpl}
+\status{heavily revised since v0.9}{pynlpl,libfolia}
 
 Tokens can be further segmented into morphemes, a form of structure annotation.
 Morphemes behave much like \texttt{w} elements (tokens). Moreover, morphemes
@@ -2507,7 +2507,7 @@ paragraph level or the global text level.
 \subsection{Speech Structure Annotation}
 \label{sec:speech}
 
-\status{proposed in v0.9, most parts final in v0.12}{all final parts implemented in pynlpl}
+\status{proposed in v0.9, most parts final in v0.12}{pynlpl,libfolia}
 
 FoLiA is not just suited for the annotation of text, but also accommodates
 annotation of transcribed speech. This generally asks for a different document
@@ -2523,7 +2523,7 @@ attributes for referring to associating sound clips.
 
 \subsubsection{Utterances}
 
-\status{Final in v0.12}{pynlpl}
+\status{Final in v0.12}{pynlpl,libfolia}
 
 
 An utterance may consist of words or sentences, which in turn may contain
@@ -2553,7 +2553,7 @@ speech-context attributes associated:
 
 \subsection{Phonetic Content}
 
-\status{final in v0.12}{pynlpl}
+\status{final in v0.12}{pynlpl,libfolia}
 
 Written text is always contained in the text content element (\texttt{t}), for
 phonology there is a similar counterpart: \texttt{ph}. The \texttt{ph} element
@@ -2596,7 +2596,7 @@ content can also go together without problem:
 \subsection{Phonological Annotation}
 \label{sec:phonemes}
 
-\status{final in v0.12}{pynlpl}
+\status{final in v0.12}{pynlpl,libfolia}
 
 The smallest unit of annotatable speech in FoLiA is the phoneme level. The
 \texttt{phoneme} element is a form of structure annotation used for phonemes.
@@ -3605,7 +3605,7 @@ suggesting to capitalize the first word of what is suggested to become a new sen
 
 
 \subsubsection{Corrections on span annotation}
-\status{added in v0.11.1}{pynlpl}
+\status{added in v0.11.1}{pynlpl,libfolia}
 
 All the previous sections focussed on corrections on token annotation, text
 content, or structure elements such as words. The correction element, however,
@@ -3683,7 +3683,7 @@ be duplicated if the correction is on an element higher up in the tree.
 \subsection{Alignments}
 \label{sec:alignments}
 
-\status{revised in v0.8}{not implemented yet}
+\status{revised in v0.8}{pynlpl,libfolia}
 
 FoLiA provides a facility to align parts of your document with other parts of
 your document, or even with parts of other FoLiA documents. These are called
@@ -6229,6 +6229,7 @@ will provide a summary on available options and usage examples. Most of the
 tools can run on both a single FoLiA document, as well as a whole directory of
 documents, allowing also for recursion. The tools generally take one or more
 file names or directory names as parameters.
+
 
 %\section{FoLiA Query tool}
 %
