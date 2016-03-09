@@ -540,12 +540,22 @@ def parser(filename):
 
     os.rename(filename+'.foliaspec.out', filename)
 
+def usage():
+    print("Syntax: foliaspec.py [filename] [filename] ..etc.." ,file=sys.stderr)
+    print("Filenames are Python or C++ files that may contain foliaspec instructions, the files will be updated according to the latest specification in folia.yml",file=sys.stderr)
+    sys.exit(0)
+
 def main():
     if len(sys.argv) == 1:
-        print("Syntax: foliaspec.py [filename] [filename] ..etc.." ,file=sys.stderr)
-        print("Filenames are Python or C++ files that may contain foliaspec instructions, the files will be updated according to the latest specification in folia.yml",file=sys.stderr)
+        usage()
 
     for filename in sys.argv[1:]:
+        if filename in ('-h', '--help'):
+            usage()
+        elif filename in ('-v', '--version'):
+            print("FoLiA specification is at version v" + spec['version'],file=sys.stderr)
+            sys.exit(0)
+
         parser(filename)
 
 if __name__ == '__main__':
