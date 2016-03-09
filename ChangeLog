@@ -1,3 +1,6 @@
+(not kept up to date, consult documentation and release log instead, or git log
+for details)
+
 0.8)
     - Revised dependencies. Removed ad-hoc dep/@su and hd/@su attributes in favour of aref element.
     - Revised and simplified feature/subset paradigm. Documentation clarified.
