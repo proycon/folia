@@ -73,7 +73,7 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
 
 \HRule \\[0.5cm]
 { \Large \bfseries FoLiA: Format for Linguistic Annotation}\\[0.5cm] % Title of your document
-{\bf \small version 0.12.1 -- Revision 4.2} \\[0.5cm]
+{\bf \small version 1.0.0-- Revision 4.3} \\[0.5cm]
 { \Large \bfseries Documentation}\\[0.5cm]
 {\large \emph{Maarten van Gompel}}\\[0.5cm]
 \HRule \\[1.0cm]
@@ -1968,8 +1968,8 @@ more suited. The following example illustrates the usage for event annotation:
     <wref id="example.p.1.s.1.w.1" t="I" />
     <wref id="example.p.1.s.1.w.2" t="think" />
   </timesegment>
-  <timesegment class="cough" begintime="2011-12-15T19:03" 
-   endtime="2011-12-15T19:05" actor="myself">   
+  <timesegment class="cough" begindatetime="2011-12-15T19:03" 
+   enddatetime="2011-12-15T19:05" actor="myself">   
   </timesegment>
   <timesegment class="utterance" begindatetime="2011-12-15T19:05" 
    enddatetime="2011-12-15T19:06" actor="myself">
@@ -2021,7 +2021,7 @@ If used in a speech context, all the generic speech attributes become available
 \texttt{endtime}, which are different from \texttt{begindatetime} and
 \texttt{enddatetime} ! The generic attributes \texttt{begintime} and
 \texttt{endtime} are not defined by the set, but specify a time location in
-HH:MM:SS.MMMM format which may refer to the location in an associated sound
+\texttt{HH:MM:SS.MMM} format which may refer to the location in an associated sound
 file. Sound files are associated using the \texttt{src} attribute, which is
 inherited by all lower elements, so we put it on the sentence here:
 
@@ -2035,28 +2035,28 @@ inherited by all lower elements, so we put it on the sentence here:
  <w xml:id="example.p.1.s.1.w.6"><t>go</t></w>
  <w xml:id="example.p.1.s.1.w.7"><t>.</t></w>
  <timing>
-  <timesegment begintime="00:00:00.0000" 
-   endtime="00:00:00.2500">
+  <timesegment begintime="00:00:00.000" 
+   endtime="00:00:00.250">
     <wref id="example.p.1.s.1.w.1" t="I" />
   </timesegment>
-  <timesegment begintime="00:00:00.2500" 
-   endtime="00:00:00.5000">
+  <timesegment begintime="00:00:00.250" 
+   endtime="00:00:00.500">
     <wref id="example.p.1.s.1.w.2" t="think" />
   </timesegment>
-  <timesegment begintime="00:00:00.5000" 
-   endtime="00:00:00.7500">
+  <timesegment begintime="00:00:00.500" 
+   endtime="00:00:00.750">
     <wref id="example.p.1.s.1.w.3" t="I" />
   </timesegment>
-  <timesegment begintime="00:00:00.7500" 
+  <timesegment begintime="00:00:00.750" 
    endtime="00:00:01.000">
     <wref id="example.p.1.s.1.w.4" t="have" />
   </timesegment>
-  <timesegment begintime="00:00:01.0000" 
+  <timesegment begintime="00:00:01.000" 
    endtime="00:00:01.250">
     <wref id="example.p.1.s.1.w.5" t="to" />
   </timesegment>
-  <timesegment begintime="00:00:01.2500" 
-   endtime="00:00:01.5000">
+  <timesegment begintime="00:00:01.250" 
+   endtime="00:00:01.500">
     <wref id="example.p.1.s.1.w.6" t="go" />
   </timesegment>
  </timing>
@@ -2071,17 +2071,17 @@ used when actual classes are assigned:
 \begin{lstlisting}[language=xml]
 <s src="ithinkihavetogo.mp3">
  <w xml:id="example.p.1.s.1.w.1"
-  begintime="00:00:00.0000" endtime="00:00:00.2500"><t>I</t></w>
+  begintime="00:00:00.000" endtime="00:00:00.250"><t>I</t></w>
  <w xml:id="example.p.1.s.1.w.2"
-  begintime="00:00:00.2500" endtime="00:00:00.5000"><t>think</t></w>
+  begintime="00:00:00.250" endtime="00:00:00.500"><t>think</t></w>
  <w xml:id="example.p.1.s.1.w.3" 
-  begintime="00:00:00.5000" endtime="00:00:00.7500"><t>I</t></w>
+  begintime="00:00:00.500" endtime="00:00:00.750"><t>I</t></w>
  <w xml:id="example.p.1.s.1.w.4"
-  begintime="00:00:00.7500" endtime="00:00:01.0000"><t>have</t></w>
+  begintime="00:00:00.750" endtime="00:00:01.000"><t>have</t></w>
  <w xml:id="example.p.1.s.1.w.5" 
-  begintime="00:00:01.0000" endtime="00:00:01.2500"><t>to</t></w>
+  begintime="00:00:01.000" endtime="00:00:01.250"><t>to</t></w>
  <w xml:id="example.p.1.s.1.w.6" 
-  begintime="00:00:01.2500" endtime="00:00:01.5000"><t>go</t></w>
+  begintime="00:00:01.250" endtime="00:00:01.500"><t>go</t></w>
  <w xml:id="example.p.1.s.1.w.7"><t>.</t></w>
  <timing>
 	<timesegment class="emphasised">
