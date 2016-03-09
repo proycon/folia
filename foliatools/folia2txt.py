@@ -18,7 +18,7 @@ def usage():
     print("folia2txt",file=sys.stderr)
     print("  by Maarten van Gompel (proycon)",file=sys.stderr)
     print("  Tilburg University / Radboud University Nijmegen",file=sys.stderr)
-    print("  2012 - Licensed under GPLv3",file=sys.stderr)
+    print("  2012-2016 - Licensed under GPLv3",file=sys.stderr)
     print("",file=sys.stderr)
     print("This conversion script reads a FoLiA XML document and outputs the",file=sys.stderr)
     print("document's text as plain text, *without* any annotations.",file=sys.stderr)

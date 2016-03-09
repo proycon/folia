@@ -50,10 +50,11 @@ setup(
             'folia2rst = foliatools.folia2rst:main',
             'foliacorrect = foliatools.foliacorrect:main',
             'foliacount = foliatools.foliacount:main',
+            'foliaspec = foliatools.foliaspec:main',
             'alpino2folia = foliatools.alpino2folia:main',
         ]
     },
     #include_package_data=True,
-    package_data = {'foliatools': ['*.xsl'] },
+    package_data = {'foliatools': ['*.xsl', '../schemas/*.yml','../schemas/*.rng']},
     install_requires=['pynlpl >= 0.8.0', 'lxml >= 2.2','docutils']
 )

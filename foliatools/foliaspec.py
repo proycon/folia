@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 #Generate library specification code (for either Python or C++) on the the basis of folia.yml
 #Used by respectively pynlpl and libfolia
+
+from __future__ import print_function, unicode_literals, division, absolute_import
+
 import sys
 import datetime
 import os
@@ -14,7 +17,14 @@ skip_properties = {
 }
 
 #Load specification
-spec = yaml.load(open('folia.yml','r'))
+specfiles= [  os.path.join(os.path.dirname(__file__) ,'../schemas/folia.yml'), 'folia.yml' ]
+spec = None
+for specfile in specfiles:
+    spec = yaml.load(open(specfile,'r'))
+    break
+
+if spec is None:
+    print("FoLiA Specification file folia.yml could not be found in " + ", ".join(specfiles) ,file=sys.stderr)
 
 
 parents = defaultdict(list)
@@ -530,11 +540,13 @@ def parser(filename):
 
     os.rename(filename+'.foliaspec.out', filename)
 
-if __name__ == '__main__':
+def main():
     if len(sys.argv) == 1:
-        print("Syntax: foliaspec.py [filename] [filename].." ,file=sys.stderr)
+        print("Syntax: foliaspec.py [filename] [filename] ..etc.." ,file=sys.stderr)
         print("Filenames are Python or C++ files that may contain foliaspec instructions, the files will be updated according to the latest specification in folia.yml",file=sys.stderr)
 
     for filename in sys.argv[1:]:
         parser(filename)
 
+if __name__ == '__main__':
+    main()
