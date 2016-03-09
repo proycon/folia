@@ -6098,7 +6098,7 @@ object-oriented model in which FoLiA XML elements correspond with classes.
   Python Natural Language Processing Library. See \\
   {\tt https://pypi.python.org/pypi/PyNLPl/} for sources and documentation.
 \item \texttt{libfolia} - A FoLiA library in $C++$. Obtain from \\ {\tt
-  http://proycon.github.io/folia}
+  https://proycon.github.io/folia}
 \end{enumerate}
 
 Information regarding implementation of certain elements for these two
@@ -6106,34 +6106,44 @@ libraries is present in the status boxes throughout this documentation. The
 following table shows the level of FoLiA support in these
 libraries:
 
-\begin{tabularx}{9cm}{|r|c|c|}
+\begin{tabularx}{12cm}{rcc}
 \hline 
                        & PyNLPl & libfolia  \\
 \hline
-Programming Language   & python & $C++$ \\
+Programming Language   & python & C$++$ \\
+From official specification\footnote{These libraries draw a large part of their
+implementation from the common external FoLiA specification to keep them in sync
+better} & yes & yes \\
 \hline
+\multicolumn{3}{c}{\textbf{Annotation Types}} \\
 Text content           & yes & yes \\
-Phonetic/phonological content (v0.12)   & yes & not yet \\
+Phonetic/phonological content (v0.12)   & yes & yes \\
 Structure annotation   & yes & yes \\
 Token annotation       & yes & yes \\
 Span annotation        & yes & yes \\
 Morphology             & yes & yes \\
-Phonology (v0.12)      & yes & not yet \\
-\hline
+Phonology (v0.12)      & yes & yes \\
 Alternatives           & yes & yes \\
 Corrections            & yes & yes \\
 Text Markup            & yes & yes \\
-Hyperlinks on markup (v0.11.3)  & yes & not yet \\
-Alignments             & largely\footnote{Except for \texttt{complexalignment}}  & largely \\
+Hyperlinks on markup (v0.11.3)  & yes & yes \\
+Alignments             & yes  & yes \\
 Strings                & yes & yes \\
 \hline
+\multicolumn{3}{c}{\textbf{Search \& Query}} \\
 FoLiA Query Language (FQL)  & yes & no \\
+Document.findwords() method & yes & yes \\
 \hline 
+\multicolumn{3}{c}{\textbf{Validation}} \\
 Shallow validation      & yes & yes \\
 RelaxNG schema generation & yes & no \\
 Set definition support  & yes & no \\
 Deep validation         & not yet & no \\
 \hline
+\multicolumn{3}{c}{\textbf{Quality Control}}  \\
+Unit/integration tests & yes & yes \\
+\hline
+\multicolumn{3}{c}{\textbf{Legacy}} \\
 IMDI interpretation   & partial\footnote{Only for in-document IMDI} & no \\
 D-Coi read compatibility      & partial\footnote{Only basic elements, no List, Figure, etc..} & no \\
 \hline
