@@ -2,7 +2,7 @@
 #    This is a technical specification of FoLiA, for use by FoLiA libraries
 
 #The FoLiA version
-version: "1.0.0"
+version: "1.0.1"
 
 #The FoLiA namespace
 namespace: "http://ilk.uvt.nl/folia"
@@ -42,7 +42,7 @@ elements:
           printable: false
           speakable: false
           accepted_data: [ Correction ]
-          optional_attribs: [ ID ]
+          optional_attribs: [ ID, ANNOTATOR, CONFIDENCE, DATETIME, N ]
           setonly: true
       elements:
           - class: ChunkingLayer
