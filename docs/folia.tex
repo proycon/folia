@@ -73,12 +73,12 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
 
 \HRule \\[0.5cm]
 { \Large \bfseries FoLiA: Format for Linguistic Annotation}\\[0.5cm] % Title of your document
-{\bf \small version 1.0.0-- Revision 4.3} \\[0.5cm]
+{\bf \small version 1.1.0-- Revision 4.4} \\[0.5cm]
 { \Large \bfseries Documentation}\\[0.5cm]
 {\large \emph{Maarten van Gompel}}\\[0.5cm]
 \HRule \\[1.0cm]
 
-\emph{January 2nd, 2014 \small{(published)} -- March 26th, 2015 \small{(last revision)}} \\[0.3cm] 
+\emph{January 2nd, 2014 \small{(published)} -- April 21st, 2016 \small{(last revision)}} \\[0.3cm] 
 \includegraphics[width=20.0mm]{ru-beeldmerk-zwart.eps}
 \end{center}
 \vspace{0.5cm}
@@ -4518,45 +4518,23 @@ annotations, unlike these hyperlinks.
 FoLiA has support for metadata, most notably the extensive and mandatory
 declaration section for all used annotations which you have seen throughout
 this documentation. To complement this, there is FoLiA's native metadata
-system, in which simple metadata fields can be defined and used at will. FoLiA
-is also able to operate with IMDI or CMDI metadata \cite{CMDI}, either in
-external file or stored inline. Note that storing CMDI or IMDI inside your
-FoLiA document may cause problems when you want to validate your FoLiA
-document. It is also incompatible with CMDI or IMDI editors that are unaware of
-FoLiA.
-
-Reference to CMDI in external file is recommended and proceeds in the following simple fashion:
-
-\begin{lstlisting}[language=xml]
-<metadata type="cmdi" src="/path/or/url/to/metadata.cmdi">
- ...
-</metadata>
-\end{lstlisting}
-
-The procedure for IMDI is the same:
-
-\begin{lstlisting}[language=xml]
-<metadata type="imdi" src="/path/or/url/to/metadata.imdi">
- ...
-</metadata>
-\end{lstlisting}
-
-If you use neither CMDI nor IMDI, then you can use FoLiA's native system, which
-is very simple: It introduces the \texttt{meta} element that allows you to
-define key value pairs as follows:
+system, in which simple metadata fields can be defined and used at will through
+the \texttt{meta} element. The
+following example shows this:
 
 \begin{lstlisting}[language=xml]
 <metadata type="native">
     <annotations>
     ..
     </annotations>
-    <meta id="title">Title to my document</meta>
+    <meta id="title">Title of my document</meta>
     <meta id="language">eng</meta>
 </metadata>
 \end{lstlisting}
 
-You can simply define fields with custom IDs, but the following fields are
-pre-defined and recommended to be filled:
+The native metadata format just offers a simple key-value store. You can define
+fields with custom IDs, but the following fields are pre-defined and
+recommended to be filled:
 
 \begin{itemize}
 \item \textbf{title} -- The title of the FoLiA document
@@ -4565,6 +4543,55 @@ pre-defined and recommended to be filled:
 \item \textbf{publisher} -- The publishing institution or individual
 \item \textbf{license} -- The type of license of the document (for example: \emph{GNU Free Documentation License})
 \end{itemize}
+
+The native metadata format is deliberately limited, as various other formats
+already tackle the metadata issue. FoLiA is able to operate with any other
+metadata format, such as for example CMDI \cite{CMDI}, or Dublin Core. The
+\texttt{type} attribute specifies what metadata format is used. We see it was set
+to \texttt{native} for FoLiA's native metadata format, for foreign formats it
+can be set to any other string.
+
+Foreign metadata can be stored in two ways:
+
+\begin{enumerate}
+    \item Externally in a different file
+    \item Inside the FoLiA document itself
+\end{enumerate}
+
+When the metadata is stored externally in a different
+file, a reference is made from the \texttt{src} attribute. As shown in the
+following example:
+
+\begin{lstlisting}[language=xml]
+<metadata type="cmdi" src="/path/or/url/to/metadata.cmdi">
+  <annotations>
+  ..
+  </annotations>
+</metadata>
+\end{lstlisting}
+
+If you want to store the metadata in the FoLiA document itself, then the
+metadata must be places inside a \texttt{foreign-data} element. All elements
+under foreign-data \emph{must} be in another XML namespace, that is, not the default
+FoLiA namespace.
+
+\begin{lstlisting}[language=xml]
+<metadata type="dc">
+  <annotations>
+  ..
+  </annotations>
+  <foreign-data xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <dc:identifier>mydoc</dc:identifier>
+    <dc:format>text/xml</dc:format>
+    <dc:type>Example</dc:type>
+    <dc:contributor>proycon</dc:contributor>
+    <dc:creator>proycon</dc:creator>
+    <dc:language>en</dc:language>
+    <dc:publisher>Radboud University</dc:publisher>
+    <dc:rights>public Domain</dc:rights>
+  </foreign-data>
+</metadata>
+\end{lstlisting}
 
 
 \section{External documents and full stand-off annotation}
