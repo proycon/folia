@@ -414,7 +414,7 @@
               <t>ze</t>
               <pos class="VNW(pers,pron,stan,red,3,ev,fem)"/>
               <lemma class="ze"/>
-	      <alignment class="reference">
+	          <alignment class="reference">
               	<aref id="WR-P-E-J-0000000001.p.1.s.3.w.5" t="handschriften" type="w"/>
               </alignment>
             </w>

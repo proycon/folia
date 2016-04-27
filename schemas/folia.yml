@@ -2,7 +2,7 @@
 #    This is a technical specification of FoLiA, for use by FoLiA libraries
 
 #The FoLiA version
-version: "1.0.1"
+version: "1.0.2"
 
 #The FoLiA namespace
 namespace: "http://ilk.uvt.nl/folia"
@@ -408,10 +408,12 @@ elements:
                   properties:
                       annotationtype: DOMAIN
                       xmltag: "domain"
+                      occurrences_per_set: 0
                 - class: ErrorDetection
                   properties:
                       annotationtype: ERRORDETECTION
                       xmltag: "errordetection"
+                      occurrences_per_set: 0
                 - class: LangAnnotation
                   properties:
                       annotationtype: LANG
