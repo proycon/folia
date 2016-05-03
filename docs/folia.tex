@@ -3720,10 +3720,10 @@ be duplicated if the correction is on an element higher up in the tree.
 \status{revised in v0.8}{pynlpl,libfolia}
 
 FoLiA provides a facility to align parts of your document with other parts of
-your document, or even with parts of other FoLiA documents. These are called
-\emph{alignments} and are implemented using the \texttt{alignment} element.
-Within this context, the \texttt{aref} element is used to refer to the aligned
-FoLiA elements.
+your document, or even with parts of other FoLiA documents or external
+resources. These are called \emph{alignments} and are implemented using the
+\texttt{alignment} element.  Within this context, the \texttt{aref} element is
+used to refer to the aligned FoLiA elements.
 
 Consider the two following aligned sentences from excerpts of two
 \emph{distinct} FoLiA documents in different languages:
@@ -3753,20 +3753,45 @@ Consider the two following aligned sentences from excerpts of two
 </s>
 \end{lstlisting}
 
-The \texttt{t} attribute to the \texttt{aref} element is merely optional and
-this overhead is added simply to facilitate the job of limited FoLiA parsers
-and provides a quick reference to the target text for both parsers and human
-users. The \texttt{xlink:href} attribute is used to link to the target
-document, if any. If the alignment is within the same document then it should
-be simply omitted. The \texttt{type} attribute in \texttt{aref} is mandatory
-and specifies the type of element the alignment points too, i.e. its value is
-equal to the tagname it points to.
+It is the job of the \texttt{alignment} element to point to the relevant
+resource, whereas the \texttt{aref} element points to a specific point
+\emph{inside} the referenced resource. The \texttt{xlink:href} attribute is
+used to link to the target document, if any. If the alignment is within the
+same document then it should simply be omitted. The \texttt{type} attribute on
+\texttt{aref} specifies the type of element the alignment points too, i.e. its
+value is equal to the tagname it points to. The \texttt{t} attribute to the
+\texttt{aref} element is merely optional and this overhead is added simply to
+facilitate the job of limited FoLiA parsers and provides a quick reference to
+the target text for both parsers and human users.
 
 Although the above example has a single alignment reference (\texttt{aref}), it
 is not forbidden to specify multiple references within the \texttt{alignment}
-block. For more complex alignments, such as word alignments that include
+block. 
+
+By default, alignments are between FoLiA documents. It is, however, also
+possible to point to resources in different formats. This has to be made
+explicit using the \texttt{format} attribute on the \texttt{alignment} element.
+The value of the \texttt{format} attribute is a MIME type and defaults to
+\texttt{text/folia+xml} (naming follows RFC 3032). In the following example
+align a section (\texttt{div}) with the original HTML document from which the
+FoLiA document is arrived, and where the section is expressed with an HTML anchor
+(\textt{a}) tag.
+
+\begin{lstlisting}
+<div class="section">
+ <head>Section 2</head>
+ <t>lorum ipsum etc.</t>
+ <alignment class="original" xlink:href="http://somewhere/original.html" 
+    xlink:type="simple" format="text/html">
+    <aref id="section2" type="a" />
+ </alignment>
+</div>
+\end{lstlisting}
+
+
+For more complex alignments, such as word alignments that include
 many-to-one, one-to-many or many-to-many alignments, the element
-\texttt{complexalignment} may be more suitable, which behaves similarly to a
+\texttt{complexalignment} is created, which behaves similarly to a
 span annotation element. This element groups \texttt{alignment} elements
 together, effectively creating a many-to-many alignment. The following example
 illustrates an example similar to the one above. All this takes place within
