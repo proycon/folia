@@ -1175,7 +1175,9 @@ attribute, which holds the type of the FoLiA element that is referred to:
 </s>
 \end{lstlisting}
 
-You can optionally make explicit the symbol used for the reference:
+You can optionally make explicit the symbol used for the reference. When no
+textual content is provided, whatever program renders the FoLiA document may assign its own
+numbering or symbol.
 
 \begin{lstlisting}[language=xml]
 <s>
@@ -1195,9 +1197,10 @@ This is often needed for bibliographical references:
 
 As a structure element, the \texttt{ref} element may contain other structure
 elements such as words (\texttt{w}) or even sentences (\texttt{s}) or
-paragraphs (\texttt{p}).
+paragraphs (\texttt{p}), which can in turn contain further linguistic
+annotations.
 
-Although we framed this in the context of notes, the \texttt{ref} element is
+Although we framed this section in the context of notes, the \texttt{ref} element is
 more general and can be used whereever you need to explicitly refer to other \emph{structure
 elements}. Common targets are figures, tables, divisions (sections, chapters,
 etc). 
@@ -1218,7 +1221,8 @@ linguistic annotation, whereas this reference element is a structural element
 that is explicitly shown in the text and draws a reference that is explicitly
 reflected in the text.
 
-External references can also be made with the \texttt{ref} element. This is
+External references can also be made with the \texttt{ref} element, which
+effectively makes it a valid tool for \emph{hyperlinking}. This is
 done by setting the \texttt{xlink:href} to point to the external resource and
 by setting the \texttt{format} attribute to the format of the external
 resource. The format is understood to be a MIME type and its value defaults to
@@ -1230,9 +1234,11 @@ attribute is optional and points to an element inside the external resource.
   <w><t>We</t></w>
   <w><t>demonstrated</t></w>
   <w><t>this</t></w>
-  <w><t>earlier</t></w>
+  <ref xlink:href="http://somewhere" xlink:type="simple" format="text/html"
+   id="section2">
+    <w><t>here</t></w>
+  </ref>
   <w><t>.</t></w>
-  <ref id="mynote" type="note" />
 </s>
 \end{lstlisting}
 
