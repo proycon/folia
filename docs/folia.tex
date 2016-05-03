@@ -1147,6 +1147,7 @@ discuss out to point to notes from within the text.
 \end{declaration}
 
 \subsection{Structure References}
+\label{sec:references}
 
 \status{since FoLiA 0.11.0, \texttt{type="external"} since v1.2}{pynlpl, libfolia}
 
@@ -1241,6 +1242,11 @@ attribute is optional and points to an element inside the external resource.
   <w><t>.</t></w>
 </s>
 \end{lstlisting}
+
+This method of hyperlinking can be contrasted to the one described in
+section~\ref{sec:hyperlinks}. These references offer a highly semantic way of
+hyperlinking, whereas the other method is more of a text-markup or stylistic
+nature.
 
 \begin{nodeclaration}
 The reference element itself is not declarable and takes no classes.
@@ -4505,8 +4511,8 @@ as a text markup element. It is not declared.
 \status{new in FoLiA v0.11.3}{pynlpl}
 
 Hyperlinks are ubiquitous in documents from the web and are therefore supported
-in FoLiA as well. A hyperlink is defined as a pointer from a span of text to an
-external resource. In FoLiA, it is therefore implemented as a simple property
+in FoLiA as well. A hyperlink can be defined as a pointer from a span of text to an
+external resource. In FoLiA, this method is therefore implemented as a simple property
 of text itself. Text content elements (\texttt{t}) as well as any Text Markup
 elements that may be contained there in, may act as a hyperlink. The link
 itself is implemented through XLink semantics:
@@ -4531,15 +4537,20 @@ Or on a substring in untokenised text:
 </s>
 \end{lstlisting}
 
-Note that hyperlinks offer a simpler and less extensive notion of linking than
-FoLiA's \emph{alignments}. Always use alignments when linking between
-FoLiA elements, in-document or cross-document, as alignments are actual
-annotations, unlike these hyperlinks.
+Before using this, make sure to investigate section~\ref{sec:references} as
+well. There we describe a more semantic way of hyperlinking, which uses
+references (\texttt{ref} elements) that are actual structure elements. The
+hyperlinking method described in this section is of a more text-mark-up or stylistic
+nature. Actual references are usually preferred, when applicable.
 
-
-
+Another notion of linking is implemented using FoLiA's \emph{alignments}
+(section~\ref{sec:alignments}).  Alignments are actual higher-order annotations
+that can link anything but it needs not be reflected in the actual text,
+whereas the hyperlinks described here and the references in
+section~\ref{sec:referenceş} do always show in the text.
 
 \section{Metadata}
+\label{sec:metadata}
 
 \status{final since v0.4}{pynlpl,libfolia}
 
