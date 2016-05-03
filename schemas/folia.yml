@@ -2,7 +2,7 @@
 #    This is a technical specification of FoLiA, for use by FoLiA libraries
 
 #The FoLiA version
-version: "1.1.1"
+version: "1.2.0"
 
 #The FoLiA namespace
 namespace: "http://ilk.uvt.nl/folia"
@@ -312,7 +312,7 @@ elements:
             properties:
                 textdelimiter: null
                 xmltag: "ref"
-                accepted_data: [PhonContent, String, TextContent]
+                accepted_data: [PhonContent, Paragraph, Quote, Sentence, String, TextContent, Utterance, Word]
           - class: Row
             properties:
                 textdelimiter: "\n"

@@ -1148,7 +1148,7 @@ discuss out to point to notes from within the text.
 
 \subsection{Structure References}
 
-\status{since FoLiA 0.11.0}{pynlpl, libfolia}
+\status{since FoLiA 0.11.0, \texttt{type="external"} since v1.2}{pynlpl, libfolia}
 
 In the previous section we discussed notes, in this section we show that you
 can make references to these notes using the \texttt{ref} element, this is a
@@ -1193,6 +1193,10 @@ This is often needed for bibliographical references:
 </s>
 \end{lstlisting}
 
+As a structure element, the \texttt{ref} element may contain other structure
+elements such as words (\texttt{w}) or even sentences (\texttt{s}) or
+paragraphs (\texttt{p}).
+
 Although we framed this in the context of notes, the \texttt{ref} element is
 more general and can be used whereever you need to explicitly refer to other \emph{structure
 elements}. Common targets are figures, tables, divisions (sections, chapters,
@@ -1213,6 +1217,24 @@ relations between annotations of any kind and thus pertain strongly to
 linguistic annotation, whereas this reference element is a structural element
 that is explicitly shown in the text and draws a reference that is explicitly
 reflected in the text.
+
+External references can also be made with the \texttt{ref} element. This is
+done by setting the \texttt{xlink:href} to point to the external resource and
+by setting the \texttt{format} attribute to the format of the external
+resource. The format is understood to be a MIME type and its value defaults to
+\texttt{text/folia+xml}. When an external reference is made, the \texttt{id}
+attribute is optional and points to an element inside the external resource.
+
+\begin{lstlisting}[language=xml]
+<s>
+  <w><t>We</t></w>
+  <w><t>demonstrated</t></w>
+  <w><t>this</t></w>
+  <w><t>earlier</t></w>
+  <w><t>.</t></w>
+  <ref id="mynote" type="note" />
+</s>
+\end{lstlisting}
 
 \begin{nodeclaration}
 The reference element itself is not declarable and takes no classes.
