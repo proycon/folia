@@ -9,6 +9,9 @@
 
 <xsl:template match="/folia:FoLiA">
   <html>
+  <xsl:if test="folia:metadata/folia:meta[@id='direction'] = 'rtl'">
+      <xsl:attribute name="dir">rtl</xsl:attribute>
+  </xsl:if>
   <head>
         <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
         <meta name="generator" content="folia2html.xsl" />
