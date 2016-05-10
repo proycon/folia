@@ -43,13 +43,15 @@
 					padding: 10px;
 					padding-left: 50px;
 					padding-right: 50px;
-					text-align: left;
 					background: white;
 					border: 2px solid black;
+                    <xsl:if test="folia:metadata/folia:meta[@id='direction'] = 'rtl'">
+                        direction: rtl;
+                    </xsl:if>
 				}
 
 				div.div {
-					padding-left: 0px;
+                    padding-left: 0px;
 					padding-top: 10px;
 					padding-bottom: 10px;
 				}
@@ -68,7 +70,14 @@
 					padding: 5px;
 				}
 				#metadata table {
-					text-align: left;
+                    <xsl:choose>
+                        <xsl:when test="folia:metadata/folia:meta[@id='direction'] = 'rtl'">
+                            text-align: right;
+                        </xsl:when>
+                        <xsl:otherwise>
+                            text-align: left;
+                        </xsl:otherwise>
+                    </xsl:choose>
 				}
 
 				#text {
@@ -169,6 +178,9 @@
 					padding: 5px;
 					text-decoration: none !important;
                     text-align: left;
+                    <xsl:if test="folia:metadata/folia:meta[@id='direction'] = 'rtl'">
+                        direction: ltr;
+                    </xsl:if>
 				}
 				.attributes dt {
 					color: #254643;
