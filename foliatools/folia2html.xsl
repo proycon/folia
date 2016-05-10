@@ -510,6 +510,8 @@
       </xsl:if>
 </xsl:template>
 
+
+
 <xsl:template name="tokenannotations">
  <span class="attributes">
      <span class="attrlabel">ID</span><span class="attrvalue"><xsl:value-of select="@xml:id" /></span><br />
@@ -572,8 +574,18 @@
                                 <span class="details">(<xsl:value-of select="@class" />)</span>
                             </xsl:if>
                             <xsl:if test="@function">
-                                <span class="details">[<xsl:value-of select="@function" />]</span>
-                                </xsl:if>
+                                <span class="details">[function=<xsl:value-of select="@function" />]</span>
+                            </xsl:if>
+                            <xsl:if test=".//folia:pos">
+                                <xsl:for-each select=".//folia:pos[not(ancestor-or-self::*/@auth)">
+                                    <span class="details">[pos=<xsl:value-of select="@class" />]</span>
+                                </xsl:for-each>
+                            </xsl:if>
+                            <xsl:if test=".//folia:lemma">
+                                <xsl:for-each select=".//folia:lemma[not(ancestor-or-self::*/@auth)">
+                                    <span class="details">[lemma=<xsl:value-of select="@class" />]</span>
+                                </xsl:for-each>
+                            </xsl:if>
                             <xsl:text> </xsl:text>
                         </span>
                     </xsl:for-each>
