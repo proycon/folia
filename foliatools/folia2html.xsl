@@ -10,6 +10,9 @@
 <xsl:template match="/folia:FoLiA">
   <html>
   <xsl:if test="folia:metadata/folia:meta[@id='direction'] = 'rtl'">
+      <!-- The trick to getting proper right-to-left support for languages such
+           as Arabic, Farsi, Hebrew is to set metadata field 'direction' to 'rtl'.
+           -->
       <xsl:attribute name="dir">rtl</xsl:attribute>
   </xsl:if>
   <head>

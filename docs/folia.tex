@@ -4605,15 +4605,19 @@ following example shows this:
 \end{lstlisting}
 
 The native metadata format just offers a simple key-value store. You can define
-fields with custom IDs, but the following fields are pre-defined and
-recommended to be filled:
+fields with custom IDs. FoLiA itself does not predefine any, strictly speaking.
+However, the following fields are often used and interpreted by several
+FoLiA-capable tools and libraries, and recommended to be used if possible:
 
 \begin{itemize}
 \item \textbf{title} -- The title of the FoLiA document
-\item \textbf{language} -- An ISO-639-3 language code identifying the language the document is 
-\item \textbf{date} -- The date of publication in \texttt{YYYY-MM-DD} format
+\item \textbf{language} -- A language code identifying the language the
+    document is in. Using either ISO-639-3 or ISO-639-1 is recommended. 
+\item \textbf{date} -- The date of publication, using \texttt{YYYY-MM-DD}
+    format is recommended.
 \item \textbf{publisher} -- The publishing institution or individual
 \item \textbf{license} -- The type of license of the document (for example: \emph{GNU Free Documentation License})
+\item \textbf{direction} -- Text direction, should be set to \texttt{rtl} (right-to-left) for languages such as Arabic, Hebrew, Farsi and Urdu.
 \end{itemize}
 
 The native metadata format is deliberately limited, as various other formats
