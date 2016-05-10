@@ -10,6 +10,7 @@
     <entity-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/namedentities.foliaset.xml" annotator="proycon" annotatortype="manual" />
   </annotations>
   <meta id="language">ar</meta>
+  <meta id="direction">rtl</meta>
 </metadata>
 <text xml:id="Xar.text">
  <div xml:id="Xar.div">
