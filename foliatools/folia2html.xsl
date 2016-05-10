@@ -577,12 +577,12 @@
                                 <span class="details">[function=<xsl:value-of select="@function" />]</span>
                             </xsl:if>
                             <xsl:if test=".//folia:pos">
-                                <xsl:for-each select=".//folia:pos[not(ancestor-or-self::*/@auth)">
+                                <xsl:for-each select=".//folia:pos[not(ancestor-or-self::*/@auth)]">
                                     <span class="details">[pos=<xsl:value-of select="@class" />]</span>
                                 </xsl:for-each>
                             </xsl:if>
                             <xsl:if test=".//folia:lemma">
-                                <xsl:for-each select=".//folia:lemma[not(ancestor-or-self::*/@auth)">
+                                <xsl:for-each select=".//folia:lemma[not(ancestor-or-self::*/@auth)]">
                                     <span class="details">[lemma=<xsl:value-of select="@class" />]</span>
                                 </xsl:for-each>
                             </xsl:if>
