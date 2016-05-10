@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<xsl:stylesheet version="1.0" xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:imdi="http://www.mpi.nl/IMDI/Schema/IMDI" xmlns:folia="http://ilk.uvt.nl/folia" xmlns:exsl="http://exslt.org/common">
+<xsl:stylesheet version="1.0" xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:imdi="http://www.mpi.nl/IMDI/Schema/IMDI" xmlns:folia="http://ilk.uvt.nl/folia" xmlns:exsl="http://exslt.org/common" xmlns:dc="http://purl.org/dc/elements/1.1/">
 
 <xsl:output method="html" encoding="UTF-8" omit-xml-declaration="yes" doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" indent="yes" />
 
 <xsl:strip-space elements="*" />
 
-<!-- FoLiA v0.12 -->
+<!-- FoLiA v1.2 -->
 
 <xsl:template match="/folia:FoLiA">
   <html>
@@ -19,11 +19,14 @@
         <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
         <meta name="generator" content="folia2html.xsl" />
         <xsl:choose>
+            <xsl:when test="folia:metadata/folia:foreign-data/dc:title">
+                <title><xsl:value-of select="folia:metadata/folia:foreign-data/dc:title" /></title>
+            </xsl:when>
+            <xsl:when test="folia:metadata//imdi:Session/imdi:Title">
+                <title><xsl:value-of select="folia:metadata[@type='imdi']//imdi:Session/imdi:Title" /></title>
+            </xsl:when>
             <xsl:when test="folia:metadata/folia:meta[@id='title']">
                 <title><xsl:value-of select="folia:metadata/folia:meta[@id='title']" /></title>
-            </xsl:when>
-            <xsl:when test="folia:metadata[@type='imdi']//imdi:Session/imdi:Title">
-                <title><xsl:value-of select="folia:metadata[@type='imdi']//imdi:Session/imdi:Title" /></title>
             </xsl:when>
             <xsl:otherwise>
                 <title><xsl:value-of select="@xml:id" /></title>
