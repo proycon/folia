@@ -516,32 +516,32 @@
         <xsl:call-template name="tokenannotation_text" />
         <xsl:call-template name="tokenannotation_phon" />
         <xsl:if test=".//folia:pos">
-            <xsl:for-each select=".//folia:pos[not(ancestor-or-self::*/@auth) and not(ancestor-or-self::*/morpheme)]">
+            <xsl:for-each select=".//folia:pos[not(ancestor-or-self::*/@auth) and not(ancestor-or-self::*/folia:morpheme)]">
             	<span class="attrlabel">PoS</span><span class="attrvalue"><xsl:value-of select="@class" /></span><br />
             </xsl:for-each>
         </xsl:if>
         <xsl:if test=".//folia:lemma">
-            <xsl:for-each select=".//folia:lemma[not(ancestor-or-self::*/@auth) and not(ancestor-or-self::*/morpheme)]">
+            <xsl:for-each select=".//folia:lemma[not(ancestor-or-self::*/@auth) and not(ancestor-or-self::*/folia:morpheme)]">
 			    <span class="attrlabel">Lemma</span><span class="attrvalue"><xsl:value-of select="@class" /></span><br />
             </xsl:for-each>
         </xsl:if>
         <xsl:if test=".//folia:sense">
-            <xsl:for-each select=".//folia:sense[not(ancestor-or-self::*/@auth) and not(ancestor-or-self::*/morpheme)]">
+            <xsl:for-each select=".//folia:sense[not(ancestor-or-self::*/@auth) and not(ancestor-or-self::*/folia:morpheme)]">
 			    <span class="attrlabel">Sense</span><span class="attrvalue"><xsl:value-of select="@class" /></span><br />
             </xsl:for-each>
         </xsl:if>
-        <xsl:if test=".//folia:subjectivity[not(ancestor-or-self::*/@auth) and not(ancestor-or-self::*/morpheme)]">
+        <xsl:if test=".//folia:subjectivity[not(ancestor-or-self::*/@auth) and not(ancestor-or-self::*/folia:morpheme)]">
             <xsl:for-each select=".//folia:subjectivity">
 			    <span class="attrlabel">Subjectivity</span><span class="attrvalue"><xsl:value-of select="@class" /></span><br />
             </xsl:for-each>
         </xsl:if>
         <xsl:if test=".//folia:metric">
-            <xsl:for-each select=".//folia:metric[not(ancestor-or-self::*/@auth) and not(ancestor-or-self::*/morpheme)]">
+            <xsl:for-each select=".//folia:metric[not(ancestor-or-self::*/@auth) and not(ancestor-or-self::*/folia:morpheme)]">
                 <span class="attrlabel">Metric <xsl:value-of select="@class" /></span><span class="attrvalue"><xsl:value-of select="@value" /></span><br />
             </xsl:for-each>
         </xsl:if>
         <xsl:if test=".//folia:errordetection">
-            <xsl:for-each select=".//folia:errordetection[not(ancestor-or-self::*/@auth) and not(ancestor-or-self::*/morpheme)]">
+            <xsl:for-each select=".//folia:errordetection[not(ancestor-or-self::*/@auth) and not(ancestor-or-self::*/folia:morpheme)]">
                 <span class="attrlabel">Error detected</span><span class="attrvalue"><xsl:value-of select="@class" /></span><br />
             </xsl:for-each>
         </xsl:if>
