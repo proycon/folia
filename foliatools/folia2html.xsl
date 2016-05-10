@@ -441,6 +441,7 @@
     <xsl:if test="not(following-sibling::*//folia:t[(not(./@class) or ./@class='current') and not(ancestor-or-self::*/@auth) and not(ancestor::folia:suggestion) and not(ancestor::folia:alt) and not(ancestor::folia:altlayers) and not(ancestor::folia:morpheme) and not(ancestor::folia:str)])"><xsl:if test="(not(./@class) or ./@class='current') and not(ancestor-or-self::*/@auth) and not(ancestor::folia:suggestion) and not(ancestor::folia:alt) and not(ancestor::folia:altlayers) and not(ancestor::folia:morpheme) and not(ancestor::folia:str)"><xsl:apply-templates /></xsl:if></xsl:if>
 </xsl:template>
 
+
 <xsl:template match="folia:desc">
     <!-- ignore -->
 </xsl:template>
@@ -497,15 +498,23 @@
       </xsl:if>
 </xsl:template>
 
+<xsl:template name="tokenannotation_phon">
+    <xsl:if test="folia:ph">
+            <xsl:for-each select="folia:ph">
+                <span class="attrlabel">Phonetics
+                <xsl:if test="count(../folia:ph) &gt; 1">
+                    (<xsl:value-of select="@class" />)
+                  </xsl:if>
+                </span><span class="attrvalue"><xsl:value-of select=".//text()" /></span><br />
+            </xsl:for-each>
+      </xsl:if>
+</xsl:template>
+
 <xsl:template name="tokenannotations">
  <span class="attributes">
      <span class="attrlabel">ID</span><span class="attrvalue"><xsl:value-of select="@xml:id" /></span><br />
         <xsl:call-template name="tokenannotation_text" />
-        <xsl:if test=".//folia:phon">
-            <xsl:for-each select=".//folia:phon[not(ancestor-or-self::*/@auth) and not(ancestor-or-self::*/morpheme)]">
-                <span class="attrlabel">Phonetics</span><span class="attrvalue"><xsl:value-of select="@class" /></span><br />
-            </xsl:for-each>
-        </xsl:if>
+        <xsl:call-template name="tokenannotation_phon" />
         <xsl:if test=".//folia:pos">
             <xsl:for-each select=".//folia:pos[not(ancestor-or-self::*/@auth) and not(ancestor-or-self::*/morpheme)]">
             	<span class="attrlabel">PoS</span><span class="attrvalue"><xsl:value-of select="@class" /></span><br />
