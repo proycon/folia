@@ -32,6 +32,94 @@
                 <title><xsl:value-of select="@xml:id" /></title>
             </xsl:otherwise>
         </xsl:choose>
+        <xsl:choose>
+            <xsl:when test="metadata/@src">
+                <!-- metadata is external, include the link -->
+                <meta name="metadata">
+                    <xsl:attribute name="content">
+                        <xsl:value-of select="metadata/@src" />
+                    </xsl:attribute>
+                </meta>
+            </xsl:when>
+            <xsl:otherwise>
+                <!-- metadata inside folia document, try to propagate some
+                     known fields -->
+                <meta name="author">
+                    <xsl:attribute name="content">
+                        <xsl:choose>
+                            <xsl:when test="folia:metadata/folia:foreign-data/dc:creator">
+                                <xsl:value-of select="folia:metadata/folia:foreign-data/dc:title" />
+                            </xsl:when>
+                            <xsl:when test="folia:metadata/folia:foreign-data/dc:contributor">
+                                <xsl:value-of select="folia:metadata/folia:foreign-data/dc:contributor" />
+                            </xsl:when>
+                            <xsl:when test="folia:metadata/folia:meta[@id='author']">
+                                <xsl:value-of select="folia:metadata/folia:meta[@id='author']" />
+                            </xsl:when>
+                            <xsl:otherwise>unknown</xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:attribute>
+                </meta>
+                <meta name="language">
+                    <xsl:attribute name="content">
+                        <xsl:choose>
+                            <xsl:when test="folia:metadata/folia:foreign-data/dc:language">
+                                <xsl:value-of select="folia:metadata/folia:foreign-data/dc:language" />
+                            </xsl:when>
+                            <xsl:when test="folia:metadata/folia:meta[@id='language']">
+                                <xsl:value-of select="folia:metadata/folia:meta[@id='language']" />
+                            </xsl:when>
+                            <xsl:otherwise>unknown</xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:attribute>
+                </meta>
+                <meta name="publisher">
+                    <xsl:attribute name="content">
+                        <xsl:choose>
+                            <xsl:when test="folia:metadata/folia:foreign-data/dc:publisher">
+                                <xsl:value-of select="folia:metadata/folia:foreign-data/dc:publisher" />
+                            </xsl:when>
+                            <xsl:when test="folia:metadata/folia:meta[@id='publisher']">
+                                <xsl:value-of select="folia:metadata/folia:meta[@id='publisher']" />
+                            </xsl:when>
+                            <xsl:otherwise>unknown</xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:attribute>
+                </meta>
+                <meta name="license">
+                    <xsl:attribute name="content">
+                        <xsl:choose>
+                            <xsl:when test="folia:metadata/folia:foreign-data/dc:license">
+                                <xsl:value-of select="folia:metadata/folia:foreign-data/dc:license" />
+                            </xsl:when>
+                            <xsl:when test="folia:metadata/folia:foreign-data/dc:rights">
+                                <xsl:value-of select="folia:metadata/folia:foreign-data/dc:rights" />
+                            </xsl:when>
+                            <xsl:when test="folia:metadata/folia:meta[@id='license']">
+                                <xsl:value-of select="folia:metadata/folia:meta[@id='license']" />
+                            </xsl:when>
+                            <xsl:when test="folia:metadata/folia:meta[@id='licence']">
+                                <xsl:value-of select="folia:metadata/folia:meta[@id='licence']" />
+                            </xsl:when>
+                            <xsl:otherwise>unknown</xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:attribute>
+                </meta>
+                <meta name="source">
+                    <xsl:attribute name="content">
+                        <xsl:choose>
+                            <xsl:when test="folia:metadata/folia:foreign-data/dc:source">
+                                <xsl:value-of select="folia:metadata/folia:foreign-data/dc:source" />
+                            </xsl:when>
+                            <xsl:when test="folia:metadata/folia:meta[@id='source']">
+                                <xsl:value-of select="folia:metadata/folia:meta[@id='source']" />
+                            </xsl:when>
+                            <xsl:otherwise>unknown</xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:attribute>
+                </meta>
+            </xsl:otherwise>
+        </xsl:choose>
         <style type="text/css">
  				body {
 					/*background: #222222;*/
