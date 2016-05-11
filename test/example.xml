@@ -40,6 +40,7 @@
     <meta id="genre">artikel</meta>
 </metadata>
 <text xml:id="WR-P-E-J-0000000001.text">
+    <lang class="nl"/>
     <div xml:id="WR-P-E-J-0000000001.div0.1" class="chapter">
     <head xml:id="WR-P-E-J-0000000001.head.1">
         <s xml:id="WR-P-E-J-0000000001.head.1.s.1">
@@ -1086,6 +1087,7 @@
                       </w>
                   </s>
               </item>
+              <item xml:id="sandbox.list.1.listitem.3" n="3"/>
           </list>
           <event xml:id="sandbox.event.1" class="presentation" actor="proycon" begindatetime="2011-12-15T19:01" enddatetime="2011-12-15T19:05">
               <figure xml:id="sandbox.figure.1" src="http://upload.wikimedia.org/wikipedia/commons/8/8e/Family_tree.svg">
