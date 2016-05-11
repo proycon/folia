@@ -2,41 +2,42 @@
 <?xml-stylesheet type="text/xsl" href="folia2html.xsl"?>
 <FoLiA xmlns="http://ilk.uvt.nl/folia" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="WR-P-E-J-0000000001" version="1.2" generator="manual">
 <metadata type="native">
-<annotations>
-    <token-annotation annotator="ilktok" annotatortype="auto" />
-    <sentence-annotation set="sentences" annotator="ucto" annotatortype="auto" />
-    <paragraph-annotation set="paragraphs" annotator="ucto" annotatortype="auto" />
-    <pos-annotation set="cgn-combinedtags" annotator="tadpole" annotatortype="auto" />
-    <lemma-annotation set="lemmas-nl" annotator="tadpole" annotatortype="auto" />
-    <correction-annotation set="corrections" annotator="proycon" annotatortype="manual" />
-    <errordetection-annotation set="corrections" annotator="proycon" annotatortype="manual" />
-    <morphological-annotation annotator="proycon" annotatortype="manual" />
-    <gap-annotation annotator="proycon" annotatortype="manual" />
-    <sense-annotation set="sense-set" />
-    <event-annotation set="event-set" />
-    <timesegment-annotation set="event-set" />
-    <entity-annotation set="mwu-set" />
-    <entity-annotation set="http://raw.github.com/proycon/folia/master/setdefinitions/namedentities.foliaset.xml" />
-    <syntax-annotation set="syntax-set" />
-    <dependency-annotation set="alpino-set" />
-    <alignment-annotation set="alignment-set" />
-    <semrole-annotation set="semrole-set" />
-    <chunking-annotation set="chunk-set" />
-    <coreference-annotation set="coreference-set" />
-    <lang-annotation set="lang-set" />
-    <metric-annotation set="metric-set" />
-    <table-annotation set="table-set" />
-    <style-annotation set="style" />
-    <division-annotation set="divs" />
-    <note-annotation set="notes" />
-    <part-annotation set="parts" />
-    <term-annotation set="words" />
-    <definition-annotation set="definitions" />
-    <example-annotation set="examples" />
-    <phonological-annotation set="phonology-set" />
-</annotations>
-<meta id="title">Stemma</meta>
-<meta id="language">nl</meta>
+    <annotations>
+        <token-annotation annotator="ilktok" annotatortype="auto" />
+        <sentence-annotation set="sentences" annotator="ucto" annotatortype="auto" />
+        <paragraph-annotation set="paragraphs" annotator="ucto" annotatortype="auto" />
+        <pos-annotation set="cgn-combinedtags" annotator="tadpole" annotatortype="auto" />
+        <lemma-annotation set="lemmas-nl" annotator="tadpole" annotatortype="auto" />
+        <correction-annotation set="corrections" annotator="proycon" annotatortype="manual" />
+        <errordetection-annotation set="corrections" annotator="proycon" annotatortype="manual" />
+        <morphological-annotation annotator="proycon" annotatortype="manual" />
+        <gap-annotation annotator="proycon" annotatortype="manual" />
+        <sense-annotation set="sense-set" />
+        <event-annotation set="event-set" />
+        <timesegment-annotation set="event-set" />
+        <entity-annotation set="mwu-set" />
+        <entity-annotation set="http://raw.github.com/proycon/folia/master/setdefinitions/namedentities.foliaset.xml" />
+        <syntax-annotation set="syntax-set" />
+        <dependency-annotation set="alpino-set" />
+        <alignment-annotation set="alignment-set" />
+        <semrole-annotation set="semrole-set" />
+        <chunking-annotation set="chunk-set" />
+        <coreference-annotation set="coreference-set" />
+        <lang-annotation set="lang-set" />
+        <metric-annotation set="metric-set" />
+        <table-annotation set="table-set" />
+        <style-annotation set="style" />
+        <division-annotation set="divs" />
+        <note-annotation set="notes" />
+        <part-annotation set="parts" />
+        <term-annotation set="words" />
+        <definition-annotation set="definitions" />
+        <example-annotation set="examples" />
+        <phonological-annotation set="phonology-set" />
+    </annotations>
+    <meta id="title">Stemma</meta>
+    <meta id="language">nl</meta>
+    <meta id="genre">artikel</meta>
 </metadata>
 <text xml:id="WR-P-E-J-0000000001.text">
     <div xml:id="WR-P-E-J-0000000001.div0.1" class="chapter">
