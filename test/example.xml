@@ -78,8 +78,9 @@
         <w xml:id="WR-P-E-J-0000000001.p.1.s.1.w.5">
             <t>woord</t>
             <ph>wort</ph>
-              <pos class="N(soort,ev,basis,onz,stan)"/>
-              <lemma class="woord"/>
+            <pos class="N(soort,ev,basis,onz,stan)"/>
+            <!-- numb comment -->
+            <lemma class="woord"/>
         </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.1.w.6">
               <t>voor</t>
@@ -100,6 +101,7 @@
             <entities>
                 <entity set="mwu-set" class="ander_woord">
                     <wref id="WR-P-E-J-0000000001.p.1.s.1.w.4" t="ander" />
+                    <!-- no idea why you would like to comment on this -->
                     <wref id="WR-P-E-J-0000000001.p.1.s.1.w.5" t="woord" />
                 </entity>
             </entities>
@@ -1239,12 +1241,10 @@
       </div>
       <gap xml:id="WR-P-E-J-0000000001.gap.1" class="backmatter">
        <desc>Backmatter</desc>
-       <content>
-<![CDATA[
+       <content><!--TEST--><![CDATA[
 De tekst is beschikbaar onder de licentie Creative Commons Naamsvermelding/Gelijk delen, er kunnen aanvullende voorwaarden van toepassing zijn. Zie de Gebruiksvoorwaarden voor meer informatie.
 Wikipedia® is een geregistreerd handelsmerk van de Wikimedia Foundation, Inc., een organisatie zonder winstoogmerk.
-]]>
-       </content>
+]]></content>
       </gap>
   </text>
 </FoLiA>
