@@ -1042,7 +1042,7 @@
             </term>
             <def xml:id="entry.1.def.1" class="sense">
                 <p xml:id="entry.1.def.1.p.1">
-                    <t>Term uit de editiewetenschap en tekstkritiek voor de schematische weergave in de vorm van een boomdiagram van de onderlinge verwantschap van <br linenr="1" pagenr="23"/> documentaire bronnen (handschrift, codex, druk), waarin een tekst bewaard is gebleven.<br linenr="2"/></t>
+                    <t>Term uit de editiewetenschap en tekstkritiek voor de schematische weergave in de vorm van een boomdiagram van de onderlinge verwantschap van <br linenr="1" newpage="yes" pagenr="23"/> documentaire bronnen (handschrift, codex, druk), waarin een tekst bewaard is gebleven.<br linenr="2"/></t>
                 </p>
                 <ref id="bib.1" type="note"><t>[Bork et al, 2012]</t></ref>
             </def>
