@@ -458,6 +458,9 @@
               <t>afstammingsgeschiedenis</t>
               <pos class="N(soort,ev,basis,zijd,stan)"/>
               <lemma class="afstammingsgeschiedenis"/>
+	      <alignment class="extern" xlink:href="externalfile.xml" xlink:type="simple">
+		<aref id="A1" type="w"/>
+              </alignment>
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.3.w.18">
               <t>geplaatst</t>
@@ -483,6 +486,7 @@
           <s xml:id="WR-P-E-J-0000000001.p.1.s.4">
             <t>De hoofdletter A wordt gebruikt voor het originele handschrift.</t>
             <t class="original">De hoofdletter A wordt gebruikt voor het originele handschrift.</t>
+	    <t class="translate">Uppercase A is used for the original.</t>
             <part xml:id="WR-P-E-J-0000000001.p.1.s.4.part.1">
               <w xml:id="WR-P-E-J-0000000001.p.1.s.4.w.1">
                 <t offset="0">De</t>
@@ -657,7 +661,7 @@
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.2">
               <t>handschriften</t>
-              <pos class="N(soort,mv,basis)"/>
+              <pos class="N(soort,mv,basis)" head="N"/>
               <lemma class="handschrift"/>
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.3">
@@ -971,10 +975,10 @@
               <pos class="ADJ(prenom,basis,met-e,stan)"/>
               <lemma class="onzeker"/>
               <correction xml:id="WR-P-E-J-0000000001.p.1.s.8.w.14.c.1" class="spelling">
-                <suggestion auth="no">
+                <suggestion auth="no" n="1/2">
                     <t>twijfelachtige</t>
                 </suggestion>
-                <suggestion auth="no">
+                <suggestion auth="no" n="2/2">
                     <t>ongewisse</t>
                 </suggestion>
               </correction>
