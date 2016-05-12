@@ -41,6 +41,16 @@
 </metadata>
 <text xml:id="WR-P-E-J-0000000001.text">
     <lang class="nl"/>
+    <foreign-data>
+   		<fd:node xmlns:fd="foreign">
+	 	<fd:sub att="1">
+	 	  test
+	 	</fd:sub>
+	 	<fd:sub att="2">
+	 	  meer
+	 	</fd:sub>
+       </fd:node>
+     </foreign-data>
     <div xml:id="WR-P-E-J-0000000001.div0.1" class="chapter">
     <head xml:id="WR-P-E-J-0000000001.head.1">
         <s xml:id="WR-P-E-J-0000000001.head.1.s.1">
