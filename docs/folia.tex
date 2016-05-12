@@ -73,12 +73,12 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
 
 \HRule \\[0.5cm]
 { \Large \bfseries FoLiA: Format for Linguistic Annotation}\\[0.5cm] % Title of your document
-{\bf \small version 1.1.1-- Revision 4.5} \\[0.5cm]
+{\bf \small version 1.2 -- Revision 5.0} \\[0.5cm]
 { \Large \bfseries Documentation}\\[0.5cm]
 {\large \emph{Maarten van Gompel}}\\[0.5cm]
 \HRule \\[1.0cm]
 
-\emph{January 2nd, 2014 \small{(published)} -- April 27th, 2016 \small{(last revision)}} \\[0.3cm] 
+\emph{January 2nd, 2014 \small{(published)} -- May 12th, 2016 \small{(last revision)}} \\[0.3cm] 
 \includegraphics[width=20.0mm]{ru-beeldmerk-zwart.eps}
 \end{center}
 \vspace{0.5cm}
@@ -4582,10 +4582,47 @@ that can link anything but it needs not be reflected in the actual text,
 whereas the hyperlinks described here and the references in
 section~\ref{sec:referenceş} do always show in the text.
 
+\subsection{Foreign Annotation}
+\label{sec:foreign}
+
+\status{since v1.2}{pynlpl,libfolia}
+
+It may happen that you want to include annotation in a different XML scheme
+inside FoLiA, for example if FoLiA has no support yet for a particular advanced
+type of annotation or if another scheme has already been in use. It is most
+suitable for attaching further metadata to arbitrary elements.
+
+The higher-order annotation element \texttt{foreign-data} can be used to accomplish
+this. It acts as a container in which annotation in a different XML namespace,
+rather than the FoLiA namespace, may occur. The element is allowed almost
+anywhere: inside structure annotation, inside token/span annotation, inside
+other higher annotation elements, but
+\emph{not} inside text content (\texttt{t}), phonetic content (\texttt{ph}) or text-markup
+(\texttt{t-*}).
+
+In the following example we attach some foreign metadata in Dublin Core to a structure
+element (a division).
+
+\begin{lstlisting}[language=xml]
+<div>
+  <foreign-data xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <dc:creator>proycon</dc:creator>
+    <dc:language>en</dc:language>
+  </foreign-data>
+  <head><t>Chapter One</t></head>
+</div>
+\end{lstlisting}
+
+Foreign annotation does not need to be declared and should only be used when no proper
+FoLiA solution exists. Generic FoLiA tools and libraries will usually not process the contents of
+foreign-data, as it can contain anything by definition. Special-purpose tools need to be
+written for your specific use case if you use \texttt{foreign-data}.
+
 \section{Metadata}
 \label{sec:metadata}
 
-\status{final since v0.4}{pynlpl,libfolia}
+\status{since v0.4}{pynlpl,libfolia}
+\status{foreign-data since v1.2}{pynlpl,libfolia}
 
 FoLiA has support for metadata, most notably the extensive and mandatory
 declaration section for all used annotations which you have seen throughout
@@ -6182,14 +6219,21 @@ Deep validation is still being worked on and will most likely use Schematron.
 
 \section{Extending FoLiA}
 
-If you add your own custom tags, always make sure you use a different XML
-namespace rather than the default FoLiA namespace! FoLiA libraries are designed
-to ignore and discard other namespaces.
-
 In case you cannot find a suitable way to encode your particular annotation
-in the latest version of the FoLiA specificaton, we urge you to write to
+in the latest version of the FoLiA specification, we urge you to write to
 \url{proycon@anaproy.nl} so that we can discuss whether FoLiA needs to be expanded
 to accommodate your particular annotation.
+
+If you already have another XML scheme to encode a particular annotation, in
+another XML namespace, then you can use FoLiA's foreign annotation facility,
+see section~\ref{sec:foreign}. We recommend to use this only when absolutely
+necessary.
+
+Never add your own custom tags without explicitly using a different XML
+namespace rather than the default FoLiA namespace! FoLiA libraries are designed
+to ignore and discard other namespaces outside the scope described in
+section~\ref{sec:foreign}.
+
 
 \chapter{Implementations}
 
