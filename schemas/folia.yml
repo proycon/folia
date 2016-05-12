@@ -41,7 +41,7 @@ elements:
       properties:
           printable: false
           speakable: false
-          accepted_data: [ Correction ]
+          accepted_data: [ Correction, ForeignData ]
           optional_attribs: [ ID, ANNOTATOR, CONFIDENCE, DATETIME, N ]
           setonly: true
       elements:
@@ -111,7 +111,7 @@ elements:
           optional_attribs: [ ID, ANNOTATOR, CONFIDENCE, DATETIME, N ]
           printable: true
           textdelimiter: null
-          accepted_data: [ AbstractTokenAnnotation, AbstractSpanAnnotation, AbstractStructureElement, Correction, Metric, PhonContent, String, TextContent]
+          accepted_data: [ AbstractTokenAnnotation, AbstractSpanAnnotation, AbstractStructureElement, Correction, Metric, PhonContent, String, TextContent, ForeignData]
       elements:
           - class: Current
             properties:
@@ -139,7 +139,7 @@ elements:
           printable: true
           speakable: true
           optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
-          accepted_data: [ Metric, Alignment ]
+          accepted_data: [ Metric, Alignment, ForeignData ]
       elements:
           - class: AbstractSpanRole
             properties:
@@ -203,7 +203,7 @@ elements:
           textdelimiter: "\n\n"
           speakable: true
           optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
-          accepted_data: [AbstractAnnotationLayer, Alignment, Alternative, AlternativeLayers, Correction, Feature, Metric, Part]
+          accepted_data: [AbstractAnnotationLayer, Alignment, Alternative, AlternativeLayers, Correction, Feature, Metric, Part, ForeignData]
           auto_generate_id: true
       elements:
           - class: Caption
@@ -399,7 +399,7 @@ elements:
       properties:
           required_attribs: [ CLASS ]
           optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
-          accepted_data: [ Feature , Metric ]
+          accepted_data: [ Feature , Metric, ForeignData ]
           occurrences_per_set: 1 #How often can a particular element+set combination occur under the parent (0 = unlimited)
       elements:
           - class: AbstractExtendedTokenAnnotation
@@ -447,7 +447,7 @@ elements:
           printable: false
           required_attribs: null
           xlink: true
-          accepted_data: [ AlignReference, Metric, Feature ]
+          accepted_data: [ AlignReference, Metric, Feature, ForeignData ]
           xmltag: "alignment"
     - class: Alternative
       properties:
@@ -455,7 +455,7 @@ elements:
           speakable: false
           optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
           printable: false
-          accepted_data: [ AbstractTokenAnnotation, Correction, MorphologyLayer, PhonologyLayer ]
+          accepted_data: [ AbstractTokenAnnotation, Correction, ForeignData,  MorphologyLayer, PhonologyLayer ]
           auth: false
           xmltag: "alt"
     - class: AlternativeLayers
@@ -464,7 +464,7 @@ elements:
           speakable: false
           optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
           printable: false
-          accepted_data: [ AbstractAnnotationLayer ]
+          accepted_data: [ AbstractAnnotationLayer, ForeignData ]
           auth: false
           xmltag: "altlayers"
     - class: ComplexAlignment
@@ -474,7 +474,7 @@ elements:
           optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
           printable: false
           required_attribs: null
-          accepted_data: [ Alignment, Metric, Feature ]
+          accepted_data: [ Alignment, Metric, Feature, ForeignData ]
           xmltag: "complexalignment"
     - class: Content
       properties:
@@ -484,7 +484,7 @@ elements:
       properties:
           annotationtype: CORRECTION
           printable: true
-          accepted_data: [ New, Original, Current, Suggestion, ErrorDetection, Metric, Feature ]
+          accepted_data: [ New, Original, Current, Suggestion, ErrorDetection, Metric, Feature, ForeignData ]
           speakable: true
           optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
           xmltag: "correction"
@@ -555,13 +555,13 @@ elements:
           annotationtype: GAP
           optional_attribs: [ ID, CLASS, ANNOTATOR, N,  DATETIME, SRC, BEGINTIME, ENDTIME ]
           xmltag: "gap"
-          accepted_data: [Content, Feature, Metric, Part]
+          accepted_data: [Content, Feature, Metric, Part, ForeignData]
     - class: Metric
       properties:
           annotationtype: METRIC
           optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
           xmltag: "metric"
-          accepted_data: [ Feature, ValueFeature ]
+          accepted_data: [ Feature, ValueFeature, ForeignData ]
     - class: PhonContent
       properties:
           annotationtype: PHON
@@ -578,7 +578,7 @@ elements:
           optional_attribs: [ ID, CLASS, ANNOTATOR, CONFIDENCE, DATETIME, N, SRC, BEGINTIME, ENDTIME ]
           occurrences: 0
           printable: true
-          accepted_data: [AbstractExtendedTokenAnnotation, Alignment, Correction, Feature, Metric, PhonContent, TextContent]
+          accepted_data: [AbstractExtendedTokenAnnotation, Alignment, Correction, Feature, ForeignData, Metric, PhonContent, TextContent]
           xmltag: "str"
     - class: TextContent
       properties:
@@ -594,6 +594,9 @@ elements:
     - class: WordReference
       properties:
           xmltag: "wref"
+    - class: ForeignData
+      properties:
+          xmltag: "foreign-data"
 
 #Default ignore list for the select() method, do not descend into these
 default_ignore: [ Original, Suggestion, Alternative, AlternativeLayers ]
