@@ -4624,12 +4624,11 @@ written for your specific use case if you use \texttt{foreign-data}.
 \status{since v0.4}{pynlpl,libfolia}
 \status{foreign-data since v1.2}{pynlpl,libfolia}
 
-FoLiA has support for metadata, most notably the extensive and mandatory
-declaration section for all used annotations which you have seen throughout
-this documentation. To complement this, there is FoLiA's native metadata
-system, in which simple metadata fields can be defined and used at will through
-the \texttt{meta} element. The
-following example shows this:
+FoLiA has support for document-wide metadata, most notably the extensive and
+mandatory declaration section for all used annotations which you have seen
+throughout this documentation. To complement this, there is FoLiA's native
+metadata system, in which simple metadata fields can be defined and used at
+will through the \texttt{meta} element. The following example shows this:
 
 \begin{lstlisting}[language=xml]
 <metadata type="native">
@@ -4705,7 +4704,6 @@ FoLiA namespace.
   </foreign-data>
 </metadata>
 \end{lstlisting}
-
 
 \section{External documents and full stand-off annotation}
 \label{sec:external}
