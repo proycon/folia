@@ -599,7 +599,7 @@ elements:
           xmltag: "foreign-data"
 
 #Default ignore list for the select() method, do not descend into these
-default_ignore: [ Original, Suggestion, Alternative, AlternativeLayers ]
+default_ignore: [ Original, Suggestion, Alternative, AlternativeLayers, ForeignData ]
 
 #Default ignore list for token annotation
 default_ignore_annotations: [ Original, Suggestion, Alternative, AlternativeLayers, MorphologyLayer, PhonologyLayer ]
