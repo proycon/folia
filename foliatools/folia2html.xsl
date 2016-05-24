@@ -1,26 +1,123 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<xsl:stylesheet version="1.0" xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:imdi="http://www.mpi.nl/IMDI/Schema/IMDI" xmlns:folia="http://ilk.uvt.nl/folia" xmlns:exsl="http://exslt.org/common">
+<xsl:stylesheet version="1.0" xmlns="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:imdi="http://www.mpi.nl/IMDI/Schema/IMDI" xmlns:folia="http://ilk.uvt.nl/folia" xmlns:exsl="http://exslt.org/common" xmlns:dc="http://purl.org/dc/elements/1.1/">
 
 <xsl:output method="html" encoding="UTF-8" omit-xml-declaration="yes" doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN" doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd" indent="yes" />
 
 <xsl:strip-space elements="*" />
 
-<!-- FoLiA v0.12 -->
+<!-- FoLiA v1.2 -->
 
 <xsl:template match="/folia:FoLiA">
   <html>
+  <xsl:if test="folia:metadata/folia:meta[@id='direction'] = 'rtl'">
+      <!-- The trick to getting proper right-to-left support for languages such
+           as Arabic, Farsi, Hebrew is to set metadata field 'direction' to 'rtl'.
+           -->
+      <xsl:attribute name="dir">rtl</xsl:attribute>
+  </xsl:if>
   <head>
         <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
         <meta name="generator" content="folia2html.xsl" />
         <xsl:choose>
+            <xsl:when test="folia:metadata/folia:foreign-data/dc:title">
+                <title><xsl:value-of select="folia:metadata/folia:foreign-data/dc:title" /></title>
+            </xsl:when>
+            <xsl:when test="folia:metadata//imdi:Session/imdi:Title">
+                <title><xsl:value-of select="folia:metadata[@type='imdi']//imdi:Session/imdi:Title" /></title>
+            </xsl:when>
             <xsl:when test="folia:metadata/folia:meta[@id='title']">
                 <title><xsl:value-of select="folia:metadata/folia:meta[@id='title']" /></title>
             </xsl:when>
-            <xsl:when test="folia:metadata[@type='imdi']//imdi:Session/imdi:Title">
-                <title><xsl:value-of select="folia:metadata[@type='imdi']//imdi:Session/imdi:Title" /></title>
-            </xsl:when>
             <xsl:otherwise>
                 <title><xsl:value-of select="@xml:id" /></title>
+            </xsl:otherwise>
+        </xsl:choose>
+        <xsl:choose>
+            <xsl:when test="metadata/@src">
+                <!-- metadata is external, include the link -->
+                <meta name="metadata">
+                    <xsl:attribute name="content">
+                        <xsl:value-of select="metadata/@src" />
+                    </xsl:attribute>
+                </meta>
+            </xsl:when>
+            <xsl:otherwise>
+                <!-- metadata inside folia document, try to propagate some
+                     known fields -->
+                <meta name="author">
+                    <xsl:attribute name="content">
+                        <xsl:choose>
+                            <xsl:when test="folia:metadata/folia:foreign-data/dc:creator">
+                                <xsl:value-of select="folia:metadata/folia:foreign-data/dc:title" />
+                            </xsl:when>
+                            <xsl:when test="folia:metadata/folia:foreign-data/dc:contributor">
+                                <xsl:value-of select="folia:metadata/folia:foreign-data/dc:contributor" />
+                            </xsl:when>
+                            <xsl:when test="folia:metadata/folia:meta[@id='author']">
+                                <xsl:value-of select="folia:metadata/folia:meta[@id='author']" />
+                            </xsl:when>
+                            <xsl:otherwise>unknown</xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:attribute>
+                </meta>
+                <meta name="language">
+                    <xsl:attribute name="content">
+                        <xsl:choose>
+                            <xsl:when test="folia:metadata/folia:foreign-data/dc:language">
+                                <xsl:value-of select="folia:metadata/folia:foreign-data/dc:language" />
+                            </xsl:when>
+                            <xsl:when test="folia:metadata/folia:meta[@id='language']">
+                                <xsl:value-of select="folia:metadata/folia:meta[@id='language']" />
+                            </xsl:when>
+                            <xsl:otherwise>unknown</xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:attribute>
+                </meta>
+                <meta name="publisher">
+                    <xsl:attribute name="content">
+                        <xsl:choose>
+                            <xsl:when test="folia:metadata/folia:foreign-data/dc:publisher">
+                                <xsl:value-of select="folia:metadata/folia:foreign-data/dc:publisher" />
+                            </xsl:when>
+                            <xsl:when test="folia:metadata/folia:meta[@id='publisher']">
+                                <xsl:value-of select="folia:metadata/folia:meta[@id='publisher']" />
+                            </xsl:when>
+                            <xsl:otherwise>unknown</xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:attribute>
+                </meta>
+                <meta name="license">
+                    <xsl:attribute name="content">
+                        <xsl:choose>
+                            <xsl:when test="folia:metadata/folia:foreign-data/dc:license">
+                                <xsl:value-of select="folia:metadata/folia:foreign-data/dc:license" />
+                            </xsl:when>
+                            <xsl:when test="folia:metadata/folia:foreign-data/dc:rights">
+                                <xsl:value-of select="folia:metadata/folia:foreign-data/dc:rights" />
+                            </xsl:when>
+                            <xsl:when test="folia:metadata/folia:meta[@id='license']">
+                                <xsl:value-of select="folia:metadata/folia:meta[@id='license']" />
+                            </xsl:when>
+                            <xsl:when test="folia:metadata/folia:meta[@id='licence']">
+                                <xsl:value-of select="folia:metadata/folia:meta[@id='licence']" />
+                            </xsl:when>
+                            <xsl:otherwise>unknown</xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:attribute>
+                </meta>
+                <meta name="source">
+                    <xsl:attribute name="content">
+                        <xsl:choose>
+                            <xsl:when test="folia:metadata/folia:foreign-data/dc:source">
+                                <xsl:value-of select="folia:metadata/folia:foreign-data/dc:source" />
+                            </xsl:when>
+                            <xsl:when test="folia:metadata/folia:meta[@id='source']">
+                                <xsl:value-of select="folia:metadata/folia:meta[@id='source']" />
+                            </xsl:when>
+                            <xsl:otherwise>unknown</xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:attribute>
+                </meta>
             </xsl:otherwise>
         </xsl:choose>
         <style type="text/css">
@@ -40,13 +137,15 @@
 					padding: 10px;
 					padding-left: 50px;
 					padding-right: 50px;
-					text-align: left;
 					background: white;
 					border: 2px solid black;
+                    <xsl:if test="folia:metadata/folia:meta[@id='direction'] = 'rtl'">
+                        direction: rtl;
+                    </xsl:if>
 				}
 
 				div.div {
-					padding-left: 0px;
+                    padding-left: 0px;
 					padding-top: 10px;
 					padding-bottom: 10px;
 				}
@@ -65,7 +164,14 @@
 					padding: 5px;
 				}
 				#metadata table {
-					text-align: left;
+                    <xsl:choose>
+                        <xsl:when test="folia:metadata/folia:meta[@id='direction'] = 'rtl'">
+                            text-align: right;
+                        </xsl:when>
+                        <xsl:otherwise>
+                            text-align: left;
+                        </xsl:otherwise>
+                    </xsl:choose>
 				}
 
 				#text {
@@ -166,6 +272,9 @@
 					padding: 5px;
 					text-decoration: none !important;
                     text-align: left;
+                    <xsl:if test="folia:metadata/folia:meta[@id='direction'] = 'rtl'">
+                        direction: ltr;
+                    </xsl:if>
 				}
 				.attributes dt {
 					color: #254643;
@@ -426,6 +535,7 @@
     <xsl:if test="not(following-sibling::*//folia:t[(not(./@class) or ./@class='current') and not(ancestor-or-self::*/@auth) and not(ancestor::folia:suggestion) and not(ancestor::folia:alt) and not(ancestor::folia:altlayers) and not(ancestor::folia:morpheme) and not(ancestor::folia:str)])"><xsl:if test="(not(./@class) or ./@class='current') and not(ancestor-or-self::*/@auth) and not(ancestor::folia:suggestion) and not(ancestor::folia:alt) and not(ancestor::folia:altlayers) and not(ancestor::folia:morpheme) and not(ancestor::folia:str)"><xsl:apply-templates /></xsl:if></xsl:if>
 </xsl:template>
 
+
 <xsl:template match="folia:desc">
     <!-- ignore -->
 </xsl:template>
@@ -482,42 +592,52 @@
       </xsl:if>
 </xsl:template>
 
+<xsl:template name="tokenannotation_phon">
+    <xsl:if test="folia:ph">
+            <xsl:for-each select="folia:ph">
+                <span class="attrlabel">Phonetics
+                <xsl:if test="count(../folia:ph) &gt; 1">
+                    (<xsl:value-of select="@class" />)
+                  </xsl:if>
+                </span><span class="attrvalue"><xsl:value-of select=".//text()" /></span><br />
+            </xsl:for-each>
+      </xsl:if>
+</xsl:template>
+
+
+
 <xsl:template name="tokenannotations">
  <span class="attributes">
      <span class="attrlabel">ID</span><span class="attrvalue"><xsl:value-of select="@xml:id" /></span><br />
         <xsl:call-template name="tokenannotation_text" />
-        <xsl:if test=".//folia:phon">
-            <xsl:for-each select=".//folia:phon[not(ancestor-or-self::*/@auth) and not(ancestor-or-self::*/morpheme)]">
-                <span class="attrlabel">Phonetics</span><span class="attrvalue"><xsl:value-of select="@class" /></span><br />
-            </xsl:for-each>
-        </xsl:if>
+        <xsl:call-template name="tokenannotation_phon" />
         <xsl:if test=".//folia:pos">
-            <xsl:for-each select=".//folia:pos[not(ancestor-or-self::*/@auth) and not(ancestor-or-self::*/morpheme)]">
+            <xsl:for-each select=".//folia:pos[not(ancestor-or-self::*/@auth) and not(ancestor-or-self::*/folia:morpheme)]">
             	<span class="attrlabel">PoS</span><span class="attrvalue"><xsl:value-of select="@class" /></span><br />
             </xsl:for-each>
         </xsl:if>
         <xsl:if test=".//folia:lemma">
-            <xsl:for-each select=".//folia:lemma[not(ancestor-or-self::*/@auth) and not(ancestor-or-self::*/morpheme)]">
+            <xsl:for-each select=".//folia:lemma[not(ancestor-or-self::*/@auth) and not(ancestor-or-self::*/folia:morpheme)]">
 			    <span class="attrlabel">Lemma</span><span class="attrvalue"><xsl:value-of select="@class" /></span><br />
             </xsl:for-each>
         </xsl:if>
         <xsl:if test=".//folia:sense">
-            <xsl:for-each select=".//folia:sense[not(ancestor-or-self::*/@auth) and not(ancestor-or-self::*/morpheme)]">
+            <xsl:for-each select=".//folia:sense[not(ancestor-or-self::*/@auth) and not(ancestor-or-self::*/folia:morpheme)]">
 			    <span class="attrlabel">Sense</span><span class="attrvalue"><xsl:value-of select="@class" /></span><br />
             </xsl:for-each>
         </xsl:if>
-        <xsl:if test=".//folia:subjectivity[not(ancestor-or-self::*/@auth) and not(ancestor-or-self::*/morpheme)]">
+        <xsl:if test=".//folia:subjectivity[not(ancestor-or-self::*/@auth) and not(ancestor-or-self::*/folia:morpheme)]">
             <xsl:for-each select=".//folia:subjectivity">
 			    <span class="attrlabel">Subjectivity</span><span class="attrvalue"><xsl:value-of select="@class" /></span><br />
             </xsl:for-each>
         </xsl:if>
         <xsl:if test=".//folia:metric">
-            <xsl:for-each select=".//folia:metric[not(ancestor-or-self::*/@auth) and not(ancestor-or-self::*/morpheme)]">
+            <xsl:for-each select=".//folia:metric[not(ancestor-or-self::*/@auth) and not(ancestor-or-self::*/folia:morpheme)]">
                 <span class="attrlabel">Metric <xsl:value-of select="@class" /></span><span class="attrvalue"><xsl:value-of select="@value" /></span><br />
             </xsl:for-each>
         </xsl:if>
         <xsl:if test=".//folia:errordetection">
-            <xsl:for-each select=".//folia:errordetection[not(ancestor-or-self::*/@auth) and not(ancestor-or-self::*/morpheme)]">
+            <xsl:for-each select=".//folia:errordetection[not(ancestor-or-self::*/@auth) and not(ancestor-or-self::*/folia:morpheme)]">
                 <span class="attrlabel">Error detected</span><span class="attrvalue"><xsl:value-of select="@class" /></span><br />
             </xsl:for-each>
         </xsl:if>
@@ -548,8 +668,18 @@
                                 <span class="details">(<xsl:value-of select="@class" />)</span>
                             </xsl:if>
                             <xsl:if test="@function">
-                                <span class="details">[<xsl:value-of select="@function" />]</span>
-                                </xsl:if>
+                                <span class="details">[function=<xsl:value-of select="@function" />]</span>
+                            </xsl:if>
+                            <xsl:if test=".//folia:pos">
+                                <xsl:for-each select=".//folia:pos[not(ancestor-or-self::*/@auth)]">
+                                    <span class="details">[pos=<xsl:value-of select="@class" />]</span>
+                                </xsl:for-each>
+                            </xsl:if>
+                            <xsl:if test=".//folia:lemma">
+                                <xsl:for-each select=".//folia:lemma[not(ancestor-or-self::*/@auth)]">
+                                    <span class="details">[lemma=<xsl:value-of select="@class" />]</span>
+                                </xsl:for-each>
+                            </xsl:if>
                             <xsl:text> </xsl:text>
                         </span>
                     </xsl:for-each>

@@ -73,12 +73,12 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
 
 \HRule \\[0.5cm]
 { \Large \bfseries FoLiA: Format for Linguistic Annotation}\\[0.5cm] % Title of your document
-{\bf \small version 1.1.1-- Revision 4.5} \\[0.5cm]
+{\bf \small version 1.2 -- Revision 5.0} \\[0.5cm]
 { \Large \bfseries Documentation}\\[0.5cm]
 {\large \emph{Maarten van Gompel}}\\[0.5cm]
 \HRule \\[1.0cm]
 
-\emph{January 2nd, 2014 \small{(published)} -- April 27th, 2016 \small{(last revision)}} \\[0.3cm] 
+\emph{January 2nd, 2014 \small{(published)} -- May 12th, 2016 \small{(last revision)}} \\[0.3cm] 
 \includegraphics[width=20.0mm]{ru-beeldmerk-zwart.eps}
 \end{center}
 \vspace{0.5cm}
@@ -941,6 +941,14 @@ whitespace, whilst the latter actually generates an empty space, which would
 comparable to two successive \texttt{br} statements. Both elements can be used
 inside divisions, paragraphs, headers, and sentences.
 
+The \texttt{br} element has several optional attributes (since FoLiA v1.2) that can be set:
+
+\begin{itemize}
+    \item \texttt{newpage} Can be set to ``\texttt{yes}'' to indicate that the break is not just a linebreak, but also a pagebreak (defaults to ``no'')
+    \item \texttt{pagenr} The number of the page after the break
+    \item \texttt{linenr} The number of the line after the break
+\end{itemize}
+
 \begin{nodeclaration}
 Whitespace and linebreaks are undeclarable elements.
 \end{nodeclaration}
@@ -1147,8 +1155,9 @@ discuss out to point to notes from within the text.
 \end{declaration}
 
 \subsection{Structure References}
+\label{sec:references}
 
-\status{since FoLiA 0.11.0}{pynlpl, libfolia}
+\status{since FoLiA 0.11.0, \texttt{type="external"} since v1.2}{pynlpl, libfolia}
 
 In the previous section we discussed notes, in this section we show that you
 can make references to these notes using the \texttt{ref} element, this is a
@@ -1175,7 +1184,9 @@ attribute, which holds the type of the FoLiA element that is referred to:
 </s>
 \end{lstlisting}
 
-You can optionally make explicit the symbol used for the reference:
+You can optionally make explicit the symbol used for the reference. When no
+textual content is provided, whatever program renders the FoLiA document may assign its own
+numbering or symbol.
 
 \begin{lstlisting}[language=xml]
 <s>
@@ -1193,7 +1204,12 @@ This is often needed for bibliographical references:
 </s>
 \end{lstlisting}
 
-Although we framed this in the context of notes, the \texttt{ref} element is
+As a structure element, the \texttt{ref} element may contain other structure
+elements such as words (\texttt{w}) or even sentences (\texttt{s}) or
+paragraphs (\texttt{p}), which can in turn contain further linguistic
+annotations.
+
+Although we framed this section in the context of notes, the \texttt{ref} element is
 more general and can be used whereever you need to explicitly refer to other \emph{structure
 elements}. Common targets are figures, tables, divisions (sections, chapters,
 etc). 
@@ -1213,6 +1229,32 @@ relations between annotations of any kind and thus pertain strongly to
 linguistic annotation, whereas this reference element is a structural element
 that is explicitly shown in the text and draws a reference that is explicitly
 reflected in the text.
+
+External references can also be made with the \texttt{ref} element, which
+effectively makes it a valid tool for \emph{hyperlinking}. This is
+done by setting the \texttt{xlink:href} to point to the external resource and
+by setting the \texttt{format} attribute to the format of the external
+resource. The format is understood to be a MIME type and its value defaults to
+\texttt{text/folia+xml}. When an external reference is made, the \texttt{id}
+attribute is optional and points to an element inside the external resource.
+
+\begin{lstlisting}[language=xml]
+<s>
+  <w><t>We</t></w>
+  <w><t>demonstrated</t></w>
+  <w><t>this</t></w>
+  <ref xlink:href="http://somewhere" xlink:type="simple" format="text/html"
+   id="section2">
+    <w><t>here</t></w>
+  </ref>
+  <w><t>.</t></w>
+</s>
+\end{lstlisting}
+
+This method of hyperlinking can be contrasted to the one described in
+section~\ref{sec:hyperlinks}. These references offer a highly semantic way of
+hyperlinking, whereas the other method is more of a text-markup or stylistic
+nature.
 
 \begin{nodeclaration}
 The reference element itself is not declarable and takes no classes.
@@ -3686,10 +3728,10 @@ be duplicated if the correction is on an element higher up in the tree.
 \status{revised in v0.8}{pynlpl,libfolia}
 
 FoLiA provides a facility to align parts of your document with other parts of
-your document, or even with parts of other FoLiA documents. These are called
-\emph{alignments} and are implemented using the \texttt{alignment} element.
-Within this context, the \texttt{aref} element is used to refer to the aligned
-FoLiA elements.
+your document, or even with parts of other FoLiA documents or external
+resources. These are called \emph{alignments} and are implemented using the
+\texttt{alignment} element.  Within this context, the \texttt{aref} element is
+used to refer to the aligned FoLiA elements.
 
 Consider the two following aligned sentences from excerpts of two
 \emph{distinct} FoLiA documents in different languages:
@@ -3719,20 +3761,45 @@ Consider the two following aligned sentences from excerpts of two
 </s>
 \end{lstlisting}
 
-The \texttt{t} attribute to the \texttt{aref} element is merely optional and
-this overhead is added simply to facilitate the job of limited FoLiA parsers
-and provides a quick reference to the target text for both parsers and human
-users. The \texttt{xlink:href} attribute is used to link to the target
-document, if any. If the alignment is within the same document then it should
-be simply omitted. The \texttt{type} attribute in \texttt{aref} is mandatory
-and specifies the type of element the alignment points too, i.e. its value is
-equal to the tagname it points to.
+It is the job of the \texttt{alignment} element to point to the relevant
+resource, whereas the \texttt{aref} element points to a specific point
+\emph{inside} the referenced resource. The \texttt{xlink:href} attribute is
+used to link to the target document, if any. If the alignment is within the
+same document then it should simply be omitted. The \texttt{type} attribute on
+\texttt{aref} specifies the type of element the alignment points too, i.e. its
+value is equal to the tagname it points to. The \texttt{t} attribute to the
+\texttt{aref} element is merely optional and this overhead is added simply to
+facilitate the job of limited FoLiA parsers and provides a quick reference to
+the target text for both parsers and human users.
 
 Although the above example has a single alignment reference (\texttt{aref}), it
 is not forbidden to specify multiple references within the \texttt{alignment}
-block. For more complex alignments, such as word alignments that include
+block. 
+
+By default, alignments are between FoLiA documents. It is, however, also
+possible to point to resources in different formats. This has to be made
+explicit using the \texttt{format} attribute on the \texttt{alignment} element.
+The value of the \texttt{format} attribute is a MIME type and defaults to
+\texttt{text/folia+xml} (naming follows RFC 3032). In the following example
+align a section (\texttt{div}) with the original HTML document from which the
+FoLiA document is arrived, and where the section is expressed with an HTML anchor
+(\texttt{a}) tag.
+
+\begin{lstlisting}
+<div class="section">
+ <head>Section 2</head>
+ <t>lorum ipsum etc.</t>
+ <alignment class="original" xlink:href="http://somewhere/original.html" 
+    xlink:type="simple" format="text/html">
+    <aref id="section2" type="a" />
+ </alignment>
+</div>
+\end{lstlisting}
+
+
+For more complex alignments, such as word alignments that include
 many-to-one, one-to-many or many-to-many alignments, the element
-\texttt{complexalignment} may be more suitable, which behaves similarly to a
+\texttt{complexalignment} is created, which behaves similarly to a
 span annotation element. This element groups \texttt{alignment} elements
 together, effectively creating a many-to-many alignment. The following example
 illustrates an example similar to the one above. All this takes place within
@@ -4477,8 +4544,8 @@ as a text markup element. It is not declared.
 \status{new in FoLiA v0.11.3}{pynlpl}
 
 Hyperlinks are ubiquitous in documents from the web and are therefore supported
-in FoLiA as well. A hyperlink is defined as a pointer from a span of text to an
-external resource. In FoLiA, it is therefore implemented as a simple property
+in FoLiA as well. A hyperlink can be defined as a pointer from a span of text to an
+external resource. In FoLiA, this method is therefore implemented as a simple property
 of text itself. Text content elements (\texttt{t}) as well as any Text Markup
 elements that may be contained there in, may act as a hyperlink. The link
 itself is implemented through XLink semantics:
@@ -4503,24 +4570,65 @@ Or on a substring in untokenised text:
 </s>
 \end{lstlisting}
 
-Note that hyperlinks offer a simpler and less extensive notion of linking than
-FoLiA's \emph{alignments}. Always use alignments when linking between
-FoLiA elements, in-document or cross-document, as alignments are actual
-annotations, unlike these hyperlinks.
+Before using this, make sure to investigate section~\ref{sec:references} as
+well. There we describe a more semantic way of hyperlinking, which uses
+references (\texttt{ref} elements) that are actual structure elements. The
+hyperlinking method described in this section is of a more text-mark-up or stylistic
+nature. Actual references are usually preferred, when applicable.
 
+Another notion of linking is implemented using FoLiA's \emph{alignments}
+(section~\ref{sec:alignments}).  Alignments are actual higher-order annotations
+that can link anything but it needs not be reflected in the actual text,
+whereas the hyperlinks described here and the references in
+section~\ref{sec:referenceş} do always show in the text.
 
+\subsection{Foreign Annotation}
+\label{sec:foreign}
 
+\status{since v1.2}{pynlpl,libfolia}
+
+It may happen that you want to include annotation in a different XML scheme
+inside FoLiA, for example if FoLiA has no support yet for a particular advanced
+type of annotation or if another scheme has already been in use. It is most
+suitable for attaching further metadata to arbitrary elements.
+
+The higher-order annotation element \texttt{foreign-data} can be used to accomplish
+this. It acts as a container in which annotation in a different XML namespace,
+rather than the FoLiA namespace, may occur. The element is allowed almost
+anywhere: inside structure annotation, inside token/span annotation, inside
+other higher annotation elements, but
+\emph{not} inside text content (\texttt{t}), phonetic content (\texttt{ph}) or text-markup
+(\texttt{t-*}).
+
+In the following example we attach some foreign metadata in Dublin Core to a structure
+element (a division).
+
+\begin{lstlisting}[language=xml]
+<div>
+  <foreign-data xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <dc:creator>proycon</dc:creator>
+    <dc:language>en</dc:language>
+  </foreign-data>
+  <head><t>Chapter One</t></head>
+</div>
+\end{lstlisting}
+
+Foreign annotation does not need to be declared and should only be used when no proper
+FoLiA solution exists. Generic FoLiA tools and libraries will usually not process the contents of
+foreign-data, as it can contain anything by definition. Special-purpose tools need to be
+written for your specific use case if you use \texttt{foreign-data}.
 
 \section{Metadata}
+\label{sec:metadata}
 
-\status{final since v0.4}{pynlpl,libfolia}
+\status{since v0.4}{pynlpl,libfolia}
+\status{foreign-data since v1.2}{pynlpl,libfolia}
 
-FoLiA has support for metadata, most notably the extensive and mandatory
-declaration section for all used annotations which you have seen throughout
-this documentation. To complement this, there is FoLiA's native metadata
-system, in which simple metadata fields can be defined and used at will through
-the \texttt{meta} element. The
-following example shows this:
+FoLiA has support for document-wide metadata, most notably the extensive and
+mandatory declaration section for all used annotations which you have seen
+throughout this documentation. To complement this, there is FoLiA's native
+metadata system, in which simple metadata fields can be defined and used at
+will through the \texttt{meta} element. The following example shows this:
 
 \begin{lstlisting}[language=xml]
 <metadata type="native">
@@ -4533,15 +4641,19 @@ following example shows this:
 \end{lstlisting}
 
 The native metadata format just offers a simple key-value store. You can define
-fields with custom IDs, but the following fields are pre-defined and
-recommended to be filled:
+fields with custom IDs. FoLiA itself does not predefine any, strictly speaking.
+However, the following fields are often used and interpreted by several
+FoLiA-capable tools and libraries, and recommended to be used if possible:
 
 \begin{itemize}
 \item \textbf{title} -- The title of the FoLiA document
-\item \textbf{language} -- An ISO-639-3 language code identifying the language the document is 
-\item \textbf{date} -- The date of publication in \texttt{YYYY-MM-DD} format
+\item \textbf{language} -- A language code identifying the language the
+    document is in. Using either ISO-639-3 or ISO-639-1 is recommended. 
+\item \textbf{date} -- The date of publication, using \texttt{YYYY-MM-DD}
+    format is recommended.
 \item \textbf{publisher} -- The publishing institution or individual
 \item \textbf{license} -- The type of license of the document (for example: \emph{GNU Free Documentation License})
+\item \textbf{direction} -- Text direction, should be set to \texttt{rtl} (right-to-left) for languages such as Arabic, Hebrew, Farsi and Urdu.
 \end{itemize}
 
 The native metadata format is deliberately limited, as various other formats
@@ -4592,7 +4704,6 @@ FoLiA namespace.
   </foreign-data>
 </metadata>
 \end{lstlisting}
-
 
 \section{External documents and full stand-off annotation}
 \label{sec:external}
@@ -6106,14 +6217,21 @@ Deep validation is still being worked on and will most likely use Schematron.
 
 \section{Extending FoLiA}
 
-If you add your own custom tags, always make sure you use a different XML
-namespace rather than the default FoLiA namespace! FoLiA libraries are designed
-to ignore and discard other namespaces.
-
 In case you cannot find a suitable way to encode your particular annotation
-in the latest version of the FoLiA specificaton, we urge you to write to
+in the latest version of the FoLiA specification, we urge you to write to
 \url{proycon@anaproy.nl} so that we can discuss whether FoLiA needs to be expanded
 to accommodate your particular annotation.
+
+If you already have another XML scheme to encode a particular annotation, in
+another XML namespace, then you can use FoLiA's foreign annotation facility,
+see section~\ref{sec:foreign}. We recommend to use this only when absolutely
+necessary.
+
+Never add your own custom tags without explicitly using a different XML
+namespace rather than the default FoLiA namespace! FoLiA libraries are designed
+to ignore and discard other namespaces outside the scope described in
+section~\ref{sec:foreign}.
+
 
 \chapter{Implementations}
 
