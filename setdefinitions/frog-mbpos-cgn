@@ -16,6 +16,12 @@
       <class xml:id="soort" label="soortnaam" />
       <class xml:id="eigen" label="eigennaam" />
     </subset>
+    <subset xml:id="graad" class="closed">
+      <class xml:id="basis" label="basis" />
+      <class xml:id="comp" label="comparatief" />
+      <class xml:id="sup" label="superlatief" />
+      <class xml:id="dim" label="diminutief" />
+    </subset>
     <subset xml:id="getal" class="closed">
       <class xml:id="getal" label="getal" />
       <class xml:id="ev" label="enkelvoud" />
