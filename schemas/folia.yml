@@ -399,7 +399,7 @@ elements:
             properties:
                 annotationtype: STYLE
                 xmltag: "t-style"
-                primaryelement: false
+                primaryelement: true
     - class: AbstractTokenAnnotation
       properties:
           required_attribs: [ CLASS ]
