@@ -379,22 +379,27 @@ elements:
             properties:
                 annotationtype: CORRECTION
                 xmltag: "t-correction"
+                primaryelement: false
           - class: TextMarkupError
             properties:
                 annotationtype: ERRORDETECTION
                 xmltag: "t-error"
+                primaryelement: false
           - class: TextMarkupGap
             properties:
                 annotationtype: GAP
                 xmltag: "t-gap"
+                primaryelement: false
           - class: TextMarkupString
             properties:
                 annotationtype: STRING
                 xmltag: "t-str"
+                primaryelement: false
           - class: TextMarkupStyle
             properties:
                 annotationtype: STYLE
                 xmltag: "t-style"
+                primaryelement: false
     - class: AbstractTokenAnnotation
       properties:
           required_attribs: [ CLASS ]
