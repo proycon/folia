@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<set xml:id="cgntag" type="closed" xmlns="http://ilk.uvt.nl/folia">
+    <class xml:id="A" label="Adjective"/>
+    <class xml:id="B" label="Adverb"/>
+    <class xml:id="X" label="Unanalyzed"/>
+    <class xml:id="D" label="Determiner" />
+    <class xml:id="N" label="Noun" />
+    <class xml:id="PN" label="Proper Noun" />
+    <class xml:id="I" label="Interjection" />
+    <class xml:id="Q" label="Quantifierr" />
+    <class xml:id="C" label="Conjunction" />
+    <class xml:id="O" label="Pronoun" />
+    <class xml:id="P" label="Preposition" />
+    <class xml:id="V" label="Verb" />
+</set>

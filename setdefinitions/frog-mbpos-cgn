@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<set xml:id="cgntag" type="closed" xmlns="http://ilk.uvt.nl/folia">
+    <class xml:id="ADJ" label="Adjective"/>
+    <class xml:id="BW" label="Adverb"/>
+    <class xml:id="LET" label="Punctuation"/>
+    <class xml:id="LID" label="Determiner" />
+    <class xml:id="N" label="Noun" />
+    <class xml:id="SPEC" label="Names and unknowns" />
+    <class xml:id="TSW" label="Interjection" />
+    <class xml:id="TW" label="Numerator" />
+    <class xml:id="VG" label="Conjunction" />
+    <class xml:id="VNW" label="Pronoun" />
+    <class xml:id="VZ" label="Preposition" />
+    <class xml:id="WW" label="Verb" />
+    <subset xml:id="ntype" class="closed">
+      <class xml:id="soort" label="soortnaam" />
+      <class xml:id="eigen" label="eigennaam" />
+    </subset>
+    <subset xml:id="getal" class="closed">
+      <class xml:id="getal" label="getal" />
+      <class xml:id="ev" label="enkelvoud" />
+      <class xml:id="mv" label="meervoud" />
+    </subset>
+    <subset xml:id="genus" class="closed">
+      <class xml:id="genus" label="geslacht" />
+      <class xml:id="zijd" label="zijdig" />
+      <class xml:id="masc" label="masculien" />
+      <class xml:id="fem" label="feminien" />
+      <class xml:id="onz" label="onzijdig" />
+    </subset>
+    <subset xml:id="naamval" class="closed">
+      <class xml:id="stan" label="standaard" />
+      <class xml:id="nomin" label="nominatief" />
+      <class xml:id="obl" label="oblique" />
+      <class xml:id="bijz" label="geslacht" />
+      <class xml:id="gen" label="genitief" />
+      <class xml:id="dat" label="datief" />
+    </subset>
+    <subset xml:id="positie" class="closed">
+      <class xml:id="prenom" label="prenominaal" />
+      <class xml:id="nom" label="nominaal" />
+      <class xml:id="postnom" label="postnominaal" />
+      <class xml:id="vrij" label="vrij" />
+    </subset>
+    <subset xml:id="buiging" class="closed">
+      <class xml:id="zonder" label="zonder" />
+      <class xml:id="met-e" label="met e" />
+      <class xml:id="met-s" label="met s" />
+    </subset>
+    <subset xml:id="getal-n" class="closed">
+      <class xml:id="mv-n" label="meervoud-n" />
+      <class xml:id="zonder-n" label="enkelvoud-n" />
+    </subset>
+    <subset xml:id="wvorm" class="closed">
+      <class xml:id="pv" label="persoonsvorm" />
+      <class xml:id="inf" label="infinitief" />
+      <class xml:id="vd" label="voltooid deelwoord" />
+      <class xml:id="od" label="onvoltooid deelwoord" />
+    </subset>
+    <subset xml:id="pvtijd" class="closed">
+      <class xml:id="tgw" label="tegenwoordig" />
+      <class xml:id="verl" label="verleden" />
+      <class xml:id="conj" label="conjunctief" />
+    </subset>
+    <subset xml:id="pvagr" class="closed">
+      <class xml:id="ev" label="enkelvoud" />
+      <class xml:id="mv" label="meervoud" />
+      <class xml:id="met-t" label="met t" />
+    </subset>
+    <subset xml:id="numtype" class="closed">
+      <class xml:id="hoofd" label="hoofdtelwoord" />
+      <class xml:id="rang" label="rangtelwoord" />
+    </subset>
+    <subset xml:id="vwtype" class="closed">
+      <class xml:id="pr" label="pers/refl" />
+      <class xml:id="pers" label="persoonlijk voornaamwoord" />
+      <class xml:id="refl" label="reflexief voornaamwoord" />
+      <class xml:id="recip" label="reciprook voornaamwoord" />
+      <class xml:id="bez" label="bezittelijk voornaamwoord" />
+      <class xml:id="vb" label="vrag/betr" />
+      <class xml:id="vrag" label="vragend voornaamwoord" />
+      <class xml:id="betr" label="betrekkelijk voornaamwoord" />
+      <class xml:id="excl" label="exclamatief voornaamwoord" />
+      <class xml:id="aanw" label="aanwijzend voornaamwoord" />
+      <class xml:id="onbep" label="onbepaald voornaamwoord" />
+    </subset>
+    <subset xml:id="pdtype" class="closed">
+      <class xml:id="pron" label="pronomen" />
+      <class xml:id="adv-pron" label="averbiaal pronomen" />
+      <class xml:id="det" label="determiner" />
+      <class xml:id="grad" label="gradeerbaar determiner" />
+    </subset>
+    <subset xml:id="persoon" class="closed">
+      <class xml:id="persoon" label="persoon" />
+      <class xml:id="1" label="eerste persoon" />
+      <class xml:id="2" label="tweede persoon" />
+      <class xml:id="2v" label="tweede persoon vertrouwelijk" />
+      <class xml:id="2b" label="tweede persoon beleefd" />
+      <class xml:id="3" label="derde persoon" />
+      <class xml:id="3p" label="derde persoon persoonlijk" />
+      <class xml:id="3m" label="derde persoon mannelijk" />
+      <class xml:id="3v" label="derde persoon vrouwelijk" />
+      <class xml:id="3o" label="derde persoon onpersoonlijk" />
+    </subset>
+    <subset xml:id="status" class="closed">
+      <class xml:id="vol" label="volledig" />
+      <class xml:id="red" label="gereduceerd" />
+      <class xml:id="nadr" label="nadruk" />
+    </subset>
+    <subset xml:id="npagr" class="closed">
+      <class xml:id="agr" label="volledig" />
+      <class xml:id="evon" label="enkelvoudig onzijdig" />
+      <class xml:id="rest" label="" />
+      <class xml:id="evz" label="enkelvoudig zijdig" />
+      <class xml:id="mv" label="meervoud" />
+      <class xml:id="agr3" label="" />
+      <class xml:id="evmo" label="enkelvoudig zijdig of meervoudig" />
+      <class xml:id="rest3" label="" />
+      <class xml:id="evf" label="enkelvoud feminien" />
+    </subset>
+    <subset xml:id="lwtype" class="closed">
+      <class xml:id="bepaald" label="bepaald" />
+      <class xml:id="onbepaald" label="onbepaald" />
+    </subset>
+    <subset xml:id="vztype" class="closed">
+      <class xml:id="init" label="initieel" />
+      <class xml:id="versm" label="versmolten" />
+      <class xml:id="fin" label="finaal" />
+    </subset>
+    <subset xml:id="conjtype" class="closed">
+      <class xml:id="neven" label="nevenschikkend" />
+      <class xml:id="onder" label="onderschikkend" />
+    </subset>
+    <subset xml:id="spectype" class="closed">
+      <class xml:id="afgebr" label="afgebroken" />
+      <class xml:id="afk" label="afkorting" />
+      <class xml:id="onverst" label="afkorting" />
+      <class xml:id="vreemd" label="vreemd" />
+      <class xml:id="deeleigen" label="eigennaam" />
+      <class xml:id="meta" label="meta" />
+      <class xml:id="comment" label="commentaar" />
+      <class xml:id="achter" label="achtergrond" />
+      <class xml:id="symb" label="symbool" />
+      <class xml:id="enof" label="en/of" />
+    </subset>
+</set>
