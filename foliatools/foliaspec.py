@@ -353,8 +353,11 @@ def outputblock(block, target, varname, indent = ""):
         if target == 'python':
             s += indent + "ANNOTATIONTYPE2XML = {\n"
             for element in elements:
+                print(element,file=sys.stderr)
                 if 'properties' in element and 'xmltag' in element['properties'] and element['properties']['xmltag'] and 'annotationtype' in element['properties']:
+                    print("pass",file=sys.stderr)
                     if 'primaryelement' in element['properties'] and not element['properties']['primaryelement']: continue #not primary, skip
+                    print("added",file=sys.stderr)
                     s += indent + "    AnnotationType." + element['properties']['annotationtype'] + ':  "' + element['properties']['xmltag'] + '" ,\n'
             s += indent + "}"
         else:
