@@ -143,4 +143,7 @@
       <class xml:id="symb" label="symbool" />
       <class xml:id="enof" label="en/of" />
     </subset>
+    <subset xml:id="dial" class="closed">
+      <class xml:id="dial" label="dialect" />
+    </subset>
 </set>
