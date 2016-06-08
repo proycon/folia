@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<set xml:id="dependency" type="closed" xmlns="http://ilk.uvt.nl/folia">
+  <!-- as taken from the Alpino documentation.
+       https://www.let.rug.nl/vannoord/alp/Alpino/adt.pdf
+       Table 1
+       with additions: ROOT and punct
+  -->
+  <class xml:id="ROOT" label="Root Node" />
+  <class xml:id="app" label="apposition"/>
+  <class xml:id="body" label="Body"/>
+  <class xml:id="cmp" label="complementizer" />
+  <class xml:id="cnj" label="conjunction" />
+  <class xml:id="crd" label="coordinator" />
+  <class xml:id="det" label="determiner" />
+  <class xml:id="dlink" label="discourse link" />
+  <class xml:id="dp" label="discourse part" />
+  <class xml:id="hd" label="head" />
+  <class xml:id="hdf" label="closing element of a circumposition" />
+  <class xml:id="ld" label="locative or directional complement" />
+  <class xml:id="me" label="measure phrase complement" />
+  <class xml:id="mod" label="modifier" />
+  <class xml:id="mwp" label="part of a multi-word-unit" />
+  <class xml:id="nucl" label="nucleus discourse unit" />
+  <class xml:id="obcomp" label="object of comparative" />
+  <class xml:id="obj1" label="direct object" />
+  <class xml:id="obj2" label="indirect object" />
+  <class xml:id="pc" label="prepositional complement" />
+  <class xml:id="pobj1" label="provisional direct object" />
+  <class xml:id="pred" label="predicative" />
+  <class xml:id="predc" label="predicative complement" />
+  <class xml:id="predm" label="predicative modifier" />
+  <class xml:id="rhd" label="head of relative clause" />
+  <class xml:id="sat" label="satellite discourse unit" />
+  <class xml:id="se" label="inheritly reflexive complement" />
+  <class xml:id="su" label="subject" />
+  <class xml:id="sup" label="provisional subject" />
+  <class xml:id="svp" label="separable verb particle" />
+  <class xml:id="tag" label="discourse tag" />
+  <class xml:id="punc" label="punctuation" />
+  <class xml:id="punct" label="punctuation" />
+  <class xml:id="vc" label="verbal complement" />
+  <class xml:id="whd" label="head of wh-question" />
+</set>
