@@ -96,18 +96,42 @@ software that supports it, and the ways in which it has been put to use in the
 scope of CLARIN and beyond.  Section~\ref{sec:philosophy} will explain our
 philosophy behind FoLiA and its infrastructure. 
 
-The current paper does not provide a comparison of FoLiA with other format nor
-an in-depth motivation for its creation, as  such an extensive overview of the
-format has already been presented in earlier work \cite{FOLIACLIN2013}. This
-aforementioned work also addresses the motivation for the creation of FoLiA and
-presents a comparison with similar initiatives such as the D-Spin Text Corpus
-Format (TCF), PAULA XML, XCES, as well as with more abstract frameworks such as
-LAF (Linguistic Annotation Format) and comprehensive text-encoding formats such
-as TEI. We recognize that FoLiA is just one out of various possible solutions,
-and claim its merit is best decided on its practical usability with respect to
-the user's specific purpose. The tools, libraries and existing FoLiA-delivered
-corpora described in the current work are intended to help people assess
-whether FoLiA is an appropriate solution for their tasks.
+Earlier work \cite{FOLIACLIN2013} addresses the motivation for the creation of
+FoLiA. In summary, FoLiA sprung from a limited corpus format used in the Dutch
+and Flemish NLP communities \cite{DCOI}, at a time and place where a more
+comprehensive format was needed for various corpora and tools in development.
+Existing solutions often did not sufficiently meet the needs at the time, were
+not mature yet, or were simply not well known.
+
+FoLiA currently poses one out of various possible solutions.  We claim its
+merit is best decided on its practical usability with respect to the user's
+specific purpose. Focus on the practical dimension, i.e.  availability of
+hands-on tools and libraries, was in fact a key reason for the creation of
+another format.  The tools, libraries and existing FoLiA-delivered corpora
+described in the current work are intended to help people assess whether it is
+an appropriate solution for their tasks.
+
+The aforementioned work \cite{FOLIACLIN2013} presents a comparison with similar
+initiatives such as the D-Spin Text Corpus Format (TCF), PAULA XML, XCES, as
+well as with more abstract frameworks such as LAF (Linguistic Annotation
+Format) and comprehensive text-encoding formats such as TEI. In summary, the
+prior study observes that LAF \cite{LAF} is an abstract framework rather than a
+format, which offers a greater level of abstraction and genericness than FoLiA,
+whereas FoLiA is more specific and aims at the practical level. This makes
+FoLiA more readily adoptable in software tools. In the comparison with TEI
+\cite{TEI}, it was observed that TEI is very extensive and specific when it
+comes to encoding text structure, but FoLiA is more specific when it comes to
+linguistic annotation types, for which TEI only offers more abstract solutions.
+TEI is very extensive and therefore fairly complex; schemas may come in various
+flavours, as elements can be adapted by users in many ways, FoLiA offers one
+single specific solution instead, the format is a given, and the flexibility to
+customize is deliberately limited to the data categories or tagsets, in the
+form of set definitions. Initiatives such as TCF \cite{TCF}, PAULA XML
+\cite{PAULA}, and also NAF \cite{NAF} are more similar to FoLiA, as they are
+less abstract and provide practical usability in software.  Differences come
+down to paradigm choices, sustainability, tool availability and documentation
+maturity, and especially variation in coverage of available linguistic
+annotation types and text structure elements.
 
 Full documentation of FoLiA is available elsewhere \cite{FOLIADOC2014}. It
 offers a reference guide to all elements and attributes that FoLiA defines.  A
