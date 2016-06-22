@@ -16,7 +16,7 @@
 
 \title{FoLiA in practice: The infrastructure of a linguistic annotation format}
 \author{Maarten van Gompel$^{ac}$,  Ko van der
-Sloot$^{ac}$, Martin Reynaert$^{ab}$ \and Antal van den Bosch$^c$} %cheating to get the affiliation footnotes right
+Sloot$^{ac}$, Martin Reynaert$^{abc}$ \and Antal van den Bosch$^c$} %cheating to get the affiliation footnotes right
 \date{}
 
 
@@ -170,7 +170,7 @@ the confidence level of the annotation, the time of the annotation, and more.
 FoLiA also allows for various types of \emph{higher-order annotation}, such as
 the ability to include alternative annotations, as well as extensive support
 for corrections on annotations. Moreover, there is the possibility to link other
-modalities, such as audio fragments of speech, to structural elements. So, even
+modalities, such as imagery or audio fragments of speech, to structural elements. So, even
 though FoLiA is primarily a format to annotate text documents, speech
 transcripts are supported as well. 
 
@@ -381,9 +381,7 @@ only supported a simpler subset of the annotation types supported by FoLiA,
 such as Part-of-Speech tags and lemmas.  At the time of writing, there is
 collaboration, and some competition, between the various developers in the
 Netherlands to support span annotation types such as dependency relations,
-syntax and named entities. In \textbf{WhiteLab} version 2 this is achieved by way of a
-Neo4J-plugin\footnote{\url{https://github.com/Taalmonsters/WhiteLab2.0}}, as an
-alternative to the BlackLab backend. Another FoLiA-capable search and retrieval
+syntax and named entities. Another FoLiA-capable search and retrieval
 system called Multi-Tier Annotation Search (\textbf{MTAS}) has been promised by
 the Meertens Institute, and builds upon Solr and Lucene. It is being developed in
 the scope of the Nederlab project \cite{Nederlab2016} and the CLARIAH project.
@@ -443,11 +441,11 @@ Although not yet supporting all of FoLiA at the current stage, \textbf{FLAT}
 has already been used successfully in several annotation projects featuring
 student assistants at Radboud University. Further development of FLAT is
 planned for the CLARIN-NL successor project CLARIAH, with the aim of providing
-a mature editing environment covering all of FoLiA. FLAT is within CLARIAH and
-other projects\footnote{The PARSEME project for example,
+a mature editing environment covering all of FoLiA. FLAT is intended to be
+deployed as a platform for crowd-sourcing annotation tasks in CLARIAH and other
+projects. \footnote{The PARSEME project for example,
 \url{http://typo.uni-konstanz.de/parseme/}, has recently adopted FLAT for the
-annotation of Multi-Word Expressions} likely to be deployed as a platform for
-crowd-sourcing annotation tasks.
+annotation of Multi-Word Expressions}
 
 \subsection{Special-purpose tools}
 
@@ -460,7 +458,7 @@ It is a most essential layer to the infrastructure.
 \begin{itemize}
 \item \textbf{\textbf{Ucto}}\footnote{\url{https://languagemachines.github.io/ucto}} -- An advanced rule-based tokeniser and sentence-splitter for a variety of
     languages. Supports FoLiA
-    input and output. \cite{UCTO}
+    input and output. Can be used to bootstrap plaintext to tokenised FoLiA. \cite{UCTO}
 \item \textbf{\textbf{Frog}}\footnote{\url{https://languagemachines.github.io/frog}} -- An NLP suite for Dutch, implementing tokenisation (through
     Ucto), Part-of-Speech tagging, Lemmatisation, Dependency Parsing, Named
     Entity Recognition, Shallow Parsing and Morphological Analysis. Supports
@@ -468,9 +466,9 @@ It is a most essential layer to the infrastructure.
 \item \textbf{\textbf{CLAM}}\footnote{\url{https://proycon.github.io/clam}} -- Turns command-line NLP tools into RESTful webservices with an
     interface for human end-users. It integrates the FoLiA viewer to visualise
     FoLiA documents. \cite{CLAM}
-\item \textbf{\textbf{TICCL}} -- Text-Induced Corpus Clean-up. Supports FoLiA
+\item \textbf{\textbf{TICCL}}\footnote{\url{https://github.com/martinreynaert/TICCL}} -- Text-Induced Corpus Clean-up \cite{Reynaert2010}. Supports FoLiA
     input and output. Used in the
-    CLARIN-NL projects TICCLops\footnote{Available in the CLARIN infrastructure at: \url{http://ticclops.clarin.inl.nl/ticclops/}} \cite{Reynaert2010}, @PhilosTEI\footnote{Available in the CLARIN infrastructure at: \url{http://ticclops.clarin.inl.nl/philostei/}} \cite{Reynaert2014b}. 
+    CLARIN-NL projects TICCLops\footnote{Available in the CLARIN infrastructure at: \url{http://ticclops.clarin.inl.nl/ticclops/}} , @PhilosTEI\footnote{Available in the CLARIN infrastructure at: \url{http://ticclops.clarin.inl.nl/philostei/}} \cite{Reynaert2014b}. 
 \item \textbf{\textbf{Cesax}}\footnote{\url{http://erwinkomen.ruhosting.nl/software/Cesax/}} -- A co-reference editor for syntactically annotated XML corpora.
     Supports FoLiA import and output through conversion. 
     %%Q: BRAT doet toch ook FoLiA through conversion?
@@ -484,7 +482,7 @@ It is a most essential layer to the infrastructure.
 \item \textbf{\textbf{Gecco}}\footnote{\url{https://github.com/proycon/gecco}}  -- Generic Environment for Context-Aware Correction
     of Orthography: A spelling correction engine fully based on FoLiA. Powers
     \emph{Valkuil.net} and soon also \emph{Fowlt.net}.
-\item \textbf{\textbf{FoLiA-langcat}}\footnote{\url{https://github.com/LanguageMachines/foliautils}} -- Performs language detection, built on TextCat. Part of the FoLiA utilities.
+\item \textbf{\textbf{FoLiA-langcat}}\footnote{\url{https://github.com/LanguageMachines/foliautils}} -- Performs language detection, built on TextCat\footnote{\url{http://odur.let.rug.nl/~vannoord/TextCat/}}. Part of the FoLiA utilities.
 \item \textbf{\textbf{FoLiA-stats}}\footnotemark[\value{footnote}] -- Performs simple n-gram statistics on FoLiA documents. Part of the FoLiA utilities.
 \item \textbf{\textbf{PaQu}}\footnote{\url{https://github.com/rug-compling/paqu}} -- A web application for the analysis of Dutch texts based on dependency parses computed using Alpino \cite{ALPINO}. PaQu supports FoLiA input.
 \end{itemize}
