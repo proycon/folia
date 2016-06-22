@@ -49,9 +49,8 @@ interoperability between the many language tools that have emerged within and
 outside of the scope of the CLARIN project, and to ensure the various data sets
 released are usable in practice.
 
-In the field, however, we often encounter an abundance of ad-hoc formats. We
-define ad-hoc formats to be data formats that are characterised by most of the
-following traits:
+In the field, however, we often encounter an abundance of ad-hoc formats. These are
+data formats that are often characterised by one or more of the following traits:
 
 \begin{itemize}
     \item They are only used once, often by one specific tool or for just one specific purpose;
@@ -61,7 +60,7 @@ following traits:
 \end{itemize}
 
 The use of such ad-hoc formats can be considered the opposite of proper
-standardisation and is to be avoided in any large infrastructure project.
+standardisation and is to be avoided in any large infrastructure project. 
 
 CLARIN adheres to the following principles when it comes to standardisation:
 
@@ -76,86 +75,48 @@ CLARIN adheres to the following principles when it comes to standardisation:
     \item Text-based formats are (where possible) preferred over binary formats.
 \end{itemize}
 
-Fortunately, there are various initiatives for standardisation resulting in
-annotation formats that transcend the ad-hoc level, each with their own merit, and ours
-being of one of them. At the onset of CLARIN-NL, however, the Dutch and Flemish
-Natural Language Processing (NLP) community lacked such a proper standard with
-respect to linguistically annotated text, and ad-hoc formats were prevalent in
-the field.  In the scope of CLARIN-NL project TTNWW, the NWO project
-DutchSemCor, and the STEVIN project SoNaR, FoLiA (Format for Linguistic
-Annotation) was developed as a solution to accommodate their representational
-needs.
+At the onset of CLARIN, the Dutch and Flemish Natural Language Processing (NLP)
+community lacked such a proper standard with respect to linguistically
+annotated text, and ad-hoc formats were prevalent in the field.  In the scope
+of CLARIN-NL project TTNWW, the NWO project DutchSemCor, and the STEVIN project
+SoNaR, a new format for linguistic annotation was developed as a solution to
+accommodate their representational needs, and so FoLiA (Format for Linguistic
+Annotation) was created.
 
 The aim of FoLiA is to provide a practical standard, following a generic
-paradigm, for the linguistic annotation of primarily written text. For this purpose,
+paradigm, for the linguistic annotation of primarily written text. To this end,
 a wide variety of linguistic annotation types is supported. 
 
-In the current paper, we intend to focus on the \emph{practical} nature of the
-format, or rather, on the infrastructure that is built around the format,
-software that supports it, and the ways in which it has been put to use in the
-scope of CLARIN and beyond.  Section~\ref{sec:philosophy} will explain our
-philosophy behind FoLiA and its infrastructure. 
+An extensive overview of the FoLiA format is presented in earlier work \cite{FOLIACLIN2013},
+which also features a comparison with competing standards and full motivation
+for the creation of FoLiA. Documentation of the format is also available
+elsewhere \cite{FOLIADOC2014} and offers a reference guide to all elements and attributes
+that FoLiA defines.  A brief summary of key features will be repeated in
+Section~\ref{sec:overview}, but for the remainder we refer to these two prior
+works.
 
-Earlier work \cite{FOLIACLIN2013} addresses the motivation for the creation of
-FoLiA. In summary, FoLiA sprung from a limited corpus format used in the Dutch
-and Flemish NLP communities \cite{DCOI}, at a time and place where a more
-comprehensive format was needed for various corpora and tools in development.
-Existing solutions often did not sufficiently meet the needs at the time, were
-not mature yet, or were simply not well known.
-
-FoLiA currently represents one of various possible solutions.  We claim its
-merit is best decided on its practical usability with respect to the user's
-specific purpose. Focus on the practical dimension, i.e.  availability of
-hands-on tools and libraries, was in fact a key reason for the creation of yet 
-another format.  The tools, libraries and existing FoLiA-delivered corpora
-described in the current work are intended to help people assess whether it is
-an appropriate solution for their tasks.
-
-The aforementioned work \cite{FOLIACLIN2013} presents a comparison with similar
-initiatives such as the D-Spin Text Corpus Format (TCF), PAULA XML, XCES, as
-well as with more abstract frameworks such as LAF (Linguistic Annotation
-Format) and comprehensive text-encoding formats such as TEI. In summary, the
-prior study observes that LAF \cite{LAF} is an abstract framework rather than a
-format, which offers a greater level of abstraction and genericness than FoLiA,
-whereas FoLiA is more specific and aims at the practical level. This makes
-FoLiA more readily adoptable in software tools. In the comparison with TEI
-\cite{TEI}, it was observed that TEI is very extensive and specific when it
-comes to encoding text structure, but FoLiA is more specific when it comes to
-linguistic annotation types, for which TEI only offers more abstract solutions.
-TEI is very extensive and therefore fairly complex; schemas may come in various
-flavours, as elements can be adapted by users in many ways, FoLiA offers one
-single specific solution instead, the format is a given, and the flexibility to
-customize is deliberately limited to the data categories or tagsets, in the
-form of set definitions. Initiatives such as TCF \cite{TCF}, PAULA XML
-\cite{PAULA}, and also NAF \cite{NAF} are more similar to FoLiA, as they are
-less abstract and provide practical usability in software.  Differences come
-down to paradigm choices, sustainability, tool availability and documentation
-maturity, and especially variation in coverage of available linguistic
-annotation types and text structure elements.
-
-Full documentation of FoLiA is available elsewhere \cite{FOLIADOC2014}. It
-offers a reference guide to all elements and attributes that FoLiA defines.  A
-brief summary of key features will be repeated in Section~\ref{sec:overview}.
-Section~\ref{sec:softwareinfrastructure} subsequently presents the currently
-available software infrastructure for FoLiA.
-Section~\ref{sec:datainfrastructure} presents some corpora that have been
+In this current paper, we intend to focus on the \emph{practical} nature of the
+format, or rather, on the infrastructure that is built around the format and
+the ways in which it has been put to use in the scope of CLARIN and beyond.
+Section~\ref{sec:philosophy} will explain our philosophy behind FoLiA and its
+infrastructure. Section~\ref{sec:softwareinfrastructure} subsequently describes
+the currently available software infrastructure for FoLiA.
+Section~\ref{sec:datainfrastructure} describes some corpora that have been
 delivered in FoLiA.
 
 \section{Overview}
 \label{sec:overview}
 
-FoLiA is an XML-based format and defines specific XML elements for
-\emph{structure annotation} (e.g. paragraphs, sentences, word tokens, lists,
-figures, etc.) and \emph{linguistic annotation} (e.g. part-of-speech,
-dependency relations, syntax, named entities, etc.). FoLiA makes use of a
-combination of inline and stand-off annotation, making proper use of the
-hierarchical nature of XML and facilitating the job for parsers where possible.
-FoLiA does not define any linguistic categories; the format is fully language
-and tagset independent as tagsets are defined separately in \emph{FoLiA Set
-Definitions} by users and never prescribed by FoLiA itself. These can in turn
-be related to data category registries. Validation can proceed on a shallow
-level, against a RelaxNG schema, as well as on a deep level which validates the
-used tagsets against the set definition files.
+FoLiA is an XML-based format and defines specific XML elements for \emph{structure
+annotation} (e.g. paragraphs, sentences, word tokens, lists, figures..) and
+\emph{linguistic annotation} (e.g. part-of-speech, dependency relations,
+syntax, named entites, etc.). FoLiA makes use of a combination of inline and
+stand-off annotation, making proper use of the hierarchical nature of XML and
+facilitating the job for parsers where possible. The format is fully language and
+tagset independent as tagsets are defined separately in \emph{FoLiA Set Definitions}
+by users and never prescribed by FoLiA itself. Validation can proceed
+on a shallow level, against a RelaxNG schema, as well as at deep level which
+validates used tagsets against the set definition files.
 
 The sets are at the core of the FoLiA paradigm, annotation elements take a
 generic attribute named ``class''. These \emph{classes} pertain to a set and are
@@ -169,8 +130,8 @@ the confidence level of the annotation, the time of the annotation, and more.
 
 FoLiA also allows for various types of \emph{higher-order annotation}, such as
 the ability to include alternative annotations, as well as extensive support
-for corrections on annotations. Moreover, there is the possibility to link other
-modalities, such as audio fragments of speech, to structural elements. So, even
+for corrections on annotations. There is also the possibility to link other
+modalities, such as audio fragments of speech, to structural elements. So even
 though FoLiA is primarily a format to annotate text documents, speech
 transcripts are supported as well. 
 
@@ -196,12 +157,12 @@ paradigm, including XML examples \cite{FOLIADOC2014}.}
 \section{Our philosophy}
 \label{sec:philosophy}
 
-Recalling the CLARIN principle that a format should be proven and used in
-practice, FoLiA has been designed in a bottom-up manner taking especially this
+Recall the CLARIN principle that a format should be proven and used in
+practice. FoLiA has been designed in a bottom-up fashion taking especially this
 principle to heart. Our focus is to solve real problems people face in the
 field with regards to their linguistic representation needs, and to do so in a
-generic manner. The ambition is to deliver a single unified file format that
-can effectively handle a multitude of annotation needs in a generic way.
+generic fashion. The ambition is to deliver a single unified file format that
+can effectively handle a multitude of annotation needs in a generic fashion.
 The main motivation is to prevent the need to switch formats whenever an extra
 annotation type is introduced, and to prevent the scenario in which a plethora
 of different formats is used for different annotation types.
@@ -210,12 +171,12 @@ It is nevertheless always conceivable that a user's particular need is not yet
 covered by the latest version of FoLiA; in such cases we gladly hear from the
 user and expand FoLiA where necessary, in collaboration with the user. The
 development of FoLiA has already proceeded for several years in such a
-collaborative workflow, and various annotation types have been added in close
+collaborative fashion, and various annotation types have been added in close
 contact with end-users both from within CLARIN and beyond.
 
 In our philosophy, the creation of a file format is useless without
 simultaneously creating an infrastructure of tools to work with said format.
-This has therefore been our main focus over the years and will be the subject
+This has therefore been our main focus over the years and will the the subject
 of the next section.
 
 \section{Software Infrastructure}
@@ -292,7 +253,7 @@ The Python library suffers from the performance drawback that any high-level
 interpreted language has. Whenever faster processing is required, or
 integration in high-performance tools is desired,
 \textbf{libfolia}\footnote{\url{https://github.com/languagemachines/libfolia}}, the
-FoLiA library for C++, offers a better solution. The library is modelled after
+FoliA library for C++, offers a better solution. The library is modelled after
 the Python library, so both are similarly structured, employ a similar syntax
 and the respective authors try their best to keep the libraries in sync.
 
@@ -323,7 +284,7 @@ various different other formats:
     \item Conversion to plaintext
     \item Conversion to HTML
     \item Conversion to simple columned data or to CSV
-    \item Conversion from/to reStructuredText\footnote{\url{http://docutils.sourceforge.net/rst.html}}
+    \item Conversion from/to ReStructuredText\footnote{\url{http://docutils.sourceforge.net/rst.html}}
     \item Conversion from/to DCOI XML format \cite{DCOI}
     \item Conversion from the Alpino XML format \cite{ALPINO}
     \item Conversion from ALTO XML format\footnote{\url{http://www.loc.gov/standards/alto/}}
@@ -335,13 +296,14 @@ various different other formats:
 Conversions may be limited by the source or target format. Conversion to
 FoLiA's predecessor DCOI XML, for instance, is only possible for the subset of
 elements that DCOI supports. Similarly, conversion to
-reStructuredText is limited
+ReStructuredText is limited
 to text, its structure and markup, and does not include linguistic annotations.
 
 Besides the in-house developed FoLiA tools, third parties also make available
 converters from or to FoLiA. A notable case is
 \textbf{OpenConvert}\footnote{\url{https://github.com/INL/OpenConvert}},
-developed by the former Institute for Dutch Lexicology (INL), now Institute for the Dutch Language (INT), which can convert from TEI, plaintext, ALTO, Microsoft Word, and HTML to FoLiA.
+developed by the Institute for Dutch Lexicology (INL), which can convert from
+TEI, plaintext, ALTO, Microsoft Word, and HTML to FoLiA.
 
 \subsection{Visualisation}
 
@@ -359,7 +321,7 @@ categories:
 
 \begin{enumerate}
  \item In-document search;
- \item Document retrieval systems / corpus search tools.
+ \item Document retrieval systems / Corpus Search tools.
 \end{enumerate}
 
 At a low level, in-document search can be conducted with the command-line tool
@@ -387,7 +349,7 @@ alternative to the BlackLab backend. Another FoLiA-capable search and retrieval
 system called Multi-Tier Annotation Search (\textbf{MTAS}) has been promised by
 the Meertens Institute, and builds upon Solr and Lucene. It is being developed in
 the scope of the Nederlab project \cite{Nederlab2016} and the CLARIAH project.
-This system, however, is still in early stages of development and has not been released
+This system, however, is still in early stages of development and not released
 yet.
 
 
@@ -427,27 +389,19 @@ enter queries, and takes care of on demand loading and unloading documents in
 memory and serialising them to disk. It maintains a browsable document
 repository, which features \textbf{git} version control support.
 
-Neither the command-line tool nor the document server offer an interface
-adequate for human end-users to easily work with. To provide such an
-environment, we have been developing the \textbf{FoLiA Linguistic Annotation
-Tool} (\textbf{FLAT})\footnote{\url{https://github.com/proycon/flat}}. It is a
-modern web-application that offers an interface for the visualisation and
-editing of FoLiA documents. Under the hood, user-interface interactions are
-translated to FQL queries and communicated to the aforementioned FoLiA document
-server. The motivation for the creation of FLAT, as opposed to the adaption of
-existing web annotation environments, was the desire for a solution that
-seamlessly integrates with FoLiA and adopts the same paradigm. Different design
-choices implied it would be easier to build this from the ground up.
+Neither the command-line tool nor the document server offer an
+interface adequate for human end-users to easily work with. To provide
+such an environment, we have been developing the \textbf{FoLiA Linguistic Annotation Tool}
+(\textbf{FLAT})\footnote{\url{https://github.com/proycon/flat}}. It is a modern
+web-application that offers an interface for the visualisation and editing of
+FoLiA documents. Under the hood, user-interface interactions are translated to FQL
+queries and communicated to the aforementioned FoLiA document server.
 
-Although not yet supporting all of FoLiA at the current stage, \textbf{FLAT}
-has already been used successfully in several annotation projects featuring
-student assistants at Radboud University. Further development of FLAT is
+Although not yet supporting all of FoLiA at the current stage, \textbf{FLAT} has already
+been used successfully in several annotation projects featuring student
+assistants at Radboud University. Further development of FLAT is
 planned for the CLARIN-NL successor project CLARIAH, with the aim of providing
-a mature editing environment covering all of FoLiA. FLAT is within CLARIAH and
-other projects\footnote{The PARSEME project for example,
-\url{http://typo.uni-konstanz.de/parseme/}, has recently adopted FLAT for the
-annotation of Multi-Word Expressions} likely to be deployed as a platform for
-crowd-sourcing annotation tasks.
+a mature editing environment covering all of FoLiA. FLAT is within CLARIAH and other projects likely to be deployed as a platform for crowd-sourcing annotation tasks.
 
 \subsection{Special-purpose tools}
 
@@ -471,23 +425,24 @@ It is a most essential layer to the infrastructure.
 \item \textbf{\textbf{TICCL}} -- Text-Induced Corpus Clean-up. Supports FoLiA
     input and output. Used in the
     CLARIN-NL projects TICCLops\footnote{Available in the CLARIN infrastructure at: \url{http://ticclops.clarin.inl.nl/ticclops/}} \cite{Reynaert2010}, @PhilosTEI\footnote{Available in the CLARIN infrastructure at: \url{http://ticclops.clarin.inl.nl/philostei/}} \cite{Reynaert2014b}. 
+\item \textbf{\textbf{Gecco}}\footnote{\url{https://github.com/proycon/gecco}}  -- Generic Environment for Context-Aware Correction
+    of Orthography: A spelling correction engine fully based on FoLiA. Powers
+    \emph{Valkuil.net} and soon also \emph{Fowlt.net}.
+\item \textbf{\textbf{T-Scan}}\footnote{\url{https://github.com/proycon/tscan}} -- A Dutch text analytics tool for readability
+    prediction. \cite{TSCAN}
 \item \textbf{\textbf{Cesax}}\footnote{\url{http://erwinkomen.ruhosting.nl/software/Cesax/}} -- A co-reference editor for syntactically annotated XML corpora.
     Supports FoLiA import and output through conversion. 
     %%Q: BRAT doet toch ook FoLiA through conversion?
 	%%A: Nee, er was een fork van iemand met wat FoLiA support maar die is niet echt in gebruik
-\item \textbf{\textbf{T-Scan}}\footnote{\url{https://github.com/proycon/tscan}} -- A Dutch text analytics tool for readability
-    prediction. \cite{TSCAN}
 \item \textbf{\textbf{Colibri Core}}\footnote{\url{https://proycon.github.io/colibri-core}}-- A tool for the computation
     of corpus statistics on ngrams and skipgrams in a quick and
     memory-efficient way. It can import FoLiA documents, which it subsequently
     compresses to an internal optimised binary format.
-\item \textbf{\textbf{Gecco}}\footnote{\url{https://github.com/proycon/gecco}}  -- Generic Environment for Context-Aware Correction
-    of Orthography: A spelling correction engine fully based on FoLiA. Powers
-    \emph{Valkuil.net} and soon also \emph{Fowlt.net}.
-\item \textbf{\textbf{FoLiA-langcat}}\footnote{\url{https://github.com/LanguageMachines/foliautils}} -- Performs language detection, built on TextCat. Part of the FoLiA utilities.
+\item \textbf{\textbf{FoLiA-langcat}}\footnote{\url{https://github.com/LanguageMachines/foliautils}} -- Performs language detection. Part of the FoLiA utilities.
 \item \textbf{\textbf{FoLiA-stats}}\footnotemark[\value{footnote}] -- Performs simple n-gram statistics on FoLiA documents. Part of the FoLiA utilities.
-\item \textbf{\textbf{PaQu}}\footnote{\url{https://github.com/rug-compling/paqu}} -- A web application for the analysis of Dutch texts based on dependency parses computed using Alpino \cite{ALPINO}. PaQu supports FoLiA input.
 \end{itemize}
+
+
 
 
 %%ToDo: Ik mis van de tools die Ko ontwikkeld heeft zoals FoLiA-stats en FoLiA-langcat. Over FoLiA-Alto valt ook nog meer te zeggen, die kan harvesten van de KB op basis van de DIDL files. (mre)
@@ -516,7 +471,7 @@ The following corpora are currently delivered in FoLiA:
         word corpus of written Dutch (including Flemish) from numerous sources.
         The corpus is annotated with Part-of-Speech tags, lemmas, and named
         entities. \cite{StevinSONAR2013}
-    \item \textbf{Nederlab} -- The Nederlab project attempts to collect all digitised texts relevant to the history of Dutch language, culture and heritage (circa 800 -- present) in one user friendly and tool enriched open access web interface\footnote{\url{http://www.nederlab.nl/onderzoeksportaal/}}. \cite{Nederlab2016}. 
+    \item \textbf{Nederlab} -- The Nederlab project attempts to collect all digitized texts relevant to the history of Dutch language, culture and heritage (circa 800 -- present) in one user friendly and tool enriched open access web interface\footnote{\url{http://www.nederlab.nl/onderzoeksportaal/}}. \cite{Nederlab2016}. 
 \end{itemize}
 
 In addition to corpora, the data part of the infrastructure also consists of a
@@ -535,9 +490,9 @@ inception was presented in earlier work \cite{FOLIACLIN2013}.
 
 Continued efforts in the CLARIN-NL successor CLARIAH ensure that the
 developments on the infrastructure surrounding FoLiA will continue in the
-foreseeable future. FoLiA XML is the pivot format in the project
+foreseeable future. FoLiA XML is the pivot format in CLARIAH project
 `Philosophical Integrator of Computational and Corpus Libraries' or PICCL
-\cite{Reynaert2015}, part of CLARIAH.
+\cite{Reynaert2015}.
 
 %\section*{Acknowledgements}
 
