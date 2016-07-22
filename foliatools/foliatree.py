@@ -54,7 +54,7 @@ def processelement(element, depth=0):
     if not isinstance(element, folia.AbstractElement): return False
     if settings.structureonly and not isinstance(element, folia.AbstractStructureElement): return False
     try:
-        if not settings.types or element.XMLTAG in settings.types:
+        if (not settings.types or element.XMLTAG in settings.types) and element.XMLTAG:
             out = "    " * depth
             out += element.XMLTAG
             if settings.ids and element.id:
