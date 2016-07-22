@@ -50,9 +50,10 @@ def out(s, outputfile):
             print(s)
 
 
-def processelement(element, depth=0):
+def processelement(element, depth=0, inspan=False):
     if not isinstance(element, folia.AbstractElement): return False
     if settings.structureonly and not isinstance(element, folia.AbstractStructureElement): return False
+    isspan = isinstance(element, folia.AbstractSpanAnnotation)
     try:
         if (not settings.types or element.XMLTAG in settings.types) and element.XMLTAG:
             out = "    " * depth
@@ -66,8 +67,9 @@ def processelement(element, depth=0):
             if settings.text and isinstance(element, (folia.TextContent, folia.PhonContent)):
                 out += "; text=\"" + str(element) + "\""
             print(out)
-            for e in element.data:
-                processelement(e,depth+1)
+            if not inspan:
+                for e in element.data:
+                    processelement(e,depth+1, isspan and isinstance(e, folia.AbstractStructureElement) )
     except AttributeError:
         pass
     return True
