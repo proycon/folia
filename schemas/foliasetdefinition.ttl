@@ -43,7 +43,7 @@ a :SetType .
 :Class
 a rdf:Class ;
 rdfs:label "FoLiA Class" ;
-rdfs:comments "Defines a class in a set, a class corresponds for instance to a tag in a linguistic tagset" . 
+rdfs:comments "Defines a class in a set, a class corresponds for instance to a tag in a linguistic tagset" .
 
 :label
 a rdf:Property ;
@@ -89,7 +89,7 @@ rdfs:range xsd:integer ;
 # subsets
 
 :subsetOf
-a rdf:Property
+a rdf:Property ;
 rdfs:label "Subset" ;
 rdfs:comment "Sets may be nested, subsets are always referenced in the FoLiA document using 'features'" ;
 rdfs:domain :Set ;
@@ -99,19 +99,19 @@ rdfs:target :Set .
 #constraints (needs work still)
 
 :constrain
-a rdf:Property
-rdfs:label "Contrain"
+a rdf:Property ;
+rdfs:label "Contrain" ;
 rdfs:comment "Constrain a class from a subset to require or forbid co-occuring with another class" ;
 rdfs:domain :Class ;
 rdfs:range :Constraint .
 
 
 :Constraint
-a rdf:Class
+a rdf:Class ;
 rdfs:label "Constraint" ;
 
 :ConstraintType
-a rdf:class
+a rdf:class ;
 rdfs:label "Constraint Type" ;
 
 :Required
