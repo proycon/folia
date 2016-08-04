@@ -497,10 +497,12 @@ elements:
     - class: Comment
       properties:
           xmltag: "comment"
+          optional_attribs: [ ID, ANNOTATOR, CONFIDENCE, DATETIME, N ]
     - class: Description
       properties:
           occurrences: 1
           xmltag: "desc"
+          optional_attribs: [ ID, ANNOTATOR, CONFIDENCE, DATETIME, N ]
     - class: External
       properties:
           speakable: false
