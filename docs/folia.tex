@@ -73,12 +73,12 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
 
 \HRule \\[0.5cm]
 { \Large \bfseries FoLiA: Format for Linguistic Annotation}\\[0.5cm] % Title of your document
-{\bf \small version 1.2 -- Revision 5.0} \\[0.5cm]
+{\bf \small version 1.3 -- Revision 6.0} \\[0.5cm]
 { \Large \bfseries Documentation}\\[0.5cm]
 {\large \emph{Maarten van Gompel}}\\[0.5cm]
 \HRule \\[1.0cm]
 
-\emph{January 2nd, 2014 \small{(published)} -- May 24th, 2016 \small{(last revision)}} \\[0.3cm] 
+\emph{January 2nd, 2014 \small{(published)} -- August 4th, 2016 \small{(last revision)}} \\[0.3cm] 
 \includegraphics[width=20.0mm]{ru-beeldmerk-zwart.eps}
 \end{center}
 \vspace{0.5cm}
@@ -2744,7 +2744,8 @@ encounter the more advanced aspects of the FoLiA paradigm.
 This is one of the simplest forms of higher-order annotation. Any annotation
 element may hold a \texttt{desc} element containing in its body a human
 readable description for the annotation. An example of this has been already
-shown for the \texttt{sense} and \texttt{gap} elements
+shown for the \texttt{sense} and \texttt{gap} elements. Only one description is
+allowed per annotation.
 
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.1">
@@ -2753,6 +2754,42 @@ shown for the \texttt{sense} and \texttt{gap} elements
 		<desc>Noun</desc>
 	</pos>	
 	<desc>boot</desc>
+</w>
+\end{lstlisting}
+
+\subsection{Comments}
+
+\status{final since v1.3}{pynlpl,libfolia}
+
+Comments is a simple higher-order annotation element that may be used with any
+annotation. It holds text that comments the annotation. Multiple comments are
+allowed per annotation and generic FoLiA attributes such as annotator are of
+course allowed as well.
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.1.s.1.w.1">
+	<t>boot</t>
+	<pos class="n">
+		<desc>Noun</desc>
+	</pos>	
+	<comment annotator="proycon">
+     This is a comment on a word
+    </comment>
+</w>
+\end{lstlisting}
+
+An alternative to these FoLiA-specific comments, which are considered actual
+annotations, is standard XML comments. Standard XML comments, however, are not
+considered actual annotations and most likely won't be interpreted by any
+tools.
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.1.s.1.w.1">
+	<t>boot</t>
+	<pos class="n">
+		<desc>Noun</desc>
+	</pos>	
+    <!-- This is a comment on a word -->
 </w>
 \end{lstlisting}
 

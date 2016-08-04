@@ -2,7 +2,7 @@
 #    This is a technical specification of FoLiA, for use by FoLiA libraries
 
 #The FoLiA version
-version: "1.2.0"
+version: "1.3.0"
 
 #The FoLiA namespace
 namespace: "http://ilk.uvt.nl/folia"
@@ -18,7 +18,7 @@ annotationtype: [ TEXT, TOKEN, DIVISION, PARAGRAPH, LIST, FIGURE, WHITESPACE, LI
 defaultproperties:
     xmltag: null   #The XML tag for the element
     annotationtype: null
-    accepted_data: [ Description ]  #Elements that are allowed as children of this element, this property is inherited automatically in the specification, rather than overriden!
+    accepted_data: [ Description, Comment ]  #Elements that are allowed as children of this element, this property is inherited automatically in the specification, rather than overriden!
     required_data: null #Elements that are required as children of this element 
     required_attribs: null #Common attributes that are required on this element
     optional_attribs: null #Other allowed common attributes 
@@ -494,6 +494,9 @@ elements:
           optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
           xmltag: "correction"
           textdelimiter: null
+    - class: Comment
+      properties:
+          xmltag: "comment"
     - class: Description
       properties:
           occurrences: 1
