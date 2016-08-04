@@ -34,7 +34,7 @@ a :SetType .
 
 :EmptySet
 rdfs:label "empty"
-rdfs:comment "Empty set definition. iThe set itself takes no classes, it may however still define subsets."
+rdfs:comment "Empty set definition. The set itself takes no classes, it may however still define subsets."
 a :SetType .
 
 
@@ -55,16 +55,17 @@ a rdf:Property ;
 rdfs:label "ID identifying the class (or set as a whole), a class is identified by this ID or its full URI. The ID must be unique for the whole set definition (including subsets)." ;
 rdfs:range xsd:string .
 
-:conceptlink
+:conceptLink
 a rdf:Property ;
-rdfs:label "Concept Link";
-rdfs:comment "Links a class or set to any other resource that is considered to cover the same concept" .
+rdfs:label "Concept Link" ;
+rdfs:comment "Links a class or set to any other resource that is considered to cover the same concept" ;
+rdfs:range rdfs:Resource .
 
 
 :memberOf
 a rdf:Property ;
 rdfs:label "Member of set" ;
-rdfs:comment "Each class must state what set it is a member of" ;
+rdfs:comment "Each class must state what set it is a direct member of" ;
 rdfs:domain :Class ;
 rdfs:target :Set .
 
@@ -78,6 +79,13 @@ rdfs:comment "This property is used to define a taxonomy/hierarchy of classes, r
 rdfs:domain :Class ;
 rdfs:target :Class .
 
+# class order
+
+:orderIndex
+a rdf:Property ;
+rdfs:domain :Class ;
+rdfs:range xsd:integer ;
+
 # subsets
 
 :subsetOf
@@ -88,7 +96,7 @@ rdfs:domain :Set ;
 rdfs:target :Set .
 
 
-#constraints
+#constraints (needs work still)
 
 :constrain
 a rdf:Property
