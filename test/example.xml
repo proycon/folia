@@ -60,6 +60,7 @@
             <t>Stemma</t>
             <pos class="N(eigen,ev,basis,zijd,stan)"/>
             <lemma class="Stemma"/>
+            <comment annotator="proycon">This is a comment</comment>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.1.w.2">
             <t>is</t>
