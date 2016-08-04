@@ -5053,7 +5053,8 @@ represents one set, including all of its subsets.
 Here is a simple example:
 
 \begin{lstlisting}[language=xml]
-<set xml:id="simplepos" type="closed">
+<set xml:id="simplepos" type="closed" 
+  label="Simple Part-of-Speech">
   <class xml:id="N" label="Noun" />
   <class xml:id="V" label="Verb" />
   <class xml:id="A" label="Adjective" />
@@ -5062,8 +5063,9 @@ Here is a simple example:
 
 The \texttt{ID} of the class determines a value the \texttt{class} attribute
 may take in the FoLiA document, for elements of this set. The \texttt{label}
-attribute carries a human readable description for presentational purposes,
-this is optional but highly recommended.
+attribute, both on the set itself as well as the classes, carries a human
+readable description for presentational purposes, this is optional but highly
+recommended.
 
 There are three possible types for sets and subsets: 
 
