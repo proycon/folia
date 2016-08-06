@@ -21,7 +21,7 @@ defaults:
       - label: Documentation
         url: https://github.com/proycon/folia/raw/master/docs/folia.pdf
       - label: Python Library Documentation 
-        url: http://pynlpl.readthedocs.io/en/latest/
+        url: http://pynlpl.readthedocs.io/en/latest/folia.html
       - label: Example Document
         url: example.xml
       - label: FoLiA Tools @PyPi
