@@ -139,12 +139,12 @@ elements:
           printable: true
           speakable: true
           optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
-          accepted_data: [ Metric, Alignment, ForeignData ]
+          accepted_data: [ Metric, Alignment, ForeignData, AlignReference ]
       elements:
           - class: AbstractSpanRole
             properties:
                 optional_attribs: [ ID, ANNOTATOR, N, DATETIME ]
-                accepted_data: [ Feature, WordReference]
+                accepted_data: [ Feature, WordReference, AlignReference]
             elements:
                 - class: CoreferenceLink
                   properties:
