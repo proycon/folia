@@ -1725,8 +1725,11 @@ do not have their own dedicated layer.
 
 \status{final}{pynlpl,libfolia}
 
-Named entities or other multi-word units can be encoded in the
-\texttt{entities} layer. Below is an example of a full sentence in which one
+The \texttt{entities} layer offers a generic solution to encode various types
+of entities or multi-word expressions, including but not limited to named
+entities. The set used determines the precise semantics behind the entities.
+
+Below is an example of named entity annotation of a full sentence in which one
 name is tagged. It is recommended for each entity to have a unique identifier.
 
 \begin{lstlisting}[language=xml]
