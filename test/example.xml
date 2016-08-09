@@ -1227,6 +1227,7 @@
                   <wref id="example.table.1.w.7" t="University"/>
                   <wref id="example.table.1.w.8" t="Nijmegen"/>
                 </entity>
+                <comment annotator="proycon">This is our university!</comment>
               </entities>
             </cell>
           </row>
