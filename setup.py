@@ -52,6 +52,7 @@ setup(
             'foliacount = foliatools.foliacount:main',
             'foliaspec = foliatools.foliaspec:main',
             'alpino2folia = foliatools.alpino2folia:main',
+            'foliatree = foliatools.foliatree:main',
         ]
     },
     #include_package_data=True,
