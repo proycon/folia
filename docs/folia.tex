@@ -186,6 +186,8 @@ Notable features of the FoLiA format include:
 \item Not commited to any label set, label sets are user-defined.
 \item Agnostic with regard to metadata. External metadata schemes such as CMDI
   \cite{CMDI} are recommended.
+\item Associate descriptions or comments with any annotation
+\item Link to other internal annotations or to external resources from within any annotation
 \end{itemize}
 
 There is support for the following linguistic annotations:
@@ -203,21 +205,25 @@ There is support for the following linguistic annotations:
 \item Morphological Analysis
 \item Observations
 \item Part-of-speech annotation
+\item Phonetic Analysis
 \item Semantic Role Labelling
 \item Semantic sense annotation 
 \item Sentiment Analysis / Subjectivity Annotation
 \item Spelling corrections on both a tokenised as well as an untokenised level
 \item Syntactic Constituency Parses
+\item Time Segmentation
 \end{itemize}
 
 FoLiA support is incorporated directly into the following software:
 
 \begin{itemize} 
-\item ucto - A tokeniser which can directly output FoLiA XML 
-\item Frog - A PoS-tagger/lemmatiser/parser suite (the successor of Tadpole), will eventually support reading and writing FoLIA.
-\item CLAM - Computational Linguistics Application Mediator, will eventually have viewers for the FoLiA format.
-\item PyNLPl - Python Natural Language Processing Library, comes with a library for parsing FoLiA
-\item libfolia - C++ library for parsing FoLiA
+\item ucto\footnote{\url{https://languagemachines.github.io/ucto}} - A tokeniser which can directly output FoLiA XML 
+\item Frog\footnote{\url{https://languagemachines.github.io/frog}}- A PoS-tagger/lemmatiser/parser suite
+\item FLAT\footnote{\url{https://github.com/proycon/FLAT}} - A web-based annotation environment for FoLiA
+\item Gecco\footnote{\url{https://github.com/proycon/gecco}} - Spelling correction software
+\item CLAM\footnote{\url{https://languagemachines.github.io/ucto}}- Computational Linguistics Application Mediator, will eventually have viewers for the FoLiA format.
+\item PyNLPl\footnote{\url{https://github.com/proycon/pynlpl}}- Python Natural Language Processing Library, comes with a library for parsing FoLiA
+\item libfolia\footnote{\url{https://github.com/LanguageMachines/libfolia}}- C++ library for parsing FoLiA
 \end{itemize}
 
 FoLiA is used in various projects (list may not be complete):
@@ -251,7 +257,7 @@ libfolia ($C++$). You may also see portions of this documentation that are
 proposals, which means the functionality is still open for debate and not final
 yet. Example: 
 
-\status{PROPOSED in v0.9)}{not implemented yet} 
+\status{PROPOSED in v0.9}{not implemented yet} 
 
 Any version of FoLiA and its libraries should be compatible with earlier
 releases. When things have changed between versions, this is indicated in the
