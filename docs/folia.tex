@@ -2385,6 +2385,63 @@ on the set used and are thus user-definable and never predefined:
 \end{lstlisting}
 \end{declaration}
 
+\subsection{Observations}
+\label{sec:observations}
+
+\status{since v1.3}{pynlpl}
+
+The \texttt{observation element} is a span annotation element that makes an observation
+pertaining to one or more word tokens. It is embedded in an
+\texttt{observations} layer.
+Observations offer a an external qualification on part of a text. The
+qualification is expressed by the class, in turn defined by a set. The precise
+semantics of the observation depends on the user-defined set.
+
+The element may for example act as a more generic replacement for the
+\texttt{errordetection} element (section~\ref{sec:errordetection}), or to
+encapsulate observations from teachers/proofreaders on a text, in which case it
+is often used with the desc element. The following example shows different
+types of observations from two fictitious sets:
+
+\begin{lstlisting}[language=xml]
+<s xml:id="example.p.1.s.1">
+ <t>The Dalai Lama greated him.</t>
+ <w xml:id="example.p.1.s.1.w.1"><t>The</t></w>
+ <w xml:id="example.p.1.s.1.w.2"><t>Dalai</t></w>
+ <w xml:id="example.p.1.s.1.w.3"><t>Lama</t></w>
+ <w xml:id="example.p.1.s.1.w.4"><t>greated</t></w>
+ <w xml:id="example.p.1.s.1.w.5"><t>him</t></w>
+ <w xml:id="example.p.1.s.1.w.6"><t>.</t></w>
+ <observations>
+  <observation class="typo" set="http://somewhere/errordetection.set.xml"> 
+   <wref id="example.p.1.s.1.w.4"/>
+  </observation>
+ </observations>
+ <observations>
+  <observation class="encouragement" set="http://somewhere/teacherobservations.set.xml"
+   annotator="teacher234" annotatortype="manual">
+   <wref id="example.p.1.s.1.w.1" />
+   <wref id="example.p.1.s.1.w.2" />
+   <wref id="example.p.1.s.1.w.3" />
+   <wref id="example.p.1.s.1.w.4" />
+   <wref id="example.p.1.s.1.w.5" />
+   <wref id="example.p.1.s.1.w.6" />
+   <desc>Almost a good sentence, only one mistake. Keep up the good work!</desc>
+  </observation>
+ </observations>
+</s>
+\end{lstlisting}
+
+Further set-dependent attributes can be associated with any observation using FoLiA's feature mechanism (see~\ref{sec:features}).
+
+\begin{declaration}
+\begin{lstlisting}[language=xml]
+<annotations>
+ <observation-annotation set="http://url/to/your/set" />
+</annotations>
+\end{lstlisting}
+\end{declaration}
+
 \section{Morphological Annotation}
 
 \status{heavily revised since v0.9}{pynlpl,libfolia}
@@ -4549,6 +4606,7 @@ The declaration:
 \end{lstlisting}
 
 \subsubsection{Error Detection}
+\label{sec:errordetection}
 
 The text-markup counterpart to the token annotation element
 \texttt{errordetection} is \texttt{t-error}. This element may be used to signal
