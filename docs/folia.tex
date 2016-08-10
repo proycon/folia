@@ -3374,6 +3374,11 @@ This kind of error detection is very simple and does not provide actual
 correction nor suggestions for correction. In some cases, it is desirable to
 record suggestions for correction, but without making the actual correction.
 
+Be aware that the span annotation element \texttt{observation} (See
+section~\ref{sec:observations}) usually provides a better suited alternative 
+for error detection than this \texttt{errordetection} element. The
+\texttt{observation} element allows spanning over multiple tokens.
+
 Error detection has to be declared seperately from corrections, as they can be
 used independently. However, nothing stops you from pointing them both
 to the same set. 
