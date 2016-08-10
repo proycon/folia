@@ -2400,7 +2400,7 @@ on the set used and are thus user-definable and never predefined:
 \end{lstlisting}
 \end{declaration}
 
-\subsection{Observations}
+\subsection{Observation Annotation}
 \label{sec:observations}
 
 \status{since v1.3}{pynlpl}
@@ -2520,7 +2520,66 @@ Besides these predefined features, FoLiA's feature mechanism (see Section~\ref{s
 \end{lstlisting}
 \end{declaration}
 
+\subsection{Statement Annotation (Attribution)}
+\label{sec:observations}
 
+\status{since v1.3}{pynlpl}
+
+The span annotation element \texttt{statement} allows to decompose statements
+into the source of the statement, the content of the statement, and the way
+these relate, provided these are made explicit in the text. The element is used
+in a \texttt{statements} layer and takes the following span roles:
+
+
+\begin{itemize}
+\item \texttt{hd} -- \textbf{required} -- The head of the statement is the actual content of the statement; this role spans the words containing the statement. 
+\item \texttt{source} -- \textbf{optional} -- The source/holder of the statement, assuming it is explicitly expressed in the text.
+\item \texttt{relation} -- \textbf{optional} -- The relation between the source of the statement and the statement, this usually encompasses verbs like ``to say'', ``to think'', or prepositional phrases such as ``according to''.
+\end{itemize}
+
+Consider the following example:
+
+\begin{lstlisting}[language=xml]
+<s xml:id="s1">
+ <w xml:id="s1.w1"><t>They</t></w>
+ <w xml:id="s1.w2"><t>said</t></w>
+ <w xml:id="s1.w3"><t>the</t></w>
+ <w xml:id="s1.w4"><t>hotel</t></w>
+ <w xml:id="s1.w5"><t>was</t></w>
+ <w xml:id="s1.w6"><t>a</t></w>
+ <w xml:id="s1.w7"><t>nightmare</t></w>
+ <w xml:id="s1.w8"><t>.</t></w>
+ <statements>
+  <statement class="said">
+   <source>
+    <wref id="s1.w1" />
+   </source>
+   <hd>
+    <wref id="s1.w3" />
+    <wref id="s1.w4" />
+    <wref id="s1.w5" />
+    <wref id="s1.w6" />
+    <wref id="s1.w7" />
+   </hd>
+   <relation>
+     <wref id="s1.w2" />
+   </relation>
+  </statement>
+ </statements>
+</s>
+\end{lstlisting}
+
+Whether the statement's class, if used at all, expresses the relationship like in the example, or has more direct bearing on the statement itself, is of course up to the set used.
+Further set-dependent properties can be associated with any observation using FoLiA's feature mechanism (see Section~\ref{sec:features}).
+
+
+\begin{declaration}
+\begin{lstlisting}[language=xml]
+<annotations>
+ <statement-annotation set="http://url/to/your/set" />
+</annotations>
+\end{lstlisting}
+\end{declaration}
 
 \section{Morphological Annotation}
 
