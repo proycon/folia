@@ -1770,10 +1770,10 @@ words for simple applications in which only the textual content is of interest.
 
 \status{final}{pynlpl,libfolia}
 
-A very typical form of span annotation is syntax annotation. This is done
-within the \texttt{syntax} layer and introduces a nested hierarchy of syntactic
-unit (\texttt{su}) elements. It is recommended for each syntactic unit to have
-a unique identifier:
+A very typical form of span annotation is syntax annotation, or constituency
+parses. This is represented using the \texttt{syntax} layer which introduces a nested
+hierarchy of syntactic unit (\texttt{su}) elements. It is recommended for each
+syntactic unit to have a unique identifier:
 
 \begin{lstlisting}[language=xml]
 <s xml:id="example.p.1.s.1">
@@ -1831,8 +1831,8 @@ extra annotation layer, see Section~\ref{sec:deprel}.
 
 \status{slightly revised in v0.8 (no ``su'' attribute on hd/dep)}{pynlpl,libfolia}
 
-Dependency relations are relations between tokens, in most cases equal to
-syntactic units. A dependency relation is often of a particular class and
+Dependency relations are relations between spans of tokens, in most cases equal to
+syntactic units. A dependency relation takes a particular class and
 consists of a single head component and a single dependent component. In the
 sample ``He sees'', there is  syntactic dependency between the two words:
 ``sees'' is the head, and ``He'' is the dependant, and the relation class is
@@ -1844,13 +1844,14 @@ The element \texttt{dependencies} introduces this annotation layer. Within it,
 
 In the example below, we show a Dutch sentence parsed with the Alpino Parser
 \cite{ALPINO}. We show not only the dependency layer, but also the syntax layer
-to which it is related. The \texttt{dependency} element always contains two
-span roles: one head element (\texttt{hd}) and one dependent element
-(\texttt{dep}). The words they cover are reiterated in the usual fashion, using
-\texttt{wref}. For a better understanding, Figure~\ref{fig:depparse}
-illustrates the syntactic parse with the dependency relations. Both span roles \texttt{hd}
-and \texttt{dep} can optionally make extra reference to a syntactic unit (or
-anything else for that matter) by means of the \texttt{aref} element. 
+to which it is related, and show how you can establish links between the two
+layers. The \texttt{dependency} element always contains two span roles: one
+head element (\texttt{hd}) and one dependent element (\texttt{dep}). The words
+they cover are reiterated in the usual fashion, using \texttt{wref}. For a
+better understanding, Figure~\ref{fig:depparse} illustrates the syntactic parse
+with the dependency relations. Both span roles \texttt{hd} and \texttt{dep} can
+optionally make extra reference to a syntactic unit (or anything else for that
+matter) by means of the \texttt{aref} element. 
 
 \begin{figure}[h]
 \begin{center}
