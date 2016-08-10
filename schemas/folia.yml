@@ -226,7 +226,7 @@ elements:
           - class: Sentiment
             properties:
                 annotationtype: SENTIMENT
-                accepted_data: [ Feature, Headspan, Source, Target, WordReference ]
+                accepted_data: [ Feature, Headspan, PolarityFeature, StrengthFeature, Source, Target, WordReference ]
                 xmltag: "sentiment"
           - class: Statement
             properties:
@@ -591,6 +591,14 @@ elements:
             properties:
                 xmltag: null
                 subset: "modality"
+          - class: PolarityFeature
+            properties:
+                xmltag: null
+                subset: "polarity"
+          - class: StrengthFeature
+            properties:
+                xmltag: null
+                subset: "strength"
           - class: StyleFeature
             properties:
                 xmltag: null
