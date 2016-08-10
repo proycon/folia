@@ -21,6 +21,7 @@
       <dependency-annotation set="alpino-set" />
       <alignment-annotation set="alignment-set" />
       <semrole-annotation set="semrole-set" />
+      <predicate-annotation set="predicate-set" />
       <chunking-annotation set="chunk-set" />
       <coreference-annotation set="coreference-set" />
       <lang-annotation set="lang-set" />
@@ -895,6 +896,7 @@
             <lemma class="."/>
           </w>
           <semroles>
+           <predicate class="aanduiden">
             <semrole class="actor">
               <wref id="WR-P-E-J-0000000001.p.1.s.7.w.3" t="men"/>
             </semrole>
@@ -904,6 +906,7 @@
                 <wref id="WR-P-E-J-0000000001.p.1.s.7.w.5" t="verwantschap"/>
               </hd>
             </semrole>
+           </predicate>
           </semroles>
         </s>
         <s xml:id="WR-P-E-J-0000000001.p.1.s.8">
