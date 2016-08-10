@@ -35,6 +35,8 @@
       <definition-annotation set="definitions" />
       <example-annotation set="examples" />
       <phonological-annotation set="phonology-set" />
+      <sentiment-annotation set="sentiment-set" />
+      <statement-annotation set="statement-set" />
     </annotations>
     <meta id="title">Stemma</meta>
     <meta id="language">nl</meta>
@@ -1133,7 +1135,7 @@
         </figure>
       </event>
       <div xml:id="sandbox.2">
-        <t>De CDA-lijsttrekker heeft fors verloren.</t>
+        <t>De CDA-lijsttrekker heeft fors verloren. Hij was erg teleurgesteld.</t>
         <s xml:id="WR-P-E-J-0000000001.sandbox.2.s.1">
           <t>De CDA-lijsttrekker heeft fors verloren.</t>
           <w xml:id="WR-P-E-J-0000000001.sandbox.2.s.1.w.1">
@@ -1169,6 +1171,78 @@
               <wref id="WR-P-E-J-0000000001.sandbox.2.s.1.w.1.m.1" t="CDA"/>
             </entity>
           </entities>
+        </s>
+        <s xml:id="WR-P-E-J-0000000001.sandbox.2.s.2">
+            <t>Hij had beloofd dat hij zou winnen.</t>
+            <w xml:id="WR-P-E-J-0000000001.sandbox.2.s.2.w.1">
+                <t>Hij</t>
+            </w>
+            <w xml:id="WR-P-E-J-0000000001.sandbox.2.s.2.w.2">
+                <t>had</t>
+            </w>
+            <w xml:id="WR-P-E-J-0000000001.sandbox.2.s.2.w.3">
+                <t>beloofd</t>
+            </w>
+            <w xml:id="WR-P-E-J-0000000001.sandbox.2.s.2.w.4">
+                <t>dat</t>
+            </w>
+            <w xml:id="WR-P-E-J-0000000001.sandbox.2.s.2.w.5">
+                <t>hij</t>
+            </w>
+            <w xml:id="WR-P-E-J-0000000001.sandbox.2.s.2.w.6">
+                <t>zou</t>
+            </w>
+            <w xml:id="WR-P-E-J-0000000001.sandbox.2.s.2.w.7">
+                <t>winnen</t>
+            </w>
+            <w xml:id="WR-P-E-J-0000000001.sandbox.2.s.2.w.8">
+                <t>.</t>
+            </w>
+            <statements>
+                <statement class="promise">
+                    <hd>
+                        <wref id="WR-P-E-J-0000000001.sandbox.2.s.2.w.5" t="hij" />
+                        <wref id="WR-P-E-J-0000000001.sandbox.2.s.2.w.6" t="zou" />
+                        <wref id="WR-P-E-J-0000000001.sandbox.2.s.2.w.7" t="winnen" />
+                    </hd>
+                    <source>
+                        <wref id="WR-P-E-J-0000000001.sandbox.2.s.2.w.1" t="Hij" />
+                    </source>
+                    <relation>
+                        <wref id="WR-P-E-J-0000000001.sandbox.2.s.2.w.2" t="had" />
+                        <wref id="WR-P-E-J-0000000001.sandbox.2.s.2.w.3" t="beloofd" />
+                    </relation>
+                </statement>
+            </statements>
+        </s>
+        <s xml:id="WR-P-E-J-0000000001.sandbox.2.s.3">
+            <t>Hij was erg teleurgesteld.</t>
+            <w xml:id="WR-P-E-J-0000000001.sandbox.2.s.3.w.1">
+                <t>Hij</t>
+            </w>
+            <w xml:id="WR-P-E-J-0000000001.sandbox.2.s.3.w.2">
+                <t>was</t>
+            </w>
+            <w xml:id="WR-P-E-J-0000000001.sandbox.2.s.3.w.3">
+                <t>erg</t>
+            </w>
+            <w xml:id="WR-P-E-J-0000000001.sandbox.2.s.3.w.4">
+                <t>teleurgesteld</t>
+            </w>
+            <w xml:id="WR-P-E-J-0000000001.sandbox.2.s.3.w.6">
+                <t>.</t>
+            </w>
+            <sentiments>
+                <sentiment class="disappointment" polarity="negative" strength="strong">
+                    <source>
+                        <wref id="WR-P-E-J-0000000001.sandbox.2.s.3.w.1" t="Hij"/>
+                    </source>
+                    <hd>
+                        <wref id="WR-P-E-J-0000000001.sandbox.2.s.3.w.3" t="erg" />
+                        <wref id="WR-P-E-J-0000000001.sandbox.2.s.3.w.4" t="teleurgesteld" />
+                    </hd>
+                </sentiment>
+            </sentiments>
         </s>
       </div>
       <div xml:id="sandbox.3">
