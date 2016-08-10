@@ -146,8 +146,10 @@ The most important characteristics of FoLiA are:
 
 \begin{itemize}
 \item \textbf{Generalised} paradigm - We use a generalised paradigm, with as few ad-hoc provisions for annotation types as possible.
-\item \textbf{Expressivity} - The format is highly expressive, annotations can be expressed in great detail and with flexibility to the user's needs, without forcing unwanted details. Moreover, FoLiA has generalised support for representing annotation alternatives, and annotation metadata such as information on annotator, time of annotation, and annotation confidence.
-\item \textbf{Extensible} - Due to the generalised paradigm and the fact that the format does not commit to any label set, FoLiA is fairly easily extensible.   
+\item \textbf{Expressive} - The format is highly expressive, annotations can be expressed in great detail and with flexibility to the user's needs, without forcing unwanted details. Moreover, FoLiA has generalised support for representing annotation alternatives, and annotation metadata such as information on annotator, time of annotation, and annotation confidence.
+\item \textbf{Extensible} - Due to the generalised paradigm and the fact that
+    the format does not commit to any label set but used externally defined set
+    definitions, FoLiA is fairly easily extensible.   
 \item \textbf{Formalised} - The format is formalised, and can be validated on both a shallow and a deep level (the latter including tagset validation), and easily machine parsable, for which tools are provided.
 \item \textbf{Practical} - FoLiA has been developed in a bottom-up fashion right alongside applications, libraries, and other toolkits and converters. Whilst the format is rich, we try to maintain it as simple and straightforward as possible, minimising the learning curve and making it easy to adopt FoLiA in practical applications.  
 \end{itemize}
@@ -189,19 +191,23 @@ Notable features of the FoLiA format include:
 There is support for the following linguistic annotations:
 
 \begin{itemize}
-\item Part-of-speech tags (with features)
-\item Lemmatisation
-\item Spelling corrections on both a tokenised as well as an untokenised level
-\item Lexical semantic sense annotation 
-\item Named Entities / Multi-word units
-\item Syntactic Parses
-\item Dependency Relations
-\item Chunking
-\item Morphological Analysis
-\item Subjectivity Annotation/Sentiment analysis
-\item Semantic Role Labelling
-\item Co-reference
+\item Attribution, statement annotation
 \item Event annotation
+\item Co-reference Annotation
+\item Chunking/Shallow parses
+\item Dependency Relations
+\item Domain Annotation
+\item Language Annotation
+\item Lemmatisation
+\item Named Entity Annotation, Multi-word expressions, Time expressions
+\item Morphological Analysis
+\item Observations
+\item Part-of-speech annotation
+\item Semantic Role Labelling
+\item Semantic sense annotation 
+\item Sentiment Analysis / Subjectivity Annotation
+\item Spelling corrections on both a tokenised as well as an untokenised level
+\item Syntactic Constituency Parses
 \end{itemize}
 
 FoLiA support is incorporated directly into the following software:
