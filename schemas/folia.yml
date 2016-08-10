@@ -84,7 +84,7 @@ elements:
           - class: ObservationLayer
             properties:
                 accepted_data: [ Observation ]
-                xmltag: "obvervations"
+                xmltag: "observations"
                 annotationtype: OBSERVATION
                 primaryelement: false
           - class: PhonologyLayer
