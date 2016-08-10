@@ -296,10 +296,12 @@ Many elements in the FoLiA format specify an identifier by which the element is
 uniquely identifiable. This makes referring to any part of a FoLiA document
 easy and follows the lead of the D-Coi format. Identifiers should be unique in
 the entire document, and can be anything that qualifies as a valid ID according
-to the XML standard. A well proven convention is of a cumulative nature, in
-which you append the element name, a period, and a sequence number, to the
-identifier of a parent element higher in the hierarchy. Identifiers are always
-encoded in the \texttt{xml:id} attribute.
+to the XML standard, that is, it is a non-colonized name (NCName) that starts
+with either a letter or an underscore and contains none other than letters,
+digits, underscores, hyphens and periods. A well proven convention for IDs is
+of a cumulative nature, in which you append the element name, a period, and a
+sequence number, to the identifier of a parent element higher in the hierarchy.
+Identifiers are always encoded in the \texttt{xml:id} attribute.
 
 The FoLiA document as a whole also carries an ID.
 
@@ -310,6 +312,10 @@ annotation therein. FoLiA has been set up in such a way that \emph{identifiers
 should never change}. Once an identifier is assigned, it should never change,
 re-numbering is strictly prohibited unless you intentionally want to create a
 new resource and break compatibility with the old one.
+
+Certain FoLiA elements take an \texttt{id} attribute in the FoLiA XML
+namespace instead of of the \texttt{XML} namespaces, these are
+always \emph{references} to the ID of another element.
 
  
 \section{Paradigm \& Terminology}
