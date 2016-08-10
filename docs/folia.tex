@@ -352,17 +352,17 @@ categories, each contain a number of annotation types.
 Almost all annotations are associated with what we call a \textbf{set}. The set
 determines the vocabulary of the annotation, i.e. the tags or types of the
 annotation. An element of such a set is referred to as a \textbf{class}. For
-example, we may have a document with Part-of-speech annotation according to the
+example, we may have a document with part-of-speech annotation according to the
 CGN set, a tagset for Dutch part-of-speech tags \cite{CGN}. The CGN set defines
 main tag classes such as \emph{WW}, \emph{BW}, \emph{ADJ}, \emph{VZ}. FoLiA
 itself \emph{never commits to any tagset} but leaves you to define this. You can
 also use multiple tagsets in the same document if so desired, even for the same
 type of annotation.
 
-Any annotation element may have a \texttt{set} attribute, the value of which
+Most annotation elements take a \texttt{set} attribute, the value of which
 points to the URL of the set definition file that defines the set. Such an
 element then usually also carries a \texttt{class} attribute, which selects a
-particular class from the set.
+particular class from the set, for a particular annotation instance.
 
 In the metadata section of the FoLiA document, sets are \emph{declared}. This
 means that for each annotation type you specify the set you are going to use,
@@ -406,7 +406,7 @@ categories, will be introduced later in Section~\ref{sec:higherorder}.
 \status{Final since v0.12}{pynlpl,libfolia}
 
 FoLiA is also suited for annotation of speech data. The following additional
-FoLiA attributes are available for \emph{all} structure annotation elements in
+generic FoLiA attributes are available for \emph{all} structure annotation elements in
 a speech context: 
 
 \begin{itemize}
@@ -467,8 +467,8 @@ set definition, in which case you need to be aware this is merely and example
 or suggestion which you are never obliged to use. You can always point to your
 own sets.
 
-A Set Definition specifies exactly what classes are allowed in the set. It for example
-specifies exactly what Part-of-speech tags exist. This information is necessary
+A \emph{set definition} specifies exactly what classes are allowed in the set. It for example
+specifies exactly what part-of-speech tags exist. This information is necessary
 to validate the document completely at its deepest level. If the sets point
 to URLs that do not exist or are not URLs at all, warnings will be issued.
 Validation can still proceed but with the notable exception of deep validation
@@ -980,7 +980,7 @@ Event structure,  though uncommon to regular written text, can be useful in
 certain documents. Divisions, paragraphs, sentences, or even words can be
 encapsulated in an event element to indicate they somehow form an event entity
 of a particular class. This kind of structure annotation is especially useful
-in dealing with written media such as chat logs, tweets, and internet fora, in
+in dealing with computer-mediated communication such as chat logs, tweets, and internet fora, in
 which chat turns, forum posts, and tweets can be demarcated as particular
 events.
 
@@ -1135,8 +1135,8 @@ follows:
 The structure element \texttt{note} allows for notes to be included in FoLiA
 documents. A footnote as well as a bibliographical reference is an example of a
 note. The notes form an integral part of the text. For notes that are merely
-descriptive comments on the texts or its annotations, rather than a part of it,
-consider using \texttt{desc} instead. Notes themselves can contain all the
+descriptive comments on the text or its annotations, rather than a part of it,
+use \texttt{desc} or \texttt{comment} instead. Notes themselves can contain all the
 usual forms of annotations.
 
 The place of a note in the text is where it will appear. References to the note
@@ -1179,7 +1179,8 @@ discuss out to point to notes from within the text.
 
 In the previous section we discussed notes, in this section we show that you
 can make references to these notes using the \texttt{ref} element, this is a
-structure element with an extra higher-order annotation function:
+structure element, the references are explicitly present in the text, but with
+an extra higher-order annotation function:
 
 \begin{lstlisting}[language=xml]
 <s>
@@ -1328,7 +1329,7 @@ more specific FoLiA element is missing.
 
 \status{FoLiA 0.12}{pynlpl}
 
-FoLiA has a set of structure element that can be used to represent
+FoLiA has a set of structure elements that can be used to represent
 collections such as glossaries, dictionaries, thesauri, and wordnets.
 
 These have in common that they consist of a set of entries, represented in
@@ -1692,6 +1693,7 @@ The declaration (the actual set is fictitious):
 
 Subjectivity annotation is used to associate a certain subjective quality with
 a structural element. It is used for sentiment analysis and opinion analysis.
+
 Example:
 
 \begin{lstlisting}[language=xml]
