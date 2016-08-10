@@ -1947,9 +1947,11 @@ full scope follows automatically when building the dependency tree.
 
 \status{final}{pynlpl,libfolia}
 
-Unlike a full syntactic parse, chunking is not nested. The layer for this type
-of linguistic annotation is predictably called \texttt{chunking}. The span
-annotation element itself is \texttt{chunk}.
+Unlike a full syntactic parse, chunking is a form of shallow parsing that is
+not nested. FoLiA uses a separate annotation type for this. The layer is called
+\texttt{chunking} and the span annotation element itself is called
+\texttt{chunk}.
+
 
 \begin{lstlisting}[language=xml]
 <s xml:id="example.p.1.s.1">
@@ -1977,6 +1979,8 @@ annotation element itself is \texttt{chunk}.
 </s>
 \end{lstlisting}
 
+The \texttt{chunk} element may also carry classes, assigning categories in a shallow
+parsing tagset.
 
 The declaration (the actual sets are fictitious):
 
