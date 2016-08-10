@@ -211,7 +211,7 @@ elements:
             properties:
                 annotationtype: OBSERVATION
                 accepted_data: [ Feature, WordReference ]
-                xmltag: "predicate"
+                xmltag: "observation"
           - class: Predicate
             properties:
                 annotationtype: PREDICATE

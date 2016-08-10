@@ -37,6 +37,7 @@
       <phonological-annotation set="phonology-set" />
       <sentiment-annotation set="sentiment-set" />
       <statement-annotation set="statement-set" />
+      <observation-annotation set="spelling-set" />
     </annotations>
     <meta id="title">Stemma</meta>
     <meta id="language">nl</meta>
@@ -1008,6 +1009,12 @@
             <pos class="LET()"/>
             <lemma class="."/>
           </w>
+          <observations>
+              <observation class="ei_ij_error">
+                  <wref id="WR-P-E-J-0000000001.p.1.s.8.w.9" />
+                  <desc>Confusion between EI and IJ diphtongues</desc>
+              </observation>
+          </observations>
         </s>
       </p>
       <coreferences>
