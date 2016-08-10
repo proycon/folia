@@ -2432,7 +2432,7 @@ types of observations from two fictitious sets:
 </s>
 \end{lstlisting}
 
-Further set-dependent attributes can be associated with any observation using FoLiA's feature mechanism (see~\ref{sec:features}).
+Further set-dependent properties can be associated with any observation using FoLiA's feature mechanism (see Section~\ref{sec:features}).
 
 \begin{declaration}
 \begin{lstlisting}[language=xml]
@@ -2441,6 +2441,71 @@ Further set-dependent attributes can be associated with any observation using Fo
 </annotations>
 \end{lstlisting}
 \end{declaration}
+
+\subsection{Sentiment Analysis}
+\label{sec:sentiment}
+
+\status{since v1.3}{pynlpl}
+
+Sentiment analysis marks subjective information such as sentiments or attitudes
+expressed in text. The \texttt{sentiment} span annotation element is used to
+this end. It is embedded in a \texttt{sentiments} layer. This element offers a
+more comprehensive solution replacing the older \texttt{subjectivity}
+element. 
+
+The \texttt{sentiment} element takes the following span roles:
+\begin{itemize}
+\item \texttt{hd} -- \textbf{required} -- The head of the sentiment; expresses the actual sentiment, it covers word spans such as ``happy'', ``very satisfied'', ``highly dissappointed''. 
+\item \texttt{source} -- \textbf{optional} -- The source/holder of the sentiment, assuming it is explicitly expressed in the text.
+\item \texttt{target} -- \textbf{optional} -- The target/recipient of the sentiment, assuming it is explicitly expressed in the text.
+\end{itemize}
+
+Consider the following example:
+
+\begin{lstlisting}[language=xml]
+<s xml:id="s1">
+ <w xml:id="s1.w1"><t>He</t></w>
+ <w xml:id="s1.w2"><t>is</t></w>
+ <w xml:id="s1.w3"><t>happy</t></w>
+ <w xml:id="s1.w4"><t>to</t></w>
+ <w xml:id="s1.w5"><t>see</t></w>
+ <w xml:id="s1.w6"><t>him</t></w>
+ <w xml:id="s1.w7"><t>.</t></w>
+ <sentiments>
+  <sentiment class="emotion.joy" polarity="positive" strength="moderate">
+    <source>
+      <wref id="s1.w1" t="he" />
+    </source>
+    <target>
+      <wref id="s1.w6" t="him" />
+    </target>
+    <hd>
+      <wref id="s1.w3" t="happy" />
+    </hd>
+  </sentiment>
+ </sentiments>
+</s>
+\end{lstlisting}
+
+The following feature subsets are predefined, whether they are actually used depends on the set, their values (classes) are set-dependent as well:
+
+\begin{itemize}
+\item \texttt{polarity}  -- Expresses the whether the sentiment is positive, neutral or negative.
+\item \texttt{strength}  -- Expresses the strength or intensity of the sentiment
+\end{itemize}
+
+Besides these predefined features, FoLiA's feature mechanism (see Section~\ref{sec:features}) can be used to associate other custom properties with any sentiment.
+
+
+\begin{declaration}
+\begin{lstlisting}[language=xml]
+<annotations>
+ <sentiment-annotation set="http://url/to/your/set" />
+</annotations>
+\end{lstlisting}
+\end{declaration}
+
+
 
 \section{Morphological Annotation}
 
