@@ -2173,7 +2173,7 @@ introduced in Section~\ref{sec:phonemes}.
  
 \subsection{Semantic Roles}
 
-\status{new in 0.9}{pynlpl}
+\status{since 0.9, added predicates in v1.3}{pynlpl,libfolia}
 
 Semantic roles, or thematic roles, are implemented in FoLiA using the
 span-annotation element \texttt{semrole}, within the annotation layer
@@ -2189,6 +2189,7 @@ span-annotation element \texttt{semrole}, within the annotation layer
   <w xml:id="example.p.1.s.1.w.5"><t>him</t></w>
   <w xml:id="example.p.1.s.1.w.6"><t>.</t></w>
   <semroles>
+   <predicate class="greet">
 	<semrole class="agent">
 		<wref id="example.p.1.s.1.w.2" />
 		<wref id="example.p.1.s.1.w.3" />
@@ -2196,16 +2197,26 @@ span-annotation element \texttt{semrole}, within the annotation layer
 	<semrole class="patient">
 		<wref id="example.p.1.s.1.w.5" />
 	</semrole>
+   </predicate>
   </semroles>
 </s>
 \end{lstlisting}
 
-Semantic roles commonly correspond with syntactic units. Links between the two
-can be expressed using FoLiA's facility for alignments (see also
-Section~\ref{sec:alignments}), which were already seen in dependency relations
-as well. The \texttt{aref} element may be used from within the \texttt{semrole}
-element to link to a syntactic unit, or anything else for that matter. The
-following example illustrates this:
+Semantic roles are usually embedded within the \texttt{predicate} span
+annotation element (since FoLiA v1.3). This is a \emph{separate} span
+annotation element, which itself may also take a class. Such a class can for
+instance be used to describe frame semantics, such as
+FrameNet\footnote{\url{https://framenet.icsi.berkeley.edu/fndrupal/}}. 
+
+Semantic roles without predicates are also allowed, but less expressive as
+relations between the semantic roles are not explicit.
+
+When semantic roles correspond with syntactic units or other span annotation
+elements. Links between the two can be expressed using FoLiA's facility for
+alignments (see also Section~\ref{sec:alignments}), which were already seen in
+dependency relations as well. The \texttt{aref} element may be used from within
+the \texttt{semrole} element to link to a syntactic unit, or anything else for
+that matter. The following example illustrates this:
 
 \begin{lstlisting}[language=xml]
 <s xml:id="example.p.1.s.1">
@@ -2239,6 +2250,7 @@ following example illustrates this:
     </su>
   </syntax>
   <semroles>
+   <predicate class="groeten">
 	<semrole class="agent">
 		<wref id="example.p.1.s.1.w.1" />
 		<wref id="example.p.1.s.1.w.2" />
@@ -2248,11 +2260,12 @@ following example illustrates this:
 		<wref id="example.p.1.s.1.w.4" />
 		<aref id="example.p.1.s.1.su.1_1_3" type="su">
 	</semrole>
+   </predicate>
   </semroles>
 </s>
 \end{lstlisting}
 
-The \texttt{hd} element can optionally be used to mark the head of a semantic role:
+The \texttt{hd} span role can optionally be used to mark the head of a semantic role:
 
 \begin{lstlisting}[language=xml]
 	<semrole class="agent">
@@ -2269,6 +2282,7 @@ The \texttt{hd} element can optionally be used to mark the head of a semantic ro
 \begin{lstlisting}[language=xml]
 <annotations>
  <semrole-annotation set="http://url/to/your/set" />
+ <predicate-annotation set="http://url/to/your/set" />
 </annotations>
 \end{lstlisting}
 \end{declaration}
