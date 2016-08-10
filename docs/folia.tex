@@ -1699,24 +1699,25 @@ The declaration (the actual set is fictitious):
 \label{sec:spanannotation}
 
 Not all annotations can be realised as token annotations. Some typically span
-multiple tokens. For these we introduce a kind of offset notation in separate
+multiple tokens. For these we introduce a stand-off annotation in separate
 \emph{annotation layers}.  Within these layers, references are made to all of
 the word tokens spanned using the \texttt{wref} element. Each annotation layer
-is specific to a kind of span annotation and associated with a set, for which a
-declaration should be present in the metadata section of the document.  The
-annotation layers are generally embedded within the structure element that also
-contains all the words that are referenced. Often this corresponds to the
-sentence level. Any other higher level is fine too, though. Layers are always
-embedded \emph{after} the word tokens or other structural elements.
+is specific to a kind of span annotation. Each span annotation is associated
+with a set, for which a declaration should be present in the metadata section
+of the document.  The annotation layers are generally embedded within the
+structure element that also contains all the words that are referenced. Often
+this corresponds to the sentence level. Any other higher level is fine too,
+though. Layers are always embedded \emph{after} the word tokens or other
+structural elements that they refer to.
 
 Depending on the type of span annotation, it is possible that the element may
 be nested. This is for example the case for syntactic annotation, where the
-nesting of syntactic units allows the building of syntax trees. Other span
-annotation elements of a more complex nature may require other span annotation
-elements within them, these latter span annotation elements are then known as
-\emph{span roles}. Span roles can only be used in
-the scope of a certain span annotation element, not standalone, and therefore
-do not have their own dedicated layer.
+nesting of syntactic units allows the building of syntax trees. Span
+annotation elements of a more complex nature may require or allow so-called \emph{span
+role} elements. Span roles encapsulate references to the words and ascribe a more defined
+meaning to the span, for instance to mark the head or dependent in a dependency
+relation. Span role elements themselves do not carry any classes and can
+only be used in the scope of a certain span annotation element, not standalone.
 
 
 %The layer elements themselves may also take the \texttt{set}, \texttt{annotator}, \texttt{annotatortype}, or \texttt{confidence} attributes. Which introduces the defaults for all the span annotations under it. They in turn may of course always chose to override this. %DISABLED FOR NOW, LIBRARIES DON't IMPLEMENT THIS YET
