@@ -35,6 +35,15 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
     \end{tabular}
 \end{center}}
 
+\newenvironment{notice}{
+\begin{center}
+    \begin{tabular}[h!]{|p{0.8\textwidth}|}
+    \hline
+    {\bf Notice}\\\hline}
+{   \\\hline
+    \end{tabular}
+\end{center}}
+
 \newenvironment{declaration}{
 \begin{center}
     \begin{tabular}[h!]{|p{0.9\textwidth}|}
@@ -1687,9 +1696,15 @@ The declaration (the actual set is fictitious):
 \end{lstlisting}
 \end{declaration}
 
-\subsection{Subjectivity/Sentiment Analysis}
+\subsection{Subjectivity Annotation}
 
 \status{final}{pynlpl,libfolia}
+
+\begin{notice}
+The span annotation element \texttt{sentiment} (See
+section~\ref{sec:sentiment}) usually provides a better suited alternative 
+for subjectivity annotation than this \texttt{subjectivity} element. Consider using it instead.
+\end{notice}
 
 Subjectivity annotation is used to associate a certain subjective quality with
 a structural element. It is used for sentiment analysis and opinion analysis.
@@ -3409,6 +3424,12 @@ Corrections need to be be declared:
 
 \status{Revised in v0.8.2, no error attribute}{pynlpl,libfolia}
 
+\begin{notice}
+The span annotation element \texttt{observation} (See
+section~\ref{sec:observations}) usually provides a better suited alternative 
+for error detection than this \texttt{errordetection} element. Consider using it instead.
+\end{notice}
+
 The correction of an error implies the detection of an error. In some cases,
 detection comes without correction, for instance when the generation of
 correction suggestions is postponed to a later processing stage. The
@@ -3439,10 +3460,6 @@ This kind of error detection is very simple and does not provide actual
 correction nor suggestions for correction. In some cases, it is desirable to
 record suggestions for correction, but without making the actual correction.
 
-Be aware that the span annotation element \texttt{observation} (See
-section~\ref{sec:observations}) usually provides a better suited alternative 
-for error detection than this \texttt{errordetection} element. The
-\texttt{observation} element allows spanning over multiple tokens.
 
 Error detection has to be declared seperately from corrections, as they can be
 used independently. However, nothing stops you from pointing them both
@@ -4680,7 +4697,7 @@ The declaration:
 
 The text-markup counterpart to the token annotation element
 \texttt{errordetection} is \texttt{t-error}. This element may be used to signal
-errors in text content. Note that the use of \texttt{errordetection} is
+errors in text content. Note that the use of \texttt{observation} (see Section~\ref{sec:observations}) is
 preferred when possible.
 
 \begin{lstlisting}[language=xml]
