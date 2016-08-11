@@ -1011,7 +1011,7 @@
           </w>
           <observations>
               <observation class="ei_ij_error">
-                  <wref id="WR-P-E-J-0000000001.p.1.s.8.w.9" />
+                  <wref id="WR-P-E-J-0000000001.p.1.s.8.w.9" t="terweil" />
                   <desc>Confusion between EI and IJ diphtongues</desc>
               </observation>
           </observations>
