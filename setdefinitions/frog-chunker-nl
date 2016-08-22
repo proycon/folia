@@ -5,15 +5,13 @@
   <class xml:id="SBARQ" label="Direct Question" />
   <class xml:id="SINV" label="Inverted declarative sentense" />
   <class xml:id="SQ" label="Inverted Question" />
-
   <class xml:id="ADJP" label="Adjective Phrase" />
   <class xml:id="ADVP" label="Adverb Phrase" />
   <class xml:id="CONJP" label="Conjunction Phrase" />
   <class xml:id="FRAG" label="Fragment" />
   <class xml:id="INTJ" label="Interjection" />
   <class xml:id="LST" label="List marker" />
-  <class xml:id="NAC" label="Not a costituent" />
-  <class xml:id="INTJ" label="Interjection" />
+  <class xml:id="NAC" label="Not a constituent" />
   <class xml:id="NP" label="Noun Phrase" />
   <class xml:id="NX" label="Head of an NP" />
   <class xml:id="O" label="Punctuation" />
@@ -29,5 +27,4 @@
   <class xml:id="WHNP" label="Wh-noun Phrase" />
   <class xml:id="WHPP" label="Wh-prepositional Phrase" />
   <class xml:id="X" label="Unknown/uncertain" />
-
 </set>
