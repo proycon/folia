@@ -2,7 +2,7 @@
 #    This is a technical specification of FoLiA, for use by FoLiA libraries
 
 #The FoLiA version
-version: "1.2.0"
+version: "1.3.0"
 
 #The FoLiA namespace
 namespace: "http://ilk.uvt.nl/folia"
@@ -11,14 +11,14 @@ namespace: "http://ilk.uvt.nl/folia"
 attributes: [ ID, CLASS, ANNOTATOR, CONFIDENCE, N, DATETIME, BEGINTIME, ENDTIME, SRC, SPEAKER ]
 
 #All possible annotation types, each must be declared in the FoLiA header when used
-annotationtype: [ TEXT, TOKEN, DIVISION, PARAGRAPH, LIST, FIGURE, WHITESPACE, LINEBREAK, SENTENCE, POS, LEMMA, DOMAIN, SENSE, SYNTAX, CHUNKING, ENTITY, CORRECTION, ERRORDETECTION, PHON, SUBJECTIVITY, MORPHOLOGICAL, EVENT, DEPENDENCY, TIMESEGMENT, GAP, NOTE, ALIGNMENT, COMPLEXALIGNMENT, COREFERENCE, SEMROLE, METRIC, LANG, STRING, TABLE, STYLE, PART, UTTERANCE, ENTRY, TERM, DEFINITION, EXAMPLE, PHONOLOGICAL ]
+annotationtype: [ TEXT, TOKEN, DIVISION, PARAGRAPH, LIST, FIGURE, WHITESPACE, LINEBREAK, SENTENCE, POS, LEMMA, DOMAIN, SENSE, SYNTAX, CHUNKING, ENTITY, CORRECTION, ERRORDETECTION, PHON, SUBJECTIVITY, MORPHOLOGICAL, EVENT, DEPENDENCY, TIMESEGMENT, GAP, NOTE, ALIGNMENT, COMPLEXALIGNMENT, COREFERENCE, SEMROLE, METRIC, LANG, STRING, TABLE, STYLE, PART, UTTERANCE, ENTRY, TERM, DEFINITION, EXAMPLE, PHONOLOGICAL, PREDICATE, OBSERVATION, SENTIMENT, STATEMENT ]
 
 
 #default properties for all elements. Are inherited from parent classes when not set, overridden when set for subclasses, except for accepted_data, which is cumulative with respect to the parents
 defaultproperties:
     xmltag: null   #The XML tag for the element
     annotationtype: null
-    accepted_data: [ Description ]  #Elements that are allowed as children of this element, this property is inherited automatically in the specification, rather than overriden!
+    accepted_data: [ Description, Comment ]  #Elements that are allowed as children of this element, this property is inherited automatically in the specification, rather than overriden!
     required_data: null #Elements that are required as children of this element 
     required_attribs: null #Common attributes that are required on this element
     optional_attribs: null #Other allowed common attributes 
@@ -81,6 +81,12 @@ elements:
                 xmltag: "morphology"
                 annotationtype: MORPHOLOGICAL
                 primaryelement: false
+          - class: ObservationLayer
+            properties:
+                accepted_data: [ Observation ]
+                xmltag: "observations"
+                annotationtype: OBSERVATION
+                primaryelement: false
           - class: PhonologyLayer
             properties:
                 accepted_data: [ Phoneme ]
@@ -89,9 +95,21 @@ elements:
                 primaryelement: false
           - class: SemanticRolesLayer
             properties:
-                accepted_data: [ SemanticRole ]
+                accepted_data: [ SemanticRole, Predicate ]
                 xmltag: "semroles"
                 annotationtype: SEMROLE
+                primaryelement: false
+          - class: SentimentLayer
+            properties:
+                accepted_data: [ Sentiment ]
+                xmltag: "sentiments"
+                annotationtype: SENTIMENT
+                primaryelement: false
+          - class: StatementLayer
+            properties:
+                accepted_data: [ Statement ]
+                xmltag: "statements"
+                annotationtype: STATEMENT
                 primaryelement: false
           - class: SyntaxLayer
             properties:
@@ -139,12 +157,12 @@ elements:
           printable: true
           speakable: true
           optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
-          accepted_data: [ Metric, Alignment, ForeignData ]
+          accepted_data: [ Metric, Alignment, ForeignData, AlignReference ]
       elements:
           - class: AbstractSpanRole
             properties:
                 optional_attribs: [ ID, ANNOTATOR, N, DATETIME ]
-                accepted_data: [ Feature, WordReference]
+                accepted_data: [ Feature, WordReference, AlignReference]
             elements:
                 - class: CoreferenceLink
                   properties:
@@ -158,6 +176,15 @@ elements:
                 - class: Headspan
                   properties:
                       xmltag: "hd"
+                - class: Relation
+                  properties:
+                      xmltag: "relation"
+                - class: Source
+                  properties:
+                      xmltag: "source"
+                - class: Target
+                  properties:
+                      xmltag: "target"
           - class: Chunk
             properties:
                 annotationtype: CHUNKING
@@ -180,12 +207,32 @@ elements:
                 annotationtype: ENTITY
                 accepted_data: [ Feature, WordReference ]
                 xmltag: "entity"
+          - class: Observation
+            properties:
+                annotationtype: OBSERVATION
+                accepted_data: [ Feature, WordReference ]
+                xmltag: "observation"
+          - class: Predicate
+            properties:
+                annotationtype: PREDICATE
+                accepted_data: [ Feature, SemanticRole, WordReference ]
+                xmltag: "predicate"
           - class: SemanticRole
             properties:
                 annotationtype: SEMROLE
                 required_attribs: [ CLASS ]
                 accepted_data: [ Feature, Headspan, WordReference ]
                 xmltag: "semrole"
+          - class: Sentiment
+            properties:
+                annotationtype: SENTIMENT
+                accepted_data: [ Feature, Headspan, PolarityFeature, StrengthFeature, Source, Target, WordReference ]
+                xmltag: "sentiment"
+          - class: Statement
+            properties:
+                annotationtype: STATEMENT
+                accepted_data: [ Feature, Headspan, Relation, Source, WordReference ]
+                xmltag: "statement"
           - class: SyntacticUnit
             properties:
                 annotationtype: SYNTAX
@@ -494,10 +541,15 @@ elements:
           optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
           xmltag: "correction"
           textdelimiter: null
+    - class: Comment
+      properties:
+          xmltag: "comment"
+          optional_attribs: [ ID, ANNOTATOR, CONFIDENCE, DATETIME, N ]
     - class: Description
       properties:
           occurrences: 1
           xmltag: "desc"
+          optional_attribs: [ ID, ANNOTATOR, CONFIDENCE, DATETIME, N ]
     - class: External
       properties:
           speakable: false
@@ -539,6 +591,14 @@ elements:
             properties:
                 xmltag: null
                 subset: "modality"
+          - class: PolarityFeature
+            properties:
+                xmltag: null
+                subset: "polarity"
+          - class: StrengthFeature
+            properties:
+                xmltag: null
+                subset: "strength"
           - class: StyleFeature
             properties:
                 xmltag: null

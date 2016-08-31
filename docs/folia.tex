@@ -35,6 +35,15 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
     \end{tabular}
 \end{center}}
 
+\newenvironment{notice}{
+\begin{center}
+    \begin{tabular}[h!]{|p{0.8\textwidth}|}
+    \hline
+    {\bf Notice}\\\hline}
+{   \\\hline
+    \end{tabular}
+\end{center}}
+
 \newenvironment{declaration}{
 \begin{center}
     \begin{tabular}[h!]{|p{0.9\textwidth}|}
@@ -73,12 +82,12 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
 
 \HRule \\[0.5cm]
 { \Large \bfseries FoLiA: Format for Linguistic Annotation}\\[0.5cm] % Title of your document
-{\bf \small version 1.2 -- Revision 5.0} \\[0.5cm]
+{\bf \small version 1.3 -- Revision 6.0} \\[0.5cm]
 { \Large \bfseries Documentation}\\[0.5cm]
 {\large \emph{Maarten van Gompel}}\\[0.5cm]
 \HRule \\[1.0cm]
 
-\emph{January 2nd, 2014 \small{(published)} -- May 24th, 2016 \small{(last revision)}} \\[0.3cm] 
+\emph{January 2nd, 2014 \small{(published)} -- August 4th, 2016 \small{(last revision)}} \\[0.3cm] 
 \includegraphics[width=20.0mm]{ru-beeldmerk-zwart.eps}
 \end{center}
 \vspace{0.5cm}
@@ -146,8 +155,10 @@ The most important characteristics of FoLiA are:
 
 \begin{itemize}
 \item \textbf{Generalised} paradigm - We use a generalised paradigm, with as few ad-hoc provisions for annotation types as possible.
-\item \textbf{Expressivity} - The format is highly expressive, annotations can be expressed in great detail and with flexibility to the user's needs, without forcing unwanted details. Moreover, FoLiA has generalised support for representing annotation alternatives, and annotation metadata such as information on annotator, time of annotation, and annotation confidence.
-\item \textbf{Extensible} - Due to the generalised paradigm and the fact that the format does not commit to any label set, FoLiA is fairly easily extensible.   
+\item \textbf{Expressive} - The format is highly expressive, annotations can be expressed in great detail and with flexibility to the user's needs, without forcing unwanted details. Moreover, FoLiA has generalised support for representing annotation alternatives, and annotation metadata such as information on annotator, time of annotation, and annotation confidence.
+\item \textbf{Extensible} - Due to the generalised paradigm and the fact that
+    the format does not commit to any label set but used externally defined set
+    definitions, FoLiA is fairly easily extensible.   
 \item \textbf{Formalised} - The format is formalised, and can be validated on both a shallow and a deep level (the latter including tagset validation), and easily machine parsable, for which tools are provided.
 \item \textbf{Practical} - FoLiA has been developed in a bottom-up fashion right alongside applications, libraries, and other toolkits and converters. Whilst the format is rich, we try to maintain it as simple and straightforward as possible, minimising the learning curve and making it easy to adopt FoLiA in practical applications.  
 \end{itemize}
@@ -184,34 +195,44 @@ Notable features of the FoLiA format include:
 \item Not commited to any label set, label sets are user-defined.
 \item Agnostic with regard to metadata. External metadata schemes such as CMDI
   \cite{CMDI} are recommended.
+\item Associate descriptions or comments with any annotation
+\item Link to other internal annotations or to external resources from within any annotation
 \end{itemize}
 
 There is support for the following linguistic annotations:
 
 \begin{itemize}
-\item Part-of-speech tags (with features)
-\item Lemmatisation
-\item Spelling corrections on both a tokenised as well as an untokenised level
-\item Lexical semantic sense annotation 
-\item Named Entities / Multi-word units
-\item Syntactic Parses
-\item Dependency Relations
-\item Chunking
-\item Morphological Analysis
-\item Subjectivity Annotation/Sentiment analysis
-\item Semantic Role Labelling
-\item Co-reference
+\item Attribution, statement annotation
 \item Event annotation
+\item Co-reference Annotation
+\item Chunking/Shallow parses
+\item Dependency Relations
+\item Domain Annotation
+\item Language Annotation
+\item Lemmatisation
+\item Named Entity Annotation, Multi-word expressions, Time expressions
+\item Morphological Analysis
+\item Observations
+\item Part-of-speech annotation
+\item Phonetic Analysis
+\item Semantic Role Labelling
+\item Semantic sense annotation 
+\item Sentiment Analysis / Subjectivity Annotation
+\item Spelling corrections on both a tokenised as well as an untokenised level
+\item Syntactic Constituency Parses
+\item Time Segmentation
 \end{itemize}
 
 FoLiA support is incorporated directly into the following software:
 
 \begin{itemize} 
-\item ucto - A tokeniser which can directly output FoLiA XML 
-\item Frog - A PoS-tagger/lemmatiser/parser suite (the successor of Tadpole), will eventually support reading and writing FoLIA.
-\item CLAM - Computational Linguistics Application Mediator, will eventually have viewers for the FoLiA format.
-\item PyNLPl - Python Natural Language Processing Library, comes with a library for parsing FoLiA
-\item libfolia - C++ library for parsing FoLiA
+\item ucto\footnote{\url{https://languagemachines.github.io/ucto}} - A tokeniser which can directly output FoLiA XML 
+\item Frog\footnote{\url{https://languagemachines.github.io/frog}}- A PoS-tagger/lemmatiser/parser suite
+\item FLAT\footnote{\url{https://github.com/proycon/FLAT}} - A web-based annotation environment for FoLiA
+\item Gecco\footnote{\url{https://github.com/proycon/gecco}} - Spelling correction software
+\item CLAM\footnote{\url{https://languagemachines.github.io/ucto}}- Computational Linguistics Application Mediator, will eventually have viewers for the FoLiA format.
+\item PyNLPl\footnote{\url{https://github.com/proycon/pynlpl}}- Python Natural Language Processing Library, comes with a library for parsing FoLiA
+\item libfolia\footnote{\url{https://github.com/LanguageMachines/libfolia}}- C++ library for parsing FoLiA
 \end{itemize}
 
 FoLiA is used in various projects (list may not be complete):
@@ -245,7 +266,7 @@ libfolia ($C++$). You may also see portions of this documentation that are
 proposals, which means the functionality is still open for debate and not final
 yet. Example: 
 
-\status{PROPOSED in v0.9)}{not implemented yet} 
+\status{PROPOSED in v0.9}{not implemented yet} 
 
 Any version of FoLiA and its libraries should be compatible with earlier
 releases. When things have changed between versions, this is indicated in the
@@ -284,10 +305,12 @@ Many elements in the FoLiA format specify an identifier by which the element is
 uniquely identifiable. This makes referring to any part of a FoLiA document
 easy and follows the lead of the D-Coi format. Identifiers should be unique in
 the entire document, and can be anything that qualifies as a valid ID according
-to the XML standard. A well proven convention is of a cumulative nature, in
-which you append the element name, a period, and a sequence number, to the
-identifier of a parent element higher in the hierarchy. Identifiers are always
-encoded in the \texttt{xml:id} attribute.
+to the XML standard, that is, it is a non-colonized name (NCName) that starts
+with either a letter or an underscore and contains none other than letters,
+digits, underscores, hyphens and periods. A well proven convention for IDs is
+of a cumulative nature, in which you append the element name, a period, and a
+sequence number, to the identifier of a parent element higher in the hierarchy.
+Identifiers are always encoded in the \texttt{xml:id} attribute.
 
 The FoLiA document as a whole also carries an ID.
 
@@ -298,6 +321,10 @@ annotation therein. FoLiA has been set up in such a way that \emph{identifiers
 should never change}. Once an identifier is assigned, it should never change,
 re-numbering is strictly prohibited unless you intentionally want to create a
 new resource and break compatibility with the old one.
+
+Certain FoLiA elements take an \texttt{id} attribute in the FoLiA XML
+namespace instead of of the \texttt{XML} namespaces, these are
+always \emph{references} to the ID of another element.
 
  
 \section{Paradigm \& Terminology}
@@ -334,17 +361,17 @@ categories, each contain a number of annotation types.
 Almost all annotations are associated with what we call a \textbf{set}. The set
 determines the vocabulary of the annotation, i.e. the tags or types of the
 annotation. An element of such a set is referred to as a \textbf{class}. For
-example, we may have a document with Part-of-speech annotation according to the
+example, we may have a document with part-of-speech annotation according to the
 CGN set, a tagset for Dutch part-of-speech tags \cite{CGN}. The CGN set defines
 main tag classes such as \emph{WW}, \emph{BW}, \emph{ADJ}, \emph{VZ}. FoLiA
 itself \emph{never commits to any tagset} but leaves you to define this. You can
 also use multiple tagsets in the same document if so desired, even for the same
 type of annotation.
 
-Any annotation element may have a \texttt{set} attribute, the value of which
+Most annotation elements take a \texttt{set} attribute, the value of which
 points to the URL of the set definition file that defines the set. Such an
 element then usually also carries a \texttt{class} attribute, which selects a
-particular class from the set.
+particular class from the set, for a particular annotation instance.
 
 In the metadata section of the FoLiA document, sets are \emph{declared}. This
 means that for each annotation type you specify the set you are going to use,
@@ -388,7 +415,7 @@ categories, will be introduced later in Section~\ref{sec:higherorder}.
 \status{Final since v0.12}{pynlpl,libfolia}
 
 FoLiA is also suited for annotation of speech data. The following additional
-FoLiA attributes are available for \emph{all} structure annotation elements in
+generic FoLiA attributes are available for \emph{all} structure annotation elements in
 a speech context: 
 
 \begin{itemize}
@@ -449,8 +476,8 @@ set definition, in which case you need to be aware this is merely and example
 or suggestion which you are never obliged to use. You can always point to your
 own sets.
 
-A Set Definition specifies exactly what classes are allowed in the set. It for example
-specifies exactly what Part-of-speech tags exist. This information is necessary
+A \emph{set definition} specifies exactly what classes are allowed in the set. It for example
+specifies exactly what part-of-speech tags exist. This information is necessary
 to validate the document completely at its deepest level. If the sets point
 to URLs that do not exist or are not URLs at all, warnings will be issued.
 Validation can still proceed but with the notable exception of deep validation
@@ -962,7 +989,7 @@ Event structure,  though uncommon to regular written text, can be useful in
 certain documents. Divisions, paragraphs, sentences, or even words can be
 encapsulated in an event element to indicate they somehow form an event entity
 of a particular class. This kind of structure annotation is especially useful
-in dealing with written media such as chat logs, tweets, and internet fora, in
+in dealing with computer-mediated communication such as chat logs, tweets, and internet fora, in
 which chat turns, forum posts, and tweets can be demarcated as particular
 events.
 
@@ -1117,8 +1144,8 @@ follows:
 The structure element \texttt{note} allows for notes to be included in FoLiA
 documents. A footnote as well as a bibliographical reference is an example of a
 note. The notes form an integral part of the text. For notes that are merely
-descriptive comments on the texts or its annotations, rather than a part of it,
-consider using \texttt{desc} instead. Notes themselves can contain all the
+descriptive comments on the text or its annotations, rather than a part of it,
+use \texttt{desc} or \texttt{comment} instead. Notes themselves can contain all the
 usual forms of annotations.
 
 The place of a note in the text is where it will appear. References to the note
@@ -1161,7 +1188,8 @@ discuss out to point to notes from within the text.
 
 In the previous section we discussed notes, in this section we show that you
 can make references to these notes using the \texttt{ref} element, this is a
-structure element with an extra higher-order annotation function:
+structure element, the references are explicitly present in the text, but with
+an extra higher-order annotation function:
 
 \begin{lstlisting}[language=xml]
 <s>
@@ -1310,7 +1338,7 @@ more specific FoLiA element is missing.
 
 \status{FoLiA 0.12}{pynlpl}
 
-FoLiA has a set of structure element that can be used to represent
+FoLiA has a set of structure elements that can be used to represent
 collections such as glossaries, dictionaries, thesauri, and wordnets.
 
 These have in common that they consist of a set of entries, represented in
@@ -1668,12 +1696,19 @@ The declaration (the actual set is fictitious):
 \end{lstlisting}
 \end{declaration}
 
-\subsection{Subjectivity/Sentiment Analysis}
+\subsection{Subjectivity Annotation}
 
 \status{final}{pynlpl,libfolia}
 
+\begin{notice}
+The span annotation element \texttt{sentiment} (See
+section~\ref{sec:sentiment}) usually provides a better suited alternative 
+for subjectivity annotation than this \texttt{subjectivity} element. Consider using it instead.
+\end{notice}
+
 Subjectivity annotation is used to associate a certain subjective quality with
 a structural element. It is used for sentiment analysis and opinion analysis.
+
 Example:
 
 \begin{lstlisting}[language=xml]
@@ -1699,24 +1734,25 @@ The declaration (the actual set is fictitious):
 \label{sec:spanannotation}
 
 Not all annotations can be realised as token annotations. Some typically span
-multiple tokens. For these we introduce a kind of offset notation in separate
+multiple tokens. For these we introduce a stand-off annotation in separate
 \emph{annotation layers}.  Within these layers, references are made to all of
 the word tokens spanned using the \texttt{wref} element. Each annotation layer
-is specific to a kind of span annotation and associated with a set, for which a
-declaration should be present in the metadata section of the document.  The
-annotation layers are generally embedded within the structure element that also
-contains all the words that are referenced. Often this corresponds to the
-sentence level. Any other higher level is fine too, though. Layers are always
-embedded \emph{after} the word tokens or other structural elements.
+is specific to a kind of span annotation. Each span annotation is associated
+with a set, for which a declaration should be present in the metadata section
+of the document.  The annotation layers are generally embedded within the
+structure element that also contains all the words that are referenced. Often
+this corresponds to the sentence level. Any other higher level is fine too,
+though. Layers are always embedded \emph{after} the word tokens or other
+structural elements that they refer to.
 
 Depending on the type of span annotation, it is possible that the element may
 be nested. This is for example the case for syntactic annotation, where the
-nesting of syntactic units allows the building of syntax trees. Other span
-annotation elements of a more complex nature may require other span annotation
-elements within them, these latter span annotation elements are then known as
-\emph{span roles}. Span roles can only be used in
-the scope of a certain span annotation element, not standalone, and therefore
-do not have their own dedicated layer.
+nesting of syntactic units allows the building of syntax trees. Span
+annotation elements of a more complex nature may require or allow so-called \emph{span
+role} elements. Span roles encapsulate references to the words and ascribe a more defined
+meaning to the span, for instance to mark the head or dependent in a dependency
+relation. Span role elements themselves do not carry any classes and can
+only be used in the scope of a certain span annotation element, not standalone.
 
 
 %The layer elements themselves may also take the \texttt{set}, \texttt{annotator}, \texttt{annotatortype}, or \texttt{confidence} attributes. Which introduces the defaults for all the span annotations under it. They in turn may of course always chose to override this. %DISABLED FOR NOW, LIBRARIES DON't IMPLEMENT THIS YET
@@ -1725,8 +1761,11 @@ do not have their own dedicated layer.
 
 \status{final}{pynlpl,libfolia}
 
-Named entities or other multi-word units can be encoded in the
-\texttt{entities} layer. Below is an example of a full sentence in which one
+The \texttt{entities} layer offers a generic solution to encode various types
+of entities or multi-word expressions, including but not limited to named
+entities. The set used determines the precise semantics behind the entities.
+
+Below is an example of named entity annotation of a full sentence in which one
 name is tagged. It is recommended for each entity to have a unique identifier.
 
 \begin{lstlisting}[language=xml]
@@ -1766,10 +1805,10 @@ words for simple applications in which only the textual content is of interest.
 
 \status{final}{pynlpl,libfolia}
 
-A very typical form of span annotation is syntax annotation. This is done
-within the \texttt{syntax} layer and introduces a nested hierarchy of syntactic
-unit (\texttt{su}) elements. It is recommended for each syntactic unit to have
-a unique identifier:
+A very typical form of span annotation is syntax annotation, or constituency
+parses. This is represented using the \texttt{syntax} layer which introduces a nested
+hierarchy of syntactic unit (\texttt{su}) elements. It is recommended for each
+syntactic unit to have a unique identifier:
 
 \begin{lstlisting}[language=xml]
 <s xml:id="example.p.1.s.1">
@@ -1827,8 +1866,8 @@ extra annotation layer, see Section~\ref{sec:deprel}.
 
 \status{slightly revised in v0.8 (no ``su'' attribute on hd/dep)}{pynlpl,libfolia}
 
-Dependency relations are relations between tokens, in most cases equal to
-syntactic units. A dependency relation is often of a particular class and
+Dependency relations are relations between spans of tokens, in most cases equal to
+syntactic units. A dependency relation takes a particular class and
 consists of a single head component and a single dependent component. In the
 sample ``He sees'', there is  syntactic dependency between the two words:
 ``sees'' is the head, and ``He'' is the dependant, and the relation class is
@@ -1840,13 +1879,14 @@ The element \texttt{dependencies} introduces this annotation layer. Within it,
 
 In the example below, we show a Dutch sentence parsed with the Alpino Parser
 \cite{ALPINO}. We show not only the dependency layer, but also the syntax layer
-to which it is related. The \texttt{dependency} element always contains two
-span roles: one head element (\texttt{hd}) and one dependent element
-(\texttt{dep}). The words they cover are reiterated in the usual fashion, using
-\texttt{wref}. For a better understanding, Figure~\ref{fig:depparse}
-illustrates the syntactic parse with the dependency relations. Both span roles \texttt{hd}
-and \texttt{dep} can optionally make extra reference to a syntactic unit (or
-anything else for that matter) by means of the \texttt{aref} element. 
+to which it is related, and show how you can establish links between the two
+layers. The \texttt{dependency} element always contains two span roles: one
+head element (\texttt{hd}) and one dependent element (\texttt{dep}). The words
+they cover are reiterated in the usual fashion, using \texttt{wref}. For a
+better understanding, Figure~\ref{fig:depparse} illustrates the syntactic parse
+with the dependency relations. Both span roles \texttt{hd} and \texttt{dep} can
+optionally make extra reference to a syntactic unit (or anything else for that
+matter) by means of the \texttt{aref} element. 
 
 \begin{figure}[h]
 \begin{center}
@@ -1942,9 +1982,11 @@ full scope follows automatically when building the dependency tree.
 
 \status{final}{pynlpl,libfolia}
 
-Unlike a full syntactic parse, chunking is not nested. The layer for this type
-of linguistic annotation is predictably called \texttt{chunking}. The span
-annotation element itself is \texttt{chunk}.
+Unlike a full syntactic parse, chunking is a form of shallow parsing that is
+not nested. FoLiA uses a separate annotation type for this. The layer is called
+\texttt{chunking} and the span annotation element itself is called
+\texttt{chunk}.
+
 
 \begin{lstlisting}[language=xml]
 <s xml:id="example.p.1.s.1">
@@ -1972,6 +2014,8 @@ annotation element itself is \texttt{chunk}.
 </s>
 \end{lstlisting}
 
+The \texttt{chunk} element may also carry classes, assigning categories in a shallow
+parsing tagset.
 
 The declaration (the actual sets are fictitious):
 
@@ -2144,7 +2188,7 @@ introduced in Section~\ref{sec:phonemes}.
  
 \subsection{Semantic Roles}
 
-\status{new in 0.9}{pynlpl}
+\status{since 0.9, added predicates in v1.3}{pynlpl,libfolia}
 
 Semantic roles, or thematic roles, are implemented in FoLiA using the
 span-annotation element \texttt{semrole}, within the annotation layer
@@ -2160,6 +2204,7 @@ span-annotation element \texttt{semrole}, within the annotation layer
   <w xml:id="example.p.1.s.1.w.5"><t>him</t></w>
   <w xml:id="example.p.1.s.1.w.6"><t>.</t></w>
   <semroles>
+   <predicate class="greet">
 	<semrole class="agent">
 		<wref id="example.p.1.s.1.w.2" />
 		<wref id="example.p.1.s.1.w.3" />
@@ -2167,16 +2212,26 @@ span-annotation element \texttt{semrole}, within the annotation layer
 	<semrole class="patient">
 		<wref id="example.p.1.s.1.w.5" />
 	</semrole>
+   </predicate>
   </semroles>
 </s>
 \end{lstlisting}
 
-Semantic roles commonly correspond with syntactic units. Links between the two
-can be expressed using FoLiA's facility for alignments (see also
-Section~\ref{sec:alignments}), which were already seen in dependency relations
-as well. The \texttt{aref} element may be used from within the \texttt{semrole}
-element to link to a syntactic unit, or anything else for that matter. The
-following example illustrates this:
+Semantic roles are usually embedded within the \texttt{predicate} span
+annotation element (since FoLiA v1.3). This is a \emph{separate} span
+annotation element, which itself may also take a class. Such a class can for
+instance be used to describe frame semantics, such as
+FrameNet\footnote{\url{https://framenet.icsi.berkeley.edu/fndrupal/}}. 
+
+Semantic roles without predicates are also allowed, but less expressive as
+relations between the semantic roles are not explicit.
+
+When semantic roles correspond with syntactic units or other span annotation
+elements. Links between the two can be expressed using FoLiA's facility for
+alignments (see also Section~\ref{sec:alignments}), which were already seen in
+dependency relations as well. The \texttt{aref} element may be used from within
+the \texttt{semrole} element to link to a syntactic unit, or anything else for
+that matter. The following example illustrates this:
 
 \begin{lstlisting}[language=xml]
 <s xml:id="example.p.1.s.1">
@@ -2210,6 +2265,7 @@ following example illustrates this:
     </su>
   </syntax>
   <semroles>
+   <predicate class="groeten">
 	<semrole class="agent">
 		<wref id="example.p.1.s.1.w.1" />
 		<wref id="example.p.1.s.1.w.2" />
@@ -2219,11 +2275,12 @@ following example illustrates this:
 		<wref id="example.p.1.s.1.w.4" />
 		<aref id="example.p.1.s.1.su.1_1_3" type="su">
 	</semrole>
+   </predicate>
   </semroles>
 </s>
 \end{lstlisting}
 
-The \texttt{hd} element can optionally be used to mark the head of a semantic role:
+The \texttt{hd} span role can optionally be used to mark the head of a semantic role:
 
 \begin{lstlisting}[language=xml]
 	<semrole class="agent">
@@ -2240,6 +2297,7 @@ The \texttt{hd} element can optionally be used to mark the head of a semantic ro
 \begin{lstlisting}[language=xml]
 <annotations>
  <semrole-annotation set="http://url/to/your/set" />
+ <predicate-annotation set="http://url/to/your/set" />
 </annotations>
 \end{lstlisting}
 \end{declaration}
@@ -2338,6 +2396,187 @@ on the set used and are thus user-definable and never predefined:
 \begin{lstlisting}[language=xml]
 <annotations>
  <coreference-annotation set="http://url/to/your/set" />
+</annotations>
+\end{lstlisting}
+\end{declaration}
+
+\subsection{Observation Annotation}
+\label{sec:observations}
+
+\status{since v1.3}{pynlpl}
+
+The \texttt{observation element} is a span annotation element that makes an observation
+pertaining to one or more word tokens. It is embedded in an
+\texttt{observations} layer.
+Observations offer a an external qualification on part of a text. The
+qualification is expressed by the class, in turn defined by a set. The precise
+semantics of the observation depends on the user-defined set.
+
+The element may for example act as a more generic replacement for the
+\texttt{errordetection} element (section~\ref{sec:errordetection}), or to
+encapsulate observations from teachers/proofreaders on a text, in which case it
+is often used with the desc element. The following example shows different
+types of observations from two fictitious sets:
+
+\begin{lstlisting}[language=xml]
+<s xml:id="example.p.1.s.1">
+ <t>The Dalai Lama greated him.</t>
+ <w xml:id="example.p.1.s.1.w.1"><t>The</t></w>
+ <w xml:id="example.p.1.s.1.w.2"><t>Dalai</t></w>
+ <w xml:id="example.p.1.s.1.w.3"><t>Lama</t></w>
+ <w xml:id="example.p.1.s.1.w.4"><t>greated</t></w>
+ <w xml:id="example.p.1.s.1.w.5"><t>him</t></w>
+ <w xml:id="example.p.1.s.1.w.6"><t>.</t></w>
+ <observations>
+  <observation class="typo" set="http://somewhere/errordetection.set.xml"> 
+   <wref id="example.p.1.s.1.w.4"/>
+  </observation>
+ </observations>
+ <observations>
+  <observation class="encouragement" set="http://somewhere/teacherobservations.set.xml"
+   annotator="teacher234" annotatortype="manual">
+   <wref id="example.p.1.s.1.w.1" />
+   <wref id="example.p.1.s.1.w.2" />
+   <wref id="example.p.1.s.1.w.3" />
+   <wref id="example.p.1.s.1.w.4" />
+   <wref id="example.p.1.s.1.w.5" />
+   <wref id="example.p.1.s.1.w.6" />
+   <desc>Almost a good sentence, only one mistake. Keep up the good work!</desc>
+  </observation>
+ </observations>
+</s>
+\end{lstlisting}
+
+Further set-dependent properties can be associated with any observation using FoLiA's feature mechanism (see Section~\ref{sec:features}).
+
+\begin{declaration}
+\begin{lstlisting}[language=xml]
+<annotations>
+ <observation-annotation set="http://url/to/your/set" />
+</annotations>
+\end{lstlisting}
+\end{declaration}
+
+\subsection{Sentiment Analysis}
+\label{sec:sentiment}
+
+\status{since v1.3}{pynlpl}
+
+Sentiment analysis marks subjective information such as sentiments or attitudes
+expressed in text. The \texttt{sentiment} span annotation element is used to
+this end. It is embedded in a \texttt{sentiments} layer. This element offers a
+more comprehensive solution replacing the older \texttt{subjectivity}
+element. 
+
+The \texttt{sentiment} element takes the following span roles:
+\begin{itemize}
+\item \texttt{hd} -- \textbf{required} -- The head of the sentiment; expresses the actual sentiment, it covers word spans such as ``happy'', ``very satisfied'', ``highly dissappointed''. 
+\item \texttt{source} -- \textbf{optional} -- The source/holder of the sentiment, assuming it is explicitly expressed in the text.
+\item \texttt{target} -- \textbf{optional} -- The target/recipient of the sentiment, assuming it is explicitly expressed in the text.
+\end{itemize}
+
+Consider the following example:
+
+\begin{lstlisting}[language=xml]
+<s xml:id="s1">
+ <w xml:id="s1.w1"><t>He</t></w>
+ <w xml:id="s1.w2"><t>is</t></w>
+ <w xml:id="s1.w3"><t>happy</t></w>
+ <w xml:id="s1.w4"><t>to</t></w>
+ <w xml:id="s1.w5"><t>see</t></w>
+ <w xml:id="s1.w6"><t>him</t></w>
+ <w xml:id="s1.w7"><t>.</t></w>
+ <sentiments>
+  <sentiment class="emotion.joy" polarity="positive" strength="moderate">
+    <source>
+      <wref id="s1.w1" t="he" />
+    </source>
+    <target>
+      <wref id="s1.w6" t="him" />
+    </target>
+    <hd>
+      <wref id="s1.w3" t="happy" />
+    </hd>
+  </sentiment>
+ </sentiments>
+</s>
+\end{lstlisting}
+
+The following feature subsets are predefined, whether they are actually used depends on the set, their values (classes) are set-dependent as well:
+
+\begin{itemize}
+\item \texttt{polarity}  -- Expresses the whether the sentiment is positive, neutral or negative.
+\item \texttt{strength}  -- Expresses the strength or intensity of the sentiment
+\end{itemize}
+
+Besides these predefined features, FoLiA's feature mechanism (see Section~\ref{sec:features}) can be used to associate other custom properties with any sentiment.
+
+
+\begin{declaration}
+\begin{lstlisting}[language=xml]
+<annotations>
+ <sentiment-annotation set="http://url/to/your/set" />
+</annotations>
+\end{lstlisting}
+\end{declaration}
+
+\subsection{Statement Annotation (Attribution)}
+\label{sec:observations}
+
+\status{since v1.3}{pynlpl}
+
+The span annotation element \texttt{statement} allows to decompose statements
+into the source of the statement, the content of the statement, and the way
+these relate, provided these are made explicit in the text. The element is used
+in a \texttt{statements} layer and takes the following span roles:
+
+
+\begin{itemize}
+\item \texttt{hd} -- \textbf{required} -- The head of the statement is the actual content of the statement; this role spans the words containing the statement. 
+\item \texttt{source} -- \textbf{optional} -- The source/holder of the statement, assuming it is explicitly expressed in the text.
+\item \texttt{relation} -- \textbf{optional} -- The relation between the source of the statement and the statement, this usually encompasses verbs like ``to say'', ``to think'', or prepositional phrases such as ``according to''.
+\end{itemize}
+
+Consider the following example:
+
+\begin{lstlisting}[language=xml]
+<s xml:id="s1">
+ <w xml:id="s1.w1"><t>They</t></w>
+ <w xml:id="s1.w2"><t>said</t></w>
+ <w xml:id="s1.w3"><t>the</t></w>
+ <w xml:id="s1.w4"><t>hotel</t></w>
+ <w xml:id="s1.w5"><t>was</t></w>
+ <w xml:id="s1.w6"><t>a</t></w>
+ <w xml:id="s1.w7"><t>nightmare</t></w>
+ <w xml:id="s1.w8"><t>.</t></w>
+ <statements>
+  <statement class="said">
+   <source>
+    <wref id="s1.w1" />
+   </source>
+   <hd>
+    <wref id="s1.w3" />
+    <wref id="s1.w4" />
+    <wref id="s1.w5" />
+    <wref id="s1.w6" />
+    <wref id="s1.w7" />
+   </hd>
+   <relation>
+     <wref id="s1.w2" />
+   </relation>
+  </statement>
+ </statements>
+</s>
+\end{lstlisting}
+
+Whether the statement's class, if used at all, expresses the relationship like in the example, or has more direct bearing on the statement itself, is of course up to the set used.
+Further set-dependent properties can be associated with any observation using FoLiA's feature mechanism (see Section~\ref{sec:features}).
+
+
+\begin{declaration}
+\begin{lstlisting}[language=xml]
+<annotations>
+ <statement-annotation set="http://url/to/your/set" />
 </annotations>
 \end{lstlisting}
 \end{declaration}
@@ -2744,7 +2983,8 @@ encounter the more advanced aspects of the FoLiA paradigm.
 This is one of the simplest forms of higher-order annotation. Any annotation
 element may hold a \texttt{desc} element containing in its body a human
 readable description for the annotation. An example of this has been already
-shown for the \texttt{sense} and \texttt{gap} elements
+shown for the \texttt{sense} and \texttt{gap} elements. Only one description is
+allowed per annotation.
 
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.1">
@@ -2753,6 +2993,42 @@ shown for the \texttt{sense} and \texttt{gap} elements
 		<desc>Noun</desc>
 	</pos>	
 	<desc>boot</desc>
+</w>
+\end{lstlisting}
+
+\subsection{Comments}
+
+\status{final since v1.3}{pynlpl,libfolia}
+
+Comments is a simple higher-order annotation element that may be used with any
+annotation. It holds text that comments the annotation. Multiple comments are
+allowed per annotation and generic FoLiA attributes such as annotator are of
+course allowed as well.
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.1.s.1.w.1">
+	<t>boot</t>
+	<pos class="n">
+		<desc>Noun</desc>
+	</pos>	
+	<comment annotator="proycon">
+     This is a comment on a word
+    </comment>
+</w>
+\end{lstlisting}
+
+An alternative to these FoLiA-specific comments, which are considered actual
+annotations, is standard XML comments. Standard XML comments, however, are not
+considered actual annotations and most likely won't be interpreted by any
+tools.
+
+\begin{lstlisting}[language=xml]
+<w xml:id="example.p.1.s.1.w.1">
+	<t>boot</t>
+	<pos class="n">
+		<desc>Noun</desc>
+	</pos>	
+    <!-- This is a comment on a word -->
 </w>
 \end{lstlisting}
 
@@ -3207,6 +3483,12 @@ Corrections need to be be declared:
 
 \status{Revised in v0.8.2, no error attribute}{pynlpl,libfolia}
 
+\begin{notice}
+The span annotation element \texttt{observation} (See
+section~\ref{sec:observations}) usually provides a better suited alternative 
+for error detection than this \texttt{errordetection} element. Consider using it instead.
+\end{notice}
+
 The correction of an error implies the detection of an error. In some cases,
 detection comes without correction, for instance when the generation of
 correction suggestions is postponed to a later processing stage. The
@@ -3236,6 +3518,7 @@ and set.
 This kind of error detection is very simple and does not provide actual
 correction nor suggestions for correction. In some cases, it is desirable to
 record suggestions for correction, but without making the actual correction.
+
 
 Error detection has to be declared seperately from corrections, as they can be
 used independently. However, nothing stops you from pointing them both
@@ -4469,10 +4752,11 @@ The declaration:
 \end{lstlisting}
 
 \subsubsection{Error Detection}
+\label{sec:errordetection}
 
 The text-markup counterpart to the token annotation element
 \texttt{errordetection} is \texttt{t-error}. This element may be used to signal
-errors in text content. Note that the use of \texttt{errordetection} is
+errors in text content. Note that the use of \texttt{observation} (see Section~\ref{sec:observations}) is
 preferred when possible.
 
 \begin{lstlisting}[language=xml]
@@ -5016,7 +5300,8 @@ represents one set, including all of its subsets.
 Here is a simple example:
 
 \begin{lstlisting}[language=xml]
-<set xml:id="simplepos" type="closed">
+<set xml:id="simplepos" type="closed" 
+  label="Simple Part-of-Speech">
   <class xml:id="N" label="Noun" />
   <class xml:id="V" label="Verb" />
   <class xml:id="A" label="Adjective" />
@@ -5025,8 +5310,9 @@ Here is a simple example:
 
 The \texttt{ID} of the class determines a value the \texttt{class} attribute
 may take in the FoLiA document, for elements of this set. The \texttt{label}
-attribute carries a human readable description for presentational purposes,
-this is optional but highly recommended.
+attribute, both on the set itself as well as the classes, carries a human
+readable description for presentational purposes, this is optional but highly
+recommended.
 
 There are three possible types for sets and subsets: 
 
