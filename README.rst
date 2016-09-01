@@ -109,6 +109,9 @@ A number of command-line tools are readily available for working with FoLiA, to 
   and produces a simple columned output format (including CSV) in which each token appears on one line. Note that only simple token annotations are supported and a lot of FoLiA data can not be intuitively expressed in a simple columned format!
 - ``folia2html`` -- Converts a FoLiA document to a semi-interactive HTML document, with limited support for certain token annotations.
 - ``folia2dcoi`` -- Convert FoLiA XML to D-Coi XML (only for annotations supported by D-Coi)
+- ``foliatree`` -- Outputs the hierarchy of a FoLiA document.
+- ``foliacat`` -- Concatenate multiple FoLiA documents.
+- ``foliamerge`` -- Merges annotations from two or more FoLiA documents.
 - ``alpino2folia`` -- Convert Alpino-DS XML to FoLiA XML
 - ``dcoi2folia`` -- Convert D-Coi XML to FoLiA XML
 - ``rst2folia`` -- Convert ReStructuredText, a lightweight non-intrusive text markup language, to FoLiA, using `docutils <http://docutils.sourceforge.net/>`_.
@@ -149,7 +152,7 @@ install``.
 Usage
 -------
 
-To obtain help regarding the usage of any of the available FoLiA tools, please pass the $-h$ option on the command line to the tool you intend to use. This will provide a summary on available options and usage examples. Most of the tools can run on both a single FoLiA document, as well as a whole directory of documents, allowing also for recursion. The tools generally take one or more file names or directory names as parameters.
+To obtain help regarding the usage of any of the available FoLiA tools, please pass the ``-h`` option on the command line to the tool you intend to use. This will provide a summary on available options and usage examples. Most of the tools can run on both a single FoLiA document, as well as a whole directory of documents, allowing also for recursion. The tools generally take one or more file names or directory names as parameters.
 
 More?
 -----
