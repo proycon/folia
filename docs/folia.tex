@@ -50,10 +50,22 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
     \hline
     {\bf \textsf{Declaration}}\\\hline}
 {
-    \footnotesize{(Note: The given sets are just examples, you are free to create and
-    use any set of your own)} \\\hline
+    \footnotesize{(Note: The given sets above are just examples and do not exist, you
+            should either create and use a set of your own, or pick a suitable existing set, if available)} \\\hline
     \end{tabular} 
 \end{center}}
+
+\newenvironment{setdefinitions}{
+\begin{center}
+    \begin{tabular}[h!]{|p{0.9\textwidth}|}
+    \hline
+    {\bf \textsf{Available sets}}\\\hline}
+{
+    \footnotesize{(Note: If no usable set exists yet, simply create and use
+    your own)} \\\hline
+    \end{tabular} 
+\end{center}}
+
 
 \newenvironment{nodeclaration}{
 \begin{center}
@@ -168,8 +180,11 @@ annotation is used for annotations pertaining to single tokens, whilst
 stand-off annotation in a separate annotation layers is adopted for annotation
 types that span over multiple tokens. This provides FoLiA with the necessary
 flexibility and extensibility to deal with various kinds of annotations.
-Inspiration for this was in part obtained from the Kyoto Annotation Format
-\cite{KYOTO}.
+
+Inspiration for parts of FoLiA has been drawn from study of similar
+initiatives, such as the Kyoto Annotation Format \cite{KYOTO} and its successor NAF
+\cite{NAF}, as well as the TCF format \cite{TCF} and the PAULA format
+\cite{PAULA}.
 
 In publication of research that makes use of FoLiA, a citation should be given
 of: {\em ``Maarten van Gompel (2014). FoLiA: Format for Linguistic Annotation.
@@ -708,7 +723,7 @@ a class, as is for example done by the tokeniser \emph{ucto}:
 
 The same can be applied to paragraphs and sentences, which requires a
 declaration of \texttt{paragraph-annotation} and \texttt{sentence-annotation}
-respectively.
+respectively when classes are assigned.
 
 \begin{declaration}
 \begin{lstlisting}[language=xml]
@@ -775,10 +790,20 @@ hold \texttt{s} and \texttt{w} elements (not \texttt{p}).
 \begin{declaration}
 \begin{lstlisting}[language=xml]
 <annotations>
- <division-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/divisions.foliaset.xml"
+ <division-annotation set="http://url/to/your/set"
 </annotations>
 \end{lstlisting}
 \end{declaration}
+
+\begin{setdefinitions}
+\begin{itemize}
+    \item
+        \url{https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/divisions.foliaset.xml}
+        -- Generic set definition for divisions, defines the classes:
+        \emph{document, chapter, section, subsection, abstract, introduction,
+        conclusion, bibliography}
+\end{itemize}
+\end{setdefinitions}
 
 \subsection{Quotes}
 
@@ -931,11 +956,20 @@ Gaps have to be declared:
 \begin{declaration}
 \begin{lstlisting}[language=xml]
 <annotations>
- <gap-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/gaps.foliaset.xml"
+ <gap-annotation set="http://path/to/your/set"
 </annotations>
 \end{lstlisting}
 \end{declaration}
 
+\begin{setdefinitions}
+\begin{itemize}
+    \item
+        \url{https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/gaps.foliaset.xml}
+        -- Generic set definition for gaps, defines the classes:
+        \emph{frontmatter, backmatter, illegible, inaudible, code, verbatim,
+            other-language, cancelled}
+\end{itemize}
+\end{setdefinitions}
 
 
 \subsection{Whitespace and Linebreaks}
@@ -1028,8 +1062,7 @@ layer. See Section~\ref{sec:timesegment}.
 \begin{declaration}
 \begin{lstlisting}[language=xml]
 <annotations>
- <event-annotation
- set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/events.foliaset.xml"
+ <event-annotation set="http://path/to/your/set" />
 </annotations>
 \end{lstlisting}
 \end{declaration}
@@ -1126,8 +1159,8 @@ brevity):
 </table>
 \end{lstlisting}
 
-Tables, rows and cells can all be assigned classes, the declaration is as
-follows:
+Tables, rows and cells can all be assigned classes, in which case a declaration
+is mandatory:
 
 \begin{declaration}
 \begin{lstlisting}[language=xml]
@@ -1175,11 +1208,20 @@ discuss out to point to notes from within the text.
 \begin{declaration}
 \begin{lstlisting}[language=xml]
 <annotations>
- <note-annotation
- set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/notes.foliaset.xml"
+ <note-annotation set="http://path/to/your/set" />
 </annotations>
 \end{lstlisting}
 \end{declaration}
+
+\begin{setdefinitions}
+\begin{itemize}
+    \item
+        \url{https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/notes.foliaset.xml}
+        -- Generic set definition for notes, defines the classes:
+        \emph{attention, caution, danger, error, hint, note, footnote, tip, warning, important, admonition}
+\end{itemize}
+\end{setdefinitions}
+
 
 \subsection{Structure References}
 \label{sec:references}
@@ -1546,9 +1588,7 @@ this later, in Section~\ref{sec:higherorder}.
 
 Whenever part-of-speech annotations are used, they should be declared in the
 \texttt{annotations} block as follows. The set you use may differ and all
-further attributes are optional and are used to set defaults. In the
-declaration example here it is as if the annotations were made by the software
-\emph{Frog}, but you will want to use your own. 
+further attributes are optional and are used to set defaults. 
 
 \begin{declaration}
 \begin{lstlisting}[language=xml]
@@ -1557,6 +1597,16 @@ declaration example here it is as if the annotations were made by the software
 </annotations>
 \end{lstlisting}
 \end{declaration}
+
+\begin{setdefinitions}
+\begin{itemize}
+    \item
+        \url{http://ilk.uvt.nl/folia/sets/frog-mbpos-cgn} -- Defines the CGN tagset for Dutch, as used by the software \emph{Frog}\footnote{https://languagemachines.github.io/frog}.
+    \item
+        \url{https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/naf\_pos.foliaset.xml} -- Minimal set of part-of-speech tags as used and defined by NAF \cite{NAF}.
+\end{itemize}
+\end{setdefinitions}
+
 
 As mentioned earlier, the declaration only sets defaults for annotator and
 annotatortype. They can be overridden in the \texttt{pos} element itself (or
@@ -1584,6 +1634,13 @@ open) set of all possible lemmas. Their annotation proceeds as follows:
 </annotations>
 \end{lstlisting}
 \end{declaration}
+
+\begin{setdefinitions}
+\begin{itemize}
+    \item
+        \url{http://ilk.uvt.nl/folia/sets/frog-mblem-nl} -- An open set for Dutch lemmas, used by \emph{Frog}\footnote{https://languagemachines.github.io/frog}.
+\end{itemize}
+\end{setdefinitions}
 
 %\subsection{Phonetic Annotation}
 
@@ -1795,11 +1852,22 @@ words for simple applications in which only the textual content is of interest.
 \begin{declaration}
 \begin{lstlisting}[language=xml]
 <annotations>
- <entity-annotation
- set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/namedentities.foliaset.xml"
+ <entity-annotation set="http://url/to/your/set" />
 </annotations>
 \end{lstlisting}
 \end{declaration}
+
+\begin{setdefinitions}
+\begin{itemize}
+    \item
+        \url{https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/namedentities.foliaset.xml}
+        -- Generic set definition for named entities, defines the classes:
+        \emph{per,org,misc,pro,eve,loc} and others.
+    \item \url{http://ilk.uvt.nl/folia/sets/frog-ner-nl}
+        -- Set definition for named entities as produced by
+        Frog\footnote{\url{https://languagemachines.github.io/frog}}, defines the classes: \emph{per,org,misc,pro,eve,loc}
+\end{itemize}
+\end{setdefinitions}
 
 \subsection{Syntax}
 
@@ -1978,6 +2046,16 @@ full scope follows automatically when building the dependency tree.
 \end{lstlisting}
 \end{declaration}
 
+\begin{setdefinitions}
+\begin{itemize}
+    \item
+        \url{http://ilk.uvt.nl/folia/sets/frog-depparse-nl}
+        -- Set definition for dependency annotation, as used by the
+        sofware Frog\footnote{\url{https://languagemachines.github.io/frog}}
+        and Alpino\footnote{\url{https://www.let.rug.nl/vannoord/alp/Alpino/}}.
+\end{itemize}
+\end{setdefinitions}
+
 \subsection{Chunking}
 
 \status{final}{pynlpl,libfolia}
@@ -2015,9 +2093,7 @@ not nested. FoLiA uses a separate annotation type for this. The layer is called
 \end{lstlisting}
 
 The \texttt{chunk} element may also carry classes, assigning categories in a shallow
-parsing tagset.
-
-The declaration (the actual sets are fictitious):
+parsing tagset, in which case a declaration is mandatory:
 
 \begin{declaration}
 \begin{lstlisting}[language=xml]
@@ -2026,6 +2102,15 @@ The declaration (the actual sets are fictitious):
 </annotations>
 \end{lstlisting}
 \end{declaration}
+
+\begin{setdefinitions}
+\begin{itemize}
+    \item
+        \url{http://ilk.uvt.nl/folia/sets/frog-chunker-nl}
+        -- Set definition for chunking, as used by the
+        sofware Frog\footnote{\url{https://languagemachines.github.io/frog}}.
+\end{itemize}
+\end{setdefinitions}
 
 \subsection{Time Segmentation}
 \label{sec:timesegment}
@@ -2415,7 +2500,7 @@ semantics of the observation depends on the user-defined set.
 The element may for example act as a more generic replacement for the
 \texttt{errordetection} element (section~\ref{sec:errordetection}), or to
 encapsulate observations from teachers/proofreaders on a text, in which case it
-is often used with the desc element. The following example shows different
+is often used with the \texttt{desc} element (see section~\ref{sec:desc}). The following example shows different
 types of observations from two fictitious sets:
 
 \begin{lstlisting}[language=xml]
@@ -2757,6 +2842,13 @@ paragraph level or the global text level.
 \end{lstlisting}
 \end{declaration}
 
+\begin{setdefinitions}
+\begin{itemize}
+    \item
+        \url{http://ilk.uvt.nl/folia/sets/frog-mbma-nl} -- Set definition as used by the software Frog.
+\end{itemize}
+\end{setdefinitions}
+
 %\subsection{Named Entities within a token}
 
 %\status{final since v0.4}{pynlpl,libfolia}
@@ -2977,6 +3069,7 @@ In our discussion of the various types of higher-order annotation, we will
 encounter the more advanced aspects of the FoLiA paradigm.
 
 \subsection{Human-readable Descriptions}
+\label{sec:desc}
 
 \status{final since v0.6}{pynlpl,libfolia}
 
@@ -4653,10 +4746,18 @@ Text-markup elements may always be nested, as the following example shows:
 \begin{declaration}
 \begin{lstlisting}[language=xml]
 <annotations>
- <style-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/style.foliaset.xml"
+ <style-annotation set="http://url/to/your/set" />
 </annotations>
 \end{lstlisting}
 \end{declaration}
+
+\begin{setdefinitions}
+\begin{itemize}
+    \item
+        \url{https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/style.foliaset.xml}
+        -- Generic set definition for styling, defines the classes: \emph{strong, emphasis, literal, highlighted, deleted, inserted, math}
+\end{itemize}
+\end{setdefinitions}
 
 \subsubsection{Gaps}
 \label{sec:tgap}
@@ -4706,11 +4807,20 @@ Being related, the \texttt{t-gap} uses the same declaration as the \texttt{gap} 
 \begin{declaration}
 \begin{lstlisting}[language=xml]
 <annotations>
- <gap-annotation
- set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/gaps.foliaset.xml"
+ <gap-annotation set="http://url/to/your/set" />
 </annotations>
 \end{lstlisting}
 \end{declaration}
+
+\begin{setdefinitions}
+\begin{itemize}
+    \item
+        \url{https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/gaps.foliaset.xml}
+        -- Generic set definition for gaps, defines the classes:
+        \emph{frontmatter, backmatter, illegible, inaudible, code, verbatim,
+            other-language, cancelled}
+\end{itemize}
+\end{setdefinitions}
 
 \subsubsection{Substrings}
 \label{sec:tstr}
@@ -4810,11 +4920,18 @@ The declaration:
 \begin{declaration}
 \begin{lstlisting}[language=xml]
 <annotations>
- <correction-annotation
- set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/spellingcorrection.foliaset.xml"
+ <correction-annotation set="http://path/to/your/set" />
 </annotations>
 \end{lstlisting}
 \end{declaration}
+
+\begin{setdefinitions}
+\begin{itemize}
+    \item
+        \url{https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/spellingcorrection.foliaset.xml}
+        -- Generic set definition for correction of orthography.
+\end{itemize}
+\end{setdefinitions}
 
 \subsubsection{Linebreaks}
 
