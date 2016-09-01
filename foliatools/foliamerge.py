@@ -16,7 +16,7 @@ def usage():
     print("foliamerge",file=sys.stderr)
     print("  by Maarten van Gompel (proycon)",file=sys.stderr)
     print("  Radboud University Nijmegen",file=sys.stderr)
-    print("  2012 - Licensed under GPLv3",file=sys.stderr)
+    print("  2016 - Licensed under GPLv3",file=sys.stderr)
     print("",file=sys.stderr)
     print("Merges annotations from two or more FoLiA documents. Structural elements are never added. Annotations can only be merged if their parent elements have IDs.",file=sys.stderr)
     print("",file=sys.stderr)

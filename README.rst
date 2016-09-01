@@ -111,6 +111,9 @@ A number of command-line tools are readily available for working with FoLiA, to 
 - ``folia2dcoi`` -- Convert FoLiA XML to D-Coi XML (only for annotations supported by D-Coi)
 - ``foliatree`` -- Outputs the hierarchy of a FoLiA document.
 - ``foliacat`` -- Concatenate multiple FoLiA documents.
+- ``foliacount`` -- This script reads a FoLiA XML document and counts certain structure elements.
+- ``foliacorrect`` -- A tool to deal with corrections in FoLiA, can automatically accept suggestions or strip all corrections so parsers that don't know how to handle corrections can process it.
+- ``foliafreqlist`` -- Output a frequency list on tokenised FoLiA documents.
 - ``foliamerge`` -- Merges annotations from two or more FoLiA documents.
 - ``alpino2folia`` -- Convert Alpino-DS XML to FoLiA XML
 - ``dcoi2folia`` -- Convert D-Coi XML to FoLiA XML

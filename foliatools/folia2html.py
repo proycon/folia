@@ -8,8 +8,8 @@ import foliatools.xslt as xslt
 def main():
     usage = """folia2html
   by Maarten van Gompel (proycon)
-  Tilburg University / Radboud University Nijmegen
-  2014 - Licensed under GPLv3
+  Centre for Language and Speech Technology, Radboud University Nijmegen
+  2016 - Licensed under GPLv3
 
 
 This conversion script converts one or more FoLiA documents to a semi-interactive HTML document for

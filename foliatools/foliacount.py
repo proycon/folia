@@ -18,10 +18,10 @@ except:
 def usage():
     print("foliacount",file=sys.stderr)
     print("  by Maarten van Gompel (proycon)",file=sys.stderr)
-    print("  Tilburg University / Radboud University Nijmegen",file=sys.stderr)
-    print("  2015 - Licensed under GPLv3",file=sys.stderr)
+    print("  Centre for Language and Speech Technology, Radboud University Nijmegen",file=sys.stderr)
+    print("  2016 - Licensed under GPLv3",file=sys.stderr)
     print("",file=sys.stderr)
-    print("This conversion script reads a FoLiA XML document and counts certain structure elements.", file=sys.stderr)
+    print("This script reads a FoLiA XML document and counts certain structure elements.", file=sys.stderr)
     print("",file=sys.stderr)
     print("Usage: foliacount [options] file-or-dir1 file-or-dir2 ..etc..",file=sys.stderr)
     print("",file=sys.stderr)

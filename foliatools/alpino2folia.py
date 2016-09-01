@@ -16,8 +16,8 @@ except:
 def usage():
     print("alpino2folia",file=sys.stderr)
     print("  by Maarten van Gompel (proycon)",file=sys.stderr)
-    print("  Radboud University Nijmegen",file=sys.stderr)
-    print("  2012-2015 - Licensed under GPLv3",file=sys.stderr)
+    print("  Centre for Language and Speech Technology, Radboud University Nijmegen",file=sys.stderr)
+    print("  2012-2016 - Licensed under GPLv3",file=sys.stderr)
     print("",file=sys.stderr)
     print("This conversion script reads an Alpino XML document and converts",file=sys.stderr)
     print("it to FoLiA. If multiple input files are specified, and/or the output FoLiA document already exists, then the",file=sys.stderr)
