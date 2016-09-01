@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<set xml:id="naf_pos" type="closed" xmlns="http://ilk.uvt.nl/folia">
+    <!-- From the NAF specification -->
+    <class xml:id="N" label="Common noun" />
+    <class xml:id="R" label="Proper noun" />
+    <class xml:id="G" label="Adjective" />
+    <class xml:id="V" label="Verb" />
+    <class xml:id="P" label="Preposition" />
+    <class xml:id="A" label="Adverb" />
+    <class xml:id="C" label="Conjunction" />
+    <class xml:id="D" label="Determiner" />
+    <class xml:id="O" label="Other" />
+</set>
