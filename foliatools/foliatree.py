@@ -18,7 +18,7 @@ except:
 def usage():
     print("foliatree",file=sys.stderr)
     print("  by Maarten van Gompel (proycon)",file=sys.stderr)
-    print("  Tilburg University / Radboud University Nijmegen",file=sys.stderr)
+    print("  Centre for Language and Speech Technology, Radboud University Nijmegen",file=sys.stderr)
     print("  2016 - Licensed under GPLv3",file=sys.stderr)
     print("",file=sys.stderr)
     print("This conversion script reads a FoLiA XML document and outputs a tree of its structure", file=sys.stderr)
