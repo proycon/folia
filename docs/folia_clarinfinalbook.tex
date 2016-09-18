@@ -81,7 +81,7 @@ annotation formats that transcend the ad-hoc level, each with their own merit, a
 being of one of them. At the onset of CLARIN-NL, however, the Dutch and Flemish
 Natural Language Processing (NLP) community lacked such a proper standard with
 respect to linguistically annotated text, and ad-hoc formats were prevalent in
-the field.  In the scope of CLARIN-NL project TTNWW, the NWO project
+the field.  In the scope of CLARIN-NL project TTNWW (see chapter @@7@@), the NWO project
 DutchSemCor, and the STEVIN project SoNaR, FoLiA (Format for Linguistic
 Annotation) was developed as a solution to accommodate their representational
 needs.
@@ -373,7 +373,7 @@ of the FoLiA documents, but construct smart indices from the original documents
 and operate on these indices. The corpus retrieval engine
 \textbf{Blacklab}\footnote{\url{https://github.com/INL/BlackLab}}, based on
 Apache Lucene, and the front-end \textbf{Whitelab}
-\cite{ReynaertVandecampVanzaanen2014ColingDemo} are examples of this. WhiteLab
+\cite{ReynaertVandecampVanzaanen2014ColingDemo} (see chapter @@19@@) are examples of this. WhiteLab
 was developed in the CLARIN-NL project
 OpenSoNaR\footnote{\url{https://github.com/TiCCSoftware/WhiteLab}}, and can
 operate on FoLiA documents, as does BlackLab. So far, these engines typically
@@ -467,8 +467,8 @@ It is a most essential layer to the infrastructure.
     interface for human end-users. It integrates the FoLiA viewer to visualise
     FoLiA documents. \cite{CLAM}
 \item \textbf{\textbf{TICCL}}\footnote{\url{https://github.com/martinreynaert/TICCL}} -- Text-Induced Corpus Clean-up \cite{Reynaert2010}. Supports FoLiA
-    input and output. Used in the
-    CLARIN-NL projects TICCLops\footnote{Available in the CLARIN infrastructure at: \url{http://ticclops.clarin.inl.nl/ticclops/}} , @PhilosTEI\footnote{Available in the CLARIN infrastructure at: \url{http://ticclops.clarin.inl.nl/philostei/}} \cite{Reynaert2014b}. 
+    input and output. Used in the CLARIN-NL projects TICCLops\footnote{Available in the CLARIN infrastructure at: \url{http://ticclops.clarin.inl.nl/ticclops/}} , @PhilosTEI\footnote{Available in the CLARIN infrastructure at: \url{http://ticclops.clarin.inl.nl/philostei/}} \cite{Reynaert2014b}
+        (see chapter @@32@@). 
 \item \textbf{\textbf{Cesax}}\footnote{\url{http://erwinkomen.ruhosting.nl/software/Cesax/}} -- A co-reference editor for syntactically annotated XML corpora.
     Supports FoLiA import and output through conversion. 
     %%Q: BRAT doet toch ook FoLiA through conversion?
@@ -483,8 +483,7 @@ It is a most essential layer to the infrastructure.
     of Orthography: A spelling correction engine fully based on FoLiA. Powers
     \emph{Valkuil.net} and soon also \emph{Fowlt.net}.
 \item \textbf{\textbf{FoLiA-langcat}}\footnote{\url{https://github.com/LanguageMachines/foliautils}} -- Performs language detection, built on TextCat\footnote{\url{http://odur.let.rug.nl/~vannoord/TextCat/}}. Part of the FoLiA utilities.
-\item \textbf{\textbf{FoLiA-stats}}\footnotemark[\value{footnote}] -- Performs simple n-gram statistics on FoLiA documents. Part of the FoLiA utilities.
-\item \textbf{\textbf{PaQu}}\footnote{\url{https://github.com/rug-compling/paqu}} -- A web application for the analysis of Dutch texts based on dependency parses computed using Alpino \cite{ALPINO}. PaQu supports FoLiA input.
+\item \textbf{\textbf{FoLiA-stats}}\footnotemark[\value{footnote}] -- Performs simple n-gram statistics on FoLiA documents. Part of the FoLiA utilities.  \item \textbf{\textbf{PaQu}}\footnote{\url{https://github.com/rug-compling/paqu}} -- A web application for the analysis of Dutch texts based on dependency parses computed using Alpino \cite{ALPINO}. PaQu supports FoLiA input. (see chapter @@23@@)
 \end{itemize}
 
 
