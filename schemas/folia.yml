@@ -193,7 +193,7 @@ elements:
           - class: CoreferenceChain
             properties:
                 annotationtype: COREFERENCE
-                accepted_data: [ CoreferenceLink ]
+                accepted_data: [ Feature, CoreferenceLink ]
                 xmltag: "coreferencechain"
                 required_data: [ CoreferenceLink ]
           - class: Dependency
