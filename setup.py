@@ -56,5 +56,5 @@ setup(
     },
     #include_package_data=True,
     package_data = {'foliatools': ['*.xsl', '../schemas/*.yml','../schemas/*.rng']},
-    install_requires=['pynlpl >= 1.0', 'lxml >= 2.2','docutils']
+    install_requires=['pynlpl >= 1.0.7', 'lxml >= 2.2','docutils']
 )
