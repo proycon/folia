@@ -94,12 +94,12 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
 
 \HRule \\[0.5cm]
 { \Large \bfseries FoLiA: Format for Linguistic Annotation}\\[0.5cm] % Title of your document
-{\bf \small version 1.3.2 -- Revision 6.1} \\[0.5cm]
+{\bf \small version 1.4.0 -- Revision 7.0} \\[0.5cm]
 { \Large \bfseries Documentation}\\[0.5cm]
 {\large \emph{Maarten van Gompel}}\\[0.5cm]
 \HRule \\[1.0cm]
 
-\emph{January 2nd, 2014 \small{(published)} -- October 11th, 2016 \small{(last revision)}} \\[0.3cm] 
+\emph{January 2nd, 2014 \small{(published)} -- October 12th, 2016 \small{(last revision)}} \\[0.3cm] 
 \includegraphics[width=20.0mm]{ru-beeldmerk-zwart.eps}
 \end{center}
 \vspace{0.5cm}
@@ -506,6 +506,10 @@ formalisation, and for certain applications they may be required; but as long
 as they serve as proper \emph{unique identifiers} you can work with
 non-existing sets. In this case, simply do not use a URL but another arbitrary
 identification string.
+
+Set definitions can be stored in several formats (see
+chapter~\ref{chapter:setdefinitions}), the format may be indicated by the
+\texttt{format} attribute on each declaration, its valus should be a MIME type.
 
 If multiple sets are used for the same annotation type, they each need a
 separate declaration, as illustrated with the following fictitious sets:
@@ -5398,30 +5402,153 @@ Needless to say, circular references are forbidden in such cases.
 \chapter{Set Definition Format}
 \label{chapter:setdefinitions}
 
-\status{Final since v0.10.1}{pynlpl}
+\status{Completely renewed since v1.4}{pynlpl}
 
 \section{Introduction}
 
-The FoLiA format consists not just out of the Document Format discussed in the
-previous chapter, but also of a Set Definition Format. The document format is
-agnostic about all sets and the classes therein; it is the Set Definition
-Format that defines precisely what classes are allowed in a certain set,
-including any subsets. 
+The sets and classes used by the various linguistic annotation types are never
+defined in the FoLiA documents themselves, but externally in \emph{set
+definitions}. 
 
-Recall from Section~\ref{sec:declarations} that all sets used need to be
+Using set definitions a FoLiA document can be validated on a deep level, i.e.
+the validity of the used classes can be tested. Set definitions provide
+semantics to the FoLiA documents that use them and are an integral part of
+FoLiA.  When set definitions are absent, validation can only be conducted on a
+shallow level that is agnostic about all sets and the classes therein.
+
+Recall from Section~\ref{sec:declarations} that all sets that are used need to be
 declared in the document header and that they point to URLs holding a FoLiA set
-definition. If no set definition files are associated, then a full in-depth
+definitions. If no set definition files are associated, then a full in-depth
 validation cannot take place.
 
-\section{Types and Classes}
+The role of FoLiA Set Definitions is:
 
-The set definition format is fairly straightforward, each set definition file
-represents one set, including all of its subsets.
+\begin{itemize}
+    \item to define which classes are valid in a set
+    \item to define which subsets and classes are valid in \emph{features} (see section~\ref{sec:features}) in a set
+    \item to constrain which subsets and classes may co-occur in an annotation of the set
+    \item to allow enumeration over classes and subsets
+    \item to assign human-readable labels to symbolic classes
+    \item to relate classes to external resources defining them (data category registries, linked data)
+    \item to define a hierarchy/taxonomy of classes
+\end{itemize}
 
-Here is a simple example:
+Prior to FoLiA v1.4, set definitions were stored in a simple custom XML format,
+distinct from FoLiA itself, which we call the legacy format and which is still
+supported for backwards compatibility. Since FoLiA v1.4 however, we strongly
+prefer and recommend to store the set definitions as RDF \cite{RDF}, i.e.\ the
+technology that powers the semantic web. In this way, set definitions provide a
+formal semantic layer for FoLiA. 
+
+Set definitions may be stored in various common RDF serialisation formats. The
+format can be indicated on the declarations in the document metadata using the
+\texttt{format} attribute, recognised values are:
+
+\begin{itemize}
+	\item \texttt{application/rdf$+$xml} -- XML for RDF (assumed for \texttt{rdf.xml} or \texttt{rdf} extensions
+	\item \texttt{text/turtle} -- Turtle\footnote{\url{https://www.w3.org/TeamSubmission/turtle/}} (for RDF) (assumed for \texttt{ttl} extensions)
+	\item \texttt{text/n3} -- Notation 3 (for RDF) (assumed for \texttt{n3} extensions)
+	\item \texttt{application/foliaset$+$xml} - Legacy FoLiA Set Definition format (XML) (assumed for \texttt{xml} extensions and in most other cases)
+\end{itemize}
+
+FoLiA applications should attempt to autodetect the format based on the extension.
+Not all applications may be able to deal with all formats/serialisations, however.
+
+In this documentation, we will use the Turtle format for RDF, alongside our
+older legacy format. In all cases, FoLiA requires that only one set is defined
+per file, any other defined sets must be subsets of the primary set. Moreover,
+FoLiA Set Definitions must make use of the FoLiA Set Definition Schema, an RDF
+schema which defines the model used. The schema can be obtained from
+\url{http://folia.science.ru.nl/setdefinition} in Turtle format. This URI is
+also the RDF namespace. Some familiarity with RDF and Turtle is recommended for this
+chapter, but it is also still possible to work with the XML legacy format,
+which is a bit more concise and simple, and automatically convert it to Turtle format.
+
+Your own set definitions should each have their own RDF namespace, which in
+Turtle syntax is defined by the \texttt{@base} directive at the top of your set
+definition.
+
+\begin{lstlisting}
+@base <http://your/namespace/> .
+@prefix fsd: <http://folia.science.ru.nl/setdefinition#> .
+\end{lstlisting}
+
+After this preamble, we can define a set as follows:
+
+\begin{lstlisting}
+<#your-set-id> 
+	a fsd:Set ;
+	fsd:id	"your-set-id" ;
+	fsd:label	"Human readable label for your set" ;
+	fsd:open	false .
+\end{lstlisting}
+
+The first two lines state that \texttt{http://your/namespace/\#your-set-id} is
+\emph{a}\footnote{the \emph{a} in Turtle is shorthand for rdf:type} FoLiA Set.
+The other define specific FoLiA Set Definition (fsd) properties.
+
+A set can be either open or closed (default), an open set allows any classes,
+even if they are not defined. This can be used for open vocabularies.
+
+In our legacy XML format, this would look like:
 
 \begin{lstlisting}[language=xml]
-<set xml:id="simplepos" type="closed" 
+<?xml version="1.0" encoding="UTF-8"?>
+<set 
+ xmlns="http://ilk.uvt.nl/folia"
+ xml:id="your-set-id" type="closed" label="Human readable label for your set">
+</set>
+\end{lstlisting}
+
+Note that the legacy XML format takes an XML namespace that is always the same
+(the FoLiA namespace) and has nothing to do with the aforementioned RDF
+namespace.
+
+\subsection{Classes}
+
+A set consists of classes. Consider a simple part-of-speech set with three classes. First we define the set:
+
+\begin{lstlisting}
+<#simplepos> 
+	a fsd:Set ;
+	fsd:id	"simplepos" ;
+	fsd:label "A simple part of speech set" .
+\end{lstlisting}
+
+Then we define the classes:
+
+\begin{lstlisting}
+<#N> 
+	a fsd:Class ;
+	fsd:id	"N" ;
+	fsd:label "Noun" ;
+	fsd:memberOf <#simplepos> .
+
+<#V> 
+	a fsd:Class ;
+	fsd:id	"V" ;
+	fsd:label "Verb" ;
+	fsd:memberOf <#simplepos> .
+
+<#A> 
+	a fsd:Class ;
+	fsd:id	"A" ;
+	fsd:label "Adjective" ;
+	fsd:memberOf <#simplepos> .
+\end{lstlisting}
+
+The \texttt{ID} of the class (mandatory) determines a value the \texttt{class} attribute
+may take in the FoLiA document, for elements of this set. The \texttt{label}
+property, both on the set itself as well as the classes, carries a human
+readable description for presentational purposes, this is optional but highly
+recommended.
+
+In our legacy set definition format this is fairly straightforward and more concise:
+
+\begin{lstlisting}[language=xml]
+<set 
+  xmlns="http://ilk.uvt.nl/folia"
+  xml:id="simplepos" type="closed" 
   label="Simple Part-of-Speech">
   <class xml:id="N" label="Noun" />
   <class xml:id="V" label="Verb" />
@@ -5429,56 +5556,34 @@ Here is a simple example:
 </set>
 \end{lstlisting}
 
-The \texttt{ID} of the class determines a value the \texttt{class} attribute
-may take in the FoLiA document, for elements of this set. The \texttt{label}
-attribute, both on the set itself as well as the classes, carries a human
-readable description for presentational purposes, this is optional but highly
-recommended.
-
-There are three possible types for sets and subsets: 
-
-\begin{enumerate}
-\item \textbf{open}: classes may be anything and are not defined
-\item \textbf{closed}: classes are defined strictly
-\item \textbf{mixed}: classes may be anything, but some are predefined
-\end{enumerate}
-
-A set definition file for an open type set definition may be as concise as:
-
-\begin{lstlisting}[language=xml]
-<set xml:id="lemmas-nl" type="open" />
-\end{lstlisting}
 
 \section{Concept Link}
 
-You may want to associate classes, or even sets themselves, with some kind of
-external ontology or category registry. This link can be made using the
-\texttt{conceptlink} attribute which may be placed on classes, sets and subset
-elements.
+You may want to associate classes, or even sets themselves, with other linked
+data collections or data category registries. This is done using the \texttt{fsd:conceptLink} relation, assuming the target is an RDF resource. Example:
 
-\begin{lstlisting}[language=xml]
-<set xml:id="simplepos" type="closed" 
- conceptlink="http://some/host/simplepos">
-  <class xml:id="N" label="Noun" 
-   conceptlink="http://some/host/noun" />
-  <class xml:id="V" label="Verb"
-   conceptlink="http://some/host/verb" />
-  <class xml:id="A" label="Adjective"
-   conceptlink="http://some/host/adj" />
-</set>
+
+\begin{lstlisting}
+<#N> 
+	a fsd:Class ;
+	fsd:id	"N" ;
+	fsd:label "Noun" ;
+	fsd:memberOf <#simplepos> ;
+	fsd:conceptLink <http://wiktionary.dbpedia.org/terms/#Noun> ;
+	fsd:infoLink "https://en.wikipedia.org/wiki/Noun" .
 \end{lstlisting}
 
-FoLiA does not dictate any format requirements for conceptual links, it can be
-anything, such as an RDF resource, or any other kind. If you want something
-more specific, or you want to link to multiple semantic resources, simply use
-your own ``conceptlink'' attribute in a different custom XML namespace.
+Multiple concept links are allowed. If you want to link to something that is
+not a formal RDF resource, but for instance a website providing information,
+then use the \texttt{fsd:infoLink} relation instead:
 
 \section{Class Hierarchy}
 
 In FoLiA Set Definitions, classes can be nested to create more complex
 hierarchies or taxonomy trees, in which both nodes and leaves act as valid
-classes.  Consider the following set definition for named entities, in which
-the \emph{location} class has been extended into more fine-grained subclasses.
+classes.  This is best illustrated in our legacy XML format first. Consider the
+following set definition for named entities, in which the \emph{location} class
+has been extended into more fine-grained subclasses.
 
 \begin{lstlisting}[language=xml]
 <set xml:id="namedentities" type="closed">
@@ -5496,6 +5601,27 @@ the \emph{location} class has been extended into more fine-grained subclasses.
 </set>
 \end{lstlisting}
 
+In Turtle syntax, this is more verbose as the hierarchy has to be modelled explicitly using the \texttt{rdf:parentClass} property, as shown in the following excerpt:
+
+\begin{lstlisting}
+<#namedentities> 
+	a fsd:Set ;
+	fsd:id	"namedentities" .
+
+<#loc> 
+	a fsd:Class ;
+	fsd:id	"loc" ;
+	fsd:label "Location" ;
+	fsd:memberOf <#namedentities> .
+
+<#loc.country> 
+    a fsd:Class ;
+	fsd:id	"loc.country" ;
+	fsd:label "Country" ;
+	fsd:memberOf <#namedentities> ;
+	fsd:parentClass <#loc> .
+\end{lstlisting}
+
 It is recommended, but not mandatory, to set the class ID of any nested classes
 to represent a full path, as a full path makes substring queries possible.
 FoLiA, however, does not dictate this and neither does it prescribe a delimiter
@@ -5504,8 +5630,9 @@ ID, however, does have to be unique in the entire set.
 
 \section{Subsets}
 
-Section~\ref{sec:features} introduced subsets. These can be defined in a
-similar fashion to sets and also carry a \texttt{type} attribute:
+Section~\ref{sec:features} introduced subsets. 
+These can be defined in a
+similar fashion to sets. Consider the legacy XML format first:
 
 \begin{lstlisting}[language=xml]
 <set xml:id="simplepos" type="closed">
@@ -5520,150 +5647,177 @@ similar fashion to sets and also carry a \texttt{type} attribute:
 </set>
 \end{lstlisting}
 
-It is possible for subsets to be used multiple times if the subset is declared
-with the attribute \texttt{multi} set to \texttt{true} (defaults to false).
-This allows multiple classes to be associated with a subset. Subsets can be
-made mandatory by setting the attribute \texttt{required} to \texttt{true}.
 
-\section{Constraints}
+In Turtle syntax, these are
+defined just like the primary set, but take an extra \texttt{rdf:subsetOf}
+property that explicitly refers to the parent set:
 
-Not all classes in subsets can be combined with others. Often the need arises
-to put constraints on which classes can go together. The previous example
-already illustrates this. For many languages, the ``gender'' subset does not
-make sense with verbs. We can put a constraint on the usage of this subset,
-limiting its usage to nouns and adjectives:
 
-\begin{lstlisting}[language=xml]
-<set xml:id="simplepos" type="closed">
-  <class xml:id="N" label="Noun" />
-  <class xml:id="V" label="Verb" />
-  <class xml:id="A" label="Adjective" />   
-  <subset xml:id="gender" class="closed">
-      <constraint>
-          <restrict class="N" />
-          <restrict class="A" />
-      </constraint>
-      <class xml:id="m" label="Masculine" />    
-      <class xml:id="f" label="Feminine" />
-      <class xml:id="n" label="Neuter" />
-  </subset>
-</set>
+\begin{lstlisting}
+<#gender> 
+	a fsd:Set ;
+	fsd:id	"gender" ;
+	fsd:subsetOf <#simplepos> .
+
+<#gender.m> 
+	a fsd:Class ;
+	fsd:id	"m" ;
+	fsd:label "Location" ;
+	fsd:memberOf <#gender> .
 \end{lstlisting}
 
-For the sake of brevity, constraints can be named and referred to when they are needed multiple times.
+Note that in this example, we prefixed the resource name for the class
+(\texttt{\#gender.m} instead of \texttt{\#m}). This is just a recommended
+convention as URIs have to be unique and we may want to re-use the \texttt{m}
+ID in other subsets as well. The \texttt{fsd:id} property does not need to
+carry this prefix, as it needs only be unique within the subset. This property
+always determines how it is referenced from the FoLiA document, so we would still get
+\texttt{<feat subset="gender" class="m" />}.
 
-\begin{lstlisting}[language=xml]
-<set xml:id="simplepos" type="closed">
-    <class xml:id="N" label="Noun" />
-    <class xml:id="V" label="Verb" />
-    <class xml:id="A" label="Adjective" />   
-    <subset xml:id="gender" class="closed">
-        <constraint name="constraint.1">
-            <restrict class="N" />
-            <restrict class="A" />
-        </constraint>
-        <class xml:id="m" label="Masculine" />    
-        <class xml:id="f" label="Feminine" />
-        <class xml:id="n" label="Neuter" />
-    </subset>
-    <subset xml:id="case" class="closed">
-        <constraint ref="constraint.1" />
-        <class xml:id="nom" label="Nominative" />    
-        <class xml:id="gen" label="Genitive" />
-        <class xml:id="dat" label="Dative" />
-        <class xml:id="acc" label="Accusative" />
-    </subset>
-</set>
-\end{lstlisting}
+%It is possible for subsets to be used multiple times if the subset is declared
+%with the attribute \texttt{multi} set to \texttt{true} (defaults to false).
+%This allows multiple classes to be associated with a subset. Subsets can be
+%made mandatory by setting the attribute \texttt{required} to \texttt{true}.
 
-Constraints can be used within subsets, but also within classes:
+%\section{Constraints}
+%
+%Not all classes in subsets can be combined with others. Often the need arises
+%to put constraints on which classes can go together. The previous example
+%already illustrates this. For many languages, the ``gender'' subset does not
+%make sense with verbs. We can put a constraint on the usage of this subset,
+%limiting its usage to nouns and adjectives:
+%
+%\begin{lstlisting}[language=xml]
+%<set xml:id="simplepos" type="closed">
+%  <class xml:id="N" label="Noun" />
+%  <class xml:id="V" label="Verb" />
+%  <class xml:id="A" label="Adjective" />   
+%  <subset xml:id="gender" class="closed">
+%      <constraint>
+%          <restrict class="N" />
+%          <restrict class="A" />
+%      </constraint>
+%      <class xml:id="m" label="Masculine" />    
+%      <class xml:id="f" label="Feminine" />
+%      <class xml:id="n" label="Neuter" />
+%  </subset>
+%</set>
+%\end{lstlisting}
 
-\begin{lstlisting}[language=xml]
-<set xml:id="simplepos" type="closed">
-    <class xml:id="N" label="Noun" />
-    <class xml:id="V" label="Verb" />
-    <class xml:id="A" label="Adjective" />   
-    <subset xml:id="gender" class="closed">
-        <class xml:id="m" label="Masculine">
-            <constraint name="constraint.1">
-                <restrict class="N" />
-                <restrict class="A" />
-            </constraint>
-        </class>    
-    </subset>
-</set>
-\end{lstlisting}
+%For the sake of brevity, constraints can be named and referred to when they are needed multiple times.
 
-Using the restrict element, you force a certain class from the main set or any
-subset, thus enumerating all the allowed classes. For example, the following
-constraint demands masculine or feminine nouns in either nominative or
-accusative case. All of the restrictions must be satisfied for the constraint
-to match, restrictions on the same subset (or the main set if no subset is
-specified) are automatically considered as disjunctions.
+%\begin{lstlisting}[language=xml]
+%<set xml:id="simplepos" type="closed">
+%    <class xml:id="N" label="Noun" />
+%    <class xml:id="V" label="Verb" />
+%    <class xml:id="A" label="Adjective" />   
+%    <subset xml:id="gender" class="closed">
+%        <constraint name="constraint.1">
+%            <restrict class="N" />
+%            <restrict class="A" />
+%        </constraint>
+%        <class xml:id="m" label="Masculine" />    
+%        <class xml:id="f" label="Feminine" />
+%        <class xml:id="n" label="Neuter" />
+%    </subset>
+%    <subset xml:id="case" class="closed">
+%        <constraint ref="constraint.1" />
+%        <class xml:id="nom" label="Nominative" />    
+%        <class xml:id="gen" label="Genitive" />
+%        <class xml:id="dat" label="Dative" />
+%        <class xml:id="acc" label="Accusative" />
+%    </subset>
+%</set>
+%\end{lstlisting}
 
-\begin{lstlisting}[language=xml] <constraint>
-    <restrict class="N" />
-    <restrict subset="gender" class="f" />
-    <restrict subset="gender" class="m" />
-    <restrict subset="case" class="nom" />
-    <restrict subset="case" class="acc" />
-</constraint>
-\end{lstlisting}
+%Constraints can be used within subsets, but also within classes:
 
-Disjunctions, over different subsets, can be made explicitly using the
-\texttt{disjunction} element. The following would be constrained to feminine
-nouns \emph{or} plural nouns, rather than feminine plural nouns if the
-disjunction element were not present:
+%\begin{lstlisting}[language=xml]
+%<set xml:id="simplepos" type="closed">
+%    <class xml:id="N" label="Noun" />
+%    <class xml:id="V" label="Verb" />
+%    <class xml:id="A" label="Adjective" />   
+%    <subset xml:id="gender" class="closed">
+%        <class xml:id="m" label="Masculine">
+%            <constraint name="constraint.1">
+%                <restrict class="N" />
+%                <restrict class="A" />
+%            </constraint>
+%        </class>    
+%    </subset>
+%</set>
+%\end{lstlisting}
 
-\begin{lstlisting}[language=xml]
-<constraint>
-    <restrict class="N" />
-	<disjunction>
-	    <restrict subset="gender" class="f" />
-	    <restrict subset="number" class="plural" />
-	</disjunction>
-</constraint>
-\end{lstlisting}
-
-
-You can also opt to specify the ``forbidden'' classes using \texttt{except}.
-Only if not a single one of the exceptions applies, the constraint is met. 
-
-\begin{lstlisting}[language=xml] <constraint>
-    <except class="V" />
-    <except class="A" />
-    <except subset="gender" class="n" />
-    <except subset="case" class="gen" />
-    <except subset="case" class="dat" />
-</constraint>
-\end{lstlisting}
-
-Restrict and except elements can also be mixed, in which case the constraint matches if all of the restrictions do, and if none of the exceptions do. Moreover, disjunctions can be nested, to form complex constraints.
-
-The \emph{required} attribute can be used on subsets to indicate whether they
-are mandatory or optional, but a more powerful mechanism is available using
-constraints and the \texttt{require} element (or its complement:
-\texttt{forbid}). The following example adds a constraint on nouns and requires
-it to have the gender and number subsets specified, whereas for verbs, tense
-and number are required.
-
-
-\begin{lstlisting}[language=xml]
-<class="N">
-	<constraint>
-		<require subset="gender" />
-		<require subset="number" />
-	</constraint>
-</class>
-<class="V">
-	<constraint>
-		<require subset="tense" />
-		<require subset="number" />
-	</constraint>
-</class>
-
-\end{lstlisting}
-
+%Using the restrict element, you force a certain class from the main set or any
+%subset, thus enumerating all the allowed classes. For example, the following
+%constraint demands masculine or feminine nouns in either nominative or
+%accusative case. All of the restrictions must be satisfied for the constraint
+%to match, restrictions on the same subset (or the main set if no subset is
+%specified) are automatically considered as disjunctions.
+%
+%\begin{lstlisting}[language=xml] <constraint>
+%    <restrict class="N" />
+%    <restrict subset="gender" class="f" />
+%    <restrict subset="gender" class="m" />
+%    <restrict subset="case" class="nom" />
+%    <restrict subset="case" class="acc" />
+%</constraint>
+%\end{lstlisting}
+%
+%Disjunctions, over different subsets, can be made explicitly using the
+%\texttt{disjunction} element. The following would be constrained to feminine
+%nouns \emph{or} plural nouns, rather than feminine plural nouns if the
+%disjunction element were not present:
+%
+%\begin{lstlisting}[language=xml]
+%<constraint>
+%    <restrict class="N" />
+%	<disjunction>
+%	    <restrict subset="gender" class="f" />
+%	    <restrict subset="number" class="plural" />
+%	</disjunction>
+%</constraint>
+%\end{lstlisting}
+%
+%
+%You can also opt to specify the ``forbidden'' classes using \texttt{except}.
+%Only if not a single one of the exceptions applies, the constraint is met. 
+%
+%\begin{lstlisting}[language=xml] <constraint>
+%    <except class="V" />
+%    <except class="A" />
+%    <except subset="gender" class="n" />
+%    <except subset="case" class="gen" />
+%    <except subset="case" class="dat" />
+%</constraint>
+%\end{lstlisting}
+%
+%Restrict and except elements can also be mixed, in which case the constraint matches if all of the restrictions do, and if none of the exceptions do. Moreover, disjunctions can be nested, to form complex constraints.
+%
+%The \emph{required} attribute can be used on subsets to indicate whether they
+%are mandatory or optional, but a more powerful mechanism is available using
+%constraints and the \texttt{require} element (or its complement:
+%\texttt{forbid}). The following example adds a constraint on nouns and requires
+%it to have the gender and number subsets specified, whereas for verbs, tense
+%and number are required.
+%
+%
+%\begin{lstlisting}[language=xml]
+%<class="N">
+%	<constraint>
+%		<require subset="gender" />
+%		<require subset="number" />
+%	</constraint>
+%</class>
+%<class="V">
+%	<constraint>
+%		<require subset="tense" />
+%		<require subset="number" />
+%	</constraint>
+%</class>
+%
+%\end{lstlisting}
+%
 
 
 
