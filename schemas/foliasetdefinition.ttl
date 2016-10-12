@@ -5,20 +5,20 @@
 
 # base class
 
-:Set
+<#Set>
     a rdf:Class ;
     rdfs:label "FoLiA Set Definition" ;
     rdfs:comment "Defines a set or taxonomy of classes for a particular linguistic annotation. These are in turn referenced by FoLiA documents." .
 
 # set type (open/mixed/closed)
 
-:open
+<#open>
     a rdf:Property ;
     rdfs:label "open" ;
     rdfs:comment "Open set definition. Classes may refer to anything. Otherwise, the set is closed." ;
     rdfs:range xsd:boolean .
 
-:empty
+<#empty>
     a rdf:Property ;
     rdfs:label "empty" ;
     rdfs:comment "Empty set definition. The set itself takes no classes, it may however still define subsets." ;
@@ -27,84 +27,89 @@
 
 # class  properties
 
-:Class
+<#Class>
     a rdf:Class ;
     rdfs:label "FoLiA Class" ;
     rdfs:comments "Defines a class in a set, a class corresponds for instance to a tag in a linguistic tagset" .
 
-:label
+<#label>
     a rdf:Property ;
-    rdfs:subPropertyOf rdfs:label .
-    rdfs:label "The human readable label for the Set or Class"
+    rdfs:subPropertyOf rdfs:label ;
+    rdfs:label "The human readable label for the Set or Class" .
 
-:id
+<#id>
     a rdf:Property ;
     rdfs:label "ID identifying the class (or set as a whole), a class is identified and referenced from the FoLiA document by this ID or by its full URI. The ID must be unique in the (sub)set but it less constained than the URI." ;
     rdfs:range xsd:string .
 
-:conceptLink
+<#conceptLink>
     a rdf:Property ;
     rdfs:label "Concept Link" ;
     rdfs:comment "Links a class or set to any other resource that is considered to cover the same concept" ;
     rdfs:range rdfs:Resource .
 
+<#infoLink>
+    a rdf:Property ;
+    rdfs:label "Info Link" ;
+    rdfs:comment "Links a class or set to a webpage that provides information on the concept" ;
+    rdfs:range xsd:string .
 
-:memberOf
+<#memberOf>
     a rdf:Property ;
     rdfs:label "Member of set" ;
     rdfs:comment "Each class must state what set it is a direct member of" ;
-    rdfs:domain :Class ;
-    rdfs:target :Set .
+    rdfs:domain <#Class> ;
+    rdfs:target <#Set> .
 
 # class hierarchy
 
-:parentClass
+<#parentClass>
     a rdf:Property ;
     rdfs:label "Parent class" ;
     rdfs:comment "This property is used to define a taxonomy/hierarchy of classes, rather than a flat set." ;
-    rdfs:domain :Class ;
-    rdfs:target :Class .
+    rdfs:domain <#Class> ;
+    rdfs:target <#Class> .
 
 # class order
 
-:orderIndex
+<#orderIndex>
     a rdf:Property ;
-    rdfs:domain :Class ;
-    rdfs:range xsd:integer ;
+    rdfs:domain <#Class> ;
+    rdfs:range xsd:integer .
 
 # subsets
 
-:subsetOf
+<#subsetOf>
     a rdf:Property ;
     rdfs:label "Subset" ;
     rdfs:comment "Sets may be nested, subsets are always referenced in the FoLiA document using 'features'" ;
-    rdfs:domain :Set ;
-    rdfs:target :Set .
+    rdfs:domain <#Set> ;
+    rdfs:target <#Set> .
 
 
 #constraints (needs work still)
 
-:constrain
+<#constrain>
     a rdf:Property ;
     rdfs:label "Contrain" ;
     rdfs:comment "Constrain a class from a subset to require or forbid co-occuring with another class" ;
-    rdfs:domain :Class ;
-    rdfs:range :Constraint .
+    rdfs:domain <#Class> ;
+    rdfs:range <#Constraint> .
 
 
-:Constraint
+<#Constraint>
     a rdf:Class ;
-    rdfs:label "Constraint" ;
+    rdfs:label "Constraint" .
 
-:ConstraintType
+<#ConstraintType>
     a rdf:class ;
-    rdfs:label "Constraint Type" ;
+    rdfs:label "Constraint Type" .
 
-:Required
-    a :ConstraintType .
+<#Required>
+    a <#ConstraintType> .
 
-:Forbidden
-    a :ConstraintType .
+<#Forbidden>
+    a <#ConstraintType> .
 
 
 
