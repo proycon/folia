@@ -36,7 +36,7 @@ def main():
     if args.filename[0] not in ('.','/'):
         args.filename = './' + args.filename
     setdefinition = foliaset.SetDefinition(args.filename, basens=args.basenamespace)
-    print(str(setdefinition.graph.serialize(None, 'turtle'),'utf-8') )
+    print(str(setdefinition.graph.serialize(None, 'turtle',base=setdefinition.basens),'utf-8') )
 
 
 if __name__ == "__main__":
