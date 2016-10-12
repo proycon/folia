@@ -1,7 +1,7 @@
-@base <http://folia.science.ru.nl/setdefinition#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@base <http://folia.science.ru.nl/setdefinition> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema> .
 
 # base class
 
@@ -12,26 +12,17 @@
 
 # set type (open/mixed/closed)
 
-:OpenSet
-    a :Set ;
+:open
+    a rdf:Property ;
     rdfs:label "open" ;
-    rdfs:comment "Open set definition. Classes may refer to anything." .
+    rdfs:comment "Open set definition. Classes may refer to anything. Otherwise, the set is closed." ;
+    rdfs:range xsd:boolean .
 
-:MixedSet
-    a :Set ;
-    rdfs:label "mixed" ;
-    rdfs:comment "Mixed set definition. Classes may refer to those defined in the set definition, but open classes are also allowed." .
-
-
-:ClosedSet
-    a :Set ;
-    rdfs:label "closed" ;
-    rdfs:comment "Closed set definition. Classes must be defined in the set definition." .
-
-:EmptySet
-    a :Set ;
+:empty
+    a rdf:Property ;
     rdfs:label "empty" ;
-    rdfs:comment "Empty set definition. The set itself takes no classes, it may however still define subsets." .
+    rdfs:comment "Empty set definition. The set itself takes no classes, it may however still define subsets." ;
+    rdfs:range xsd:boolean .
 
 
 # class  properties
@@ -48,7 +39,7 @@
 
 :id
     a rdf:Property ;
-    rdfs:label "ID identifying the class (or set as a whole), a class is identified by this ID or its full URI. The ID must be unique in the (sub)set." ;
+    rdfs:label "ID identifying the class (or set as a whole), a class is identified and referenced from the FoLiA document by this ID or by its full URI. The ID must be unique in the (sub)set but it less constained than the URI." ;
     rdfs:range xsd:string .
 
 :conceptLink
@@ -64,7 +55,6 @@
     rdfs:comment "Each class must state what set it is a direct member of" ;
     rdfs:domain :Class ;
     rdfs:target :Set .
-
 
 # class hierarchy
 

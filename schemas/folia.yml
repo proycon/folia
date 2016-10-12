@@ -7,6 +7,9 @@ version: "1.4.0"
 #The FoLiA namespace
 namespace: "http://ilk.uvt.nl/folia"
 
+#The FoLiA Set Definition namespace (RDFS)
+setdefinitionnamespace: "http://folia.science.ru.nl/setdefinition"
+
 #all possible common FoLiA attributes
 attributes: [ ID, CLASS, ANNOTATOR, CONFIDENCE, N, DATETIME, BEGINTIME, ENDTIME, SRC, SPEAKER ]
 
