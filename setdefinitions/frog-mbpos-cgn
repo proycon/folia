@@ -8,6 +8,10 @@
 cgntag:Set a fsd:Set ;
     fsd:id "cgntag" .
 
+cgntag:Subset.head a fsd:Set ;
+    fsd:id "head" ;
+    fsd:subsetOf cgntag:Set .
+
 cgntag:Subset.dial a fsd:Set ;
     fsd:id "dial" ;
     fsd:subsetOf cgntag:Set .
@@ -144,62 +148,62 @@ cgntag:Subset.vwtype a fsd:Set ;
 cgntag:ADJ a fsd:Class ;
     fsd:id "ADJ" ;
     fsd:label "Adjectief" ;
-    fsd:memberOf cgntag:Set .
+    fsd:memberOf cgntag:Subset.head .
 
 cgntag:BW a fsd:Class ;
     fsd:id "BW" ;
     fsd:label "Bijwoord" ;
-    fsd:memberOf cgntag:Set .
+    fsd:memberOf cgntag:Subset.head .
 
 cgntag:LET a fsd:Class ;
     fsd:id "LET" ;
     fsd:label "Punctuatie" ;
-    fsd:memberOf cgntag:Set .
+    fsd:memberOf cgntag:Subset.head .
 
 cgntag:LID a fsd:Class ;
     fsd:id "LID" ;
     fsd:label "Lidwoord" ;
-    fsd:memberOf cgntag:Set .
+    fsd:memberOf cgntag:Subset.head .
 
 cgntag:N a fsd:Class ;
     fsd:id "N" ;
     fsd:label "Naamwoord";
-    fsd:memberOf cgntag:Set .
+    fsd:memberOf cgntag:Subset.head .
 
 cgntag:SPEC a fsd:Class ;
     fsd:id "SPEC" ;
     fsd:label "Speciaal, namen en symbolen" ;
-    fsd:memberOf cgntag:Set .
+    fsd:memberOf cgntag:Subset.head .
 
 cgntag:TSW a fsd:Class ;
     fsd:id "TSW" ;
     fsd:label "Tussenwoord" ;
-    fsd:memberOf cgntag:Set .
+    fsd:memberOf cgntag:Subset.head .
 
 cgntag:TW a fsd:Class ;
     fsd:id "TW" ;
     fsd:label "Telwoord" ;
-    fsd:memberOf cgntag:Set .
+    fsd:memberOf cgntag:Subset.head .
 
 cgntag:VG a fsd:Class ;
     fsd:id "VG" ;
     fsd:label "Voegwoord" ;
-    fsd:memberOf cgntag:Set .
+    fsd:memberOf cgntag:Subset.head .
 
 cgntag:VNW a fsd:Class ;
     fsd:id "VNW" ;
     fsd:label "Voornaamwoord" ;
-    fsd:memberOf cgntag:Set .
+    fsd:memberOf cgntag:Subset.head .
 
 cgntag:VZ a fsd:Class ;
     fsd:id "VZ" ;
     fsd:label "Voorzetsel" ;
-    fsd:memberOf cgntag:Set .
+    fsd:memberOf cgntag:Subset.head .
 
 cgntag:WW a fsd:Class ;
     fsd:id "WW" ;
     fsd:label "Werkwoord" ;
-    fsd:memberOf cgntag:Set .
+    fsd:memberOf cgntag:Subset.head .
 
 cgntag:aanw a fsd:Class ;
     fsd:id "aanw" ;
@@ -623,3 +627,1613 @@ cgntag:zonder-n a fsd:Class ;
     fsd:id "zonder-n" ;
     fsd:label "enkelvoud-n" ;
     fsd:memberOf cgntag:Subset.getal-n .
+
+cgntag:T101 a fsd:Class ;
+    fsd:id "N(soort,ev,basis,zijd,stan)" ;
+    fsd:label "N(soort,ev,basis,zijd,stan) - die stoel, deze muziek, de filter" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T102 a fsd:Class ;
+    fsd:id "N(soort,ev,basis,onz,stan)" ;
+    fsd:label "N(soort,ev,basis,onz,stan) - het kind, ons huis, het filter" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T103 a fsd:Class ;
+    fsd:id "N(soort,ev,dim,onz,stan)" ;
+    fsd:label "N(soort,ev,dim,onz,stan) - dit stoeltje, op 't nippertje" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T104 a fsd:Class ;
+    fsd:id "N(soort,ev,basis,gen)" ;
+    fsd:label "N(soort,ev,basis,gen) - 's avonds, de heer des huizes" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T105 a fsd:Class ;
+    fsd:id "N(soort,ev,dim,gen)" ;
+    fsd:label "N(soort,ev,dim,gen) - vadertjes pijp" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T106 a fsd:Class ;
+    fsd:id "N(soort,ev,basis,dat)" ;
+    fsd:label "N(soort,ev,basis,dat) - ter plaatse, heden ten dage" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T107 a fsd:Class ;
+    fsd:id "N(soort,mv,basis)" ;
+    fsd:label "N(soort,mv,basis) - stoelen, kinderen, hersenen" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T108 a fsd:Class ;
+    fsd:id "N(soort,mv,dim)" ;
+    fsd:label "N(soort,mv,dim) - stoeltjes, huisjes, hersentjes" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T109 a fsd:Class ;
+    fsd:id "N(eigen,ev,basis,zijd,stan)" ;
+    fsd:label "N(eigen,ev,basis,zijd,stan) - de Noordzee, de Kemmelberg, Karel" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T110 a fsd:Class ;
+    fsd:id "N(eigen,ev,basis,onz,stan)" ;
+    fsd:label "N(eigen,ev,basis,onz,stan) - het Hageland, het Nederlands" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T111 a fsd:Class ;
+    fsd:id "N(eigen,ev,dim,onz,stan)" ;
+    fsd:label "N(eigen,ev,dim,onz,stan) - het slimme Kareltje" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T112 a fsd:Class ;
+    fsd:id "N(eigen,ev,basis,gen)" ;
+    fsd:label "N(eigen,ev,basis,gen) - des Heren, Hagelands trots" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T113 a fsd:Class ;
+    fsd:id "N(eigen,ev,dim,gen)" ;
+    fsd:label "N(eigen,ev,dim,gen) - Kareltjes fiets" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T114 a fsd:Class ;
+    fsd:id "N(eigen,ev,basis,dat)" ;
+    fsd:label "N(eigen,ev,basis,dat) - wat den Here toekomt" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T115 a fsd:Class ;
+    fsd:id "N(eigen,mv,basis)" ;
+    fsd:label "N(eigen,mv,basis) - de Ardennen, de Middeleeuwen" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T116 a fsd:Class ;
+    fsd:id "N(eigen,mv,dim)" ;
+    fsd:label "N(eigen,mv,dim) - de Maatjes" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U117 a fsd:Class ;
+    fsd:id "N(soort,ev,basis,genus,stan)" ;
+    fsd:label "N(soort,ev,basis,genus,stan) - een riool, geen filter" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U118 a fsd:Class ;
+    fsd:id "N(eigen,ev,basis,genus,stan)" ;
+    fsd:label "N(eigen,ev,basis,genus,stan) - Linux, Esselte" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T201 a fsd:Class ;
+    fsd:id "ADJ(prenom,basis,zonder)" ;
+    fsd:label "ADJ(prenom,basis,zonder) - een mooi huis, een houten pot" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T202 a fsd:Class ;
+    fsd:id "ADJ(prenom,basis,met-e,stan)" ;
+    fsd:label "ADJ(prenom,basis,met-e,stan) - mooie huizen, een grote pot" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T203 a fsd:Class ;
+    fsd:id "ADJ(prenom,basis,met-e,bijz)" ;
+    fsd:label "ADJ(prenom,basis,met-e,bijz) - zaliger gedachtenis, van goeden huize" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T204 a fsd:Class ;
+    fsd:id "ADJ(prenom,comp,zonder)" ;
+    fsd:label "ADJ(prenom,comp,zonder) - een mooier huis" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T205 a fsd:Class ;
+    fsd:id "ADJ(prenom,comp,met-e,stan)" ;
+    fsd:label "ADJ(prenom,comp,met-e,stan) - mooiere huizen, een grotere pot" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T206 a fsd:Class ;
+    fsd:id "ADJ(prenom,comp,met-e,bijz)" ;
+    fsd:label "ADJ(prenom,comp,met-e,bijz) - van beteren huize" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T207 a fsd:Class ;
+    fsd:id "ADJ(prenom,sup,zonder)" ;
+    fsd:label "ADJ(prenom,sup,zonder) - een alleraardigst mens" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T208 a fsd:Class ;
+    fsd:id "ADJ(prenom,sup,met-e,stan)" ;
+    fsd:label "ADJ(prenom,sup,met-e,stan) - de mooiste keuken, het grootste paard" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T209 a fsd:Class ;
+    fsd:id "ADJ(prenom,sup,met-e,bijz)" ;
+    fsd:label "ADJ(prenom,sup,met-e,bijz) - bester kwaliteit" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T210 a fsd:Class ;
+    fsd:id "ADJ(nom,basis,zonder,zonder-n)" ;
+    fsd:label "ADJ(nom,basis,zonder,zonder-n) - in het groot, het groen" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T211 a fsd:Class ;
+    fsd:id "ADJ(nom,basis,zonder,mv-n)" ;
+    fsd:label "ADJ(nom,basis,zonder,mv-n) - de timiden, dezelfden" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T212 a fsd:Class ;
+    fsd:id "ADJ(nom,basis,met-e,zonder-n,stan)" ;
+    fsd:label "ADJ(nom,basis,met-e,zonder-n,stan) - het leuke is dat, een grote met tartaar" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T213 a fsd:Class ;
+    fsd:id "ADJ(nom,basis,met-e,zonder-n,bijz)" ;
+    fsd:label "ADJ(nom,basis,met-e,zonder-n,bijz) - hosanna in den hogen" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T214 a fsd:Class ;
+    fsd:id "ADJ(nom,basis,met-e,mv-n)" ;
+    fsd:label "ADJ(nom,basis,met-e,mv-n) - de rijken" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T215 a fsd:Class ;
+    fsd:id "ADJ(nom,comp,zonder,zonder-n)" ;
+    fsd:label "ADJ(nom,comp,zonder,zonder-n) - " ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T216 a fsd:Class ;
+    fsd:id "ADJ(nom,comp,met-e,zonder-n,stan)" ;
+    fsd:label "ADJ(nom,comp,met-e,zonder-n,stan) - een betere" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T217 a fsd:Class ;
+    fsd:id "ADJ(nom,comp,met-e,zonder-n,bijz)" ;
+    fsd:label "ADJ(nom,comp,met-e,zonder-n,bijz) - " ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T218 a fsd:Class ;
+    fsd:id "ADJ(nom,comp,met-e,mv-n)" ;
+    fsd:label "ADJ(nom,comp,met-e,mv-n) - de ouderen" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T219 a fsd:Class ;
+    fsd:id "ADJ(nom,sup,zonder,zonder-n)" ;
+    fsd:label "ADJ(nom,sup,zonder,zonder-n) - op z'n best, om ter snelst" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T220 a fsd:Class ;
+    fsd:id "ADJ(nom,sup,met-e,zonder-n,stan)" ;
+    fsd:label "ADJ(nom,sup,met-e,zonder-n,stan) - het leukste is dat, het langste blijven" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T221 a fsd:Class ;
+    fsd:id "ADJ(nom,sup,met-e,zonder-n,bijz)" ;
+    fsd:label "ADJ(nom,sup,met-e,zonder-n,bijz) - des Allerhoogsten" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T222 a fsd:Class ;
+    fsd:id "ADJ(nom,sup,met-e,mv-n)" ;
+    fsd:label "ADJ(nom,sup,met-e,mv-n) - de slimsten" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T223 a fsd:Class ;
+    fsd:id "ADJ(postnom,basis,zonder)" ;
+    fsd:label "ADJ(postnom,basis,zonder) - rivieren bevaarbaar in de winter" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T224 a fsd:Class ;
+    fsd:id "ADJ(postnom,basis,met-s)" ;
+    fsd:label "ADJ(postnom,basis,met-s) - iets moois" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T225 a fsd:Class ;
+    fsd:id "ADJ(postnom,comp,zonder)" ;
+    fsd:label "ADJ(postnom,comp,zonder) - een getal groter dan 3" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T226 a fsd:Class ;
+    fsd:id "ADJ(postnom,comp,met-s)" ;
+    fsd:label "ADJ(postnom,comp,met-s) - iets gekkers kon ik niet bedenken" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T227 a fsd:Class ;
+    fsd:id "ADJ(vrij,basis,zonder)" ;
+    fsd:label "ADJ(vrij,basis,zonder) - die stok is lang, lang slapen" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T228 a fsd:Class ;
+    fsd:id "ADJ(vrij,comp,zonder)" ;
+    fsd:label "ADJ(vrij,comp,zonder) - deze stok is langer, langer slapen" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T229 a fsd:Class ;
+    fsd:id "ADJ(vrij,sup,zonder)" ;
+    fsd:label "ADJ(vrij,sup,zonder) - die stok is het langst, het langst slapen" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T230 a fsd:Class ;
+    fsd:id "ADJ(vrij,dim,zonder)" ;
+    fsd:label "ADJ(vrij,dim,zonder) - het is hier stilletjes, stilletjes weggaan" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T301 a fsd:Class ;
+    fsd:id "WW(pv,tgw,ev)" ;
+    fsd:label "WW(pv,tgw,ev) - ik kom, speel je, hij is, zwijg" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T302 a fsd:Class ;
+    fsd:id "WW(pv,tgw,mv)" ;
+    fsd:label "WW(pv,tgw,mv) - komen, spelen" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T303 a fsd:Class ;
+    fsd:id "WW(pv,tgw,met-t)" ;
+    fsd:label "WW(pv,tgw,met-t) - jij komt, hij speelt, zwijgt" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T304 a fsd:Class ;
+    fsd:id "WW(pv,verl,ev)" ;
+    fsd:label "WW(pv,verl,ev) - kwam, speelde" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T305 a fsd:Class ;
+    fsd:id "WW(pv,verl,mv)" ;
+    fsd:label "WW(pv,verl,mv) - kwamen, speelden" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T306 a fsd:Class ;
+    fsd:id "WW(pv,verl,met-t)" ;
+    fsd:label "WW(pv,verl,met-t) - kwaamt, gingt" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T309 a fsd:Class ;
+    fsd:id "WW(pv,conj,ev)" ;
+    fsd:label "WW(pv,conj,ev) - kome, leve de koning" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T310 a fsd:Class ;
+    fsd:id "WW(inf,prenom,zonder)" ;
+    fsd:label "WW(inf,prenom,zonder) - de nog te lezen post" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T311 a fsd:Class ;
+    fsd:id "WW(inf,prenom,met-e)" ;
+    fsd:label "WW(inf,prenom,met-e) - een niet te weerstane verleiding" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T312 a fsd:Class ;
+    fsd:id "WW(inf,nom,zonder,zonder-n)" ;
+    fsd:label "WW(inf,nom,zonder,zonder-n) - (het) spelen, (het) schaatsen" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T314 a fsd:Class ;
+    fsd:id "WW(inf,vrij,zonder)" ;
+    fsd:label "WW(inf,vrij,zonder) - zal komen" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T315 a fsd:Class ;
+    fsd:id "WW(vd,prenom,zonder)" ;
+    fsd:label "WW(vd,prenom,zonder) - een verwittigd man, een gekregen paard" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T316 a fsd:Class ;
+    fsd:id "WW(vd,prenom,met-e)" ;
+    fsd:label "WW(vd,prenom,met-e) - een getemde feeks" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T317 a fsd:Class ;
+    fsd:id "WW(vd,nom,met-e,zonder-n)" ;
+    fsd:label "WW(vd,nom,met-e,zonder-n) - het geschrevene, een gekwetste" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T318 a fsd:Class ;
+    fsd:id "WW(vd,nom,met-e,mv-n)" ;
+    fsd:label "WW(vd,nom,met-e,mv-n) - gekwetsten, gedupeerden" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T320 a fsd:Class ;
+    fsd:id "WW(vd,vrij,zonder)" ;
+    fsd:label "WW(vd,vrij,zonder) - is gekomen" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T321 a fsd:Class ;
+    fsd:id "WW(od,prenom,zonder)" ;
+    fsd:label "WW(od,prenom,zonder) - een slapend kind" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T322 a fsd:Class ;
+    fsd:id "WW(od,prenom,met-e)" ;
+    fsd:label "WW(od,prenom,met-e) - een piano spelende aap, slapende kinderen" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T323 a fsd:Class ;
+    fsd:id "WW(od,nom,met-e,zonder-n)" ;
+    fsd:label "WW(od,nom,met-e,zonder-n) - het resterende, een klagende" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T324 a fsd:Class ;
+    fsd:id "WW(od,nom,met-e,mv-n)" ;
+    fsd:label "WW(od,nom,met-e,mv-n) - de wachtenden" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T326 a fsd:Class ;
+    fsd:id "WW(od,vrij,zonder)" ;
+    fsd:label "WW(od,vrij,zonder) - liep lachend weg, al doende leert men" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T401 a fsd:Class ;
+    fsd:id "TW(hoofd,prenom,stan)" ;
+    fsd:label "TW(hoofd,prenom,stan) - vier cijfers" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T402 a fsd:Class ;
+    fsd:id "TW(hoofd,prenom,bijz)" ;
+    fsd:label "TW(hoofd,prenom,bijz) - eens geestes zijn, te enen male" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T403 a fsd:Class ;
+    fsd:id "TW(hoofd,nom,zonder-n,basis)" ;
+    fsd:label "TW(hoofd,nom,zonder-n,basis) - er is er een ontsnapt" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T404 a fsd:Class ;
+    fsd:id "TW(hoofd,nom,mv-n,basis)" ;
+    fsd:label "TW(hoofd,nom,mv-n,basis) - met z'n vieren" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T405 a fsd:Class ;
+    fsd:id "TW(hoofd,nom,zonder-n,dim)" ;
+    fsd:label "TW(hoofd,nom,zonder-n,dim) - er is er eentje ontsnapt, op z'n eentje" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T406 a fsd:Class ;
+    fsd:id "TW(hoofd,nom,mv-n,dim)" ;
+    fsd:label "TW(hoofd,nom,mv-n,dim) - met z'n tweetjes" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T407 a fsd:Class ;
+    fsd:id "TW(hoofd,vrij)" ;
+    fsd:label "TW(hoofd,vrij) - veertig worden, honderd rijden, hoeveel sneller" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T408 a fsd:Class ;
+    fsd:id "TW(rang,prenom,stan)" ;
+    fsd:label "TW(rang,prenom,stan) - de vierde man" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T409 a fsd:Class ;
+    fsd:id "TW(rang,prenom,bijz)" ;
+    fsd:label "TW(rang,prenom,bijz) - te elfder ure" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T410 a fsd:Class ;
+    fsd:id "TW(rang,nom,zonder-n)" ;
+    fsd:label "TW(rang,nom,zonder-n) - het eerste, (de) vierde eindigen, Karel de Vijfde" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T411 a fsd:Class ;
+    fsd:id "TW(rang,nom,mv-n)" ;
+    fsd:label "TW(rang,nom,mv-n) - de eersten, iets aan derden verkopen" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T501a a fsd:Class ;
+    fsd:id "VNW(pers,pron,nomin,vol,1,ev)" ;
+    fsd:label "VNW(pers,pron,nomin,vol,1,ev) - ik" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T501b a fsd:Class ;
+    fsd:id "VNW(pers,pron,nomin,nadr,1,ev)" ;
+    fsd:label "VNW(pers,pron,nomin,nadr,1,ev) - ikzelf, ikke" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T501c a fsd:Class ;
+    fsd:id "VNW(pers,pron,nomin,red,1,ev)" ;
+    fsd:label "VNW(pers,pron,nomin,red,1,ev) - 'k" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T501d a fsd:Class ;
+    fsd:id "VNW(pers,pron,nomin,vol,1,mv)" ;
+    fsd:label "VNW(pers,pron,nomin,vol,1,mv) - wij" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T501e a fsd:Class ;
+    fsd:id "VNW(pers,pron,nomin,nadr,1,mv)" ;
+    fsd:label "VNW(pers,pron,nomin,nadr,1,mv) - wijzelf" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T501f a fsd:Class ;
+    fsd:id "VNW(pers,pron,nomin,red,1,mv)" ;
+    fsd:label "VNW(pers,pron,nomin,red,1,mv) - we" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T501g a fsd:Class ;
+    fsd:id "VNW(pers,pron,nomin,vol,2v,ev)" ;
+    fsd:label "VNW(pers,pron,nomin,vol,2v,ev) - jij" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T501h a fsd:Class ;
+    fsd:id "VNW(pers,pron,nomin,nadr,2v,ev)" ;
+    fsd:label "VNW(pers,pron,nomin,nadr,2v,ev) - jijzelf" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T501i a fsd:Class ;
+    fsd:id "VNW(pers,pron,nomin,red,2v,ev)" ;
+    fsd:label "VNW(pers,pron,nomin,red,2v,ev) - je" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U501j a fsd:Class ;
+    fsd:id "VNW(pers,pron,nomin,vol,2b,getal)" ;
+    fsd:label "VNW(pers,pron,nomin,vol,2b,getal) - u" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U501k a fsd:Class ;
+    fsd:id "VNW(pers,pron,nomin,nadr,2b,getal)" ;
+    fsd:label "VNW(pers,pron,nomin,nadr,2b,getal) - uzelf" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U501l a fsd:Class ;
+    fsd:id "VNW(pers,pron,nomin,vol,2,getal)" ;
+    fsd:label "VNW(pers,pron,nomin,vol,2,getal) - gij" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U501m a fsd:Class ;
+    fsd:id "VNW(pers,pron,nomin,nadr,2,getal)" ;
+    fsd:label "VNW(pers,pron,nomin,nadr,2,getal) - gijzelf" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U501n a fsd:Class ;
+    fsd:id "VNW(pers,pron,nomin,red,2,getal)" ;
+    fsd:label "VNW(pers,pron,nomin,red,2,getal) - ge" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U501o a fsd:Class ;
+    fsd:id "VNW(pers,pron,nomin,vol,3,ev,masc)" ;
+    fsd:label "VNW(pers,pron,nomin,vol,3,ev,masc) - hij" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T501p a fsd:Class ;
+    fsd:id "VNW(pers,pron,nomin,nadr,3m,ev,masc)" ;
+    fsd:label "VNW(pers,pron,nomin,nadr,3m,ev,masc) - hijzelf" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U501q a fsd:Class ;
+    fsd:id "VNW(pers,pron,nomin,red,3,ev,masc)" ;
+    fsd:label "VNW(pers,pron,nomin,red,3,ev,masc) - ie" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U501r a fsd:Class ;
+    fsd:id "VNW(pers,pron,nomin,red,3p,ev,masc)" ;
+    fsd:label "VNW(pers,pron,nomin,red,3p,ev,masc) - men" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T501s a fsd:Class ;
+    fsd:id "VNW(pers,pron,nomin,vol,3v,ev,fem)" ;
+    fsd:label "VNW(pers,pron,nomin,vol,3v,ev,fem) - zij" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T501t a fsd:Class ;
+    fsd:id "VNW(pers,pron,nomin,nadr,3v,ev,fem)" ;
+    fsd:label "VNW(pers,pron,nomin,nadr,3v,ev,fem) - zijzelf" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U501u a fsd:Class ;
+    fsd:id "VNW(pers,pron,nomin,vol,3p,mv)" ;
+    fsd:label "VNW(pers,pron,nomin,vol,3p,mv) - zij" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U501v a fsd:Class ;
+    fsd:id "VNW(pers,pron,nomin,nadr,3p,mv)" ;
+    fsd:label "VNW(pers,pron,nomin,nadr,3p,mv) - zijzelf" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T502a a fsd:Class ;
+    fsd:id "VNW(pers,pron,obl,vol,2v,ev)" ;
+    fsd:label "VNW(pers,pron,obl,vol,2v,ev) - jou" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U502b a fsd:Class ;
+    fsd:id "VNW(pers,pron,obl,vol,3,ev,masc)" ;
+    fsd:label "VNW(pers,pron,obl,vol,3,ev,masc) - hem" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T502c a fsd:Class ;
+    fsd:id "VNW(pers,pron,obl,nadr,3m,ev,masc)" ;
+    fsd:label "VNW(pers,pron,obl,nadr,3m,ev,masc) - hemzelf" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U502d a fsd:Class ;
+    fsd:id "VNW(pers,pron,obl,red,3,ev,masc)" ;
+    fsd:label "VNW(pers,pron,obl,red,3,ev,masc) - 'm" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U502e a fsd:Class ;
+    fsd:id "VNW(pers,pron,obl,vol,3,getal,fem)" ;
+    fsd:label "VNW(pers,pron,obl,vol,3,getal,fem) - haar" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U502f a fsd:Class ;
+    fsd:id "VNW(pers,pron,obl,nadr,3v,getal,fem)" ;
+    fsd:label "VNW(pers,pron,obl,nadr,3v,getal,fem) - haarzelf" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U502g a fsd:Class ;
+    fsd:id "VNW(pers,pron,obl,red,3v,getal,fem)" ;
+    fsd:label "VNW(pers,pron,obl,red,3v,getal,fem) - 'r, d'r" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U502h a fsd:Class ;
+    fsd:id "VNW(pers,pron,obl,vol,3p,mv)" ;
+    fsd:label "VNW(pers,pron,obl,vol,3p,mv) - hen, hun" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U502i a fsd:Class ;
+    fsd:id "VNW(pers,pron,obl,nadr,3p,mv)" ;
+    fsd:label "VNW(pers,pron,obl,nadr,3p,mv) - henzelf, hunzelf" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U503a a fsd:Class ;
+    fsd:id "VNW(pers,pron,stan,nadr,2v,mv)" ;
+    fsd:label "VNW(pers,pron,stan,nadr,2v,mv) - jullie" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U503b a fsd:Class ;
+    fsd:id "VNW(pers,pron,stan,red,3,ev,onz)" ;
+    fsd:label "VNW(pers,pron,stan,red,3,ev,onz) - het, 't" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U503c a fsd:Class ;
+    fsd:id "VNW(pers,pron,stan,red,3,ev,fem)" ;
+    fsd:label "VNW(pers,pron,stan,red,3,ev,fem) - ze" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U503d a fsd:Class ;
+    fsd:id "VNW(pers,pron,stan,red,3,mv)" ;
+    fsd:label "VNW(pers,pron,stan,red,3,mv) - ze" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T504a a fsd:Class ;
+    fsd:id "VNW(pers,pron,gen,vol,1,ev)" ;
+    fsd:label "VNW(pers,pron,gen,vol,1,ev) - mijns gelijke, gedenk mijner" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T504b a fsd:Class ;
+    fsd:id "VNW(pers,pron,gen,vol,1,mv)" ;
+    fsd:label "VNW(pers,pron,gen,vol,1,mv) - ons gelijke, velen onzer" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U504c a fsd:Class ;
+    fsd:id "VNW(pers,pron,gen,vol,2,getal)" ;
+    fsd:label "VNW(pers,pron,gen,vol,2,getal) - uws gelijke, wie uwer" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T504d a fsd:Class ;
+    fsd:id "VNW(pers,pron,gen,vol,3m,ev)" ;
+    fsd:label "VNW(pers,pron,gen,vol,3m,ev) - zijns gelijke, zijner" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U504e a fsd:Class ;
+    fsd:id "VNW(pers,pron,gen,vol,3v,getal)" ;
+    fsd:label "VNW(pers,pron,gen,vol,3v,getal) - haars gelijke, harer" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U504f a fsd:Class ;
+    fsd:id "VNW(pers,pron,gen,vol,3p,mv)" ;
+    fsd:label "VNW(pers,pron,gen,vol,3p,mv) - huns gelijke, een hunner" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U505a a fsd:Class ;
+    fsd:id "VNW(pr,pron,obl,vol,1,ev)" ;
+    fsd:label "VNW(pr,pron,obl,vol,1,ev) - mij" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U505b a fsd:Class ;
+    fsd:id "VNW(pr,pron,obl,nadr,1,ev)" ;
+    fsd:label "VNW(pr,pron,obl,nadr,1,ev) - mezelf, mijzelf" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U505c a fsd:Class ;
+    fsd:id "VNW(pr,pron,obl,red,1,ev)" ;
+    fsd:label "VNW(pr,pron,obl,red,1,ev) - me" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U505d a fsd:Class ;
+    fsd:id "VNW(pr,pron,obl,vol,1,mv)" ;
+    fsd:label "VNW(pr,pron,obl,vol,1,mv) - ons" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U505e a fsd:Class ;
+    fsd:id "VNW(pr,pron,obl,nadr,1,mv)" ;
+    fsd:label "VNW(pr,pron,obl,nadr,1,mv) - onszelf" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U505f a fsd:Class ;
+    fsd:id "VNW(pr,pron,obl,red,2v,getal)" ;
+    fsd:label "VNW(pr,pron,obl,red,2v,getal) - je" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U505g a fsd:Class ;
+    fsd:id "VNW(pr,pron,obl,nadr,2v,getal)" ;
+    fsd:label "VNW(pr,pron,obl,nadr,2v,getal) - jezelf" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U505h a fsd:Class ;
+    fsd:id "VNW(pr,pron,obl,vol,2,getal)" ;
+    fsd:label "VNW(pr,pron,obl,vol,2,getal) - u" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U505i a fsd:Class ;
+    fsd:id "VNW(pr,pron,obl,nadr,2,getal)" ;
+    fsd:label "VNW(pr,pron,obl,nadr,2,getal) - uzelf" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U506a a fsd:Class ;
+    fsd:id "VNW(refl,pron,obl,red,3,getal)" ;
+    fsd:label "VNW(refl,pron,obl,red,3,getal) - zich" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U506b a fsd:Class ;
+    fsd:id "VNW(refl,pron,obl,nadr,3,getal)" ;
+    fsd:label "VNW(refl,pron,obl,nadr,3,getal) - zichzelf" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U507a a fsd:Class ;
+    fsd:id "VNW(recip,pron,obl,vol,persoon,mv)" ;
+    fsd:label "VNW(recip,pron,obl,vol,persoon,mv) - elkaar, mekaar, elkander" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U508a a fsd:Class ;
+    fsd:id "VNW(recip,pron,gen,vol,persoon,mv)" ;
+    fsd:label "VNW(recip,pron,gen,vol,persoon,mv) - elkaars, mekaars, elkanders" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U509a a fsd:Class ;
+    fsd:id "VNW(bez,det,stan,vol,1,ev,prenom,zonder,agr)" ;
+    fsd:label "VNW(bez,det,stan,vol,1,ev,prenom,zonder,agr) - mijn paard(en)" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U509b a fsd:Class ;
+    fsd:id "VNW(bez,det,stan,vol,1,ev,prenom,met-e,rest)" ;
+    fsd:label "VNW(bez,det,stan,vol,1,ev,prenom,met-e,rest) - mijne heren" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U509c a fsd:Class ;
+    fsd:id "VNW(bez,det,stan,red,1,ev,prenom,zonder,agr)" ;
+    fsd:label "VNW(bez,det,stan,red,1,ev,prenom,zonder,agr) - m'n paard(en)" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U509d a fsd:Class ;
+    fsd:id "VNW(bez,det,stan,vol,1,mv,prenom,zonder,evon)" ;
+    fsd:label "VNW(bez,det,stan,vol,1,mv,prenom,zonder,evon) - ons paard" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U509e a fsd:Class ;
+    fsd:id "VNW(bez,det,stan,vol,1,mv,prenom,met-e,rest)" ;
+    fsd:label "VNW(bez,det,stan,vol,1,mv,prenom,met-e,rest) - onze paarden" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U509f a fsd:Class ;
+    fsd:id "VNW(bez,det,stan,vol,2,getal,prenom,zonder,agr)" ;
+    fsd:label "VNW(bez,det,stan,vol,2,getal,prenom,zonder,agr) - uw paard(en)" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U509g a fsd:Class ;
+    fsd:id "VNW(bez,det,stan,vol,2,getal,prenom,met-e,rest)" ;
+    fsd:label "VNW(bez,det,stan,vol,2,getal,prenom,met-e,rest) - uwe heiligheid" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U509h a fsd:Class ;
+    fsd:id "VNW(bez,det,stan,vol,2v,ev,prenom,zonder,agr)" ;
+    fsd:label "VNW(bez,det,stan,vol,2v,ev,prenom,zonder,agr) - jouw paard(en)" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U509i a fsd:Class ;
+    fsd:id "VNW(bez,det,stan,red,2v,ev,prenom,zonder,agr)" ;
+    fsd:label "VNW(bez,det,stan,red,2v,ev,prenom,zonder,agr) - je paard(en)" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U509j a fsd:Class ;
+    fsd:id "VNW(bez,det,stan,nadr,2v,mv,prenom,zonder,agr)" ;
+    fsd:label "VNW(bez,det,stan,nadr,2v,mv,prenom,zonder,agr) - jullie paard(en)" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U509k a fsd:Class ;
+    fsd:id "VNW(bez,det,stan,vol,3,ev,prenom,zonder,agr)" ;
+    fsd:label "VNW(bez,det,stan,vol,3,ev,prenom,zonder,agr) - zijn paard(en), haar kind" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U509l a fsd:Class ;
+    fsd:id "VNW(bez,det,stan,vol,3m,ev,prenom,met-e,rest)" ;
+    fsd:label "VNW(bez,det,stan,vol,3m,ev,prenom,met-e,rest) - zijne excellentie" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U509m a fsd:Class ;
+    fsd:id "VNW(bez,det,stan,vol,3v,ev,prenom,met-e,rest)" ;
+    fsd:label "VNW(bez,det,stan,vol,3v,ev,prenom,met-e,rest) - hare majesteit" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U509n a fsd:Class ;
+    fsd:id "VNW(bez,det,stan,red,3,ev,prenom,zonder,agr)" ;
+    fsd:label "VNW(bez,det,stan,red,3,ev,prenom,zonder,agr) - z'n paard" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U509o a fsd:Class ;
+    fsd:id "VNW(bez,det,stan,vol,3,mv,prenom,zonder,agr)" ;
+    fsd:label "VNW(bez,det,stan,vol,3,mv,prenom,zonder,agr) - hun paarden" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U509p a fsd:Class ;
+    fsd:id "VNW(bez,det,stan,vol,3p,mv,prenom,met-e,rest)" ;
+    fsd:label "VNW(bez,det,stan,vol,3p,mv,prenom,met-e,rest) - hunne" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U509q a fsd:Class ;
+    fsd:id "VNW(bez,det,stan,red,3,getal,prenom,zonder,agr)" ;
+    fsd:label "VNW(bez,det,stan,red,3,getal,prenom,zonder,agr) - 'r paard, d'r paard" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T510a a fsd:Class ;
+    fsd:id "VNW(bez,det,gen,vol,1,ev,prenom,zonder,evmo)" ;
+    fsd:label "VNW(bez,det,gen,vol,1,ev,prenom,zonder,evmo) - mijns inziens" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U510b a fsd:Class ;
+    fsd:id "VNW(bez,det,gen,vol,1,ev,prenom,met-e,rest3)" ;
+    fsd:label "VNW(bez,det,gen,vol,1,ev,prenom,met-e,rest3) - een mijner vrienden" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T510c a fsd:Class ;
+    fsd:id "VNW(bez,det,gen,vol,1,mv,prenom,met-e,evmo)" ;
+    fsd:label "VNW(bez,det,gen,vol,1,mv,prenom,met-e,evmo) - onzes inziens" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U510d a fsd:Class ;
+    fsd:id "VNW(bez,det,gen,vol,1,mv,prenom,met-e,rest3)" ;
+    fsd:label "VNW(bez,det,gen,vol,1,mv,prenom,met-e,rest3) - een onzer vrienden" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U510e a fsd:Class ;
+    fsd:id "VNW(bez,det,gen,vol,2,getal,prenom,zonder,evmo)" ;
+    fsd:label "VNW(bez,det,gen,vol,2,getal,prenom,zonder,evmo) - uws" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U510f a fsd:Class ;
+    fsd:id "VNW(bez,det,gen,vol,2,getal,prenom,met-e,rest3)" ;
+    fsd:label "VNW(bez,det,gen,vol,2,getal,prenom,met-e,rest3) - een uwer vrienden" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U510g a fsd:Class ;
+    fsd:id "VNW(bez,det,gen,vol,2v,ev,prenom,met-e,rest3)" ;
+    fsd:label "VNW(bez,det,gen,vol,2v,ev,prenom,met-e,rest3) - een jouwer vrienden" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U510h a fsd:Class ;
+    fsd:id "VNW(bez,det,gen,vol,3,ev,prenom,zonder,evmo)" ;
+    fsd:label "VNW(bez,det,gen,vol,3,ev,prenom,zonder,evmo) - zijns inziens" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U510i a fsd:Class ;
+    fsd:id "VNW(bez,det,gen,vol,3,ev,prenom,met-e,rest3)" ;
+    fsd:label "VNW(bez,det,gen,vol,3,ev,prenom,met-e,rest3) - een zijner vrienden" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T510j a fsd:Class ;
+    fsd:id "VNW(bez,det,gen,vol,3v,ev,prenom,zonder,evmo)" ;
+    fsd:label "VNW(bez,det,gen,vol,3v,ev,prenom,zonder,evmo) - haars inziens" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U510k a fsd:Class ;
+    fsd:id "VNW(bez,det,gen,vol,3v,ev,prenom,met-e,rest3)" ;
+    fsd:label "VNW(bez,det,gen,vol,3v,ev,prenom,met-e,rest3) - een harer vrienden" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U510l a fsd:Class ;
+    fsd:id "VNW(bez,det,gen,vol,3p,mv,prenom,zonder,evmo)" ;
+    fsd:label "VNW(bez,det,gen,vol,3p,mv,prenom,zonder,evmo) - huns inziens" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U510m a fsd:Class ;
+    fsd:id "VNW(bez,det,gen,vol,3p,mv,prenom,met-e,rest3)" ;
+    fsd:label "VNW(bez,det,gen,vol,3p,mv,prenom,met-e,rest3) - een hunner vrienden" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T511a a fsd:Class ;
+    fsd:id "VNW(bez,det,dat,vol,1,ev,prenom,met-e,evmo)" ;
+    fsd:label "VNW(bez,det,dat,vol,1,ev,prenom,met-e,evmo) - te mijnen huize" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T511b a fsd:Class ;
+    fsd:id "VNW(bez,det,dat,vol,1,ev,prenom,met-e,evf)" ;
+    fsd:label "VNW(bez,det,dat,vol,1,ev,prenom,met-e,evf) - te mijner ere" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T511c a fsd:Class ;
+    fsd:id "VNW(bez,det,dat,vol,1,mv,prenom,met-e,evmo)" ;
+    fsd:label "VNW(bez,det,dat,vol,1,mv,prenom,met-e,evmo) - te onzen behoeve" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T511d a fsd:Class ;
+    fsd:id "VNW(bez,det,dat,vol,1,mv,prenom,met-e,evf)" ;
+    fsd:label "VNW(bez,det,dat,vol,1,mv,prenom,met-e,evf) - te onzer ere" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U511e a fsd:Class ;
+    fsd:id "VNW(bez,det,dat,vol,2,getal,prenom,met-e,evmo)" ;
+    fsd:label "VNW(bez,det,dat,vol,2,getal,prenom,met-e,evmo) - te uwen behoeve" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U511f a fsd:Class ;
+    fsd:id "VNW(bez,det,dat,vol,2,getal,prenom,met-e,evf)" ;
+    fsd:label "VNW(bez,det,dat,vol,2,getal,prenom,met-e,evf) - te uwer ere" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T511g a fsd:Class ;
+    fsd:id "VNW(bez,det,dat,vol,2v,ev,prenom,met-e,evf)" ;
+    fsd:label "VNW(bez,det,dat,vol,2v,ev,prenom,met-e,evf) - te jouwer nagedachtenis" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U511h a fsd:Class ;
+    fsd:id "VNW(bez,det,dat,vol,3,ev,prenom,met-e,evmo)" ;
+    fsd:label "VNW(bez,det,dat,vol,3,ev,prenom,met-e,evmo) - zijnen" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U511i a fsd:Class ;
+    fsd:id "VNW(bez,det,dat,vol,3,ev,prenom,met-e,evf)" ;
+    fsd:label "VNW(bez,det,dat,vol,3,ev,prenom,met-e,evf) - te zijner tijd" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T511j a fsd:Class ;
+    fsd:id "VNW(bez,det,dat,vol,3v,ev,prenom,met-e,evmo)" ;
+    fsd:label "VNW(bez,det,dat,vol,3v,ev,prenom,met-e,evmo) - haren" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T511k a fsd:Class ;
+    fsd:id "VNW(bez,det,dat,vol,3v,ev,prenom,met-e,evf)" ;
+    fsd:label "VNW(bez,det,dat,vol,3v,ev,prenom,met-e,evf) - te harer ere" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U511l a fsd:Class ;
+    fsd:id "VNW(bez,det,dat,vol,3p,mv,prenom,met-e,evmo)" ;
+    fsd:label "VNW(bez,det,dat,vol,3p,mv,prenom,met-e,evmo) - hunnen" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U511m a fsd:Class ;
+    fsd:id "VNW(bez,det,dat,vol,3p,mv,prenom,met-e,evf)" ;
+    fsd:label "VNW(bez,det,dat,vol,3p,mv,prenom,met-e,evf) - te hunner ere" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U512h a fsd:Class ;
+    fsd:id "VNW(bez,det,stan,vol,1,ev,nom,met-e,zonder-n)" ;
+    fsd:label "VNW(bez,det,stan,vol,1,ev,nom,met-e,zonder-n) - het mijne" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U512i a fsd:Class ;
+    fsd:id "VNW(bez,det,stan,vol,1,mv,nom,met-e,zonder-n)" ;
+    fsd:label "VNW(bez,det,stan,vol,1,mv,nom,met-e,zonder-n) - de onze" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U512j a fsd:Class ;
+    fsd:id "VNW(bez,det,stan,vol,2,getal,nom,met-e,zonder-n)" ;
+    fsd:label "VNW(bez,det,stan,vol,2,getal,nom,met-e,zonder-n) - het uwe" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U512k a fsd:Class ;
+    fsd:id "VNW(bez,det,stan,vol,2v,ev,nom,met-e,zonder-n)" ;
+    fsd:label "VNW(bez,det,stan,vol,2v,ev,nom,met-e,zonder-n) - de jouwe" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U512l a fsd:Class ;
+    fsd:id "VNW(bez,det,stan,vol,3m,ev,nom,met-e,zonder-n)" ;
+    fsd:label "VNW(bez,det,stan,vol,3m,ev,nom,met-e,zonder-n) - het zijne" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U512m a fsd:Class ;
+    fsd:id "VNW(bez,det,stan,vol,3v,ev,nom,met-e,zonder-n)" ;
+    fsd:label "VNW(bez,det,stan,vol,3v,ev,nom,met-e,zonder-n) - de hare" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U512n a fsd:Class ;
+    fsd:id "VNW(bez,det,stan,vol,3p,mv,nom,met-e,zonder-n)" ;
+    fsd:label "VNW(bez,det,stan,vol,3p,mv,nom,met-e,zonder-n) - het hunne" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U512o a fsd:Class ;
+    fsd:id "VNW(bez,det,stan,vol,1,ev,nom,met-e,mv-n)" ;
+    fsd:label "VNW(bez,det,stan,vol,1,ev,nom,met-e,mv-n) - de mijnen" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U512p a fsd:Class ;
+    fsd:id "VNW(bez,det,stan,vol,1,mv,nom,met-e,mv-n)" ;
+    fsd:label "VNW(bez,det,stan,vol,1,mv,nom,met-e,mv-n) - de onzen" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U512q a fsd:Class ;
+    fsd:id "VNW(bez,det,stan,vol,2,getal,nom,met-e,mv-n)" ;
+    fsd:label "VNW(bez,det,stan,vol,2,getal,nom,met-e,mv-n) - de uwen" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U512r a fsd:Class ;
+    fsd:id "VNW(bez,det,stan,vol,2v,ev,nom,met-e,mv-n)" ;
+    fsd:label "VNW(bez,det,stan,vol,2v,ev,nom,met-e,mv-n) - de jouwen" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U512s a fsd:Class ;
+    fsd:id "VNW(bez,det,stan,vol,3m,ev,nom,met-e,mv-n)" ;
+    fsd:label "VNW(bez,det,stan,vol,3m,ev,nom,met-e,mv-n) - de zijnen" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U512t a fsd:Class ;
+    fsd:id "VNW(bez,det,stan,vol,3v,ev,nom,met-e,mv-n)" ;
+    fsd:label "VNW(bez,det,stan,vol,3v,ev,nom,met-e,mv-n) - de haren" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U512u a fsd:Class ;
+    fsd:id "VNW(bez,det,stan,vol,3p,mv,nom,met-e,mv-n)" ;
+    fsd:label "VNW(bez,det,stan,vol,3p,mv,nom,met-e,mv-n) - de hunnen" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T513a a fsd:Class ;
+    fsd:id "VNW(bez,det,dat,vol,1,ev,nom,met-e,zonder-n)" ;
+    fsd:label "VNW(bez,det,dat,vol,1,ev,nom,met-e,zonder-n) - te mijnent" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T513b a fsd:Class ;
+    fsd:id "VNW(bez,det,dat,vol,1,mv,nom,met-e,zonder-n)" ;
+    fsd:label "VNW(bez,det,dat,vol,1,mv,nom,met-e,zonder-n) - ten onzent" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U513c a fsd:Class ;
+    fsd:id "VNW(bez,det,dat,vol,2,getal,nom,met-e,zonder-n)" ;
+    fsd:label "VNW(bez,det,dat,vol,2,getal,nom,met-e,zonder-n) - ten uwent" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T513d a fsd:Class ;
+    fsd:id "VNW(bez,det,dat,vol,3m,ev,nom,met-e,zonder-n)" ;
+    fsd:label "VNW(bez,det,dat,vol,3m,ev,nom,met-e,zonder-n) - te zijnent" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T513e a fsd:Class ;
+    fsd:id "VNW(bez,det,dat,vol,3v,ev,nom,met-e,zonder-n)" ;
+    fsd:label "VNW(bez,det,dat,vol,3v,ev,nom,met-e,zonder-n) - ten harent" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U513f a fsd:Class ;
+    fsd:id "VNW(bez,det,dat,vol,3p,mv,nom,met-e,zonder-n)" ;
+    fsd:label "VNW(bez,det,dat,vol,3p,mv,nom,met-e,zonder-n) - ten hunnent" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U514a a fsd:Class ;
+    fsd:id "VNW(vrag,pron,stan,nadr,3o,ev)" ;
+    fsd:label "VNW(vrag,pron,stan,nadr,3o,ev) - watte" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U515a a fsd:Class ;
+    fsd:id "VNW(betr,pron,stan,vol,persoon,getal)" ;
+    fsd:label "VNW(betr,pron,stan,vol,persoon,getal) - de man die daar staat" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U515b a fsd:Class ;
+    fsd:id "VNW(betr,pron,stan,vol,3,ev)" ;
+    fsd:label "VNW(betr,pron,stan,vol,3,ev) - het kind dat je daar ziet" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U515c a fsd:Class ;
+    fsd:id "VNW(betr,det,stan,nom,zonder,zonder-n)" ;
+    fsd:label "VNW(betr,det,stan,nom,zonder,zonder-n) - hetgeen je daar ziet, het feest tijdens hetwelk" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U515d a fsd:Class ;
+    fsd:id "VNW(betr,det,stan,nom,met-e,zonder-n)" ;
+    fsd:label "VNW(betr,det,stan,nom,met-e,zonder-n) - op hetgene de gemeente doet" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T516a a fsd:Class ;
+    fsd:id "VNW(betr,pron,gen,vol,3o,ev)" ;
+    fsd:label "VNW(betr,pron,gen,vol,3o,ev) - het warenhuis welks directeur hem een baan had aangeboden" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U516b a fsd:Class ;
+    fsd:id "VNW(betr,pron,gen,vol,3o,getal)" ;
+    fsd:label "VNW(betr,pron,gen,vol,3o,getal) - de kathedraal welker gewelven" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U517a a fsd:Class ;
+    fsd:id "VNW(vb,pron,stan,vol,3p,getal)" ;
+    fsd:label "VNW(vb,pron,stan,vol,3p,getal) - wie gaat er mee" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U517b a fsd:Class ;
+    fsd:id "VNW(vb,pron,stan,vol,3o,ev)" ;
+    fsd:label "VNW(vb,pron,stan,vol,3o,ev) - wat ik niet begrijp is" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U518a a fsd:Class ;
+    fsd:id "VNW(vb,pron,gen,vol,3m,ev)" ;
+    fsd:label "VNW(vb,pron,gen,vol,3m,ev) - wiens hoed is dit" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U518b a fsd:Class ;
+    fsd:id "VNW(vb,pron,gen,vol,3v,ev)" ;
+    fsd:label "VNW(vb,pron,gen,vol,3v,ev) - de vrouw wier hoed daar hangt" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U518c a fsd:Class ;
+    fsd:id "VNW(vb,pron,gen,vol,3p,mv)" ;
+    fsd:label "VNW(vb,pron,gen,vol,3p,mv) - de studenten tegen wier houding ..." ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U519a a fsd:Class ;
+    fsd:id "VNW(vb,adv-pron,obl,vol,3o,getal)" ;
+    fsd:label "VNW(vb,adv-pron,obl,vol,3o,getal) - waar ga je naartoe, de trein waar we op staan te wachten" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U520a a fsd:Class ;
+    fsd:id "VNW(excl,pron,stan,vol,3,getal)" ;
+    fsd:label "VNW(excl,pron,stan,vol,3,getal) - wat een dwaasheid, wat kan jij liegen zeg" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U521a a fsd:Class ;
+    fsd:id "VNW(vb,det,stan,prenom,zonder,evon)" ;
+    fsd:label "VNW(vb,det,stan,prenom,zonder,evon) - welk kind" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U521b a fsd:Class ;
+    fsd:id "VNW(vb,det,stan,prenom,met-e,rest)" ;
+    fsd:label "VNW(vb,det,stan,prenom,met-e,rest) - welke kinderen" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U522a a fsd:Class ;
+    fsd:id "VNW(vb,det,stan,nom,met-e,zonder-n)" ;
+    fsd:label "VNW(vb,det,stan,nom,met-e,zonder-n) - welke vind jij de mooiste" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U523a a fsd:Class ;
+    fsd:id "VNW(excl,det,stan,vrij,zonder)" ;
+    fsd:label "VNW(excl,det,stan,vrij,zonder) - welk een dwaasheid" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U524a a fsd:Class ;
+    fsd:id "VNW(aanw,pron,stan,vol,3o,ev)" ;
+    fsd:label "VNW(aanw,pron,stan,vol,3o,ev) - dat, dit, zulks" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U524b a fsd:Class ;
+    fsd:id "VNW(aanw,pron,stan,nadr,3o,ev)" ;
+    fsd:label "VNW(aanw,pron,stan,nadr,3o,ev) - datte, ditte" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U524c a fsd:Class ;
+    fsd:id "VNW(aanw,pron,stan,vol,3,getal)" ;
+    fsd:label "VNW(aanw,pron,stan,vol,3,getal) - die" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T525a a fsd:Class ;
+    fsd:id "VNW(aanw,pron,gen,vol,3m,ev)" ;
+    fsd:label "VNW(aanw,pron,gen,vol,3m,ev) - diens voorkeur" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T525b a fsd:Class ;
+    fsd:id "VNW(aanw,pron,gen,vol,3o,ev)" ;
+    fsd:label "VNW(aanw,pron,gen,vol,3o,ev) - en dies meer" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U526a a fsd:Class ;
+    fsd:id "VNW(aanw,adv-pron,obl,vol,3o,getal)" ;
+    fsd:label "VNW(aanw,adv-pron,obl,vol,3o,getal) - hier, daar" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U527a a fsd:Class ;
+    fsd:id "VNW(aanw,adv-pron,stan,red,3,getal)" ;
+    fsd:label "VNW(aanw,adv-pron,stan,red,3,getal) - d'r, het niet-kwantitatieve `er'" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U528a a fsd:Class ;
+    fsd:id "VNW(aanw,det,stan,prenom,zonder,evon)" ;
+    fsd:label "VNW(aanw,det,stan,prenom,zonder,evon) - dat boek, dit dier, ginds bos, zulk hout" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U528b a fsd:Class ;
+    fsd:id "VNW(aanw,det,stan,prenom,zonder,rest)" ;
+    fsd:label "VNW(aanw,det,stan,prenom,zonder,rest) - die stoel(en)" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U528c a fsd:Class ;
+    fsd:id "VNW(aanw,det,stan,prenom,zonder,agr)" ;
+    fsd:label "VNW(aanw,det,stan,prenom,zonder,agr) - zo'n boek(en)" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U528d a fsd:Class ;
+    fsd:id "VNW(aanw,det,stan,prenom,met-e,rest)" ;
+    fsd:label "VNW(aanw,det,stan,prenom,met-e,rest) - deze man, gene zijde, gindse heuvel, zulke balken" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U529a a fsd:Class ;
+    fsd:id "VNW(aanw,det,gen,prenom,met-e,rest3)" ;
+    fsd:label "VNW(aanw,det,gen,prenom,met-e,rest3) - een dezer dagen, de notulen dier vergadering" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T530a a fsd:Class ;
+    fsd:id "VNW(aanw,det,dat,prenom,met-e,evmo)" ;
+    fsd:label "VNW(aanw,det,dat,prenom,met-e,evmo) - te dien tijde" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T530b a fsd:Class ;
+    fsd:id "VNW(aanw,det,dat,prenom,met-e,evf)" ;
+    fsd:label "VNW(aanw,det,dat,prenom,met-e,evf) - in dier voege" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U531b a fsd:Class ;
+    fsd:id "VNW(aanw,det,stan,nom,met-e,zonder-n)" ;
+    fsd:label "VNW(aanw,det,stan,nom,met-e,zonder-n) - deze, gene, datgene, degene, diegene" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U531c a fsd:Class ;
+    fsd:id "VNW(aanw,det,stan,nom,met-e,mv-n)" ;
+    fsd:label "VNW(aanw,det,stan,nom,met-e,mv-n) - dezen, genen, degenen, diegenen" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T532a a fsd:Class ;
+    fsd:id "VNW(aanw,det,gen,nom,met-e,zonder-n)" ;
+    fsd:label "VNW(aanw,det,gen,nom,met-e,zonder-n) - schrijver dezes, de twintigste dezer" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T533a a fsd:Class ;
+    fsd:id "VNW(aanw,det,dat,nom,met-e,zonder-n)" ;
+    fsd:label "VNW(aanw,det,dat,nom,met-e,zonder-n) - dat is dan bij dezen beslist" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U534a a fsd:Class ;
+    fsd:id "VNW(aanw,det,stan,vrij,zonder)" ;
+    fsd:label "VNW(aanw,det,stan,vrij,zonder) - zulk een vreemde gedachte" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U535a a fsd:Class ;
+    fsd:id "VNW(onbep,pron,stan,vol,3p,ev)" ;
+    fsd:label "VNW(onbep,pron,stan,vol,3p,ev) - alleman, (n)iemand, iedereen, elkeen, menigeen" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U535b a fsd:Class ;
+    fsd:id "VNW(onbep,pron,stan,vol,3o,ev)" ;
+    fsd:label "VNW(onbep,pron,stan,vol,3o,ev) - alles, (n)iets, niks, wat, zoiets" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U536a a fsd:Class ;
+    fsd:id "VNW(onbep,pron,gen,vol,3p,ev)" ;
+    fsd:label "VNW(onbep,pron,gen,vol,3p,ev) - allemans, andermans, (n)iemands, (een)ieders" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U537a a fsd:Class ;
+    fsd:id "VNW(onbep,adv-pron,obl,vol,3o,getal)" ;
+    fsd:label "VNW(onbep,adv-pron,obl,vol,3o,getal) - (n)ergens, overal" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U538a a fsd:Class ;
+    fsd:id "VNW(onbep,adv-pron,gen,red,3,getal)" ;
+    fsd:label "VNW(onbep,adv-pron,gen,red,3,getal) - het kwantitatieve `er'" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U539a a fsd:Class ;
+    fsd:id "VNW(onbep,det,stan,prenom,zonder,evon)" ;
+    fsd:label "VNW(onbep,det,stan,prenom,zonder,evon) - elk huis, ieder kind, enig benul, een enkel woord, sommig bier" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U539b a fsd:Class ;
+    fsd:id "VNW(onbep,det,stan,prenom,zonder,agr)" ;
+    fsd:label "VNW(onbep,det,stan,prenom,zonder,agr) - geen kind(eren), menig politicus" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U539c a fsd:Class ;
+    fsd:id "VNW(onbep,det,stan,prenom,met-e,evz)" ;
+    fsd:label "VNW(onbep,det,stan,prenom,met-e,evz) - elke hond, iedere keer, ene mijnheer X, menige" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U539d a fsd:Class ;
+    fsd:id "VNW(onbep,det,stan,prenom,met-e,mv)" ;
+    fsd:label "VNW(onbep,det,stan,prenom,met-e,mv) - ettelijke" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U539e a fsd:Class ;
+    fsd:id "VNW(onbep,det,stan,prenom,met-e,rest)" ;
+    fsd:label "VNW(onbep,det,stan,prenom,met-e,rest) - sommige, enige, enkele" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U539f a fsd:Class ;
+    fsd:id "VNW(onbep,det,stan,prenom,met-e,agr)" ;
+    fsd:label "VNW(onbep,det,stan,prenom,met-e,agr) - alle mensen, hoop, vee" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T540a a fsd:Class ;
+    fsd:id "VNW(onbep,det,gen,prenom,met-e,mv)" ;
+    fsd:label "VNW(onbep,det,gen,prenom,met-e,mv) - proletariërs aller landen" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T541a a fsd:Class ;
+    fsd:id "VNW(onbep,det,dat,prenom,met-e,evmo)" ;
+    fsd:label "VNW(onbep,det,dat,prenom,met-e,evmo) - te allen prijze" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T541b a fsd:Class ;
+    fsd:id "VNW(onbep,det,dat,prenom,met-e,evf" ;
+    fsd:label "VNW(onbep,det,dat,prenom,met-e,evf - ) 	te eniger tijd" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U542a a fsd:Class ;
+    fsd:id "VNW(onbep,grad,stan,prenom,zonder,agr,basis)" ;
+    fsd:label "VNW(onbep,grad,stan,prenom,zonder,agr,basis) - veel plezier, weinig geld" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U542b a fsd:Class ;
+    fsd:id "VNW(onbep,grad,stan,prenom,met-e,agr,basis)" ;
+    fsd:label "VNW(onbep,grad,stan,prenom,met-e,agr,basis) - het vele plezier, de weinige toeschouwers" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U542c a fsd:Class ;
+    fsd:id "VNW(onbep,grad,stan,prenom,met-e,mv,basis)" ;
+    fsd:label "VNW(onbep,grad,stan,prenom,met-e,mv,basis) - beide mannen" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U542d a fsd:Class ;
+    fsd:id "VNW(onbep,grad,stan,prenom,zonder,agr,comp)" ;
+    fsd:label "VNW(onbep,grad,stan,prenom,zonder,agr,comp) - meer tijd, minder werk" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U542e a fsd:Class ;
+    fsd:id "VNW(onbep,grad,stan,prenom,met-e,agr,sup)" ;
+    fsd:label "VNW(onbep,grad,stan,prenom,met-e,agr,sup) - de meeste mensen, het minste tijd" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U542f a fsd:Class ;
+    fsd:id "VNW(onbep,grad,stan,prenom,met-e,agr,comp)" ;
+    fsd:label "VNW(onbep,grad,stan,prenom,met-e,agr,comp) - in mindere mate" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U543a a fsd:Class ;
+    fsd:id "VNW(onbep,det,stan,nom,met-e,mv-n)" ;
+    fsd:label "VNW(onbep,det,stan,nom,met-e,mv-n) - allen, sommigen, enkelen, de enen" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U543b a fsd:Class ;
+    fsd:id "VNW(onbep,det,stan,nom,met-e,zonder-n)" ;
+    fsd:label "VNW(onbep,det,stan,nom,met-e,zonder-n) - het éne ... het andere" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U543c a fsd:Class ;
+    fsd:id "VNW(onbep,det,stan,nom,zonder,zonder-n)" ;
+    fsd:label "VNW(onbep,det,stan,nom,zonder,zonder-n) - het één en ander" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T544a a fsd:Class ;
+    fsd:id "VNW(onbep,det,gen,nom,met-e,mv-n)" ;
+    fsd:label "VNW(onbep,det,gen,nom,met-e,mv-n) - met aller instemming" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U545a a fsd:Class ;
+    fsd:id "VNW(onbep,grad,stan,nom,met-e,zonder-n,basis)" ;
+    fsd:label "VNW(onbep,grad,stan,nom,met-e,zonder-n,basis) - het weinige" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U545b a fsd:Class ;
+    fsd:id "VNW(onbep,grad,stan,nom,met-e,mv-n,basis)" ;
+    fsd:label "VNW(onbep,grad,stan,nom,met-e,mv-n,basis) - velen, weinigen, beiden" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U545d a fsd:Class ;
+    fsd:id "VNW(onbep,grad,stan,nom,met-e,zonder-n,sup)" ;
+    fsd:label "VNW(onbep,grad,stan,nom,met-e,zonder-n,sup) - het minste wat je kan zeggen, de meeste" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U545e a fsd:Class ;
+    fsd:id "VNW(onbep,grad,stan,nom,met-e,mv-n,sup)" ;
+    fsd:label "VNW(onbep,grad,stan,nom,met-e,mv-n,sup) - de minsten, de meesten" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U545f a fsd:Class ;
+    fsd:id "VNW(onbep,grad,stan,nom,zonder,mv-n,dim)" ;
+    fsd:label "VNW(onbep,grad,stan,nom,zonder,mv-n,dim) - met z'n beidjes" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T546a a fsd:Class ;
+    fsd:id "VNW(onbep,grad,gen,nom,met-e,mv-n,basis)" ;
+    fsd:label "VNW(onbep,grad,gen,nom,met-e,mv-n,basis) - tot veler verbazing, met beider instemming" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U547a a fsd:Class ;
+    fsd:id "VNW(onbep,det,stan,vrij,zonder)" ;
+    fsd:label "VNW(onbep,det,stan,vrij,zonder) - ze kregen elk/ieder/allebei een bal, al die mensen" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U548a a fsd:Class ;
+    fsd:id "VNW(onbep,grad,stan,vrij,zonder,basis)" ;
+    fsd:label "VNW(onbep,grad,stan,vrij,zonder,basis) - dat is te weinig, veel groter" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U548b a fsd:Class ;
+    fsd:id "VNW(onbep,grad,stan,vrij,zonder,sup)" ;
+    fsd:label "VNW(onbep,grad,stan,vrij,zonder,sup) - de minst gevraagde, de meest gezochte" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U548c a fsd:Class ;
+    fsd:id "VNW(onbep,grad,stan,vrij,zonder,comp)" ;
+    fsd:label "VNW(onbep,grad,stan,vrij,zonder,comp) - minder werken, meer slapen" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T601 a fsd:Class ;
+    fsd:id "LID(bep,stan,evon)" ;
+    fsd:label "LID(bep,stan,evon) - het kind, in 't geniep" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T602 a fsd:Class ;
+    fsd:id "LID(bep,stan,rest)" ;
+    fsd:label "LID(bep,stan,rest) - de hond(en), de kinderen" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T603 a fsd:Class ;
+    fsd:id "LID(bep,gen,evmo)" ;
+    fsd:label "LID(bep,gen,evmo) - des duivels, 's avonds," ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U604 a fsd:Class ;
+    fsd:id "LID(bep,gen,rest3)" ;
+    fsd:label "LID(bep,gen,rest3) - der Nederlandse taal, der Belgen" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T605 a fsd:Class ;
+    fsd:id "LID(bep,dat,evmo)" ;
+    fsd:label "LID(bep,dat,evmo) - op den duur, om den brode" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T606 a fsd:Class ;
+    fsd:id "LID(bep,dat,evf)" ;
+    fsd:label "LID(bep,dat,evf) - in der minne" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T607 a fsd:Class ;
+    fsd:id "LID(bep,dat,mv)" ;
+    fsd:label "LID(bep,dat,mv) - die in den hemelen zijt" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:U608 a fsd:Class ;
+    fsd:id "LID(onbep,stan,agr)" ;
+    fsd:label "LID(onbep,stan,agr) - een kind, een mensen dat er waren" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T609 a fsd:Class ;
+    fsd:id "LID(onbep,gen,evf)" ;
+    fsd:label "LID(onbep,gen,evf) - de kracht ener vrouw" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T701 a fsd:Class ;
+    fsd:id "VZ(init)" ;
+    fsd:label "VZ(init) - met een lepeltje, met Jan in het hospitaal, met zo te roepen" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T702 a fsd:Class ;
+    fsd:id "VZ(fin)" ;
+    fsd:label "VZ(fin) - liep de trap af, bij de beesten af, speelt het bandje af" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T703 a fsd:Class ;
+    fsd:id "VZ(versm)" ;
+    fsd:label "VZ(versm) - ten strijde, ten hoogste, ter plaatse" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T801 a fsd:Class ;
+    fsd:id "VG(neven)" ;
+    fsd:label "VG(neven) - Jan en Peter; en toen gebeurde het" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T802 a fsd:Class ;
+    fsd:id "VG(onder)" ;
+    fsd:label "VG(onder) - omdat ze zich niet goed voelt" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T901 a fsd:Class ;
+    fsd:id "BW()" ;
+    fsd:label "BW() - gisteren, nu, niet, nog, al, hoe" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T001 a fsd:Class ;
+    fsd:id "TSW()" ;
+    fsd:label "TSW() - oei, amai, uh, hoera" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:R101 a fsd:Class ;
+    fsd:id "N(soort,dial)" ;
+    fsd:label "N(soort,dial) - bompa*d" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:R102 a fsd:Class ;
+    fsd:id "N(eigen,dial)" ;
+    fsd:label "N(eigen,dial) - " ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:R201 a fsd:Class ;
+    fsd:id "ADJ(dial)" ;
+    fsd:label "ADJ(dial) - ne*d langen*d toot*d" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:R301 a fsd:Class ;
+    fsd:id "WW(dial)" ;
+    fsd:label "WW(dial) - 'k zen*d nie*d thuis, 'k hem*d gee*d geld" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:R401 a fsd:Class ;
+    fsd:id "TW(hoofd,dial)" ;
+    fsd:label "TW(hoofd,dial) - " ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:R402 a fsd:Class ;
+    fsd:id "TW(rang,dial)" ;
+    fsd:label "TW(rang,dial) - den*d elfste*d" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:R501 a fsd:Class ;
+    fsd:id "VNW(pers,pron,dial)" ;
+    fsd:label "VNW(pers,pron,dial) - kom de*d gij mee, 'k heb ulie*d gezien" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:R502 a fsd:Class ;
+    fsd:id "VNW(refl,pron,dial)" ;
+    fsd:label "VNW(refl,pron,dial) - " ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:R503 a fsd:Class ;
+    fsd:id "VNW(recip,pron,dial)" ;
+    fsd:label "VNW(recip,pron,dial) - we zien malkanderen*d niet veel" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:R504 a fsd:Class ;
+    fsd:id "VNW(bez,det,dial)" ;
+    fsd:label "VNW(bez,det,dial) - hij heeft z'ne*d frak*d vergeten" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:R505 a fsd:Class ;
+    fsd:id "VNW(vrag,pron,dial)" ;
+    fsd:label "VNW(vrag,pron,dial) - " ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:R506 a fsd:Class ;
+    fsd:id "VNW(vrag,det,dial)" ;
+    fsd:label "VNW(vrag,det,dial) - " ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:R507 a fsd:Class ;
+    fsd:id "VNW(betr,pron,dial)" ;
+    fsd:label "VNW(betr,pron,dial) - " ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:R508 a fsd:Class ;
+    fsd:id "VNW(betr,det,dial)" ;
+    fsd:label "VNW(betr,det,dial) - " ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:R509 a fsd:Class ;
+    fsd:id "VNW(excl,pron,dial)" ;
+    fsd:label "VNW(excl,pron,dial) - " ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:R510 a fsd:Class ;
+    fsd:id "VNW(excl,det,dial)" ;
+    fsd:label "VNW(excl,det,dial) - " ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:R511 a fsd:Class ;
+    fsd:id "VNW(aanw,pron,dial)" ;
+    fsd:label "VNW(aanw,pron,dial) - " ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:R512 a fsd:Class ;
+    fsd:id "VNW(aanw,det,dial)" ;
+    fsd:label "VNW(aanw,det,dial) - diejen*d boek, dees*d week" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:R513 a fsd:Class ;
+    fsd:id "VNW(onbep,pron,dial)" ;
+    fsd:label "VNW(onbep,pron,dial) - z' hebben iet*d gezien" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:R514 a fsd:Class ;
+    fsd:id "VNW(onbep,det,dial)" ;
+    fsd:label "VNW(onbep,det,dial) - ze kan elken*d dag vertrekken" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:R601 a fsd:Class ;
+    fsd:id "LID(bep,dial)" ;
+    fsd:label "LID(bep,dial) - het gevecht met den*d beer" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:R602 a fsd:Class ;
+    fsd:id "LID(onbep,dial)" ;
+    fsd:label "LID(onbep,dial) - nen*d toffe gast, ne*d vieze vent" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:R701 a fsd:Class ;
+    fsd:id "VZ(init,dial)" ;
+    fsd:label "VZ(init,dial) - me*d veel geduld" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:R702 a fsd:Class ;
+    fsd:id "VZ(fin,dial)" ;
+    fsd:label "VZ(fin,dial) - " ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:R801 a fsd:Class ;
+    fsd:id "VG(neven,dial)" ;
+    fsd:label "VG(neven,dial) - " ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:R802 a fsd:Class ;
+    fsd:id "VG(onder,dial)" ;
+    fsd:label "VG(onder,dial) - 't schijnt da*d ze nie*d kunnen komen" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:R901 a fsd:Class ;
+    fsd:id "BW(dial)" ;
+    fsd:label "BW(dial) - efkes*d, nie*d" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:R001 a fsd:Class ;
+    fsd:id "TSW(dial)" ;
+    fsd:label "TSW(dial) - neeje*d, wablieft*d" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T003 a fsd:Class ;
+    fsd:id "SPEC(afgebr)" ;
+    fsd:label "SPEC(afgebr) - uitge*a, binnen-" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T003 a fsd:Class ;
+    fsd:id "SPEC(onverst)" ;
+    fsd:label "SPEC(onverst) - ggg, xxx, Xxx" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T004 a fsd:Class ;
+    fsd:id "SPEC(vreemd)" ;
+    fsd:label "SPEC(vreemd) - whatever*v, ad, hoc, wishful" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T005 a fsd:Class ;
+    fsd:id "SPEC(deeleigen)" ;
+    fsd:label "SPEC(deeleigen) - Den, Haag, New, York" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T006 a fsd:Class ;
+    fsd:id "SPEC(meta)" ;
+    fsd:label "SPEC(meta) - (het woord) homosexueel" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T008 a fsd:Class ;
+    fsd:id "SPEC(comment)" ;
+    fsd:label "SPEC(comment) - voor commentaren" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T009 a fsd:Class ;
+    fsd:id "SPEC(achter)" ;
+    fsd:label "SPEC(achter) - voor achtergrondgeluid" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T010 a fsd:Class ;
+    fsd:id "SPEC(afk)" ;
+    fsd:label "SPEC(afk) - d.w.z., dwz, enz., EHBO" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T011 a fsd:Class ;
+    fsd:id "SPEC(symb)" ;
+    fsd:label "SPEC(symb) - @, %, NaCl, =, emoticons" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:T007 a fsd:Class ;
+    fsd:id "LET()" ;
+    fsd:label "LET() - " ;
+    fsd:memberOf cgntag:Set .
