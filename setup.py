@@ -52,7 +52,7 @@ setup(
             'foliaspec = foliatools.foliaspec:main',
             'alpino2folia = foliatools.alpino2folia:main',
             'foliatree = foliatools.foliatree:main',
-            'foliaset2rdf = foliatools.foliaset2rdf:main',
+            'foliasetdefinition = foliatools.foliasetdefinition:main',
         ]
     },
     #include_package_data=True,
