@@ -1,0 +1,625 @@
+@prefix cgntag: <http://folia.science.ru.nl/setdefinition/cgntag#> .
+@prefix fsd: <http://folia.science.ru.nl/setdefinition#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+cgntag:Set a fsd:Set ;
+    fsd:id "cgntag" .
+
+cgntag:Subset.dial a fsd:Set ;
+    fsd:id "dial" ;
+    fsd:subsetOf cgntag:Set .
+
+cgntag:Subset.conjtype a fsd:Set ;
+    fsd:id "conjtype" ;
+    fsd:subsetOf cgntag:Set .
+
+cgntag:Subset.getal-n a fsd:Set ;
+    fsd:id "getal-n" ;
+    fsd:subsetOf cgntag:Set .
+
+cgntag:Subset.lwtype a fsd:Set ;
+    fsd:id "lwtype" ;
+    fsd:subsetOf cgntag:Set .
+
+cgntag:Subset.ntype a fsd:Set ;
+    fsd:id "ntype" ;
+    fsd:subsetOf cgntag:Set .
+
+cgntag:Subset.numtype a fsd:Set ;
+    fsd:id "numtype" ;
+    fsd:subsetOf cgntag:Set .
+
+cgntag:Subset.buiging a fsd:Set ;
+    fsd:id "buiging" ;
+    fsd:subsetOf cgntag:Set .
+
+cgntag:Subset.getal a fsd:Set ;
+    fsd:id "getal" ;
+    fsd:subsetOf cgntag:Set .
+
+cgntag:Subset.pvagr a fsd:Set ;
+    fsd:id "pvagr" ;
+    fsd:subsetOf cgntag:Set .
+
+cgntag:Subset.pvtijd a fsd:Set ;
+    fsd:id "pvtijd" ;
+    fsd:subsetOf cgntag:Set .
+
+cgntag:Subset.status a fsd:Set ;
+    fsd:id "status" ;
+    fsd:subsetOf cgntag:Set .
+
+cgntag:Subset.vztype a fsd:Set ;
+    fsd:id "vztype" ;
+    fsd:subsetOf cgntag:Set .
+
+cgntag:Subset.graad a fsd:Set ;
+    fsd:id "graad" ;
+    fsd:subsetOf cgntag:Set .
+
+cgntag:Subset.pdtype a fsd:Set ;
+    fsd:id "pdtype" ;
+    fsd:subsetOf cgntag:Set .
+
+cgntag:Subset.positie a fsd:Set ;
+    fsd:id "positie" ;
+    fsd:subsetOf cgntag:Set .
+
+cgntag:Subset.wvorm a fsd:Set ;
+    fsd:id "wvorm" ;
+    fsd:subsetOf cgntag:Set .
+
+cgntag:Subset.genus a fsd:Set ;
+    fsd:id "genus" ;
+    fsd:subsetOf cgntag:Set .
+
+cgntag:Subset.naamval a fsd:Set ;
+    fsd:id "naamval" ;
+    fsd:subsetOf cgntag:Set .
+
+cgntag:Subset.npagr a fsd:Set ;
+    fsd:id "npagr" ;
+    fsd:subsetOf cgntag:Set .
+
+cgntag:Subset.persoon a fsd:Set ;
+    fsd:id "persoon" ;
+    fsd:subsetOf cgntag:Set .
+
+cgntag:Subset.spectype a fsd:Set ;
+    fsd:id "spectype" ;
+    fsd:subsetOf cgntag:Set .
+
+cgntag:Subset.vwtype a fsd:Set ;
+    fsd:id "vwtype" ;
+    fsd:subsetOf cgntag:Set .
+
+<http://folia.science.ru.nl/setdefinition/cgntag#1> a fsd:Class ;
+    fsd:id "1" ;
+    fsd:label "eerste persoon" ;
+    fsd:memberOf cgntag:Subset.persoon .
+
+<http://folia.science.ru.nl/setdefinition/cgntag#2> a fsd:Class ;
+    fsd:id "2" ;
+    fsd:label "tweede persoon" ;
+    fsd:memberOf cgntag:Subset.persoon .
+
+<http://folia.science.ru.nl/setdefinition/cgntag#2b> a fsd:Class ;
+    fsd:id "2b" ;
+    fsd:label "tweede persoon beleefd" ;
+    fsd:memberOf cgntag:Subset.persoon .
+
+<http://folia.science.ru.nl/setdefinition/cgntag#2v> a fsd:Class ;
+    fsd:id "2v" ;
+    fsd:label "tweede persoon vertrouwelijk" ;
+    fsd:memberOf cgntag:Subset.persoon .
+
+<http://folia.science.ru.nl/setdefinition/cgntag#3> a fsd:Class ;
+    fsd:id "3" ;
+    fsd:label "derde persoon" ;
+    fsd:memberOf cgntag:Subset.persoon .
+
+<http://folia.science.ru.nl/setdefinition/cgntag#3m> a fsd:Class ;
+    fsd:id "3m" ;
+    fsd:label "derde persoon mannelijk" ;
+    fsd:memberOf cgntag:Subset.persoon .
+
+<http://folia.science.ru.nl/setdefinition/cgntag#3o> a fsd:Class ;
+    fsd:id "3o" ;
+    fsd:label "derde persoon onpersoonlijk" ;
+    fsd:memberOf cgntag:Subset.persoon .
+
+<http://folia.science.ru.nl/setdefinition/cgntag#3p> a fsd:Class ;
+    fsd:id "3p" ;
+    fsd:label "derde persoon persoonlijk" ;
+    fsd:memberOf cgntag:Subset.persoon .
+
+<http://folia.science.ru.nl/setdefinition/cgntag#3v> a fsd:Class ;
+    fsd:id "3v" ;
+    fsd:label "derde persoon vrouwelijk" ;
+    fsd:memberOf cgntag:Subset.persoon .
+
+cgntag:ADJ a fsd:Class ;
+    fsd:id "ADJ" ;
+    fsd:label "Adjectief" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:BW a fsd:Class ;
+    fsd:id "BW" ;
+    fsd:label "Bijwoord" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:LET a fsd:Class ;
+    fsd:id "LET" ;
+    fsd:label "Punctuatie" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:LID a fsd:Class ;
+    fsd:id "LID" ;
+    fsd:label "Lidwoord" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:N a fsd:Class ;
+    fsd:id "N" ;
+    fsd:label "Naamwoord";
+    fsd:memberOf cgntag:Set .
+
+cgntag:SPEC a fsd:Class ;
+    fsd:id "SPEC" ;
+    fsd:label "Speciaal, namen en symbolen" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:TSW a fsd:Class ;
+    fsd:id "TSW" ;
+    fsd:label "Tussenwoord" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:TW a fsd:Class ;
+    fsd:id "TW" ;
+    fsd:label "Telwoord" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:VG a fsd:Class ;
+    fsd:id "VG" ;
+    fsd:label "Voegwoord" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:VNW a fsd:Class ;
+    fsd:id "VNW" ;
+    fsd:label "Voornaamwoord" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:VZ a fsd:Class ;
+    fsd:id "VZ" ;
+    fsd:label "Voorzetsel" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:WW a fsd:Class ;
+    fsd:id "WW" ;
+    fsd:label "Werkwoord" ;
+    fsd:memberOf cgntag:Set .
+
+cgntag:aanw a fsd:Class ;
+    fsd:id "aanw" ;
+    fsd:label "aanwijzend voornaamwoord" ;
+    fsd:memberOf cgntag:Subset.vwtype .
+
+cgntag:achter a fsd:Class ;
+    fsd:id "achter" ;
+    fsd:label "achtergrond" ;
+    fsd:memberOf cgntag:Subset.spectype .
+
+cgntag:adv-pron a fsd:Class ;
+    fsd:id "adv-pron" ;
+    fsd:label "averbiaal pronomen" ;
+    fsd:memberOf cgntag:Subset.pdtype .
+
+cgntag:afgebr a fsd:Class ;
+    fsd:id "afgebr" ;
+    fsd:label "afgebroken" ;
+    fsd:memberOf cgntag:Subset.spectype .
+
+cgntag:afk a fsd:Class ;
+    fsd:id "afk" ;
+    fsd:label "afkorting" ;
+    fsd:memberOf cgntag:Subset.spectype .
+
+cgntag:agr a fsd:Class ;
+    fsd:id "agr" ;
+    fsd:label "volledig" ;
+    fsd:memberOf cgntag:Subset.npagr .
+
+cgntag:agr3 a fsd:Class ;
+    fsd:id "agr3" ;
+    fsd:label "" ;
+    fsd:memberOf cgntag:Subset.npagr .
+
+cgntag:basis a fsd:Class ;
+    fsd:id "basis" ;
+    fsd:label "basis" ;
+    fsd:memberOf cgntag:Subset.graad .
+
+cgntag:bepaald a fsd:Class ;
+    fsd:id "bepaald" ;
+    fsd:label "bepaald" ;
+    fsd:memberOf cgntag:Subset.lwtype .
+
+cgntag:betr a fsd:Class ;
+    fsd:id "betr" ;
+    fsd:label "betrekkelijk voornaamwoord" ;
+    fsd:memberOf cgntag:Subset.vwtype .
+
+cgntag:bez a fsd:Class ;
+    fsd:id "bez" ;
+    fsd:label "bezittelijk voornaamwoord" ;
+    fsd:memberOf cgntag:Subset.vwtype .
+
+cgntag:bijz a fsd:Class ;
+    fsd:id "bijz" ;
+    fsd:label "geslacht" ;
+    fsd:memberOf cgntag:Subset.naamval .
+
+cgntag:comment a fsd:Class ;
+    fsd:id "comment" ;
+    fsd:label "commentaar" ;
+    fsd:memberOf cgntag:Subset.spectype .
+
+cgntag:comp a fsd:Class ;
+    fsd:id "comp" ;
+    fsd:label "comparatief" ;
+    fsd:memberOf cgntag:Subset.graad .
+
+cgntag:conj a fsd:Class ;
+    fsd:id "conj" ;
+    fsd:label "conjunctief" ;
+    fsd:memberOf cgntag:Subset.pvtijd .
+
+cgntag:dat a fsd:Class ;
+    fsd:id "dat" ;
+    fsd:label "datief" ;
+    fsd:memberOf cgntag:Subset.naamval .
+
+cgntag:deeleigen a fsd:Class ;
+    fsd:id "deeleigen" ;
+    fsd:label "eigennaam" ;
+    fsd:memberOf cgntag:Subset.spectype .
+
+cgntag:det a fsd:Class ;
+    fsd:id "det" ;
+    fsd:label "determiner" ;
+    fsd:memberOf cgntag:Subset.pdtype .
+
+cgntag:dial a fsd:Class ;
+    fsd:id "dial" ;
+    fsd:label "dialect" ;
+    fsd:memberOf cgntag:Subset.dial .
+
+cgntag:dim a fsd:Class ;
+    fsd:id "dim" ;
+    fsd:label "diminutief" ;
+    fsd:memberOf cgntag:Subset.graad .
+
+cgntag:eigen a fsd:Class ;
+    fsd:id "eigen" ;
+    fsd:label "eigennaam" ;
+    fsd:memberOf cgntag:Subset.ntype .
+
+cgntag:enof a fsd:Class ;
+    fsd:id "enof" ;
+    fsd:label "en/of" ;
+    fsd:memberOf cgntag:Subset.spectype .
+
+cgntag:ev a fsd:Class ;
+    fsd:id "ev" ;
+    fsd:label "enkelvoud" ;
+    fsd:memberOf cgntag:Subset.getal,
+        cgntag:Subset.pvagr .
+
+cgntag:evf a fsd:Class ;
+    fsd:id "evf" ;
+    fsd:label "enkelvoud feminien" ;
+    fsd:memberOf cgntag:Subset.npagr .
+
+cgntag:evmo a fsd:Class ;
+    fsd:id "evmo" ;
+    fsd:label "enkelvoudig zijdig of meervoudig" ;
+    fsd:memberOf cgntag:Subset.npagr .
+
+cgntag:evon a fsd:Class ;
+    fsd:id "evon" ;
+    fsd:label "enkelvoudig onzijdig" ;
+    fsd:memberOf cgntag:Subset.npagr .
+
+cgntag:evz a fsd:Class ;
+    fsd:id "evz" ;
+    fsd:label "enkelvoudig zijdig" ;
+    fsd:memberOf cgntag:Subset.npagr .
+
+cgntag:excl a fsd:Class ;
+    fsd:id "excl" ;
+    fsd:label "exclamatief voornaamwoord" ;
+    fsd:memberOf cgntag:Subset.vwtype .
+
+cgntag:fem a fsd:Class ;
+    fsd:id "fem" ;
+    fsd:label "feminien" ;
+    fsd:memberOf cgntag:Subset.genus .
+
+cgntag:fin a fsd:Class ;
+    fsd:id "fin" ;
+    fsd:label "finaal" ;
+    fsd:memberOf cgntag:Subset.vztype .
+
+cgntag:gen a fsd:Class ;
+    fsd:id "gen" ;
+    fsd:label "genitief" ;
+    fsd:memberOf cgntag:Subset.naamval .
+
+cgntag:genus a fsd:Class ;
+    fsd:id "genus" ;
+    fsd:label "geslacht" ;
+    fsd:memberOf cgntag:Subset.genus .
+
+cgntag:getal a fsd:Class ;
+    fsd:id "getal" ;
+    fsd:label "getal" ;
+    fsd:memberOf cgntag:Subset.getal .
+
+cgntag:grad a fsd:Class ;
+    fsd:id "grad" ;
+    fsd:label "gradeerbaar determiner" ;
+    fsd:memberOf cgntag:Subset.pdtype .
+
+cgntag:hoofd a fsd:Class ;
+    fsd:id "hoofd" ;
+    fsd:label "hoofdtelwoord" ;
+    fsd:memberOf cgntag:Subset.numtype .
+
+cgntag:inf a fsd:Class ;
+    fsd:id "inf" ;
+    fsd:label "infinitief" ;
+    fsd:memberOf cgntag:Subset.wvorm .
+
+cgntag:init a fsd:Class ;
+    fsd:id "init" ;
+    fsd:label "initieel" ;
+    fsd:memberOf cgntag:Subset.vztype .
+
+cgntag:masc a fsd:Class ;
+    fsd:id "masc" ;
+    fsd:label "masculien" ;
+    fsd:memberOf cgntag:Subset.genus .
+
+cgntag:met-e a fsd:Class ;
+    fsd:id "met-e" ;
+    fsd:label "met e" ;
+    fsd:memberOf cgntag:Subset.buiging .
+
+cgntag:met-s a fsd:Class ;
+    fsd:id "met-s" ;
+    fsd:label "met s" ;
+    fsd:memberOf cgntag:Subset.buiging .
+
+cgntag:met-t a fsd:Class ;
+    fsd:id "met-t" ;
+    fsd:label "met t" ;
+    fsd:memberOf cgntag:Subset.pvagr .
+
+cgntag:meta a fsd:Class ;
+    fsd:id "meta" ;
+    fsd:label "meta" ;
+    fsd:memberOf cgntag:Subset.spectype .
+
+cgntag:mv a fsd:Class ;
+    fsd:id "mv" ;
+    fsd:label "meervoud" ;
+    fsd:memberOf cgntag:Subset.getal,
+        cgntag:Subset.npagr,
+        cgntag:Subset.pvagr .
+
+cgntag:mv-n a fsd:Class ;
+    fsd:id "mv-n" ;
+    fsd:label "meervoud-n" ;
+    fsd:memberOf cgntag:Subset.getal-n .
+
+cgntag:nadr a fsd:Class ;
+    fsd:id "nadr" ;
+    fsd:label "nadruk" ;
+    fsd:memberOf cgntag:Subset.status .
+
+cgntag:neven a fsd:Class ;
+    fsd:id "neven" ;
+    fsd:label "nevenschikkend" ;
+    fsd:memberOf cgntag:Subset.conjtype .
+
+cgntag:nom a fsd:Class ;
+    fsd:id "nom" ;
+    fsd:label "nominaal" ;
+    fsd:memberOf cgntag:Subset.positie .
+
+cgntag:nomin a fsd:Class ;
+    fsd:id "nomin" ;
+    fsd:label "nominatief" ;
+    fsd:memberOf cgntag:Subset.naamval .
+
+cgntag:obl a fsd:Class ;
+    fsd:id "obl" ;
+    fsd:label "oblique" ;
+    fsd:memberOf cgntag:Subset.naamval .
+
+cgntag:od a fsd:Class ;
+    fsd:id "od" ;
+    fsd:label "onvoltooid deelwoord" ;
+    fsd:memberOf cgntag:Subset.wvorm .
+
+cgntag:onbep a fsd:Class ;
+    fsd:id "onbep" ;
+    fsd:label "onbepaald voornaamwoord" ;
+    fsd:memberOf cgntag:Subset.vwtype .
+
+cgntag:onbepaald a fsd:Class ;
+    fsd:id "onbepaald" ;
+    fsd:label "onbepaald" ;
+    fsd:memberOf cgntag:Subset.lwtype .
+
+cgntag:onder a fsd:Class ;
+    fsd:id "onder" ;
+    fsd:label "onderschikkend" ;
+    fsd:memberOf cgntag:Subset.conjtype .
+
+cgntag:onverst a fsd:Class ;
+    fsd:id "onverst" ;
+    fsd:label "afkorting" ;
+    fsd:memberOf cgntag:Subset.spectype .
+
+cgntag:onz a fsd:Class ;
+    fsd:id "onz" ;
+    fsd:label "onzijdig" ;
+    fsd:memberOf cgntag:Subset.genus .
+
+cgntag:pers a fsd:Class ;
+    fsd:id "pers" ;
+    fsd:label "persoonlijk voornaamwoord" ;
+    fsd:memberOf cgntag:Subset.vwtype .
+
+cgntag:persoon a fsd:Class ;
+    fsd:id "persoon" ;
+    fsd:label "persoon" ;
+    fsd:memberOf cgntag:Subset.persoon .
+
+cgntag:postnom a fsd:Class ;
+    fsd:id "postnom" ;
+    fsd:label "postnominaal" ;
+    fsd:memberOf cgntag:Subset.positie .
+
+cgntag:pr a fsd:Class ;
+    fsd:id "pr" ;
+    fsd:label "pers/refl" ;
+    fsd:memberOf cgntag:Subset.vwtype .
+
+cgntag:prenom a fsd:Class ;
+    fsd:id "prenom" ;
+    fsd:label "prenominaal" ;
+    fsd:memberOf cgntag:Subset.positie .
+
+cgntag:pron a fsd:Class ;
+    fsd:id "pron" ;
+    fsd:label "pronomen" ;
+    fsd:memberOf cgntag:Subset.pdtype .
+
+cgntag:pv a fsd:Class ;
+    fsd:id "pv" ;
+    fsd:label "persoonsvorm" ;
+    fsd:memberOf cgntag:Subset.wvorm .
+
+cgntag:rang a fsd:Class ;
+    fsd:id "rang" ;
+    fsd:label "rangtelwoord" ;
+    fsd:memberOf cgntag:Subset.numtype .
+
+cgntag:recip a fsd:Class ;
+    fsd:id "recip" ;
+    fsd:label "reciprook voornaamwoord" ;
+    fsd:memberOf cgntag:Subset.vwtype .
+
+cgntag:red a fsd:Class ;
+    fsd:id "red" ;
+    fsd:label "gereduceerd" ;
+    fsd:memberOf cgntag:Subset.status .
+
+cgntag:refl a fsd:Class ;
+    fsd:id "refl" ;
+    fsd:label "reflexief voornaamwoord" ;
+    fsd:memberOf cgntag:Subset.vwtype .
+
+cgntag:rest a fsd:Class ;
+    fsd:id "rest" ;
+    fsd:label "" ;
+    fsd:memberOf cgntag:Subset.npagr .
+
+cgntag:rest3 a fsd:Class ;
+    fsd:id "rest3" ;
+    fsd:label "" ;
+    fsd:memberOf cgntag:Subset.npagr .
+
+cgntag:soort a fsd:Class ;
+    fsd:id "soort" ;
+    fsd:label "soortnaam" ;
+    fsd:memberOf cgntag:Subset.ntype .
+
+cgntag:stan a fsd:Class ;
+    fsd:id "stan" ;
+    fsd:label "standaard" ;
+    fsd:memberOf cgntag:Subset.naamval .
+
+cgntag:sup a fsd:Class ;
+    fsd:id "sup" ;
+    fsd:label "superlatief" ;
+    fsd:memberOf cgntag:Subset.graad .
+
+cgntag:symb a fsd:Class ;
+    fsd:id "symb" ;
+    fsd:label "symbool" ;
+    fsd:memberOf cgntag:Subset.spectype .
+
+cgntag:tgw a fsd:Class ;
+    fsd:id "tgw" ;
+    fsd:label "tegenwoordig" ;
+    fsd:memberOf cgntag:Subset.pvtijd .
+
+cgntag:vb a fsd:Class ;
+    fsd:id "vb" ;
+    fsd:label "vrag/betr" ;
+    fsd:memberOf cgntag:Subset.vwtype .
+
+cgntag:vd a fsd:Class ;
+    fsd:id "vd" ;
+    fsd:label "voltooid deelwoord" ;
+    fsd:memberOf cgntag:Subset.wvorm .
+
+cgntag:verl a fsd:Class ;
+    fsd:id "verl" ;
+    fsd:label "verleden" ;
+    fsd:memberOf cgntag:Subset.pvtijd .
+
+cgntag:versm a fsd:Class ;
+    fsd:id "versm" ;
+    fsd:label "versmolten" ;
+    fsd:memberOf cgntag:Subset.vztype .
+
+cgntag:vol a fsd:Class ;
+    fsd:id "vol" ;
+    fsd:label "volledig" ;
+    fsd:memberOf cgntag:Subset.status .
+
+cgntag:vrag a fsd:Class ;
+    fsd:id "vrag" ;
+    fsd:label "vragend voornaamwoord" ;
+    fsd:memberOf cgntag:Subset.vwtype .
+
+cgntag:vreemd a fsd:Class ;
+    fsd:id "vreemd" ;
+    fsd:label "vreemd" ;
+    fsd:memberOf cgntag:Subset.spectype .
+
+cgntag:vrij a fsd:Class ;
+    fsd:id "vrij" ;
+    fsd:label "vrij" ;
+    fsd:memberOf cgntag:Subset.positie .
+
+cgntag:zijd a fsd:Class ;
+    fsd:id "zijd" ;
+    fsd:label "zijdig" ;
+    fsd:memberOf cgntag:Subset.genus .
+
+cgntag:zonder a fsd:Class ;
+    fsd:id "zonder" ;
+    fsd:label "zonder" ;
+    fsd:memberOf cgntag:Subset.buiging .
+
+cgntag:zonder-n a fsd:Class ;
+    fsd:id "zonder-n" ;
+    fsd:label "enkelvoud-n" ;
+    fsd:memberOf cgntag:Subset.getal-n .
