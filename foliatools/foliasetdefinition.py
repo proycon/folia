@@ -73,17 +73,17 @@ def main():
         else:
             printuri = ""
         print("SET " + setinfo['id'] + printuri + ": " + setinfo['label'])
-        for classinfo in setdefinition.classes(setinfo['uri'], nestedhierarchy=True).values():
+        for classinfo in setdefinition.orderedclasses(setinfo['uri'], nestedhierarchy=True):
             printclass(classinfo, args, "  ")
         print()
 
-        for subsetinfo in setdefinition.subsets():
+        for subsetinfo in sorted(setdefinition.subsets(), key=lambda subsetinfo: subsetinfo['label'] if 'label' in subsetinfo else subsetinfo['id']):
             if args.outputuri:
                 printuri = " <" + subsetinfo['uri'] + ">"
             else:
                 printuri = ""
             print("SUBSET " + subsetinfo['id'] + printuri + ": " + subsetinfo['label'])
-            for classinfo in setdefinition.classes(subsetinfo['uri'], nestedhierarchy=True).values():
+            for classinfo in setdefinition.orderedclasses(subsetinfo['uri'], nestedhierarchy=True):
                 printclass(classinfo, args, "  ")
             print()
 
