@@ -61,6 +61,13 @@
     rdfs:domain <#Class> ;
     rdfs:target <#Set> .
 
+<#sequenceNumber>
+    a rdf:Property ;
+    rdfs:label "Sequence Number" ;
+    rdfs:comment "The sequence number determines an explicit ordering of classes for presentational purposes, alphabetic ordering should be assumed if no sequence numbers are present" ;
+    rdfs:domain <#Class> ;
+    rdfs:target xsd:integer .
+
 # class hierarchy
 
 <#parentClass>
