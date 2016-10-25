@@ -295,6 +295,7 @@ elements:
             properties:
                 annotationtype: DIVISION
                 xmltag: "div"
+                label: "Division"
                 textdelimiter: "\n\n\n"
                 accepted_data: [AbstractExtendedTokenAnnotation, Division, Entry, Event, Example, Figure, Gap, Head, Linebreak, List, Note, Paragraph, Part, PhonContent, Quote, Reference, Sentence, Table, TextContent, Utterance, Whitespace]
           - class: Entry
