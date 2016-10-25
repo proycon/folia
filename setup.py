@@ -50,6 +50,7 @@ setup(
             'foliacorrect = foliatools.foliacorrect:main',
             'foliacount = foliatools.foliacount:main',
             'foliaspec = foliatools.foliaspec:main',
+            'foliaspec2json = foliatools.foliaspec2json:main',
             'alpino2folia = foliatools.alpino2folia:main',
             'foliatree = foliatools.foliatree:main',
             'foliasetdefinition = foliatools.foliasetdefinition:main',
