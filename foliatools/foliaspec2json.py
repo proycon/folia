@@ -19,8 +19,16 @@ for specfile in specfiles:
 if spec is None:
     print("FoLiA Specification file folia.yml could not be found in " + ", ".join(specfiles) ,file=sys.stderr)
 
-def main():
-    print(json.dumps(spec, sort_keys=True, indent=4))
+def main(var=None):
+    try:
+        var = sys.argv[1]
+        if var[0] == '-': var = None
+    except:
+        var = None
+    if var:
+        print(var + ' = ' + json.dumps(spec, sort_keys=True, indent=4) + ';')
+    else:
+        print(json.dumps(spec, sort_keys=True, indent=4))
 
 if __name__ == '__main__':
     main()
