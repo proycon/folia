@@ -229,9 +229,9 @@
           <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.5">
             <t>wordt</t>
             <pos class="WW(pv,tgw,met-t)">
-              <feat class="pv" subset="role"/>
-              <feat class="tgw" subset="tense"/>
-              <feat class="met-t" subset="form"/>
+              <feat class="pv" subset="wvorm"/>
+              <feat class="tgw" subset="pvtijd"/>
+              <feat class="met-t" subset="pvagr"/>
             </pos>
             <lemma class="worden"/>
           </w>
