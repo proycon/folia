@@ -6,7 +6,7 @@
       <token-annotation annotator="ilktok" annotatortype="auto" />
       <sentence-annotation set="sentences" annotator="ucto" annotatortype="auto" />
       <paragraph-annotation set="paragraphs" annotator="ucto" annotatortype="auto" />
-      <pos-annotation set="cgn-combinedtags" annotator="tadpole" annotatortype="auto" />
+      <pos-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn" annotator="frog" annotatortype="auto" />
       <lemma-annotation set="lemmas-nl" annotator="tadpole" annotatortype="auto" />
       <correction-annotation set="corrections" annotator="proycon" annotatortype="manual" />
       <errordetection-annotation set="corrections" annotator="proycon" annotatortype="manual" />
