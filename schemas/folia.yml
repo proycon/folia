@@ -178,22 +178,27 @@ elements:
                   properties:
                       xmltag: "dep"
                       label: "Dependent"
+                      occurrences: 1
                 - class: Headspan
                   properties:
                       xmltag: "hd"
                       label: "Head"
+                      occurrences: 1
                 - class: Relation
                   properties:
                       xmltag: "relation"
                       label: "Relation"
+                      occurrences: 1
                 - class: Source
                   properties:
                       xmltag: "source"
                       label: "Source"
+                      occurrences: 1
                 - class: Target
                   properties:
                       xmltag: "target"
                       label: "Target"
+                      occurrences: 1
           - class: Chunk
             properties:
                 annotationtype: CHUNKING
