@@ -2,121 +2,41 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
-# base class
+# FoLiA Set Definitions use SKOS:
+# - Sets corresponds to Concept Schemes (skos:ConceptScheme)
+# - Classes corresponds to Concepts (skos:Concept)
+# - IDs for both sets and classes anotation attribute is mandatory 
 
-<#Set>
-    a rdf:Class ;
-    rdfs:label "FoLiA Set Definition" ;
-    rdfs:comment "Defines a set or taxonomy of classes for a particular linguistic annotation. These are in turn referenced by FoLiA documents." .
 
-# set type (open/mixed/closed)
+# set type (non-SKOS)
 
 <#open>
-    a rdf:Property ;
-    rdfs:label "open" ;
-    rdfs:comment "Open set definition. Classes may refer to anything. Otherwise, the set is closed." ;
+    a owl:DataTypeProperty ;
+    a rdf:Property ; #for non-OWL aware applications
+    skos:definition "Open set definition. Classes may refer to anything. Otherwise, the set is closed." ;
+    rdfs:domain skos:ConceptScheme .
     rdfs:range xsd:boolean .
 
 <#empty>
-    a rdf:Property ;
-    rdfs:label "empty" ;
-    rdfs:comment "Empty set definition. The set itself takes no classes, it may however still define subsets." ;
+    a owl:DataTypeProperty ;
+    a rdf:Property ;#for non-OWL aware applications
+    skos:definition "Empty set definition. The set itself takes no classes, it may however still define subsets." ;
+    rdfs:domain skos:ConceptScheme .
     rdfs:range xsd:boolean .
 
-
-# class  properties
-
-<#Class>
-    a rdf:Class ;
-    rdfs:label "FoLiA Class" ;
-    rdfs:comments "Defines a class in a set, a class corresponds for instance to a tag in a linguistic tagset" .
-
-<#label>
-    a rdf:Property ;
-    rdfs:subPropertyOf rdfs:label ;
-    rdfs:label "The human readable label for the Set or Class" .
-
-<#id>
-    a rdf:Property ;
-    rdfs:label "ID identifying the class (or set as a whole), a class is identified and referenced from the FoLiA document by this ID or by its full URI. The ID must be unique in the (sub)set but it less constained than the URI." ;
-    rdfs:range xsd:string .
-
-<#conceptLink>
-    a rdf:Property ;
-    rdfs:label "Concept Link" ;
-    rdfs:comment "Links a class or set to any other resource that is considered to cover the same concept" ;
-    rdfs:range rdfs:Resource .
-
-<#infoLink>
-    a rdf:Property ;
-    rdfs:label "Info Link" ;
-    rdfs:comment "Links a class or set to a webpage that provides information on the concept" ;
-    rdfs:range xsd:string .
-
-<#memberOf>
-    a rdf:Property ;
-    rdfs:label "Member of set" ;
-    rdfs:comment "Each class must state what set it is a direct member of" ;
-    rdfs:domain <#Class> ;
-    rdfs:target <#Set> .
+#non-SKOS:
 
 <#sequenceNumber>
-    a rdf:Property ;
-    rdfs:label "Sequence Number" ;
-    rdfs:comment "The sequence number determines an explicit ordering of classes for presentational purposes, alphabetic ordering should be assumed if no sequence numbers are present" ;
-    rdfs:domain <#Class> ;
+    a owl:DataTypeProperty ;
+    a rdf:Property ; #for non-OWL aware applications
+    skos:definition "The sequence number determines an explicit ordering of classes for presentational purposes, alphabetic ordering should be assumed if no sequence numbers are present" ;
+    rdfs:domain skos:Concept ;
     rdfs:target xsd:integer .
 
-# class hierarchy
 
-<#parentClass>
-    a rdf:Property ;
-    rdfs:label "Parent class" ;
-    rdfs:comment "This property is used to define a taxonomy/hierarchy of classes, rather than a flat set." ;
-    rdfs:domain <#Class> ;
-    rdfs:target <#Class> .
-
-# class order
-
-<#orderIndex>
-    a rdf:Property ;
-    rdfs:domain <#Class> ;
-    rdfs:range xsd:integer .
-
-# subsets
-
-<#subsetOf>
-    a rdf:Property ;
-    rdfs:label "Subset" ;
-    rdfs:comment "Sets may be nested, subsets are always referenced in the FoLiA document using 'features'" ;
-    rdfs:domain <#Set> ;
-    rdfs:target <#Set> .
-
-
-#constraints (needs work still)
-
-<#constrain>
-    a rdf:Property ;
-    rdfs:label "Contrain" ;
-    rdfs:comment "Constrain a class from a subset to require or forbid co-occuring with another class" ;
-    rdfs:domain <#Class> ;
-    rdfs:range <#Constraint> .
-
-
-<#Constraint>
-    a rdf:Class ;
-    rdfs:label "Constraint" .
-
-<#ConstraintType>
-    a rdf:class ;
-    rdfs:label "Constraint Type" .
-
-<#Required>
-    a <#ConstraintType> .
-
-<#Forbidden>
-    a <#ConstraintType> .
 
 
 
