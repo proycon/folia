@@ -1935,14 +1935,14 @@ cgntag:agr a skos:Concept ;
 
 cgntag:agr3 a skos:Concept ;
     skos:notation "agr3" ;
-    skos:prefLabel "" .
+    skos:prefLabel "agr3" .
 
 cgntag:basis a skos:Concept ;
     skos:notation "basis" ;
     skos:prefLabel "basis" .
 
 cgntag:bepaald a skos:Concept ;
-    skos:notation "bepaald" ;
+    skos:notation "bep" ;
     skos:prefLabel "bepaald" .
 
 cgntag:betr a skos:Concept ;
@@ -2107,7 +2107,7 @@ cgntag:onbep a skos:Concept ;
 
 cgntag:onbepaald a skos:Concept ;
     skos:notation "onbepaald" ;
-    skos:prefLabel "onbepaald" .
+    skos:prefLabel "onbep" .
 
 cgntag:onder a skos:Concept ;
     skos:notation "onder" ;
