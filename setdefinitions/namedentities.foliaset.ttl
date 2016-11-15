@@ -1,0 +1,144 @@
+@prefix fsd: <http://folia.science.ru.nl/setdefinition#> .
+@prefix namedentities: <http://folia.science.ru.nl/setdefinition/namedentities#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+namedentities:Set a skos:Collection ;
+    skos:member namedentities:eve,
+        namedentities:loc,
+        namedentities:loc.building,
+        namedentities:loc.city,
+        namedentities:loc.country,
+        namedentities:loc.line,
+        namedentities:loc.metaphysical,
+        namedentities:loc.nature,
+        namedentities:loc.point,
+        namedentities:loc.region,
+        namedentities:loc.region.county,
+        namedentities:loc.region.estate,
+        namedentities:loc.region.province,
+        namedentities:loc.region.quarter,
+        namedentities:loc.region.state,
+        namedentities:loc.street,
+        namedentities:loc.transport,
+        namedentities:loc.unspecified,
+        namedentities:misc,
+        namedentities:org,
+        namedentities:per,
+        namedentities:pro ;
+    skos:notation "namedentities" .
+
+namedentities:eve a skos:Concept ;
+    fsd:sequenceNumber 5 ;
+    skos:notation "eve" ;
+    skos:prefLabel "Event" .
+
+namedentities:loc.building a skos:Concept ;
+    skos:broader namedentities:loc ;
+    skos:notation "loc.building" ;
+    skos:prefLabel "Location - Building" .
+
+namedentities:loc.city a skos:Concept ;
+    skos:broader namedentities:loc ;
+    skos:notation "loc.city" ;
+    skos:prefLabel "Location - City" .
+
+namedentities:loc.country a skos:Concept ;
+    skos:broader namedentities:loc ;
+    skos:notation "loc.country" ;
+    skos:prefLabel "Location - Country" .
+
+namedentities:loc.line a skos:Concept ;
+    skos:broader namedentities:loc ;
+    skos:notation "loc.line" ;
+    skos:prefLabel "Location - Line" .
+
+namedentities:loc.metaphysical a skos:Concept ;
+    skos:broader namedentities:loc ;
+    skos:notation "loc.metaphysical" ;
+    skos:prefLabel "Location - Metaphysical" .
+
+namedentities:loc.nature a skos:Concept ;
+    skos:broader namedentities:loc ;
+    skos:notation "loc.nature" ;
+    skos:prefLabel "Location - Nature elements" .
+
+namedentities:loc.point a skos:Concept ;
+    skos:broader namedentities:loc ;
+    skos:notation "loc.point" ;
+    skos:prefLabel "Location - Point" .
+
+namedentities:loc.region.county a skos:Concept ;
+    skos:broader namedentities:loc.region ;
+    skos:notation "loc.region.county" ;
+    skos:prefLabel "Location - Region - County" .
+
+namedentities:loc.region.estate a skos:Concept ;
+    skos:broader namedentities:loc.region ;
+    skos:notation "loc.region.estate" ;
+    skos:prefLabel "Location - Region - Estate" .
+
+namedentities:loc.region.province a skos:Concept ;
+    skos:broader namedentities:loc.region ;
+    skos:notation "loc.region.province" ;
+    skos:prefLabel "Location - Region - Province" .
+
+namedentities:loc.region.quarter a skos:Concept ;
+    skos:broader namedentities:loc.region ;
+    skos:notation "loc.region.quarter" ;
+    skos:prefLabel "Location - Region - Quarter" .
+
+namedentities:loc.region.state a skos:Concept ;
+    skos:broader namedentities:loc.region ;
+    skos:notation "loc.region.state" ;
+    skos:prefLabel "Location - Region - State" .
+
+namedentities:loc.street a skos:Concept ;
+    skos:broader namedentities:loc ;
+    skos:notation "loc.street" ;
+    skos:prefLabel "Location - Street" .
+
+namedentities:loc.transport a skos:Concept ;
+    skos:broader namedentities:loc ;
+    skos:notation "loc.transport" ;
+    skos:prefLabel "Location - Transport infrastructure" .
+
+namedentities:loc.unspecified a skos:Concept ;
+    skos:broader namedentities:loc ;
+    skos:notation "loc.unspecified" ;
+    skos:prefLabel "Location - Unspecified" .
+
+namedentities:misc a skos:Concept ;
+    fsd:sequenceNumber 6 ;
+    skos:notation "misc" ;
+    skos:prefLabel "Miscellaneous" .
+
+namedentities:org a skos:Concept ;
+    fsd:sequenceNumber 3 ;
+    skos:notation "org" ;
+    skos:prefLabel "Organisation" .
+
+namedentities:per a skos:Concept ;
+    fsd:sequenceNumber 2 ;
+    skos:notation "per" ;
+    skos:prefLabel "Person" .
+
+namedentities:pro a skos:Concept ;
+    fsd:sequenceNumber 4 ;
+    skos:notation "pro" ;
+    skos:prefLabel "Product" .
+
+namedentities:loc.region a skos:Concept ;
+    skos:broader namedentities:loc ;
+    skos:notation "loc.region" ;
+    skos:prefLabel "Location - Region" .
+
+namedentities:loc a skos:Concept ;
+    fsd:sequenceNumber 1 ;
+    skos:notation "loc" ;
+    skos:prefLabel "Location" .
+
+
