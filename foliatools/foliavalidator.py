@@ -28,6 +28,7 @@ def usage():
     print("Usage: foliavalidator [options] file-or-dir1 file-or-dir2 ..etc..", file=sys.stderr)
     print("", file=sys.stderr)
     print("Parameters for processing directories:", file=sys.stderr)
+    print("  -d                           Deep validation", file=sys.stderr)
     print("  -r                           Process recursively", file=sys.stderr)
     print("  -q                           Quick (more shallow) validation, only validate against RelaxNG schema - do not load document in FoLiA library", file=sys.stderr)
     print("  -E [extension]               Set extension (default: xml)", file=sys.stderr)
@@ -39,7 +40,7 @@ def usage():
 
 
 
-def validate(filename, schema = None, quick=False):
+def validate(filename, schema = None, quick=False, deep=False):
     try:
         folia.validate(filename, schema)
     except Exception as e:
@@ -47,7 +48,11 @@ def validate(filename, schema = None, quick=False):
         print(str(e), file=sys.stderr)
         return False
     try:
-        folia.Document(file=filename)
+        document = folia.Document(file=filename, deepvalidation=deep,verbose=True)
+    except folia.DeepValidationError as e:
+        print("DEEP VALIDATION ERROR on full parse by library (stage 2/2), in " + filename,file=sys.stderr)
+        print(e.__class__.__name__ + ": " + str(e),file=sys.stderr)
+        return False
     except Exception as e:
         print("VALIDATION ERROR on full parse by library (stage 2/2), in " + filename,file=sys.stderr)
         print(e.__class__.__name__ + ": " + str(e),file=sys.stderr)
@@ -56,30 +61,32 @@ def validate(filename, schema = None, quick=False):
         traceback.print_tb(tb)
         return False
 
+
     print("Validated successfully: " +  filename,file=sys.stderr)
     return True
 
 
 
 
-def processdir(d, schema = None,quick=False):
+def processdir(d, schema = None,quick=False,deep=False):
     print("Searching in  " + d,file=sys.stderr)
     for f in glob.glob(os.path.join(d ,'*')):
         if f[-len(settings.extension) - 1:] == '.' + settings.extension:
-            validate(f, schema,quick)
+            validate(f, schema,quick,deep)
         elif settings.recurse and os.path.isdir(f):
-            processdir(f,schema,quick)
+            processdir(f,schema,quick,deep)
 
 
 class settings:
     extension = 'xml'
     recurse = False
     encoding = 'utf-8'
+    deep = False
 
 def main():
     quick = False
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "E:srhqV", ["help"])
+        opts, args = getopt.getopt(sys.argv[1:], "E:srhdqV", ["help"])
     except getopt.GetoptError as err:
         print(str(err), file=sys.stderr)
         usage()
@@ -93,6 +100,8 @@ def main():
             settings.extension = a
         elif o == '-r':
             settings.recurse = True
+        elif o == '-d':
+            settings.deep = True
         elif o == '-q':
             quick = True
         elif o == '-V':
@@ -107,9 +116,9 @@ def main():
         for x in sys.argv[1:]:
             if x[0] != '-':
                 if os.path.isdir(x):
-                    processdir(x,schema,quick)
+                    processdir(x,schema,quick,settings.deep)
                 elif os.path.isfile(x):
-                    validate(x, schema,quick)
+                    validate(x, schema,quick,settings.deep)
                 else:
                     print("ERROR: File or directory not found: " + x,file=sys.stderr)
                     sys.exit(3)
