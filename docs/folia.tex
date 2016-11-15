@@ -99,7 +99,7 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
 {\large \emph{Maarten van Gompel}}\\[0.5cm]
 \HRule \\[1.0cm]
 
-\emph{January 2nd, 2014 \small{(published)} -- October 12th, 2016 \small{(last revision)}} \\[0.3cm] 
+\emph{January 2nd, 2014 \small{(published)} -- November 15th, 2016 \small{(last revision)}} \\[0.3cm] 
 \includegraphics[width=20.0mm]{ru-beeldmerk-zwart.eps}
 \end{center}
 \vspace{0.5cm}
@@ -6792,11 +6792,11 @@ Shallow validation considers only the structure of the FoLiA document, without
 validating the sets and classes used. Deep validation checks the sets and
 classes for their validity using the set definition files.
 
-Shallow validation is performed using a RelaxNG schema, the latest version of
+Shallow validation can be performed using a RelaxNG schema, the latest version of
 which can always be obtained from the following URL: \\
 \texttt{https://github.com/proycon/folia/blob/master/schemas/folia.rng}
 
-You can validate your document using standard XML tools such as
+Using the RelaxNG schema, uou can validate your document using standard XML tools such as
 \texttt{xmllint} or \texttt{jing}, the latter is known to produce friendlier
 error output in case of validation errors.
 
@@ -6805,12 +6805,12 @@ $ xmllint -relaxng folia.rng document.xml
 $ jing folia.rng document.xml
 \end{verbatim}
 
-Alternatively, you can use the simpler \texttt{foliavalidator} tool available
-in the FoLiA tools (see Appendix D). %bad! a hard reference! I know, sorry!
+It is however recommended to use more dedicated tools such as
+\texttt{foliavalidator} (see Appendix D) or \texttt{folialint}, as these use actual FoLiA
+libraries can do more validation. %bad! a hard reference! I know, sorry!
 
-\begin{devnotes}
-Deep validation is still being worked on and will most likely use Schematron.
-\end{devnotes}
+The \texttt{foliavalidator} tool can also be used for deep validation.
+
 
 \section{Extending FoLiA}
 
