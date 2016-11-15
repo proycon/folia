@@ -2106,8 +2106,8 @@ cgntag:onbep a skos:Concept ;
     skos:prefLabel "onbepaald voornaamwoord" .
 
 cgntag:onbepaald a skos:Concept ;
-    skos:notation "onbepaald" ;
-    skos:prefLabel "onbep" .
+    skos:notation "onbep" ;
+    skos:prefLabel "onbepaald" .
 
 cgntag:onder a skos:Concept ;
     skos:notation "onder" ;
