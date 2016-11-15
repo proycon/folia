@@ -230,19 +230,19 @@
           </chunk>
         </chunking>
         <entities xml:id="example.deep.p.1.s.1.entities.1">
-          <entity xml:id="example.deep.p.1.s.1.entities.1.entity.1" class="loc" confidence="0" set="http://ilk.uvt.nl/folia/sets/frog-ner-nl">
+          <entity xml:id="example.deep.p.1.s.1.entities.1.entity.1" class="loc" confidence="0" set="https://raw.githubusercontent.com/proycon/folia/folia1.4/setdefinitions/frog-ner-nl">
             <wref id="example.deep.p.1.s.1.w.2" t="Russen"/>
           </entity>
-          <entity xml:id="example.deep.p.1.s.1.entities.1.entity.2" class="org" confidence="0.5" set="http://ilk.uvt.nl/folia/sets/frog-ner-nl">
+          <entity xml:id="example.deep.p.1.s.1.entities.1.entity.2" class="org" confidence="0.5" set="https://raw.githubusercontent.com/proycon/folia/folia1.4/setdefinitions/frog-ner-nl">
             <wref id="example.deep.p.1.s.1.w.4" t="Nova"/>
             <wref id="example.deep.p.1.s.1.w.5" t="Zembla"/>
           </entity>
-          <entity xml:id="example.deep.p.1.s.1.entities.1.entity.3" class="loc" confidence="0.535656" set="http://ilk.uvt.nl/folia/sets/frog-ner-nl">
+          <entity xml:id="example.deep.p.1.s.1.entities.1.entity.3" class="loc" confidence="0.535656" set="https://raw.githubusercontent.com/proycon/folia/folia1.4/setdefinitions/frog-ner-nl">
             <wref id="example.deep.p.1.s.1.w.16" t="Novgorod"/>
           </entity>
         </entities>
         <entities xml:id="example.deep.p.1.s.1.entities.2">
-          <entity xml:id="example.deep.p.1.s.1.entities.2.entity.1" set="http://ilk.uvt.nl/folia/sets/frog-mwu-nl">
+          <entity xml:id="example.deep.p.1.s.1.entities.2.entity.1" set="https://raw.githubusercontent.com/proycon/folia/folia1.4/setdefinitions/frog-mwu-nl">
             <wref id="example.deep.p.1.s.1.w.4" t="Nova"/>
             <wref id="example.deep.p.1.s.1.w.5" t="Zembla"/>
           </entity>
@@ -619,13 +619,13 @@
           </chunk>
         </chunking>
         <entities xml:id="example.deep.p.1.s.2.entities.1">
-          <entity xml:id="example.deep.p.1.s.2.entities.1.entity.1" class="loc" confidence="0" set="http://ilk.uvt.nl/folia/sets/frog-ner-nl">
+          <entity xml:id="example.deep.p.1.s.2.entities.1.entity.1" class="loc" confidence="0" set="https://raw.githubusercontent.com/proycon/folia/folia1.4/setdefinitions/frog-ner-nl">
             <wref id="example.deep.p.1.s.2.w.18" t="Stille"/>
             <wref id="example.deep.p.1.s.2.w.19" t="Oceaan"/>
           </entity>
         </entities>
         <entities xml:id="example.deep.p.1.s.2.entities.2">
-          <entity xml:id="example.deep.p.1.s.2.entities.2.entity.1" set="http://ilk.uvt.nl/folia/sets/frog-mwu-nl">
+          <entity xml:id="example.deep.p.1.s.2.entities.2.entity.1" set="https://raw.githubusercontent.com/proycon/folia/folia1.4/setdefinitions/frog-mwu-nl">
             <wref id="example.deep.p.1.s.2.w.18" t="Stille"/>
             <wref id="example.deep.p.1.s.2.w.19" t="Oceaan"/>
           </entity>
@@ -884,7 +884,7 @@
           <lemma class="."/>
         </w>
         <entities xml:id="example.deep.p.2.s.1.entities.1">
-          <entity xml:id="example.deep.p.2.s.1.entities.1.entity.1" class="per" confidence="0.5" set="http://ilk.uvt.nl/folia/sets/frog-ner-nl">
+          <entity xml:id="example.deep.p.2.s.1.entities.1.entity.1" class="per" confidence="0.5" set="https://raw.githubusercontent.com/proycon/folia/folia1.4/setdefinitions/frog-ner-nl">
             <wref id="example.deep.p.2.s.1.w.7" t="Hugh"/>
             <wref id="example.deep.p.2.s.1.w.8" t="Willoughby"/>
           </entity>
@@ -912,7 +912,7 @@
           </chunk>
         </chunking>
         <entities xml:id="example.deep.p.2.s.1.entities.2">
-          <entity xml:id="example.deep.p.2.s.1.entities.2.entity.1" set="http://ilk.uvt.nl/folia/sets/frog-mwu-nl">
+          <entity xml:id="example.deep.p.2.s.1.entities.2.entity.1" set="https://raw.githubusercontent.com/proycon/folia/folia1.4/setdefinitions/frog-mwu-nl">
             <wref id="example.deep.p.2.s.1.w.7" t="Hugh"/>
             <wref id="example.deep.p.2.s.1.w.8" t="Willoughby"/>
           </entity>
@@ -1309,23 +1309,23 @@
           </chunk>
         </chunking>
         <entities xml:id="example.deep.p.2.s.2.entities.1">
-          <entity xml:id="example.deep.p.2.s.2.entities.1.entity.1" class="per" confidence="0.8905" set="http://ilk.uvt.nl/folia/sets/frog-ner-nl">
+          <entity xml:id="example.deep.p.2.s.2.entities.1.entity.1" class="per" confidence="0.8905" set="https://raw.githubusercontent.com/proycon/folia/folia1.4/setdefinitions/frog-ner-nl">
             <wref id="example.deep.p.2.s.2.w.1" t="Willem"/>
             <wref id="example.deep.p.2.s.2.w.2" t="Barentsz"/>
           </entity>
-          <entity xml:id="example.deep.p.2.s.2.entities.1.entity.2" class="per" confidence="0" set="http://ilk.uvt.nl/folia/sets/frog-ner-nl">
+          <entity xml:id="example.deep.p.2.s.2.entities.1.entity.2" class="per" confidence="0" set="https://raw.githubusercontent.com/proycon/folia/folia1.4/setdefinitions/frog-ner-nl">
             <wref id="example.deep.p.2.s.2.w.4" t="Jacob"/>
           </entity>
-          <entity xml:id="example.deep.p.2.s.2.entities.1.entity.3" class="per" confidence="0.521507" set="http://ilk.uvt.nl/folia/sets/frog-ner-nl">
+          <entity xml:id="example.deep.p.2.s.2.entities.1.entity.3" class="per" confidence="0.521507" set="https://raw.githubusercontent.com/proycon/folia/folia1.4/setdefinitions/frog-ner-nl">
             <wref id="example.deep.p.2.s.2.w.6" t="Heemskerck"/>
           </entity>
         </entities>
         <entities xml:id="example.deep.p.2.s.2.entities.2">
-          <entity xml:id="example.deep.p.2.s.2.entities.2.entity.1" set="http://ilk.uvt.nl/folia/sets/frog-mwu-nl">
+          <entity xml:id="example.deep.p.2.s.2.entities.2.entity.1" set="https://raw.githubusercontent.com/proycon/folia/folia1.4/setdefinitions/frog-mwu-nl">
             <wref id="example.deep.p.2.s.2.w.1" t="Willem"/>
             <wref id="example.deep.p.2.s.2.w.2" t="Barentsz"/>
           </entity>
-          <entity xml:id="example.deep.p.2.s.2.entities.2.entity.2" set="http://ilk.uvt.nl/folia/sets/frog-mwu-nl">
+          <entity xml:id="example.deep.p.2.s.2.entities.2.entity.2" set="https://raw.githubusercontent.com/proycon/folia/folia1.4/setdefinitions/frog-mwu-nl">
             <wref id="example.deep.p.2.s.2.w.25" t="dicht"/>
             <wref id="example.deep.p.2.s.2.w.26" t="bij"/>
           </entity>
@@ -1683,7 +1683,7 @@
           </chunk>
         </chunking>
         <entities xml:id="example.deep.p.2.s.3.entities.1">
-          <entity xml:id="example.deep.p.2.s.3.entities.1.entity.1" class="loc" confidence="0.5" set="http://ilk.uvt.nl/folia/sets/frog-ner-nl">
+          <entity xml:id="example.deep.p.2.s.3.entities.1.entity.1" class="loc" confidence="0.5" set="https://raw.githubusercontent.com/proycon/folia/folia1.4/setdefinitions/frog-ner-nl">
             <wref id="example.deep.p.2.s.3.w.10" t="Behouden"/>
             <wref id="example.deep.p.2.s.3.w.11" t="Huys"/>
           </entity>
@@ -1926,7 +1926,7 @@
           </chunk>
         </chunking>
         <entities xml:id="example.deep.p.2.s.4.entities.1">
-          <entity xml:id="example.deep.p.2.s.4.entities.1.entity.1" set="http://ilk.uvt.nl/folia/sets/frog-mwu-nl">
+          <entity xml:id="example.deep.p.2.s.4.entities.1.entity.1" set="https://raw.githubusercontent.com/proycon/folia/folia1.4/setdefinitions/frog-mwu-nl">
             <wref id="example.deep.p.2.s.4.w.7" t="voor"/>
             <wref id="example.deep.p.2.s.4.w.8" t="het"/>
             <wref id="example.deep.p.2.s.4.w.9" t="eerst"/>
@@ -2128,14 +2128,14 @@
           </chunk>
         </chunking>
         <entities xml:id="example.deep.p.2.s.5.entities.1">
-          <entity xml:id="example.deep.p.2.s.5.entities.1.entity.1" class="per" confidence="0.927" set="http://ilk.uvt.nl/folia/sets/frog-ner-nl">
+          <entity xml:id="example.deep.p.2.s.5.entities.1.entity.1" class="per" confidence="0.927" set="https://raw.githubusercontent.com/proycon/folia/folia1.4/setdefinitions/frog-ner-nl">
             <wref id="example.deep.p.2.s.5.w.1" t="Gerrit"/>
             <wref id="example.deep.p.2.s.5.w.2" t="de"/>
             <wref id="example.deep.p.2.s.5.w.3" t="Veer"/>
           </entity>
         </entities>
         <entities xml:id="example.deep.p.2.s.5.entities.2">
-          <entity xml:id="example.deep.p.2.s.5.entities.2.entity.1" set="http://ilk.uvt.nl/folia/sets/frog-mwu-nl">
+          <entity xml:id="example.deep.p.2.s.5.entities.2.entity.1" set="https://raw.githubusercontent.com/proycon/folia/folia1.4/setdefinitions/frog-mwu-nl">
             <wref id="example.deep.p.2.s.5.w.1" t="Gerrit"/>
             <wref id="example.deep.p.2.s.5.w.2" t="de"/>
             <wref id="example.deep.p.2.s.5.w.3" t="Veer"/>
@@ -2588,7 +2588,7 @@
           <lemma class="."/>
         </w>
         <entities xml:id="example.deep.p.2.s.7.entities.1">
-          <entity xml:id="example.deep.p.2.s.7.entities.1.entity.1" class="per" confidence="0.973951" set="http://ilk.uvt.nl/folia/sets/frog-ner-nl">
+          <entity xml:id="example.deep.p.2.s.7.entities.1.entity.1" class="per" confidence="0.973951" set="https://raw.githubusercontent.com/proycon/folia/folia1.4/setdefinitions/frog-ner-nl">
             <wref id="example.deep.p.2.s.7.w.8" t="Johannes"/>
             <wref id="example.deep.p.2.s.7.w.9" t="Kepler"/>
           </entity>
@@ -2628,7 +2628,7 @@
           </chunk>
         </chunking>
         <entities xml:id="example.deep.p.2.s.7.entities.2">
-          <entity xml:id="example.deep.p.2.s.7.entities.2.entity.1" set="http://ilk.uvt.nl/folia/sets/frog-mwu-nl">
+          <entity xml:id="example.deep.p.2.s.7.entities.2.entity.1" set="https://raw.githubusercontent.com/proycon/folia/folia1.4/setdefinitions/frog-mwu-nl">
             <wref id="example.deep.p.2.s.7.w.8" t="Johannes"/>
             <wref id="example.deep.p.2.s.7.w.9" t="Kepler"/>
           </entity>
@@ -2915,13 +2915,13 @@
           </chunk>
         </chunking>
         <entities xml:id="example.deep.p.2.s.8.entities.1">
-          <entity xml:id="example.deep.p.2.s.8.entities.1.entity.1" class="org" confidence="0.475335" set="http://ilk.uvt.nl/folia/sets/frog-ner-nl">
+          <entity xml:id="example.deep.p.2.s.8.entities.1.entity.1" class="org" confidence="0.475335" set="https://raw.githubusercontent.com/proycon/folia/folia1.4/setdefinitions/frog-ner-nl">
             <wref id="example.deep.p.2.s.8.w.15" t="Nova"/>
             <wref id="example.deep.p.2.s.8.w.16" t="Zembla-effect"/>
           </entity>
         </entities>
         <entities xml:id="example.deep.p.2.s.8.entities.2">
-          <entity xml:id="example.deep.p.2.s.8.entities.2.entity.1" set="http://ilk.uvt.nl/folia/sets/frog-mwu-nl">
+          <entity xml:id="example.deep.p.2.s.8.entities.2.entity.1" set="https://raw.githubusercontent.com/proycon/folia/folia1.4/setdefinitions/frog-mwu-nl">
             <wref id="example.deep.p.2.s.8.w.15" t="Nova"/>
             <wref id="example.deep.p.2.s.8.w.16" t="Zembla-effect"/>
           </entity>
