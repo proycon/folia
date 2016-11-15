@@ -536,7 +536,6 @@ cgntag:Subset.head a skos:Collection ;
 
 
 cgntag:ev a skos:Concept ;
-        cgntag:Subset.pvagr ;
     skos:notation "ev" ;
     skos:prefLabel "enkelvoud" .
 
