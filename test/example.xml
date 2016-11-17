@@ -1240,7 +1240,7 @@
                 <t>.</t>
             </w>
             <sentiments>
-                <sentiment class="disappointment" polarity="negative" strength="strong">
+                <sentiment xml:id="WR-P-E-J-0000000001.text.sentiment.1" class="disappointment" polarity="negative" strength="strong">
                     <source>
                         <wref id="WR-P-E-J-0000000001.sandbox.2.s.3.w.1" t="Hij"/>
                     </source>
