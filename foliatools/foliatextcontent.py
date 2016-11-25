@@ -82,7 +82,8 @@ def linkstrings(element, cls='current',debug=False):
                 elif isinstance(subtext, folia.AbstractTextMarkup):
                     subtextlength = len(subtext.text())
                     if stringoffset >= offset and stringoffset+length <= offset+subtextlength:
-                        raise NotImplementedError("String fits within other markup element (possibly another string), not implemented yet")
+                        print("String " + str(string.id) + " fits within other markup element ("+str(type(subtext))+"," + str(subtext.id)+ "), not implemented yet", file=sys.stderr)
+                        break
 
                 offset += subtextlength
 
