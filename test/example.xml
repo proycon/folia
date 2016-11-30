@@ -118,7 +118,7 @@
                 <wref id="WR-P-E-J-0000000001.p.1.s.1.w.2" t="is"/>
               </su>
               <su class="predicate">
-                <su class="np">
+                <su xml:id="WR-P-E-J-0000000001.p.1.s.1.su.0" class="np">
                   <wref id="WR-P-E-J-0000000001.p.1.s.1.w.3" t="een"/>
                   <wref id="WR-P-E-J-0000000001.p.1.s.1.w.4" t="ander"/>
                   <wref id="WR-P-E-J-0000000001.p.1.s.1.w.5" t="woord"/>
