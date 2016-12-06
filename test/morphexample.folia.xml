@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="folia.xsl"?>
+<FoLiA xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://ilk.uvt.nl/folia" xml:id="untitled" generator="libfolia-v1.5" version="1.3.2">
+  <metadata type="native">
+    <annotations>
+      <token-annotation annotator="ucto" annotatortype="auto" datetime="2016-12-06T15:06:24" set="tokconfig-nl"/>
+      <pos-annotation annotator="frog-mbpos-1.0" annotatortype="auto" datetime="2016-12-06T15:06:24" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-cgn"/>
+      <lemma-annotation annotator="frog-mblem-1.1" annotatortype="auto" datetime="2016-12-06T15:06:24" set="http://ilk.uvt.nl/folia/sets/frog-mblem-nl"/>
+      <morphological-annotation annotator="frog-mbma-1.0" annotatortype="auto" datetime="2016-12-06T15:06:24" set="http://ilk.uvt.nl/folia/sets/frog-mbma-nl"/>
+      <pos-annotation annotator="frog-mbma-1.0" annotatortype="auto" datetime="2016-12-06T15:06:24" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-clex"/>
+      <chunking-annotation annotator="frog-chunker-1.0" annotatortype="auto" datetime="2016-12-06T15:06:24" set="http://ilk.uvt.nl/folia/sets/frog-chunker-nl"/>
+      <entity-annotation annotator="frog-ner-1.0" annotatortype="auto" datetime="2016-12-06T15:06:24" set="http://ilk.uvt.nl/folia/sets/frog-ner-nl"/>
+      <entity-annotation annotator="frog-mwu-1.0" annotatortype="auto" datetime="2016-12-06T15:06:24" set="http://ilk.uvt.nl/folia/sets/frog-mwu-nl"/>
+      <dependency-annotation annotator="frog-depparse-1.0" annotatortype="auto" set="http://ilk.uvt.nl/folia/sets/frog-depparse-nl"/>
+    </annotations>
+  </metadata>
+  <text xml:id="untitled.text">
+    <p xml:id="untitled.p.1">
+      <t>De belastingdienst doet aangifte tegen frauderende mensen.</t>
+      <s xml:id="untitled.p.1.s.1">
+        <t>De belastingdienst doet aangifte tegen frauderende mensen.</t>
+        <w xml:id="untitled.p.1.s.1.w.1" class="WORD">
+          <t>De</t>
+          <pos class="LID(bep,stan,rest)" confidence="0.999701" head="LID" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-cgn">
+            <feat class="bep" subset="lwtype"/>
+            <feat class="stan" subset="naamval"/>
+            <feat class="rest" subset="npagr"/>
+          </pos>
+          <lemma class="de"/>
+          <morphology>
+            <morpheme class="complex">
+              <t>de</t>
+              <feat class="[de]article" subset="structure"/>
+              <pos class="D" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-clex"/>
+              <morpheme class="stem">
+                <t>de</t>
+                <pos class="D" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-clex"/>
+              </morpheme>
+            </morpheme>
+          </morphology>
+        </w>
+        <w xml:id="untitled.p.1.s.1.w.2" class="WORD">
+          <t>belastingdienst</t>
+          <pos class="N(soort,ev,basis,zijd,stan)" confidence="0.998836" head="N" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-cgn">
+            <feat class="soort" subset="ntype"/>
+            <feat class="ev" subset="getal"/>
+            <feat class="basis" subset="graad"/>
+            <feat class="zijd" subset="genus"/>
+            <feat class="stan" subset="naamval"/>
+          </pos>
+          <lemma class="belastingdienst"/>
+          <morphology>
+            <morpheme class="complex">
+              <t>belastingdienst</t>
+              <feat class="[[[[be][last]noun]verb[ing]]noun[[dien]verb[st]]noun/singular]noun" subset="structure"/>
+              <pos class="N" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-clex">
+                <feat class="NN" subset="compound"/>
+              </pos>
+              <morpheme class="complex">
+                <feat class="[[[be][last]noun]verb[ing]]noun" subset="structure"/>
+                <pos class="N" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-clex"/>
+                <morpheme class="complex">
+                  <feat class="[[be][last]noun]verb" subset="structure"/>
+                  <pos class="V" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-clex"/>
+                  <morpheme class="derivational">
+                    <t>be</t>
+                    <feat class="[be]" subset="structure"/>
+                    <pos class="V_*N" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-clex"/>
+                  </morpheme>
+                  <morpheme class="stem">
+                    <t>last</t>
+                    <pos class="N" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-clex"/>
+                  </morpheme>
+                </morpheme>
+                <morpheme class="derivational">
+                  <t>ing</t>
+                  <feat class="[ing]" subset="structure"/>
+                  <pos class="N_V*" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-clex"/>
+                </morpheme>
+              </morpheme>
+              <morpheme class="complex">
+                <feat class="[[dien]verb[st]]noun" subset="structure"/>
+                <pos class="N" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-clex"/>
+                <morpheme class="stem">
+                  <t>dien</t>
+                  <pos class="V" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-clex"/>
+                </morpheme>
+                <morpheme class="derivational">
+                  <t>st</t>
+                  <feat class="[st]" subset="structure"/>
+                  <pos class="N_V*" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-clex"/>
+                </morpheme>
+              </morpheme>
+              <morpheme class="inflection">
+                <feat class="singular" subset="inflection"/>
+              </morpheme>
+            </morpheme>
+          </morphology>
+        </w>
+        <w xml:id="untitled.p.1.s.1.w.3" class="WORD">
+          <t>doet</t>
+          <pos class="WW(pv,tgw,met-t)" confidence="0.999262" head="WW" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-cgn">
+            <feat class="pv" subset="wvorm"/>
+            <feat class="tgw" subset="pvtijd"/>
+            <feat class="met-t" subset="pvagr"/>
+          </pos>
+          <lemma class="doen"/>
+          <morphology>
+            <morpheme class="complex">
+              <t>doet</t>
+              <feat class="[[doe]verb[t]/present-tense/singular/2nd-person-verb]verb" subset="structure"/>
+              <pos class="V" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-clex"/>
+              <morpheme class="stem">
+                <t>doe</t>
+                <pos class="V" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-clex"/>
+              </morpheme>
+              <morpheme class="affix">
+                <t>t</t>
+                <feat class="present-tense" subset="inflection"/>
+                <feat class="singular" subset="inflection"/>
+                <feat class="2nd-person-verb" subset="inflection"/>
+              </morpheme>
+            </morpheme>
+          </morphology>
+          <alt xml:id="untitled.p.1.s.1.w.3.alt-mor.1" auth="no">
+            <morphology>
+              <morpheme class="complex">
+                <t>doet</t>
+                <feat class="[[doe]verb[t]/present-tense/singular/3rd-person-verb]verb" subset="structure"/>
+                <pos class="V" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-clex"/>
+                <morpheme class="stem">
+                  <t>doe</t>
+                  <pos class="V" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-clex"/>
+                </morpheme>
+                <morpheme class="affix">
+                  <t>t</t>
+                  <feat class="present-tense" subset="inflection"/>
+                  <feat class="singular" subset="inflection"/>
+                  <feat class="3rd-person-verb" subset="inflection"/>
+                </morpheme>
+              </morpheme>
+            </morphology>
+          </alt>
+        </w>
+        <w xml:id="untitled.p.1.s.1.w.4" class="WORD">
+          <t>aangifte</t>
+          <pos class="N(soort,ev,basis,zijd,stan)" confidence="0.998701" head="N" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-cgn">
+            <feat class="soort" subset="ntype"/>
+            <feat class="ev" subset="getal"/>
+            <feat class="basis" subset="graad"/>
+            <feat class="zijd" subset="genus"/>
+            <feat class="stan" subset="naamval"/>
+          </pos>
+          <lemma class="aangifte"/>
+          <morphology>
+            <morpheme class="complex">
+              <t>aangifte</t>
+              <feat class="[aangifte]noun/singular" subset="structure"/>
+              <pos class="N" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-clex"/>
+              <morpheme class="stem">
+                <t>aangifte</t>
+                <pos class="N" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-clex"/>
+              </morpheme>
+              <morpheme class="inflection">
+                <feat class="singular" subset="inflection"/>
+              </morpheme>
+            </morpheme>
+          </morphology>
+        </w>
+        <w xml:id="untitled.p.1.s.1.w.5" class="WORD">
+          <t>tegen</t>
+          <pos class="VZ(init)" confidence="0.854093" head="VZ" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-cgn">
+            <feat class="init" subset="vztype"/>
+          </pos>
+          <lemma class="tegen"/>
+          <morphology>
+            <morpheme class="complex">
+              <t>tegen</t>
+              <feat class="[tegen]preposition" subset="structure"/>
+              <pos class="P" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-clex"/>
+              <morpheme class="stem">
+                <t>tegen</t>
+                <pos class="P" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-clex"/>
+              </morpheme>
+            </morpheme>
+          </morphology>
+        </w>
+        <w xml:id="untitled.p.1.s.1.w.6" class="WORD">
+          <t>frauderende</t>
+          <pos class="WW(od,prenom,met-e)" confidence="0.96" head="WW" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-cgn">
+            <feat class="od" subset="wvorm"/>
+            <feat class="prenom" subset="positie"/>
+            <feat class="met-e" subset="buiging"/>
+          </pos>
+          <lemma class="frauderen"/>
+          <morphology>
+            <morpheme class="complex">
+              <t>frauderende</t>
+              <feat class="[[fraudeer]verb[end]/participle/present-tense[e]/suffix-e]verb" subset="structure"/>
+              <pos class="V" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-clex"/>
+              <morpheme class="stem">
+                <t>fraudeer</t>
+                <pos class="V" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-clex"/>
+              </morpheme>
+              <morpheme class="affix">
+                <t>end</t>
+                <feat class="participle" subset="inflection"/>
+                <feat class="present-tense" subset="inflection"/>
+              </morpheme>
+              <morpheme class="affix">
+                <t>e</t>
+                <feat class="suffix-e" subset="inflection"/>
+              </morpheme>
+            </morpheme>
+          </morphology>
+        </w>
+        <w xml:id="untitled.p.1.s.1.w.7" class="WORD" space="no">
+          <t>mensen</t>
+          <pos class="N(soort,mv,basis)" confidence="0.999865" head="N" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-cgn">
+            <feat class="soort" subset="ntype"/>
+            <feat class="mv" subset="getal"/>
+            <feat class="basis" subset="graad"/>
+          </pos>
+          <lemma class="mens"/>
+          <morphology>
+            <morpheme class="complex">
+              <t>mensen</t>
+              <feat class="[[mens]noun[en]/plural]noun" subset="structure"/>
+              <pos class="N" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-clex"/>
+              <morpheme class="stem">
+                <t>mens</t>
+                <pos class="N" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-clex"/>
+              </morpheme>
+              <morpheme class="affix">
+                <t>en</t>
+                <feat class="plural" subset="inflection"/>
+              </morpheme>
+            </morpheme>
+          </morphology>
+        </w>
+        <w xml:id="untitled.p.1.s.1.w.8" class="PUNCTUATION">
+          <t>.</t>
+          <pos class="LET()" confidence="1" head="LET" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-cgn"/>
+          <morphology>
+            <morpheme class="stem">
+              <t>.</t>
+              <feat class="[.]" subset="structure"/>
+              <pos class="LET" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-clex"/>
+            </morpheme>
+          </morphology>
+          <lemma class="."/>
+        </w>
+        <chunking xml:id="untitled.p.1.s.1.chunking.1">
+          <chunk xml:id="untitled.p.1.s.1.chunking.1.chunk.1" class="NP" confidence="0.972185">
+            <wref id="untitled.p.1.s.1.w.1" t="De"/>
+            <wref id="untitled.p.1.s.1.w.2" t="belastingdienst"/>
+          </chunk>
+          <chunk xml:id="untitled.p.1.s.1.chunking.1.chunk.2" class="VP" confidence="0.973451">
+            <wref id="untitled.p.1.s.1.w.3" t="doet"/>
+          </chunk>
+          <chunk xml:id="untitled.p.1.s.1.chunking.1.chunk.3" class="VP" confidence="0.5">
+            <wref id="untitled.p.1.s.1.w.4" t="aangifte"/>
+          </chunk>
+          <chunk xml:id="untitled.p.1.s.1.chunking.1.chunk.4" class="PP" confidence="0.929095">
+            <wref id="untitled.p.1.s.1.w.5" t="tegen"/>
+          </chunk>
+          <chunk xml:id="untitled.p.1.s.1.chunking.1.chunk.5" class="NP" confidence="0.650422">
+            <wref id="untitled.p.1.s.1.w.6" t="frauderende"/>
+            <wref id="untitled.p.1.s.1.w.7" t="mensen"/>
+          </chunk>
+        </chunking>
+        <dependencies xml:id="untitled.p.1.s.1.dependencies.1">
+          <dependency xml:id="untitled.p.1.s.1.dependencies.1.dependency.1" class="det">
+            <hd>
+              <wref id="untitled.p.1.s.1.w.2" t="belastingdienst"/>
+            </hd>
+            <dep>
+              <wref id="untitled.p.1.s.1.w.1" t="De"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="untitled.p.1.s.1.dependencies.1.dependency.2" class="su">
+            <hd>
+              <wref id="untitled.p.1.s.1.w.3" t="doet"/>
+            </hd>
+            <dep>
+              <wref id="untitled.p.1.s.1.w.2" t="belastingdienst"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="untitled.p.1.s.1.dependencies.1.dependency.3" class="obj1">
+            <hd>
+              <wref id="untitled.p.1.s.1.w.3" t="doet"/>
+            </hd>
+            <dep>
+              <wref id="untitled.p.1.s.1.w.4" t="aangifte"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="untitled.p.1.s.1.dependencies.1.dependency.4" class="predc">
+            <hd>
+              <wref id="untitled.p.1.s.1.w.3" t="doet"/>
+            </hd>
+            <dep>
+              <wref id="untitled.p.1.s.1.w.5" t="tegen"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="untitled.p.1.s.1.dependencies.1.dependency.5" class="mod">
+            <hd>
+              <wref id="untitled.p.1.s.1.w.7" t="mensen"/>
+            </hd>
+            <dep>
+              <wref id="untitled.p.1.s.1.w.6" t="frauderende"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="untitled.p.1.s.1.dependencies.1.dependency.6" class="obj1">
+            <hd>
+              <wref id="untitled.p.1.s.1.w.5" t="tegen"/>
+            </hd>
+            <dep>
+              <wref id="untitled.p.1.s.1.w.7" t="mensen"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="untitled.p.1.s.1.dependencies.1.dependency.7" class="punct">
+            <hd>
+              <wref id="untitled.p.1.s.1.w.7" t="mensen"/>
+            </hd>
+            <dep>
+              <wref id="untitled.p.1.s.1.w.8" t="."/>
+            </dep>
+          </dependency>
+        </dependencies>
+      </s>
+    </p>
+  </text>
+</FoLiA>
