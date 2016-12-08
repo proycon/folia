@@ -99,7 +99,7 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
 {\large \emph{Maarten van Gompel}}\\[0.5cm]
 \HRule \\[1.0cm]
 
-\emph{January 2nd, 2014 \small{(published)} -- November 15th, 2016 \small{(last revision)}} \\[0.3cm] 
+\emph{January 2nd, 2014 \small{(published)} -- December 8th, 2016 \small{(last revision)}} \\[0.3cm] 
 \includegraphics[width=20.0mm]{ru-beeldmerk-zwart.eps}
 \end{center}
 \vspace{0.5cm}
@@ -1958,9 +1958,7 @@ layers. The \texttt{dependency} element always contains two span roles: one
 head element (\texttt{hd}) and one dependent element (\texttt{dep}). The words
 they cover are reiterated in the usual fashion, using \texttt{wref}. For a
 better understanding, Figure~\ref{fig:depparse} illustrates the syntactic parse
-with the dependency relations. Both span roles \texttt{hd} and \texttt{dep} can
-optionally make extra reference to a syntactic unit (or anything else for that
-matter) by means of the \texttt{aref} element. 
+with the dependency relations. 
 
 \begin{figure}[h]
 \begin{center}
@@ -2006,31 +2004,25 @@ matter) by means of the \texttt{aref} element.
     <dependency xml:id="example.p.1.s.1.dependency.1" class="su">
         <hd>
             <wref id="example.p.1.s.1.w.3" t="begroette">
-            <aref id="example.p.1.s.1.su.1_1_2" type="su">
         </hd>
         <dep>
             <wref id="example.p.1.s.1.w.2" t="man" />  
-            <aref id="example.p.1.s.1.su.1_1_1" type="su">     
         </dep>
     </dependency>        
     <dependency xml:id="example.p.1.s.1.dependency.3" class="obj1">
         <hd>
             <wref id="example.p.1.s.1.w.3" t="begroette">
-            <aref id="example.p.1.s.1.su.1_1_2" type="su">
         </hd>
         <dep>
             <wref id="example.p.1.s.1.w.4" t="hem" />   
-            <aref id="example.p.1.s.1.su.1_1_3" type="su">
         </dep>
     </dependency>
     <dependency xml:id="example.p.1.s.1.dependency.2" class="det">
         <hd>           
            <wref id="example.p.1.s.1.w.2" t="man" />   
-           <aref id="example.p.1.s.1.su.1_1_1_2" type="su">
         </hd>
         <dep>            
             <wref id="example.p.1.s.1.w.1" t="De" />   
-            <aref id="example.p.1.s.1.su.1_1_1_1" type="su">
         </dep>
     </dependency>   
   </dependencies>
@@ -2316,60 +2308,6 @@ FrameNet\footnote{\url{https://framenet.icsi.berkeley.edu/fndrupal/}}.
 
 Semantic roles without predicates are also allowed, but less expressive as
 relations between the semantic roles are not explicit.
-
-When semantic roles correspond with syntactic units or other span annotation
-elements. Links between the two can be expressed using FoLiA's facility for
-alignments (see also Section~\ref{sec:alignments}), which were already seen in
-dependency relations as well. The \texttt{aref} element may be used from within
-the \texttt{semrole} element to link to a syntactic unit, or anything else for
-that matter. The following example illustrates this:
-
-\begin{lstlisting}[language=xml]
-<s xml:id="example.p.1.s.1">
-  <t>De man begroette hem.</t>
-  <w xml:id="example.p.1.s.1.w.1"><t>De</t></w>
-  <w xml:id="example.p.1.s.1.w.2"><t>man</t></w>
-  <w xml:id="example.p.1.s.1.w.3"><t>begroette</t></w>
-  <w xml:id="example.p.1.s.1.w.4"><t>hem</t></w>
-  <w xml:id="example.p.1.s.1.w.5"><t>.</t></w>
-  <syntax>
-    <su xml:id="example.p.1.s.1.su.1" class="top">     
-        <su xml:id="example.p.1.s.1.su.1_1" class="smain">     
-            <su xml:id="example.p.1.s.1.su.1_1_1" class="np">     
-                <su xml:id="example.p.1.s.1.su.1_1_1_1" class="top">     
-                    <wref id="example.p.1.s.1.w.1" t="De" />       
-                </su>
-                <su xml:id="example.p.1.s.1.su.1_1_1_2" class="top">     
-                    <wref id="example.p.1.s.1.w.2" t="man" />
-                </su> 
-            </su>
-            <su xml:id="example.p.1.s.1.su.1_1_2" class="verb">     
-                <wref id="example.p.1.s.1.w.3" t="begroette" />   
-            </su>
-            <su xml:id="example.p.1.s.1.su.1_1_3" class="pron">     
-                <wref id="example.p.1.s.1.w.4" t="hem" />   
-            </su>
-        </su>
-        <su xml:id="example.p.1.s.1.su.1_2" class="punct">
-            <wref id="example.p.1.s.1.w.5" t="." />               
-        </su> 
-    </su>
-  </syntax>
-  <semroles>
-   <predicate class="groeten">
-	<semrole class="agent">
-		<wref id="example.p.1.s.1.w.1" />
-		<wref id="example.p.1.s.1.w.2" />
-		<aref id="example.p.1.s.1.su.1_1_1" type="su">
-	</semrole>
-	<semrole class="patient">
-		<wref id="example.p.1.s.1.w.4" />
-		<aref id="example.p.1.s.1.su.1_1_3" type="su">
-	</semrole>
-   </predicate>
-  </semroles>
-</s>
-\end{lstlisting}
 
 The \texttt{hd} span role can optionally be used to mark the head of a semantic role:
 
