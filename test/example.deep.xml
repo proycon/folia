@@ -3,7 +3,7 @@
 <FoLiA xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://ilk.uvt.nl/folia" xml:id="example.deep" generator="libfolia-v1.5" version="1.3.2">
   <metadata type="native">
     <annotations>
-        <token-annotation annotator="ucto" annotatortype="auto" datetime="2016-11-15T15:12:00" set="https://raw.githubusercontent.com/LanguageMachines/uctodata/master/setdefinitions/tokconfig-nld.foliaset.ttl" />
+        <token-annotation annotator="ucto" annotatortype="auto" datetime="2016-11-15T15:12:00" set="https://raw.githubusercontent.com/LanguageMachines/uctodata/folia1.4/setdefinitions/tokconfig-nld.foliaset.ttl" />
       <pos-annotation annotator="frog-mbpos-1.0" annotatortype="auto" datetime="2016-11-15T15:12:00" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
       <lemma-annotation annotator="frog-mblem-1.1" annotatortype="auto" datetime="2016-11-15T15:12:00" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mblem-nl"/>
       <chunking-annotation annotator="frog-chunker-1.0" annotatortype="auto" datetime="2016-11-15T15:12:00" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-chunker-nl"/>
