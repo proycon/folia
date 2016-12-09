@@ -21,7 +21,7 @@ setup(
     packages=['foliatools'],
     long_description=read('README.rst'),
     classifiers=[
-        "Development Status :: 4 - Beta",
+        "Development Status :: 5 - Production/Stable",
         "Topic :: Text Processing :: Linguistic",
         "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3",
@@ -58,5 +58,5 @@ setup(
     },
     #include_package_data=True,
     package_data = {'foliatools': ['*.xsl', '../schemas/*.yml','../schemas/*.rng']},
-    install_requires=['pynlpl >= 1.0.8', 'lxml >= 2.2','docutils']
+    install_requires=['pynlpl >= 1.1.0', 'lxml >= 2.2','docutils']
 )
