@@ -19,7 +19,7 @@ def usage():
     print("foliavalidator", file=sys.stderr)
     print("  by Maarten van Gompel (proycon)", file=sys.stderr)
     print("  Radboud University Nijmegen", file=sys.stderr)
-    print("  2014 - Licensed under GPLv3", file=sys.stderr)
+    print("  2016 - Licensed under GPLv3", file=sys.stderr)
     print("", file=sys.stderr)
     print("FoLiA " + folia.FOLIAVERSION + ", library version " + folia.LIBVERSION, file=sys.stderr)
     print("", file=sys.stderr)
@@ -33,6 +33,7 @@ def usage():
     print("  -q                           Quick (more shallow) validation, only validate against RelaxNG schema - do not load document in FoLiA library", file=sys.stderr)
     print("  -E [extension]               Set extension (default: xml)", file=sys.stderr)
     print("  -V                           Show version info", file=sys.stderr)
+    print("  -i                           Ignore validation failures, always report a successful exit code", file=sys.stderr)
 
 
 
@@ -69,12 +70,15 @@ def validate(filename, schema = None, quick=False, deep=False):
 
 
 def processdir(d, schema = None,quick=False,deep=False):
+    success = False
     print("Searching in  " + d,file=sys.stderr)
     for f in glob.glob(os.path.join(d ,'*')):
         if f[-len(settings.extension) - 1:] == '.' + settings.extension:
-            validate(f, schema,quick,deep)
+            r = validate(f, schema,quick,deep)
         elif settings.recurse and os.path.isdir(f):
-            processdir(f,schema,quick,deep)
+            r = processdir(f,schema,quick,deep)
+        if not r: success = False
+    return success
 
 
 class settings:
@@ -85,8 +89,9 @@ class settings:
 
 def main():
     quick = False
+    nofail = False
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "E:srhdqV", ["help"])
+        opts, args = getopt.getopt(sys.argv[1:], "E:srhdqVi", ["help"])
     except getopt.GetoptError as err:
         print(str(err), file=sys.stderr)
         usage()
@@ -104,6 +109,8 @@ def main():
             settings.deep = True
         elif o == '-q':
             quick = True
+        elif o == '-i':
+            nofail = True
         elif o == '-V':
             print("FoLiA " + folia.FOLIAVERSION + ", library version " + folia.LIBVERSION,file=sys.stderr)
             sys.exit(0)
@@ -113,15 +120,19 @@ def main():
     schema  = lxml.etree.RelaxNG(folia.relaxng())
 
     if len(args) >= 1:
+        success = True
         for x in sys.argv[1:]:
             if x[0] != '-':
                 if os.path.isdir(x):
-                    processdir(x,schema,quick,settings.deep)
+                    r = processdir(x,schema,quick,settings.deep)
                 elif os.path.isfile(x):
-                    validate(x, schema,quick,settings.deep)
+                    r = validate(x, schema,quick,settings.deep)
                 else:
                     print("ERROR: File or directory not found: " + x,file=sys.stderr)
                     sys.exit(3)
+                if not r: success= False
+            if not success and not nofail:
+                sys.exit(1)
     else:
         print("ERROR: No files specified",file=sys.stderr)
         sys.exit(2)

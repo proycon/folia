@@ -30,6 +30,15 @@ else
     echo "...OK" >&2
 fi
 
+echo "Running deep validator (3)..." >&2
+foliavalidator -d example.deep.xml
+if [ $? -ne 0 ]; then
+    echo "...FAILED" >&2
+    FAILURE=1
+else
+    echo "...OK" >&2
+fi
+
 echo "Running folia2txt" >&2
 folia2txt test.xml > test.tmp
 if [ $? -ne 0 ]; then
