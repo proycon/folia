@@ -99,7 +99,7 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
 {\large \emph{Maarten van Gompel}}\\[0.5cm]
 \HRule \\[1.0cm]
 
-\emph{January 2nd, 2014 \small{(published)} -- December 8th, 2016 \small{(last revision)}} \\[0.3cm] 
+\emph{January 2nd, 2014 \small{(published)} -- December 9th, 2016 \small{(last revision)}} \\[0.3cm] 
 \includegraphics[width=20.0mm]{ru-beeldmerk-zwart.eps}
 \end{center}
 \vspace{0.5cm}
@@ -5454,7 +5454,7 @@ After this preamble, we can define a set as follows:
 <#your-set-id> 
 	a skos:Collection ;
 	skos:notation	"your-set-id" ;
-    skos:prefLabel	"Human readable label for your set" ;
+	skos:prefLabel	"Human readable label for your set" ;
 	fsd:open	false .
 \end{lstlisting}
 
@@ -5481,7 +5481,7 @@ define the set and refer to all the classes it contains:
 	a skos:Collection ;
 	skos:notation	"simplepos" ;
 	skos:prefLabel "A simple part of speech set" ;
-    skos:member <#N> , <#V> , #<A> ;
+	skos:member <#N> , <#V> , #<A> ;
 \end{lstlisting}
 
 Then we define the classes:
@@ -5555,18 +5555,18 @@ explicitly using the \texttt{skos:broader} property, as shown in the following e
 \begin{lstlisting}
 <#namedentities> 
 	a skos:Collection ;
-    skos:member <#loc> , <#loc.country> .
+	skos:member <#loc> , <#loc.country> .
 
 <#loc> 
 	a skos:Concept ;
-    skos:notation	"loc" ;
-    skos:prefLabel "Location" .
+	skos:notation	"loc" ;
+	skos:prefLabel "Location" .
 
 <#loc.country> 
-    a skos:Concept ;
-    skos:notation	"loc.country" ;
-    skos:prefLabel "Country" ;
-    skos:broader <#loc> .
+	a skos:Concept ;
+	skos:notation	"loc.country" ;
+	skos:prefLabel "Country" ;
+	skos:broader <#loc> .
 \end{lstlisting}
 
 It is recommended, but not mandatory, to set the class ID
@@ -5604,12 +5604,12 @@ classes/concepts.
 \begin{lstlisting}
 <#simplepos> 
 	a skos:Collection ;
-    skos:member <#N> , <#V> , <#A> , <#gender> .
+	skos:member <#N> , <#V> , <#A> , <#gender> .
 
 <#gender> 
 	a skos:Collection ;
 	skos:notation	"gender" ;
-    skos:member <#gender.m> .
+	skos:member <#gender.m> .
 
 <#gender.m> 
 	a skos:Concept ;
@@ -6820,7 +6820,7 @@ Document.findwords() method & yes & yes \\
 Shallow validation      & yes & yes \\
 RelaxNG schema generation & yes & no \\
 Set definition support  & yes & no \\
-Deep validation         & not yet & no \\
+Deep validation         & yes & no \\
 \hline
 \multicolumn{3}{c}{\textbf{Quality Control}}  \\
 Unit/integration tests & yes & yes \\
