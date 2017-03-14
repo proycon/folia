@@ -1,8 +1,8 @@
-# FoLiA Specification 
+# FoLiA Specification
 #    This is a technical specification of FoLiA, for use by FoLiA libraries
 
 #The FoLiA version
-version: "1.4.0"
+version: "1.4.1"
 
 #The FoLiA namespace
 namespace: "http://ilk.uvt.nl/folia"
@@ -22,9 +22,9 @@ defaultproperties:
     xmltag: null   #The XML tag for the element
     annotationtype: null
     accepted_data: [ Description, Comment ]  #Elements that are allowed as children of this element, this property is inherited automatically in the specification, rather than overriden!
-    required_data: null #Elements that are required as children of this element 
+    required_data: null #Elements that are required as children of this element
     required_attribs: null #Common attributes that are required on this element
-    optional_attribs: null #Other allowed common attributes 
+    optional_attribs: null #Other allowed common attributes
     occurrences: 0 #How often can this element occur under the parent? (0 = unlimited)
     occurrences_per_set: 0 #How often can a particular element+set combination occur under the parent (0 = unlimited)
     textdelimiter: null #Delimiter to use when dynamically gathering text
@@ -124,7 +124,7 @@ elements:
             properties:
                 accepted_data: [ TimeSegment ]
                 xmltag: "timing"
-                annotationtype: TIMESEGMENT 
+                annotationtype: TIMESEGMENT
                 primaryelement: false
     - class: AbstractCorrectionChild
       properties:
@@ -357,7 +357,7 @@ elements:
           - class: ListItem
             properties:
                 textdelimiter: "\n"
-                accepted_data: [AbstractExtendedTokenAnnotation, Event, Gap, Label, Linebreak, List, Note, PhonContent, Reference, Sentence, String, TextContent, Whitespace]
+                accepted_data: [AbstractExtendedTokenAnnotation, Event, Gap, Label, Linebreak, List, Note, PhonContent, Reference, Sentence, String, TextContent, Whitespace, Word]
                 xmltag: "item" #was listitem in an early erroneous version of FoLiA, libraries will unfortunately need to support that too for backward compatibility
                 label: "List Item"
           - class: Morpheme
