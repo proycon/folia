@@ -471,7 +471,7 @@ elements:
       properties:
           textcontainer: true
           printable: true
-          accepted_data: [ AbstractTextMarkup ]
+          accepted_data: [ AbstractTextMarkup, Linebreak ]  #we add linebreak explicitly as it is both a structure element and a markup element
           textdelimiter: ""
           optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
           xlink: true
