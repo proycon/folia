@@ -52,7 +52,7 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
 {
     \footnotesize{(Note: The given sets above are just examples and do not exist, you
             should either create and use a set of your own, or pick a suitable existing set, if available)} \\\hline
-    \end{tabular} 
+    \end{tabular}
 \end{center}}
 
 \newenvironment{setdefinitions}{
@@ -63,7 +63,7 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
 {
     \footnotesize{(Note: If no usable set exists yet, simply create and use
     your own)} \\\hline
-    \end{tabular} 
+    \end{tabular}
 \end{center}}
 
 
@@ -73,7 +73,7 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
     \hline
     {\bf \textsf{Declaration}}\\\hline}
 {   \\ \hline
-    \end{tabular} 
+    \end{tabular}
 \end{center}}
 
 \newcommand{\status}[2]{
@@ -88,18 +88,18 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
 
 \begin{titlepage}
 \begin{center}
-\textsc{\large Language and Speech Technology\\ Technical Report Series}\\[1.5cm] 
-\textsc{Report Number LST-14-01}\\[0.5cm] 
+\textsc{\large Language and Speech Technology\\ Technical Report Series}\\[1.5cm]
+\textsc{Report Number LST-14-01}\\[0.5cm]
 %\vspace{3cm}  %PRERELEASE
 
 \HRule \\[0.5cm]
 { \Large \bfseries FoLiA: Format for Linguistic Annotation}\\[0.5cm] % Title of your document
-{\bf \small version 1.4.0 -- Revision 7.0} \\[0.5cm]
+{\bf \small version 1.4.1 -- Revision 7.0} \\[0.5cm]
 { \Large \bfseries Documentation}\\[0.5cm]
 {\large \emph{Maarten van Gompel}}\\[0.5cm]
 \HRule \\[1.0cm]
 
-\emph{January 2nd, 2014 \small{(published)} -- December 9th, 2016 \small{(last revision)}} \\[0.3cm] 
+\emph{January 2nd, 2014 \small{(published)} -- December 9th, 2016 \small{(last revision)}} \\[0.3cm]
 \includegraphics[width=20.0mm]{ru-beeldmerk-zwart.eps}
 \end{center}
 \vspace{0.5cm}
@@ -152,9 +152,9 @@ The most important characteristics of FoLiA are:
 \item \textbf{Expressive} - The format is highly expressive, annotations can be expressed in great detail and with flexibility to the user's needs, without forcing unwanted details. Moreover, FoLiA has generalised support for representing annotation alternatives, and annotation metadata such as information on annotator, time of annotation, and annotation confidence.
 \item \textbf{Extensible} - Due to the generalised paradigm and the fact that
     the format does not commit to any label set but used externally defined set
-    definitions, FoLiA is fairly easily extensible.   
+    definitions, FoLiA is fairly easily extensible.
 \item \textbf{Formalised} - The format is formalised, and can be validated on both a shallow and a deep level (the latter including tagset validation), and easily machine parsable, for which tools are provided.
-\item \textbf{Practical} - FoLiA has been developed in a bottom-up fashion right alongside applications, libraries, and other toolkits and converters. Whilst the format is rich, we try to maintain it as simple and straightforward as possible, minimising the learning curve and making it easy to adopt FoLiA in practical applications.  
+\item \textbf{Practical} - FoLiA has been developed in a bottom-up fashion right alongside applications, libraries, and other toolkits and converters. Whilst the format is rich, we try to maintain it as simple and straightforward as possible, minimising the learning curve and making it easy to adopt FoLiA in practical applications.
 \end{itemize}
 
 The FoLiA format makes mixed-use of inline and stand-off annotation. Inline
@@ -215,7 +215,7 @@ There is support for the following linguistic annotations:
 \item Part-of-speech annotation
 \item Phonetic Analysis
 \item Semantic Role Labelling
-\item Semantic sense annotation 
+\item Semantic sense annotation
 \item Sentiment Analysis / Subjectivity Annotation
 \item Spelling corrections on both a tokenised as well as an untokenised level
 \item Syntactic Constituency Parses
@@ -224,8 +224,8 @@ There is support for the following linguistic annotations:
 
 FoLiA support is incorporated directly into the following software:
 
-\begin{itemize} 
-\item ucto\footnote{\url{https://languagemachines.github.io/ucto}} - A tokeniser which can directly output FoLiA XML 
+\begin{itemize}
+\item ucto\footnote{\url{https://languagemachines.github.io/ucto}} - A tokeniser which can directly output FoLiA XML
 \item Frog\footnote{\url{https://languagemachines.github.io/frog}}- A PoS-tagger/lemmatiser/parser suite
 \item FLAT\footnote{\url{https://github.com/proycon/FLAT}} - A web-based annotation environment for FoLiA
 \item Gecco\footnote{\url{https://github.com/proycon/gecco}} - Spelling correction software
@@ -281,13 +281,13 @@ The above example states that the particular section is final since version 0.4
 of FoLiA and that it is implemented in the libraries pynlpl (python) and
 libfolia ($C++$). You may also see portions of this documentation that are
 proposals, which means the functionality is still open for debate and not final
-yet. Example: 
+yet. Example:
 
-\status{PROPOSED in v0.9}{not implemented yet} 
+\status{PROPOSED in v0.9}{not implemented yet}
 
 Any version of FoLiA and its libraries should be compatible with earlier
 releases. When things have changed between versions, this is indicated in the
-documentation. 
+documentation.
 
 \chapter{Document Format}
 
@@ -300,18 +300,18 @@ encoded.
 \begin{lstlisting}[language=xml]
 <?xml version="1.0" encoding="utf-8"?>
 <FoLiA xmlns="http://ilk.uvt.nl/FoLiA"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   version="0.5"
   xml:id="example">
   <metadata>
       <annotations>
           ...
-      </annotations> 
+      </annotations>
   </metadata>
   <text xml:id="example.text">
      ...
   </text>
-</FoLiA>  
+</FoLiA>
 \end{lstlisting}
 
 
@@ -343,7 +343,7 @@ Certain FoLiA elements take an \texttt{id} attribute in the FoLiA XML
 namespace instead of of the \texttt{XML} namespaces, these are
 always \emph{references} to the ID of another element.
 
- 
+
 \section{Paradigm \& Terminology}
 \label{sec:paradigm}
 
@@ -353,7 +353,7 @@ annotation, three main categories and several higher-order annotation
 categories, each contain a number of annotation types.
 
 \begin{itemize}
-\item \textbf{Structural annotation} - Annotations marking global structure, such as chapters, sections, subsections, figures, list items, paragraphs, sentences, words, morphemes, phonemes etc... Section~\ref{sec:structureannotation} will discuss most structure annotation elements in FoLiA. Morphemes and phonemes are discusses in separate sections. 
+\item \textbf{Structural annotation} - Annotations marking global structure, such as chapters, sections, subsections, figures, list items, paragraphs, sentences, words, morphemes, phonemes etc... Section~\ref{sec:structureannotation} will discuss most structure annotation elements in FoLiA. Morphemes and phonemes are discusses in separate sections.
 \item \textbf{Token annotation} - Annotations pertaining to a specific
   structural element, most often a word token (\texttt{w}) (hence the name). These
   annotations appear within of the element they apply to. Linguistic annotations in this category are for example: part-of-speech annotation (lexical categories), lemma annotation, sense annotation. Various token annotation elements may be used on higher levels (e.g. sentence/paragraph) as well and may then be referred to as \textbf{Extended Token Annotation}. Section~\ref{sec:tokenannotation} will discuss all token annotations.
@@ -364,7 +364,7 @@ categories, each contain a number of annotation types.
   sentence level, but possibly also higher levels (paragraph/division/text) for
   certain annotation types. Examples in this category are: the labelling of
   syntactic constituent structure, syntactic dependencies, chunks, co-reference, semantic roles and named entities. Section~\ref{sec:spanannotation} will discuss all span annotations.
-\item \textbf{Higher-order annotation} - Higher-order annotation consists of several categories of annotation. These all have in common that they annotate either other annotations, or in some way modify or point at other annotations. 
+\item \textbf{Higher-order annotation} - Higher-order annotation consists of several categories of annotation. These all have in common that they annotate either other annotations, or in some way modify or point at other annotations.
 \begin{itemize}
 	\item \textbf{Feature annotation} - Feature annotation allows for more detailed annotation. It acts as a feature or attribute to an annotation. This category of annotation will be explained in Section~\ref{sec:features}.
 	\item \textbf{Alignment annotation} - Allows for associations between arbitrary annotations within or across FoLiA documents.
@@ -409,7 +409,7 @@ The following example shows a simple Part-of-speech annotation without
 features, but with various generic attributes according:
 
 \begin{lstlisting}[language=xml]
-<pos set="http://ilk.uvt.nl/folia/sets/CGN" class="WW" 
+<pos set="http://ilk.uvt.nl/folia/sets/CGN" class="WW"
  annotator="Maarten van Gompel" annotatortype="manual"
  confidence="0.76" datetime="1982-12-15T19:01" />
 \end{lstlisting}
@@ -423,7 +423,7 @@ categories, will be introduced later in Section~\ref{sec:higherorder}.
 \includegraphics[width=145.0mm]{folia_paradigm.png}
 \end{center}
 \caption{The FoLiA Paradigm}
-\label{fig:paradigm} 
+\label{fig:paradigm}
 \end{figure}
 
 \subsection{Speech}
@@ -433,29 +433,29 @@ categories, will be introduced later in Section~\ref{sec:higherorder}.
 
 FoLiA is also suited for annotation of speech data. The following additional
 generic FoLiA attributes are available for \emph{all} structure annotation elements in
-a speech context: 
+a speech context:
 
 \begin{itemize}
   \item \texttt{src} -- \textbf{source} -- Points to a file or full URL of a sound or video file. This attribute is inheritable.
-   
+
   \item \texttt{begintime} -- \textbf{begin time} --  A timestamp in
     \texttt{HH:MM:SS.MMM} format, indicating the begin time of the speech. If a
     sound clip is specified (\texttt{src}); the timestamp refers to a location
     in the soundclip. %(minus \texttt{srcoffset}).
-    
+
   \item \texttt{endtime} -- \textbf{end time} --  A timestamp in
     \texttt{HH:MM:SS.MMM} format, indicating the end time of the speech. If a
     sound clip is specified (\texttt{src}); the timestamp refers to a location
     in the soundclip. %(minus \texttt{srcoffset}).
-  
+
   %\item \texttt{srcoffset} -- \textbf{source offset} -- A timestamp in \texttt{HH:MM:SS.MMMM} format that is \emph{subtracted} from all \texttt{begintime}, and \texttt{endtime} designations within its scope, to find the position in the audio clip. This attribute enables the use of global timings in all begintime/endtime attributes, across different sound clips. Defaults to zero.
-  
+
   \item \texttt{speaker} -- \textbf{speaker} -- A string identifying the
     speaker. This attribute is inheritable. Multiple speakers are not allowed,
     simply do not specify a speaker on a certain level if you are unable to
     link the speech to a specific (single) speaker.
 \end{itemize}
- 
+
 Read more about speech annotation in Section~\ref{sec:speech}.
 
 \section{Annotation Declaration}
@@ -470,15 +470,15 @@ several \emph{default attributes}:
 
 \begin{lstlisting}[language=xml]
 <annotations>
-        <token-annotation 
-          set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl" 
+        <token-annotation
+          set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl"
           annotator="ucto" annotatortype="auto" />
-        <pos-annotation set="http://ilk.uvt.nl/folia/sets/CGN" 
+        <pos-annotation set="http://ilk.uvt.nl/folia/sets/CGN"
           annotator="Frog" annotatortype="auto" />
-        <lemma-annotation set="http://ilk.uvt.nl/folia/sets/lemmas-nl" 
-          annotator="Frog" annotatortype="auto" />    
+        <lemma-annotation set="http://ilk.uvt.nl/folia/sets/lemmas-nl"
+          annotator="Frog" annotatortype="auto" />
         <sense-annotation set="http://ilk.uvt.nl/folia/sets/Cornetto"
-         annotator="SupWSD1" annotatortype="auto" />    
+         annotator="SupWSD1" annotatortype="auto" />
 </annotations>
 \end{lstlisting}
 
@@ -515,7 +515,7 @@ If multiple sets are used for the same annotation type, they each need a
 separate declaration, as illustrated with the following fictitious sets:
 
 \begin{lstlisting}[language=xml]
-      <pos-annotation set="http://ilk.uvt.nl/folia/sets/CGN" 
+      <pos-annotation set="http://ilk.uvt.nl/folia/sets/CGN"
         annotator="Frog" annotatortype="auto" />
       <pos-annotation set="http://ilk.uvt.nl/folia/sets/brown" />
 \end{lstlisting}
@@ -567,7 +567,7 @@ been omitted for the sake of brevity:
 
 \begin{lstlisting}[language=xml]
  <p xml:id="example.p.1">
-    <s xml:id="example.p.1.s.1">        
+    <s xml:id="example.p.1.s.1">
         <w xml:id="example.p.1.s.1.w.1"><t>This</t></w>
         <w xml:id="example.p.1.s.1.w.2"><t>is</t></w>
         ...
@@ -578,17 +578,17 @@ been omitted for the sake of brevity:
  <p xml:id="example.p.2">
     <s xml:id="example.p.2.s.1">
         <w xml:id="example.p.2.s.1.w.1"><t>This</t></w>
-        <w xml:id="example.p.2.s.1.w.2"><t>is</t></w>    
+        <w xml:id="example.p.2.s.1.w.2"><t>is</t></w>
         ..
-        <w xml:id="example.p.2.s.1.w.5" space="no"><t>paragraph</t></w>    
-        <w xml:id="example.p.2.s.1.w.6"><t>.</t></w>    
+        <w xml:id="example.p.2.s.1.w.5" space="no"><t>paragraph</t></w>
+        <w xml:id="example.p.2.s.1.w.6"><t>.</t></w>
     </s>
     <s xml:id="example.p.2.s.2">
         <w xml:id="example.p.2.s.2.w.1"><t>This</t></w>
-        <w xml:id="example.p.2.s.2.w.2"><t>one</t></w>    
+        <w xml:id="example.p.2.s.2.w.2"><t>one</t></w>
         ..
-        <w xml:id="example.p.2.s.2.w.5" space="no"><t>sentences</t></w>    
-        <w xml:id="example.p.2.s.2.w.6"><t>.</t></w>    
+        <w xml:id="example.p.2.s.2.w.5" space="no"><t>sentences</t></w>
+        <w xml:id="example.p.2.s.2.w.6"><t>.</t></w>
     </s>
  </p>
 \end{lstlisting}
@@ -599,17 +599,17 @@ untokenised text, on for example paragraph and/or sentence level:
 
 \begin{lstlisting}[language=xml]
  <p xml:id="example.p.1">
-    <s xml:id="example.p.1.s.1">        
+    <s xml:id="example.p.1.s.1">
         <t>This is a paragraph containing only one sentence.</t>
     </s>
  </p>
  <p xml:id="example.p.2">
-    <s xml:id="example.p.2.s.1">     
+    <s xml:id="example.p.2.s.1">
         <t>This is the second paragraph.</t>
     </s>
-    <s xml:id="example.p.2.s.2">     
+    <s xml:id="example.p.2.s.2">
         <t>This one has two sentences.</t>
-    </s>    
+    </s>
  </p>
 \end{lstlisting}
 
@@ -628,7 +628,7 @@ elements at every level.
 \begin{lstlisting}[language=xml]
  <p xml:id="example.p.1">
     <t>This is a paragraph containing only one sentence.</t>
-    <s xml:id="example.p.1.s.1">        
+    <s xml:id="example.p.1.s.1">
         <t>This is a paragraph containing only one sentence.</t>
         <w xml:id="example.p.1.s.1.w.1"><t>This</t></w>
         <w xml:id="example.p.1.s.1.w.2"><t>is</t></w>
@@ -642,18 +642,18 @@ elements at every level.
     <s xml:id="example.p.2.s.1">
         <t>This is the second paragraph.</t>
         <w xml:id="example.p.2.s.1.w.1"><t>This</t></w>
-        <w xml:id="example.p.2.s.1.w.2"><t>is</t></w>    
+        <w xml:id="example.p.2.s.1.w.2"><t>is</t></w>
         ..
-        <w xml:id="example.p.2.s.1.w.5" space="no"><t>paragraph</t></w>    
-        <w xml:id="example.p.2.s.1.w.6"><t>.</t></w>    
+        <w xml:id="example.p.2.s.1.w.5" space="no"><t>paragraph</t></w>
+        <w xml:id="example.p.2.s.1.w.6"><t>.</t></w>
     </s>
     <s xml:id="example.p.2.s.2">
         <t>This one has two sentences.</t>
         <w xml:id="example.p.2.s.2.w.1"><t>This</t></w>
-        <w xml:id="example.p.2.s.2.w.2"><t>one</t></w>    
+        <w xml:id="example.p.2.s.2.w.2"><t>one</t></w>
         ..
-        <w xml:id="example.p.2.s.2.w.5" space="no"><t>sentences</t></w>    
-        <w xml:id="example.p.2.s.2.w.6"><t>.</t></w>    
+        <w xml:id="example.p.2.s.2.w.5" space="no"><t>sentences</t></w>
+        <w xml:id="example.p.2.s.2.w.6"><t>.</t></w>
     </s>
  </p>
 \end{lstlisting}
@@ -665,7 +665,7 @@ attribute:
 \begin{lstlisting}[language=xml]
  <p xml:id="example.p.1">
     <t>This is a paragraph containing only one sentence.</t>
-    <s xml:id="example.p.1.s.1">        
+    <s xml:id="example.p.1.s.1">
         <t offset="0">This is a paragraph containing only one sentence.</t>
         <w xml:id="example.p.1.s.1.w.1">
         	<t offset="0">This</t>
@@ -725,7 +725,7 @@ a class, as is for example done by the tokeniser \emph{ucto}:
     </w>
     <w xml:id="example.p.1.s.1.w.5" class="PUNCTUATION"><t>.</t></w>
 </s>
-\end{lstlisting}        
+\end{lstlisting}
 
 The same can be applied to paragraphs and sentences, which requires a
 declaration of \texttt{paragraph-annotation} and \texttt{sentence-annotation}
@@ -756,17 +756,17 @@ divisions. The declared set is a fictitious example:
 
 \begin{lstlisting}[language=xml]
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" 
+<?xml-stylesheet type="text/xsl"
  href="http://ilk.uvt.nl/FoLiA/FoLiA.xsl"?>
 <FoLiA xmlns="http://ilk.uvt.nl/FoLiA"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   version="0.5"
   xml:id="example">
   <metadata>
       <annotations>
-          <division-annotation 
+          <division-annotation
            set="http://ilk.uvt.nl/folia/sets/divisions" />
-      </annotations>    
+      </annotations>
   </metadata>
   <text xml:id="example.text">
      <div class="chapter" n="1">
@@ -779,7 +779,7 @@ divisions. The declared set is a fictitious example:
         ...
      </div>
   </text>
-</FoLiA>  
+</FoLiA>
 \end{lstlisting}
 
 Divisions stem from D-Coi and are modified in FoLiA. These divisions are not
@@ -916,7 +916,7 @@ The D-Coi format pre-defines the following ``reasons'' \cite{DCOI}:
 
 Due to the flexible nature of FoLiA, we never predefine any classes whatsoever
 and leave this up to whatever set is declared. The above gives a good
-indication of what gaps can be used for though. 
+indication of what gaps can be used for though.
 
 The gap element may optionally take two elements:
 
@@ -931,16 +931,16 @@ The gap element may optionally take two elements:
      <gap class="frontmatter" annotator="Maarten van Gompel">
         <desc>This is the cover of the book</desc>
         <content>
-<![CDATA[        
-    
+<![CDATA[
+
             SHOW WHITE AND THE SEVEN DWARFS
-            
-            
+
+
                 by the Brothers Grimm
-                
+
                     first edition
-                     
-            
+
+
             Copyright(c) blah blah
 ]]>
         </content>
@@ -1036,7 +1036,7 @@ events.
 Below an example of a simple chat log, word tokens omitted for brevity:
 
 \begin{lstlisting}[language=xml]
-<event class="message" begindatetime="2011-12-15T19:01" 
+<event class="message" begindatetime="2011-12-15T19:01"
  enddatetime="2011-12-15T19:05" actor="Jane Doe">
     <s>
         <t>Hello John.</t>
@@ -1104,7 +1104,7 @@ itself can only be included as a mere reference to an external image file, but
 including such a reference (\texttt{src} attribute) is optional.
 
 \begin{lstlisting}[language=xml]
- <figure xml:id="example.figure.1" n="1" 
+ <figure xml:id="example.figure.1" n="1"
   src="/path/to/image/file">
    <desc>A textual description of the figure (Like ALT in HTML)</desc>
    <caption><t>The caption for the figure</t></caption>
@@ -1288,10 +1288,10 @@ annotations.
 Although we framed this section in the context of notes, the \texttt{ref} element is
 more general and can be used whereever you need to explicitly refer to other \emph{structure
 elements}. Common targets are figures, tables, divisions (sections, chapters,
-etc). 
+etc).
 
 Being a structure element, the note reference itself may carry an ID as well.
-Note that the ID attribute without the xml namespace always indicates a reference 
+Note that the ID attribute without the xml namespace always indicates a reference
 in FoLiA:
 
 \begin{lstlisting}[language=xml]
@@ -1319,7 +1319,7 @@ attribute is optional and points to an element inside the external resource.
   <w><t>We</t></w>
   <w><t>demonstrated</t></w>
   <w><t>this</t></w>
-  <ref xlink:href="http://somewhere" xlink:type="simple" 
+  <ref xlink:href="http://somewhere" xlink:type="simple"
     format="text/html" id="section2">
     <w><t>here</t></w>
   </ref>
@@ -1343,10 +1343,10 @@ The reference element itself is not declarable and takes no classes.
 The structure element \texttt{part} is a fairly abstract structure element that
 should only be used when a more specific structure element is not available. Most
 notably, the part element should never be used for representation of morphemes
-or phonemes! 
+or phonemes!
 
 Part can be used to divide a larger structure element, such as a division, or a
-paragraph into arbitrary subparts. 
+paragraph into arbitrary subparts.
 
 \begin{lstlisting}[language=xml]
 <p>
@@ -1396,7 +1396,7 @@ more terms, represented by the \texttt{term} element within an entry.
 Terms need not be words, but a wide variety of structural elements can be used
 as the term. Within the entry, these terms can subsequently be associated with
 one or more definitions, using the \texttt{def} element, or with examples,
-using the \texttt{ex} element. 
+using the \texttt{ex} element.
 
 The \texttt{term}, \texttt{def} and \texttt{ex} elements can all take sets and
 classes, and thus need to be declared. The \texttt{entry} elements themselves
@@ -1441,7 +1441,7 @@ Below you see an example of a glossary entry, the sense set used comes from Word
   </p>
  </def>
  <ex>
-  <s xml:id="entry.1.ex.1.s.1> 
+  <s xml:id="entry.1.ex.1.s.1>
     <t>My house was constructed ten years ago.</t>
   </s>
  </ex>
@@ -1514,7 +1514,7 @@ English part, \texttt{doc-english.xml}:
     <sense set="englishsense" class="house\%1:06:00::">
   </w>
  </term>
- <alignment class="translation-es" xlink:href="doc-spanish.xml" 
+ <alignment class="translation-es" xlink:href="doc-spanish.xml"
     xlink:type="simple">
       <aref id="es-entry.1" type="entry" />
  </alignment>
@@ -1534,7 +1534,7 @@ Spanish part, \texttt{doc-spanish.xml}:
     <lemma set="spanishlemma" class="casa" />
   </w>
  </term>
- <alignment class="translation-en" xlink:href="doc-english.xml" 
+ <alignment class="translation-en" xlink:href="doc-english.xml"
     xlink:type="simple">
       <aref id="en-entry.1" type="entry" />
  </alignment>
@@ -1564,7 +1564,7 @@ see Section~\ref{sec:translations} for a simpler methods based on convention.
 
 Token annotations are annotations that are placed within the structural
 elements, often words/tokens (\texttt{w}) (hence the name), but also other
-structure elements, in which case we speak of \emph{extended token annotation}. 
+structure elements, in which case we speak of \emph{extended token annotation}.
 
 All token annotation elements may take all of the generic attributes described
 in  Section~\ref{sec:paradigm}; this has to be kept in mind when reading this
@@ -1590,11 +1590,11 @@ Lexical annotation can take more complex forms than assignment of a single
 part-of-speech tag. There may for example be numerous features associated with
 the part-of-speech tag, such as gender, number, case, tense, mood, etc... FoLiA
 introduces a special paradigm for dealing with such features. We will look into
-this later, in Section~\ref{sec:higherorder}. 
+this later, in Section~\ref{sec:higherorder}.
 
 Whenever part-of-speech annotations are used, they should be declared in the
 \texttt{annotations} block as follows. The set you use may differ and all
-further attributes are optional and are used to set defaults. 
+further attributes are optional and are used to set defaults.
 
 \begin{declaration}
 \begin{lstlisting}[language=xml]
@@ -1657,7 +1657,7 @@ open) set of all possible lemmas. Their annotation proceeds as follows:
 %\begin{lstlisting}[language=xml]
 %<w xml:id="example.p.1.s.1.w.2">
  %   <t>boot</t>
- %   <phon-annotation set="http://ilk.uvt.nl/folia/sets/ipa" 
+ %   <phon-annotation set="http://ilk.uvt.nl/folia/sets/ipa"
  %   class="bu:t" />
 %</w>
 %\end{lstlisting}
@@ -1668,7 +1668,7 @@ open) set of all possible lemmas. Their annotation proceeds as follows:
 
 %\begin{lstlisting}[language=xml]
 %<annotations>
-    %<token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl" 
+    %<token-annotation set="http://ilk.uvt.nl/folia/sets/ucto-tokconfig-nl"
      %annotator="ucto" annotatortype="auto" />
     %<phon-annotation set="http://ilk.uvt.nl/folia/sets/ipa" />
 %</annotations>
@@ -1765,7 +1765,7 @@ The declaration (the actual set is fictitious):
 
 \begin{notice}
 The span annotation element \texttt{sentiment} (See
-section~\ref{sec:sentiment}) usually provides a better suited alternative 
+section~\ref{sec:sentiment}) usually provides a better suited alternative
 for subjectivity annotation than this \texttt{subjectivity} element. Consider using it instead.
 \end{notice}
 
@@ -1894,25 +1894,25 @@ syntactic unit to have a unique identifier:
   <w xml:id="example.p.1.s.1.w.5"><t>him</t></w>
   <w xml:id="example.p.1.s.1.w.6"><t>.</t></w>
   <syntax>
-    <su xml:id="example.p.1.s.1.su.1" class="s">     
+    <su xml:id="example.p.1.s.1.su.1" class="s">
       <su xml:id="example.p.1.s.1.su.1_1" class="np">
           <su xml:id="example.p.1.s.1.su.1_1_1" class="det">
-             <wref id="example.p.1.s.1.w.1" t="The" />       
+             <wref id="example.p.1.s.1.w.1" t="The" />
           </su>
           <su xml:id="example.p.1.s.1.su.1_1_2" class="pn">
              <wref id="example.p.1.s.1.w.2" t="Dalai" />
-             <wref id="example.p.1.s.1.w.3" t="Lama" />        
-          </su>         
+             <wref id="example.p.1.s.1.w.3" t="Lama" />
+          </su>
        </su>
      </su>
-     <su xml:id="example.p.1.s.1.su.1_2" class="vp"> 
+     <su xml:id="example.p.1.s.1.su.1_2" class="vp">
         <su xml:id="example.p.1.s.1.su.1_1_1" class="v">
-            <wref id="example.p.1.s.1.w.4" t="greeted" />       
+            <wref id="example.p.1.s.1.w.4" t="greeted" />
         </su>
         <su xml:id="example.p.1.s.1.su.1_1_2" class="pron">
-          <wref id="example.p.1.s.1.w.5" t="him" />       
+          <wref id="example.p.1.s.1.w.5" t="him" />
         </su>
-     </su>    
+     </su>
     </su>
   </syntax>
 </s>
@@ -1949,7 +1949,7 @@ something like ``subject'', as the dependant is the subject of the head word.
 Each dependency relation is explicitly noted in FoLiA.
 
 The element \texttt{dependencies} introduces this annotation layer. Within it,
-\texttt{dependency} elements describe all dependency pairs. 
+\texttt{dependency} elements describe all dependency pairs.
 
 In the example below, we show a Dutch sentence parsed with the Alpino Parser
 \cite{ALPINO}. We show not only the dependency layer, but also the syntax layer
@@ -1958,14 +1958,14 @@ layers. The \texttt{dependency} element always contains two span roles: one
 head element (\texttt{hd}) and one dependent element (\texttt{dep}). The words
 they cover are reiterated in the usual fashion, using \texttt{wref}. For a
 better understanding, Figure~\ref{fig:depparse} illustrates the syntactic parse
-with the dependency relations. 
+with the dependency relations.
 
 \begin{figure}[h]
 \begin{center}
 \includegraphics[width=60.0mm]{alpino.png}
 \end{center}
 \caption{Alpino dependency parse for the Dutch sentence ``De man begroette hem.''}
-\label{fig:depparse} 
+\label{fig:depparse}
 \end{figure}
 \FloatBarrier
 
@@ -1978,53 +1978,53 @@ with the dependency relations.
   <w xml:id="example.p.1.s.1.w.4"><t>hem</t></w>
   <w xml:id="example.p.1.s.1.w.5"><t>.</t></w>
   <syntax>
-    <su xml:id="example.p.1.s.1.su.1" class="top">     
-        <su xml:id="example.p.1.s.1.su.1_1" class="smain">     
-            <su xml:id="example.p.1.s.1.su.1_1_1" class="np">     
-                <su xml:id="example.p.1.s.1.su.1_1_1_1" class="top">     
-                    <wref id="example.p.1.s.1.w.1" t="De" />       
+    <su xml:id="example.p.1.s.1.su.1" class="top">
+        <su xml:id="example.p.1.s.1.su.1_1" class="smain">
+            <su xml:id="example.p.1.s.1.su.1_1_1" class="np">
+                <su xml:id="example.p.1.s.1.su.1_1_1_1" class="top">
+                    <wref id="example.p.1.s.1.w.1" t="De" />
                 </su>
-                <su xml:id="example.p.1.s.1.su.1_1_1_2" class="top">     
+                <su xml:id="example.p.1.s.1.su.1_1_1_2" class="top">
                     <wref id="example.p.1.s.1.w.2" t="man" />
-                </su> 
+                </su>
             </su>
-            <su xml:id="example.p.1.s.1.su.1_1_2" class="verb">     
-                <wref id="example.p.1.s.1.w.3" t="begroette" />   
+            <su xml:id="example.p.1.s.1.su.1_1_2" class="verb">
+                <wref id="example.p.1.s.1.w.3" t="begroette" />
             </su>
-            <su xml:id="example.p.1.s.1.su.1_1_3" class="pron">     
-                <wref id="example.p.1.s.1.w.4" t="hem" />   
+            <su xml:id="example.p.1.s.1.su.1_1_3" class="pron">
+                <wref id="example.p.1.s.1.w.4" t="hem" />
             </su>
         </su>
         <su xml:id="example.p.1.s.1.su.1_2" class="punct">
-            <wref id="example.p.1.s.1.w.5" t="." />               
-        </su> 
+            <wref id="example.p.1.s.1.w.5" t="." />
+        </su>
     </su>
   </syntax>
-  <dependencies>    
+  <dependencies>
     <dependency xml:id="example.p.1.s.1.dependency.1" class="su">
         <hd>
             <wref id="example.p.1.s.1.w.3" t="begroette">
         </hd>
         <dep>
-            <wref id="example.p.1.s.1.w.2" t="man" />  
+            <wref id="example.p.1.s.1.w.2" t="man" />
         </dep>
-    </dependency>        
+    </dependency>
     <dependency xml:id="example.p.1.s.1.dependency.3" class="obj1">
         <hd>
             <wref id="example.p.1.s.1.w.3" t="begroette">
         </hd>
         <dep>
-            <wref id="example.p.1.s.1.w.4" t="hem" />   
+            <wref id="example.p.1.s.1.w.4" t="hem" />
         </dep>
     </dependency>
     <dependency xml:id="example.p.1.s.1.dependency.2" class="det">
-        <hd>           
-           <wref id="example.p.1.s.1.w.2" t="man" />   
+        <hd>
+           <wref id="example.p.1.s.1.w.2" t="man" />
         </hd>
-        <dep>            
-            <wref id="example.p.1.s.1.w.1" t="De" />   
+        <dep>
+            <wref id="example.p.1.s.1.w.1" t="De" />
         </dep>
-    </dependency>   
+    </dependency>
   </dependencies>
 </s>
 \end{lstlisting}
@@ -2074,18 +2074,18 @@ not nested. FoLiA uses a separate annotation type for this. The layer is called
   <w xml:id="example.p.1.s.1.w.5"><t>him</t></w>
   <w xml:id="example.p.1.s.1.w.6"><t>.</t></w>
   <chunking>
-    <chunk xml:id="example.p.1.s.1.chunk.1">       
-        <wref id="example.p.1.s.1.w.1" t="The" />       
-        <wref id="example.p.1.s.1.w.2" t="Dalai" />       
-        <wref id="example.p.1.s.1.w.3" t="Lama" />        
+    <chunk xml:id="example.p.1.s.1.chunk.1">
+        <wref id="example.p.1.s.1.w.1" t="The" />
+        <wref id="example.p.1.s.1.w.2" t="Dalai" />
+        <wref id="example.p.1.s.1.w.3" t="Lama" />
     </chunk>
-    <chunk xml:id="example.p.1.s.1.chunk.2">       
+    <chunk xml:id="example.p.1.s.1.chunk.2">
         <wref id="example.p.1.s.1.w.4" t="greeted" />
     </chunk>
-    <chunk xml:id="example.p.1.s.1.chunk.3">       
+    <chunk xml:id="example.p.1.s.1.chunk.3">
         <wref id="example.p.1.s.1.w.5" t="him" />
         <wref id="example.p.1.s.1.w.6" t="." />
-    </chunk>    
+    </chunk>
   </chunking>
 </s>
 \end{lstlisting}
@@ -2132,15 +2132,15 @@ more suited. The following example illustrates the usage for event annotation:
  <w xml:id="example.p.1.s.1.w.6"><t>go</t></w>
  <w xml:id="example.p.1.s.1.w.7"><t>.</t></w>
  <timing>
-  <timesegment class="utterance" begindatetime="2011-12-15T19:01" 
+  <timesegment class="utterance" begindatetime="2011-12-15T19:01"
    enddatetime="2011-12-15T19:03" actor="myself">
     <wref id="example.p.1.s.1.w.1" t="I" />
     <wref id="example.p.1.s.1.w.2" t="think" />
   </timesegment>
-  <timesegment class="cough" begindatetime="2011-12-15T19:03" 
-   enddatetime="2011-12-15T19:05" actor="myself">   
+  <timesegment class="cough" begindatetime="2011-12-15T19:03"
+   enddatetime="2011-12-15T19:05" actor="myself">
   </timesegment>
-  <timesegment class="utterance" begindatetime="2011-12-15T19:05" 
+  <timesegment class="utterance" begindatetime="2011-12-15T19:05"
    enddatetime="2011-12-15T19:06" actor="myself">
     <wref id="example.p.1.s.1.w.3" t="I" />
     <wref id="example.p.1.s.1.w.4" t="have" />
@@ -2204,27 +2204,27 @@ inherited by all lower elements, so we put it on the sentence here:
  <w xml:id="example.p.1.s.1.w.6"><t>go</t></w>
  <w xml:id="example.p.1.s.1.w.7"><t>.</t></w>
  <timing>
-  <timesegment begintime="00:00:00.000" 
+  <timesegment begintime="00:00:00.000"
    endtime="00:00:00.250">
     <wref id="example.p.1.s.1.w.1" t="I" />
   </timesegment>
-  <timesegment begintime="00:00:00.250" 
+  <timesegment begintime="00:00:00.250"
    endtime="00:00:00.500">
     <wref id="example.p.1.s.1.w.2" t="think" />
   </timesegment>
-  <timesegment begintime="00:00:00.500" 
+  <timesegment begintime="00:00:00.500"
    endtime="00:00:00.750">
     <wref id="example.p.1.s.1.w.3" t="I" />
   </timesegment>
-  <timesegment begintime="00:00:00.750" 
+  <timesegment begintime="00:00:00.750"
    endtime="00:00:01.000">
     <wref id="example.p.1.s.1.w.4" t="have" />
   </timesegment>
-  <timesegment begintime="00:00:01.000" 
+  <timesegment begintime="00:00:01.000"
    endtime="00:00:01.250">
     <wref id="example.p.1.s.1.w.5" t="to" />
   </timesegment>
-  <timesegment begintime="00:00:01.250" 
+  <timesegment begintime="00:00:01.250"
    endtime="00:00:01.500">
     <wref id="example.p.1.s.1.w.6" t="go" />
   </timesegment>
@@ -2243,13 +2243,13 @@ used when actual classes are assigned:
   begintime="00:00:00.000" endtime="00:00:00.250"><t>I</t></w>
  <w xml:id="example.p.1.s.1.w.2"
   begintime="00:00:00.250" endtime="00:00:00.500"><t>think</t></w>
- <w xml:id="example.p.1.s.1.w.3" 
+ <w xml:id="example.p.1.s.1.w.3"
   begintime="00:00:00.500" endtime="00:00:00.750"><t>I</t></w>
  <w xml:id="example.p.1.s.1.w.4"
   begintime="00:00:00.750" endtime="00:00:01.000"><t>have</t></w>
- <w xml:id="example.p.1.s.1.w.5" 
+ <w xml:id="example.p.1.s.1.w.5"
   begintime="00:00:01.000" endtime="00:00:01.250"><t>to</t></w>
- <w xml:id="example.p.1.s.1.w.6" 
+ <w xml:id="example.p.1.s.1.w.6"
   begintime="00:00:01.250" endtime="00:00:01.500"><t>go</t></w>
  <w xml:id="example.p.1.s.1.w.7"><t>.</t></w>
  <timing>
@@ -2268,7 +2268,7 @@ variety of time-segmented annotations. Moreover, the wref element does not
 necessarily point at words, but it may also point at phonemes. This will be
 introduced in Section~\ref{sec:phonemes}.
 
- 
+
 \subsection{Semantic Roles}
 
 \status{since 0.9, added predicates in v1.3}{pynlpl,libfolia}
@@ -2304,7 +2304,7 @@ Semantic roles are usually embedded within the \texttt{predicate} span
 annotation element (since FoLiA v1.3). This is a \emph{separate} span
 annotation element, which itself may also take a class. Such a class can for
 instance be used to describe frame semantics, such as
-FrameNet\footnote{\url{https://framenet.icsi.berkeley.edu/fndrupal/}}. 
+FrameNet\footnote{\url{https://framenet.icsi.berkeley.edu/fndrupal/}}.
 
 Semantic roles without predicates are also allowed, but less expressive as
 relations between the semantic roles are not explicit.
@@ -2343,7 +2343,7 @@ The co-reference relations are expressed by specifying the entire chain in which
 The head of a coreferent may optionally be marked with the \texttt{hd}
 element, another span role. This annotation layer itself may be embedded
 on whatever level is preferred. The following example uses paragraph level, but
-you can for instance also embed it at sentence level or a global text level:  
+you can for instance also embed it at sentence level or a global text level:
 
 \begin{lstlisting}[language=xml]
 <p xml:id="example.p.1">
@@ -2364,7 +2364,7 @@ you can for instance also embed it at sentence level or a global text level:
   <w xml:id="example.p.1.s.2.w.4"><t>to</t></w>
   <w xml:id="example.p.1.s.2.w.4"><t>see</t></w>
   <w xml:id="example.p.1.s.2.w.5"><t>him</t></w>
-  <w xml:id="example.p.1.s.2.w.6"><t>.</t></w>  
+  <w xml:id="example.p.1.s.2.w.6"><t>.</t></w>
 </s>
 <s xml:id="example.p.1.s.3">
   <t>He smiled.</t>
@@ -2409,11 +2409,11 @@ heads do not take a class, only \texttt{coreferencechain} does.
 
 \texttt{Coreferencelink} may take three attributes, which are actually
 predefined FoLiA subsets (See Section~\ref{sec:features}), their values depend
-on the set used and are thus user-definable and never predefined: 
+on the set used and are thus user-definable and never predefined:
 
 \begin{itemize} %As suggested by Orphee De Clerq
 \item \texttt{modality} - A subset that can be used for indication that there is modality or negation in this coreference link.
-\item \texttt{time} - A subset used to indicate a time dependency. An example of a time dependency is seen in the sentence: ``Bert De Graeve, until recently CEO, will now take up a position as CFO''. Here 
+\item \texttt{time} - A subset used to indicate a time dependency. An example of a time dependency is seen in the sentence: ``Bert De Graeve, until recently CEO, will now take up a position as CFO''. Here
 ``Bert De Graeve'', ``CEO''  and ``CFO'' would all be part of the same coreference chain, and the second \texttt{coreferencelink} (``CEO'') can be marked as being in the past using the ``time'' attribute.
 \item \texttt{level} - A subset used that can indicate the level on which the coreference holds. A possible value suggestion could be ``sense'', indicating that only on sense-level there is a corefence relation, as opposed to an actual reference.
 \end{itemize}
@@ -2457,7 +2457,7 @@ types of observations from two fictitious sets:
  <w xml:id="example.p.1.s.1.w.5"><t>him</t></w>
  <w xml:id="example.p.1.s.1.w.6"><t>.</t></w>
  <observations>
-  <observation class="typo" set="http://somewhere/errordetection.set.xml"> 
+  <observation class="typo" set="http://somewhere/errordetection.set.xml">
    <wref id="example.p.1.s.1.w.4"/>
   </observation>
  </observations>
@@ -2495,11 +2495,11 @@ Sentiment analysis marks subjective information such as sentiments or attitudes
 expressed in text. The \texttt{sentiment} span annotation element is used to
 this end. It is embedded in a \texttt{sentiments} layer. This element offers a
 more comprehensive solution replacing the older \texttt{subjectivity}
-element. 
+element.
 
 The \texttt{sentiment} element takes the following span roles:
 \begin{itemize}
-\item \texttt{hd} -- \textbf{required} -- The head of the sentiment; expresses the actual sentiment, it covers word spans such as ``happy'', ``very satisfied'', ``highly dissappointed''. 
+\item \texttt{hd} -- \textbf{required} -- The head of the sentiment; expresses the actual sentiment, it covers word spans such as ``happy'', ``very satisfied'', ``highly dissappointed''.
 \item \texttt{source} -- \textbf{optional} -- The source/holder of the sentiment, assuming it is explicitly expressed in the text.
 \item \texttt{target} -- \textbf{optional} -- The target/recipient of the sentiment, assuming it is explicitly expressed in the text.
 \end{itemize}
@@ -2561,7 +2561,7 @@ in a \texttt{statements} layer and takes the following span roles:
 
 
 \begin{itemize}
-\item \texttt{hd} -- \textbf{required} -- The head of the statement is the actual content of the statement; this role spans the words containing the statement. 
+\item \texttt{hd} -- \textbf{required} -- The head of the statement is the actual content of the statement; this role spans the words containing the statement.
 \item \texttt{source} -- \textbf{optional} -- The source/holder of the statement, assuming it is explicitly expressed in the text.
 \item \texttt{relation} -- \textbf{optional} -- The relation between the source of the statement and the statement, this usually encompasses verbs like ``to say'', ``to think'', or prepositional phrases such as ``according to''.
 \end{itemize}
@@ -2660,7 +2660,7 @@ to the entire word:
     <t>leest</t>
     <lemma class="lezen" />
     <morphology>
-        <morpheme xml:id="example.p.4.s.2.w.4.m.1" class="stem" 
+        <morpheme xml:id="example.p.4.s.2.w.4.m.1" class="stem"
          function="lexical">
 			<lemma class="lezen" />
             <t offset="0">lees</t>
@@ -2713,7 +2713,7 @@ Unlike words, morphemes may also be nested, as they can be expressed on multiple
 				<t offset="0">com</t>
 			</morpheme>
 			<morpheme class="morph">
-				<t offset="3">fort</t>				
+				<t offset="3">fort</t>
 			</morpheme>
         </morpheme>
         <morpheme class="suffix">
@@ -2761,7 +2761,7 @@ named entity:
 		<morpheme xml:id="example.p.4.s.2.w.1.m.1">
 			<t offset="0">CDA</t>
 		</morpheme>
-	</morphemes>	
+	</morphemes>
 	<entities>
 		<entity xml:id="entity.1">
 			<wref id="example.p.4.s.2.w.1.m.1" />
@@ -2797,7 +2797,7 @@ paragraph level or the global text level.
 
 %\status{final since v0.4}{pynlpl,libfolia}
 
-%Named entities may sometimes occur as \emph{part} of a token. The \texttt{subentities} annotation layer and the \texttt{subentity} subtoken annotation element can be used for annotating these:  
+%Named entities may sometimes occur as \emph{part} of a token. The \texttt{subentities} annotation layer and the \texttt{subentity} subtoken annotation element can be used for annotating these:
 
 %\begin{lstlisting}[language=xml]
 %<w xml:id="example.p.4.s.2.w.4">
@@ -2845,7 +2845,7 @@ attributes for referring to associating sound clips.
 
 An utterance may consist of words or sentences, which in turn may contain
 words. The opposite is also true, a sentence may consist of multiple
-utterances. The utterance element in FoLiA is \texttt{utt}. 
+utterances. The utterance element in FoLiA is \texttt{utt}.
 
 An actual example of utterances is shown later in the section on phonetic content.
 
@@ -2879,13 +2879,13 @@ holds a phonetic or phonological transcription. It is used in a very similar fas
 \begin{lstlisting}[language=xml]
 <utt src="helloworld.mp3"  begintime="..." endtime="...">
 	<ph>helˈoʊ wɝːld</ph>
-	<w xml:id="example.utt.1.w.1" 
+	<w xml:id="example.utt.1.w.1"
      begintime="..." endtime="...">
-		<ph>helˈoʊ</ph>	
+		<ph>helˈoʊ</ph>
 	</w>
-	<w xml:id="example.utt.1.w.2"  
+	<w xml:id="example.utt.1.w.2"
      begintime="..." endtime="...">
-		<ph>wɝːld</ph>	
+		<ph>wɝːld</ph>
 	</w>
 </utt>
 \end{lstlisting}
@@ -2901,11 +2901,11 @@ content can also go together without problem:
 	<t>hello world</t>
 	<w xml:id="example.utt.1.w.1">
 		<ph offset="0">helˈoʊ</ph>
-		<t offset="0">hello</t>	
+		<t offset="0">hello</t>
 	</w>
 	<w xml:id="example.utt.1.w.2">
 		<ph offset="8">wɝːld</ph>
-		<t offset="6">world</t>	
+		<t offset="6">world</t>
 	</w>
 </utt>
 \end{lstlisting}
@@ -2922,7 +2922,7 @@ be used within word/token elements (\texttt{w}) or directly within \texttt{utt}
 if no words are distinguished:
 
 
-\begin{lstlisting}[language=xml]   
+\begin{lstlisting}[language=xml]
 <utt>
   <w xml:id="word" src="book.wav">
     <t>book</t>
@@ -3028,7 +3028,7 @@ allowed per annotation.
 	<t>boot</t>
 	<pos class="n">
 		<desc>Noun</desc>
-	</pos>	
+	</pos>
 	<desc>boot</desc>
 </w>
 \end{lstlisting}
@@ -3047,7 +3047,7 @@ course allowed as well.
 	<t>boot</t>
 	<pos class="n">
 		<desc>Noun</desc>
-	</pos>	
+	</pos>
 	<comment annotator="proycon">
      This is a comment on a word
     </comment>
@@ -3064,7 +3064,7 @@ tools.
 	<t>boot</t>
 	<pos class="n">
 		<desc>Noun</desc>
-	</pos>	
+	</pos>
     <!-- This is a comment on a word -->
 </w>
 \end{lstlisting}
@@ -3092,21 +3092,21 @@ parsers and queriers.
 <w xml:id="example.p.1.s.1.w.1">
     <t>bank</t>
     <domain class="furniture" />
-    <sense class="r_n-5918" synset="d_n-21410" 
-     annotator="John Doe" annotatortype="manual" 
+    <sense class="r_n-5918" synset="d_n-21410"
+     annotator="John Doe" annotatortype="manual"
      confidence="1.0">zitmeubel</sense>
     <alt xml:id="example.p.1.s.1.w.1.alt.1">
         <domain auth="no" class="finance" />
         <sense auth="no" class="r_n-5919" synset="d_n-27025"
-         annotator="Jane Doe" annotatortype="manual" 
-         confidence="0.6">geldverlenende instelling</sense>        
+         annotator="Jane Doe" annotatortype="manual"
+         confidence="0.6">geldverlenende instelling</sense>
     </alt>
     <alt xml:id="example.p.1.s.1.w.1.alt.2">
         <domain auth="no" class="geology" />
         <sense auth="no" class="r_n-5920" synset="d_n-38257"
          annotator="Jim Doe" annotatortype="manual"
-         confidence="0.1">zandbank</sense>        
-    </alt>    
+         confidence="0.1">zandbank</sense>
+    </alt>
 </w>
 \end{lstlisting}
 
@@ -3120,30 +3120,30 @@ following expanded example in which we added a part-of-speech tag and a lemma.
 <w xml:id="example.p.1.s.1.w.1">
     <t>bank</t>
     <domain class="furniture" />
-    <sense class="r_n-5918" synset="d_n-21410" 
-     annotator="John Doe" annotatortype="manual" 
+    <sense class="r_n-5918" synset="d_n-21410"
+     annotator="John Doe" annotatortype="manual"
      confidence="1.0">furniture</sense>
     <pos class="n" />
     <lemma class="bank" />
     <alt xml:id="example.p.1.s.1.w.1.alt.1">
         <domain auth="no" class="finance" />
         <sense auth="no" class="r_n-5919" synset="d_n-27025"
-         annotator="Jane Doe" annotatortype="manual" 
-         confidence="0.6">financial institution</sense>        
+         annotator="Jane Doe" annotatortype="manual"
+         confidence="0.6">financial institution</sense>
     </alt>
     <alt xml:id="example.p.1.s.1.w.1.alt.2">
         <domain auth="no" class="geology" />
         <sense auth="no" class="r_n-5920" synset="d_n-38257"
          annotator="Jim Doe" annotatortype="manual"
-         confidence="0.1">river bank</sense>        
-    </alt>    
+         confidence="0.1">river bank</sense>
+    </alt>
     <alt xml:id="example.p.1.s.1.w.1.alt.2" exclusive="yes">
 		<t>bank</t>
         <domain auth="no" class="navigation" />
-        <sense auth="no" class="r_n-1234">to turn</sense>        
+        <sense auth="no" class="r_n-1234">to turn</sense>
 		<pos class="v" />
 	    <lemma class="bank" />
-    </alt>    
+    </alt>
 </w>
 \end{lstlisting}
 
@@ -3168,15 +3168,15 @@ annotation of these types whatsoever:
     <alt xml:id="example.p.1.s.1.w.1.alt.1">
         <domain auth="no" class="finance" />
         <sense auth="no" class="r_n-5919" synset="d_n-27025"
-         annotator="Jane Doe" annotatortype="manual" 
-         confidence="0.6">geldverlenende instelling</sense>        
+         annotator="Jane Doe" annotatortype="manual"
+         confidence="0.6">geldverlenende instelling</sense>
     </alt>
     <alt xml:id="example.p.1.s.1.w.1.alt.2">
         <domain auth="no" class="geology" />
         <sense auth="no" class="r_n-5920" synset="d_n-38257"
          annotator="Jim Doe" annotatortype="manual"
-         confidence="0.1">zandbank</sense>        
-    </alt>    
+         confidence="0.1">zandbank</sense>
+    </alt>
 </w>
 \end{lstlisting}
 
@@ -3207,42 +3207,42 @@ Below is an example of a sentence that is chunked in two ways:
   <w xml:id="example.p.1.s.1.w.5"><t>him</t></w>
   <w xml:id="example.p.1.s.1.w.6"><t>.</t></w>
   <chunking>
-    <chunk xml:id="example.p.1.s.1.chunk.1">       
-        <wref id="example.p.1.s.1.w.1" t="The" />       
-        <wref id="example.p.1.s.1.w.2" t="Dalai" />       
-        <wref id="example.p.1.s.1.w.3" t="Lama" />        
+    <chunk xml:id="example.p.1.s.1.chunk.1">
+        <wref id="example.p.1.s.1.w.1" t="The" />
+        <wref id="example.p.1.s.1.w.2" t="Dalai" />
+        <wref id="example.p.1.s.1.w.3" t="Lama" />
     </chunk>
-    <chunk xml:id="example.p.1.s.1.chunk.2">       
+    <chunk xml:id="example.p.1.s.1.chunk.2">
         <wref id="example.p.1.s.1.w.4" t="greeted" />
     </chunk>
-    <chunk xml:id="example.p.1.s.1.chunk.3">       
+    <chunk xml:id="example.p.1.s.1.chunk.3">
         <wref id="example.p.1.s.1.w.5" t="him" />
         <wref id="example.p.1.s.1.w.6" t="." />
-    </chunk>    
+    </chunk>
   </chunking>
   <altlayers xml:id="example.p.1.s.1.alt.1">
-       <chunking annotator="John Doe" 
+       <chunking annotator="John Doe"
         annotatortype="manual" confidence="0.0001" auth="no">
-        <chunk xml:id="example.p.1.s.1.alt.1.chunk.1">       
-            <wref id="example.p.1.s.1.w.1" t="The" />       
-            <wref id="example.p.1.s.1.w.2" t="Dalai" />                       
+        <chunk xml:id="example.p.1.s.1.alt.1.chunk.1">
+            <wref id="example.p.1.s.1.w.1" t="The" />
+            <wref id="example.p.1.s.1.w.2" t="Dalai" />
         </chunk>
-        <chunk xml:id="example.p.1.s.1.alt.1.chunk.2">       
-            <wref id="example.p.1.s.1.w.2" t="Lama" />                       
+        <chunk xml:id="example.p.1.s.1.alt.1.chunk.2">
+            <wref id="example.p.1.s.1.w.2" t="Lama" />
             <wref id="example.p.1.s.1.w.4" t="greeted" />
         </chunk>
-        <chunk xml:id="example.p.1.s.1.alt.1.chunk.3">       
+        <chunk xml:id="example.p.1.s.1.alt.1.chunk.3">
             <wref id="example.p.1.s.1.w.5" t="him" />
             <wref id="example.p.1.s.1.w.6" t="." />
-        </chunk>    
-      </chunking>   
+        </chunk>
+      </chunking>
   </altlayers>
 </s>
 \end{lstlisting}
 
 The support for alternatives and the fact that multiple layers (including those
 of different types) cannot be nested in a single inline structure, should make
-clear why FoLiA uses a stand-off notation alongside an inline notation. 
+clear why FoLiA uses a stand-off notation alongside an inline notation.
 
 
 \subsection{Feature Annotation}
@@ -3355,7 +3355,7 @@ Option one:
 \end{lstlisting}
 
 In FoLiA, this attribute \texttt{head} is a predefined subset ``head'' of
-whatever set you defined. This would thus be equal to: 
+whatever set you defined. This would thus be equal to:
 
 \begin{lstlisting}[language=xml]
     <feat subset="head" class="N" />
@@ -3387,7 +3387,7 @@ measurement is defined by the class, which in turn is defined by the set as
 always. The metric element has a \texttt{value} attribute
 that stores the actual measurement, the value is often numeric but this needs
 not be the case. It is a higher-level annotation element
-that may be used with any kind of annotation. 
+that may be used with any kind of annotation.
 
 Example:
 
@@ -3432,7 +3432,7 @@ spelling correction of the misspelled word ``treee'' to its corrected form
 %    <t>tree</t>
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.1">
-    <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.1" 
+    <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.1"
      class="spelling">
         <new>
             <t>tree</t>
@@ -3462,8 +3462,8 @@ example illustrates the word ``treee'' that has been first mis-corrected to
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.1">
   <correction xml:id="TEST-000000001.p.1.s.1.w.1.c.2"
-    class="spelling" 
-    annotator="Jane Doe" annotatortype="manual" 
+    class="spelling"
+    annotator="Jane Doe" annotatortype="manual"
     confidence="1.0">
       <new>
           <t>tree</t>
@@ -3502,8 +3502,8 @@ element, or group thereof.
             <pos class="v" />
         </original>
     </correction>
-    
-</w>    
+
+</w>
 \end{lstlisting}
 
 Corrections need to be be declared:
@@ -3516,13 +3516,13 @@ Corrections need to be be declared:
 \end{lstlisting}
 \end{declaration}
 
-\subsubsection{Error detection} 
+\subsubsection{Error detection}
 
 \status{Revised in v0.8.2, no error attribute}{pynlpl,libfolia}
 
 \begin{notice}
 The span annotation element \texttt{observation} (See
-section~\ref{sec:observations}) usually provides a better suited alternative 
+section~\ref{sec:observations}) usually provides a better suited alternative
 for error detection than this \texttt{errordetection} element. Consider using it instead.
 \end{notice}
 
@@ -3531,13 +3531,13 @@ detection comes without correction, for instance when the generation of
 correction suggestions is postponed to a later processing stage. The
 \texttt{errordetection} element is a very simple element that serves this
 purpose. It signals the existence of errors and is a normal token annotation
-element: 
+element:
 
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.1">
     <t>treee</t>
     <errordetection class="spelling" annotator="errorlistX" />
-</w>    
+</w>
 \end{lstlisting}
 
 We can also imagine it specifically marking something as \emph{not} being an
@@ -3549,7 +3549,7 @@ and set.
 <w xml:id="example.p.1.s.1.w.1">
     <t>tree</t>
     <errordetection class="noerror" />
-</w>    
+</w>
 \end{lstlisting}
 
 This kind of error detection is very simple and does not provide actual
@@ -3559,7 +3559,7 @@ record suggestions for correction, but without making the actual correction.
 
 Error detection has to be declared seperately from corrections, as they can be
 used independently. However, nothing stops you from pointing them both
-to the same set. 
+to the same set.
 
 \begin{declaration}
 \begin{lstlisting}[language=xml]
@@ -3569,7 +3569,7 @@ to the same set.
 \end{lstlisting}
 \end{declaration}
 
-\subsubsection{Suggestions for correction} 
+\subsubsection{Suggestions for correction}
 
 The correction tag can also be used in such situations in which you want to
 list \emph{suggestions for correction}, but not yet commit to any single one. You may
@@ -3584,7 +3584,7 @@ to the correction as a whole, and apply to all suggestions within. This implies
 that you will need \emph{multiple} correction elements if you want to make suggestions
 of very distinct types. The following example shows two suggestions for
 correction:
- 
+
 \begin{lstlisting}[language=xml]
 <w xml:id="example.p.1.s.1.w.1">
   <t>treee</t>
@@ -3597,7 +3597,7 @@ correction:
           <t>three</t>
       </suggestion>
   </correction>
-</w>    
+</w>
 \end{lstlisting}
 
 In the situation above we have a possible correction with two suggestions, none
@@ -3630,7 +3630,7 @@ named John Doe took one of the suggestions and made the actual correction:
             <t>treee</t>
         </original>
     </correction>
-</w>    
+</w>
 \end{lstlisting}
 
 Something similar may happen when a correction is made \emph{on the basis of}
@@ -3656,7 +3656,7 @@ In the above example, ``treee'' was detected by an automated error list as
 being an error, and was corrected to ``tree'' by human annotator John Doe.
 
 
-\subsubsection{Merges, Splits and Swaps} 
+\subsubsection{Merges, Splits and Swaps}
 
 Sometimes, one wants to merge multiple tokens into one single new token, or the
 other way around; split one token into multiple new ones. The FoLiA format does
@@ -3676,8 +3676,8 @@ element. First a peek at the XML prior to merging:
     </w>
     <w xml:id="example.p.1.s.1.w.2">
         <t>line</t>
-    </w>                       
-</s>  
+    </w>
+</s>
 \end{lstlisting}
 
 And after merging:
@@ -3686,7 +3686,7 @@ And after merging:
 <s xml:id="example.p.1.s.1">
  <correction xml:id="example.p.1.s.1.c.1" class="merge">
     <new>
-        <w xml:id="example.p.1.s.1.w.1-2">        
+        <w xml:id="example.p.1.s.1.w.1-2">
             <t>online</t>
         </w>
     </new>
@@ -3696,11 +3696,11 @@ And after merging:
         </w>
         <w xml:id="example.p.1.s.1.w.2">
             <t>line</t>
-        </w>                         
+        </w>
     </original>
- </correction>               
+ </correction>
 </s>
-\end{lstlisting} 
+\end{lstlisting}
 
 Note that the correction element here is a member of the sentence (\texttt{s}),
 rather than the word token (\texttt{w}) as in all previous examples.  The
@@ -3714,7 +3714,7 @@ splitting, assume we have:
 <s xml:id="example.p.1.s.1">
  <w xml:id="example.p.1.s.1.w.1">
     <t>online</t>
- </w>                         
+ </w>
 </s>
 \end{lstlisting}
 
@@ -3724,20 +3724,20 @@ After splitting:
 
 <s xml:id="example.p.1.s.1">
  <correction xml:id="example.p.1.s.1.c.1" class="split">
-    <new>    
+    <new>
         <w xml:id="example.p.1.s.1.w.1_1">
             <t>on</t>
         </w>
         <w xml:id="example.p.1.s.1.w.1_2">
             <t>line</t>
-        </w>                        
+        </w>
     </new>
     <original auth="no">
         <w xml:id="example.p.1.s.1.w.1">
             <t>online</t>
         </w>
     </original>
- </correction>               
+ </correction>
 </s>
 \end{lstlisting}
 
@@ -3747,7 +3747,7 @@ The same principle as used for merges and splits can also be used for performing
 
 <s xml:id="example.p.1.s.1">
  <correction xml:id="example.p.1.s.1.c.1" class="swap">
-    <new>    
+    <new>
         <w xml:id="example.p.1.s.1.w.2_1">
             <t>on</t>
         </w>
@@ -3763,7 +3763,7 @@ The same principle as used for merges and splits can also be used for performing
             <t>on</t>
         </w>
     </original>
- </correction>               
+ </correction>
 </s>
 \end{lstlisting}
 
@@ -3787,20 +3787,20 @@ duplicated and removed in correction:
     <t>the</t>
  </w>
  <correction xml:id="example.p.1.s.1.c.1" class="duplicate">
-    <new/>                        
+    <new/>
     <original auth="no">
         <w xml:id="example.p.1.s.1.w.2">
             <t>the</t>
         </w>
     </original>
- </correction>  
+ </correction>
  <w xml:id="example.p.1.s.1.w.3">
     <t>man</t>
  </w>
 </s>
 \end{lstlisting}
 
-For insertions, the \texttt{original} element is empty: 
+For insertions, the \texttt{original} element is empty:
 
 \begin{lstlisting}[language=xml]
 <s xml:id="example.p.1.s.1">
@@ -3808,13 +3808,13 @@ For insertions, the \texttt{original} element is empty:
     <t>the</t>
  </w>
  <correction xml:id="example.p.1.s.1.c.1" class="duplicate">
-    <new>                            
+    <new>
         <w xml:id="example.p.1.s.1.w.1_1">
             <t>old</t>
         </w>
     </new>
     <original auth="no"/>
- </correction>  
+ </correction>
  <w xml:id="example.p.1.s.1.w.2">
     <t>man</t>
  </w>
@@ -3825,7 +3825,7 @@ Although we limited our discussion to merges, splits, insertions and deletions
 applied to words/tokens, they may be applied to any other structural element
 just as well.
 
-\subsubsection{Suggestions for correction: structural changes} 
+\subsubsection{Suggestions for correction: structural changes}
 
 The earlier described suggestions for correction can be extended to merges,
 splits, insertions and deletions as well. This is done by embedding the newly
@@ -3844,21 +3844,21 @@ correction:
             <t>online</t>
         </w>
     </current>
-    <suggestion auth="no">    
+    <suggestion auth="no">
         <w xml:id="example.p.1.s.1.w.1_1">
             <t>on</t>
         </w>
         <w xml:id="example.p.1.s.1.w.1_2">
             <t>line</t>
-        </w>                        
+        </w>
     </suggestion>
- </correction>               
+ </correction>
 </s>
 \end{lstlisting}
 
 Special cases are insertions and deletions. In case of suggested insertions, the current
 element is empty (but always present!), in case of deletions, the suggestion
-element is empty (but always present!). 
+element is empty (but always present!).
 
 For non-structural suggestions for correction, we simply have multiple
 correction elements if there are suggestions for correction of different
@@ -3932,7 +3932,7 @@ following two examples illustrate both these cases:
 In the second example, we also add an additional non-structural suggestion for correction,
 suggesting to capitalize the first word of what is suggested to become a new sentence.
 
-%\subsubsection{Correction prior to tokenisation} 
+%\subsubsection{Correction prior to tokenisation}
 %\label{sec:pretokcorrection}
 
 %There is another special use of the correction element. Sometimes corrections or normalisations occur prior to tokenisation, think for example about correcting OCR-errors. To accommodate this, the \texttt{correction} element can be used inline within the text content element (\texttt{t}) of a paragraph or sentence, which is by definition untokenised.
@@ -3942,7 +3942,7 @@ suggesting to capitalize the first word of what is suggested to become a new sen
 %\begin{lstlisting}[language=xml]
 %<s xml:id="example.p.1.s.1.w.1">
     %<t>Look at thi.s untokenised sentence.</t>
-%</s>            
+%</s>
 %\end{lstlisting}
 
 %With correction:
@@ -3958,7 +3958,7 @@ suggesting to capitalize the first word of what is suggested to become a new sen
        %<t>thi.s</t>
 %     </original></correction> untokenised sentence.
     %</t>
-%</s>                         
+%</s>
 %\end{lstlisting}
 
 %Although correction is used inline here, rather than as a normal token annotation, its usage is still identical. For clarity's sake, the class of course depends on the set and is as always never predefined in FoLiA itself.
@@ -4059,23 +4059,23 @@ Consider the two following aligned sentences from excerpts of two
 \begin{lstlisting}[language=xml]
 <s xml:id="example-english.p.1.s.1">
   <t>The Dalai Lama greeted him.</t>
-  <alignment class="french-translation" xlink:href="doc-french.xml" 
+  <alignment class="french-translation" xlink:href="doc-french.xml"
     xlink:type="simple">
-     <aref id="doc-french.p.1.s.1" t="Le Dalai Lama le saluait." 
+     <aref id="doc-french.p.1.s.1" t="Le Dalai Lama le saluait."
      type="s" />
   </alignment>
 </s>
 
 <s xml:id="example-french.p.1.s.1">
   <t>Le Dalai Lama le saluait.</t>
-  <alignment class="english-translation" xlink:href="doc-english.xml" 
+  <alignment class="english-translation" xlink:href="doc-english.xml"
     xlink:type="simple">
-      <aref id="doc-english.p.1.s.1" t="The Dalai Lama greeted him." 
+      <aref id="doc-english.p.1.s.1" t="The Dalai Lama greeted him."
        type="s" />
   </alignment>
-  <alignment class="dutch-translation" xlink:href="doc-dutch.xml" 
+  <alignment class="dutch-translation" xlink:href="doc-dutch.xml"
      xlink:type="simple">
-      <aref id="doc-dutch.p.1.s.1" t="De Dalai Lama begroette hem." 
+      <aref id="doc-dutch.p.1.s.1" t="De Dalai Lama begroette hem."
        type="s" />
   </alignment>
 </s>
@@ -4094,7 +4094,7 @@ the target text for both parsers and human users.
 
 Although the above example has a single alignment reference (\texttt{aref}), it
 is not forbidden to specify multiple references within the \texttt{alignment}
-block. 
+block.
 
 By default, alignments are between FoLiA documents. It is, however, also
 possible to point to resources in different formats. This has to be made
@@ -4108,7 +4108,7 @@ FoLiA document is arrived, and where the section is expressed with an HTML ancho
 \begin{lstlisting}[language=xml]
 <div class="section">
  <t>lorum ipsum etc.</t>
- <alignment class="original" xlink:href="http://somewhere/original.html" 
+ <alignment class="original" xlink:href="http://somewhere/original.html"
     xlink:type="simple" format="text/html">
     <aref id="section2" type="a" />
  </alignment>
@@ -4137,7 +4137,7 @@ the \texttt{complexalignments} annotation layer.
     <complexalignment>
       <alignment>
         <aref id="example-english.p.1.s.1.w.2" t="Dalai" type="w">
-        <aref id="example-english.p.1.s.1.w.3" t="Lama" type="w">	
+        <aref id="example-english.p.1.s.1.w.3" t="Lama" type="w">
       </alignment>
       <alignment class="french-translation" xlink:href="doc-french.xml"
        xlink:type="simple">
@@ -4175,21 +4175,21 @@ as 16 relationships over four different documents:
     <complexalignment>
       <alignment class="english-translation">
         <aref id="example-english.p.1.s.1.w.2" t="Dalai" type="w">
-        <aref id="example-english.p.1.s.1.w.3" t="Lama" type="w">	
+        <aref id="example-english.p.1.s.1.w.3" t="Lama" type="w">
       </alignment>
-      <alignment class="french-translation" 
+      <alignment class="french-translation"
        xlink:href="doc-french.xml"
        xlink:type="simple">
         <aref id="example-french.p.1.s.1.w.2" t="Dalai" type="w">
         <aref id="example-french.p.1.s.1.w.3" t="Lama" type="w">
       </alignment>
-      <alignment class="german-translation" 
+      <alignment class="german-translation"
        xlink:href="doc-german.xml"
        xlink:type="simple">
         <aref id="example-german.p.1.s.1.w.2" t="Dalai" type="w">
         <aref id="example-german.p.1.s.1.w.3" t="Lama" type="w">
       </alignment>
-      <alignment class="italian-translation" 
+      <alignment class="italian-translation"
        xlink:href="doc-italian.xml"
        xlink:type="simple">
         <aref id="example-italian.p.1.s.1.w.2" t="Dalai" type="w">
@@ -4229,7 +4229,7 @@ binnen ging'' or ``Toen wij naar binnen gingen'':
 \begin{lstlisting}[language=xml]
 <s>
   <w xml:id="example.s.1.w.1"><t>Toen</t></w>
-  <correction xml:id="correction.1a" 
+  <correction xml:id="correction.1a"
    class="persoonsvorm_onderwerp_mismatch">
     <original>
       <w xml:id="example.s.1.w.2"><t>ik</t></w>
@@ -4243,7 +4243,7 @@ binnen ging'' or ``Toen wij naar binnen gingen'':
   </correction>
   <w xml:id="example.s.1.w.3"><t>naar</t></w>
   <w xml:id="example.s.1.w.4"><t>binnen</t></w>
-  <correction xml:id="correction.1b" 
+  <correction xml:id="correction.1b"
    class="persoonsvorm_onderwerp_mismatch" >
     <original>
       <w xml:id="example.s.1.w.5"><t>gingen</t></w>
@@ -4254,16 +4254,16 @@ binnen ging'' or ``Toen wij naar binnen gingen'':
     <suggestion xml:id="correction.1b.suggestion.B">
       <w xml:id="example.s.1.w.2a"><t>gingen</t></w>
     </suggestion>
-  </correction>  
+  </correction>
   <alignedcorrections>
-    <alignedcorrection 
+    <alignedcorrection
      class="persoonsvorm_onderwerp_mismatch">
         <aref id="correction.1a" type="correction" />
         <aref id="correction.1b" type="correction" />
         <alignedsuggestion>
           <aref id="correction.1a.suggestion.A" type="suggestion" />
           <aref id="correction.1b.suggestion.A" type="suggestion" />
-        </alignedsuggestion> 
+        </alignedsuggestion>
         <alignedsuggestion>
           <aref id="correction.1a.suggestion.B" type="suggestion" />
           <aref id="correction.1b.suggestion.B" type="suggestion" />
@@ -4291,7 +4291,7 @@ For situations in which alignments seem overkill, a simple multi-document
 mechanism is available. This mechanism is based purely on convention: It
 assumes that structural elements that are translations simply share the same
 ID. This approach is quite feasible when used on higher-level structural
-elements, such as divisions, paragraphs, events or entries. 
+elements, such as divisions, paragraphs, events or entries.
 
 \subsection{Text Content}
 \label{sec:textcontent}
@@ -4307,8 +4307,8 @@ three levels in the following example:
 \begin{lstlisting}[language=xml]
  <p xml:id="example.p.1">
     <t>Hello. This is a sentence. Bye!</t>
-    <s xml:id="example.p.1.s.1">        
-      <t offset="7">This is a sentence.</t>    
+    <s xml:id="example.p.1.s.1">
+      <t offset="7">This is a sentence.</t>
       <w xml:id="example.p.1.s.1.w.1"><t offset="0">This</t></w>
       <w xml:id="example.p.1.s.1.w.2"><t offset="5">is</t></w>
       <w xml:id="example.p.1.s.1.w.3"><t offset="8">a</t></w>
@@ -4344,7 +4344,7 @@ refer directly to the paragraph's text:
 \begin{lstlisting}[language=xml]
  <p xml:id="example.p.1">
     <t>Hello. This is a sentence. Bye!</t>
-    <s xml:id="example.p.1.s.1">        
+    <s xml:id="example.p.1.s.1">
         <w xml:id="example.p.1.s.1.w.1">
          <t ref="example.p.1" offset="7">This</t>
         </w>
@@ -4405,26 +4405,26 @@ omitted:
 Below is an example illustrating the usage of multiple classes. To show the
 flexibility, offsets are added, but these are of course always optional. Note
 that when an offset is specified, it always refers to a text-content element of
-the same class! 
+the same class!
 %Whenever a text content element has an associated class, it also needs to be marked as non-authoritative using \texttt{auth="no"}. This facilitates the job of parsers seeking to extract the mo
 
 \begin{lstlisting}[language=xml]
 <p xml:id="example.p.1">
-  <t>Hello. This is a sentence. Bye!</t> 
-  <t class="original">Hello. This iz a sentence. Bye!</t>    
-  <s xml:id="example.p.1.s.1">        
+  <t>Hello. This is a sentence. Bye!</t>
+  <t class="original">Hello. This iz a sentence. Bye!</t>
+  <s xml:id="example.p.1.s.1">
     <t offset="7">This is a sentence.</t>
     <t class="original" offset="7">This is a sentence.</t>
     <w xml:id="example.p.1.s.1.w.1">
       <t offset="0">This</t>
     </w>
-    <w xml:id="example.p.1.s.1.w.2">         
+    <w xml:id="example.p.1.s.1.w.2">
       <correction>
       <new>
         <t offset="5">is</t>
       </new>
       <original auth="no">
-        <t offset="5">iz</t> 
+        <t offset="5">iz</t>
         <!-- Note that this element has class 'original' by definition! -->
       </original>
       </correction>
@@ -4451,14 +4451,14 @@ the same class!
 In the above example, the correction is explicit, in the next example, it is
 implicit. Furthermore, to illustrate how you could use other custom classes,
 the next example introduces a custom ``ocroutput'' class that shows the
-(fictitious) output of an OCR system prior to some implicit correction stage. 
+(fictitious) output of an OCR system prior to some implicit correction stage.
 
 \begin{lstlisting}[language=xml]
  <p xml:id="example.p.1">
-    <t>Hello. This is a sentence. Bye!</t> 
-    <t class="original">Hello. This iz a sentence. Bye!</t>    
-    <t class="ocroutput">Hell0 Th1s iz a sentence, Bye1</t>    
-    <s xml:id="example.p.1.s.1">        
+    <t>Hello. This is a sentence. Bye!</t>
+    <t class="original">Hello. This iz a sentence. Bye!</t>
+    <t class="ocroutput">Hell0 Th1s iz a sentence, Bye1</t>
+    <s xml:id="example.p.1.s.1">
         <t offset="7">This is a sentence.</t>
         <t class="original" offset="7">This is a sentence.</t>
         <t class="ocroutput" offset="6">Th1s iz a sentence,</t>
@@ -4466,10 +4466,10 @@ the next example introduces a custom ``ocroutput'' class that shows the
          <t offset="0">This</t>
          <t class="ocroutput" offset="0">Th1s</t>
         </w>
-        <w xml:id="example.p.1.s.1.w.2">         
+        <w xml:id="example.p.1.s.1.w.2">
            <t offset="5">is</t>
-           <t offset="5" class="original">iz</t> 
-           <t offset="5" class="ocroutput">iz</t>           
+           <t offset="5" class="original">iz</t>
+           <t offset="5" class="ocroutput">iz</t>
         </w>
         <w xml:id="example.p.1.s.1.w.3">
          <t offset="8">a</t>
@@ -4505,7 +4505,7 @@ identifiers to substrings. Consider the following example:
 
 \begin{lstlisting}[language=xml]
  <p xml:id="example.p.1">
-    <t>Hello. This is a sentence. Bye!</t> 
+    <t>Hello. This is a sentence. Bye!</t>
     <str xml:id="example.p.1.str.1">
     	<t offset="0">Hello</t>
     </str>
@@ -4513,77 +4513,77 @@ identifiers to substrings. Consider the following example:
 \end{lstlisting}
 
 In substrings, using an offset attribute on the text-content element enables
-substrings to be properly positioned with respect to their parent text. 
+substrings to be properly positioned with respect to their parent text.
 
 
 The class \emph{current} is assigned when no explicit class is mentioned. In
 case of multiple \texttt{t} elements the class tells to which \texttt{t}
 element the substring refers: Both are covered by the \texttt{text-annotation}
 declaration. Both the substring element, as well as the text content element
-should always carry the same class. 
+should always carry the same class.
 
 \begin{lstlisting}[language=xml]
  <p xml:id="example.p.1">
-    <t>Hello. This is a sentence. Bye!</t> 
-    <t class="original">Hello. This iz a sentence. Bye!</t>    
-    <t class="ocroutput">Hell0 Th1s iz a sentence, Bye1</t>    
-    
+    <t>Hello. This is a sentence. Bye!</t>
+    <t class="original">Hello. This iz a sentence. Bye!</t>
+    <t class="ocroutput">Hell0 Th1s iz a sentence, Bye1</t>
+
     <str xml:id="example.p.1.s.1">
     	<t class="ocroutput" offset="0">Hell0</t>
     </str>
-    
+
     <str xml:id="example.p.1.s.2">
     	<t class="normalised" offset="0">Hello.</t>
-    </str>    
-            
+    </str>
+
     <str xml:id="example.p.1.s.3">
     	<t offset="0">Hello.</t>
-    </str>    
-</p>    
+    </str>
+</p>
 \end{lstlisting}
 
-Relations between the various substrings can be explicitly represented using alignments: 
+Relations between the various substrings can be explicitly represented using alignments:
 
 \begin{lstlisting}[language=xml]
  <p xml:id="example.p.1">
-    <t>Hello. This is a sentence. Bye!</t> 
-    <t class="original">Hello. This iz a sentence. Bye!</t>    
-    <t class="ocroutput">Hell0 Th1s iz a sentence, Bye1</t>    
-    
+    <t>Hello. This is a sentence. Bye!</t>
+    <t class="original">Hello. This iz a sentence. Bye!</t>
+    <t class="ocroutput">Hell0 Th1s iz a sentence, Bye1</t>
+
     <str xml:id="example.p.1.s.1">
         <t class="ocroutput" offset="0">Hell0</t>
         <alignment>
             <aref id="example.p.1.s.2" type="str" />
         </alignment>
     </str>
-    
+
     <str xml:id="example.p.1.s.2">
         <t offset="0">Hello.</t>
         <alignment>
             <aref id="example.p.1.s.1" type="str" />
         </alignment>
-    </str>    
-  </p>    
+    </str>
+  </p>
 \end{lstlisting}
 
 Or one string can refer back to two or more different text content elements:
 
 \begin{lstlisting}[language=xml]
  <p xml:id="example.p.1">
-    <t>Hello. This is a sentence. Bye!</t> 
-    <t class="normalised">Hello. This iz a sentence. Bye!</t>    
-    <t class="ocroutput">Hell0 Th1s iz a sentence, Bye1</t>    
-    
+    <t>Hello. This is a sentence. Bye!</t>
+    <t class="normalised">Hello. This iz a sentence. Bye!</t>
+    <t class="ocroutput">Hell0 Th1s iz a sentence, Bye1</t>
+
     <str xml:id="example.p.1.s.1">
     	<t class="ocroutput" offset="0">Hell0</t>
     	<t class="normalised" offset="0">Hello</t>
 		<t offset="0">Hello.</t>
     </str>
-      
-</p>    
+
+</p>
 \end{lstlisting}
 
- 
+
 Substring elements are a form of higher-order annotation, they are similar to
 structure annotation but carry several different properties. Unlike structure
 elements, substring order does not matter and substrings may overlap. The
@@ -4593,7 +4593,7 @@ latter to untokenised or differently tokenised substrings.The \texttt{str}
 element is especially powerful when combined with alignments, as this allows
 the user to relate multiple alternative tokenisations. This is also the limit
 as to what you can do with differing tokenisations in FoLiA, as FoLiA only
-supports one authoritative tokenisation. 
+supports one authoritative tokenisation.
 
 The \texttt{str} element does not allow all (extended) token annotations.
 However, certain extended token annotations are allowed; such as language
@@ -4607,8 +4607,8 @@ their relation explicit:
 
 \begin{lstlisting}[language=xml]
 <p xml:id="example.p.1">
-  <t><t-str id="example.p.1.str.1">Hello</t-str>. This 
-   is a sentence. Bye!</t> 
+  <t><t-str id="example.p.1.str.1">Hello</t-str>. This
+   is a sentence. Bye!</t>
   <str xml:id="example.p.1.str.1">
       <t offset="0">Hello</t>
   </str>
@@ -4657,7 +4657,7 @@ As text markup operates in the scope of the text content element, it is ideally
 suited for untokenised text. You should, however, limit your usage of text
 markup
 elements and only use them when other existing annotation elements do not
-suffice, or for extra verbosity in addition to existing elements. 
+suffice, or for extra verbosity in addition to existing elements.
 
 Each text-markup element, save for one exception, starts with \texttt{t-} and
 demands a declaration. The following subsections will discuss the various text
@@ -4672,7 +4672,7 @@ set, closely following the FoLiA paradigm. FoLiA does not predefine any actual s
 
 \begin{lstlisting}[language=xml]
 <s>
-  <t>to <t-style class="bold">be</t-style> or not to be</t> 
+  <t>to <t-style class="bold">be</t-style> or not to be</t>
 </s>
 \end{lstlisting}
 
@@ -4681,7 +4681,7 @@ Text-markup elements may always be nested, as the following example shows:
 \begin{lstlisting}[language=xml]
 <s>
   <t>to <t-style class="italic"><t-style class="bold">be
-  </t-style></t-style> or not to be</t> 
+  </t-style></t-style> or not to be</t>
 </s>
 \end{lstlisting}
 
@@ -4713,14 +4713,14 @@ possibilities:
 
 \begin{lstlisting}[language=xml]
 <s>
-  <t>to <t-gap xml:id="gap.1" class="fillin">be</t-gap> or not to be</t> 
+  <t>to <t-gap xml:id="gap.1" class="fillin">be</t-gap> or not to be</t>
 </s>
 \end{lstlisting}
 
 
 \begin{lstlisting}[language=xml]
 <s>
-  <t>to <t-gap xml:id="gap.1" class="unknown" /> or not to be</t> 
+  <t>to <t-gap xml:id="gap.1" class="unknown" /> or not to be</t>
 </s>
 \end{lstlisting}
 
@@ -4734,7 +4734,7 @@ example:
 
 \begin{lstlisting}[language=xml]
 <s>
-  <t>to <t-gap id="gap.1" class="fillin">be</t-gap> or not to be</t> 
+  <t>to <t-gap id="gap.1" class="fillin">be</t-gap> or not to be</t>
   <w><t>to</t></w>
   <gap xml:id="gap.1"><content>be</content></gap>
   <w><t>or</t></w>
@@ -4776,7 +4776,7 @@ mark arbitrary substrings:
 
 \begin{lstlisting}[language=xml]
 <s>
-  <t>to <t-str xml:id="str.1">be</t-str> or not to be</t> 
+  <t>to <t-str xml:id="str.1">be</t-str> or not to be</t>
 </s>
 \end{lstlisting}
 
@@ -4788,8 +4788,8 @@ proper references:
 
 \begin{lstlisting}[language=xml]
  <p xml:id="example.p.1">
-    <t><t-str id="example.p.1.str.1">Hello</t-str>. This 
-     is a sentence. Bye!</t> 
+    <t><t-str id="example.p.1.str.1">Hello</t-str>. This
+     is a sentence. Bye!</t>
     <str xml:id="example.p.1.str.1">
      <t offset="0">Hello</t>
     </str>
@@ -4815,7 +4815,7 @@ preferred when possible.
 \begin{lstlisting}[language=xml]
 <s>
   <t>to <t-error xml:id="error.1" class="spelling">bee</t-error>
-  or not to be</t> 
+  or not to be</t>
 </s>
 \end{lstlisting}
 
@@ -4837,8 +4837,8 @@ expressive power. The example below shows both:
 
 \begin{lstlisting}[language=xml]
 <s>
-  <t>to <t-correction class="confusible" id="correction.1" 
-  original="bee">be</t-correction> or not to be</t> 
+  <t>to <t-correction class="confusible" id="correction.1"
+  original="bee">be</t-correction> or not to be</t>
   <w><t>to</t></w>
   <correction class="confusible" xml:id="correction.1">
     <new>
@@ -4992,7 +4992,7 @@ FoLiA-capable tools and libraries, and recommended to be used if possible:
 \begin{itemize}
 \item \textbf{title} -- The title of the FoLiA document
 \item \textbf{language} -- A language code identifying the language the
-    document is in. Using either ISO-639-3 or ISO-639-1 is recommended. 
+    document is in. Using either ISO-639-3 or ISO-639-1 is recommended.
 \item \textbf{date} -- The date of publication, using \texttt{YYYY-MM-DD}
     format is recommended.
 \item \textbf{publisher} -- The publishing institution or individual
@@ -5068,7 +5068,7 @@ two distinct but comparable mechanisms, each with their own uses:
     they were contained in the main file. Subdocuments not flagged as such are
     simple references.
   \item \textbf{Stand-off documents} - Specific annotation types may be split
-    into external documents. These external documents must duplicate a minimal part of the structure 
+    into external documents. These external documents must duplicate a minimal part of the structure
     of the main document and may never introduce new structure.
 \end{enumerate}
 
@@ -5118,7 +5118,7 @@ to include the same subdocument.
 \begin{lstlisting}[language=xml]
 <FoLiA id="chapter2" external="yes">
     <metadata>
-      <annotations>        
+      <annotations>
       </annotations>
     </metadata>
     <text>
@@ -5134,7 +5134,7 @@ make the contents of the \texttt{text} element available at the exact point
 where the \texttt{external} reference is made.This implies that the elements
 contained under \texttt{text} must be valid in the context in which they are
 placed. If \texttt{include="no"} or unset, the external element acts as a mere
-reference. 
+reference.
 
 Note that a structure element is required in subdocuments, the following main and subdocument
 are \textbf{invalid}! Invalid main document excerpt:
@@ -5151,7 +5151,7 @@ are \textbf{invalid}! Invalid main document excerpt:
 \begin{lstlisting}[language=xml]
 <FoLiA id="chapter2">
     <metadata>
-      <annotations>        
+      <annotations>
         <pos-annotation set=".." />
       </annotations>
     </metadata>
@@ -5301,7 +5301,7 @@ And here the stand-off document:
   <text>
     <s xml:id="example.p.1.s.1">
      <syntax>
-      <su class="np">     
+      <su class="np">
         <su class="det">
           <wref id="example.p.1.w.1" />
         </su>
@@ -5345,7 +5345,7 @@ Needless to say, circular references are forbidden in such cases.
 
 The sets and classes used by the various linguistic annotation types are never
 defined in the FoLiA documents themselves, but externally in \emph{set
-definitions}. 
+definitions}.
 
 Using set definitions a FoLiA document can be validated on a deep level, i.e.
 the validity of the used classes can be tested. Set definitions provide
@@ -5375,7 +5375,7 @@ distinct from FoLiA itself, which we call the legacy format and which is still
 supported for backwards compatibility. Since FoLiA v1.4 however, we strongly
 prefer and recommend to store the set definitions as RDF \cite{RDF}, i.e.\ the
 technology that powers the semantic web. In this way, set definitions provide a
-formal semantic layer for FoLiA. 
+formal semantic layer for FoLiA.
 
 Set definitions may be stored in various common RDF serialisation formats. The
 format can be indicated on the declarations in the document metadata using the
@@ -5398,7 +5398,7 @@ legacy XML format, an otherwise empty set definition would look like this:
 
 \begin{lstlisting}[language=xml]
 <?xml version="1.0" encoding="UTF-8"?>
-<set 
+<set
  xmlns="http://ilk.uvt.nl/folia"
  xml:id="your-set-id" type="closed" label="Human readable label for your set">
 </set>
@@ -5451,7 +5451,7 @@ ID & Notation & \texttt{skos:notation} \\
 After this preamble, we can define a set as follows:
 
 \begin{lstlisting}
-<#your-set-id> 
+<#your-set-id>
 	a skos:Collection ;
 	skos:notation	"your-set-id" ;
 	skos:prefLabel	"Human readable label for your set" ;
@@ -5462,7 +5462,7 @@ The first two lines state that \texttt{http://your/namespace/\#your-set-id} is
 \emph{a}\footnote{the \emph{a} in Turtle is shorthand for rdf:type} SKOS
 Collection, which is what we use for FoLiA Sets. The \texttt{skos:notation}
 property corresponds to the ID of the Set, only one is allowed\footnote{Technically, SKOS allows multiple, but we restrict it for Set
-Definitions}. 
+Definitions}.
 
 A set can be either open or closed (default), an open set allows any classes,
 even if they are not defined. This can be used for open vocabularies. The
@@ -5477,7 +5477,7 @@ terms). Consider a simple part-of-speech set with three classes. First we
 define the set and refer to all the classes it contains:
 
 \begin{lstlisting}
-<#simplepos> 
+<#simplepos>
 	a skos:Collection ;
 	skos:notation	"simplepos" ;
 	skos:prefLabel "A simple part of speech set" ;
@@ -5487,17 +5487,17 @@ define the set and refer to all the classes it contains:
 Then we define the classes:
 
 \begin{lstlisting}
-<#N> 
+<#N>
 	a skos:Concept ;
 	skos:notation	"N" ;
 	skos:prefLabel "Noun" .
 
-<#V> 
+<#V>
 	a skos:Concept ;
 	skos:notation	"V" ;
 	skos:prefLabel "Verb" .
 
-<#A> 
+<#A>
 	a skos:Concept ;
 	skos:notation	"A" ;
 	skos:prefLabel "Adjective" .
@@ -5514,9 +5514,9 @@ recommended.
 In our legacy set definition format this is fairly straightforward and more concise:
 
 \begin{lstlisting}[language=xml]
-<set 
+<set
   xmlns="http://ilk.uvt.nl/folia"
-  xml:id="simplepos" type="closed" 
+  xml:id="simplepos" type="closed"
   label="Simple Part-of-Speech">
   <class xml:id="N" label="Noun" />
   <class xml:id="V" label="Verb" />
@@ -5553,16 +5553,16 @@ In the SKOS model, this is more verbose as the hierarchy has to be modelled
 explicitly using the \texttt{skos:broader} property, as shown in the following excerpt:
 
 \begin{lstlisting}
-<#namedentities> 
+<#namedentities>
 	a skos:Collection ;
 	skos:member <#loc> , <#loc.country> .
 
-<#loc> 
+<#loc>
 	a skos:Concept ;
 	skos:notation	"loc" ;
 	skos:prefLabel "Location" .
 
-<#loc.country> 
+<#loc.country>
 	a skos:Concept ;
 	skos:notation	"loc.country" ;
 	skos:prefLabel "Country" ;
@@ -5578,7 +5578,7 @@ ID, however, does have to be unique in the entire set.
 
 \section{Subsets}
 
-Section~\ref{sec:features} introduced subsets. 
+Section~\ref{sec:features} introduced subsets.
 These can be defined in a
 similar fashion to sets. Consider the legacy XML format first:
 
@@ -5586,9 +5586,9 @@ similar fashion to sets. Consider the legacy XML format first:
 <set xml:id="simplepos" type="closed">
   <class xml:id="N" label="Noun" />
   <class xml:id="V" label="Verb" />
-  <class xml:id="A" label="Adjective" />   
+  <class xml:id="A" label="Adjective" />
   <subset xml:id="gender" class="closed">
-      <class xml:id="m" label="Masculine" />    
+      <class xml:id="m" label="Masculine" />
       <class xml:id="f" label="Feminine" />
       <class xml:id="n" label="Neuter" />
   </subset>
@@ -5602,16 +5602,16 @@ to the subsets using the same \texttt{skos:member} relation as is used for
 classes/concepts.
 
 \begin{lstlisting}
-<#simplepos> 
+<#simplepos>
 	a skos:Collection ;
 	skos:member <#N> , <#V> , <#A> , <#gender> .
 
-<#gender> 
+<#gender>
 	a skos:Collection ;
 	skos:notation	"gender" ;
 	skos:member <#gender.m> .
 
-<#gender.m> 
+<#gender.m>
 	a skos:Concept ;
 	skos:notation	"m" ;
 	skos:prefLabel "Location" ;
@@ -5642,7 +5642,7 @@ the same set definition file\footnote{The file need not be static but can be
 dynamically generated server-side}; which must be \emph{publicly} available
 from a URL. A set definition must contain one and only one primary set (SKOS
 collection), all other sets must be subsets (SKOS collections that are a
-member of the primary set, no deeper nesting is supported).  
+member of the primary set, no deeper nesting is supported).
 
 
 
@@ -5664,13 +5664,13 @@ member of the primary set, no deeper nesting is supported).
 %<set xml:id="simplepos" type="closed">
 %  <class xml:id="N" label="Noun" />
 %  <class xml:id="V" label="Verb" />
-%  <class xml:id="A" label="Adjective" />   
+%  <class xml:id="A" label="Adjective" />
 %  <subset xml:id="gender" class="closed">
 %      <constraint>
 %          <restrict class="N" />
 %          <restrict class="A" />
 %      </constraint>
-%      <class xml:id="m" label="Masculine" />    
+%      <class xml:id="m" label="Masculine" />
 %      <class xml:id="f" label="Feminine" />
 %      <class xml:id="n" label="Neuter" />
 %  </subset>
@@ -5683,19 +5683,19 @@ member of the primary set, no deeper nesting is supported).
 %<set xml:id="simplepos" type="closed">
 %    <class xml:id="N" label="Noun" />
 %    <class xml:id="V" label="Verb" />
-%    <class xml:id="A" label="Adjective" />   
+%    <class xml:id="A" label="Adjective" />
 %    <subset xml:id="gender" class="closed">
 %        <constraint name="constraint.1">
 %            <restrict class="N" />
 %            <restrict class="A" />
 %        </constraint>
-%        <class xml:id="m" label="Masculine" />    
+%        <class xml:id="m" label="Masculine" />
 %        <class xml:id="f" label="Feminine" />
 %        <class xml:id="n" label="Neuter" />
 %    </subset>
 %    <subset xml:id="case" class="closed">
 %        <constraint ref="constraint.1" />
-%        <class xml:id="nom" label="Nominative" />    
+%        <class xml:id="nom" label="Nominative" />
 %        <class xml:id="gen" label="Genitive" />
 %        <class xml:id="dat" label="Dative" />
 %        <class xml:id="acc" label="Accusative" />
@@ -5709,14 +5709,14 @@ member of the primary set, no deeper nesting is supported).
 %<set xml:id="simplepos" type="closed">
 %    <class xml:id="N" label="Noun" />
 %    <class xml:id="V" label="Verb" />
-%    <class xml:id="A" label="Adjective" />   
+%    <class xml:id="A" label="Adjective" />
 %    <subset xml:id="gender" class="closed">
 %        <class xml:id="m" label="Masculine">
 %            <constraint name="constraint.1">
 %                <restrict class="N" />
 %                <restrict class="A" />
 %            </constraint>
-%        </class>    
+%        </class>
 %    </subset>
 %</set>
 %\end{lstlisting}
@@ -5754,7 +5754,7 @@ member of the primary set, no deeper nesting is supported).
 %
 %
 %You can also opt to specify the ``forbidden'' classes using \texttt{except}.
-%Only if not a single one of the exceptions applies, the constraint is met. 
+%Only if not a single one of the exceptions applies, the constraint is met.
 %
 %\begin{lstlisting}[language=xml] <constraint>
 %    <except class="V" />
@@ -5822,7 +5822,7 @@ has no notion of a default namespace.
 \begin{itemize}
 \item XPath query for all paragraphs: \\ \texttt{//p[not(ancestor-or-self::*/@auth)]}
 \item XPath query for all sentences: \\
-  \texttt{//s[not(ancestor-or-self::*/@auth) and not(ancestor::quote)]} 
+  \texttt{//s[not(ancestor-or-self::*/@auth) and not(ancestor::quote)]}
     \emph{Explanation: When selecting sentences, you often do not want
     sub-sentences that are part of a quote, since they may overlap with the
     larger sentence they form a part of. The \texttt{not(ancestor::quote)}
@@ -5849,7 +5849,7 @@ has no notion of a default namespace.
   not(ancestor-or-self::*/@auth)] ]//t[not(ancestor-or-self::*/@auth) and
   not(@class)]//text()}
     \emph{Note: The predicate for non-authoritativeness here needs to be applied both to the pos element and the text content element \texttt{t}, otherwise you may accidentally select the text of words which have the desired pos tag only as an alternative.}
-\item XPath query to select all alternative PoS tags for all words: \texttt{//w/alt/pos} \\       
+\item XPath query to select all alternative PoS tags for all words: \texttt{//w/alt/pos} \\
 \end{itemize}
 
 When selecting text elements \texttt{(t)}, you generally want to add
@@ -5891,8 +5891,8 @@ in the presentation here, whereas in reality they should be on one.
 
 \begin{itemize}
 \item \texttt{SET variable$=$value} - Sets global variables that apply to all statements that follow. String values need to be in double quotes. Available variables are:
-\item \texttt{annotator} - The name of the annotator 
-\item \texttt{annotatortype} - The type of the annotator, can be *auto* or *manual* 
+\item \texttt{annotator} - The name of the annotator
+\item \texttt{annotatortype} - The type of the annotator, can be *auto* or *manual*
 \end{itemize}
 
 Usually your queries on a particular annotation type are limited to one
@@ -6789,7 +6789,7 @@ following table shows the level of FoLiA support in these
 libraries:
 
 \begin{tabularx}{12cm}{rcc}
-\hline 
+\hline
                        & PyNLPl & libfolia  \\
 \hline
 Programming Language   & python & C$++$ \\
@@ -6815,7 +6815,7 @@ Strings                & yes & yes \\
 \multicolumn{3}{c}{\textbf{Search \& Query}} \\
 FoLiA Query Language (FQL)  & yes & no \\
 Document.findwords() method & yes & yes \\
-\hline 
+\hline
 \multicolumn{3}{c}{\textbf{Validation}} \\
 Shallow validation      & yes & yes \\
 RelaxNG schema generation & yes & no \\
@@ -6859,13 +6859,13 @@ various ends. The following tools are currently available:
 \end{itemize}
 
 All of these tools are written in Python, and thus require a Python ($2.7$, $3$
-or higher) installation to run. More tools are added as time progresses. 
+or higher) installation to run. More tools are added as time progresses.
 
 \section{Installation}
 
 The FoLiA tools are published to the Python Package Index and can be installed
 effortlessly using \texttt{pip}, from the command-line, type:
- 
+
 \begin{verbatim}
 $ pip install folia-tools
 \end{verbatim}
@@ -6915,7 +6915,7 @@ file names or directory names as parameters.
 
 %\section{FoLiA Query tool}
 %
-%The query tool, \texttt{foliaquery}, deserves some extra attention. This can be used out-of-the-box to search one or more FoLiA documents for certain patterns. These patterns can be textual, but can also be patterns of (token) annotation. 
+%The query tool, \texttt{foliaquery}, deserves some extra attention. This can be used out-of-the-box to search one or more FoLiA documents for certain patterns. These patterns can be textual, but can also be patterns of (token) annotation.
 
 %Consider a use case in which you have several FoLiA documents in a directory \texttt{/tmp/foliadocs/}. If you are interested in for instance finding all occurrences of the Shakespearean phrase ``to be or not to be'' in these documents, then this can be accomplished using the following command:
 
@@ -6965,9 +6965,9 @@ file names or directory names as parameters.
 
 %\subsection{TCF v0.4 -- Text Corpus Format}
 
-%The Text Corpus Format\cite{TCF} is specifically designed as a language resource exchange format for webservices chained in a workflow, which is also one of the intended uses of FoLiA. The format is a modern, XML-based, unicode encoded, and supports a fair subset of the annotation types supported by FoLiA. It is one of the formats closest to FoLiA and therefore most interesting to compare. All annotations in TCF are represented in a stand-off fashion within the same XML-file, although there seems to be a provision for some inline annotations as well. The format is simpler and less verbose than FoLiA, slimness and processing efficiency also explicitly being one of the aims of the authors. This however does compromise expressibility and makes it less expressive than FoLiA. For example, there seems to be no support for corrections, alternatives and the encoding of annotators, time of annotation, and confidence level, something that in FoLiA is deeply integrated into the paradigm. TCF is tagset independent and tagsets can be specified by the user, but it does not generalise or formalise the ``set/class'' paradigm to the extent FoLiA does.  The level of generalisation does not go as far as it does in FoLiA.  
+%The Text Corpus Format\cite{TCF} is specifically designed as a language resource exchange format for webservices chained in a workflow, which is also one of the intended uses of FoLiA. The format is a modern, XML-based, unicode encoded, and supports a fair subset of the annotation types supported by FoLiA. It is one of the formats closest to FoLiA and therefore most interesting to compare. All annotations in TCF are represented in a stand-off fashion within the same XML-file, although there seems to be a provision for some inline annotations as well. The format is simpler and less verbose than FoLiA, slimness and processing efficiency also explicitly being one of the aims of the authors. This however does compromise expressibility and makes it less expressive than FoLiA. For example, there seems to be no support for corrections, alternatives and the encoding of annotators, time of annotation, and confidence level, something that in FoLiA is deeply integrated into the paradigm. TCF is tagset independent and tagsets can be specified by the user, but it does not generalise or formalise the ``set/class'' paradigm to the extent FoLiA does.  The level of generalisation does not go as far as it does in FoLiA.
 
-%In annotation formats there is always a balance between expressibility and efficiency/simplicity. FoLiA is clearly on the more expressive side here, offering more features but therefore making higher demands on memory usage, whereas TCF is more on the efficiency side. 
+%In annotation formats there is always a balance between expressibility and efficiency/simplicity. FoLiA is clearly on the more expressive side here, offering more features but therefore making higher demands on memory usage, whereas TCF is more on the efficiency side.
 
 %\subsection{KAF -- Kyoto Annotation Format }
 
