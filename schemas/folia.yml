@@ -347,6 +347,7 @@ elements:
                 xmltag: "br"
                 label: "Linebreak"
                 textdelimiter: ""
+                xlink: true #explicitly adding as this is also an AbstractTextMarkup element but not all libraries do the multiple inheritance
           - class: List
             properties:
                 annotationtype: LIST
