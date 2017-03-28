@@ -1079,7 +1079,7 @@
         </term>
         <def xml:id="entry.1.def.1" class="sense">
           <p xml:id="entry.1.def.1.p.1">
-            <t>Term uit de editiewetenschap en tekstkritiek voor de schematische weergave in de vorm van een boomdiagram van de onderlinge verwantschap van <br linenr="1" newpage="yes" pagenr="23"/> documentaire bronnen (handschrift, codex, druk), waarin een tekst bewaard is gebleven.<br linenr="2"/></t>
+            <t>Term uit de editiewetenschap en tekstkritiek voor de schematische weergave in de vorm van een boomdiagram van de onderlinge verwantschap van <br linenr="1" newpage="yes" pagenr="23"/> documentaire bronnen (handschrift, codex, druk), waarin een tekst bewaard is gebleven.<br xlink:href="http://resources.huygens.knaw.nl/retroapp/service_declercq/1/images/FI.022.tiff" xlink:type="simple" linenr="2"/></t>
           </p>
           <ref id="bib.1" type="note">
             <t>[Bork et al, 2012]</t>
@@ -1254,7 +1254,7 @@
       </div>
       <div xml:id="sandbox.3">
         <head xml:id="sandbox.3.head">
-          <t>De <t-str id="sandbox.3.str"><t-style xml:id="sandbox.3.str.bold" class="bold">FoLiA</t-style> developers</t-str> zijn:</t>
+          <t>De <t-str id="sandbox.3.str"><t-style xml:id="sandbox.3.str.bold" class="bold"><br/>FoLiA</t-style> developers</t-str> zijn:</t>
           <str xml:id="sandbox.3.str">
             <t offset="3">FoLiA developers</t>
             <lang class="eng"/>
