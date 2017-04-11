@@ -538,7 +538,7 @@
               <pos class="ADJ(prenom,basis,met-e,stan)"/>
               <lemma class="origineel"/>
             </w>
-            <w xml:id="WR-P-E-J-0000000001.p.1.s.4.w.9">
+            <w xml:id="WR-P-E-J-0000000001.p.1.s.4.w.9" space="no">
               <t>handschrift</t>
               <pos class="N(soort,ev,basis,onz,stan)"/>
               <lemma class="handschrift"/>
@@ -658,7 +658,7 @@
           </w>
         </s>
         <s xml:id="WR-P-E-J-0000000001.p.1.s.6" class="sentence">
-          <t>Verdwenen handschriften waarvan men toch vermoedt dat ze ooit bestaan hebben worden ook in het stemma opgenomen en worden weergegeven door de laatste letter van het alfabet en worden tussen <t-correction id="WR-P-E-J-0000000001.p.1.s.6.w.31.c.1" class="spelling" original="vierkant">vierkante</t-correction> haken geplaatst.<br/></t>
+          <t>Verdwenen handschriften waarvan men toch vermoedt dat ze ooit bestaan hebben worden ook in het stemma opgenomen en worden weergegeven door de laatste letters van het alfabet en worden tussen <t-correction id="WR-P-E-J-0000000001.p.1.s.6.w.31.c.1" class="spelling" original="vierkant">vierkante</t-correction> haken geplaatst.<br/></t>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.1">
             <t>Verdwenen</t>
             <pos class="WW(vd,prenom,zonder)">
@@ -835,7 +835,7 @@
               </original>
             </correction>
           </w>
-          <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.33">
+          <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.33" space="no">
             <t>geplaatst</t>
             <pos class="WW(vd,vrij,zonder)"/>
             <lemma class="plaatsen"/>
@@ -1142,7 +1142,7 @@
         </figure>
       </event>
       <div xml:id="sandbox.2">
-        <t>De CDA-lijsttrekker heeft fors verloren. Hij was erg teleurgesteld.</t>
+        <t>De CDA-lijsttrekker heeft fors verloren. Hij had beloofd dat hij zou winnen. Hij was erg teleurgesteld.</t>
         <s xml:id="WR-P-E-J-0000000001.sandbox.2.s.1">
           <t>De CDA-lijsttrekker heeft fors verloren.</t>
           <w xml:id="WR-P-E-J-0000000001.sandbox.2.s.1.w.1">
@@ -1167,7 +1167,7 @@
           <w xml:id="WR-P-E-J-0000000001.sandbox.2.s.1.w.4">
             <t offset="24">fors</t>
           </w>
-          <w xml:id="WR-P-E-J-0000000001.sandbox.2.s.1.w.5">
+          <w xml:id="WR-P-E-J-0000000001.sandbox.2.s.1.w.5" space="no">
             <t offset="29">verloren</t>
           </w>
           <w xml:id="WR-P-E-J-0000000001.sandbox.2.s.1.w.6">
@@ -1199,7 +1199,7 @@
             <w xml:id="WR-P-E-J-0000000001.sandbox.2.s.2.w.6">
                 <t>zou</t>
             </w>
-            <w xml:id="WR-P-E-J-0000000001.sandbox.2.s.2.w.7">
+            <w xml:id="WR-P-E-J-0000000001.sandbox.2.s.2.w.7" space="no">
                 <t>winnen</t>
             </w>
             <w xml:id="WR-P-E-J-0000000001.sandbox.2.s.2.w.8">
@@ -1225,30 +1225,30 @@
         <s xml:id="WR-P-E-J-0000000001.sandbox.2.s.3">
             <t>Hij was erg teleurgesteld.</t>
             <w xml:id="WR-P-E-J-0000000001.sandbox.2.s.3.w.1">
-                <t>Hij</t>
+              <t>Hij</t>
             </w>
             <w xml:id="WR-P-E-J-0000000001.sandbox.2.s.3.w.2">
-                <t>was</t>
+              <t>was</t>
             </w>
             <w xml:id="WR-P-E-J-0000000001.sandbox.2.s.3.w.3">
-                <t>erg</t>
+              <t>erg</t>
             </w>
-            <w xml:id="WR-P-E-J-0000000001.sandbox.2.s.3.w.4">
-                <t>teleurgesteld</t>
+            <w xml:id="WR-P-E-J-0000000001.sandbox.2.s.3.w.4" space="no">
+              <t>teleurgesteld</t>
             </w>
             <w xml:id="WR-P-E-J-0000000001.sandbox.2.s.3.w.6">
-                <t>.</t>
+              <t>.</t>
             </w>
             <sentiments>
-                <sentiment xml:id="WR-P-E-J-0000000001.text.sentiment.1" class="disappointment" polarity="negative" strength="strong">
-                    <source>
-                        <wref id="WR-P-E-J-0000000001.sandbox.2.s.3.w.1" t="Hij"/>
-                    </source>
-                    <hd>
-                        <wref id="WR-P-E-J-0000000001.sandbox.2.s.3.w.3" t="erg" />
-                        <wref id="WR-P-E-J-0000000001.sandbox.2.s.3.w.4" t="teleurgesteld" />
-                    </hd>
-                </sentiment>
+              <sentiment xml:id="WR-P-E-J-0000000001.text.sentiment.1" class="disappointment" polarity="negative" strength="strong">
+                <source>
+                  <wref id="WR-P-E-J-0000000001.sandbox.2.s.3.w.1" t="Hij"/>
+                </source>
+                <hd>
+                  <wref id="WR-P-E-J-0000000001.sandbox.2.s.3.w.3" t="erg" />
+                  <wref id="WR-P-E-J-0000000001.sandbox.2.s.3.w.4" t="teleurgesteld" />
+                </hd>
+              </sentiment>
             </sentiments>
         </s>
       </div>
