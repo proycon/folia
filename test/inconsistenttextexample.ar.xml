@@ -35,7 +35,7 @@
       </morpheme>
      </morphology>
     </w>
-    <w xml:id="Xar.p.1.s.1.w.2">
+    <w xml:id="Xar.p.1.s.1.w.2" space="no">
      <t>مارتن</t>
      <ph>mārtin</ph>
      <pos class="noun_proper" />
@@ -70,7 +70,7 @@
     <w xml:id="Xar.p.1.s.2.w.4" space="no">
      <t>أوروبي</t> <!-- this is inconsistent with the sentence text -->
      <ph>'uwrūbbiyya</ph>
-     <pos class="conjunction" />
+     <pos class="adjective" />
     </w>
     <w xml:id="Xar.p.1.s.2.w.5">
      <t>.</t>
