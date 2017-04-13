@@ -19,7 +19,7 @@ def usage():
     print("foliavalidator", file=sys.stderr)
     print("  by Maarten van Gompel (proycon)", file=sys.stderr)
     print("  Radboud University Nijmegen", file=sys.stderr)
-    print("  2016 - Licensed under GPLv3", file=sys.stderr)
+    print("  2012-2017 - Licensed under GPLv3", file=sys.stderr)
     print("", file=sys.stderr)
     print("FoLiA " + folia.FOLIAVERSION + ", library version " + folia.LIBVERSION, file=sys.stderr)
     print("", file=sys.stderr)
@@ -29,6 +29,7 @@ def usage():
     print("", file=sys.stderr)
     print("Parameters for processing directories:", file=sys.stderr)
     print("  -d                           Deep validation", file=sys.stderr)
+    print("  -t                           Do strict text consistency validation (otherwise text validation errors will only be warnings)", file=sys.stderr)
     print("  -r                           Process recursively", file=sys.stderr)
     print("  -q                           Quick (more shallow) validation, only validate against RelaxNG schema - do not load document in FoLiA library", file=sys.stderr)
     print("  -E [extension]               Set extension (default: xml)", file=sys.stderr)
@@ -41,27 +42,36 @@ def usage():
 
 
 
-def validate(filename, schema = None, quick=False, deep=False):
+def validate(filename, schema = None, quick=False, deep=False, stricttextvalidation=False):
     try:
         folia.validate(filename, schema)
     except Exception as e:
-        print("VALIDATION ERROR against RelaxNG schema (stage 1/2), in " + filename,file=sys.stderr)
+        print("VALIDATION ERROR against RelaxNG schema (stage 1/3), in " + filename,file=sys.stderr)
         print(str(e), file=sys.stderr)
         return False
     try:
         document = folia.Document(file=filename, deepvalidation=deep,verbose=True)
     except folia.DeepValidationError as e:
-        print("DEEP VALIDATION ERROR on full parse by library (stage 2/2), in " + filename,file=sys.stderr)
+        print("DEEP VALIDATION ERROR on full parse by library (stage 2/3), in " + filename,file=sys.stderr)
         print(e.__class__.__name__ + ": " + str(e),file=sys.stderr)
         return False
     except Exception as e:
-        print("VALIDATION ERROR on full parse by library (stage 2/2), in " + filename,file=sys.stderr)
+        print("VALIDATION ERROR on full parse by library (stage 2/3), in " + filename,file=sys.stderr)
         print(e.__class__.__name__ + ": " + str(e),file=sys.stderr)
         print("-- Full traceback follows -->",file=sys.stderr)
         ex_type, ex, tb = sys.exc_info()
         traceback.print_exception(ex_type, ex, tb)
         return False
-
+    try:
+        document.textvalidation()
+    except folia.InconsistentText as e:
+        print("TEXT CONSISTENCY ERROR: Inconsistent text found (stage 3/3), in " + filename,file=sys.stderr)
+        print(e.__class__.__name__ + ": " + str(e),file=sys.stderr)
+        print("Further text validation errors are skipped...")
+        if stricttextvalidation:
+            return False
+        else:
+            print("WARNING: Above text consistency errors are ignored for overall validation result (run with -t for strict text validation)")
 
     print("Validated successfully: " +  filename,file=sys.stderr)
     return True
@@ -69,14 +79,14 @@ def validate(filename, schema = None, quick=False, deep=False):
 
 
 
-def processdir(d, schema = None,quick=False,deep=False):
+def processdir(d, schema = None,quick=False,deep=False, stricttextvalidation=False):
     success = False
     print("Searching in  " + d,file=sys.stderr)
     for f in glob.glob(os.path.join(d ,'*')):
         if f[-len(settings.extension) - 1:] == '.' + settings.extension:
-            r = validate(f, schema,quick,deep)
+            r = validate(f, schema,quick,deep, stricttextvalidation)
         elif settings.recurse and os.path.isdir(f):
-            r = processdir(f,schema,quick,deep)
+            r = processdir(f,schema,quick,deep, stricttextvalidation)
         if not r: success = False
     return success
 
@@ -86,6 +96,7 @@ class settings:
     recurse = False
     encoding = 'utf-8'
     deep = False
+    stricttextvalidation = False
 
 def main():
     quick = False
@@ -111,6 +122,8 @@ def main():
             quick = True
         elif o == '-i':
             nofail = True
+        elif o == '-t':
+            settings.stricttextvalidation = True
         elif o == '-V':
             print("FoLiA " + folia.FOLIAVERSION + ", library version " + folia.LIBVERSION,file=sys.stderr)
             sys.exit(0)
