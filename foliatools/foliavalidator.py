@@ -33,6 +33,7 @@ def usage():
     print("  -q                           Quick (more shallow) validation, only validate against RelaxNG schema - do not load document in FoLiA library", file=sys.stderr)
     print("  -E [extension]               Set extension (default: xml)", file=sys.stderr)
     print("  -V                           Show version info", file=sys.stderr)
+    print("  -t                           Treat text validation errors strictly (recommended)", file=sys.stderr)
     print("  -i                           Ignore validation failures, always report a successful exit code", file=sys.stderr)
 
 
@@ -41,7 +42,7 @@ def usage():
 
 
 
-def validate(filename, schema = None, quick=False, deep=False):
+def validate(filename, schema = None, quick=False, deep=False, stricttextvalidation=False):
     try:
         folia.validate(filename, schema)
     except Exception as e:
@@ -49,7 +50,7 @@ def validate(filename, schema = None, quick=False, deep=False):
         print(str(e), file=sys.stderr)
         return False
     try:
-        document = folia.Document(file=filename, deepvalidation=deep,verbose=True)
+        document = folia.Document(file=filename, deepvalidation=deep,textvalidation=True,verbose=True)
     except folia.DeepValidationError as e:
         print("DEEP VALIDATION ERROR on full parse by library (stage 2/2), in " + filename,file=sys.stderr)
         print(e.__class__.__name__ + ": " + str(e),file=sys.stderr)
@@ -61,7 +62,12 @@ def validate(filename, schema = None, quick=False, deep=False):
         ex_type, ex, tb = sys.exc_info()
         traceback.print_exception(ex_type, ex, tb)
         return False
-
+    if document.textvalidationerrors:
+        if stricttextvalidation:
+            print("VALIDATION ERROR because of text validation errors, in " + filename,file=sys.stderr)
+            return False
+        else:
+            print("WARNING: there were " + str(document.textvalidationerrors) + " text validation errors but these are currently not counted toward the full validation result (use -t for strict text validation)", file=sys.stderr)
 
     print("Validated successfully: " +  filename,file=sys.stderr)
     return True
@@ -69,14 +75,14 @@ def validate(filename, schema = None, quick=False, deep=False):
 
 
 
-def processdir(d, schema = None,quick=False,deep=False):
+def processdir(d, schema = None,quick=False,deep=False,stricttextvalidation=False):
     success = False
     print("Searching in  " + d,file=sys.stderr)
     for f in glob.glob(os.path.join(d ,'*')):
         if f[-len(settings.extension) - 1:] == '.' + settings.extension:
-            r = validate(f, schema,quick,deep)
+            r = validate(f, schema,quick,deep,stricttextvalidation)
         elif settings.recurse and os.path.isdir(f):
-            r = processdir(f,schema,quick,deep)
+            r = processdir(f,schema,quick,deep,stricttextvalidation)
         if not r: success = False
     return success
 
@@ -86,6 +92,7 @@ class settings:
     recurse = False
     encoding = 'utf-8'
     deep = False
+    stricttextvalidation = False
 
 def main():
     quick = False
@@ -105,6 +112,8 @@ def main():
             settings.extension = a
         elif o == '-r':
             settings.recurse = True
+        elif o == '-t':
+            settings.stricttextvalidation = True
         elif o == '-d':
             settings.deep = True
         elif o == '-q':
@@ -124,9 +133,9 @@ def main():
         for x in sys.argv[1:]:
             if x[0] != '-':
                 if os.path.isdir(x):
-                    r = processdir(x,schema,quick,settings.deep)
+                    r = processdir(x,schema,quick,settings.deep, settings.stricttextvalidation)
                 elif os.path.isfile(x):
-                    r = validate(x, schema,quick,settings.deep)
+                    r = validate(x, schema,quick,settings.deep, settings.stricttextvalidation)
                 else:
                     print("ERROR: File or directory not found: " + x,file=sys.stderr)
                     sys.exit(3)
