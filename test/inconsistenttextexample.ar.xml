@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="folia2html.xsl"?>
+<FoLiA xmlns="http://ilk.uvt.nl/folia" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="Xar" version="0.12.0" generator="manual">
+<metadata type="native">
+  <annotations>
+    <token-annotation annotator="proycon" annotatortype="manual" />
+    <phonological-annotation set="adhoc" annotator="proycon" annotatortype="manual" />
+    <morphological-annotation set="adhoc" annotator="proycon" annotatortype="manual" />
+    <pos-annotation set="adhoc" annotator="proycon" annotatortype="manual" />
+    <entity-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/namedentities.foliaset.xml" annotator="proycon" annotatortype="manual" />
+  </annotations>
+  <meta id="language">ar</meta>
+  <meta id="direction">rtl</meta>
+</metadata>
+<text xml:id="Xar.text">
+ <div xml:id="Xar.div">
+ <head xml:id="Xar.text.head">
+   <t>من أنا؟</t>
+ </head>
+ <p xml:id="Xar.p.1">
+   <s xml:id="Xar.p.1.s.1">
+    <t>اسمي مارتن.</t>
+    <w xml:id="Xar.p.1.s.1.w.1">
+     <t>اسمي</t>
+     <ph>ismī</ph>
+     <pos class="noun_compound" />
+     <morphology>
+      <morpheme class="stem" function="lexical">
+       <t>اسم</t>
+       <pos class="noun" />
+      </morpheme>
+      <morpheme class="suffix" function="inflectional">
+       <t offset="3">ي</t>
+       <pos class="possessive_marker" />
+      </morpheme>
+     </morphology>
+    </w>
+    <w xml:id="Xar.p.1.s.1.w.2">
+     <t>مارتن</t>
+     <ph>mārtin</ph>
+     <pos class="noun_proper" />
+    </w>
+    <w xml:id="Xar.p.1.s.1.w.3">
+     <t>.</t>
+     <pos class="punctuation" />
+    </w>
+    <entities>
+     <entity class="per" xml:id="Xar.entity.1">
+      <wref id="Xar.p.1.s.1.w.2" />
+     </entity>
+    </entities>
+   </s>
+   <s xml:id="Xar.p.1.s.2">
+    <t>أنا هولندي وأوروبية.</t>
+    <w xml:id="Xar.p.1.s.2.w.1">
+     <t>أنا</t>
+     <ph>anā</ph>
+     <pos class="pronoun_personal" />
+    </w>
+    <w xml:id="Xar.p.1.s.2.w.2">
+     <t>هولندي</t>
+     <ph>hūlandī</ph>
+     <pos class="adjective" />
+    </w>
+    <w xml:id="Xar.p.1.s.2.w.3" space="no">
+     <t>و</t>
+     <ph>wa</ph>
+     <pos class="conjunction" />
+    </w>
+    <w xml:id="Xar.p.1.s.2.w.4" space="no">
+     <t>أوروبي</t> <!-- this is inconsistent with the sentence text -->
+     <ph>'uwrūbbiyya</ph>
+     <pos class="conjunction" />
+    </w>
+    <w xml:id="Xar.p.1.s.2.w.5">
+     <t>.</t>
+     <pos class="punctuation" />
+    </w>
+   </s>
+ </p>
+ </div>
+</text>
+</FoLiA>
