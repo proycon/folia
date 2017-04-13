@@ -503,11 +503,13 @@
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.4.w.2">
               <t offset="3">hoofdletter</t>
+              <t offset="3" class="original">hoofdletter</t>
               <pos class="N(soort,ev,basis,zijd,stan)"/>
               <lemma class="hoofdletter"/>
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.4.w.3">
               <t>A</t>
+              <t class="original">A</t>
               <pos class="SPEC(symb)"/>
               <lemma class="_"/>
             </w>
@@ -515,36 +517,43 @@
           <part xml:id="WR-P-E-J-0000000001.p.1.s.4.part.2">
             <w xml:id="WR-P-E-J-0000000001.p.1.s.4.w.4">
               <t>wordt</t>
+              <t class="original">wordt</t>
               <pos class="WW(pv,tgw,met-t)"/>
               <lemma class="worden"/>
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.4.w.5">
               <t>gebruikt</t>
+              <t class="original">gebruikt</t>
               <pos class="WW(vd,vrij,zonder)"/>
               <lemma class="gebruiken"/>
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.4.w.6">
               <t>voor</t>
+              <t class="original">voor</t>
               <pos class="VZ(init)"/>
               <lemma class="voor"/>
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.4.w.7">
               <t>het</t>
+              <t class="original">het</t>
               <pos class="LID(bep,stan,evon)"/>
               <lemma class="het"/>
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.4.w.8">
               <t>originele</t>
+              <t class="original">originele</t>
               <pos class="ADJ(prenom,basis,met-e,stan)"/>
               <lemma class="origineel"/>
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.4.w.9" space="no">
               <t>handschrift</t>
+              <t class="original">handschrift</t>
               <pos class="N(soort,ev,basis,onz,stan)"/>
               <lemma class="handschrift"/>
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.4.w.10">
               <t>.</t>
+              <t class="original">.</t>
               <pos class="LET()"/>
               <lemma class="."/>
             </w>
