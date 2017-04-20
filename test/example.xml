@@ -93,7 +93,7 @@
             <pos class="VZ(init)"/>
             <lemma class="voor"/>
           </w>
-          <w xml:id="WR-P-E-J-0000000001.p.1.s.1.w.7">
+          <w xml:id="WR-P-E-J-0000000001.p.1.s.1.w.7" space="no">
             <t>stamboom</t>
             <pos class="N(soort,ev,basis,zijd,stan)"/>
             <lemma class="stamboom"/>
