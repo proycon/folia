@@ -4,11 +4,18 @@ python:
     - "3.3"
     - "3.4"
     - "3.5"
+notifications:
+  irc:
+    channels:
+      - "irc.uvt.nl#gitlama"
+    template:
+      - "%{repository_slug}#%{build_number} %{message} --> %{build_url}"
+    skip_join: true
 before_install:
   - sudo apt-get install libxml2-utils
   - pip install -U setuptools
   - pip install pynlpl
-install: 
+install:
   - python setup.py install
-script:  
+script:
   - cd test && bash test.sh
