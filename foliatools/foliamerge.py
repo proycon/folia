@@ -31,7 +31,7 @@ def usage():
 def mergechildren(parent, outputdoc, asalternative):
     merges = 0
     for e in parent:
-        if (isinstance(e, folia.AbstractAnnotation) or isinstance(e, folia.AbstractAnnotationLayer)) and parent.id:
+        if (isinstance(e, folia.AbstractTokenAnnotation) or isinstance(e, folia.AbstractAnnotationLayer)) and parent.id:
             try:
                 e.ANNOTATIONTYPE
             except:
