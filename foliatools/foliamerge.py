@@ -102,7 +102,7 @@ def foliamerge(outputfile, *files, **kwargs):
 
 def main():
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "o:sh", ["help"])
+        opts, args = getopt.getopt(sys.argv[1:], "o:sha", ["help"])
     except getopt.GetoptError as err:
         print(str(err),file=sys.stderr)
         usage()
