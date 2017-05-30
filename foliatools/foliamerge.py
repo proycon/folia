@@ -16,7 +16,7 @@ def usage():
     print("foliamerge",file=sys.stderr)
     print("  by Maarten van Gompel (proycon)",file=sys.stderr)
     print("  Radboud University Nijmegen",file=sys.stderr)
-    print("  2016 - Licensed under GPLv3",file=sys.stderr)
+    print("  2017 - Licensed under GPLv3",file=sys.stderr)
     print("",file=sys.stderr)
     print("Merges annotations from two or more FoLiA documents. Structural elements are never added. Annotations can only be merged if their parent elements have IDs.",file=sys.stderr)
     print("",file=sys.stderr)
@@ -25,9 +25,10 @@ def usage():
     print("Options:",file=sys.stderr)
     print("  -o [file]                    Output file",file=sys.stderr)
     print("  -s                           Substitute: use first input file as output as well",file=sys.stderr)
+    print("  -a                           Annotations from file2 onwards are included as alternatives",file=sys.stderr)
 
 
-def mergechildren(parent, outputdoc):
+def mergechildren(parent, outputdoc, asalternative):
     merges = 0
     for e in parent:
         if (isinstance(e, folia.AbstractAnnotation) or isinstance(e, folia.AbstractAnnotationLayer)) and parent.id:
@@ -41,9 +42,22 @@ def mergechildren(parent, outputdoc):
                 try:
                     newparent = outputdoc[parent.id]
                 except:
-                    pass
+                    continue #parent does not exist, nothing to merge here
                 #check if the annotation already exists
-                if isinstance(e, folia.AbstractTokenAnnotation) and newparent.hasannotation(e.__class__, e.set):
+                if asalternative:
+                    if isinstance(e, folia.AbstractTokenAnnotation):
+                        print("Adding Annotation type " + e.__class__.__name__ + ", set " + str(e.set) + " to " + newparent.id + " as alternative", file=sys.stderr)
+                        c = e.copy(outputdoc) #make a copy, linked to outputdoc
+                        alt = newparent.append(folia.Alternative)
+                        alt.append(c) #append to outputdoc
+                        merges += 1
+                    elif isinstance(e, folia.AbstractAnnotationLayer):
+                        print("Adding Annotation type " + e.__class__.__name__ + ", set " + str(e.set) + " to " + newparent.id + " as alternative", file=sys.stderr)
+                        c = e.copy(outputdoc) #make a copy, linked to outputdoc
+                        alt = newparent.append(folia.AlternativeLayers)
+                        alt.append(c) #append to outputdoc
+                        merges += 1
+                elif isinstance(e, folia.AbstractTokenAnnotation) and newparent.hasannotation(e.__class__, e.set):
                     print("Annotation type " + e.__class__.__name__ + ", set " + e.set + ", under " + newparent.id + " , already exists... skipping", file=sys.stderr)
                     pass
                 elif isinstance(e, folia.AbstractAnnotationLayer) and newparent.hasannotationlayer(e.__class__, e.set):
@@ -55,35 +69,36 @@ def mergechildren(parent, outputdoc):
                     newparent.append(c) #append to outputdoc
                     merges += 1
         elif isinstance(e, folia.AbstractElement):
-            merges += mergechildren(e, outputdoc)
+            merges += mergechildren(e, outputdoc, asalternative)
     return merges
 
 
 
-def foliamerge(outputfile, *files):
-        outputdoc = None
-        merges = 0
+def foliamerge(outputfile, *files, **kwargs):
+    asalternative = 'asalternative' in kwargs and kwargs['asalternative']
+    outputdoc = None
+    merges = 0
 
-        for i, filename in enumerate(files):
-            print("Processing " + filename, file=sys.stderr)
-            inputdoc = folia.Document(file=filename)
-            if i == 0:
-                 print("(pivot document)",file=sys.stderr)
-                 outputdoc = inputdoc
-            else:
-                print("(merging document)",file=sys.stderr)
+    for i, filename in enumerate(files):
+        print("Processing " + filename, file=sys.stderr)
+        inputdoc = folia.Document(file=filename)
+        if i == 0:
+             print("(pivot document)",file=sys.stderr)
+             outputdoc = inputdoc
+        else:
+            print("(merging document)",file=sys.stderr)
 
-                for annotationtype,set in inputdoc.annotations:
-                    if not outputdoc.declared(annotationtype,set):
-                        outputdoc.declare( annotationtype, set)
+            for annotationtype,set in inputdoc.annotations:
+                if not outputdoc.declared(annotationtype,set):
+                    outputdoc.declare( annotationtype, set)
 
-                for e in inputdoc:
-                    merges += mergechildren(e, outputdoc)
+            for e in inputdoc:
+                merges += mergechildren(e, outputdoc, asalternative)
 
-        if outputfile and merges > 0:
-            outputdoc.save(outputfile)
+    if outputfile and merges > 0:
+        outputdoc.save(outputfile)
 
-        return outputdoc
+    return outputdoc
 
 def main():
     try:
@@ -95,6 +110,7 @@ def main():
 
     outputfile = None
     substitute = False
+    asalternative = False
 
     for o, a in opts:
         if o == '-h' or o == '--help':
@@ -104,6 +120,8 @@ def main():
             outputfile = a
         elif o == '-s':
             substitute = True
+        elif o == '-a':
+            asalternative = True
         else:
             raise Exception("No such option: " + o)
 
@@ -114,11 +132,11 @@ def main():
     if substitute:
         outputfile = args[0]
 
-    outputdoc = foliamerge(outputfile, *args)
+    outputdoc = foliamerge(outputfile, *args, asalternative=asalternative)
     if not outputfile:
         xml = outputdoc.xmlstring()
         if sys.version < '3':
-            if isinstance(xml,unicode):
+            if isinstance(xml, unicode):
                 print(xml.encode('utf-8'))
             else:
                 print(xml)
