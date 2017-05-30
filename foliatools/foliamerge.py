@@ -27,11 +27,24 @@ def usage():
     print("  -s                           Substitute: use first input file as output as well",file=sys.stderr)
     print("  -a                           Annotations from file2 onwards are included as alternatives",file=sys.stderr)
 
+def attach(parent, child):
+    """Rather than copy children, we just abduct them from the other-doc parent"""
+    child.doc = parent.doc
+    child.parent = parent
+    child.setparents()
+
+def reID(doc, element, oldprefix, newprefix):
+    if element.id:
+        element.id = element.id.replace(oldprefix + '.', newprefix + '.')
+    for child in element.data:
+        if isinstance(child, folia.AbstractElement) and not isinstance(child, folia.AbstractStructureElement):
+            reID(doc, child, oldprefix, newprefix)
 
 def mergechildren(parent, outputdoc, asalternative):
+    if hasattr(parent,'merged'): return 0
     merges = 0
     for e in parent:
-        if (isinstance(e, folia.AbstractTokenAnnotation) or isinstance(e, folia.AbstractAnnotationLayer)) and parent.id:
+        if isinstance(e, (folia.AbstractTokenAnnotation, folia.AbstractAnnotationLayer)) and parent.id and not hasattr(e, 'merged'):
             try:
                 e.ANNOTATIONTYPE
             except:
@@ -43,19 +56,27 @@ def mergechildren(parent, outputdoc, asalternative):
                     newparent = outputdoc[parent.id]
                 except:
                     continue #parent does not exist, nothing to merge here
+                if isinstance(newparent, (folia.Alternative, folia.AlternativeLayers)):
+                    #we do not merge alternatives, each alternative has its own scope
+                    continue
                 #check if the annotation already exists
+                #print("DEBUG: Adding annotation type " + e.__class__.__name__ + ", set " + e.set + ", under " + newparent.id, file=sys.stderr)
                 if asalternative:
                     if isinstance(e, folia.AbstractTokenAnnotation):
                         print("Adding Annotation type " + e.__class__.__name__ + ", set " + str(e.set) + " to " + newparent.id + " as alternative", file=sys.stderr)
-                        c = e.copy(outputdoc) #make a copy, linked to outputdoc
-                        alt = newparent.append(folia.Alternative)
-                        alt.append(c) #append to outputdoc
+                        alt = newparent.append(folia.Alternative, generate_id_in=newparent)
+                        reID(newparent.doc, e, newparent.id, alt.id)
+                        alt.append(e)
+                        alt.merged = True
+                        e.merged = True
                         merges += 1
                     elif isinstance(e, folia.AbstractAnnotationLayer):
                         print("Adding Annotation type " + e.__class__.__name__ + ", set " + str(e.set) + " to " + newparent.id + " as alternative", file=sys.stderr)
-                        c = e.copy(outputdoc) #make a copy, linked to outputdoc
-                        alt = newparent.append(folia.AlternativeLayers)
-                        alt.append(c) #append to outputdoc
+                        alt = newparent.append(folia.AlternativeLayers, generate_id_in=newparent)
+                        reID(newparent.doc, e, newparent.id, alt.id)
+                        alt.append(e)
+                        alt.merged = True
+                        e.merged = True
                         merges += 1
                 elif isinstance(e, folia.AbstractTokenAnnotation) and newparent.hasannotation(e.__class__, e.set):
                     print("Annotation type " + e.__class__.__name__ + ", set " + e.set + ", under " + newparent.id + " , already exists... skipping", file=sys.stderr)
@@ -65,8 +86,8 @@ def mergechildren(parent, outputdoc, asalternative):
                     pass
                 else:
                     print("Adding Annotation type " + e.__class__.__name__ + ", set " + str(e.set) + " to " + newparent.id, file=sys.stderr)
-                    c = e.copy(outputdoc) #make a copy, linked to outputdoc
-                    newparent.append(c) #append to outputdoc
+                    newparent.append(e)
+                    e.merged = True
                     merges += 1
         elif isinstance(e, folia.AbstractElement):
             merges += mergechildren(e, outputdoc, asalternative)
