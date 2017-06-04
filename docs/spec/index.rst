@@ -31,7 +31,7 @@ FoLiA defines various XML elements to represent document structure and various a
 elements into the following four generic annotation groups:
 
 * **Structure Annotation** -- Elements to denote the structure of a document, e.g. division in paragraphs, sentences,
-  words, sections, chapters, lists, tables, etc...
+  words, sections like chapters, lists, tables, etc...
 * **Token Annotation** -- Annotation elements pertaining to a single
   structural element (often a word/token, hence the name, but not necessarily so!). Examples in this category are: Part-of-Speech annotation, Lemmatisation
 * **Span Annotation** -- Annotation elements that span multiple words/tokens/structural elements. These are defined in
@@ -61,23 +61,44 @@ This vocabulary paradigm of independently defined sets and classes is a fundamen
 Validation
 -------------
 
-If you create FoLiA documents in any shape or form, it is of great importance that you validate whether they conform to the FoLiA
-specification, otherwise they can not be processed correctly by any FoLiA-aware software. Specific validator software is
+If you create FoLiA documents in any shape or form, it is of great importance that you validate whether they indeed conform to the FoLiA
+specification; otherwise they can not be processed correctly by any FoLiA-aware software. Specific validator software is
 provided to this end.
 
 * A first level of validation is performed by comparing your document against the FoLiA schema (in RelaxNG), this gives you a
-  good indication whether the document is formed corrected; but is not sufficient for full validation.
+  good indication whether the document is formed corrected; but is not sufficient for full validation!
 * For full validation, process the document using one of the provided validation tools. These tools make a distinction
   between **shallow validation** and **deep validation**, the distinction being that only in the latter case the validity of all used
   classes will be put to the test using the set definitions.
 
-
-
-
-
-
 Common attributes
 -------------------
+
+Annotation elements in FoLiA carry a subset of so-called *common attributes*, these are common properties (represented
+as XML attributes) that can be set on different annotations. The exact subset of mandatory or optional common attributes
+differs slightly per element. We distinguish the following:
+
+
+* ``xml:id`` -- The ID of the element
+* ``set`` -- The set of the element (a URI linking to a set definition)
+* ``class`` -- The class of the annotation
+* ``annotator`` -- The name or ID of the system or human annotator that made the annotation.
+* ``annotatortype`` -- ``manual`` for human annotators, or ``auto`` for automated systems.
+* ``confidence`` -- A floating point value between zero and one; expresses the confidence the annotator places in his annotation.
+* ``datetime`` --  The date and time when this annotation was recorded, the format is ``YYYY-MM-DDThh:mm:ss`` (note the literal T in the middle to separate date from time), as per the XSD Datetime data type.
+* ``n`` --  A number in a sequence, corresponding to a number in the original document, for example chapter numbers, section numbers, list item numbers.
+
+The following extra common attributes apply in a speech context:
+
+* ``src`` -- Points to a file or full URL of a sound or video file. This attribute is inheritable.
+* ``begintime`` --  A timestamp in ``HH:MM:SS.MMM`` format, indicating the begin time of the speech. If a sound clip is specified (``src``); the timestamp refers to a location in the soundclip.
+* ``endtime`` -- A timestamp in ``HH:MM:SS.MMM`` format, indicating the end time of the speech. If a sound clip is specified (``src``); the timestamp refers to a location in the soundclip.
+* ``speaker`` -- A string identifying the speaker. This attribute is inheritable. Multiple speakers are not allowed, simply do not specify a speaker on a certain level if you are unable to link the speech to a specific (single) speaker.
+
+Document structure
+----------------------
+
+
 
 
 
