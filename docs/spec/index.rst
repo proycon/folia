@@ -79,7 +79,7 @@ as XML attributes) that can be set on different annotations. The exact subset of
 differs slightly per element. We distinguish the following:
 
 
-* ``xml:id`` -- The ID of the element
+* ``xml:id`` -- The ID of the element; this has to be a unique in the entire document or collection of documents (corpus).
 * ``set`` -- The set of the element (a URI linking to a set definition)
 * ``class`` -- The class of the annotation
 * ``annotator`` -- The name or ID of the system or human annotator that made the annotation.
@@ -97,6 +97,61 @@ The following extra common attributes apply in a speech context:
 
 Document structure
 ----------------------
+
+FoLiA is a document based format, representing each document and all relevant annotations in a single XML file.
+The basic structure of such a FoLiA document is as follows and should always be UTF-8
+encoded.
+
+.. code::xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <FoLiA xmlns="http://ilk.uvt.nl/FoLiA"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      generator="some-tool"
+      version="1.4"
+      xml:id="example">
+      <metadata>
+          <annotations>
+              ...
+          </annotations>
+          ...
+      </metadata>
+      <text xml:id="example.text">
+         ...
+      </text>
+    </FoLiA>
+
+The root element of a FoLiA document is always the ``FoLiA`` element. This, and *all* other FoLiA elements should always
+be in the FoLiA XML Namespace, ``http://ilk.uvt.nl/FoLiA``. The mandatory ``version`` attribute describes the FoLiA version that
+the document complies to (not the version of the document!). The ``generator`` attribute is a string that states what
+software generated or last modified the FoLiA document. The document as a whole always carries an ID (``xml:id``), like
+all identifiers in FoLiA, this has to be a unique string.
+
+.. note:: All identifiers in FoLiA have to are of the XML NCName datatype, which roughly means it is a unique string that has to start with a letter, and may not contain colons or spaces.
+
+The structure of a FoLiA document can roughly be divided into two parts, the ``metadata`` section and the ``text`` body. The
+``metadata`` section features a mandatory ``annotations`` section containing **annotation declarations**. Here we declare what
+annotation types we are using in the document.
+
+The following example declares a Part-of-Speech annotation using a particular FoLiA Set Definition. Each annotation type
+has a corresponding declaration.
+
+.. code::xml
+    <annotations>
+        <pos-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn" />
+    </annotations>
+
+.. note:: For deep validation, and therefore full formal closure, a proper set definition is required. For certain practical applications, however, full closure is not needed and shallow validation suffices. In such cases, you can even make do with FoLiA even if the sets are not defined. The set attribute does not point to an actual URI but is just a simple identifier, if no set is provided at all it will default to ``undefined``.
+
+
+
+
+
+
+
+
+
+
+
 
 
 
