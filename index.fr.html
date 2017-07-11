@@ -11,7 +11,7 @@ lang: fr
 
 <h2>FoLiA c'est quoi?</h2>
 
-<p><strong>FoLiA</strong> est un format de base XML pour la représentation des ressources linguistiques annotées. L'objectif de FoLiA est d'être un format pour stockage et échange des ressources linguistiques, corpora inclus. Nous voulons introduire un seul format riche capable de représenter les différents types d'annotation, à travers un paradigme général. FoLiA n'est pas limité à aucun ensemble d'étiquettes linguistiques, aucune langue ou aucune théorie linguistique spécifique. On laisse toujours ça à l'utilisateur, pour ainsi offrir une flexibilité maximale.</p> 
+<p><strong>FoLiA</strong> est un format de base XML pour la représentation des ressources linguistiques annotées. L'objectif de FoLiA est d'être un format pour stockage et échange des ressources linguistiques, corpora inclus. Nous voulons introduire un seul format riche capable de représenter les différents types d'annotation, à travers un paradigme général. FoLiA n'est pas limité à aucun ensemble d'étiquettes linguistiques, aucune langue ou aucune théorie linguistique spécifique. On laisse toujours ça à l'utilisateur, pour ainsi offrir une flexibilité maximale.</p>
 
 <p>XML est un format hiérarchique. <strong>FoLiA</strong> en profite en utilisant une structure in-line et hierarchique. </p>
 
@@ -26,7 +26,7 @@ lang: fr
 
 <ul>
 <li><strong>Paradigme général</strong> - On utilise un paradigme général et uniforme, avec le minimum de solutions ad-hoc.</li>
-<li><strong>Expressivité</strong> - Le format est très expressif, on peut formuler des annotations de manière très détaillée, mais sans forcer des détails indésirables sur l'utilisateur. FoLiA appuye des annotations alternatives et metadata pour des annotations; comme l'information à propos de l'annotateur, temps de l'annotation, confidence, etc.. </li> 
+<li><strong>Expressivité</strong> - Le format est très expressif, on peut formuler des annotations de manière très détaillée, mais sans forcer des détails indésirables sur l'utilisateur. FoLiA appuye des annotations alternatives et metadata pour des annotations; comme l'information à propos de l'annotateur, temps de l'annotation, confidence, etc.. </li>
 <li><strong>Extensible</strong> - Grâce au paradigme uniforme et le fait que le format ne se limite pas à un seul ensemble d'étiquettes linguistiques, FoLiA est bien extensible. </li>
 <li><strong>Formalisé</strong> - Le format est formalisé, ça veut dire qu'on peut le valider sur un niveau superficiel, et sur un niveau profond; le niveau profond vérifie aussi les étiquettes.</li>
 <li><strong>Pratique</strong> - FoLiA était contruit de manière bottom-up, à côté de ses applications, bibliothèques et convertisseurs. Bien que le format est riche, nous essayons de ne pas le compliquer. L'utilisation et l'apprentissage sont le plus simples possibiles pour faciliter l'adoption du format.</li>
@@ -58,13 +58,13 @@ Ici vous trouverez la documentation, schéma de validation et des autres ressour
 <p>Il y a deux bibliothèques pour travailler avec le format FoLiA à partir de vos propres scripts et programmes. Vérifiez fréquemment si votre copie peut être actualisé:</p>
 
 <ul>
-<li><tt><a href="http://github.com/proycon/pynlpl/blob/master/formats/folia.py">pynlpl.formats.folia</a></tt> (Bibliothèque python) - par Maarten van Gompel, distribué comme partie de PyNLPl
+<li><tt><a href="http://pypi.python.org/pypi/PyNLPl/">pynlpl.formats.folia</a></tt> (Bibliothèque python) - par Maarten van Gompel, distribué comme partie de PyNLPl
 <ul>
-	<li><a href="http://packages.python.org/PyNLPl/folia.html">Documentation de la bibliothèque (Introduction et reference API)</a></li>
+	<li><a href="http://pynlpl.readthedocs.io/en/latest/folia.html">Documentation de la bibliothèque (Introduction et reference API)</a></li>
 	<li>Nous vous conseillons d'obtenir pynlpl à travers du <a href="http://pypi.python.org/pypi/PyNLPl/">Python Package Index</a> ou directement de  github, ça garantit que vous avec la version plus récente et que vous la pouvez actualiser facilment: <tt>$ sudo pip install pynlpl</tt></li>
 </ul>
 </li>
-<li><tt><a href="http://ilk.uvt.nl/folia/download-libfolia.php">libfolia</a></tt> (Bibliothèque C++) - par Ko van der Sloot, Université de Tilburg.
+<li><tt><a href="https://github.com/LanguageMachines/libfolia">libfolia</a></tt> (Bibliothèque C++) - par Ko van der Sloot, Université de Tilburg.
 <ul>
 	<li>Il n'y a pas de documentation encore</li>
 	<li><strong>Attention:</strong> libfolia est nécessaire pour Frog et ucto.</li>
