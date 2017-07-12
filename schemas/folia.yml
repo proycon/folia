@@ -2,7 +2,7 @@
 #    This is a technical specification of FoLiA, for use by FoLiA libraries
 
 #The FoLiA version
-version: "1.4.1"
+version: "1.4.2"
 
 #The FoLiA namespace
 namespace: "http://ilk.uvt.nl/folia"
@@ -312,7 +312,7 @@ elements:
           - class: Event
             properties:
                 annotationtype: EVENT
-                accepted_data: [AbstractExtendedTokenAnnotation, ActorFeature, BegindatetimeFeature, Division, EnddatetimeFeature, Event, Example, Figure, Head, Linebreak, List, Paragraph, PhonContent, Reference, Sentence, String, Table, TextContent, Utterance, Whitespace, Word]
+                accepted_data: [AbstractExtendedTokenAnnotation, ActorFeature, BegindatetimeFeature, Division, EnddatetimeFeature, Entry, Event, Example, Figure, Gap, Head, Linebreak, List, Note, Paragraph, Part, PhonContent, Quote, Reference, Sentence, String, Table, TextContent, Utterance, Whitespace, Word]
                 xmltag: "event"
                 label: "Event"
           - class: Example
