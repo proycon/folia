@@ -759,10 +759,14 @@ RelaxNG schema for FoLiA XML v1.4.1
       <text/>
       <a:documentation>Description is an element that can be used to associate a description with almost any other FoLiA element</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -773,7 +777,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -801,10 +807,14 @@ RelaxNG schema for FoLiA XML v1.4.1
       <text/>
       <a:documentation>Comment is an element that can be used to associate a comment with almost any other FoLiA element</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -815,7 +825,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -842,16 +854,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="t-str">
       <a:documentation>Markup element to mark arbitrary substrings in text content (:class:`TextContent`)</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -862,7 +882,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -876,10 +898,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="href" ns="http://www.w3.org/1999/xlink"/>
@@ -942,16 +968,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     Only consider this element for gaps in spans of untokenised text. The use of structural element :class:`Gap` is preferred.
     </a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -962,7 +996,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -976,10 +1012,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="href" ns="http://www.w3.org/1999/xlink"/>
@@ -1042,16 +1082,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     Only consider this element for corrections on untokenised text. The use of :class:`Correction` is preferred.
     </a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -1062,7 +1110,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -1076,10 +1126,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="href" ns="http://www.w3.org/1999/xlink"/>
@@ -1145,16 +1199,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     Only consider this element for gaps in spans of untokenised text. The use of structural element :class:`ErrorDetection` is preferred.
     </a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -1165,7 +1227,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -1179,10 +1243,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="href" ns="http://www.w3.org/1999/xlink"/>
@@ -1242,16 +1310,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="t-style">
       <a:documentation>Markup element to style text content (:class:`TextContent`), e.g. make text bold, italics, underlined, coloured, etc..</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -1262,7 +1338,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -1276,10 +1354,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="href" ns="http://www.w3.org/1999/xlink"/>
@@ -1348,13 +1430,19 @@ RelaxNG schema for FoLiA XML v1.4.1
         * ``offset=``: The offset where this text is found, offsets start at 0
     </a:documentation>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -1438,13 +1526,19 @@ RelaxNG schema for FoLiA XML v1.4.1
         * ``offset=``: The offset where this text is found, offsets start at 0
     </a:documentation>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -1496,16 +1590,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     Do **not** use this for morphology, use :class:`Morpheme` instead.
     </a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -1516,7 +1618,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -1530,10 +1634,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -1719,22 +1827,32 @@ RelaxNG schema for FoLiA XML v1.4.1
 
     Usually contains :class:`Content` and possibly also a :class:`Description` element</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -1748,7 +1866,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -1788,16 +1908,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     This element acts both as a structure element as well as a text markup element.
     </a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -1808,7 +1936,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -1822,10 +1952,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="href" ns="http://www.w3.org/1999/xlink"/>
@@ -1939,16 +2073,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="whitespace">
       <a:documentation>Whitespace element, signals a vertical whitespace</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -1959,7 +2101,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -1973,10 +2117,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -2061,16 +2209,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="w">
       <a:documentation>Word (aka token) element. Holds a word/token and all its related token annotations.</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -2081,7 +2237,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -2095,10 +2253,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -2229,16 +2391,24 @@ RelaxNG schema for FoLiA XML v1.4.1
 
     It is used for example for statistical measures to be added to elements as annotation.</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -2249,7 +2419,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -2263,10 +2435,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -2297,16 +2473,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="str">
       <a:documentation>String</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -2317,7 +2501,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -2331,7 +2517,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -2383,16 +2571,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="ref">
       <a:documentation>A structural element that denotes a reference, internal or external. Examples are references to footnotes, bibliographies, hyperlinks.</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -2403,7 +2599,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -2417,10 +2615,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -2562,16 +2764,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     Inside the Alignment element, the :class:`AlignReference` element may be used to point to specific elements (multiple denotes a span).
     </a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -2582,7 +2792,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -2596,10 +2808,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="href" ns="http://www.w3.org/1999/xlink"/>
@@ -2652,14 +2868,22 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="errordetection">
       <a:documentation>The ErrorDetection element is used to signal the presence of errors in a structural element.</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
-      <attribute name="class"/>
+      <attribute name="class">
+        <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+      </attribute>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -2670,7 +2894,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -2684,10 +2910,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -2718,10 +2948,14 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="suggestion">
       <a:documentation>Suggestions are used in the context of :class:`Correction`, but rather than provide an authoritative correction, it instead offers a suggestion for correction.</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -2732,7 +2966,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -3572,16 +3808,24 @@ RelaxNG schema for FoLiA XML v1.4.1
         * :class:`Suggestions` - Encapsulates the annotation(s) that are a non-authoritative suggestion for correction
     </a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -3592,7 +3836,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -3606,10 +3852,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -3670,16 +3920,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     pos tag alternative is tied to a particular lemma.
     </a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -3690,7 +3948,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -3704,10 +3964,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -3762,16 +4026,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="altlayers">
       <a:documentation>Element grouping alternative subtoken annotation(s). Multiple altlayers elements may occur, each denoting a different alternative. Elements grouped inside an alternative block are considered dependent.</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -3782,7 +4054,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -3796,10 +4070,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -3891,16 +4169,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="su">
       <a:documentation>Syntactic Unit, span annotation element to be used in :class:`SyntaxLayer`</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -3911,7 +4197,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -3925,10 +4213,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -3971,16 +4263,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="chunk">
       <a:documentation>Chunk element, span annotation element to be used in :class:`ChunkingLayer`</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -3991,7 +4291,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -4005,10 +4307,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -4048,16 +4354,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="entity">
       <a:documentation>Entity element, for entities such as named entities, multi-word expressions, temporal entities. This is a span annotation element to be used in :class:`EntitiesLayer`</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -4068,7 +4382,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -4082,10 +4398,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -4129,16 +4449,22 @@ RelaxNG schema for FoLiA XML v1.4.1
     It is allowed by most span annotations.
     </a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -4185,16 +4511,22 @@ RelaxNG schema for FoLiA XML v1.4.1
 
     :class:`Headspan` in turn is used to mark the head of a dependency relation.</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -4239,16 +4571,22 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="source">
       <a:documentation>The source span role is used to mark the source in a :class:`Sentiment` or :class:`Statement` </a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -4293,16 +4631,22 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="target">
       <a:documentation>The target span role is used to mark the target in a :class:`Sentiment` </a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -4347,16 +4691,22 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="relation">
       <a:documentation>The relation span role is used to mark the relation between the content of a statement and its source in a :class:`Statement`</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -4401,16 +4751,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="dependency">
       <a:documentation>Span annotation element to encode dependency relations</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -4421,7 +4779,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -4435,10 +4795,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -4477,16 +4841,22 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="coreferencelink">
       <a:documentation>Coreference link. Used in :class:`CoreferenceChain`</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -4543,16 +4913,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="coreferencechain">
       <a:documentation>Coreference chain. Holds :class:`CoreferenceLink` instances.</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -4563,7 +4941,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -4577,10 +4957,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -4620,14 +5004,22 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="semrole">
       <a:documentation>Semantic Role</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
-      <attribute name="class"/>
+      <attribute name="class">
+        <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+      </attribute>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -4638,7 +5030,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -4652,10 +5046,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -4698,16 +5096,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="predicate">
       <a:documentation>Predicate, used within :class:`SemanticRolesLayer`, takes :class:`SemanticRole` annotations as children, but has its own annotation type and separate declaration</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -4718,7 +5124,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -4732,10 +5140,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -4778,16 +5190,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="sentiment">
       <a:documentation>Sentiment. Takes span roles :class:`Headspan`, :class:`Source` and :class:`Target` as children</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -4798,7 +5218,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -4812,10 +5234,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -4870,16 +5296,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="statement">
       <a:documentation>Statement. Takes span roles :class:`Headspan`, :class:`Source` and :class:`Relation` as children</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -4890,7 +5324,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -4904,10 +5340,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -4956,16 +5396,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="observation">
       <a:documentation>Observation.</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -4976,7 +5424,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -4990,10 +5440,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -5033,16 +5487,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="complexalignment">
       <a:documentation>Complex Alignment</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -5053,7 +5515,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -5067,10 +5531,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -5104,16 +5572,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="morpheme">
       <a:documentation>Morpheme element, represents one morpheme in morphological analysis, subtoken annotation element to be used in :class:`MorphologyLayer`</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -5124,7 +5600,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -5138,10 +5616,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -5262,16 +5744,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="phoneme">
       <a:documentation>Phone element, represents one phone in phonetic analysis, subtoken annotation element to be used in :class:`PhonologyLayer`</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -5282,7 +5772,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -5296,10 +5788,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -5420,10 +5916,14 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="syntax">
       <a:documentation>Syntax Layer: Annotation layer for :class:`SyntacticUnit` span annotation elements</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -5434,7 +5934,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -5475,10 +5977,14 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="chunking">
       <a:documentation>Chunking Layer: Annotation layer for :class:`Chunk` span annotation elements</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -5489,7 +5995,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -5530,10 +6038,14 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="entities">
       <a:documentation>Entities Layer: Annotation layer for :class:`Entity` span annotation elements. For named entities.</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -5544,7 +6056,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -5585,10 +6099,14 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="dependencies">
       <a:documentation>Dependencies Layer: Annotation layer for :class:`Dependency` span annotation elements. For dependency entities.</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -5599,7 +6117,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -5640,10 +6160,14 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="morphology">
       <a:documentation>Morphology Layer: Annotation layer for :class:`Morpheme` subtoken annotation elements. For morphological analysis.</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -5654,7 +6178,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -5695,10 +6221,14 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="phonology">
       <a:documentation>Phonology Layer: Annotation layer for :class:`Phoneme` subtoken annotation elements. For phonetic analysis.</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -5709,7 +6239,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -5750,10 +6282,14 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="coreferences">
       <a:documentation>Syntax Layer: Annotation layer for :class:`SyntacticUnit` span annotation elements</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -5764,7 +6300,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -5805,10 +6343,14 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="semroles">
       <a:documentation>Syntax Layer: Annotation layer for :class:`SemanticRole` span annotation elements</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -5819,7 +6361,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -5863,10 +6407,14 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="statements">
       <a:documentation>Statement Layer: Annotation layer for :class:`Statement` span annotation elements, used for attribution annotation.</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -5877,7 +6425,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -5918,10 +6468,14 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="sentiments">
       <a:documentation>Sentiment Layer: Annotation layer for :class:`Sentiment` span annotation elements, used for sentiment analysis.</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -5932,7 +6486,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -5973,10 +6529,14 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="observations">
       <a:documentation>Observation Layer: Annotation layer for :class:`Observation` span annotation elements.</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -5987,7 +6547,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -6028,10 +6590,14 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="complexalignments">
       <a:documentation>Complex alignment layer</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -6042,7 +6608,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -6083,14 +6651,22 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="pos">
       <a:documentation>Part-of-Speech annotation:  a token annotation element</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
-      <attribute name="class"/>
+      <attribute name="class">
+        <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+      </attribute>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -6101,7 +6677,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -6115,10 +6693,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -6152,14 +6734,22 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="lemma">
       <a:documentation>Lemma annotation:  a token annotation element</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
-      <attribute name="class"/>
+      <attribute name="class">
+        <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+      </attribute>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -6170,7 +6760,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -6184,10 +6776,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -6218,14 +6814,22 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="lang">
       <a:documentation>Language annotation:  an extended token annotation element</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
-      <attribute name="class"/>
+      <attribute name="class">
+        <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+      </attribute>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -6236,7 +6840,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -6250,10 +6856,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -6284,14 +6894,22 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="domain">
       <a:documentation>Domain annotation:  an extended token annotation element</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
-      <attribute name="class"/>
+      <attribute name="class">
+        <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+      </attribute>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -6302,7 +6920,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -6316,10 +6936,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -6350,16 +6974,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="note">
       <a:documentation>Element used for notes, such as footnotes or warnings or notice blocks.</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -6370,7 +7002,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -6384,10 +7018,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -6526,16 +7164,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="def">
       <a:documentation>Element used in :class:`Entry` for the portion that provides a definition for the entry.</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -6546,7 +7192,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -6560,10 +7208,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -6690,16 +7342,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="term">
       <a:documentation>A term, often used in contect of :class:`Entry`</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -6710,7 +7370,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -6724,10 +7386,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -6860,16 +7526,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="ex">
       <a:documentation>Element that provides an example. Used for instance in the context of :class:`Entry`</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -6880,7 +7554,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -6894,10 +7570,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -7030,16 +7710,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="entry">
       <a:documentation>Represents an entry in a glossary/lexicon/dictionary.</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -7050,7 +7738,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -7064,10 +7754,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -7161,16 +7855,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="timesegment">
       <a:documentation>A time segment</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -7181,7 +7883,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -7195,10 +7899,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -7247,10 +7955,14 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="timing">
       <a:documentation>Timing layer: Annotation layer for :class:`TimeSegment` span annotation elements. </a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -7261,7 +7973,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -7302,14 +8016,22 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="sense">
       <a:documentation>Sense annotation: a token annotation element</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
-      <attribute name="class"/>
+      <attribute name="class">
+        <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+      </attribute>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -7320,7 +8042,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -7334,10 +8058,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -7371,14 +8099,22 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="subjectivity">
       <a:documentation>Subjectivity annotation/Sentiment analysis: a token annotation element</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
-      <attribute name="class"/>
+      <attribute name="class">
+        <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+      </attribute>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -7389,7 +8125,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -7403,10 +8141,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -7437,16 +8179,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="quote">
       <a:documentation>Quote: a structure element. For quotes/citations. May hold :class:`Word`, :class:`Sentence` or :class:`Paragraph` data.</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -7457,7 +8207,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -7471,10 +8223,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -7586,16 +8342,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="s">
       <a:documentation>Sentence element. A structure element. Represents a sentence and holds all its words (:class:`Word`), and possibly other structure such as :class:`LineBreak`, :class:`Whitespace` and :class:`Quote`</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -7606,7 +8370,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -7620,10 +8386,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -7756,16 +8526,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="utt">
       <a:documentation>Utterance element. A structure element for speech annotation.</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -7776,7 +8554,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -7790,10 +8570,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -7914,16 +8698,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="event">
       <a:documentation>Structural element representing events, often used in new media contexts for things such as tweets,chat messages and forum posts.</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -7934,7 +8726,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -7948,10 +8742,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -8105,16 +8903,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="caption">
       <a:documentation>Element used for captions for :class:`Figure` or :class:`Table`</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -8125,7 +8931,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -8139,10 +8947,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -8260,16 +9072,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="label">
       <a:documentation>Element used for labels. Mostly in within list item. Contains words.</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -8280,7 +9100,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -8294,10 +9116,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -8406,16 +9232,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="item">
       <a:documentation>Single element in a List. Structure element. Contained within :class:`List` element.</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -8426,7 +9260,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -8440,10 +9276,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -8576,16 +9416,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="listitem">
       <a:documentation>Single element in a List. Structure element. Contained within :class:`List` element.</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -8596,7 +9444,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -8610,10 +9460,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -8746,16 +9600,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="list">
       <a:documentation>Element for enumeration/itemisation. Structure element. Contains :class:`ListItem` elements.</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -8766,7 +9628,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -8780,10 +9644,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -8904,16 +9772,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="figure">
       <a:documentation>Element for the representation of a graphical figure. Structure element.</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -8924,7 +9800,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -8938,10 +9816,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -9040,16 +9922,24 @@ RelaxNG schema for FoLiA XML v1.4.1
 
     There may be only one per division. Often contains sentences (:class:`Sentence`) or Words (:class:`Word`).</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -9060,7 +9950,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -9074,10 +9966,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -9201,16 +10097,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="p">
       <a:documentation>Paragraph element. A structure element. Represents a paragraph and holds all its sentences (and possibly other structure Whitespace and Quotes).</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -9221,7 +10125,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -9235,10 +10141,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -9383,16 +10293,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="cell">
       <a:documentation>A cell in a :class:`Row` in a :class:`Table`</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -9403,7 +10321,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -9417,10 +10337,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -9556,16 +10480,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="row">
       <a:documentation>A row in a :class:`Table`</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -9576,7 +10508,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -9590,10 +10524,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -9690,16 +10628,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="tablehead">
       <a:documentation>Encapsulated the header of a table, contains :class:`Cell` elements</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -9710,7 +10656,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -9724,10 +10672,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -9824,16 +10776,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="table">
       <a:documentation>A table consisting of :class:`Row` elements that in turn consist of :class:`Cell` elements</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -9844,7 +10804,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -9858,10 +10820,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -9961,16 +10927,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="div">
       <a:documentation>Structure element representing some kind of division. Divisions may be nested at will, and may include almost all kinds of other structure elements.</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -9981,7 +10955,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -9995,10 +10971,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -10149,16 +11129,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="speech">
       <a:documentation>A full speech. This is a high-level element. This element may contain :class:`Division`,:class:`Paragraph`, class:`Sentence`, etc..</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -10169,7 +11157,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -10183,10 +11173,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -10331,16 +11325,24 @@ RelaxNG schema for FoLiA XML v1.4.1
     <element name="text">
       <a:documentation>A full text. This is a high-level element (not to be confused with TextContent!). This element may contain :class:`Division`,:class:`Paragraph`, class:`Sentence`, etc..</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="class"/>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="set"/>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="annotator"/>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="annotatortype"/>
@@ -10351,7 +11353,9 @@ RelaxNG schema for FoLiA XML v1.4.1
         </attribute>
       </optional>
       <optional>
-        <attribute name="n"/>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="datetime">
@@ -10365,10 +11369,14 @@ RelaxNG schema for FoLiA XML v1.4.1
         <attribute name="endtime"/>
       </optional>
       <optional>
-        <attribute name="src"/>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
-        <attribute name="speaker"/>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
       </optional>
       <optional>
         <attribute name="auth"/>
