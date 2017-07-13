@@ -67,7 +67,7 @@ def validate(filename, schema = None, quick=False, deep=False, stricttextvalidat
             print("VALIDATION ERROR because of text validation errors, in " + filename,file=sys.stderr)
             return False
         else:
-            print("WARNING: there were " + str(document.textvalidationerrors) + " text validation errors but these are currently not counted toward the full validation result (use -t for strict text validation)", file=sys.stderr)
+            print("WARNING: there were " + str(document.textvalidationerrors) + " text validation errors but these are currently not counted toward the full validation result (use -t for strict text validation, experimental at this stage)", file=sys.stderr)
 
     print("Validated successfully: " +  filename,file=sys.stderr)
     return True
