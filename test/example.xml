@@ -524,8 +524,8 @@
             <w xml:id="WR-P-E-J-0000000001.p.1.s.4.w.5">
               <t>gebruikt</t>
               <t class="original">gebruikt</t>
-              <pos class="WW(vd,vrij,zonder)"/>
-              <lemma class="gebruiken"/>
+              <pos class="WW(vd,vrij,zonder)" textclass="original"/>
+              <lemma class="gebruiken" textclass="original"/>
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.4.w.6">
               <t>voor</t>
