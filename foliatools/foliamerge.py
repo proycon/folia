@@ -67,8 +67,8 @@ def mergechildren(parent, outputdoc, asalternative):
                         alt = newparent.append(folia.Alternative, generate_id_in=newparent)
                         reID(newparent.doc, e, newparent.id, alt.id)
                         alt.append(e)
+                        e.setdoc(outputdoc)
                         assert e.parent is alt
-                        assert e.doc is outputdoc
                         alt.merged = True
                         e.merged = True
                         merges += 1
@@ -78,7 +78,7 @@ def mergechildren(parent, outputdoc, asalternative):
                         reID(newparent.doc, e, newparent.id, alt.id)
                         alt.append(e)
                         assert e.parent is alt
-                        assert e.doc is outputdoc
+                        e.setdoc(outputdoc)
                         alt.merged = True
                         e.merged = True
                         merges += 1
@@ -92,7 +92,7 @@ def mergechildren(parent, outputdoc, asalternative):
                     print("Adding Annotation type " + e.__class__.__name__ + ", set " + str(e.set) + " to " + newparent.id, file=sys.stderr)
                     newparent.append(e)
                     assert e.parent is newparent
-                    assert e.doc is outputdoc
+                    e.setdoc(outputdoc)
                     e.merged = True
                     merges += 1
         elif isinstance(e, folia.AbstractElement):
