@@ -45,7 +45,7 @@ elements:
           printable: false
           speakable: false
           accepted_data: [ Correction, ForeignData ]
-          optional_attribs: [ ID, ANNOTATOR, CONFIDENCE, DATETIME, N ]
+          optional_attribs: [ ID, ANNOTATOR, CONFIDENCE, DATETIME, N, TEXTCLASS ]
           setonly: true
       elements:
           - class: ChunkingLayer
@@ -159,7 +159,7 @@ elements:
       properties:
           printable: true
           speakable: true
-          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
+          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, TEXTCLASS ]
           accepted_data: [ Metric, Alignment, ForeignData, AlignReference ]
       elements:
           - class: AbstractSpanRole
@@ -274,7 +274,7 @@ elements:
           required_attribs: null
           textdelimiter: "\n\n"
           speakable: true
-          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, TEXTCLASS ]
+          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
           accepted_data: [AbstractAnnotationLayer, Alignment, Alternative, AlternativeLayers, Correction, Feature, Metric, Part, ForeignData]
           auto_generate_id: true
       elements:
@@ -506,7 +506,7 @@ elements:
     - class: AbstractTokenAnnotation
       properties:
           required_attribs: [ CLASS ]
-          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
+          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, TEXTCLASS ]
           accepted_data: [ Feature , Metric, ForeignData ]
           occurrences_per_set: 1 #How often can a particular element+set combination occur under the parent (0 = unlimited)
       elements:
