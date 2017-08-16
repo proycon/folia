@@ -113,19 +113,20 @@ A number of command-line tools are readily available for working with FoLiA, to 
 - ``foliacat`` -- Concatenate multiple FoLiA documents.
 - ``foliacount`` -- This script reads a FoLiA XML document and counts certain structure elements.
 - ``foliacorrect`` -- A tool to deal with corrections in FoLiA, can automatically accept suggestions or strip all corrections so parsers that don't know how to handle corrections can process it.
+- ``foliaid`` -- Assigns IDs to elements in FoLiA documents
 - ``foliafreqlist`` -- Output a frequency list on tokenised FoLiA documents.
 - ``foliamerge`` -- Merges annotations from two or more FoLiA documents.
 - ``alpino2folia`` -- Convert Alpino-DS XML to FoLiA XML
 - ``dcoi2folia`` -- Convert D-Coi XML to FoLiA XML
 - ``rst2folia`` -- Convert ReStructuredText, a lightweight non-intrusive text markup language, to FoLiA, using `docutils <http://docutils.sourceforge.net/>`_.
 
-All of these tools are written in Python, and thus require a Python (2.7, 3 or higher) installation to run. More tools are added as time progresses. 
+All of these tools are written in Python, and thus require a Python (2.7, 3 or higher) installation to run. More tools are added as time progresses.
 
 Installation
 ---------------
 
 The FoLiA tools are published to the Python Package Index and can be installed effortlessly using \texttt{pip}, from the command-line, type::
- 
+
   $ pip install folia-tools
 
 Add ``sudo`` to install it globally on your system, if you install locally, we strongly
