@@ -7,6 +7,8 @@
       <sentence-annotation set="sentences" annotator="ucto" annotatortype="auto" />
       <paragraph-annotation set="paragraphs" annotator="ucto" annotatortype="auto" />
       <pos-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn" annotator="frog" annotatortype="auto" />
+      <pos-annotation annotator="frog-mbma-1.0" annotatortype="auto" datetime="2
+017-04-20T16:48:45" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-clex"/>
       <lemma-annotation set="lemmas-nl" annotator="tadpole" annotatortype="auto" />
       <correction-annotation set="corrections" annotator="proycon" annotatortype="manual" />
       <errordetection-annotation set="corrections" annotator="proycon" annotatortype="manual" />
@@ -50,7 +52,7 @@
         <s xml:id="WR-P-E-J-0000000001.head.1.s.1">
           <w xml:id="WR-P-E-J-0000000001.head.1.s.1.w.1">
             <t>Stemma</t>
-            <pos class="N(soort,ev,basis,onz,stan)"/>
+            <pos class="N(soort,ev,basis,onz,stan)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="stemma"/>
           </w>
           <ref xml:id="WR-P-E-J-0000000001.ref.1" id="footnote.1" type="note"/>
@@ -62,45 +64,45 @@
         <s xml:id="WR-P-E-J-0000000001.p.1.s.1">
           <w xml:id="WR-P-E-J-0000000001.p.1.s.1.w.1">
             <t>Stemma</t>
-            <pos class="N(eigen,ev,basis,zijd,stan)"/>
+            <pos class="N(eigen,ev,basis,zijd,stan)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="Stemma"/>
             <comment annotator="proycon">This is a comment</comment>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.1.w.2">
             <t>is</t>
-            <pos class="WW(pv,tgw,ev)"/>
+            <pos class="WW(pv,tgw,ev)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="zijn"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.1.w.3">
             <t>een</t>
-            <pos class="LID(onbep,stan,agr)"/>
+            <pos class="LID(onbep,stan,agr)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="een"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.1.w.4">
             <t>ander</t>
-            <pos class="ADJ(prenom,basis,zonder)"/>
+            <pos class="ADJ(prenom,basis,zonder)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="ander"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.1.w.5">
             <t>woord</t>
 	    <ph>wort</ph>
-            <pos class="N(soort,ev,basis,onz,stan)"/>
+            <pos class="N(soort,ev,basis,onz,stan)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="woord"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.1.w.6">
             <t>voor</t>
             <desc>Dit woordje is een voorzetsel, het is maar dat je het weet...</desc>
-            <pos class="VZ(init)"/>
+            <pos class="VZ(init)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="voor"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.1.w.7" space="no">
             <t>stamboom</t>
-            <pos class="N(soort,ev,basis,zijd,stan)"/>
+            <pos class="N(soort,ev,basis,zijd,stan)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="stamboom"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.1.w.8">
             <t>.</t>
-            <pos class="LET()"/>
+            <pos class="LET()" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="."/>
           </w>
           <entities>
@@ -208,27 +210,27 @@
         <s xml:id="WR-P-E-J-0000000001.p.1.s.2">
           <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.1">
             <t>In</t>
-            <pos class="VZ(init)"/>
+            <pos class="VZ(init)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="in"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.2">
             <t>de</t>
-            <pos class="LID(bep,stan,rest)"/>
+            <pos class="LID(bep,stan,rest)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="de"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.3">
             <t>historische</t>
-            <pos class="ADJ(prenom,basis,met-e,stan)"/>
+            <pos class="ADJ(prenom,basis,met-e,stan)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="historisch"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.4">
             <t>wetenschap</t>
-            <pos class="N(soort,ev,basis,zijd,stan)"/>
+            <pos class="N(soort,ev,basis,zijd,stan)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="wetenschap"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.5">
             <t>wordt</t>
-            <pos class="WW(pv,tgw,met-t)">
+            <pos class="WW(pv,tgw,met-t)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn">
               <feat class="pv" subset="wvorm"/>
               <feat class="tgw" subset="pvtijd"/>
               <feat class="met-t" subset="pvagr"/>
@@ -237,133 +239,156 @@
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.6">
             <t>zo'n</t>
-            <pos class="VNW(aanw,det,stan,prenom,zonder,agr)"/>
+            <pos class="VNW(aanw,det,stan,prenom,zonder,agr)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="zo'n"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.7">
             <t>stamboom</t>
-            <pos class="N(soort,ev,basis,zijd,stan)"/>
+            <pos class="N(soort,ev,basis,zijd,stan)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="stamboom"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.8">
             <t>,</t>
-            <pos class="LET()"/>
+            <pos class="LET()" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class=","/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.9">
             <t>onder</t>
-            <pos class="VZ(init)"/>
+            <pos class="VZ(init)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="onder"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.10">
             <t>de</t>
-            <pos class="LID(bep,stan,rest)"/>
+            <pos class="LID(bep,stan,rest)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="de"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.11">
             <t>naam</t>
-            <pos class="N(soort,ev,basis,zijd,stan)"/>
+            <pos class="N(soort,ev,basis,zijd,stan)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="naam"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.12">
             <t>stemma</t>
-            <pos class="N(soort,ev,basis,zijd,stan)"/>
+            <pos class="N(soort,ev,basis,zijd,stan)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="stemma"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.13">
             <t>codicum</t>
-            <pos class="N(soort,ev,basis,onz,stan)"/>
+            <pos class="N(soort,ev,basis,onz,stan)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="codicum"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.14">
             <t>(</t>
-            <pos class="LET()"/>
+            <pos class="LET()" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="("/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.15">
             <t>handschriftelijke</t>
-            <pos class="ADJ(prenom,basis,met-e,stan)"/>
+            <pos class="ADJ(prenom,basis,met-e,stan)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="handschriftelijk"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.16">
             <t>genealogie</t>
-            <pos class="N(soort,ev,basis,zijd,stan)"/>
+            <pos class="N(soort,ev,basis,zijd,stan)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="genealogie"/>
+	    <morphology>
+	      <morpheme class="complex">
+		<t>genealogie</t>
+		<feat class="[[genealogisch]adjective[ie]]noun/singular" subset="structure"/>
+		<pos class="N" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-clex"/>
+		<morpheme class="complex">
+                  <feat class="N_A*" subset="applied_rule"/>
+                  <feat class="[[genealogisch]adjective[ie]]noun" subset="structure"/>
+                  <pos class="N" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-clex"/>
+                  <morpheme class="stem">
+                    <t>genealogisch</t>
+                    <pos class="A" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-clex"/>
+                  </morpheme>
+                  <morpheme class="affix">
+                    <t>ie</t>
+                    <feat class="[ie]" subset="structure"/>
+                  </morpheme>
+		</morpheme>
+		<morpheme class="inflection">
+                  <feat class="singular" subset="inflection"/>
+		</morpheme>
+              </morpheme>
+            </morphology>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.17">
             <t>)</t>
-            <pos class="LET()"/>
+            <pos class="LET()" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class=")"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.18">
             <t>,</t>
-            <pos class="LET()"/>
+            <pos class="LET()" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class=","/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.19">
             <t>gebruikt</t>
-            <pos class="WW(vd,vrij,zonder)"/>
+            <pos class="WW(vd,vrij,zonder)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="gebruiken"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.20">
             <t>om</t>
-            <pos class="VZ(init)"/>
+            <pos class="VZ(init)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="om"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.21">
             <t>de</t>
-            <pos class="LID(bep,stan,rest)"/>
+            <pos class="LID(bep,stan,rest)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="de"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.22">
             <t>verwantschap</t>
-            <pos class="N(soort,ev,basis,zijd,stan)"/>
+            <pos class="N(soort,ev,basis,zijd,stan)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="verwantschap"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.23">
             <t>tussen</t>
-            <pos class="VZ(init)"/>
+            <pos class="VZ(init)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="tussen"/>
           </w>
           <correction xml:id="correction.join" class="join">
             <new>
               <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.24-25">
                 <t>handschriften</t>
-                <pos class="N(soort,mv,basis,onz,stan)"/>
+                <pos class="N(soort,mv,basis,onz,stan)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
                 <lemma class="handschrift"/>
               </w>
             </new>
             <original auth="no">
               <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.24">
                 <t>handschrift</t>
-                <pos class="N(soort,ev,basis,onz,stan)"/>
+                <pos class="N(soort,ev,basis,onz,stan)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
                 <lemma class="handschrift"/>
               </w>
               <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.25">
                 <t>en</t>
-                <pos class="VG(neven)"/>
+                <pos class="VG(neven)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
                 <lemma class="en"/>
               </w>
             </original>
           </correction>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.26">
             <t>weer</t>
-            <pos class="BW()"/>
+            <pos class="BW()" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="weer"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.27">
             <t>te</t>
-            <pos class="VZ(init)"/>
+            <pos class="VZ(init)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="te"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.28">
             <t>geven</t>
-            <pos class="WW(inf,vrij,zonder)"/>
+            <pos class="WW(inf,vrij,zonder)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="geven"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.2.w.29">
             <t>.</t>
-            <pos class="LET()"/>
+            <pos class="LET()" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="."/>
           </w>
         </s>
@@ -371,28 +396,28 @@
           <whitespace/>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.3.w.1">
             <t>Werkwijze</t>
-            <pos class="N(soort,ev,basis,zijd,stan)"/>
+            <pos class="N(soort,ev,basis,zijd,stan)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="werkwijz"/>
           </w>
           <whitespace/>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.3.w.2">
             <t>Hiervoor</t>
-            <pos class="BW()"/>
+            <pos class="BW()" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="hiervoor"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.3.w.3">
             <t>worden</t>
-            <pos class="WW(pv,tgw,mv)"/>
+            <pos class="WW(pv,tgw,mv)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="worden"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.3.w.4">
             <t>de</t>
-            <pos class="LID(bep,stan,rest)"/>
+            <pos class="LID(bep,stan,rest)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="de"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.3.w.5">
             <t>handschriften</t>
-            <pos class="N(soort,mv,basis)"/>
+            <pos class="N(soort,mv,basis)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="handschrift"/>
             <morphology>
               <morpheme class="stem" function="lexical">
@@ -405,27 +430,27 @@
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.3.w.6">
             <t>genummerd</t>
-            <pos class="WW(vd,vrij,zonder)"/>
+            <pos class="WW(vd,vrij,zonder)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="nummeren"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.3.w.7">
             <t>en</t>
-            <pos class="VG(neven)"/>
+            <pos class="VG(neven)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="en"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.3.w.8">
             <t>gedateerd</t>
-            <pos class="WW(vd,vrij,zonder)"/>
+            <pos class="WW(vd,vrij,zonder)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="dateren"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.3.w.9">
             <t>zodat</t>
-            <pos class="VG(onder)"/>
+            <pos class="VG(onder)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="zodat"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.3.w.10">
             <t>ze</t>
-            <pos class="VNW(pers,pron,stan,red,3,ev,fem)"/>
+            <pos class="VNW(pers,pron,stan,red,3,ev,fem)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="ze"/>
             <alignment class="reference">
               <aref id="WR-P-E-J-0000000001.p.1.s.3.w.5" t="handschriften" type="w"/>
@@ -433,37 +458,37 @@
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.3.w.11">
             <t>op</t>
-            <pos class="VZ(init)"/>
+            <pos class="VZ(init)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="op"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.3.w.12">
             <t>de</t>
-            <pos class="LID(bep,stan,rest)"/>
+            <pos class="LID(bep,stan,rest)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="de"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.3.w.13">
             <t>juiste</t>
-            <pos class="ADJ(prenom,basis,met-e,stan)"/>
+            <pos class="ADJ(prenom,basis,met-e,stan)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="juist"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.3.w.14">
             <t>plaats</t>
-            <pos class="N(soort,ev,basis,zijd,stan)"/>
+            <pos class="N(soort,ev,basis,zijd,stan)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="plaats"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.3.w.15">
             <t>van</t>
-            <pos class="VZ(init)"/>
+            <pos class="VZ(init)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="van"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.3.w.16">
             <t>hun</t>
-            <pos class="VNW(bez,det,stan,vol,3,mv,prenom,zonder,agr)"/>
+            <pos class="VNW(bez,det,stan,vol,3,mv,prenom,zonder,agr)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="hun"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.3.w.17">
             <t>afstammingsgeschiedenis</t>
-            <pos class="N(soort,ev,basis,zijd,stan)"/>
+            <pos class="N(soort,ev,basis,zijd,stan)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="afstammingsgeschiedenis"/>
             <alignment class="extern" xlink:href="externalfile.xml" xlink:type="simple">
               <aref id="A1" type="w"/>
@@ -471,22 +496,22 @@
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.3.w.18">
             <t>geplaatst</t>
-            <pos class="WW(vd,vrij,zonder)"/>
+            <pos class="WW(vd,vrij,zonder)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="plaatsen"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.3.w.19">
             <t>kunnen</t>
-            <pos class="WW(pv,tgw,mv)"/>
+            <pos class="WW(pv,tgw,mv)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="kunnen"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.3.w.20">
             <t>worden</t>
-            <pos class="WW(inf,vrij,zonder)"/>
+            <pos class="WW(inf,vrij,zonder)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="worden"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.3.w.21">
             <t>.</t>
-            <pos class="LET()"/>
+            <pos class="LET()" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="."/>
           </w>
         </s>
@@ -498,19 +523,19 @@
             <w xml:id="WR-P-E-J-0000000001.p.1.s.4.w.1">
               <t offset="0">De</t>
               <t class="original" offset="0">De</t>
-              <pos class="LID(bep,stan,rest)"/>
+              <pos class="LID(bep,stan,rest)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
               <lemma class="de"/>
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.4.w.2">
               <t offset="3">hoofdletter</t>
               <t offset="3" class="original">hoofdletter</t>
-              <pos class="N(soort,ev,basis,zijd,stan)"/>
+              <pos class="N(soort,ev,basis,zijd,stan)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
               <lemma class="hoofdletter"/>
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.4.w.3">
               <t>A</t>
               <t class="original">A</t>
-              <pos class="SPEC(symb)"/>
+              <pos class="SPEC(symb)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
               <lemma class="_"/>
             </w>
           </part>
@@ -518,43 +543,43 @@
             <w xml:id="WR-P-E-J-0000000001.p.1.s.4.w.4">
               <t>wordt</t>
               <t class="original">wordt</t>
-              <pos class="WW(pv,tgw,met-t)"/>
+              <pos class="WW(pv,tgw,met-t)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
               <lemma class="worden"/>
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.4.w.5">
               <t>gebruikt</t>
               <t class="original">gebruikt</t>
-              <pos class="WW(vd,vrij,zonder)" textclass="original"/>
+              <pos class="WW(vd,vrij,zonder)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn" textclass="original"/>
               <lemma class="gebruiken" textclass="original"/>
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.4.w.6">
               <t>voor</t>
               <t class="original">voor</t>
-              <pos class="VZ(init)"/>
+              <pos class="VZ(init)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
               <lemma class="voor"/>
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.4.w.7">
               <t>het</t>
               <t class="original">het</t>
-              <pos class="LID(bep,stan,evon)"/>
+              <pos class="LID(bep,stan,evon)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
               <lemma class="het"/>
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.4.w.8">
               <t>originele</t>
               <t class="original">originele</t>
-              <pos class="ADJ(prenom,basis,met-e,stan)"/>
+              <pos class="ADJ(prenom,basis,met-e,stan)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
               <lemma class="origineel"/>
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.4.w.9" space="no">
               <t>handschrift</t>
               <t class="original">handschrift</t>
-              <pos class="N(soort,ev,basis,onz,stan)"/>
+              <pos class="N(soort,ev,basis,onz,stan)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
               <lemma class="handschrift"/>
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.4.w.10">
               <t>.</t>
               <t class="original">.</t>
-              <pos class="LET()"/>
+              <pos class="LET()" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
               <lemma class="."/>
             </w>
           </part>
@@ -562,107 +587,107 @@
         <s xml:id="WR-P-E-J-0000000001.p.1.s.5">
           <w xml:id="WR-P-E-J-0000000001.p.1.s.5.w.1">
             <t>De</t>
-            <pos class="LID(bep,stan,rest)"/>
+            <pos class="LID(bep,stan,rest)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="de"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.5.w.2">
             <t>andere</t>
-            <pos class="ADJ(prenom,basis,met-e,stan)"/>
+            <pos class="ADJ(prenom,basis,met-e,stan)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="ander"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.5.w.3">
             <t>handschriften</t>
-            <pos class="N(soort,mv,basis)"/>
+            <pos class="N(soort,mv,basis)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="handschrift"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.5.w.4">
             <t>krijgen</t>
-            <pos class="WW(pv,tgw,mv)"/>
+            <pos class="WW(pv,tgw,mv)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="krijgen"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.5.w.5">
             <t>ook</t>
-            <pos class="BW()"/>
+            <pos class="BW()" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="ook"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.5.w.6">
             <t>een</t>
-            <pos class="LID(onbep,stan,agr)"/>
+            <pos class="LID(onbep,stan,agr)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="een"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.5.w.7">
             <t>letter</t>
-            <pos class="N(soort,ev,basis,zijd,stan)"/>
+            <pos class="N(soort,ev,basis,zijd,stan)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="letter"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.5.w.8">
             <t>die</t>
-            <pos class="VNW(betr,pron,stan,vol,persoon,getal)"/>
+            <pos class="VNW(betr,pron,stan,vol,persoon,getal)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="die"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.5.w.9">
             <t>verband</t>
-            <pos class="N(soort,ev,basis,onz,stan)"/>
+            <pos class="N(soort,ev,basis,onz,stan)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="verband"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.5.w.10">
             <t>kan</t>
-            <pos class="WW(pv,tgw,ev)"/>
+            <pos class="WW(pv,tgw,ev)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="kunnen"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.5.w.11">
             <t>houden</t>
-            <pos class="WW(inf,vrij,zonder)"/>
+            <pos class="WW(inf,vrij,zonder)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="houden"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.5.w.12">
             <t>met</t>
-            <pos class="VZ(init)"/>
+            <pos class="VZ(init)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="met"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.5.w.13">
             <t>hun</t>
-            <pos class="VNW(bez,det,stan,vol,3,mv,prenom,zonder,agr)"/>
+            <pos class="VNW(bez,det,stan,vol,3,mv,prenom,zonder,agr)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="hun"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.5.w.14">
             <t>plaats</t>
-            <pos class="N(soort,ev,basis,zijd,stan)"/>
+            <pos class="N(soort,ev,basis,zijd,stan)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="plaats"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.5.w.15">
             <t>van</t>
-            <pos class="VZ(init)"/>
+            <pos class="VZ(init)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="van"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.5.w.16">
             <t>oorsprong</t>
-            <pos class="N(soort,ev,basis,zijd,stan)"/>
+            <pos class="N(soort,ev,basis,zijd,stan)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="oorsprong"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.5.w.17">
             <t>óf</t>
-            <pos class="VG(neven)"/>
+            <pos class="VG(neven)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="óf"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.5.w.18">
             <t>plaats</t>
-            <pos class="N(soort,ev,basis,zijd,stan)"/>
+            <pos class="N(soort,ev,basis,zijd,stan)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="plaats"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.5.w.19">
             <t>van</t>
-            <pos class="VZ(init)"/>
+            <pos class="VZ(init)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="van"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.5.w.20" space="no">
             <t>bewaring</t>
-            <pos class="N(soort,ev,basis,zijd,stan)"/>
+            <pos class="N(soort,ev,basis,zijd,stan)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="bewaring"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.5.w.21">
             <t>.</t>
-            <pos class="LET()"/>
+            <pos class="LET()" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="."/>
           </w>
         </s>
@@ -670,154 +695,154 @@
           <t>Verdwenen handschriften waarvan men toch vermoedt dat ze ooit bestaan hebben worden ook in het stemma opgenomen en worden weergegeven door de laatste letters van het alfabet en worden tussen <t-correction id="WR-P-E-J-0000000001.p.1.s.6.w.31.c.1" class="spelling" original="vierkant">vierkante</t-correction> haken geplaatst.<br/></t>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.1">
             <t>Verdwenen</t>
-            <pos class="WW(vd,prenom,zonder)">
+            <pos class="WW(vd,prenom,zonder)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn">
               <feat class="WW" subset="head"/>
             </pos>
             <lemma class="verdwijnen"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.2">
             <t>handschriften</t>
-            <pos class="N(soort,mv,basis)" head="N"/>
+            <pos class="N(soort,mv,basis)" head="N" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="handschrift"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.3">
             <t>waarvan</t>
-            <pos class="BW()"/>
+            <pos class="BW()" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="waarvan"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.4">
             <t>men</t>
-            <pos class="VNW(pers,pron,nomin,red,3p,ev,masc)"/>
+            <pos class="VNW(pers,pron,nomin,red,3p,ev,masc)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="men"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.5">
             <t>toch</t>
-            <pos class="BW()"/>
+            <pos class="BW()" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="toch"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.6">
             <t>vermoedt</t>
-            <pos class="WW(pv,tgw,met-t)"/>
+            <pos class="WW(pv,tgw,met-t)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="vermoeden"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.7">
             <t>dat</t>
-            <pos class="VG(onder)"/>
+            <pos class="VG(onder)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="dat"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.8">
             <t>ze</t>
-            <pos class="VNW(pers,pron,stan,red,3,mv)"/>
+            <pos class="VNW(pers,pron,stan,red,3,mv)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="ze"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.9">
             <t>ooit</t>
-            <pos class="BW()"/>
+            <pos class="BW()" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="ooit"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.10">
             <t>bestaan</t>
-            <pos class="WW(inf,vrij,zonder)"/>
+            <pos class="WW(inf,vrij,zonder)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="bestaan"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.11">
             <t>hebben</t>
-            <pos class="WW(inf,vrij,zonder)"/>
+            <pos class="WW(inf,vrij,zonder)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="hebben"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.12">
             <t>worden</t>
-            <pos class="WW(inf,vrij,zonder)"/>
+            <pos class="WW(inf,vrij,zonder)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="worden"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.13">
             <t>ook</t>
-            <pos class="BW()"/>
+            <pos class="BW()" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="ook"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.14">
             <t>in</t>
-            <pos class="VZ(init)"/>
+            <pos class="VZ(init)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="in"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.15">
             <t>het</t>
-            <pos class="LID(bep,stan,evon)"/>
+            <pos class="LID(bep,stan,evon)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="het"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.16">
             <t>stemma</t>
-            <pos class="N(soort,ev,basis,onz,stan)"/>
+            <pos class="N(soort,ev,basis,onz,stan)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="stemma"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.17">
             <t>opgenomen</t>
-            <pos class="WW(vd,vrij,zonder)"/>
+            <pos class="WW(vd,vrij,zonder)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="opnemen"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.18">
             <t>en</t>
-            <pos class="VG(neven)"/>
+            <pos class="VG(neven)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="en"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.19">
             <t>worden</t>
-            <pos class="WW(pv,tgw,mv)"/>
+            <pos class="WW(pv,tgw,mv)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="worden"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.20">
             <t>weergegeven</t>
-            <pos class="WW(vd,vrij,zonder)"/>
+            <pos class="WW(vd,vrij,zonder)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="weergeven"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.21">
             <t>door</t>
-            <pos class="VZ(init)"/>
+            <pos class="VZ(init)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="door"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.22">
             <t>de</t>
-            <pos class="LID(bep,stan,rest)"/>
+            <pos class="LID(bep,stan,rest)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="de"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.23">
             <t>laatste</t>
-            <pos class="ADJ(prenom,sup,met-e,stan)"/>
+            <pos class="ADJ(prenom,sup,met-e,stan)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="laat"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.24">
             <t>letters</t>
-            <pos class="N(soort,mv,basis)"/>
+            <pos class="N(soort,mv,basis)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="letter"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.25">
             <t>van</t>
-            <pos class="VZ(init)"/>
+            <pos class="VZ(init)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="van"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.26">
             <t>het</t>
-            <pos class="LID(bep,stan,evon)"/>
+            <pos class="LID(bep,stan,evon)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="het"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.27">
             <t>alfabet</t>
-            <pos class="N(soort,ev,basis,onz,stan)"/>
+            <pos class="N(soort,ev,basis,onz,stan)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="alfabet"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.28">
             <t>en</t>
-            <pos class="VG(neven)"/>
+            <pos class="VG(neven)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="en"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.29">
             <t>worden</t>
-            <pos class="WW(pv,tgw,mv)"/>
+            <pos class="WW(pv,tgw,mv)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="worden"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.30">
             <t>tussen</t>
-            <pos class="VZ(init)"/>
+            <pos class="VZ(init)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="tussen"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.31">
@@ -829,12 +854,12 @@
                 <t>vierkant</t>
               </original>
             </correction>
-            <pos class="ADJ(prenom,basis,met-e,stan)"/>
+            <pos class="ADJ(prenom,basis,met-e,stan)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="vierkant"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.32">
             <t>haken</t>
-            <pos class="N(soort,mv,basis)"/>
+            <pos class="N(soort,mv,basis)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <correction xml:id="WR-P-E-J-0000000001.p.1.s.6.w.32.c.1">
               <new>
                 <lemma class="haak"/>
@@ -846,12 +871,12 @@
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.33" space="no">
             <t>geplaatst</t>
-            <pos class="WW(vd,vrij,zonder)"/>
+            <pos class="WW(vd,vrij,zonder)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="plaatsen"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.6.w.34">
             <t>.</t>
-            <pos class="LET()"/>
+            <pos class="LET()" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="."/>
           </w>
 	  <br/>
@@ -859,52 +884,52 @@
         <s xml:id="WR-P-E-J-0000000001.p.1.s.7">
           <w xml:id="WR-P-E-J-0000000001.p.1.s.7.w.1">
             <t>Tenslotte</t>
-            <pos class="BW()"/>
+            <pos class="BW()" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="tenslotte"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.7.w.2">
             <t>gaat</t>
-            <pos class="WW(pv,tgw,met-t)"/>
+            <pos class="WW(pv,tgw,met-t)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="gaan"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.7.w.3">
             <t>men</t>
-            <pos class="VNW(pers,pron,nomin,red,3p,ev,masc)"/>
+            <pos class="VNW(pers,pron,nomin,red,3p,ev,masc)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="men"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.7.w.4">
             <t>de</t>
-            <pos class="LID(bep,stan,rest)"/>
+            <pos class="LID(bep,stan,rest)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="de"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.7.w.5">
             <t>verwantschap</t>
-            <pos class="N(soort,ev,basis,zijd,stan)"/>
+            <pos class="N(soort,ev,basis,zijd,stan)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="verwantschap"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.7.w.6">
             <t>tussen</t>
-            <pos class="VZ(init)"/>
+            <pos class="VZ(init)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="tussen"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.7.w.7">
             <t>de</t>
-            <pos class="LID(bep,stan,rest)"/>
+            <pos class="LID(bep,stan,rest)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="de"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.7.w.8">
             <t>handschriften</t>
-            <pos class="N(soort,mv,basis)"/>
+            <pos class="N(soort,mv,basis)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="handschrift"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.7.w.9">
             <t>aanduiden</t>
-            <pos class="WW(inf,vrij,zonder)"/>
+            <pos class="WW(inf,vrij,zonder)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="aanduiden"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.7.w.10">
             <t>.</t>
-            <pos class="LET()"/>
+            <pos class="LET()" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="."/>
           </w>
           <semroles>
@@ -924,75 +949,75 @@
         <s xml:id="WR-P-E-J-0000000001.p.1.s.8">
           <w xml:id="WR-P-E-J-0000000001.p.1.s.8.w.1">
             <t>Een</t>
-            <pos class="LID(onbep,stan,agr)"/>
+            <pos class="LID(onbep,stan,agr)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="een"/>
           </w>
           <quote xml:id="WR-P-E-J-0000000001.p.1.s.8.q.1">
             <w xml:id="WR-P-E-J-0000000001.p.1.s.8.w.2">
               <t>volle</t>
-              <pos class="ADJ(prenom,basis,met-e,stan)"/>
+              <pos class="ADJ(prenom,basis,met-e,stan)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
               <lemma class="vol"/>
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.8.w.3">
               <t>lijn</t>
-              <pos class="N(soort,ev,basis,zijd,stan)"/>
+              <pos class="N(soort,ev,basis,zijd,stan)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
               <lemma class="lijn"/>
             </w>
           </quote>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.8.w.4">
             <t>duidt</t>
-            <pos class="WW(pv,tgw,met-t)"/>
+            <pos class="WW(pv,tgw,met-t)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="duiden"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.8.w.5">
             <t>op</t>
-            <pos class="VZ(init)"/>
+            <pos class="VZ(init)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="op"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.8.w.6">
             <t>een</t>
-            <pos class="LID(onbep,stan,agr)"/>
+            <pos class="LID(onbep,stan,agr)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="een"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.8.w.7">
             <t>verwantschap</t>
-            <pos class="N(soort,ev,basis,zijd,stan)"/>
+            <pos class="N(soort,ev,basis,zijd,stan)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="verwantschap"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.8.w.8">
             <t>,</t>
-            <pos class="LET()"/>
+            <pos class="LET()" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class=","/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.8.w.9">
             <t>terweil</t>
             <errordetection class="spelling"/>
-            <pos class="VG(onder)"/>
+            <pos class="VG(onder)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="terweil"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.8.w.10">
             <t>een</t>
-            <pos class="LID(onbep,stan,agr)"/>
+            <pos class="LID(onbep,stan,agr)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="een"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.8.w.11">
             <t>stippelijn</t>
-            <pos class="FOUTN(soort,ev,basis,zijd,stan)"/>
+            <pos class="FOUTN(soort,ev,basis,zijd,stan)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="stippelijn"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.8.w.12">
             <t>op</t>
-            <pos class="VZ(init)"/>
+            <pos class="VZ(init)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="op"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.8.w.13">
             <t>een</t>
-            <pos class="LID(onbep,stan,agr)"/>
+            <pos class="LID(onbep,stan,agr)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="een"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.8.w.14">
             <t>onzekere</t>
-            <pos class="ADJ(prenom,basis,met-e,stan)"/>
+            <pos class="ADJ(prenom,basis,met-e,stan)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="onzeker"/>
             <correction xml:id="WR-P-E-J-0000000001.p.1.s.8.w.14.c.1" class="spelling">
               <suggestion auth="no" n="1/2">
@@ -1005,17 +1030,17 @@
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.8.w.15">
             <t>verwantschap</t>
-            <pos class="N(soort,ev,basis,zijd,stan)" datetime="2011-07-20T19:00:01"/>
+            <pos class="N(soort,ev,basis,zijd,stan)" datetime="2011-07-20T19:00:01" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="verwantschap"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.8.w.16">
             <t>duidt</t>
-            <pos class="WW(pv,tgw,met-t)"/>
+            <pos class="WW(pv,tgw,met-t)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="duiden"/>
           </w>
           <w xml:id="WR-P-E-J-0000000001.p.1.s.8.w.17">
             <t>.</t>
-            <pos class="LET()"/>
+            <pos class="LET()" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="."/>
           </w>
           <observations>
@@ -1064,7 +1089,7 @@
           <w xml:id="entry.1.term.1.w.1" begintime="00:00:00.000" endtime="00:00:01.300" speaker="proycon" src="stemma.wav">
             <t>Stemma</t>
             <ph>stɛːma</ph>
-            <pos class="N(eigen,ev,basis,zijd,stan)"/>
+            <pos class="N(eigen,ev,basis,zijd,stan)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
             <lemma class="stemma"/>
             <sense class="some.fictitious.stemma.id"/>
             <phonology>
@@ -1165,7 +1190,7 @@
               </morpheme>
               <morpheme class="lexical">
                 <t offset="4">lijsttrekker</t>
-                <pos class="n"/>
+                <pos class="n" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-clex"/>
                 <lemma class="lijsttrekker"/>
               </morpheme>
             </morphology>
