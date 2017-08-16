@@ -94,12 +94,12 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
 
 \HRule \\[0.5cm]
 { \Large \bfseries FoLiA: Format for Linguistic Annotation}\\[0.5cm] % Title of your document
-{\bf \small version 1.4.2 -- Revision 7.1} \\[0.5cm]
+{\bf \small version 1.4.3 -- Revision 7.2} \\[0.5cm]
 { \Large \bfseries Documentation}\\[0.5cm]
 {\large \emph{Maarten van Gompel}}\\[0.5cm]
 \HRule \\[1.0cm]
 
-\emph{January 2nd, 2014 \small{(published)} -- July 13th, 2017 \small{(last revision)}} \\[0.3cm]
+\emph{January 2nd, 2014 \small{(published)} -- August 16th, 2017 \small{(last revision)}} \\[0.3cm]
 \includegraphics[width=20.0mm]{ru-beeldmerk-zwart.eps}
 \end{center}
 \vspace{0.5cm}
@@ -4489,6 +4489,50 @@ Last, an important note regarding offsets: all offset values are measured in
 unicode code-points, the first character having index zero. Take special care
 with combining diacritical marks versus codepoints that directly integrate the
 diacritical mark.
+
+\subsubsection{Text Class Attribute}
+\label{sec:textclassattrib}
+
+\status{final since v1.4.3}{pynlpl,libfolia}
+
+As we have seen, FoLiA allows for multiple text content elements on the same structural elements, these other text
+content elements must carry a different class. This indicates an alternative text for the same element and is used for
+instance for pre-OCR vs. post-OCR or pre-normalisation vs. post-normalisation distinctions, or for
+transliterations.
+
+When adding linguistic annotations on a structure element that has multiple text representations, it may be desireable
+to explicitly state which text class was used in establishing the annotation. This is done with the \texttt{textclass}
+attribute on any token or span annotation element. By default, this attribute is omitted, which implies it points to the
+default \texttt{current} text class.
+
+Consider the following Part-of-Speech and lemma annotation on a word with two text classes, one representing the spelling as it
+occurs in the document, and one representing a more contemporary spelling. The following example makes it explicit that
+the PoS and lemma annotations are based on the latter text class.
+
+\begin{lstlisting}[language=xml]
+ <w class="WORD" xml:id="s.1.w.3">
+      <t>aengename</t>
+      <t class="contemporary">aangename</t>
+      <pos class="ADJ" textclass="contemporary" />
+      <lemma class="aangenaam" textclass="contemporary" />
+ </w>
+\end{lstlisting}
+
+Note that if you want to add another PoS annotation or lemma that is derived from another textclass, you will need to
+add those as an \emph{alternative} (See Section~\ref{sec:alternatives}), as the usual restrictions apply, there can be
+only one of each of a given set.
+
+For span annotation, you can apply the \texttt{textclass} attribute in a similar fashion:
+
+\begin{lstlisting}[language=xml]
+<entities>
+  <entity class="per" textclass="contemporary">
+    <wref id="s.1.w.5" t="John"/>
+    <wref id="s.1.w.6" t="Doe"/>
+  </entity>
+</entities>
+\end{lstlisting}
+
 
 
 \subsection{Substrings}
