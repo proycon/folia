@@ -202,7 +202,7 @@ class FoLiATranslator(nodes.NodeVisitor):
         indentation = len(self.path) * " "
         o = ""
         if self.textbuffer:
-            o += indentation + " <t>"  + "".join(self.textbuffer) + "</t>\n"
+            o += indentation + " <t>"  + " ".join([x.replace("\n","").strip() for x in self.textbuffer]) + "</t>\n"
         o += indentation + "</" + tag + ">\n"
         self.textbuffer = []
         self.content.append(o)
