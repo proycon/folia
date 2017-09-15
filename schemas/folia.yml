@@ -468,6 +468,7 @@ elements:
                 xmltag: "w"
                 label: "Word/Token"
                 textdelimiter: " " #may be overriden and set to "" if attribute space="no" is set on the word
+                optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, TEXTCLASS ]
     - class: AbstractTextMarkup
       properties:
           textcontainer: true
@@ -753,11 +754,3 @@ default_ignore_structure: [ Original, Suggestion, Alternative, AlternativeLayers
 
 #Structure scope above the sentence level, used by next() and previous() methods
 structurescope: [ Sentence, Paragraph, Division, ListItem, Text, Event, Caption, Head ]
-
-
-
-
-
-
-
-
