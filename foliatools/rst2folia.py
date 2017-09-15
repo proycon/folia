@@ -76,6 +76,9 @@ class Writer(writers.Writer):
             ("Strip relative hyperlinks", ['--strip-relative-links'], {'default': False, 'action': 'store_true'}),
             ("Strip all hyperlinks", ['--strip-links'], {'default': False, 'action': 'store_true'}),
             ("Strip all text styling", ['--strip-style'], {'default': False, 'action': 'store_true'}),
+            ("Strip all gaps (includes verbatim and code blocks)", ['--strip-gaps'], {'default': False, 'action': 'store_true'}),
+            ("Strip all raw content (do not encode as gaps)", ['--strip-raw'], {'default': False, 'action': 'store_true'}),
+            ("Strip tables", ['--strip-tables'], {'default': False, 'action': 'store_true'}),
             ("Sets. Comma separated list of annotationtype:seturl pairs. Example: division:https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/divisions.foliaset.xml", ['--sets'],{'default':""}),
             ("Stylesheet. XSL Stylesheet to associate with the document. Defaults to '%s'" % DEFAULTSTYLESHEET, ['--stylesheet'], {'default': "folia2html.xsl",'metavar':'<string>'}),
         )
@@ -135,12 +138,17 @@ class FoLiATranslator(nodes.NodeVisitor):
         self.sets = sets
         self.declared = {}
         self.texthandled = False
+        self.footnote_reference = None
+        self.footnote_seq_nr = 0
         if document.settings.declare_all:
             for key in self.sets:
                 self.declare(key)
         self.striprellinks = document.settings.strip_relative_links
         self.striplinks = document.settings.strip_links
         self.stripstyle = document.settings.strip_style
+        self.stripraw = document.settings.strip_raw
+        self.stripgaps = document.settings.strip_gaps
+        self.striptables = document.settings.strip_tables
         if document.settings.parentid:
             self.parentid = document.settings.parentid
             self.path.append( (document.settings.parenttype, self.parentid ) )
@@ -175,6 +183,9 @@ class FoLiATranslator(nodes.NodeVisitor):
         #Generate an ID
         if tag == "text":
             id = self.textid
+        elif tag == 'note' and attribs['cls'] == 'footnote':
+            self.footnote_seq_nr += 1
+            id = self.textid + '.footnote.' + str(self.footnote_seq_nr)
         else:
             parenttag, parentid = self.path[-1]
             id = self.generate_id(parentid, tag)
@@ -201,9 +212,14 @@ class FoLiATranslator(nodes.NodeVisitor):
             raise Exception("Mismatch in closestructure, expected closure for " + tag + ", got " + _tag)
         indentation = len(self.path) * " "
         o = ""
+        if self.footnote_reference and self.textbuffer and self.textbuffer[-1].strip() == self.footnote_reference:
+            self.textbuffer = self.textbuffer[:-1]
         if self.textbuffer:
-            o += indentation + " <t>"  + " ".join([x.replace("\n","").strip() for x in self.textbuffer]) + "</t>\n"
+            o += indentation + " <t>"  + " ".join([x.replace("\n"," ").strip() for x in self.textbuffer]) + "</t>\n"
         o += indentation + "</" + tag + ">\n"
+        if self.footnote_reference:
+            o += indentation + "<ref id=\"" + self.textid + ".footnote." + self.footnote_reference + "\"><t>[" + self.footnote_reference + "]</t></ref>\n"
+            self.footnote_reference = None
         self.textbuffer = []
         self.content.append(o)
 
@@ -356,9 +372,14 @@ class FoLiATranslator(nodes.NodeVisitor):
 
 
     def visit_literal_block(self,node):
-        self.initstructure('gap',cls="verbatim")
         self.texthandled = True
+        if self.stripgaps:
+            pass
+        self.initstructure('gap',cls="verbatim")
     def depart_literal_block(self,node):
+        if self.stripgaps:
+            self.texthandled = False
+            return
         tag = "gap"
         _tag, id = self.path.pop()
         if not tag == _tag:
@@ -370,9 +391,14 @@ class FoLiATranslator(nodes.NodeVisitor):
         self.texthandled = False
 
     def visit_raw(self,node):
-        self.initstructure('gap',cls="code")
         self.texthandled = True
+        if self.stripraw:
+            return
+        self.initstructure('gap',cls="code")
     def depart_raw(self,node):
+        if self.stripraw:
+            self.texthandled = False
+            return
         tag = "gap"
         _tag, id = self.path.pop()
         if not tag == _tag:
@@ -384,9 +410,14 @@ class FoLiATranslator(nodes.NodeVisitor):
         self.texthandled = False
 
     def visit_code(self,node):
-        self.initstructure('gap',cls="code")
         self.texthandled = True
+        if self.stripgaps:
+            return
+        self.initstructure('gap',cls="code")
     def depart_code(self,node):
+        if self.stripgaps:
+            self.texthandled = False
+            return
         tag = "gap"
         _tag, id = self.path.pop()
         if not tag == _tag:
@@ -439,7 +470,7 @@ class FoLiATranslator(nodes.NodeVisitor):
     def visit_comment(self, node):
         self.texthandled = True
     def depart_comment(self, node):
-        self.content.append("<!-- " + node.astext() + " -->\n")
+        self.content.append("<!-- " + self.encode(node.astext()) + " -->\n")
         self.texthandled = False
 
 
@@ -503,8 +534,14 @@ class FoLiATranslator(nodes.NodeVisitor):
         self.closestructure('note')
 
     def visit_table(self,node):
+        if self.striptables:
+            self.texthandled = True
+            return
         self.initstructure('table')
     def depart_table(self,node):
+        if self.striptables:
+            self.texthandled = False
+            return
         self.closestructure('table')
 
     def visit_colspec(self,node):
@@ -523,14 +560,26 @@ class FoLiATranslator(nodes.NodeVisitor):
         pass
 
     def visit_row(self,node):
-        self.initstructure('row')
+        if self.striptables:
+            return
+        else:
+            self.initstructure('row')
     def depart_row(self,node):
-        self.closestructure('row')
+        if self.striptables:
+            return
+        else:
+            self.closestructure('row')
 
     def visit_entry(self,node):
-        self.initstructure('cell')
+        if self.striptables:
+            return
+        else:
+            self.initstructure('cell')
     def depart_entry(self,node):
-        self.closestructure('cell')
+        if self.striptables:
+            return
+        else:
+            self.closestructure('cell')
 
     def visit_label(self,node): #citation/footnote label
         self.initstructure('w')
@@ -538,12 +587,12 @@ class FoLiATranslator(nodes.NodeVisitor):
         self.closestructure('w')
 
     def visit_footnote_reference(self,node): #TODO: doesn't seem to really work as it should yet
-        num = node.astext()
-        if num in ('#','*'):
+        symbol = node.astext()
+        if symbol in ('#','*'):
             raise NotImplementedError("Wildcard references [#] [*] are currently not yet supported by rst2folia") #TODO: later
-        self.initstructure('ref',id='footnote'+num)
+        self.footnote_reference = symbol.strip()
     def depart_footnote_reference(self,node):
-        self.closestructure('ref')
+        pass
 
     def visit_title_reference(self, node):
         self.addlink(node,"#") #TODO: title link points to nowhere now
