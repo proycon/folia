@@ -94,12 +94,12 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
 
 \HRule \\[0.5cm]
 { \Large \bfseries FoLiA: Format for Linguistic Annotation}\\[0.5cm] % Title of your document
-{\bf \small version 1.4.3 -- Revision 7.2} \\[0.5cm]
+{\bf \small version 1.5.0 -- Revision 8.0} \\[0.5cm]
 { \Large \bfseries Documentation}\\[0.5cm]
 {\large \emph{Maarten van Gompel}}\\[0.5cm]
 \HRule \\[1.0cm]
 
-\emph{January 2nd, 2014 \small{(published)} -- August 16th, 2017 \small{(last revision)}} \\[0.3cm]
+\emph{January 2nd, 2014 \small{(published)} -- September 25th, 2017 \small{(last revision)}} \\[0.3cm]
 \includegraphics[width=20.0mm]{ru-beeldmerk-zwart.eps}
 \end{center}
 \vspace{0.5cm}
@@ -509,7 +509,7 @@ identification string.
 
 Set definitions can be stored in several formats (see
 chapter~\ref{chapter:setdefinitions}), the format may be indicated by the
-\texttt{format} attribute on each declaration, its valus should be a MIME type.
+\texttt{format} attribute on each declaration, its value should be a MIME type.
 
 If multiple sets are used for the same annotation type, they each need a
 separate declaration, as illustrated with the following fictitious sets:
@@ -520,10 +520,10 @@ separate declaration, as illustrated with the following fictitious sets:
       <pos-annotation set="http://ilk.uvt.nl/folia/sets/brown" />
 \end{lstlisting}
 
-If only one set is declared, then in the document itself you are allowed to
-skip the set attribute on these specific annotation elements. The declared set
-will automatically be the default. This is common practice as usually there is
-only one set per annotation type.
+If only one set is declared, then in the document itself you are allowed to skip the set attribute on these specific
+annotation elements. The declared set will automatically be the default. This is common practice as usually there is
+only one set per annotation type. In other case, annotations explicitly have a \texttt{set} attribute that corresponds
+to one of the declared sets.
 
 The \texttt{annotator} and \texttt{annotatortype} attributes act as defaults
 for the specific annotation type and set. Unlike \texttt{set}, you do
@@ -537,6 +537,17 @@ annotation element can be cumbersome and pointless in a document with a single
 set and a single annotator for that particular type of annotation. Declarations
 and defaults provide a nice way around this problem.
 
+An alias mechanism is also available when referring to sets by long URLs gets cumbersome. An alias can be declared as
+shown in the following example:
+
+\begin{lstlisting}[language=xml]
+      <pos-annotation set="http://ilk.uvt.nl/folia/sets/CGN"
+        annotator="Frog" annotatortype="auto" alias="cgn" />
+      <pos-annotation set="http://ilk.uvt.nl/folia/sets/brown" alias="brown" />
+\end{lstlisting}
+
+Annotations may then use the alias instead of the full set URL in their \texttt{set} attribute. An alias has to be
+unique for a given annotation type.
 
 \section{Structure Annotation}
 \label{sec:structureannotation}
