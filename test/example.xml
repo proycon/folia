@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="folia2html.xsl"?>
-<FoLiA xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://ilk.uvt.nl/folia" xml:id="WR-P-E-J-0000000001" version="1.3" generator="manual">
+<FoLiA xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://ilk.uvt.nl/folia" xml:id="WR-P-E-J-0000000001" version="1.5" generator="manual">
   <metadata type="native">
     <annotations>
       <token-annotation annotator="ilktok" annotatortype="auto" />
@@ -43,10 +43,16 @@
     <meta id="title">Stemma</meta>
     <meta id="language">nl</meta>
     <meta id="genre">artikel</meta>
+    <submetadata xml:id="wikipedia.stemma" type="native">
+        <meta id="originalsource">https://nl.wikipedia.org/wiki/Stemma</meta>
+    </submetadata>
+    <submetadata xml:id="sandbox.3.metadata" type="native">
+        <meta id="author">proycon</meta>
+    </submetadata>
   </metadata>
   <text xml:id="WR-P-E-J-0000000001.text">
     <lang class="nl"/>
-    <div xml:id="WR-P-E-J-0000000001.div0.1" class="chapter">
+    <div xml:id="WR-P-E-J-0000000001.div0.1" class="chapter" metadata="wikipedia.stemma">
       <head xml:id="WR-P-E-J-0000000001.head.1">
         <s xml:id="WR-P-E-J-0000000001.head.1.s.1">
           <w xml:id="WR-P-E-J-0000000001.head.1.s.1.w.1">
@@ -1285,7 +1291,7 @@
             </sentiments>
         </s>
       </div>
-      <div xml:id="sandbox.3">
+      <div xml:id="sandbox.3" metadata="sandbox.3.metadata">
         <head xml:id="sandbox.3.head">
           <t>De <t-str id="sandbox.3.str"><t-style xml:id="sandbox.3.str.bold" class="bold"><br/>FoLiA</t-style> developers</t-str> zijn:</t>
           <str xml:id="sandbox.3.str">
