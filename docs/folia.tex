@@ -5021,12 +5021,12 @@ written for your specific use case if you use \texttt{foreign-data}.
 
 \status{since v0.4}{pynlpl,libfolia}
 \status{foreign-data since v1.2}{pynlpl,libfolia}
+\status{submetadata since v1.5}{pynlpl,libfolia}
 
-FoLiA has support for document-wide metadata, most notably the extensive and
-mandatory declaration section for all used annotations which you have seen
-throughout this documentation. To complement this, there is FoLiA's native
-metadata system, in which simple metadata fields can be defined and used at
-will through the \texttt{meta} element. The following example shows this:
+FoLiA has support for metadata, most notably the extensive and mandatory declaration section for all used annotations
+which you have seen throughout this documentation. To complement this, there is FoLiA's native metadata system, in which
+simple metadata fields can be defined and used at will through the \texttt{meta} element. The following example shows
+document-wide metadata:
 
 \begin{lstlisting}[language=xml]
 <metadata type="native">
@@ -5104,6 +5104,53 @@ FoLiA namespace.
 \end{lstlisting}
 
 Multiple \texttt{foreign-data} blocks are allowed too.
+
+\subsection{Submetadata}
+\label{sec:submetadata}
+
+Whereas the metadata discussed in the previous section concerns document-wide metadata, i.e. metadata that is applicable
+to the document as a whole, FoLiA also supports metadata on arbitrary parts of the document. This is referred to as
+\emph{submetadata}. Within the \texttt{metadata} block, one can include one or more \texttt{submetadata} blocks. Like
+\texttt{metadata}, a \texttt{submetadata} block carries a \texttt{type} attribute, a \texttt{src} attribute in case the
+metadata is an external reference, and it may hold \texttt{meta} elements, \texttt{foreign-data} elements. It differs
+from \texttt{metadata} in that it carries a mandatory \texttt{xml:id} and \emph{never} has an \texttt{annotations} block.
+The ID is in turn used to back to the metadata from particular elements in the text. Such a reference is made using the
+\texttt{metadata} attribute, which is a common FoLiA attribute allowed on many elements. Consider the following example
+(certain details are omitted for brevity):
+
+\begin{lstlisting}[language=xml]
+<FoLiA>
+<metadata>
+ <annotations>...</annotations>
+ <submetadata xml:id="metadata.1" type="native">
+   <meta id="author">proycon</meta>
+   <meta id="language">nld</meta>
+ </submetadata>
+ <submetadata xml:id="metadata.2" type="native">
+   <meta id="author">Shakespeare</meta>
+   <meta id="language">eng</meta>
+ </submetadata>
+</metadata>
+<text>
+ <p metadata="metadata.1">
+   <t>Het volgende vers komt uit Hamlet:</t>
+ </p>
+ <p metadata="metadata.2">
+  <s><t>To be, or not to be, that is the question:</t></s>
+  <s><t>Whether 'tis nobler in the mind to suffer<br/>The slings and arrows of outrageous fortune,<br/>Or to take Arms against a Sea of troubles,<br/> And by opposing end them:</s></t>
+ </p>
+</text>
+</FoLiA>
+\end{lstlisting}
+
+Since metadata can be associated with anything, any arbitrary sub-part of untokenised text can even be selected and
+associated with the existing facilities \texttt{str} or \texttt{t-str} (see Section~\ref{sec:str}. Some redundancy
+occurs only at places where structural boundaries are crossed (the metadata attribute might have to be repeated on
+multiple structural elements if there is no catch-all structure).
+
+Submetadata is inherited (recursively), i.e. it is not necessary to explicitly assign the \texttt{metadata} attribute to the children
+of an element that already has such an assignment.
+
 
 \section{External documents and full stand-off annotation}
 \label{sec:external}
