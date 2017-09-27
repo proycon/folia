@@ -668,6 +668,24 @@ class FoLiATranslator(nodes.NodeVisitor):
     def depart_contact(self, node):
         self.texthandled = False
 
+    def visit_problematic(self, node):
+        print("WARNING: RST parser encountered a problematic node, skipping: ", node.astext(),file=sys.stderr)
+        self.texthandled = True
+    def depart_problematic(self,node):
+        self.texthandled = False
+
+    def visit_system_message(self, node):
+        print("WARNING from RST parser: ", node.astext(),file=sys.stderr)
+        self.texthandled = True
+    def depart_system_message(self,node):
+        self.texthandled = False
+
+    def visit_substitution_definition(self, node):
+        print("WARNING substitution definition encountered, but not converted: ", node.astext(),file=sys.stderr)
+        self.texthandled = True
+    def depart_substitution_definition(self,node):
+        self.texthandled = False
+
 
 def main():
     description = 'Generates FoLiA documents from reStructuredText. ' + default_description
