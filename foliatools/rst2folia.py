@@ -140,6 +140,7 @@ class FoLiATranslator(nodes.NodeVisitor):
         self.texthandled = False
         self.footnote_reference = None
         self.footnote_seq_nr = 0
+        self.inserttextbreaks = False
         if document.settings.declare_all:
             for key in self.sets:
                 self.declare(key)
@@ -215,7 +216,10 @@ class FoLiATranslator(nodes.NodeVisitor):
         if self.footnote_reference and self.textbuffer and self.textbuffer[-1].strip() == self.footnote_reference:
             self.textbuffer = self.textbuffer[:-1]
         if self.textbuffer:
-            o += indentation + " <t>"  + " ".join([x.replace("\n"," ").strip() for x in self.textbuffer]) + "</t>\n"
+            if self.inserttextbreaks:
+                o += indentation + " <t>"  + " ".join([x.replace("\n","<br/>").strip() for x in self.textbuffer]) + "</t>\n"
+            else:
+                o += indentation + " <t>"  + " ".join([x.replace("\n"," ").strip() for x in self.textbuffer]) + "</t>\n"
         o += indentation + "</" + tag + ">\n"
         if self.footnote_reference:
             o += indentation + "<ref id=\"" + self.textid + ".footnote." + self.footnote_reference + "\"><t>[" + self.footnote_reference + "]</t></ref>\n"
@@ -653,19 +657,10 @@ class FoLiATranslator(nodes.NodeVisitor):
     def depart_organization(self, node):
         self.texthandled = False
 
-
-
     def visit_address(self, node):
         self.addmetadata('address', node)
 
     def depart_address(self, node):
-        self.texthandled = False
-
-
-    def visit_contact(self, node):
-        self.addmetadata('contact', node)
-
-    def depart_contact(self, node):
         self.texthandled = False
 
     def visit_problematic(self, node):
@@ -685,6 +680,13 @@ class FoLiATranslator(nodes.NodeVisitor):
         self.texthandled = True
     def depart_substitution_definition(self,node):
         self.texthandled = False
+
+    def visit_line_block(self, node):
+        self.inserttextbreaks = True
+        self.initstructure('div')
+    def depart_line_block(self, node):
+        self.closestructure('div')
+        self.inserttextbreaks = False
 
 
 def main():
