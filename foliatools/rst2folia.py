@@ -563,6 +563,11 @@ class FoLiATranslator(nodes.NodeVisitor):
     def depart_tbody(self,node):
         pass
 
+    def visit_thead(self,node):
+        pass
+    def depart_thead(self,node):
+        pass
+
     def visit_row(self,node):
         if self.striptables:
             return
@@ -687,6 +692,12 @@ class FoLiATranslator(nodes.NodeVisitor):
     def depart_line_block(self, node):
         self.closestructure('div')
         self.inserttextbreaks = False
+
+    def visit_transition(self, node):
+        pass
+    def depart_transition(self, node):
+        self.content.append("<br/>")
+
 
 
 def main():
