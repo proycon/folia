@@ -25,7 +25,7 @@ from collections import defaultdict
 from copy import copy
 
 from docutils import writers, nodes
-from docutils.core import publish_cmdline, default_description
+from docutils.core import publish_cmdline, publish_string, default_description
 
 try:
     import locale
@@ -672,6 +672,10 @@ class FoLiATranslator(nodes.NodeVisitor):
 def main():
     description = 'Generates FoLiA documents from reStructuredText. ' + default_description
     publish_cmdline(writer=Writer(), writer_name='folia', description=description)
+
+def rst2folia(srcstring, **settings):
+    if not settings: settings = None
+    return publish_string(srcstring, writer=Writer(), settings=settings, settings_overrides={'output_encoding': 'unicode'})
 
 if __name__ == '__main__':
     main()
