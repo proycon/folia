@@ -9,4 +9,6 @@
     <class xml:id="deleted" label="Deleted"/>
     <class xml:id="inserted" label="Inserted"/>
     <class xml:id="math" label="Math"/>
+    <class xml:id="subscript" label="Subscript"/>
+    <class xml:id="superscript" label="Superscript"/>
 </set>
