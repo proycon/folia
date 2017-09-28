@@ -526,14 +526,14 @@
           <t class="translate">Uppercase A is used for the original.</t>
           <part xml:id="WR-P-E-J-0000000001.p.1.s.4.part.1">
             <w xml:id="WR-P-E-J-0000000001.p.1.s.4.w.1">
-              <t offset="0">De</t>
-              <t class="original" offset="0">De</t>
+              <t offset="0" ref="WR-P-E-J-0000000001.p.1.s.4">De</t>
+              <t class="original" offset="0" ref="WR-P-E-J-0000000001.p.1.s.4">De</t>
               <pos class="LID(bep,stan,rest)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
               <lemma class="de"/>
             </w>
             <w xml:id="WR-P-E-J-0000000001.p.1.s.4.w.2">
-              <t offset="3">hoofdletter</t>
-              <t offset="3" class="original">hoofdletter</t>
+              <t offset="3" ref="WR-P-E-J-0000000001.p.1.s.4">hoofdletter</t>
+              <t offset="3" class="original" ref="WR-P-E-J-0000000001.p.1.s.4">hoofdletter</t>
               <pos class="N(soort,ev,basis,zijd,stan)" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn"/>
               <lemma class="hoofdletter"/>
             </w>

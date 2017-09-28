@@ -4345,7 +4345,7 @@ are:
 When explicit text content on sentence/paragraph level is provided, offsets can
 be used to refer back to it from deeper text-content elements. This does imply
 that there are some challenges to solve. First of all, by default, the offset
-refers to the direct parent of whatever text-supporting element the text
+refers to the first structural parent of whatever text-supporting element the text
 content (\texttt{t}) is a member of. If a level is missing we have to
 explicitly specify this reference using the \texttt{ref} attribute. Note that
 there is no text content for the sentence in the following example, and we
