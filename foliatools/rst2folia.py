@@ -700,6 +700,19 @@ class FoLiATranslator(nodes.NodeVisitor):
 
 
 
+    def visit_subscript(self, node):
+        self.addstyle(node,"subscript")
+    def depart_subscript(self, node):
+        self.texthandled = False
+
+    def visit_superscript(self, node):
+        self.addstyle(node,"superscript")
+    def depart_superscript(self, node):
+        self.texthandled = False
+
+
+
+
 def main():
     description = 'Generates FoLiA documents from reStructuredText. ' + default_description
     publish_cmdline(writer=Writer(), writer_name='folia', description=description)
