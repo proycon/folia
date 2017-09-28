@@ -2,7 +2,7 @@
 #    This is a technical specification of FoLiA, for use by FoLiA libraries
 
 #The FoLiA version
-version: "1.4.3"
+version: "1.5.0"
 
 #The FoLiA namespace
 namespace: "http://ilk.uvt.nl/folia"
@@ -11,7 +11,7 @@ namespace: "http://ilk.uvt.nl/folia"
 setdefinitionnamespace: "http://folia.science.ru.nl/setdefinition"
 
 #all possible common FoLiA attributes
-attributes: [ ID, CLASS, ANNOTATOR, CONFIDENCE, N, DATETIME, BEGINTIME, ENDTIME, SRC, SPEAKER, TEXTCLASS ]
+attributes: [ ID, CLASS, ANNOTATOR, CONFIDENCE, N, DATETIME, BEGINTIME, ENDTIME, SRC, SPEAKER, TEXTCLASS, METADATA ]
 
 #All possible annotation types, each must be declared in the FoLiA header when used
 annotationtype: [ TEXT, TOKEN, DIVISION, PARAGRAPH, LIST, FIGURE, WHITESPACE, LINEBREAK, SENTENCE, POS, LEMMA, DOMAIN, SENSE, SYNTAX, CHUNKING, ENTITY, CORRECTION, ERRORDETECTION, PHON, SUBJECTIVITY, MORPHOLOGICAL, EVENT, DEPENDENCY, TIMESEGMENT, GAP, NOTE, ALIGNMENT, COMPLEXALIGNMENT, COREFERENCE, SEMROLE, METRIC, LANG, STRING, TABLE, STYLE, PART, UTTERANCE, ENTRY, TERM, DEFINITION, EXAMPLE, PHONOLOGICAL, PREDICATE, OBSERVATION, SENTIMENT, STATEMENT ]
@@ -45,7 +45,7 @@ elements:
           printable: false
           speakable: false
           accepted_data: [ Correction, ForeignData ]
-          optional_attribs: [ ID, ANNOTATOR, CONFIDENCE, DATETIME, N, TEXTCLASS ]
+          optional_attribs: [ ID, ANNOTATOR, CONFIDENCE, DATETIME, N, TEXTCLASS, METADATA ]
           setonly: true
       elements:
           - class: ChunkingLayer
@@ -159,7 +159,7 @@ elements:
       properties:
           printable: true
           speakable: true
-          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, TEXTCLASS ]
+          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, TEXTCLASS, METADATA ]
           accepted_data: [ Metric, Alignment, ForeignData, AlignReference ]
       elements:
           - class: AbstractSpanRole
@@ -274,7 +274,7 @@ elements:
           required_attribs: null
           textdelimiter: "\n\n"
           speakable: true
-          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
+          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
           accepted_data: [AbstractAnnotationLayer, Alignment, Alternative, AlternativeLayers, Correction, Feature, Metric, Part, ForeignData]
           auto_generate_id: true
       elements:
@@ -468,14 +468,14 @@ elements:
                 xmltag: "w"
                 label: "Word/Token"
                 textdelimiter: " " #may be overriden and set to "" if attribute space="no" is set on the word
-                optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, TEXTCLASS ]
+                optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, TEXTCLASS, METADATA ]
     - class: AbstractTextMarkup
       properties:
           textcontainer: true
           printable: true
           accepted_data: [ AbstractTextMarkup, Linebreak ]  #we add linebreak explicitly as it is both a structure element and a markup element
           textdelimiter: ""
-          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
+          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
           xlink: true
           primaryelement: false
       elements:
@@ -507,7 +507,7 @@ elements:
     - class: AbstractTokenAnnotation
       properties:
           required_attribs: [ CLASS ]
-          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, TEXTCLASS ]
+          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, TEXTCLASS, METADATA ]
           accepted_data: [ Feature , Metric, ForeignData ]
           occurrences_per_set: 1 #How often can a particular element+set combination occur under the parent (0 = unlimited)
       elements:
@@ -560,7 +560,7 @@ elements:
       properties:
           annotationtype: ALIGNMENT
           speakable: false
-          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
+          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
           printable: false
           required_attribs: null
           xlink: true
@@ -571,7 +571,7 @@ elements:
       properties:
           required_attribs: null
           speakable: false
-          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
+          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
           printable: false
           accepted_data: [ AbstractTokenAnnotation, Correction, ForeignData,  MorphologyLayer, PhonologyLayer ]
           auth: false
@@ -581,7 +581,7 @@ elements:
       properties:
           required_attribs: null
           speakable: false
-          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
+          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
           printable: false
           accepted_data: [ AbstractAnnotationLayer, ForeignData ]
           auth: false
@@ -591,7 +591,7 @@ elements:
       properties:
           annotationtype: COMPLEXALIGNMENT
           speakable: false
-          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
+          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
           printable: false
           required_attribs: null
           accepted_data: [ Alignment, Metric, Feature, ForeignData ]
@@ -608,7 +608,7 @@ elements:
           printable: true
           accepted_data: [ New, Original, Current, Suggestion, ErrorDetection, Metric, Feature, ForeignData ]
           speakable: true
-          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
+          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
           xmltag: "correction"
           label: "Correction"
           textdelimiter: null
@@ -616,13 +616,13 @@ elements:
       properties:
           xmltag: "comment"
           label: "Comment"
-          optional_attribs: [ ID, ANNOTATOR, CONFIDENCE, DATETIME, N ]
+          optional_attribs: [ ID, ANNOTATOR, CONFIDENCE, DATETIME, N, METADATA ]
     - class: Description
       properties:
           occurrences: 1
           xmltag: "desc"
           label: "Description"
-          optional_attribs: [ ID, ANNOTATOR, CONFIDENCE, DATETIME, N ]
+          optional_attribs: [ ID, ANNOTATOR, CONFIDENCE, DATETIME, N, METADATA ]
     - class: External
       properties:
           speakable: false
@@ -693,14 +693,14 @@ elements:
     - class: Gap
       properties:
           annotationtype: GAP
-          optional_attribs: [ ID, CLASS, ANNOTATOR, N,  DATETIME, SRC, BEGINTIME, ENDTIME ]
+          optional_attribs: [ ID, CLASS, ANNOTATOR, N,  DATETIME, SRC, BEGINTIME, ENDTIME, METADATA ]
           xmltag: "gap"
           label: "Gap"
           accepted_data: [Content, Feature, Metric, Part, ForeignData]
     - class: Metric
       properties:
           annotationtype: METRIC
-          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER ]
+          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
           xmltag: "metric"
           label: "Metric"
           accepted_data: [ Feature, ValueFeature, ForeignData ]
@@ -711,14 +711,14 @@ elements:
           accepted_data: null
           phoncontainer: true
           speakable: true
-          optional_attribs: [ CLASS, ANNOTATOR, CONFIDENCE, DATETIME ]
+          optional_attribs: [ CLASS, ANNOTATOR, CONFIDENCE, DATETIME, METADATA ]
           occurrences: 0
           xmltag: "ph"
           label: "Phonetic Content"
     - class: String
       properties:
           annotationtype: STRING
-          optional_attribs: [ ID, CLASS, ANNOTATOR, CONFIDENCE, DATETIME, N, SRC, BEGINTIME, ENDTIME ]
+          optional_attribs: [ ID, CLASS, ANNOTATOR, CONFIDENCE, DATETIME, N, SRC, BEGINTIME, ENDTIME, METADATA ]
           occurrences: 0
           printable: true
           accepted_data: [AbstractExtendedTokenAnnotation, Alignment, Correction, Feature, ForeignData, Metric, PhonContent, TextContent]
@@ -731,7 +731,7 @@ elements:
           printable: true
           speakable: false
           accepted_data: [ AbstractTextMarkup, Linebreak ] #Linebreak doubles as a AbstractTextMarkup and AbstractStructureAnnotation element
-          optional_attribs: [ CLASS, ANNOTATOR, CONFIDENCE, DATETIME ]
+          optional_attribs: [ CLASS, ANNOTATOR, CONFIDENCE, DATETIME, METADATA ]
           occurrences: 0
           xmltag: "t"
           label: "Text"

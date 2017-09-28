@@ -94,12 +94,12 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
 
 \HRule \\[0.5cm]
 { \Large \bfseries FoLiA: Format for Linguistic Annotation}\\[0.5cm] % Title of your document
-{\bf \small version 1.4.3 -- Revision 7.2} \\[0.5cm]
+{\bf \small version 1.5.0 -- Revision 8.0} \\[0.5cm]
 { \Large \bfseries Documentation}\\[0.5cm]
 {\large \emph{Maarten van Gompel}}\\[0.5cm]
 \HRule \\[1.0cm]
 
-\emph{January 2nd, 2014 \small{(published)} -- August 16th, 2017 \small{(last revision)}} \\[0.3cm]
+\emph{January 2nd, 2014 \small{(published)} -- September 25th, 2017 \small{(last revision)}} \\[0.3cm]
 \includegraphics[width=20.0mm]{ru-beeldmerk-zwart.eps}
 \end{center}
 \vspace{0.5cm}
@@ -509,7 +509,7 @@ identification string.
 
 Set definitions can be stored in several formats (see
 chapter~\ref{chapter:setdefinitions}), the format may be indicated by the
-\texttt{format} attribute on each declaration, its valus should be a MIME type.
+\texttt{format} attribute on each declaration, its value should be a MIME type.
 
 If multiple sets are used for the same annotation type, they each need a
 separate declaration, as illustrated with the following fictitious sets:
@@ -520,10 +520,10 @@ separate declaration, as illustrated with the following fictitious sets:
       <pos-annotation set="http://ilk.uvt.nl/folia/sets/brown" />
 \end{lstlisting}
 
-If only one set is declared, then in the document itself you are allowed to
-skip the set attribute on these specific annotation elements. The declared set
-will automatically be the default. This is common practice as usually there is
-only one set per annotation type.
+If only one set is declared, then in the document itself you are allowed to skip the set attribute on these specific
+annotation elements. The declared set will automatically be the default. This is common practice as usually there is
+only one set per annotation type. In other case, annotations explicitly have a \texttt{set} attribute that corresponds
+to one of the declared sets.
 
 The \texttt{annotator} and \texttt{annotatortype} attributes act as defaults
 for the specific annotation type and set. Unlike \texttt{set}, you do
@@ -537,6 +537,17 @@ annotation element can be cumbersome and pointless in a document with a single
 set and a single annotator for that particular type of annotation. Declarations
 and defaults provide a nice way around this problem.
 
+An alias mechanism is also available when referring to sets by long URLs gets cumbersome. An alias can be declared as
+shown in the following example:
+
+\begin{lstlisting}[language=xml]
+      <pos-annotation set="http://ilk.uvt.nl/folia/sets/CGN"
+        annotator="Frog" annotatortype="auto" alias="cgn" />
+      <pos-annotation set="http://ilk.uvt.nl/folia/sets/brown" alias="brown" />
+\end{lstlisting}
+
+Annotations may then use the alias instead of the full set URL in their \texttt{set} attribute. An alias has to be
+unique for a given annotation type.
 
 \section{Structure Annotation}
 \label{sec:structureannotation}
@@ -4334,7 +4345,7 @@ are:
 When explicit text content on sentence/paragraph level is provided, offsets can
 be used to refer back to it from deeper text-content elements. This does imply
 that there are some challenges to solve. First of all, by default, the offset
-refers to the direct parent of whatever text-supporting element the text
+refers to the first structural parent of whatever text-supporting element the text
 content (\texttt{t}) is a member of. If a level is missing we have to
 explicitly specify this reference using the \texttt{ref} attribute. Note that
 there is no text content for the sentence in the following example, and we
@@ -5010,12 +5021,12 @@ written for your specific use case if you use \texttt{foreign-data}.
 
 \status{since v0.4}{pynlpl,libfolia}
 \status{foreign-data since v1.2}{pynlpl,libfolia}
+\status{submetadata since v1.5}{pynlpl,libfolia}
 
-FoLiA has support for document-wide metadata, most notably the extensive and
-mandatory declaration section for all used annotations which you have seen
-throughout this documentation. To complement this, there is FoLiA's native
-metadata system, in which simple metadata fields can be defined and used at
-will through the \texttt{meta} element. The following example shows this:
+FoLiA has support for metadata, most notably the extensive and mandatory declaration section for all used annotations
+which you have seen throughout this documentation. To complement this, there is FoLiA's native metadata system, in which
+simple metadata fields can be defined and used at will through the \texttt{meta} element. The following example shows
+document-wide metadata:
 
 \begin{lstlisting}[language=xml]
 <metadata type="native">
@@ -5093,6 +5104,53 @@ FoLiA namespace.
 \end{lstlisting}
 
 Multiple \texttt{foreign-data} blocks are allowed too.
+
+\subsection{Submetadata}
+\label{sec:submetadata}
+
+Whereas the metadata discussed in the previous section concerns document-wide metadata, i.e. metadata that is applicable
+to the document as a whole, FoLiA also supports metadata on arbitrary parts of the document. This is referred to as
+\emph{submetadata}. Within the \texttt{metadata} block, one can include one or more \texttt{submetadata} blocks. Like
+\texttt{metadata}, a \texttt{submetadata} block carries a \texttt{type} attribute, a \texttt{src} attribute in case the
+metadata is an external reference, and it may hold \texttt{meta} elements, \texttt{foreign-data} elements. It differs
+from \texttt{metadata} in that it carries a mandatory \texttt{xml:id} and \emph{never} has an \texttt{annotations} block.
+The ID is in turn used to back to the metadata from particular elements in the text. Such a reference is made using the
+\texttt{metadata} attribute, which is a common FoLiA attribute allowed on many elements. Consider the following example
+(certain details are omitted for brevity):
+
+\begin{lstlisting}[language=xml]
+<FoLiA>
+<metadata>
+ <annotations>...</annotations>
+ <submetadata xml:id="metadata.1" type="native">
+   <meta id="author">proycon</meta>
+   <meta id="language">nld</meta>
+ </submetadata>
+ <submetadata xml:id="metadata.2" type="native">
+   <meta id="author">Shakespeare</meta>
+   <meta id="language">eng</meta>
+ </submetadata>
+</metadata>
+<text>
+ <p metadata="metadata.1">
+   <t>Het volgende vers komt uit Hamlet:</t>
+ </p>
+ <p metadata="metadata.2">
+  <s><t>To be, or not to be, that is the question:</t></s>
+  <s><t>Whether 'tis nobler in the mind to suffer<br/>The slings and arrows of outrageous fortune,<br/>Or to take Arms against a Sea of troubles,<br/> And by opposing end them:</s></t>
+ </p>
+</text>
+</FoLiA>
+\end{lstlisting}
+
+Since metadata can be associated with anything, any arbitrary sub-part of untokenised text can even be selected and
+associated with the existing facilities \texttt{str} or \texttt{t-str} (see Section~\ref{sec:str}. Some redundancy
+occurs only at places where structural boundaries are crossed (the metadata attribute might have to be repeated on
+multiple structural elements if there is no catch-all structure).
+
+Submetadata is inherited (recursively), i.e. it is not necessary to explicitly assign the \texttt{metadata} attribute to the children
+of an element that already has such an assignment.
+
 
 \section{External documents and full stand-off annotation}
 \label{sec:external}

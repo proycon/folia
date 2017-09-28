@@ -25,7 +25,7 @@ from collections import defaultdict
 from copy import copy
 
 from docutils import writers, nodes
-from docutils.core import publish_cmdline, default_description
+from docutils.core import publish_cmdline, publish_string, default_description
 
 try:
     import locale
@@ -58,6 +58,8 @@ class Writer(writers.Writer):
         'style': 'https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/styles.foliaset.xml',
         'note': 'https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/notes.foliaset.xml',
         'gap': 'https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/gaps.foliaset.xml',
+        'term': 'https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/terms.foliaset.xml',
+        'definition': 'https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/definitions.foliaset.xml',
         'string': None,
     }
 
@@ -140,6 +142,7 @@ class FoLiATranslator(nodes.NodeVisitor):
         self.texthandled = False
         self.footnote_reference = None
         self.footnote_seq_nr = 0
+        self.inserttextbreaks = False
         if document.settings.declare_all:
             for key in self.sets:
                 self.declare(key)
@@ -215,7 +218,10 @@ class FoLiATranslator(nodes.NodeVisitor):
         if self.footnote_reference and self.textbuffer and self.textbuffer[-1].strip() == self.footnote_reference:
             self.textbuffer = self.textbuffer[:-1]
         if self.textbuffer:
-            o += indentation + " <t>"  + " ".join([x.replace("\n"," ").strip() for x in self.textbuffer]) + "</t>\n"
+            if self.inserttextbreaks:
+                o += indentation + " <t>"  + " ".join([x.replace("\n","<br/>").strip() for x in self.textbuffer]) + "</t>\n"
+            else:
+                o += indentation + " <t>"  + " ".join([x.replace("\n"," ").strip() for x in self.textbuffer]) + "</t>\n"
         o += indentation + "</" + tag + ">\n"
         if self.footnote_reference:
             o += indentation + "<ref id=\"" + self.textid + ".footnote." + self.footnote_reference + "\"><t>[" + self.footnote_reference + "]</t></ref>\n"
@@ -278,6 +284,8 @@ class FoLiATranslator(nodes.NodeVisitor):
             annotationtype = 'sentence'
         elif annotationtype == 'p':
             annotationtype = 'paragraph'
+        elif annotationtype == 'def':
+            annotationtype = 'definition'
         if not annotationtype in self.declared:
             if annotationtype in self.sets:
                 if self.sets[annotationtype]:
@@ -559,6 +567,11 @@ class FoLiATranslator(nodes.NodeVisitor):
     def depart_tbody(self,node):
         pass
 
+    def visit_thead(self,node):
+        pass
+    def depart_thead(self,node):
+        pass
+
     def visit_row(self,node):
         if self.striptables:
             return
@@ -653,19 +666,10 @@ class FoLiATranslator(nodes.NodeVisitor):
     def depart_organization(self, node):
         self.texthandled = False
 
-
-
     def visit_address(self, node):
         self.addmetadata('address', node)
 
     def depart_address(self, node):
-        self.texthandled = False
-
-
-    def visit_contact(self, node):
-        self.addmetadata('contact', node)
-
-    def depart_contact(self, node):
         self.texthandled = False
 
     def visit_problematic(self, node):
@@ -686,10 +690,73 @@ class FoLiATranslator(nodes.NodeVisitor):
     def depart_substitution_definition(self,node):
         self.texthandled = False
 
+    def visit_line_block(self, node):
+        self.inserttextbreaks = True
+        self.initstructure('div')
+    def depart_line_block(self, node):
+        self.closestructure('div')
+        self.inserttextbreaks = False
+
+    def visit_transition(self, node):
+        pass
+    def depart_transition(self, node):
+        self.content.append("<br/>")
+
+
+
+    def visit_subscript(self, node):
+        self.addstyle(node,"subscript")
+    def depart_subscript(self, node):
+        self.texthandled = False
+
+    def visit_superscript(self, node):
+        self.addstyle(node,"superscript")
+    def depart_superscript(self, node):
+        self.texthandled = False
+
+    def visit_math(self, node):
+        self.addstyle(node,"math")
+    def depart_math(self, node):
+        self.texthandled = False
+
+    def visit_definition_list(self, node):
+        pass
+    def depart_definition_list(self, node):
+        pass
+
+    def visit_definition_list_item(self, node):
+        self.initstructure('entry')
+    def depart_definition_list_item(self, node):
+        self.closestructure('entry')
+
+    def visit_term(self, node):
+        self.initstructure('term')
+    def depart_term(self, node):
+        self.closestructure('term')
+
+    def visit_classifier(self, node):
+        texthandled= True
+        print("WARNING: Classifiers in definition_lists are currently not convertable yet, skipping: ", node.astext(),file=sys.stderr)
+    def depart_classifier(self, node):
+        texthandled= False
+
+    def visit_definition(self, node):
+        self.initstructure('def')
+    def depart_definition(self, node):
+        self.closestructure('def')
+
+    def visit_legend(self, node):
+        self.initstructure('div')
+    def depart_legend(self, node):
+        self.closestructure('div')
 
 def main():
     description = 'Generates FoLiA documents from reStructuredText. ' + default_description
     publish_cmdline(writer=Writer(), writer_name='folia', description=description)
+
+def rst2folia(srcstring, **settings):
+    if not settings: settings = None
+    return publish_string(srcstring, writer=Writer(), settings=settings, settings_overrides={'output_encoding': 'unicode'})
 
 if __name__ == '__main__':
     main()
