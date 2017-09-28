@@ -1201,16 +1201,16 @@
             </morphology>
           </w>
           <w xml:id="WR-P-E-J-0000000001.sandbox.2.s.1.w.3">
-            <t offset="18">heeft</t>
+            <t offset="20">heeft</t>
           </w>
           <w xml:id="WR-P-E-J-0000000001.sandbox.2.s.1.w.4">
-            <t offset="24">fors</t>
+            <t offset="26">fors</t>
           </w>
           <w xml:id="WR-P-E-J-0000000001.sandbox.2.s.1.w.5" space="no">
-            <t offset="29">verloren</t>
+            <t offset="31">verloren</t>
           </w>
           <w xml:id="WR-P-E-J-0000000001.sandbox.2.s.1.w.6">
-            <t offset="37">.</t>
+            <t offset="39">.</t>
           </w>
           <entities>
             <entity class="politicalparty" set="mwu-set">
