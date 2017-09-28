@@ -745,6 +745,11 @@ class FoLiATranslator(nodes.NodeVisitor):
     def depart_definition(self, node):
         self.closestructure('def')
 
+    def visit_legend(self, node):
+        self.initstructure('div')
+    def depart_legend(self, node):
+        self.closestructure('div')
+
 def main():
     description = 'Generates FoLiA documents from reStructuredText. ' + default_description
     publish_cmdline(writer=Writer(), writer_name='folia', description=description)
