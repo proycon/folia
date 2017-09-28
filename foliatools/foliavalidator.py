@@ -98,7 +98,7 @@ def main():
     quick = False
     nofail = False
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "E:srhdqVi", ["help"])
+        opts, args = getopt.getopt(sys.argv[1:], "E:srhdqVit", ["help"])
     except getopt.GetoptError as err:
         print(str(err), file=sys.stderr)
         usage()
