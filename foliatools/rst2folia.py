@@ -58,6 +58,8 @@ class Writer(writers.Writer):
         'style': 'https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/styles.foliaset.xml',
         'note': 'https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/notes.foliaset.xml',
         'gap': 'https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/gaps.foliaset.xml',
+        'term': 'https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/terms.foliaset.xml',
+        'definition': 'https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/definitions.foliaset.xml',
         'string': None,
     }
 
@@ -282,6 +284,8 @@ class FoLiATranslator(nodes.NodeVisitor):
             annotationtype = 'sentence'
         elif annotationtype == 'p':
             annotationtype = 'paragraph'
+        elif annotationtype == 'def':
+            annotationtype = 'definition'
         if not annotationtype in self.declared:
             if annotationtype in self.sets:
                 if self.sets[annotationtype]:
@@ -710,8 +714,36 @@ class FoLiATranslator(nodes.NodeVisitor):
     def depart_superscript(self, node):
         self.texthandled = False
 
+    def visit_math(self, node):
+        self.addstyle(node,"math")
+    def depart_math(self, node):
+        self.texthandled = False
 
+    def visit_definition_list(self, node):
+        pass
+    def depart_definition_list(self, node):
+        pass
 
+    def visit_definition_list_item(self, node):
+        self.initstructure('entry')
+    def depart_definition_list_item(self, node):
+        self.closestructure('entry')
+
+    def visit_term(self, node):
+        self.initstructure('term')
+    def depart_term(self, node):
+        self.closestructure('term')
+
+    def visit_classifier(self, node):
+        texthandled= True
+        print("WARNING: Classifiers in definition_lists are currently not convertable yet, skipping: ", node.astext(),file=sys.stderr)
+    def depart_classifier(self, node):
+        texthandled= False
+
+    def visit_definition(self, node):
+        self.initstructure('def')
+    def depart_definition(self, node):
+        self.closestructure('def')
 
 def main():
     description = 'Generates FoLiA documents from reStructuredText. ' + default_description
