@@ -33,7 +33,7 @@ def usage():
     print("  -q                           Quick (more shallow) validation, only validate against RelaxNG schema - do not load document in FoLiA library", file=sys.stderr)
     print("  -E [extension]               Set extension (default: xml)", file=sys.stderr)
     print("  -V                           Show version info", file=sys.stderr)
-    print("  -t                           Treat text validation errors strictly (recommended)", file=sys.stderr)
+    print("  -t                           Treat text validation errors strictly (recommended and default for FoLiA v1.5+)", file=sys.stderr)
     print("  -i                           Ignore validation failures, always report a successful exit code", file=sys.stderr)
 
 
@@ -67,7 +67,7 @@ def validate(filename, schema = None, quick=False, deep=False, stricttextvalidat
             print("VALIDATION ERROR because of text validation errors, in " + filename,file=sys.stderr)
             return False
         else:
-            print("WARNING: there were " + str(document.textvalidationerrors) + " text validation errors but these are currently not counted toward the full validation result (use -t for strict text validation, experimental at this stage)", file=sys.stderr)
+            print("WARNING: there were " + str(document.textvalidationerrors) + " text validation errors but these are currently not counted toward the full validation result (use -t for strict text validation)", file=sys.stderr)
 
     print("Validated successfully: " +  filename,file=sys.stderr)
     return True
