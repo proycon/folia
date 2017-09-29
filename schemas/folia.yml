@@ -385,7 +385,7 @@ elements:
             properties:
                 annotationtype: PART
                 textdelimiter: null
-                accepted_data: [ AbstractStructureElement, AbstractExtendedTokenAnnotation] #too permissive really, should be context dependent
+                accepted_data: [ AbstractStructureElement, AbstractExtendedTokenAnnotation, TextContent, PhonContent ] #too permissive really, should be context dependent
                 xmltag: "part"
                 label: "Part"
           - class: Phoneme
