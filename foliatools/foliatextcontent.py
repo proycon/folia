@@ -240,7 +240,7 @@ def cleanredundancy(element, cls):
             mycontent = element.textcontent(cls)
         except folia.NoSuchText:
             return
-        deepertexts = [ e.cls == cls for e in element.select(folia.TextContent, ignorelist=[True, folia.AbstractAnnotationLayer, folia.String, folia.Morpheme, folia.Phoneme]) if e is not mycontent ]
+        deepertexts = [ e for e in element.select(folia.TextContent, ignorelist=[True, folia.AbstractAnnotationLayer, folia.String, folia.Morpheme, folia.Phoneme]) if e is not mycontent and e.cls == cls ]
         if deepertexts:
             #there is deeper text, remove text on this element
             element.remove(mycontent)
