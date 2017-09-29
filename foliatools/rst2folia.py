@@ -27,6 +27,8 @@ from copy import copy
 from docutils import writers, nodes
 from docutils.core import publish_cmdline, publish_string, default_description
 
+from pynlpl.formats import folia
+
 try:
     import locale
     locale.setlocale(locale.LC_ALL, '')
@@ -192,8 +194,20 @@ class FoLiATranslator(nodes.NodeVisitor):
             self.footnote_seq_nr += 1
             id = self.textid + '.footnote.' + str(self.footnote_seq_nr)
         else:
-            parenttag, parentid = self.path[-1]
-            id = self.generate_id(parentid, tag)
+            parenttag = None
+            for parenttag, parentid in reversed(self.path):
+                if parenttag != None:
+                    break
+            if parenttag is not None:
+                id = self.generate_id(parentid, tag)
+                parentclass = folia.XML2CLASS[parenttag]
+                currentclass = folia.XML2CLASS[tag]
+                if not parentclass.accepts(currentclass):
+                    print("WARNING: Adding " + tag + " to " + parenttag + " would violate FoLiA constraints. Skipping this element!",file=sys.stderr)
+                    self.path.append( (None, None) )
+                    return
+
+
         self.declare(tag)
         self.path.append( (tag, id ) )
         indentation = (len(self.path)-1) * " "
@@ -213,7 +227,9 @@ class FoLiATranslator(nodes.NodeVisitor):
     def closestructure(self, tag):
         """Generic depart function for structure elements"""
         _tag, id = self.path.pop()
-        if not tag == _tag:
+        if tag is None: #we skip this one (nesting violates folia constraints)
+            return
+        elif not tag == _tag:
             raise Exception("Mismatch in closestructure, expected closure for " + tag + ", got " + _tag)
         indentation = len(self.path) * " "
         o = ""
