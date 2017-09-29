@@ -38,6 +38,7 @@ def usage():
     print("  -M                           Add substring markup linking to string elements (if any, and when there is no overlap)"    ,file=sys.stderr)
     print("  -e [encoding]                Output encoding (default: utf-8)",file=sys.stderr)
     print("  -w                           Edit file(s) (overwrites input files), will output to stdout otherwise" ,file=sys.stderr)
+    print("  -D                           Debug" ,file=sys.stderr)
     print("Parameters for processing directories:",file=sys.stderr)
     print("  -r                           Process recursively",file=sys.stderr)
     print("  -E [extension]               Set extension (default: xml)",file=sys.stderr)
@@ -234,15 +235,16 @@ def settext(element, cls='current', offsets=True, forceoffsetref=False, debug=Fa
             if debug: print("Setting text for " + repr(element) + ":" , newtextsequence, file=sys.stderr)
             return element.replace(folia.TextContent, *newtextsequence, cls=cls) #appends if new
 
-def cleanredundancy(element, cls):
+def cleanredundancy(element, cls, debug):
     if element.hastext(cls, strict=True):
         try:
             mycontent = element.textcontent(cls)
         except folia.NoSuchText:
             return
-        deepertexts = [ e for e in element.select(folia.TextContent, ignorelist=[True, folia.AbstractAnnotationLayer, folia.String, folia.Morpheme, folia.Phoneme]) if e is not mycontent and e.cls == cls ]
+        deepertexts = [ e for e in element.select(folia.TextContent, ignore=[True, folia.AbstractAnnotationLayer, folia.String, folia.Morpheme, folia.Phoneme]) if e is not mycontent and e.cls == cls ]
         if deepertexts:
             #there is deeper text, remove text on this element
+            if debug: print("Removing text for " + repr(element) + ":" , mycontent.text(), file=sys.stderr)
             element.remove(mycontent)
 
 def processelement(element, settings):
@@ -255,7 +257,7 @@ def processelement(element, settings):
             if any( isinstance(element,C) for C in settings.Classes):
                 for cls in element.doc.textclasses:
                     if settings.cleanredundancy:
-                        cleanredundancy(element, cls)
+                        cleanredundancy(element, cls, settings.debug)
                     else:
                         settext(element, cls, settings.offsets, settings.forceoffsetref, settings.debug)
 
@@ -326,6 +328,7 @@ def main():
             sys.exit(0)
         elif o == '-c':
             settings.cleanredundancy = True
+            settings.Classes.append(folia.AbstractStructureElement)
         elif o == '-d':
             settings.Classes.append(folia.Division)
         elif o == '-t':
