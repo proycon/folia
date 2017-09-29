@@ -81,6 +81,7 @@ class Writer(writers.Writer):
             ("Strip all gaps (includes verbatim and code blocks)", ['--strip-gaps'], {'default': False, 'action': 'store_true'}),
             ("Strip all raw content (do not encode as gaps)", ['--strip-raw'], {'default': False, 'action': 'store_true'}),
             ("Strip tables", ['--strip-tables'], {'default': False, 'action': 'store_true'}),
+            ("Ignore lineblocks, treat as normal paragraphs", ['--ignore-lineblocks'], {'default': False, 'action': 'store_true'}),
             ("Sets. Comma separated list of annotationtype:seturl pairs. Example: division:https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/divisions.foliaset.xml", ['--sets'],{'default':""}),
             ("Stylesheet. XSL Stylesheet to associate with the document. Defaults to '%s'" % DEFAULTSTYLESHEET, ['--stylesheet'], {'default': "folia2html.xsl",'metavar':'<string>'}),
         )
@@ -152,6 +153,7 @@ class FoLiATranslator(nodes.NodeVisitor):
         self.stripraw = document.settings.strip_raw
         self.stripgaps = document.settings.strip_gaps
         self.striptables = document.settings.strip_tables
+        self.ignorelineblocks = document.settings.ignore_lineblocks
         if document.settings.parentid:
             self.parentid = document.settings.parentid
             self.path.append( (document.settings.parenttype, self.parentid ) )
@@ -691,13 +693,26 @@ class FoLiATranslator(nodes.NodeVisitor):
         self.texthandled = False
 
     def visit_line_block(self, node):
-        self.initstructure('div')
+        if self.ignorelineblocks:
+            self.initstructure('p')
+        else:
+            self.initstructure('div')
     def depart_line_block(self, node):
-        self.closestructure('div')
+        if self.ignorelineblocks:
+            self.closestructure('p')
+        else:
+            self.closestructure('div')
+
     def visit_line(self, node):
-        self.initstructure('part')
+        if self.ignorelineblocks:
+            pass
+        else:
+            self.initstructure('part')
     def depart_line(self, node):
-        self.closestructure('part')
+        if self.ignorelineblocks:
+            pass
+        else:
+            self.closestructure('part')
         self.content.append('<br/>')
 
     def visit_transition(self, node):
