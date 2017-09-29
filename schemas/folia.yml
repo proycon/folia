@@ -293,7 +293,7 @@ elements:
           - class: Definition
             properties:
                 annotationtype: DEFINITION
-                accepted_data: [AbstractExtendedTokenAnnotation, Figure, List, Metric, Paragraph, PhonContent, Reference, Sentence, String, Table, TextContent, Utterance, Word]
+                accepted_data: [AbstractExtendedTokenAnnotation, Figure, List, Metric, Paragraph, PhonContent, Reference, Sentence, String, Table, TextContent, Utterance, Word, Linebreak, Whitespace]
                 xmltag: "def"
                 label: "Definition"
           - class: Division
@@ -338,7 +338,7 @@ elements:
                 label: "Head"
           - class: Label
             properties:
-                accepted_data: [ Word, Reference, TextContent, PhonContent, String, Alignment, Metric, Alternative, Alternative, AlternativeLayers, AbstractAnnotationLayer, AbstractExtendedTokenAnnotation, Correction, Part ]
+                accepted_data: [ Word, Reference, TextContent, PhonContent, String, Alignment, Metric, Alternative, Alternative, AlternativeLayers, AbstractAnnotationLayer, AbstractExtendedTokenAnnotation, Correction, Part, Linebreak, Whitespace ]
                 xmltag: "label"
                 label: "Label"
           - class: Linebreak
@@ -397,7 +397,7 @@ elements:
                 accepted_data: [AbstractTokenAnnotation, FunctionFeature, PhonContent, Phoneme, String, TextContent]
           - class: Quote
             properties:
-                accepted_data: [Division, Gap, Paragraph, Quote, Sentence, String, TextContent, Utterance, Word]
+                accepted_data: [Division, Gap, Paragraph, Quote, Sentence, String, TextContent, Utterance, Word, Reference]
                 xmltag: "quote"
                 label: "Quote"
           - class: Reference
@@ -405,7 +405,7 @@ elements:
                 textdelimiter: null
                 xmltag: "ref"
                 label: "Reference"
-                accepted_data: [PhonContent, Paragraph, Quote, Sentence, String, TextContent, Utterance, Word]
+                accepted_data: [PhonContent, Paragraph, Quote, Sentence, String, TextContent, Utterance, Word, Linebreak, Whitespace]
           - class: Row
             properties:
                 textdelimiter: "\n"
@@ -439,7 +439,7 @@ elements:
           - class: Term
             properties:
                 annotationtype: TERM
-                accepted_data: [AbstractExtendedTokenAnnotation, Event, Figure, Gap, List, Paragraph, PhonContent, Reference, Sentence, String, Table, TextContent, Utterance, Word]
+                accepted_data: [AbstractExtendedTokenAnnotation, Event, Figure, Gap, List, Paragraph, PhonContent, Reference, Sentence, String, Table, TextContent, Utterance, Word, Linebreak, Whitespace]
                 xmltag: "term"
                 label: "Term"
           - class: Text
@@ -447,7 +447,7 @@ elements:
                 xmltag: "text"
                 label: "Text Body"
                 textdelimiter: "\n\n\n"
-                accepted_data: [AbstractExtendedTokenAnnotation, Division, Entry, Event, Example, External, Figure, Gap, List, Note, Paragraph, PhonContent, Quote, Reference, Sentence, String, Table, TextContent, Word]
+                accepted_data: [AbstractExtendedTokenAnnotation, Division, Entry, Event, Example, External, Figure, Gap, List, Note, Paragraph, PhonContent, Quote, Reference, Sentence, String, Table, TextContent, Word, Linebreak, Whitespace]
           - class: Utterance
             properties:
                 annotationtype: UTTERANCE

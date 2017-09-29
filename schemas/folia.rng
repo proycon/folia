@@ -1866,6 +1866,12 @@ RelaxNG schema for FoLiA XML v1.5.0
         <zeroOrMore>
           <ref name="metric"/>
         </zeroOrMore>
+        <zeroOrMore>
+          <ref name="ph"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t"/>
+        </zeroOrMore>
       </interleave>
     </element>
   </define>
@@ -2774,6 +2780,9 @@ RelaxNG schema for FoLiA XML v1.5.0
           <ref name="foreign-data"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="br"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="metric"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -2799,6 +2808,9 @@ RelaxNG schema for FoLiA XML v1.5.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="utt"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="whitespace"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="w"/>
@@ -7561,6 +7573,9 @@ RelaxNG schema for FoLiA XML v1.5.0
           <ref name="foreign-data"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="br"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="list"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -7592,6 +7607,9 @@ RelaxNG schema for FoLiA XML v1.5.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="utt"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="whitespace"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="w"/>
@@ -7748,6 +7766,9 @@ RelaxNG schema for FoLiA XML v1.5.0
           <ref name="gap"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="br"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="list"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -7779,6 +7800,9 @@ RelaxNG schema for FoLiA XML v1.5.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="utt"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="whitespace"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="w"/>
@@ -8616,6 +8640,9 @@ RelaxNG schema for FoLiA XML v1.5.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="quote"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="ref"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="s"/>
@@ -9529,6 +9556,9 @@ RelaxNG schema for FoLiA XML v1.5.0
           <ref name="foreign-data"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="br"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="metric"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -9545,6 +9575,9 @@ RelaxNG schema for FoLiA XML v1.5.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="t"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="whitespace"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="w"/>
@@ -11842,6 +11875,9 @@ RelaxNG schema for FoLiA XML v1.5.0
           <ref name="gap"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="br"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="list"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -11876,6 +11912,9 @@ RelaxNG schema for FoLiA XML v1.5.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="t"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="whitespace"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="w"/>
