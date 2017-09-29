@@ -358,7 +358,7 @@ elements:
           - class: ListItem
             properties:
                 textdelimiter: "\n"
-                accepted_data: [AbstractExtendedTokenAnnotation, Event, Gap, Label, Linebreak, List, Note, PhonContent, Reference, Sentence, String, TextContent, Whitespace, Word]
+                accepted_data: [AbstractExtendedTokenAnnotation, Event, Gap, Label, Linebreak, List, Note, Paragraph, Part, PhonContent, Reference, Sentence, String, TextContent, Whitespace, Word]
                 xmltag: "item" #was listitem in an early erroneous version of FoLiA, libraries will unfortunately need to support that too for backward compatibility
                 label: "List Item"
           - class: Morpheme
