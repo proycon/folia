@@ -18,8 +18,9 @@ except:
 def usage():
     print("foliatextcontent",file=sys.stderr)
     print("  by Maarten van Gompel (proycon)",file=sys.stderr)
+    print("  Centre for Language and Speech Technology",file=sys.stderr)
     print("  Radboud University Nijmegen",file=sys.stderr)
-    print("  2015 - Licensed under GPLv3",file=sys.stderr)
+    print("  2015-2017 - Licensed under GPLv3",file=sys.stderr)
     print("",file=sys.stderr)
     print("This tool operates on some of the redundancy regarding text context inherent in FoLiA documents. It adds text content elements,  on the higher (untokenised) levels, adding offset information and mark-up element if present. Secondly, the tool may als adds text-markup elements for substrings (str element) (provided there is no overlap).",file=sys.stderr)
     print("",file=sys.stderr)
