@@ -116,6 +116,7 @@ A number of command-line tools are readily available for working with FoLiA, to 
 - ``foliaid`` -- Assigns IDs to elements in FoLiA documents
 - ``foliafreqlist`` -- Output a frequency list on tokenised FoLiA documents.
 - ``foliamerge`` -- Merges annotations from two or more FoLiA documents.
+- ``foliatextcontent`` -- A tool for adding or stripping text redundancy, supports adding offset information.
 - ``alpino2folia`` -- Convert Alpino-DS XML to FoLiA XML
 - ``dcoi2folia`` -- Convert D-Coi XML to FoLiA XML
 - ``rst2folia`` -- Convert ReStructuredText, a lightweight non-intrusive text markup language, to FoLiA, using `docutils <http://docutils.sourceforge.net/>`_.
