@@ -691,11 +691,14 @@ class FoLiATranslator(nodes.NodeVisitor):
         self.texthandled = False
 
     def visit_line_block(self, node):
-        self.inserttextbreaks = True
         self.initstructure('div')
     def depart_line_block(self, node):
         self.closestructure('div')
-        self.inserttextbreaks = False
+    def visit_line(self, node):
+        self.initstructure('part')
+    def depart_line(self, node):
+        self.closestructure('part')
+        self.content.append('<br/>')
 
     def visit_transition(self, node):
         pass
