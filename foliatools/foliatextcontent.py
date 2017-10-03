@@ -235,7 +235,7 @@ def settext(element, cls='current', offsets=True, forceoffsetref=False, debug=Fa
             if debug: print("Setting text for " + repr(element) + ":" , newtextsequence, file=sys.stderr)
             return element.replace(folia.TextContent, *newtextsequence, cls=cls) #appends if new
 
-def cleanredundancy(element, cls, debug):
+def cleanredundancy(element, cls, debug=False):
     if element.hastext(cls, strict=True):
         try:
             mycontent = element.textcontent(cls)
