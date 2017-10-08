@@ -9746,6 +9746,9 @@ RelaxNG schema for FoLiA XML v1.5.0
           <ref name="note"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="p"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="part"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -9931,6 +9934,9 @@ RelaxNG schema for FoLiA XML v1.5.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="note"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="p"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="part"/>
