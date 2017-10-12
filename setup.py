@@ -11,7 +11,7 @@ def read(fname):
 
 setup(
     name = "FoLiA-tools",
-    version = "1.5.0.57", #point to this from pynlpl/tests/folia.py
+    version = "1.5.0.58", #point to this from pynlpl/tests/folia.py
     author = "Maarten van Gompel",
     author_email = "proycon@anaproy.nl",
     description = ("FoLiA-tools contains various Python-based command line tools for working with FoLiA XML (Format for Linguistic Annotation)"),

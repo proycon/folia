@@ -12,7 +12,7 @@ import lxml.etree
 try:
     from pynlpl.formats import folia
 except:
-    print("ERROR: pynlpl not found, please obtain PyNLPL from the Python Package Manager ($ sudo easy_install pynlpl) or directly from github: $ git clone git://github.com/proycon/pynlpl.git", file=sys.stderr)
+    print("ERROR: pynlpl not found, please obtain PyNLPL from the Python Package Manager ($ sudo pip install pynlpl) or directly from github: $ git clone git://github.com/proycon/pynlpl.git", file=sys.stderr)
     sys.exit(2)
 
 def usage():
@@ -63,6 +63,11 @@ def validate(filename, schema = None, quick=False, deep=False, stricttextvalidat
         ex_type, ex, tb = sys.exc_info()
         traceback.print_exception(ex_type, ex, tb)
         return False
+    if not document.version:
+        print("VALIDATION ERROR: Document does not advertise FoLiA version (" + filename + ")",file=sys.stderr)
+        return False
+    elif folia.checkversion(document.version) == -1:
+        print("WARNING: Document (" + filename + ") uses an older FoLiA version ("+document.version+") but is validated according to the newer specification (" + folia.FOLIAVERSION+"). You might want to increase the version attribute if this is a document you created and intend to publish.",file=sys.stderr)
     if document.textvalidationerrors:
         if stricttextvalidation:
             print("VALIDATION ERROR because of text validation errors, in " + filename,file=sys.stderr)
