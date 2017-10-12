@@ -35,6 +35,7 @@ def usage():
     print("  -V                           Show version info", file=sys.stderr)
     print("  -t                           Treat text validation errors strictly (recommended and default for FoLiA v1.5+)", file=sys.stderr)
     print("  -i                           Ignore validation failures, always report a successful exit code", file=sys.stderr)
+    print("  -W                           Suppress warnings", file=sys.stderr)
     print("  -D [level]                   Debug", file=sys.stderr)
 
 
@@ -43,7 +44,7 @@ def usage():
 
 
 
-def validate(filename, schema = None, quick=False, deep=False, stricttextvalidation=False,debug=False):
+def validate(filename, schema = None, quick=False, deep=False, stricttextvalidation=False,warn=True,debug=False):
     try:
         folia.validate(filename, schema)
     except Exception as e:
@@ -66,13 +67,13 @@ def validate(filename, schema = None, quick=False, deep=False, stricttextvalidat
     if not document.version:
         print("VALIDATION ERROR: Document does not advertise FoLiA version (" + filename + ")",file=sys.stderr)
         return False
-    elif folia.checkversion(document.version) == -1:
+    elif folia.checkversion(document.version) == -1 and warn:
         print("WARNING: Document (" + filename + ") uses an older FoLiA version ("+document.version+") but is validated according to the newer specification (" + folia.FOLIAVERSION+"). You might want to increase the version attribute if this is a document you created and intend to publish.",file=sys.stderr)
     if document.textvalidationerrors:
         if stricttextvalidation:
             print("VALIDATION ERROR because of text validation errors, in " + filename,file=sys.stderr)
             return False
-        else:
+        elif warn:
             print("WARNING: there were " + str(document.textvalidationerrors) + " text validation errors but these are currently not counted toward the full validation result (use -t for strict text validation)", file=sys.stderr)
 
     print("Validated successfully: " +  filename,file=sys.stderr)
@@ -81,14 +82,14 @@ def validate(filename, schema = None, quick=False, deep=False, stricttextvalidat
 
 
 
-def processdir(d, schema = None,quick=False,deep=False,stricttextvalidation=False,debug=False):
+def processdir(d, schema = None,quick=False,deep=False,stricttextvalidation=False,warn=True,debug=False):
     success = False
     print("Searching in  " + d,file=sys.stderr)
     for f in glob.glob(os.path.join(d ,'*')):
         if f[-len(settings.extension) - 1:] == '.' + settings.extension:
-            r = validate(f, schema,quick,deep,stricttextvalidation,debug)
+            r = validate(f, schema,quick,deep,stricttextvalidation,warn,debug)
         elif settings.recurse and os.path.isdir(f):
-            r = processdir(f,schema,quick,deep,stricttextvalidation,debug)
+            r = processdir(f,schema,quick,deep,stricttextvalidation,warn,debug)
         if not r: success = False
     return success
 
@@ -99,13 +100,14 @@ class settings:
     encoding = 'utf-8'
     deep = False
     stricttextvalidation = False
+    warn = True
     debug = 0
 
 def main():
     quick = False
     nofail = False
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "E:D:srhdqVit", ["help"])
+        opts, args = getopt.getopt(sys.argv[1:], "E:D:WsrhdqVit", ["help"])
     except getopt.GetoptError as err:
         print(str(err), file=sys.stderr)
         usage()
@@ -130,6 +132,8 @@ def main():
             quick = True
         elif o == '-i':
             nofail = True
+        elif o == '-W':
+            settings.warn = False
         elif o == '-V':
             print("FoLiA " + folia.FOLIAVERSION + ", library version " + folia.LIBVERSION,file=sys.stderr)
             sys.exit(0)
@@ -147,9 +151,9 @@ def main():
                 continue
             elif x[0] != '-' and not skipnext:
                 if os.path.isdir(x):
-                    r = processdir(x,schema,quick,settings.deep, settings.stricttextvalidation,settings.debug)
+                    r = processdir(x,schema,quick,settings.deep, settings.stricttextvalidation,settings.warn,settings.debug)
                 elif os.path.isfile(x):
-                    r = validate(x, schema,quick,settings.deep, settings.stricttextvalidation,settings.debug)
+                    r = validate(x, schema,quick,settings.deep, settings.stricttextvalidation,settings.warn,settings.debug)
                 else:
                     print("ERROR: File or directory not found: " + x,file=sys.stderr)
                     sys.exit(3)
