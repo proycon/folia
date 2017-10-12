@@ -1295,7 +1295,7 @@
         <head xml:id="sandbox.3.head">
           <t>De <t-str id="sandbox.3.str"><t-style xml:id="sandbox.3.str.bold" class="bold"><br/>FoLiA</t-style> developers</t-str> zijn:</t>
           <str xml:id="sandbox.3.str">
-            <t offset="3">FoLiA developers</t>
+            <t offset="4">FoLiA developers</t>
             <lang class="eng"/>
             <metric class="wordcount" value="2"/>
           </str>
