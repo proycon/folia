@@ -5,6 +5,7 @@ from __future__ import print_function, unicode_literals, division, absolute_impo
 
 import argparse
 import sys
+from itertools import chain
 from collections import Counter, defaultdict
 try:
     from pynlpl.formats import folia
@@ -12,56 +13,82 @@ except:
     print("ERROR: pynlpl not found, please obtain PyNLPL from the Python Package Manager ($ sudo pip install pynlpl) or directly from github: $ git clone git://github.com/proycon/pynlpl.git",file=sys.stderr)
     sys.exit(2)
 
+
+
+def is_structural(correction):
+    for annotation in chain(correction.new(), correction.original()):
+        if isinstance(annotation, folia.AbstractStructure):
+            return True
+    return False
+
 def get_corrections(doc, Class, foliaset):
     """Get relevant corrections from document"""
     for correction in doc.select(folia.Correction):
+        structural = is_structural(correction)
+
+        #find targets, i.e. the original tokens this correction applies to
+        targets = []
+        if structural:
+            #structural correction
+            if correction.hasoriginal():
+                for structure in correction.original():
+                    if isinstance(structure, folia.AbstractStructureElement):
+                        targets.append(structure)
+            elif correction.hasoriginal(allowempty=True):
+                #TODO: deal with insertions
+                print("INSERTION found but not implemented yet",file=sys.stderr)
+                pass
+        elif issubclass(Class, folia.AbstractSpanAnnotation):
+            #span annotation
+            pass #defer until later
+        else:
+            #token annotation
+            targets = [correction.ancestor(folia.AbstractStructureElement)]
+
         if correction.hasnew():
+            annotations = []
             for annotation in correction.new():
-                structural = isinstance(annotation, folia.AbstractStructure) #structural correction
-                target = None
-                if structural:
-                    if annotation.hasannotation(Class, foliaset):
-                        target = annotation
-                    #TODO: deal with deletions
-                elif isinstance(annotation, Class) and annotation.set == foliaset: #normal correction
-                    if isinstance(annotation, folia.AbstractSpanAnnotation):
-                        target = tuple(annotation.wrefs()) #TODO: implement handling
-                    else:
-                        target = annotation.ancestor(folia.AbstractStructure)
-                if target is not None:
-                    yield correction, structural, annotation.annotation(Class, foliaset), target
+                if isinstance(annotation, Class) and annotation.set == foliaset:
+                    annotations.append(annotation)
+                    if issubclass(Class, folia.AbstractSpanAnnotation):
+                        targets += annotation.wrefs()
+        elif correction.hasnew(allowempty=True) and structural:
+            #TODO: deal with deletion
+            print("DELETION found but not implemented yet",file=sys.stderr)
+            pass
+
+        yield annotations, targets, correction
+
 
 def inter_annotator_agreement(docs, Class, foliaset, do_corrections=False, verbose=False):
     nr = len(docs)
     index = []
     for i, doc in enumerate(docs):
-        index.append(defaultdict(dict))
+        index.append(defaultdict(lambda: defaultdict(list)))
         if do_corrections:
-            for correction, structural, annotation, target in get_corrections(doc, Class, foliaset):
-                if target in index[i]:
-                    print("WARNING: Overlapping annotation for " + repr(target) + ", overwriting!",file=sys.stderr)
-                index[i][target] = (annotation, correction)
+            for annotations, targets, correction in get_corrections(doc, Class, foliaset):
+                targets = tuple(targets) #make hashable
+                index[i][targets].append( (annotations, correction) )
         else:
             for annotation in doc.select(Class, foliaset):
                 if isinstance(annotation, folia.AbstractSpanAnnotation):
-                    target = annotation.wrefs() #TODO: distinguish span roles?
+                    targets = annotation.wrefs() #TODO: distinguish span roles?
                 else:
-                    target = annotation.ancestor(folia.AbstractStructure)
-                if target in index[i]:
-                    print("WARNING: Overlapping annotation for " + repr(target) + ", overwriting!",file=sys.stderr)
-                index[i][target] = annotation
+                    targets = [annotation.ancestor(folia.AbstractStructure)]
+                targets = tuple(targets) #make hashable
+                index[i][targets].append( [annotation] )
 
     #linking step: links annotations on the same things
     links = []
-    targets = []
-    for target in index[0]:
+    linkedtargets = []
+    for targets in index[0]:
         linkchain = []
         for i in range(0,nr):
-            if i == 0: targets.append(target)
-            if target not in index[i]:
+            if i == 0: linkedtargets.append(targets)
+            if targets not in index[i]:
                 break
             else:
-                linkchain.append(index[i][target])
+                linkchain.append(index[i][targets])
         if len(linkchain) == nr:
             links.append(linkchain)
 
