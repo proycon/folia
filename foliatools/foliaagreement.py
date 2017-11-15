@@ -31,25 +31,32 @@ def get_corrections(doc, Class, foliaset):
                 if target is not None:
                     yield correction, structural, annotation.annotation(Class, foliaset), target
 
-def inter_annotator_agreement(docs, Class, foliaset, corrections=False, verbose=False):
+def inter_annotator_agreement(docs, Class, foliaset, do_corrections=False, verbose=False):
     nr = len(docs)
     index = []
-    if corrections:
-        for i, doc in enumerate(docs):
-            index.append(defaultdict(dict))
+    for i, doc in enumerate(docs):
+        index.append(defaultdict(dict))
+        if do_corrections:
             for correction, structural, annotation, target in get_corrections(doc, Class, foliaset):
                 if target in index[i]:
                     print("WARNING: Overlapping annotation for " + repr(target) + ", overwriting!",file=sys.stderr)
+                index[i][target] = (annotation, correction)
+        else:
+            for annotation in doc.select(Class, foliaset):
+                if isinstance(annotation, folia.AbstractSpanAnnotation):
+                    target = annotation.wrefs() #TODO: distinguish span roles?
+                else:
+                    target = annotation.ancestor(folia.AbstractStructure)
+                if target in index[i]:
+                    print("WARNING: Overlapping annotation for " + repr(target) + ", overwriting!",file=sys.stderr)
                 index[i][target] = annotation
-    else:
-        raise NotImplementedError #TODO
 
     #linking step: links annotations on the same things
     links = []
     targets = []
     for target in index[0]:
         linkchain = []
-        for i in range(0,len(index)):
+        for i in range(0,nr):
             if i == 0: targets.append(target)
             if target not in index[i]:
                 break
@@ -63,15 +70,31 @@ def inter_annotator_agreement(docs, Class, foliaset, corrections=False, verbose=
     weakmatches = len(links) #match regardless of class
 
     strongmatches = 0 #match including class
+    correctionmatches = 0 #match including correction class
+    weakcorrections = 0 #correction *with* class
+    strongcorrections = 0 #correction matches both for class and content
     #compute strong matches
     for target, linkchain in zip(targets, links):
-        match = all_equal([ get_value(annotation, Class) for annotation in linkchain ])
+        if do_corrections:
+            values = [ get_value(annotation, Class) for annotation, correction in linkchain ]
+            correctionmatch = all_equal([ correction.cls for annotation, correction in linkchain ])
+            weakcorrections += int(correctionmatch)
+        else:
+            values = [ get_value(annotation, Class) for annotation in linkchain ]
+        match = all_equal(values)
         strongmatches += int(match)
+        if do_corrections:
+            strongcorrections += int(match and correctionmatch)
         if verbose:
             if match:
-                print("YES\t" + target.id + "\t" + get_value(annotation, Class))
+                print("STRONG\t" + target.id + "\t" + get_value(annotation, Class))
             else:
-                print("NO\t" + target.id + "\t" + get_value(annotation, Class))
+                print("WEAK\t" + target.id + "\t" + "; ".join([ get_value(annotation, Class)] ))
+            if do_corrections:
+                if correctionmatch:
+                    print("CORRECTION CLASS MATCHES: " + linkchain[0][1].cls)
+                else:
+                    print("CORRECTION CLASS DOES NOT MATCH: " + "; ".join([ correction.cls for _, correction in linkchain ]))
 
     #collect all possible targets (for normalisation)
     alltargets = set()
@@ -79,7 +102,7 @@ def inter_annotator_agreement(docs, Class, foliaset, corrections=False, verbose=
         for target in index[i]:
             alltargets.add(hash(target))
 
-    return strongmatches, weakmatches, len(alltargets)
+    return strongmatches, weakmatches, len(alltargets), strongcorrections, weakcorrections
 
 def all_equal(collection):
     iterator = iter(collection)
@@ -115,7 +138,7 @@ def main():
 
     foliaset = args.set
 
-    strongmatches, weakmatches, total = inter_annotator_agreement(docs, Type, foliaset, args.corrections, args.verbose)
+    strongmatches, weakmatches, total, strongcorrections, weakcorrections  = inter_annotator_agreement(docs, Type, foliaset, args.corrections, args.verbose)
     if not total:
         print("strong\t0\t0")
         print("weak\t0\t0")
@@ -123,6 +146,9 @@ def main():
     else:
         print("strong\t" + str(strongmatches) + "\t" + str(round(strongmatches/total,3)))
         print("weak\t" + str(weakmatches) + "\t" + str(round(weakmatches/total,3)))
+        if args.corrections:
+            print("strongcorrections\t" + str(strongcorrections) + "\t" + str(round(strongcorrections/total,3)))
+            print("weakcorrections\t" + str(weakcorrections) + "\t" + str(round(weakcorrections/total,3)))
         print("total\t" + str(total))
 
 if __name__ == "__main__":
