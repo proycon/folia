@@ -2,7 +2,7 @@
 #    This is a technical specification of FoLiA, for use by FoLiA libraries
 
 #The FoLiA version
-version: "1.5.0"
+version: "1.5.1"
 
 #The FoLiA namespace
 namespace: "http://ilk.uvt.nl/folia"
@@ -617,6 +617,7 @@ elements:
           xmltag: "comment"
           label: "Comment"
           optional_attribs: [ ID, ANNOTATOR, CONFIDENCE, DATETIME, N, METADATA ]
+          printable: false
     - class: Description
       properties:
           occurrences: 1
