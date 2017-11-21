@@ -60,15 +60,19 @@ def get_corrections(doc, Class, foliaset):
         yield annotations, targets, correction
 
 
-def inter_annotator_agreement(docs, Class, foliaset, do_corrections=False, verbose=False):
+
+def evaluate(docs, Class, foliaset, do_corrections=False, verbose=False):
     nr = len(docs)
     index = []
     for i, doc in enumerate(docs):
         index.append(defaultdict(list))
         if do_corrections:
             for annotations, targets, correction in get_corrections(doc, Class, foliaset):
-                targets = tuple(targets) #make hashable
-                index[i][targets].append( (annotations, correction) )
+                targetids = tuple(( target.id for target in targets)) #tuple of IDs; hashable
+                for annotation in annotations:
+                    index[i][targetids].append( (annotation, correction) )
+                    if verbose:
+                        print("DOC #" + str(i+1) + " - Found annotation (" + str(annotation.cls) + ") on " + ", ".join(targetids) + " (in correction " + repr(correction) + ")",file=sys.stderr)
         else:
             for annotation in doc.select(Class, foliaset):
                 if isinstance(annotation, folia.AbstractSpanAnnotation):
@@ -76,7 +80,7 @@ def inter_annotator_agreement(docs, Class, foliaset, do_corrections=False, verbo
                 else:
                     targets = [annotation.ancestor(folia.AbstractStructure)]
                 targetids = tuple(( target.id for target in targets)) #tuple of IDs; hashable
-                index[i][targetids].append( [annotation] )
+                index[i][targetids].append( annotation )
                 if verbose:
                     print("DOC #" + str(i+1) + " - Found annotation (" + str(annotation.cls) + ") on " + ", ".join(targetids),file=sys.stderr)
 
@@ -98,42 +102,113 @@ def inter_annotator_agreement(docs, Class, foliaset, do_corrections=False, verbo
 
 
     #evaluation step
-    weakmatches = len(links) #match regardless of class
-
-    strongmatches = 0 #match including class
-    correctionmatches = 0 #match including correction class
-    weakcorrections = 0 #correction *with* class
-    strongcorrections = 0 #correction matches both for class and content
-    #compute strong matches
-    for target, linkchain in zip(linkedtargets, links):
-        if do_corrections:
-            values = [ get_value(annotation, Class) for annotation, correction in linkchain ]
-            correctionmatch = all_equal([ correction.cls for annotation, correction in linkchain ])
-            weakcorrections += int(correctionmatch)
-        else:
-            values = [ get_value(annotation, Class) for annotation in linkchain ]
-        match = all_equal(values)
-        strongmatches += int(match)
-        if do_corrections:
-            strongcorrections += int(match and correctionmatch)
-        if verbose:
-            if match:
-                print("STRONG\t" + target.id + "\t" + get_value(annotation, Class))
-            else:
-                print("WEAK\t" + target.id + "\t" + "; ".join([ get_value(annotation, Class)] ))
-            if do_corrections:
-                if correctionmatch:
-                    print("CORRECTION CLASS MATCHES: " + linkchain[0][1].cls)
-                else:
-                    print("CORRECTION CLASS DOES NOT MATCH: " + "; ".join([ correction.cls for _, correction in linkchain ]))
 
     #collect all possible targets (for normalisation)
-    alltargets = set()
-    for i in index:
-        for target in index[i]:
-            alltargets.add(hash(target))
+    alltargetids = set()
+    for i in range(0,nr):
+        for targetids in index[i].keys():
+            alltargetids.add(targetids)
 
-    return strongmatches, weakmatches, len(alltargets), strongcorrections, weakcorrections
+    evaluation = {
+        'foundtargets': len(links),
+        'totaltargets': len(alltargetids),
+        'value': {'matches': 0, 'misses':0},
+        'correctionclass': {'matches': 0, 'misses':0},
+        'correction': {'matches': 0, 'misses':0}
+    }
+
+    #compute strong matches
+    for targets, linkchain in zip(linkedtargets, links):
+        #targets example: [<pynlpl.formats.folia.Word object at 0x7fa7dfcadfd0>, <pynlpl.formats.folia.Word object at 0x7fa7dfcc00b8>]
+        #linkchain example: [[<pynlpl.formats.folia.Entity object at 0x7fa7dfcc0be0>], [<pynlpl.formats.folia.Entity object at 0x7fa7df7a9630>]]
+        #                    ^-- outer index corresponds to doc seq
+        #annotations are wrapped in (annotation, correction) tuples if do_corrections is true
+
+        evaluator = Evaluator()
+
+        for annotations in linkchain:
+            evaluator.evaluate(docs, linkchain, Class, do_corrections)
+
+        targets_label = ";".join([ target.id for target in targets])
+        for value in evaluator.value_matches:
+            print("[VALUE MATCHES]\t" + targets_label + "\t" + value)
+        for value in evaluator.value_misses:
+            print("[VALUE MISSED]\t" + targets_label + "\t" + value)
+
+        if do_corrections:
+            for correctionclass in evaluator.correctionclass_matches:
+                print("[CORRECTION CLASS MATCHES]\t" + targets_label + "\t" + correctionclass)
+            for correctionclass in evaluator.correctionclass_misses:
+                print("[CORRECTION CLASS MISSED]\t" + targets_label + "\t" + correctionclass)
+            for correctionclass, value in evaluator.correction_matches:
+                print("[CORRECTION MATCHES]\t" + targets_label + "\t" + correctionclass + "\t" + value)
+            for correctionclass, value in evaluator.value_misses:
+                print("[CORRECTION MISSED]\t" + targets_label + "\t" + correctionclass + "\t" + value)
+
+        evaluation['value']['matches'] += len(evaluator.value_matches)
+        evaluation['value']['misses'] += len(evaluator.value_misses)
+        evaluation['correctionclass']['matches'] += len(evaluator.correctionclass_matches)
+        evaluation['correctionclass']['misses']  += len(evaluator.correctionclass_misses)
+        evaluation['correction']['matches']  += len(evaluator.correction_matches)
+        evaluation['correction']['misses']   += len(evaluator.correction_misses)
+
+    return evaluation
+
+
+def iter_linkchain(linkchain, do_corrections):
+    for i, annotations in enumerate(linkchain):
+        if do_corrections:
+            iterator = annotations
+        else:
+            iterator = [ (annotation, None) for annotation in annotations ]
+        for annotation, correction in iterator:
+            yield i, annotation, correction
+
+class Evaluator:
+    def __init__(self):
+        self.value_matches = []
+        self.value_misses = []
+
+        self.correctionclass_matches = []
+        self.correctionclass_misses = []
+
+        self.correction_matches = []
+        self.correction_misses = []
+
+    def evaluate(self, docs, linkchain, Class, do_corrections):
+        #first parameter will be output!
+
+        values = defaultdict(set) #abstraction over annotation classes or text content (depending on annotation type)
+
+        correctionclasses = defaultdict(set) #with corrections
+        corrections = defaultdict(set)  #full corrections; values and correctionclasses
+        for docnr, annotation, correction in iter_linkchain(linkchain, do_corrections):
+            value = get_value(annotation, Class) #gets class or text depending on annotation type
+            values[value].add(docnr)
+            if do_corrections and correction:
+                correctionclasses[correction.cls].add(docnr)
+                corrections[(correction.cls, value)].add(docnr)
+
+
+        for value, docset in values:
+            if len(docset) == len(docs):
+                self.value_matches.append(value)
+            else:
+                self.value_misses.append(value)
+
+        if do_corrections:
+            for correctionclass, docset in correctionclasses:
+                if len(docset) == len(docs):
+                    self.correctionclass_matches.append(correctionclass)
+                else:
+                    self.correctionclass_misses.append(correctionclass)
+
+            for correction, docset in corrections:
+                if len(docset) == len(docs):
+                    self.correction_matches.append(correction)
+                else:
+                    self.correction_misses.append(correction)
+
 
 def all_equal(collection):
     iterator = iter(collection)
@@ -175,18 +250,8 @@ def main():
         print("type=" + repr(Type),file=sys.stderr)
         print("set=" + repr(foliaset),file=sys.stderr)
 
-    strongmatches, weakmatches, total, strongcorrections, weakcorrections  = inter_annotator_agreement(docs, Type, foliaset, args.corrections, args.verbose)
-    if not total:
-        print("strong\t0\t0")
-        print("weak\t0\t0")
-        print("total\t0")
-    else:
-        print("strong\t" + str(strongmatches) + "\t" + str(round(strongmatches/total,3)))
-        print("weak\t" + str(weakmatches) + "\t" + str(round(weakmatches/total,3)))
-        if args.corrections:
-            print("strongcorrections\t" + str(strongcorrections) + "\t" + str(round(strongcorrections/total,3)))
-            print("weakcorrections\t" + str(weakcorrections) + "\t" + str(round(weakcorrections/total,3)))
-        print("total\t" + str(total))
+    evaluation = evaluate(docs, Type, foliaset, args.corrections, args.verbose)
+    print(json.dumps(evaluation))
 
 if __name__ == "__main__":
     main()
