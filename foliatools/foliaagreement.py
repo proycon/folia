@@ -5,6 +5,7 @@ from __future__ import print_function, unicode_literals, division, absolute_impo
 
 import argparse
 import sys
+import json
 from itertools import chain
 from collections import Counter, defaultdict
 try:
@@ -129,7 +130,7 @@ def evaluate(docs, Class, foliaset, do_corrections=False, verbose=False):
         for annotations in linkchain:
             evaluator.evaluate(docs, linkchain, Class, do_corrections)
 
-        targets_label = ";".join([ target.id for target in targets])
+        targets_label = " & ".join([ target.id for target in targets])
         for value in evaluator.value_matches:
             print("[VALUE MATCHES]\t" + targets_label + "\t" + value)
         for value in evaluator.value_misses:
@@ -190,20 +191,20 @@ class Evaluator:
                 corrections[(correction.cls, value)].add(docnr)
 
 
-        for value, docset in values:
+        for value, docset in values.items():
             if len(docset) == len(docs):
                 self.value_matches.append(value)
             else:
                 self.value_misses.append(value)
 
         if do_corrections:
-            for correctionclass, docset in correctionclasses:
+            for correctionclass, docset in correctionclasses.items():
                 if len(docset) == len(docs):
                     self.correctionclass_matches.append(correctionclass)
                 else:
                     self.correctionclass_misses.append(correctionclass)
 
-            for correction, docset in corrections:
+            for correction, docset in corrections.items():
                 if len(docset) == len(docs):
                     self.correction_matches.append(correction)
                 else:
