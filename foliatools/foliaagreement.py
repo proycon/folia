@@ -64,7 +64,7 @@ def inter_annotator_agreement(docs, Class, foliaset, do_corrections=False, verbo
     nr = len(docs)
     index = []
     for i, doc in enumerate(docs):
-        index.append(defaultdict(lambda: defaultdict(list)))
+        index.append(defaultdict(list))
         if do_corrections:
             for annotations, targets, correction in get_corrections(doc, Class, foliaset):
                 targets = tuple(targets) #make hashable
@@ -75,22 +75,26 @@ def inter_annotator_agreement(docs, Class, foliaset, do_corrections=False, verbo
                     targets = annotation.wrefs() #TODO: distinguish span roles?
                 else:
                     targets = [annotation.ancestor(folia.AbstractStructure)]
-                targets = tuple(targets) #make hashable
-                index[i][targets].append( [annotation] )
+                targetids = tuple(( target.id for target in targets)) #tuple of IDs; hashable
+                index[i][targetids].append( [annotation] )
+                if verbose:
+                    print("DOC #" + str(i+1) + " - Found annotation (" + str(annotation.cls) + ") on " + ", ".join(targetids),file=sys.stderr)
 
     #linking step: links annotations on the same things
     links = []
     linkedtargets = []
     for targets in index[0]:
         linkchain = []
-        for i in range(0,nr):
-            if i == 0: linkedtargets.append(targets)
+        for i, doc in enumerate(docs):
+            assert isinstance(doc, folia.Document)
+            if i == 0: linkedtargets.append([ doc[targetid] for targetid in targets] )
             if targets not in index[i]:
                 break
             else:
                 linkchain.append(index[i][targets])
         if len(linkchain) == nr:
             links.append(linkchain)
+
 
 
     #evaluation step
@@ -101,7 +105,7 @@ def inter_annotator_agreement(docs, Class, foliaset, do_corrections=False, verbo
     weakcorrections = 0 #correction *with* class
     strongcorrections = 0 #correction matches both for class and content
     #compute strong matches
-    for target, linkchain in zip(targets, links):
+    for target, linkchain in zip(linkedtargets, links):
         if do_corrections:
             values = [ get_value(annotation, Class) for annotation, correction in linkchain ]
             correctionmatch = all_equal([ correction.cls for annotation, correction in linkchain ])
@@ -148,15 +152,18 @@ def main():
     parser = argparse.ArgumentParser(description="FoLiA Inter-Annotator Agreement: This tool computes inter-annotator agreement on two or more structurally equivalent FoLiA documents. Evaluation is expressed as accuracy on the total number of annotation targets (often words) and comes in two flavours: weak and strong. Weak checks only if the same items were marked and can be used as a measure of detection; strong checks if the assigned classes are equal amongst annotators.", formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     #parser.add_argument('--storeconst',dest='settype',help="", action='store_const',const='somevalue')
     parser.add_argument('-t','--type', type=str,help="Annotation type to consider", action='store',default="",required=True)
-    parser.add_argument('-s','--set', type=str,help="Set definition (required if there is ambiguity in the document)", action='store',default="",required=False)
+    parser.add_argument('-s','--set', type=str,help="Set definition (required if there is ambiguity in the document)", action='store',required=False)
     parser.add_argument('-c','--corrections', help="Use corrections", action='store_true',default="",required=False)
     parser.add_argument('-v','--verbose', help="Verbose, list all matches/mismatches", action='store_true',required=False)
     #parser.add_argument('-i','--number',dest="num", type=int,help="", action='store',default="",required=False)
     parser.add_argument('documents', nargs='+', help='FoLiA Documents')
     args = parser.parse_args()
 
+    docs = []
     for docfile in args.documents:
-        docs = folia.Document(file=docfile)
+        if args.verbose:
+            print("Loading " + docfile,file=sys.stderr)
+        docs.append( folia.Document(file=docfile))
 
     try:
         Type = folia.XML2CLASS[args.type]
@@ -164,6 +171,9 @@ def main():
         print("No such type: ", args.type,file=sys.stderr)
 
     foliaset = args.set
+    if args.verbose:
+        print("type=" + repr(Type),file=sys.stderr)
+        print("set=" + repr(foliaset),file=sys.stderr)
 
     strongmatches, weakmatches, total, strongcorrections, weakcorrections  = inter_annotator_agreement(docs, Type, foliaset, args.corrections, args.verbose)
     if not total:
