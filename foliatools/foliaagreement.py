@@ -88,15 +88,14 @@ def evaluate(docs, Class, foliaset, do_corrections=False, verbose=False):
     #linking step: links annotations on the same things
     links = []
     linkedtargets = []
-    for targets in index[0]:
+    for targetids in index[0].keys():
         linkchain = []
         for i, doc in enumerate(docs):
-            assert isinstance(doc, folia.Document)
-            if i == 0: linkedtargets.append([ doc[targetid] for targetid in targets] )
-            if targets not in index[i]:
+            if i == 0: linkedtargets.append([ doc[targetid] for targetid in targetids] )
+            if targetids not in index[i]:
                 break
             else:
-                linkchain.append(index[i][targets])
+                linkchain.append(index[i][targetids])
         if len(linkchain) == nr:
             links.append(linkchain)
 
@@ -127,8 +126,7 @@ def evaluate(docs, Class, foliaset, do_corrections=False, verbose=False):
 
         evaluator = Evaluator()
 
-        for annotations in linkchain:
-            evaluator.evaluate(docs, linkchain, Class, do_corrections)
+        evaluator.evaluate(docs, linkchain, Class, do_corrections)
 
         targets_label = " & ".join([ target.id for target in targets])
         for value in evaluator.value_matches:
