@@ -86,6 +86,7 @@ def processdir(d, schema = None,quick=False,deep=False,stricttextvalidation=Fals
     success = False
     print("Searching in  " + d,file=sys.stderr)
     for f in glob.glob(os.path.join(d ,'*')):
+        r = False
         if f[-len(settings.extension) - 1:] == '.' + settings.extension:
             r = validate(f, schema,quick,deep,stricttextvalidation,warn,debug)
         elif settings.recurse and os.path.isdir(f):
@@ -150,6 +151,7 @@ def main():
                 skipnext = True
                 continue
             elif x[0] != '-' and not skipnext:
+                r = False
                 if os.path.isdir(x):
                     r = processdir(x,schema,quick,settings.deep, settings.stricttextvalidation,settings.warn,settings.debug)
                 elif os.path.isfile(x):
