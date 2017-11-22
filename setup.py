@@ -55,7 +55,7 @@ setup(
             'alpino2folia = foliatools.alpino2folia:main',
             'foliatree = foliatools.foliatree:main',
             'foliasetdefinition = foliatools.foliasetdefinition:main',
-            'foliaagreement = foliatools.foliaagreement:main',
+            'foliaeval = foliatools.foliaeval:main',
         ]
     },
     #include_package_data=True,
