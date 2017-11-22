@@ -85,21 +85,22 @@ def evaluate(docs, Class, foliaset, do_corrections=False, verbose=False):
                 if verbose:
                     print("DOC #" + str(i+1) + " - Found annotation (" + str(annotation.cls) + ") on " + ", ".join(targetids),file=sys.stderr)
 
-    #linking step: links annotations on the same things
+    #linking step: links annotations on the same targets
     links = []
     linkedtargets = []
-    for targetids in index[0].keys():
-        linkchain = []
-        for i, doc in enumerate(docs):
-            if i == 0: linkedtargets.append([ doc[targetid] for targetid in targetids] )
-            if targetids not in index[i]:
-                break
-            else:
-                linkchain.append(index[i][targetids])
-        if len(linkchain) == nr:
-            links.append(linkchain)
-
-
+    linkedtargetids = []
+    for j in range(0,nr):
+        for targetids in index[j].keys():
+            linkchain = []
+            if targetids not in linkedtargetids:
+                linkedtargetids.append(targetids)
+                linkedtargets.append([ docs[j][targetid] for targetid in targetids] )
+                for i, doc in enumerate(docs):
+                    if targetids in index[i]:
+                        linkchain.append(index[i][targetids])
+                    else:
+                        linkchain.append(None)
+                links.append(linkchain)
 
     #evaluation step
 
@@ -108,6 +109,8 @@ def evaluate(docs, Class, foliaset, do_corrections=False, verbose=False):
     for i in range(0,nr):
         for targetids in index[i].keys():
             alltargetids.add(targetids)
+            if targetids not in linkedtargetids:
+                print("[TARGET MISSED]\t" + " & ".join(targetids))
 
     evaluation = {
         'foundtargets': len(links),
@@ -131,18 +134,18 @@ def evaluate(docs, Class, foliaset, do_corrections=False, verbose=False):
         targets_label = " & ".join([ target.id for target in targets])
         for value in evaluator.value_matches:
             print("[VALUE MATCHES]\t" + targets_label + "\t" + value)
-        for value in evaluator.value_misses:
-            print("[VALUE MISSED]\t" + targets_label + "\t" + value)
+        for value, docset in evaluator.value_misses:
+            print("[VALUE MISSED]\t@" + ",".join([str(x) for x in docset]) + "\t" + targets_label + "\t" + value)
 
         if do_corrections:
             for correctionclass in evaluator.correctionclass_matches:
                 print("[CORRECTION CLASS MATCHES]\t" + targets_label + "\t" + correctionclass)
-            for correctionclass in evaluator.correctionclass_misses:
-                print("[CORRECTION CLASS MISSED]\t" + targets_label + "\t" + correctionclass)
+            for correctionclass,docset in evaluator.correctionclass_misses:
+                print("[CORRECTION CLASS MISSED]\t@" + ",".join([str(x) for x in docset]) + "\t" +  targets_label + "\t" + correctionclass)
             for correctionclass, value in evaluator.correction_matches:
                 print("[CORRECTION MATCHES]\t" + targets_label + "\t" + correctionclass + "\t" + value)
-            for correctionclass, value in evaluator.value_misses:
-                print("[CORRECTION MISSED]\t" + targets_label + "\t" + correctionclass + "\t" + value)
+            for (correctionclass, value), docset in evaluator.value_misses:
+                print("[CORRECTION MISSED]\t@" + ",".join([str(x) for x in docset]) + "\t" + targets_label + "\t" + correctionclass + "\t" + value)
 
         evaluation['value']['matches'] += len(evaluator.value_matches)
         evaluation['value']['misses'] += len(evaluator.value_misses)
@@ -156,12 +159,13 @@ def evaluate(docs, Class, foliaset, do_corrections=False, verbose=False):
 
 def iter_linkchain(linkchain, do_corrections):
     for i, annotations in enumerate(linkchain):
-        if do_corrections:
-            iterator = annotations
-        else:
-            iterator = [ (annotation, None) for annotation in annotations ]
-        for annotation, correction in iterator:
-            yield i, annotation, correction
+        if annotations is not None:
+            if do_corrections:
+                iterator = annotations
+            else:
+                iterator = [ (annotation, None) for annotation in annotations ]
+            for annotation, correction in iterator:
+                yield i, annotation, correction
 
 class Evaluator:
     def __init__(self):
@@ -189,24 +193,26 @@ class Evaluator:
                 corrections[(correction.cls, value)].add(docnr)
 
 
+        alldocset = set(range(0,len(docs)))
+
         for value, docset in values.items():
             if len(docset) == len(docs):
                 self.value_matches.append(value)
             else:
-                self.value_misses.append(value)
+                self.value_misses.append( (value, alldocset - docset))
 
         if do_corrections:
             for correctionclass, docset in correctionclasses.items():
                 if len(docset) == len(docs):
                     self.correctionclass_matches.append(correctionclass)
                 else:
-                    self.correctionclass_misses.append(correctionclass)
+                    self.correctionclass_misses.append( (correctionclass, alldocset -docset))
 
             for correction, docset in corrections.items():
                 if len(docset) == len(docs):
                     self.correction_matches.append(correction)
                 else:
-                    self.correction_misses.append(correction)
+                    self.correction_misses.append( (correction, alldocset - docset))
 
 
 def all_equal(collection):
