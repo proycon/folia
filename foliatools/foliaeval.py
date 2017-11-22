@@ -62,7 +62,8 @@ def get_corrections(doc, Class, foliaset):
 
 
 
-def evaluate(docs, Class, foliaset, do_corrections=False, verbose=False):
+def evaluate(docs, Class, foliaset, reference, do_corrections=False, verbose=False):
+    assert all((isinstance(doc, folia.Document) for doc in docs))
     nr = len(docs)
     index = []
     for i, doc in enumerate(docs):
@@ -94,6 +95,7 @@ def evaluate(docs, Class, foliaset, do_corrections=False, verbose=False):
             linkchain = []
             if targetids not in linkedtargetids:
                 linkedtargetids.append(targetids)
+                assert isinstance(docs[j], folia.Document)
                 linkedtargets.append([ docs[j][targetid] for targetid in targetids] )
                 for i, doc in enumerate(docs):
                     if targetids in index[i]:
@@ -101,20 +103,18 @@ def evaluate(docs, Class, foliaset, do_corrections=False, verbose=False):
                     else:
                         linkchain.append(None)
                 links.append(linkchain)
+        if reference:
+            #only consider targets in reference documents
+            break
 
     #evaluation step
 
-    #collect all possible targets (for normalisation)
-    alltargetids = set()
-    for i in range(0,nr):
-        for targetids in index[i].keys():
-            alltargetids.add(targetids)
-            if targetids not in linkedtargetids:
-                print("[TARGET MISSED]\t" + " & ".join(targetids))
+    #values can be class or text depending on annotation type
+    valuelabel = 'text' if Class in (folia.TextContent, folia.PhonContent) else 'class'
 
     evaluation = {
         'targets': {'matches':0, 'misses':0},
-        'value': {'matches': 0, 'misses':0},
+        valuelabel: {'matches': 0, 'misses':0},
         'correctionclass': {'matches': 0, 'misses':0},
         'correction': {'matches': 0, 'misses':0}
     }
@@ -128,7 +128,7 @@ def evaluate(docs, Class, foliaset, do_corrections=False, verbose=False):
 
         evaluator = LinkchainEvaluator()
 
-        evaluator.evaluate(docs, linkchain, Class, do_corrections)
+        evaluator.evaluate(docs, linkchain, Class, reference, do_corrections)
 
         targets_label = " & ".join([ target.id for target in targets])
 
@@ -138,33 +138,32 @@ def evaluate(docs, Class, foliaset, do_corrections=False, verbose=False):
         else:
             evaluation['targets']['matches']  += 1
 
+            for value in evaluator.value_matches:
+                print("[" + valuelabel.upper() + " MATCHES]\t" + targets_label + "\t" + value)
+            for value, docset in evaluator.value_misses:
+                print("[" + valuelabel.upper() + " MISSED]\t@" + ",".join([str(x+1) for x in docset]) + "\t" + targets_label + "\t" + value)
 
-        for value in evaluator.value_matches:
-            print("[VALUE MATCHES]\t" + targets_label + "\t" + value)
-        for value, docset in evaluator.value_misses:
-            print("[VALUE MISSED]\t@" + ",".join([str(x+1) for x in docset]) + "\t" + targets_label + "\t" + value)
+            if do_corrections:
+                for correctionclass in evaluator.correctionclass_matches:
+                    print("[CORRECTION CLASS MATCHES]\t" + targets_label + "\t" + correctionclass)
+                for correctionclass,docset in evaluator.correctionclass_misses:
+                    print("[CORRECTION CLASS MISSED]\t@" + ",".join([str(x+1) for x in docset]) + "\t" +  targets_label + "\t" + correctionclass)
+                for correctionclass, value in evaluator.correction_matches:
+                    print("[CORRECTION MATCHES]\t" + targets_label + "\t" + correctionclass + "\t" + value)
+                for (correctionclass, value), docset in evaluator.value_misses:
+                    print("[CORRECTION MISSED]\t@" + ",".join([str(x+1) for x in docset]) + "\t" + targets_label + "\t" + correctionclass + "\t" + value)
 
-        if do_corrections:
-            for correctionclass in evaluator.correctionclass_matches:
-                print("[CORRECTION CLASS MATCHES]\t" + targets_label + "\t" + correctionclass)
-            for correctionclass,docset in evaluator.correctionclass_misses:
-                print("[CORRECTION CLASS MISSED]\t@" + ",".join([str(x+1) for x in docset]) + "\t" +  targets_label + "\t" + correctionclass)
-            for correctionclass, value in evaluator.correction_matches:
-                print("[CORRECTION MATCHES]\t" + targets_label + "\t" + correctionclass + "\t" + value)
-            for (correctionclass, value), docset in evaluator.value_misses:
-                print("[CORRECTION MISSED]\t@" + ",".join([str(x+1) for x in docset]) + "\t" + targets_label + "\t" + correctionclass + "\t" + value)
-
-        evaluation['value']['matches'] += len(evaluator.value_matches)
-        evaluation['value']['misses'] += len(evaluator.value_misses)
-        evaluation['correctionclass']['matches'] += len(evaluator.correctionclass_matches)
-        evaluation['correctionclass']['misses']  += len(evaluator.correctionclass_misses)
-        evaluation['correction']['matches']  += len(evaluator.correction_matches)
-        evaluation['correction']['misses']   += len(evaluator.correction_misses)
+            evaluation[valuelabel]['matches'] += len(evaluator.value_matches)
+            evaluation[valuelabel]['misses'] += len(evaluator.value_misses)
+            evaluation['correctionclass']['matches'] += len(evaluator.correctionclass_matches)
+            evaluation['correctionclass']['misses']  += len(evaluator.correctionclass_misses)
+            evaluation['correction']['matches']  += len(evaluator.correction_matches)
+            evaluation['correction']['misses']   += len(evaluator.correction_misses)
 
     try:
-        evaluation['value']['accuracy'] = evaluation['value']['matches'] / (evaluation['value']['matches']  + evaluation['value']['misses'])
+        evaluation[valuelabel]['accuracy'] = evaluation[valuelabel]['matches'] / (evaluation[valuelabel]['matches']  + evaluation[valuelabel]['misses'])
     except ZeroDivisionError:
-        evaluation['value']['accuracy'] = 0
+        evaluation[valuelabel]['accuracy'] = 0
     try:
         evaluation['targets']['accuracy'] = evaluation['targets']['matches'] / (evaluation['targets']['matches']  + evaluation['targets']['misses'])
     except ZeroDivisionError:
@@ -204,7 +203,9 @@ class LinkchainEvaluator:
         self.correction_matches = []
         self.correction_misses = []
 
-    def evaluate(self, docs, linkchain, Class, do_corrections):
+    def evaluate(self, docs, linkchain, Class, reference, do_corrections):
+        assert all((isinstance(doc, folia.Document) for doc in docs))
+
         for i, annotations in enumerate(linkchain):
             if annotations is None:
                 self.target_misses.add(i)
@@ -263,7 +264,8 @@ def main():
     parser.add_argument('-t','--type', type=str,help="Annotation type to consider", action='store',default="",required=True)
     parser.add_argument('-s','--set', type=str,help="Set definition (required if there is ambiguity in the document)", action='store',required=False)
     parser.add_argument('-c','--corrections', help="Use corrections", action='store_true',default="",required=False)
-    parser.add_argument('-v','--verbose', help="Verbose, list all matches/mismatches", action='store_true',required=False)
+    parser.add_argument('-q','--quiet',dest='verbose', help="Be quiet, do not output verbose information on matches/mismatches", action='store_false',default=True,required=False)
+    parser.add_argument('--ref', help="Take first document to be the reference document, i.e. gold standard. If *not* specified all docuemnts are consider equal and metrics yield inter-annotator agreement", action='store_true')
     #parser.add_argument('-i','--number',dest="num", type=int,help="", action='store',default="",required=False)
     parser.add_argument('documents', nargs='+', help='FoLiA Documents')
     args = parser.parse_args()
@@ -272,6 +274,8 @@ def main():
     for i, docfile in enumerate(args.documents):
         if args.verbose:
             print("Loading DOC #" + str(i+1) + ": " + docfile,file=sys.stderr)
+            if args.ref and i == 0:
+                print("          ^--- This document acts as the reference documents, i.e. gold standard", file=sys.stderr)
         docs.append( folia.Document(file=docfile))
 
     try:
@@ -283,9 +287,22 @@ def main():
     if args.verbose:
         print("type=" + repr(Type),file=sys.stderr)
         print("set=" + repr(foliaset),file=sys.stderr)
+        if args.ref:
+            print("reference document provided (--ref)", file=sys.stderr)
+        else:
+            print("no reference document provided, all documents treated equal and computing inter-annotator agreement", file=sys.stderr)
 
-    evaluation = evaluate(docs, Type, foliaset, args.corrections, args.verbose)
-    print(json.dumps(evaluation, indent=4))
+    if args.ref:
+        print("{")
+        for i, doc in enumerate(docs[1:]):
+            if i > 0: print(",")
+            evaldocs = [docs[0], doc]
+            evaluation = evaluate(evaldocs, Type, foliaset, True, args.corrections, args.verbose)
+            print("\"" + doc.filename + "\": " + json.dumps(evaluation, indent=4))
+        print("}")
+    else:
+        evaluation = evaluate(docs, Type, foliaset, False, args.corrections, args.verbose)
+        print(json.dumps(evaluation, indent=4))
 
 if __name__ == "__main__":
     main()
