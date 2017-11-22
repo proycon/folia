@@ -114,13 +114,13 @@ def evaluate(docs, Class, foliaset, reference, do_corrections=False, verbose=Fal
     #falseneg = misses
     evaluation = {
         'targets': {'truepos':0, 'falsepos': 0, 'falseneg':0},
-        valuelabel: {'truepos': 0, 'falseneg':0},
+        valuelabel: {'truepos': 0, 'falsepos': 0, 'falseneg':0},
     }
 
     if do_corrections:
         evaluation.update({
-            'correctionclass': {'truepos': 0, 'falseneg':0},
-            'correction': {'truepos': 0, 'falseneg':0}
+            'correctionclass': {'truepos': 0, 'falsepos': 0, 'falseneg':0},
+            'correction': {'truepos': 0, 'falsepos': 0, 'falseneg':0}
         })
     #compute strong truepos
     for targets, linkchain in zip(linkedtargets, links):
@@ -135,43 +135,57 @@ def evaluate(docs, Class, foliaset, reference, do_corrections=False, verbose=Fal
 
         targets_label = " & ".join([ target.id for target in targets])
 
-        if evaluator.target_falseneg:
+        if evaluator.target_misses:
             if reference and linkchain[0] is None:
-                print("[TARGET WRONG]\t@" + ",".join([str(x+1) for x in evaluator.target_falseneg]) + "\t" + targets_label)
-                evaluation['targets']['falsepos'] += 1
+                polarity = 'pos'
+                polarity_label = "WRONG"
             else:
-                print("[TARGET MISSED]\t@" + ",".join([str(x+1) for x in evaluator.target_falseneg]) + "\t" + targets_label)
-                evaluation['targets']['falseneg'] += 1
+                polarity = 'neg'
+                polarity_label = "MISSED"
+            print("[TARGET " + polarity_label+"]\t@" + ",".join([str(x+1) for x in evaluator.target_misses]) + "\t" + targets_label)
+            evaluation['targets']['false'+polarity] += 1
+            evaluation[valuelabel]['false'+polarity] += 1
+            if do_corrections:
+                evaluation['correctionclass']['false'+polarity] += 1
+                evaluation['correction']['false'+polarity] += 1
         else:
             evaluation['targets']['truepos']  += 1
 
-            for value in evaluator.value_truepos:
+            for value in evaluator.value_matches:
                 print("[" + valuelabel.upper() + " MATCHES]\t" + targets_label + "\t" + value)
-            for value, docset in evaluator.value_falseneg:
+            for value, docset in evaluator.value_misses:
                 print("[" + valuelabel.upper() + " MISSED]\t@" + ",".join([str(x+1) for x in docset]) + "\t" + targets_label + "\t" + value)
 
             if do_corrections:
-                for correctionclass in evaluator.correctionclass_truepos:
+                for correctionclass in evaluator.correctionclass_matches:
                     print("[CORRECTION CLASS MATCHES]\t" + targets_label + "\t" + correctionclass)
                 for correctionclass,docset in evaluator.correctionclass_falseneg:
                     print("[CORRECTION CLASS MISSED]\t@" + ",".join([str(x+1) for x in docset]) + "\t" +  targets_label + "\t" + correctionclass)
-                for correctionclass, value in evaluator.correction_truepos:
+                for correctionclass, value in evaluator.correction_matches:
                     print("[CORRECTION MATCHES]\t" + targets_label + "\t" + correctionclass + "\t" + value)
                 for (correctionclass, value), docset in evaluator.value_falseneg:
                     print("[CORRECTION MISSED]\t@" + ",".join([str(x+1) for x in docset]) + "\t" + targets_label + "\t" + correctionclass + "\t" + value)
 
-            evaluation[valuelabel]['truepos'] += len(evaluator.value_truepos)
-            evaluation[valuelabel]['falseneg'] += len(evaluator.value_falseneg)
+            evaluation[valuelabel]['truepos'] += len(evaluator.value_matches)
+            evaluation[valuelabel]['falsepos'] += len(evaluator.value_misses)
             if do_corrections:
-                evaluation['correctionclass']['truepos'] += len(evaluator.correctionclass_truepos)
-                evaluation['correctionclass']['falseneg']  += len(evaluator.correctionclass_falseneg)
-                evaluation['correction']['truepos']  += len(evaluator.correction_truepos)
-                evaluation['correction']['falseneg']   += len(evaluator.correction_falseneg)
+                evaluation['correctionclass']['truepos'] += len(evaluator.correctionclass_matches)
+                evaluation['correctionclass']['falsepos']  += len(evaluator.correctionclass_misses)
+                evaluation['correction']['truepos'] += len(evaluator.correction_matches)
+                evaluation['correction']['falsepos']  += len(evaluator.correction_misses)
 
     try:
-        evaluation[valuelabel]['accuracy'] = evaluation[valuelabel]['truepos'] / (evaluation[valuelabel]['truepos']  + evaluation[valuelabel]['falseneg'])
+        evaluation[valuelabel]['precision'] = evaluation[valuelabel]['truepos'] / (evaluation[valuelabel]['truepos']  + evaluation[valuelabel]['falsepos'])
     except ZeroDivisionError:
-        evaluation[valuelabel]['accuracy'] = 0
+        evaluation[valuelabel]['precision'] = 0
+    try:
+        evaluation[valuelabel]['recall'] = evaluation[valuelabel]['truepos'] / (evaluation[valuelabel]['truepos']  + evaluation[valuelabel]['falseneg'])
+    except ZeroDivisionError:
+        evaluation[valuelabel]['recall'] = 0
+    try:
+        evaluation[valuelabel]['f1score'] = 2 * ((evaluation[valuelabel]['precision'] * evaluation[valuelabel]['recall']) /  (evaluation[valuelabel]['precision'] + evaluation[valuelabel]['recall']))
+    except ZeroDivisionError:
+        evaluation[valuelabel]['f1score'] = 0
 
     try:
         evaluation['targets']['precision'] = evaluation['targets']['truepos'] / (evaluation['targets']['truepos']  + evaluation['targets']['falsepos'])
@@ -181,17 +195,37 @@ def evaluate(docs, Class, foliaset, reference, do_corrections=False, verbose=Fal
         evaluation['targets']['recall'] = evaluation['targets']['truepos'] / (evaluation['targets']['truepos']  + evaluation['targets']['falseneg'])
     except ZeroDivisionError:
         evaluation['targets']['recall'] = 0
+    try:
+        evaluation['targets']['f1score'] = 2 * ((evaluation['targets']['precision'] * evaluation['targets']['recall']) /  (evaluation['targets']['precision'] + evaluation['targets']['recall']))
+    except ZeroDivisionError:
+        evaluation['targets']['f1score'] = 0
 
     if do_corrections:
         try:
-            evaluation['correctionclass']['accuracy'] = evaluation['correctionclass']['truepos'] / (evaluation['correctionclass']['truepos']  + evaluation['correctionclass']['falseneg'])
+            evaluation['correctionclass']['precision'] = evaluation['correctionclass']['truepos'] / (evaluation['correctionclass']['truepos']  + evaluation['correctionclass']['falsepos'])
         except ZeroDivisionError:
-            evaluation['correctionclass']['accuracy'] = 0
+            evaluation['correctionclass']['precision'] = 0
         try:
-            evaluation['correction']['accuracy'] = evaluation['correction']['truepos'] / (evaluation['correction']['truepos']  + evaluation['correction']['falseneg'])
+            evaluation['correctionclass']['recall'] = evaluation['correctionclass']['truepos'] / (evaluation['correctionclass']['truepos']  + evaluation['correctionclass']['falseneg'])
         except ZeroDivisionError:
-            evaluation['correction']['accuracy'] = 0
+            evaluation['correctionclass']['recall'] = 0
+        try:
+            evaluation['correctionclass']['f1score'] = 2 * ((evaluation['correctionclass']['precision'] * evaluation['correctionclass']['recall']) /  (evaluation['correctionclass']['precision'] + evaluation['correctionclass']['recall']))
+        except ZeroDivisionError:
+            evaluation['correctionclass']['f1score'] = 0
 
+        try:
+            evaluation['correction']['precision'] = evaluation['correction']['truepos'] / (evaluation['correction']['truepos']  + evaluation['correction']['falsepos'])
+        except ZeroDivisionError:
+            evaluation['correction']['precision'] = 0
+        try:
+            evaluation['correction']['recall'] = evaluation['correction']['truepos'] / (evaluation['correction']['truepos']  + evaluation['correction']['falseneg'])
+        except ZeroDivisionError:
+            evaluation['correction']['recall'] = 0
+        try:
+            evaluation['correction']['f1score'] = 2 * ((evaluation['correction']['precision'] * evaluation['correction']['recall']) /  (evaluation['correction']['precision'] + evaluation['correction']['recall']))
+        except ZeroDivisionError:
+            evaluation['correction']['f1score'] = 0
 
     return evaluation
 
@@ -208,23 +242,23 @@ def iter_linkchain(linkchain, do_corrections):
 
 class LinkchainEvaluator:
     def __init__(self):
-        self.target_falseneg = set()
+        self.target_misses = set()
 
-        self.value_truepos = []
-        self.value_falseneg = []
+        self.value_matches = []
+        self.value_misses = []
 
-        self.correctionclass_truepos = []
-        self.correctionclass_falseneg = []
+        self.correctionclass_matches = []
+        self.correctionclass_misses = []
 
-        self.correction_truepos = []
-        self.correction_falseneg = []
+        self.correction_matches = []
+        self.correction_misses = []
 
     def evaluate(self, docs, linkchain, Class, reference, do_corrections):
         assert all((isinstance(doc, folia.Document) for doc in docs))
 
         for i, annotations in enumerate(linkchain):
             if annotations is None:
-                self.target_falseneg.add(i)
+                self.target_misses.add(i)
 
         values = defaultdict(set) #abstraction over annotation classes or text content (depending on annotation type)
 
@@ -242,22 +276,22 @@ class LinkchainEvaluator:
 
         for value, docset in values.items():
             if len(docset) == len(docs):
-                self.value_truepos.append(value)
+                self.value_matches.append(value)
             else:
-                self.value_falseneg.append( (value, alldocset - docset))
+                self.value_misses.append( (value, alldocset - docset))
 
         if do_corrections:
             for correctionclass, docset in correctionclasses.items():
                 if len(docset) == len(docs):
-                    self.correctionclass_truepos.append(correctionclass)
+                    self.correctionclass_matches.append(correctionclass)
                 else:
-                    self.correctionclass_falseneg.append( (correctionclass, alldocset -docset))
+                    self.correctionclass_misses.append( (correctionclass, alldocset -docset))
 
             for correction, docset in corrections.items():
                 if len(docset) == len(docs):
-                    self.correction_truepos.append(correction)
+                    self.correction_matches.append(correction)
                 else:
-                    self.correction_falseneg.append( (correction, alldocset - docset))
+                    self.correction_misses.append( (correction, alldocset - docset))
 
 
 def all_equal(collection):
