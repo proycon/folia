@@ -251,9 +251,9 @@ def main():
     args = parser.parse_args()
 
     docs = []
-    for docfile in args.documents:
+    for i, docfile in enumerate(args.documents):
         if args.verbose:
-            print("Loading " + docfile,file=sys.stderr)
+            print("Loading DOC #" + str(i+1) + ": " + docfile,file=sys.stderr)
         docs.append( folia.Document(file=docfile))
 
     try:
