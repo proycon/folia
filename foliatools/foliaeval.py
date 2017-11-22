@@ -161,6 +161,23 @@ def evaluate(docs, Class, foliaset, do_corrections=False, verbose=False):
         evaluation['correction']['matches']  += len(evaluator.correction_matches)
         evaluation['correction']['misses']   += len(evaluator.correction_misses)
 
+    try:
+        evaluation['value']['accuracy'] = evaluation['value']['matches'] / (evaluation['value']['matches']  + evaluation['value']['misses'])
+    except ZeroDivisionError:
+        evaluation['value']['accuracy'] = 0
+    try:
+        evaluation['targets']['accuracy'] = evaluation['targets']['matches'] / (evaluation['targets']['matches']  + evaluation['targets']['misses'])
+    except ZeroDivisionError:
+        evaluation['targets']['accuracy'] = 0
+    try:
+        evaluation['correctionclass']['accuracy'] = evaluation['correctionclass']['matches'] / (evaluation['correctionclass']['matches']  + evaluation['correctionclass']['misses'])
+    except ZeroDivisionError:
+        evaluation['correctionclass']['accuracy'] = 0
+    try:
+        evaluation['correction']['accuracy'] = evaluation['correction']['matches'] / (evaluation['correction']['matches']  + evaluation['correction']['misses'])
+    except ZeroDivisionError:
+        evaluation['correction']['accuracy'] = 0
+
     return evaluation
 
 
@@ -268,7 +285,7 @@ def main():
         print("set=" + repr(foliaset),file=sys.stderr)
 
     evaluation = evaluate(docs, Type, foliaset, args.corrections, args.verbose)
-    print(json.dumps(evaluation))
+    print(json.dumps(evaluation, indent=4))
 
 if __name__ == "__main__":
     main()
