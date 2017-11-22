@@ -113,14 +113,14 @@ def evaluate(docs, Class, foliaset, reference, do_corrections=False, verbose=Fal
     #falsepos = wrong targets
     #falseneg = misses
     evaluation = {
-        'targets': {'truepos':0, 'falsepos': 0, 'falseneg':0},
-        valuelabel: {'truepos': 0, 'falsepos': 0, 'falseneg':0},
+        'targets': {'truepos':0, 'falsepos': 0, 'falseneg':0, 'description': "A measure of detection, expresses whether the right targets (often words or spans of words) have been annotated, regardless of whether the annotation class/text/value is correct"},
+        valuelabel: {'truepos': 0, 'falsepos': 0, 'falseneg':0, 'description': "A measure of classification with regard to the text, expresses whether the text matches" if valuelabel == 'text' else "A measure of classification with regard to the annotation class, expresses whether the class matches"},
     }
 
     if do_corrections:
         evaluation.update({
-            'correctionclass': {'truepos': 0, 'falsepos': 0, 'falseneg':0},
-            'correction': {'truepos': 0, 'falsepos': 0, 'falseneg':0}
+            'correctionclass': {'truepos': 0, 'falsepos': 0, 'falseneg':0, 'description': "A measure expressing only if the correct correction class was assigned, irregardless of the correction itself!" },
+            'correction': {'truepos': 0, 'falsepos': 0, 'falseneg':0, 'description': "A measure expressing if the correction is correction with both regard for correction class as well as actual annotation content (" + valuelabel + ")" }
         })
     #compute strong truepos
     for targets, linkchain in zip(linkedtargets, links):
