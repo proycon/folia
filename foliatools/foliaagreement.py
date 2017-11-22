@@ -113,8 +113,7 @@ def evaluate(docs, Class, foliaset, do_corrections=False, verbose=False):
                 print("[TARGET MISSED]\t" + " & ".join(targetids))
 
     evaluation = {
-        'foundtargets': len(links),
-        'totaltargets': len(alltargetids),
+        'targets': {'matches':0, 'misses':0},
         'value': {'matches': 0, 'misses':0},
         'correctionclass': {'matches': 0, 'misses':0},
         'correction': {'matches': 0, 'misses':0}
@@ -127,11 +126,19 @@ def evaluate(docs, Class, foliaset, do_corrections=False, verbose=False):
         #                    ^-- outer index corresponds to doc seq
         #annotations are wrapped in (annotation, correction) tuples if do_corrections is true
 
-        evaluator = Evaluator()
+        evaluator = LinkchainEvaluator()
 
         evaluator.evaluate(docs, linkchain, Class, do_corrections)
 
         targets_label = " & ".join([ target.id for target in targets])
+
+        if evaluator.target_misses:
+            print("[TARGET MISSED]\t@" + ",".join([str(x+1) for x in evaluator.target_misses]) + "\t" + targets_label)
+            evaluation['targets']['misses'] += 1
+        else:
+            evaluation['targets']['matches']  += 1
+
+
         for value in evaluator.value_matches:
             print("[VALUE MATCHES]\t" + targets_label + "\t" + value)
         for value, docset in evaluator.value_misses:
@@ -167,8 +174,10 @@ def iter_linkchain(linkchain, do_corrections):
             for annotation, correction in iterator:
                 yield i, annotation, correction
 
-class Evaluator:
+class LinkchainEvaluator:
     def __init__(self):
+        self.target_misses = set()
+
         self.value_matches = []
         self.value_misses = []
 
@@ -179,7 +188,9 @@ class Evaluator:
         self.correction_misses = []
 
     def evaluate(self, docs, linkchain, Class, do_corrections):
-        #first parameter will be output!
+        for i, annotations in enumerate(linkchain):
+            if annotations is None:
+                self.target_misses.add(i)
 
         values = defaultdict(set) #abstraction over annotation classes or text content (depending on annotation type)
 
