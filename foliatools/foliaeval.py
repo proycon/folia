@@ -115,10 +115,13 @@ def evaluate(docs, Class, foliaset, reference, do_corrections=False, verbose=Fal
     evaluation = {
         'targets': {'truepos':0, 'falsepos': 0, 'falseneg':0},
         valuelabel: {'truepos': 0, 'falseneg':0},
-        'correctionclass': {'truepos': 0, 'falseneg':0},
-        'correction': {'truepos': 0, 'falseneg':0}
     }
 
+    if do_corrections:
+        evaluation.update({
+            'correctionclass': {'truepos': 0, 'falseneg':0},
+            'correction': {'truepos': 0, 'falseneg':0}
+        })
     #compute strong truepos
     for targets, linkchain in zip(linkedtargets, links):
         #targets example: [<pynlpl.formats.folia.Word object at 0x7fa7dfcadfd0>, <pynlpl.formats.folia.Word object at 0x7fa7dfcc00b8>]
@@ -159,10 +162,11 @@ def evaluate(docs, Class, foliaset, reference, do_corrections=False, verbose=Fal
 
             evaluation[valuelabel]['truepos'] += len(evaluator.value_truepos)
             evaluation[valuelabel]['falseneg'] += len(evaluator.value_falseneg)
-            evaluation['correctionclass']['truepos'] += len(evaluator.correctionclass_truepos)
-            evaluation['correctionclass']['falseneg']  += len(evaluator.correctionclass_falseneg)
-            evaluation['correction']['truepos']  += len(evaluator.correction_truepos)
-            evaluation['correction']['falseneg']   += len(evaluator.correction_falseneg)
+            if do_corrections:
+                evaluation['correctionclass']['truepos'] += len(evaluator.correctionclass_truepos)
+                evaluation['correctionclass']['falseneg']  += len(evaluator.correctionclass_falseneg)
+                evaluation['correction']['truepos']  += len(evaluator.correction_truepos)
+                evaluation['correction']['falseneg']   += len(evaluator.correction_falseneg)
 
     try:
         evaluation[valuelabel]['accuracy'] = evaluation[valuelabel]['truepos'] / (evaluation[valuelabel]['truepos']  + evaluation[valuelabel]['falseneg'])
@@ -178,14 +182,15 @@ def evaluate(docs, Class, foliaset, reference, do_corrections=False, verbose=Fal
     except ZeroDivisionError:
         evaluation['targets']['recall'] = 0
 
-    try:
-        evaluation['correctionclass']['accuracy'] = evaluation['correctionclass']['truepos'] / (evaluation['correctionclass']['truepos']  + evaluation['correctionclass']['falseneg'])
-    except ZeroDivisionError:
-        evaluation['correctionclass']['accuracy'] = 0
-    try:
-        evaluation['correction']['accuracy'] = evaluation['correction']['truepos'] / (evaluation['correction']['truepos']  + evaluation['correction']['falseneg'])
-    except ZeroDivisionError:
-        evaluation['correction']['accuracy'] = 0
+    if do_corrections:
+        try:
+            evaluation['correctionclass']['accuracy'] = evaluation['correctionclass']['truepos'] / (evaluation['correctionclass']['truepos']  + evaluation['correctionclass']['falseneg'])
+        except ZeroDivisionError:
+            evaluation['correctionclass']['accuracy'] = 0
+        try:
+            evaluation['correction']['accuracy'] = evaluation['correction']['truepos'] / (evaluation['correction']['truepos']  + evaluation['correction']['falseneg'])
+        except ZeroDivisionError:
+            evaluation['correction']['accuracy'] = 0
 
 
     return evaluation
