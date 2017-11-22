@@ -103,23 +103,23 @@ def evaluate(docs, Class, foliaset, reference, do_corrections=False, verbose=Fal
                     else:
                         linkchain.append(None)
                 links.append(linkchain)
-        if reference:
-            #only consider targets in reference documents
-            break
 
     #evaluation step
 
     #values can be class or text depending on annotation type
     valuelabel = 'text' if Class in (folia.TextContent, folia.PhonContent) else 'class'
 
+    #truepos = matches
+    #falsepos = wrong targets
+    #falseneg = misses
     evaluation = {
-        'targets': {'matches':0, 'misses':0},
-        valuelabel: {'matches': 0, 'misses':0},
-        'correctionclass': {'matches': 0, 'misses':0},
-        'correction': {'matches': 0, 'misses':0}
+        'targets': {'truepos':0, 'falsepos': 0, 'falseneg':0},
+        valuelabel: {'truepos': 0, 'falseneg':0},
+        'correctionclass': {'truepos': 0, 'falseneg':0},
+        'correction': {'truepos': 0, 'falseneg':0}
     }
 
-    #compute strong matches
+    #compute strong truepos
     for targets, linkchain in zip(linkedtargets, links):
         #targets example: [<pynlpl.formats.folia.Word object at 0x7fa7dfcadfd0>, <pynlpl.formats.folia.Word object at 0x7fa7dfcc00b8>]
         #linkchain example: [[<pynlpl.formats.folia.Entity object at 0x7fa7dfcc0be0>], [<pynlpl.formats.folia.Entity object at 0x7fa7df7a9630>]]
@@ -132,50 +132,61 @@ def evaluate(docs, Class, foliaset, reference, do_corrections=False, verbose=Fal
 
         targets_label = " & ".join([ target.id for target in targets])
 
-        if evaluator.target_misses:
-            print("[TARGET MISSED]\t@" + ",".join([str(x+1) for x in evaluator.target_misses]) + "\t" + targets_label)
-            evaluation['targets']['misses'] += 1
+        if evaluator.target_falseneg:
+            if reference and linkchain[0] is None:
+                print("[TARGET WRONG]\t@" + ",".join([str(x+1) for x in evaluator.target_falseneg]) + "\t" + targets_label)
+                evaluation['targets']['falsepos'] += 1
+            else:
+                print("[TARGET MISSED]\t@" + ",".join([str(x+1) for x in evaluator.target_falseneg]) + "\t" + targets_label)
+                evaluation['targets']['falseneg'] += 1
         else:
-            evaluation['targets']['matches']  += 1
+            evaluation['targets']['truepos']  += 1
 
-            for value in evaluator.value_matches:
+            for value in evaluator.value_truepos:
                 print("[" + valuelabel.upper() + " MATCHES]\t" + targets_label + "\t" + value)
-            for value, docset in evaluator.value_misses:
+            for value, docset in evaluator.value_falseneg:
                 print("[" + valuelabel.upper() + " MISSED]\t@" + ",".join([str(x+1) for x in docset]) + "\t" + targets_label + "\t" + value)
 
             if do_corrections:
-                for correctionclass in evaluator.correctionclass_matches:
+                for correctionclass in evaluator.correctionclass_truepos:
                     print("[CORRECTION CLASS MATCHES]\t" + targets_label + "\t" + correctionclass)
-                for correctionclass,docset in evaluator.correctionclass_misses:
+                for correctionclass,docset in evaluator.correctionclass_falseneg:
                     print("[CORRECTION CLASS MISSED]\t@" + ",".join([str(x+1) for x in docset]) + "\t" +  targets_label + "\t" + correctionclass)
-                for correctionclass, value in evaluator.correction_matches:
+                for correctionclass, value in evaluator.correction_truepos:
                     print("[CORRECTION MATCHES]\t" + targets_label + "\t" + correctionclass + "\t" + value)
-                for (correctionclass, value), docset in evaluator.value_misses:
+                for (correctionclass, value), docset in evaluator.value_falseneg:
                     print("[CORRECTION MISSED]\t@" + ",".join([str(x+1) for x in docset]) + "\t" + targets_label + "\t" + correctionclass + "\t" + value)
 
-            evaluation[valuelabel]['matches'] += len(evaluator.value_matches)
-            evaluation[valuelabel]['misses'] += len(evaluator.value_misses)
-            evaluation['correctionclass']['matches'] += len(evaluator.correctionclass_matches)
-            evaluation['correctionclass']['misses']  += len(evaluator.correctionclass_misses)
-            evaluation['correction']['matches']  += len(evaluator.correction_matches)
-            evaluation['correction']['misses']   += len(evaluator.correction_misses)
+            evaluation[valuelabel]['truepos'] += len(evaluator.value_truepos)
+            evaluation[valuelabel]['falseneg'] += len(evaluator.value_falseneg)
+            evaluation['correctionclass']['truepos'] += len(evaluator.correctionclass_truepos)
+            evaluation['correctionclass']['falseneg']  += len(evaluator.correctionclass_falseneg)
+            evaluation['correction']['truepos']  += len(evaluator.correction_truepos)
+            evaluation['correction']['falseneg']   += len(evaluator.correction_falseneg)
 
     try:
-        evaluation[valuelabel]['accuracy'] = evaluation[valuelabel]['matches'] / (evaluation[valuelabel]['matches']  + evaluation[valuelabel]['misses'])
+        evaluation[valuelabel]['accuracy'] = evaluation[valuelabel]['truepos'] / (evaluation[valuelabel]['truepos']  + evaluation[valuelabel]['falseneg'])
     except ZeroDivisionError:
         evaluation[valuelabel]['accuracy'] = 0
+
     try:
-        evaluation['targets']['accuracy'] = evaluation['targets']['matches'] / (evaluation['targets']['matches']  + evaluation['targets']['misses'])
+        evaluation['targets']['precision'] = evaluation['targets']['truepos'] / (evaluation['targets']['truepos']  + evaluation['targets']['falsepos'])
     except ZeroDivisionError:
-        evaluation['targets']['accuracy'] = 0
+        evaluation['targets']['precision'] = 0
     try:
-        evaluation['correctionclass']['accuracy'] = evaluation['correctionclass']['matches'] / (evaluation['correctionclass']['matches']  + evaluation['correctionclass']['misses'])
+        evaluation['targets']['recall'] = evaluation['targets']['truepos'] / (evaluation['targets']['truepos']  + evaluation['targets']['falseneg'])
+    except ZeroDivisionError:
+        evaluation['targets']['recall'] = 0
+
+    try:
+        evaluation['correctionclass']['accuracy'] = evaluation['correctionclass']['truepos'] / (evaluation['correctionclass']['truepos']  + evaluation['correctionclass']['falseneg'])
     except ZeroDivisionError:
         evaluation['correctionclass']['accuracy'] = 0
     try:
-        evaluation['correction']['accuracy'] = evaluation['correction']['matches'] / (evaluation['correction']['matches']  + evaluation['correction']['misses'])
+        evaluation['correction']['accuracy'] = evaluation['correction']['truepos'] / (evaluation['correction']['truepos']  + evaluation['correction']['falseneg'])
     except ZeroDivisionError:
         evaluation['correction']['accuracy'] = 0
+
 
     return evaluation
 
@@ -192,23 +203,23 @@ def iter_linkchain(linkchain, do_corrections):
 
 class LinkchainEvaluator:
     def __init__(self):
-        self.target_misses = set()
+        self.target_falseneg = set()
 
-        self.value_matches = []
-        self.value_misses = []
+        self.value_truepos = []
+        self.value_falseneg = []
 
-        self.correctionclass_matches = []
-        self.correctionclass_misses = []
+        self.correctionclass_truepos = []
+        self.correctionclass_falseneg = []
 
-        self.correction_matches = []
-        self.correction_misses = []
+        self.correction_truepos = []
+        self.correction_falseneg = []
 
     def evaluate(self, docs, linkchain, Class, reference, do_corrections):
         assert all((isinstance(doc, folia.Document) for doc in docs))
 
         for i, annotations in enumerate(linkchain):
             if annotations is None:
-                self.target_misses.add(i)
+                self.target_falseneg.add(i)
 
         values = defaultdict(set) #abstraction over annotation classes or text content (depending on annotation type)
 
@@ -226,22 +237,22 @@ class LinkchainEvaluator:
 
         for value, docset in values.items():
             if len(docset) == len(docs):
-                self.value_matches.append(value)
+                self.value_truepos.append(value)
             else:
-                self.value_misses.append( (value, alldocset - docset))
+                self.value_falseneg.append( (value, alldocset - docset))
 
         if do_corrections:
             for correctionclass, docset in correctionclasses.items():
                 if len(docset) == len(docs):
-                    self.correctionclass_matches.append(correctionclass)
+                    self.correctionclass_truepos.append(correctionclass)
                 else:
-                    self.correctionclass_misses.append( (correctionclass, alldocset -docset))
+                    self.correctionclass_falseneg.append( (correctionclass, alldocset -docset))
 
             for correction, docset in corrections.items():
                 if len(docset) == len(docs):
-                    self.correction_matches.append(correction)
+                    self.correction_truepos.append(correction)
                 else:
-                    self.correction_misses.append( (correction, alldocset - docset))
+                    self.correction_falseneg.append( (correction, alldocset - docset))
 
 
 def all_equal(collection):
@@ -264,7 +275,7 @@ def main():
     parser.add_argument('-t','--type', type=str,help="Annotation type to consider", action='store',default="",required=True)
     parser.add_argument('-s','--set', type=str,help="Set definition (required if there is ambiguity in the document)", action='store',required=False)
     parser.add_argument('-c','--corrections', help="Use corrections", action='store_true',default="",required=False)
-    parser.add_argument('-q','--quiet',dest='verbose', help="Be quiet, do not output verbose information on matches/mismatches", action='store_false',default=True,required=False)
+    parser.add_argument('-q','--quiet',dest='verbose', help="Be quiet, do not output verbose information matches/mismatches", action='store_false',default=True,required=False)
     parser.add_argument('--ref', help="Take first document to be the reference document, i.e. gold standard. If *not* specified all docuemnts are consider equal and metrics yield inter-annotator agreement", action='store_true')
     #parser.add_argument('-i','--number',dest="num", type=int,help="", action='store',default="",required=False)
     parser.add_argument('documents', nargs='+', help='FoLiA Documents')
