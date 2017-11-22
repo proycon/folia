@@ -135,17 +135,17 @@ def evaluate(docs, Class, foliaset, do_corrections=False, verbose=False):
         for value in evaluator.value_matches:
             print("[VALUE MATCHES]\t" + targets_label + "\t" + value)
         for value, docset in evaluator.value_misses:
-            print("[VALUE MISSED]\t@" + ",".join([str(x) for x in docset]) + "\t" + targets_label + "\t" + value)
+            print("[VALUE MISSED]\t@" + ",".join([str(x+1) for x in docset]) + "\t" + targets_label + "\t" + value)
 
         if do_corrections:
             for correctionclass in evaluator.correctionclass_matches:
                 print("[CORRECTION CLASS MATCHES]\t" + targets_label + "\t" + correctionclass)
             for correctionclass,docset in evaluator.correctionclass_misses:
-                print("[CORRECTION CLASS MISSED]\t@" + ",".join([str(x) for x in docset]) + "\t" +  targets_label + "\t" + correctionclass)
+                print("[CORRECTION CLASS MISSED]\t@" + ",".join([str(x+1) for x in docset]) + "\t" +  targets_label + "\t" + correctionclass)
             for correctionclass, value in evaluator.correction_matches:
                 print("[CORRECTION MATCHES]\t" + targets_label + "\t" + correctionclass + "\t" + value)
             for (correctionclass, value), docset in evaluator.value_misses:
-                print("[CORRECTION MISSED]\t@" + ",".join([str(x) for x in docset]) + "\t" + targets_label + "\t" + correctionclass + "\t" + value)
+                print("[CORRECTION MISSED]\t@" + ",".join([str(x+1) for x in docset]) + "\t" + targets_label + "\t" + correctionclass + "\t" + value)
 
         evaluation['value']['matches'] += len(evaluator.value_matches)
         evaluation['value']['misses'] += len(evaluator.value_misses)
