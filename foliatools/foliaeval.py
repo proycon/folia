@@ -17,8 +17,14 @@ except:
 
 
 def is_structural(correction):
-    for annotation in chain(correction.new(), correction.original()):
-        if isinstance(annotation, folia.AbstractStructure):
+    if correction.hasnew(True) and correction.hasoriginal(True):
+        iterator = chain(correction.new(), correction.original())
+    elif correction.hasnew(True):
+        iterator = correction.new()
+    elif correction.hasoriginal(True):
+        iterator = correction.original()
+    for annotation in iterator:
+        if isinstance(annotation, folia.AbstractStructureElement):
             return True
     return False
 
@@ -114,7 +120,7 @@ def evaluate(docs, Class, foliaset, reference, do_corrections=False, verbose=Fal
     #falseneg = misses
     evaluation = {
         'targets': {'truepos':0, 'falsepos': 0, 'falseneg':0, 'description': "A measure of detection, expresses whether the right targets (often words or spans of words) have been annotated, regardless of whether the annotation class/text/value is correct"},
-        valuelabel: {'truepos': 0, 'falsepos': 0, 'falseneg':0, 'description': "A measure of classification with regard to the text, expresses whether the text matches" if valuelabel == 'text' else "A measure of classification with regard to the annotation class, expresses whether the class matches"},
+        valuelabel: {'truepos': 0, 'falsepos': 0, 'falseneg':0, 'description': "A measure of classification with regard to the text, expresses whether the text matches, i.e. the annotation is correct" if valuelabel == 'text' else "A measure of classification with regard to the annotation class, expresses whether the class matches, i.e. the annotation is correct"},
     }
 
     if do_corrections:
