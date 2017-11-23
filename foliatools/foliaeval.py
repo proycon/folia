@@ -142,7 +142,6 @@ def evaluate(docs, Class, foliaset, reference, do_corrections=False, do_confusio
         evaluator = LinkchainEvaluator()
 
         evaluator.evaluate(docs, linkchain, Class, reference, do_corrections)
-        print(evaluator.confusionmatrix)
 
 
         targets_label = " & ".join([ target.id for target in targets])
@@ -296,7 +295,7 @@ class LinkchainEvaluator:
                 corrections[(correction.cls, value)].add(docnr)
             if docnr == 0 and reference and refvalue is None:
                 refvalue = value
-                self.confusionmatrix[refvalue] = {}
+                self.confusionmatrix[refvalue] = defaultdict(int)
             elif docnr > 0 and reference and refvalue is not None:
                 self.confusionmatrix[refvalue][value] += 1
 
