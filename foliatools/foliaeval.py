@@ -55,7 +55,7 @@ def get_corrections(doc, Class, foliaset):
         if correction.hasnew():
             annotations = []
             for annotation in correction.new():
-                if isinstance(annotation, Class) and annotation.set == foliaset:
+                if isinstance(annotation, Class) and (Class in (folia.TextContent, folia.PhonContent) or foliaset is None or annotation.set == foliaset):
                     annotations.append(annotation)
                     if issubclass(Class, folia.AbstractSpanAnnotation):
                         targets += annotation.wrefs()
@@ -80,7 +80,8 @@ def evaluate(docs, Class, foliaset, reference, do_corrections=False, verbose=Fal
                 for annotation in annotations:
                     index[i][targetids].append( (annotation, correction) )
                     if verbose:
-                        print("DOC #" + str(i+1) + " - Found annotation (" + str(annotation.cls) + ") on " + ", ".join(targetids) + " (in correction " + repr(correction) + ")",file=sys.stderr)
+                        value = str(annotation) if isinstance(annotation, (folia.TextContent, folia.PhonContent)) else str(annotation.cls)
+                        print("DOC #" + str(i+1) + " - Found annotation (" + value + ") on " + ", ".join(targetids) + " (in correction " + str(correction.id) + ", " + str(correction.cls) + ")",file=sys.stderr)
         else:
             for annotation in doc.select(Class, foliaset):
                 if isinstance(annotation, folia.AbstractSpanAnnotation):
@@ -90,7 +91,8 @@ def evaluate(docs, Class, foliaset, reference, do_corrections=False, verbose=Fal
                 targetids = tuple(( target.id for target in targets)) #tuple of IDs; hashable
                 index[i][targetids].append( annotation )
                 if verbose:
-                    print("DOC #" + str(i+1) + " - Found annotation (" + str(annotation.cls) + ") on " + ", ".join(targetids),file=sys.stderr)
+                    value = str(annotation) if isinstance(annotation, (folia.TextContent, folia.PhonContent)) else str(annotation.cls)
+                    print("DOC #" + str(i+1) + " - Found annotation (" + value + ") on " + ", ".join(targetids),file=sys.stderr)
 
     #linking step: links annotations on the same targets
     links = []
@@ -165,11 +167,11 @@ def evaluate(docs, Class, foliaset, reference, do_corrections=False, verbose=Fal
             if do_corrections:
                 for correctionclass in evaluator.correctionclass_matches:
                     print("[CORRECTION CLASS MATCHES]\t" + targets_label + "\t" + correctionclass)
-                for correctionclass,docset in evaluator.correctionclass_falseneg:
+                for correctionclass,docset in evaluator.correctionclass_misses:
                     print("[CORRECTION CLASS MISSED]\t@" + ",".join([str(x+1) for x in docset]) + "\t" +  targets_label + "\t" + correctionclass)
                 for correctionclass, value in evaluator.correction_matches:
                     print("[CORRECTION MATCHES]\t" + targets_label + "\t" + correctionclass + "\t" + value)
-                for (correctionclass, value), docset in evaluator.value_falseneg:
+                for (correctionclass, value), docset in evaluator.correction_misses:
                     print("[CORRECTION MISSED]\t@" + ",".join([str(x+1) for x in docset]) + "\t" + targets_label + "\t" + correctionclass + "\t" + value)
 
             evaluation[valuelabel]['truepos'] += len(evaluator.value_matches)
