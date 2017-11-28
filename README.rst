@@ -102,6 +102,8 @@ A number of command-line tools are readily available for working with FoLiA, to 
 
 - ``foliavalidator`` -- Tests if documents are valid FoLiA XML. **Always use this to test your documents if you produce your own FoLiA documents!**
 - ``foliaquery`` -- Advanced query tool that searches FoLiA documents for a specified pattern, or modifies a document according to the query. Supports FQL (FoLiA Query Language) and CQL (Corpus Query Language).
+- ``foliaeval`` -- Evaluation tool, can compute various evaluation metrics for selected annotation types, either against
+  a gold standard reference or as a measure of inter-annotated agreement.
 - ``folia2txt`` -- Convert FoLiA XML to plain text (pure text, without any annotations)
 - ``folia2annotatedtxt`` -- Like above, but produces output simple
   token annotations inline, by appending them directly to the word using a specific delimiter.

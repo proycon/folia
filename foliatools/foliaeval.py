@@ -68,7 +68,7 @@ def get_corrections(doc, Class, foliaset):
 
 
 
-def evaluate(docs, Class, foliaset, reference, do_corrections=False, verbose=False):
+def evaluate(docs, Class, foliaset, reference, do_corrections=False, do_confusionmatrix=False, verbose=False):
     assert all((isinstance(doc, folia.Document) for doc in docs))
     nr = len(docs)
     index = []
@@ -124,6 +124,8 @@ def evaluate(docs, Class, foliaset, reference, do_corrections=False, verbose=Fal
         'targets': {'truepos':0, 'falsepos': 0, 'falseneg':0, 'description': "A measure of detection, expresses whether the right targets (often words or spans of words) have been annotated, regardless of whether the annotation class/text/value is correct"},
         valuelabel: {'truepos': 0, 'falsepos': 0, 'falseneg':0, 'description': "A measure of classification with regard to the text, expresses whether the text matches, i.e. the annotation is correct" if valuelabel == 'text' else "A measure of classification with regard to the annotation class, expresses whether the class matches, i.e. the annotation is correct"},
     }
+    if do_confusionmatrix:
+        evaluation['confusionmatrix'] = {}
 
     if do_corrections:
         evaluation.update({
@@ -140,6 +142,7 @@ def evaluate(docs, Class, foliaset, reference, do_corrections=False, verbose=Fal
         evaluator = LinkchainEvaluator()
 
         evaluator.evaluate(docs, linkchain, Class, reference, do_corrections)
+
 
         targets_label = " & ".join([ target.id for target in targets])
 
@@ -181,6 +184,12 @@ def evaluate(docs, Class, foliaset, reference, do_corrections=False, verbose=Fal
                 evaluation['correctionclass']['falsepos']  += len(evaluator.correctionclass_misses)
                 evaluation['correction']['truepos'] += len(evaluator.correction_matches)
                 evaluation['correction']['falsepos']  += len(evaluator.correction_misses)
+
+        if do_confusionmatrix:
+            for refkey, counter in evaluator.confusionmatrix.items():
+                if refkey not in evaluation['confusionmatrix']:
+                    evaluation['confusionmatrix'][refkey] = {}
+                evaluation['confusionmatrix'][refkey].update(counter)
 
     try:
         evaluation[valuelabel]['precision'] = evaluation[valuelabel]['truepos'] / (evaluation[valuelabel]['truepos']  + evaluation[valuelabel]['falsepos'])
@@ -235,6 +244,9 @@ def evaluate(docs, Class, foliaset, reference, do_corrections=False, verbose=Fal
         except ZeroDivisionError:
             evaluation['correction']['f1score'] = 0
 
+
+
+
     return evaluation
 
 
@@ -261,6 +273,8 @@ class LinkchainEvaluator:
         self.correction_matches = []
         self.correction_misses = []
 
+        self.confusionmatrix = {}
+
     def evaluate(self, docs, linkchain, Class, reference, do_corrections):
         assert all((isinstance(doc, folia.Document) for doc in docs))
 
@@ -272,12 +286,19 @@ class LinkchainEvaluator:
 
         correctionclasses = defaultdict(set) #with corrections
         corrections = defaultdict(set)  #full corrections; values and correctionclasses
+        refvalue = None
         for docnr, annotation, correction in iter_linkchain(linkchain, do_corrections):
             value = get_value(annotation, Class) #gets class or text depending on annotation type
             values[value].add(docnr)
             if do_corrections and correction:
                 correctionclasses[correction.cls].add(docnr)
                 corrections[(correction.cls, value)].add(docnr)
+            if docnr == 0 and reference and refvalue is None:
+                refvalue = value
+                self.confusionmatrix[refvalue] = defaultdict(int)
+            elif docnr > 0 and reference and refvalue is not None:
+                self.confusionmatrix[refvalue][value] += 1
+
 
 
         alldocset = set(range(0,len(docs)))
@@ -323,6 +344,7 @@ def main():
     parser.add_argument('-s','--set', type=str,help="Set definition (required if there is ambiguity in the document)", action='store',required=False)
     parser.add_argument('-c','--corrections', help="Use corrections", action='store_true',default="",required=False)
     parser.add_argument('-q','--quiet',dest='verbose', help="Be quiet, do not output verbose information matches/mismatches", action='store_false',default=True,required=False)
+    parser.add_argument('-M','--confusionmatrix', help="Output and output a confusion matrix", action='store_true',default="",required=False)
     parser.add_argument('--ref', help="Take first document to be the reference document, i.e. gold standard. If *not* specified all docuemnts are consider equal and metrics yield inter-annotator agreement", action='store_true')
     #parser.add_argument('-i','--number',dest="num", type=int,help="", action='store',default="",required=False)
     parser.add_argument('documents', nargs='+', help='FoLiA Documents')
@@ -355,11 +377,11 @@ def main():
         for i, doc in enumerate(docs[1:]):
             if i > 0: print(",")
             evaldocs = [docs[0], doc]
-            evaluation = evaluate(evaldocs, Type, foliaset, True, args.corrections, args.verbose)
+            evaluation = evaluate(evaldocs, Type, foliaset, True, args.corrections, args.confusionmatrix, args.verbose)
             print("\"" + doc.filename + "\": " + json.dumps(evaluation, indent=4))
         print("}")
     else:
-        evaluation = evaluate(docs, Type, foliaset, False, args.corrections, args.verbose)
+        evaluation = evaluate(docs, Type, foliaset, False, args.corrections, args.confusionmatrix, args.verbose)
         print(json.dumps(evaluation, indent=4))
 
 if __name__ == "__main__":
