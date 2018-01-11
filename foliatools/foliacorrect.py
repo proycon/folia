@@ -50,7 +50,16 @@ def replace(correction, correctionchild):
             e.cls = 'current'
         parent.insert(index+i, e)
 
-
+def replace_current_original(correction):
+    currentindex = None
+    for e in correction.data:
+        if isinstance(e, folia.Current):
+            currentindex = 0
+            elements = e.copychildren(correction.doc)
+    if currentindex is not None:
+        original = folia.Original(correction.doc,*elements)
+        correction.data[currentindex] = original
+        original.parent = correction
 
 def correct(filename,corrected, original, acceptsuggestion, setfilter,classfilter, output):
     changed = False
@@ -76,14 +85,36 @@ def correct(filename,corrected, original, acceptsuggestion, setfilter,classfilte
                     elif correction.hassuggestions() and acceptsuggestion:
                         bestsuggestion = None
                         changed = True
-                        for suggestion in correction.hassuggestions():
+                        for suggestion in correction.suggestions():
                             if not bestsuggestion or (suggestion.confidence and not bestsuggestion.confidence) or (suggestion.confidence and bestsuggestion.confidence and suggestion.confidence > bestsuggestion.confidence):
                                 bestsuggestion = suggestion
                         if bestsuggestion:
                             if corrected:
                                 replace(correction, bestsuggestion)
+                            elif correction.hascurrent():
+                                print("Accepting suggestion for correction ", correction.id + " (from current)...",file=sys.stderr)
+                                replace_current_original(correction)
+                                correction.append(folia.New(doc, *bestsuggestion.data))
                             else:
-                                raise NotImplementedError #TODO
+                                #suggestion for correction without current (i.e. the to-be corrected annotatation is a sibling
+                                print("Accepting suggestion for correction ", correction.id + " ...",file=sys.stderr)
+
+                                #what annotation type are we correcting?
+                                annotationtype = None
+                                annotationset = None
+                                for x in bestsuggestion:
+                                    annotationtype = x.__class__
+                                    annotationset = x.set
+
+                                if annotationtype is None:
+                                    raise ValueError("Unable to determine annotation type of suggestion")
+
+                                annotation = correction.parent.annotation(annotationtype, set=annotationset)
+                                correction.parent.remove(annotation)
+
+                                correction.append(folia.New(doc, *bestsuggestion.data))
+                                correction.append(folia.Original(doc, annotation) )
+
                     if output:
                         print(correction.xmlstring())
         if changed:
