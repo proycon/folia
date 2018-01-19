@@ -16,7 +16,10 @@
    version="1.1"
    id="svg7675"
    inkscape:version="0.92.2 5c3e80d, 2017-08-06"
-   sodipodi:docname="folia_poster3.svg">
+   sodipodi:docname="folia_poster3.svg"
+   inkscape:export-filename="/home/proycon/work/FoLiA/docs/folia_poster3.png"
+   inkscape:export-xdpi="300"
+   inkscape:export-ydpi="300">
   <defs
      id="defs7669">
     <linearGradient
@@ -348,7 +351,7 @@
      inkscape:cx="194.94439"
      inkscape:cy="524.21828"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer4"
      showgrid="false"
      inkscape:window-width="3840"
      inkscape:window-height="2090"
@@ -400,7 +403,7 @@
          x="110.85149"
          y="288.13379"
          style="stroke-width:0.26458332px"
-         id="tspan11870">FoLiA, its main libraries and tools are all licenced under</tspan><tspan
+         id="tspan11870">FoLiA, its main libraries and tools are all licensed under</tspan><tspan
          sodipodi:role="line"
          x="110.85149"
          y="294.74838"
@@ -992,9 +995,9 @@
          x="3.2824082"
          y="87.919807"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Terafik;-inkscape-font-specification:Terafik;stroke-width:0.26458332px"
-         id="tspan10763">- <tspan
+         id="tspan10763">- Language &amp; vocabulary (tagset) agnostic: external <tspan
    style="font-weight:bold"
-   id="tspan10765">Language</tspan> &amp; vocabulary (tagset) agnostic: external set definitions</tspan><tspan
+   id="tspan13796">set definitions</tspan></tspan><tspan
          sodipodi:role="line"
          x="3.2824082"
          y="97.157356"
