@@ -102,6 +102,8 @@ A number of command-line tools are readily available for working with FoLiA, to 
 
 - ``foliavalidator`` -- Tests if documents are valid FoLiA XML. **Always use this to test your documents if you produce your own FoLiA documents!**
 - ``foliaquery`` -- Advanced query tool that searches FoLiA documents for a specified pattern, or modifies a document according to the query. Supports FQL (FoLiA Query Language) and CQL (Corpus Query Language).
+- ``foliaeval`` -- Evaluation tool, can compute various evaluation metrics for selected annotation types, either against
+  a gold standard reference or as a measure of inter-annotated agreement.
 - ``folia2txt`` -- Convert FoLiA XML to plain text (pure text, without any annotations)
 - ``folia2annotatedtxt`` -- Like above, but produces output simple
   token annotations inline, by appending them directly to the word using a specific delimiter.
@@ -113,19 +115,21 @@ A number of command-line tools are readily available for working with FoLiA, to 
 - ``foliacat`` -- Concatenate multiple FoLiA documents.
 - ``foliacount`` -- This script reads a FoLiA XML document and counts certain structure elements.
 - ``foliacorrect`` -- A tool to deal with corrections in FoLiA, can automatically accept suggestions or strip all corrections so parsers that don't know how to handle corrections can process it.
+- ``foliaid`` -- Assigns IDs to elements in FoLiA documents
 - ``foliafreqlist`` -- Output a frequency list on tokenised FoLiA documents.
 - ``foliamerge`` -- Merges annotations from two or more FoLiA documents.
+- ``foliatextcontent`` -- A tool for adding or stripping text redundancy, supports adding offset information.
 - ``alpino2folia`` -- Convert Alpino-DS XML to FoLiA XML
 - ``dcoi2folia`` -- Convert D-Coi XML to FoLiA XML
 - ``rst2folia`` -- Convert ReStructuredText, a lightweight non-intrusive text markup language, to FoLiA, using `docutils <http://docutils.sourceforge.net/>`_.
 
-All of these tools are written in Python, and thus require a Python (2.7, 3 or higher) installation to run. More tools are added as time progresses. 
+All of these tools are written in Python, and thus require a Python (2.7, 3 or higher) installation to run. More tools are added as time progresses.
 
 Installation
 ---------------
 
 The FoLiA tools are published to the Python Package Index and can be installed effortlessly using \texttt{pip}, from the command-line, type::
- 
+
   $ pip install folia-tools
 
 Add ``sudo`` to install it globally on your system, if you install locally, we strongly

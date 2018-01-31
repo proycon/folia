@@ -1,0 +1,701 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="folia.xsl"?>
+<FoLiA xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://ilk.uvt.nl/folia" xml:id="example" generator="libfolia-v1.10" version="1.5.0">
+  <metadata type="native">
+    <annotations>
+      <token-annotation annotator="ucto" annotatortype="auto" datetime="2017-09-25T10:29:52" set="tokconfig-nld"/>
+      <pos-annotation annotator="frog-mbpos-1.0" annotatortype="auto" datetime="2017-09-25T10:29:52" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-cgn"/>
+      <lemma-annotation annotator="frog-mblem-1.1" annotatortype="auto" datetime="2017-09-25T10:29:52" set="http://ilk.uvt.nl/folia/sets/frog-mblem-nl"/>
+    </annotations>
+  </metadata>
+  <text xml:id="example.text">
+    <p xml:id="example.p.1">
+      <t>Is het creëren van een volwaardig literair oeuvre voorbehouden aan schrijvers als Couperus, Haasse, of Grunberg? Of kan een computer net zo goed een rol vervullen in de creatie ervan? Met het kunstwerk 'Writers in the cloud' wagen kunstenaars en wetenschappers zich gezamenlijk aan het beantwoorden van deze vraag. Het resultaat is een interactieve installatie die draait om thema's als authenticiteit, creativiteit en de invloed van de digitale wereld op kunst.</t>
+      <s xml:id="example.p.1.s.1">
+        <t>Is het creëren van een volwaardig literair oeuvre voorbehouden aan schrijvers
+	als Couperus, 	Haasse, of
+	Grunberg?</t>
+        <w xml:id="example.p.1.s.1.w.1" class="WORD">
+          <t>Is</t>
+          <pos class="WW(pv,tgw,ev)" confidence="0.996196" head="WW">
+            <feat class="pv" subset="wvorm"/>
+            <feat class="tgw" subset="pvtijd"/>
+            <feat class="ev" subset="pvagr"/>
+          </pos>
+          <lemma class="zijn"/>
+        </w>
+        <w xml:id="example.p.1.s.1.w.2" class="WORD">
+          <t>het</t>
+          <pos class="LID(bep,stan,evon)" confidence="0.714286" head="LID">
+            <feat class="bep" subset="lwtype"/>
+            <feat class="stan" subset="naamval"/>
+            <feat class="evon" subset="npagr"/>
+          </pos>
+          <lemma class="het"/>
+        </w>
+        <w xml:id="example.p.1.s.1.w.3" class="WORD">
+          <t>creëren</t>
+          <pos class="WW(inf,vrij,zonder)" confidence="0.5" head="WW">
+            <feat class="inf" subset="wvorm"/>
+            <feat class="vrij" subset="positie"/>
+            <feat class="zonder" subset="buiging"/>
+          </pos>
+          <lemma class="creëren"/>
+        </w>
+        <w xml:id="example.p.1.s.1.w.4" class="WORD">
+          <t>van</t>
+          <pos class="VZ(init)" confidence="0.999441" head="VZ">
+            <feat class="init" subset="vztype"/>
+          </pos>
+          <lemma class="van"/>
+        </w>
+        <w xml:id="example.p.1.s.1.w.5" class="WORD">
+          <t>een</t>
+          <t class="original">een</t>
+          <pos class="LID(onbep,stan,agr)" confidence="0.999607" head="LID">
+            <feat class="onbep" subset="lwtype"/>
+            <feat class="stan" subset="naamval"/>
+            <feat class="agr" subset="npagr"/>
+          </pos>
+          <lemma class="een"/>
+        </w>
+        <w xml:id="example.p.1.s.1.w.6" class="WORD">
+          <t>volwaardig</t>
+          <t class="original">volwaardig</t>
+          <pos class="ADJ(prenom,basis,zonder)" confidence="0.9375" head="ADJ">
+            <feat class="prenom" subset="positie"/>
+            <feat class="basis" subset="graad"/>
+            <feat class="zonder" subset="buiging"/>
+          </pos>
+          <lemma class="volwaardig"/>
+        </w>
+        <w xml:id="example.p.1.s.1.w.7" class="WORD">
+          <t>literair</t>
+          <pos class="ADJ(prenom,basis,zonder)" confidence="0.996032" head="ADJ">
+            <feat class="prenom" subset="positie"/>
+            <feat class="basis" subset="graad"/>
+            <feat class="zonder" subset="buiging"/>
+          </pos>
+          <lemma class="literair"/>
+        </w>
+        <w xml:id="example.p.1.s.1.w.8" class="WORD">
+          <t>oeuvre</t>
+          <t class="original"> œuvre  </t>
+          <pos class="N(soort,ev,basis,onz,stan)" confidence="0.996804" head="N">
+            <feat class="soort" subset="ntype"/>
+            <feat class="ev" subset="getal"/>
+            <feat class="basis" subset="graad"/>
+            <feat class="onz" subset="genus"/>
+            <feat class="stan" subset="naamval"/>
+          </pos>
+          <lemma class="oeuvre"/>
+        </w>
+        <w xml:id="example.p.1.s.1.w.9" class="WORD">
+          <t>voorbehouden</t>
+          <pos class="WW(vd,vrij,zonder)" confidence="0.714286" head="WW">
+            <feat class="vd" subset="wvorm"/>
+            <feat class="vrij" subset="positie"/>
+            <feat class="zonder" subset="buiging"/>
+          </pos>
+          <lemma class="voorbehouden"/>
+        </w>
+        <w xml:id="example.p.1.s.1.w.10" class="WORD">
+          <t>aan</t>
+          <pos class="VZ(init)" confidence="0.982558" head="VZ">
+            <feat class="init" subset="vztype"/>
+          </pos>
+          <lemma class="aan"/>
+        </w>
+        <w xml:id="example.p.1.s.1.w.11" class="WORD">
+          <t>schrijvers</t>
+          <pos class="N(soort,mv,basis)" confidence="0.992701" head="N">
+            <feat class="soort" subset="ntype"/>
+            <feat class="mv" subset="getal"/>
+            <feat class="basis" subset="graad"/>
+          </pos>
+          <lemma class="schrijver"/>
+        </w>
+        <w xml:id="example.p.1.s.1.w.12" class="WORD">
+          <t>als</t>
+          <pos class="VG(onder)" confidence="1" head="VG">
+            <feat class="onder" subset="conjtype"/>
+          </pos>
+          <lemma class="als"/>
+        </w>
+        <w xml:id="example.p.1.s.1.w.13" class="WORD" space="no">
+          <t>Couperus</t>
+          <pos class="SPEC(deeleigen)" confidence="1" head="SPEC">
+            <feat class="deeleigen" subset="spectype"/>
+          </pos>
+          <lemma class="Couperus"/>
+        </w>
+        <w xml:id="example.p.1.s.1.w.14" class="PUNCTUATION">
+          <t>,</t>
+          <pos class="LET()" confidence="1" head="LET"/>
+          <lemma class=","/>
+        </w>
+        <w xml:id="example.p.1.s.1.w.15" class="WORD" space="no">
+          <t>Haasse</t>
+          <pos class="SPEC(deeleigen)" confidence="1" head="SPEC">
+            <feat class="deeleigen" subset="spectype"/>
+          </pos>
+          <lemma class="Haasse"/>
+        </w>
+        <w xml:id="example.p.1.s.1.w.16" class="PUNCTUATION">
+          <t>,</t>
+          <pos class="LET()" confidence="1" head="LET"/>
+          <lemma class=","/>
+        </w>
+        <w xml:id="example.p.1.s.1.w.17" class="WORD">
+          <t>of</t>
+          <pos class="VG(neven)" confidence="0.873284" head="VG">
+            <feat class="neven" subset="conjtype"/>
+          </pos>
+          <lemma class="of"/>
+        </w>
+        <w xml:id="example.p.1.s.1.w.18" class="WORD" space="no">
+          <t>Grunberg</t>
+          <pos class="SPEC(deeleigen)" confidence="1" head="SPEC">
+            <feat class="deeleigen" subset="spectype"/>
+          </pos>
+          <lemma class="Grunberg"/>
+        </w>
+        <w xml:id="example.p.1.s.1.w.19" class="PUNCTUATION">
+          <t>?</t>
+          <pos class="LET()" confidence="1" head="LET"/>
+          <lemma class="?"/>
+        </w>
+      </s>
+      <s xml:id="example.p.1.s.2">
+        <t>Of kan een computer net zo goed een rol vervullen in de creatie ervan?</t>
+        <w xml:id="example.p.1.s.2.w.1" class="WORD">
+          <t>Of</t>
+          <pos class="VG(neven)" confidence="0.900891" head="VG">
+            <feat class="neven" subset="conjtype"/>
+          </pos>
+          <lemma class="of"/>
+        </w>
+        <w xml:id="example.p.1.s.2.w.2" class="WORD">
+          <t>kan</t>
+          <pos class="WW(pv,tgw,ev)" confidence="0.997207" head="WW">
+            <feat class="pv" subset="wvorm"/>
+            <feat class="tgw" subset="pvtijd"/>
+            <feat class="ev" subset="pvagr"/>
+          </pos>
+          <lemma class="kunnen"/>
+        </w>
+        <w xml:id="example.p.1.s.2.w.3" class="WORD">
+          <t>een</t>
+          <pos class="LID(onbep,stan,agr)" confidence="0.99956" head="LID">
+            <feat class="onbep" subset="lwtype"/>
+            <feat class="stan" subset="naamval"/>
+            <feat class="agr" subset="npagr"/>
+          </pos>
+          <lemma class="een"/>
+        </w>
+        <w xml:id="example.p.1.s.2.w.4" class="WORD">
+          <t>computer</t>
+          <pos class="N(soort,ev,basis,zijd,stan)" confidence="0.996386" head="N">
+            <feat class="soort" subset="ntype"/>
+            <feat class="ev" subset="getal"/>
+            <feat class="basis" subset="graad"/>
+            <feat class="zijd" subset="genus"/>
+            <feat class="stan" subset="naamval"/>
+          </pos>
+          <lemma class="computer"/>
+        </w>
+        <w xml:id="example.p.1.s.2.w.5" class="WORD">
+          <t>net</t>
+          <pos class="BW()" confidence="0.991136" head="BW"/>
+          <lemma class="net"/>
+        </w>
+        <w xml:id="example.p.1.s.2.w.6" class="WORD">
+          <t>zo</t>
+          <pos class="BW()" confidence="0.999815" head="BW"/>
+          <lemma class="zo"/>
+        </w>
+        <w xml:id="example.p.1.s.2.w.7" class="WORD">
+          <t>goed</t>
+          <pos class="ADJ(vrij,basis,zonder)" confidence="0.923077" head="ADJ">
+            <feat class="vrij" subset="positie"/>
+            <feat class="basis" subset="graad"/>
+            <feat class="zonder" subset="buiging"/>
+          </pos>
+          <lemma class="goed"/>
+        </w>
+        <w xml:id="example.p.1.s.2.w.8" class="WORD">
+          <t>een</t>
+          <pos class="LID(onbep,stan,agr)" confidence="0.999367" head="LID">
+            <feat class="onbep" subset="lwtype"/>
+            <feat class="stan" subset="naamval"/>
+            <feat class="agr" subset="npagr"/>
+          </pos>
+          <lemma class="een"/>
+        </w>
+        <w xml:id="example.p.1.s.2.w.9" class="WORD">
+          <t>rol</t>
+          <pos class="N(soort,ev,basis,zijd,stan)" confidence="0.999728" head="N">
+            <feat class="soort" subset="ntype"/>
+            <feat class="ev" subset="getal"/>
+            <feat class="basis" subset="graad"/>
+            <feat class="zijd" subset="genus"/>
+            <feat class="stan" subset="naamval"/>
+          </pos>
+          <lemma class="rol"/>
+        </w>
+        <w xml:id="example.p.1.s.2.w.10" class="WORD">
+          <t>vervullen</t>
+          <pos class="WW(inf,vrij,zonder)" confidence="0.75" head="WW">
+            <feat class="inf" subset="wvorm"/>
+            <feat class="vrij" subset="positie"/>
+            <feat class="zonder" subset="buiging"/>
+          </pos>
+          <lemma class="vervullen"/>
+        </w>
+        <w xml:id="example.p.1.s.2.w.11" class="WORD">
+          <t>in</t>
+          <pos class="VZ(init)" confidence="0.99935" head="VZ">
+            <feat class="init" subset="vztype"/>
+          </pos>
+          <lemma class="in"/>
+        </w>
+        <w xml:id="example.p.1.s.2.w.12" class="WORD">
+          <t>de</t>
+          <pos class="LID(bep,stan,rest)" confidence="0.999964" head="LID">
+            <feat class="bep" subset="lwtype"/>
+            <feat class="stan" subset="naamval"/>
+            <feat class="rest" subset="npagr"/>
+          </pos>
+          <lemma class="de"/>
+        </w>
+        <w xml:id="example.p.1.s.2.w.13" class="WORD">
+          <t>creatie</t>
+          <pos class="N(soort,ev,basis,zijd,stan)" confidence="0.998626" head="N">
+            <feat class="soort" subset="ntype"/>
+            <feat class="ev" subset="getal"/>
+            <feat class="basis" subset="graad"/>
+            <feat class="zijd" subset="genus"/>
+            <feat class="stan" subset="naamval"/>
+          </pos>
+          <lemma class="creatie"/>
+        </w>
+        <w xml:id="example.p.1.s.2.w.14" class="WORD" space="no">
+          <t>ervan</t>
+          <pos class="BW()" confidence="0.99613" head="BW"/>
+          <lemma class="ervan"/>
+        </w>
+        <w xml:id="example.p.1.s.2.w.15" class="PUNCTUATION">
+          <t>?</t>
+          <pos class="LET()" confidence="1" head="LET"/>
+          <lemma class="?"/>
+        </w>
+      </s>
+      <s xml:id="example.p.1.s.3">
+        <t>Met het kunstwerk 'Writers in the cloud' wagen kunstenaars en wetenschappers zich gezamenlijk aan het beantwoorden van deze vraag.</t>
+        <w xml:id="example.p.1.s.3.w.1" class="WORD">
+          <t>Met</t>
+          <pos class="VZ(init)" confidence="0.995378" head="VZ">
+            <feat class="init" subset="vztype"/>
+          </pos>
+          <lemma class="met"/>
+        </w>
+        <w xml:id="example.p.1.s.3.w.2" class="WORD">
+          <t>het</t>
+          <pos class="LID(bep,stan,evon)" confidence="0.999914" head="LID">
+            <feat class="bep" subset="lwtype"/>
+            <feat class="stan" subset="naamval"/>
+            <feat class="evon" subset="npagr"/>
+          </pos>
+          <lemma class="het"/>
+        </w>
+        <w xml:id="example.p.1.s.3.w.3" class="WORD">
+          <t>kunstwerk</t>
+          <pos class="N(soort,ev,basis,onz,stan)" confidence="0.996824" head="N">
+            <feat class="soort" subset="ntype"/>
+            <feat class="ev" subset="getal"/>
+            <feat class="basis" subset="graad"/>
+            <feat class="onz" subset="genus"/>
+            <feat class="stan" subset="naamval"/>
+          </pos>
+          <lemma class="kunstwerk"/>
+        </w>
+        <w xml:id="example.p.1.s.3.w.4" class="PUNCTUATION" space="no">
+          <t>'</t>
+          <pos class="LET()" confidence="1" head="LET"/>
+          <lemma class="'"/>
+        </w>
+        <w xml:id="example.p.1.s.3.w.5" class="WORD">
+          <t>Writers</t>
+          <pos class="SPEC(deeleigen)" confidence="1" head="SPEC">
+            <feat class="deeleigen" subset="spectype"/>
+          </pos>
+          <lemma class="Writers"/>
+        </w>
+        <w xml:id="example.p.1.s.3.w.6" class="WORD">
+          <t>in</t>
+          <pos class="SPEC(deeleigen)" confidence="1" head="SPEC">
+            <feat class="deeleigen" subset="spectype"/>
+          </pos>
+          <lemma class="in"/>
+        </w>
+        <w xml:id="example.p.1.s.3.w.7" class="WORD">
+          <t>the</t>
+          <pos class="SPEC(vreemd)" confidence="1" head="SPEC">
+            <feat class="vreemd" subset="spectype"/>
+          </pos>
+          <lemma class="the"/>
+        </w>
+        <w xml:id="example.p.1.s.3.w.8" class="WORD" space="no">
+          <t>cloud</t>
+          <pos class="SPEC(vreemd)" confidence="1" head="SPEC">
+            <feat class="vreemd" subset="spectype"/>
+          </pos>
+          <lemma class="cloud"/>
+        </w>
+        <w xml:id="example.p.1.s.3.w.9" class="PUNCTUATION">
+          <t>'</t>
+          <pos class="LET()" confidence="1" head="LET"/>
+          <lemma class="'"/>
+        </w>
+        <w xml:id="example.p.1.s.3.w.10" class="WORD">
+          <t>wagen</t>
+          <pos class="N(soort,ev,basis,zijd,stan)" confidence="0.864865" head="N">
+            <feat class="soort" subset="ntype"/>
+            <feat class="ev" subset="getal"/>
+            <feat class="basis" subset="graad"/>
+            <feat class="zijd" subset="genus"/>
+            <feat class="stan" subset="naamval"/>
+          </pos>
+          <lemma class="wagen"/>
+        </w>
+        <w xml:id="example.p.1.s.3.w.11" class="WORD">
+          <t>kunstenaars</t>
+          <pos class="N(soort,mv,basis)" confidence="0.986667" head="N">
+            <feat class="soort" subset="ntype"/>
+            <feat class="mv" subset="getal"/>
+            <feat class="basis" subset="graad"/>
+          </pos>
+          <lemma class="kunstenaar"/>
+        </w>
+        <w xml:id="example.p.1.s.3.w.12" class="WORD">
+          <t>en</t>
+          <pos class="VG(neven)" confidence="0.999194" head="VG">
+            <feat class="neven" subset="conjtype"/>
+          </pos>
+          <lemma class="en"/>
+        </w>
+        <w xml:id="example.p.1.s.3.w.13" class="WORD">
+          <t>wetenschappers</t>
+          <pos class="N(soort,mv,basis)" confidence="0.928571" head="N">
+            <feat class="soort" subset="ntype"/>
+            <feat class="mv" subset="getal"/>
+            <feat class="basis" subset="graad"/>
+          </pos>
+          <lemma class="wetenschapper"/>
+        </w>
+        <w xml:id="example.p.1.s.3.w.14" class="WORD">
+          <t>zich</t>
+          <pos class="VNW(refl,pron,obl,red,3,getal)" confidence="0.99974" head="VNW">
+            <feat class="refl" subset="vwtype"/>
+            <feat class="pron" subset="pdtype"/>
+            <feat class="obl" subset="naamval"/>
+            <feat class="red" subset="status"/>
+            <feat class="3" subset="persoon"/>
+            <feat class="getal" subset="getal"/>
+          </pos>
+          <lemma class="zich"/>
+        </w>
+        <w xml:id="example.p.1.s.3.w.15" class="WORD">
+          <t>gezamenlijk</t>
+          <pos class="ADJ(vrij,basis,zonder)" confidence="0.984218" head="ADJ">
+            <feat class="vrij" subset="positie"/>
+            <feat class="basis" subset="graad"/>
+            <feat class="zonder" subset="buiging"/>
+          </pos>
+          <lemma class="gezamenlijk"/>
+        </w>
+        <w xml:id="example.p.1.s.3.w.16" class="WORD">
+          <t>aan</t>
+          <pos class="VZ(init)" confidence="0.996533" head="VZ">
+            <feat class="init" subset="vztype"/>
+          </pos>
+          <lemma class="aan"/>
+        </w>
+        <w xml:id="example.p.1.s.3.w.17" class="WORD">
+          <t>het</t>
+          <pos class="LID(bep,stan,evon)" confidence="0.955952" head="LID">
+            <feat class="bep" subset="lwtype"/>
+            <feat class="stan" subset="naamval"/>
+            <feat class="evon" subset="npagr"/>
+          </pos>
+          <lemma class="het"/>
+        </w>
+        <w xml:id="example.p.1.s.3.w.18" class="WORD">
+          <t>beantwoorden</t>
+          <pos class="WW(inf,nom,zonder,zonder-n)" confidence="0.981366" head="WW">
+            <feat class="inf" subset="wvorm"/>
+            <feat class="nom" subset="positie"/>
+            <feat class="zonder" subset="buiging"/>
+            <feat class="zonder-n" subset="getal-n"/>
+          </pos>
+          <lemma class="beantwoorden"/>
+        </w>
+        <w xml:id="example.p.1.s.3.w.19" class="WORD">
+          <t>van</t>
+          <pos class="VZ(init)" confidence="0.999398" head="VZ">
+            <feat class="init" subset="vztype"/>
+          </pos>
+          <lemma class="van"/>
+        </w>
+        <w xml:id="example.p.1.s.3.w.20" class="WORD">
+          <t>deze</t>
+          <pos class="VNW(aanw,det,stan,prenom,met-e,rest)" confidence="0.952381" head="VNW">
+            <feat class="aanw" subset="vwtype"/>
+            <feat class="det" subset="pdtype"/>
+            <feat class="stan" subset="naamval"/>
+            <feat class="prenom" subset="positie"/>
+            <feat class="met-e" subset="buiging"/>
+            <feat class="rest" subset="npagr"/>
+          </pos>
+          <lemma class="deze"/>
+        </w>
+        <w xml:id="example.p.1.s.3.w.21" class="WORD" space="no">
+          <t>vraag</t>
+          <pos class="N(soort,ev,basis,zijd,stan)" confidence="0.978208" head="N">
+            <feat class="soort" subset="ntype"/>
+            <feat class="ev" subset="getal"/>
+            <feat class="basis" subset="graad"/>
+            <feat class="zijd" subset="genus"/>
+            <feat class="stan" subset="naamval"/>
+          </pos>
+          <lemma class="vraag"/>
+        </w>
+        <w xml:id="example.p.1.s.3.w.22" class="PUNCTUATION">
+          <t>.</t>
+          <pos class="LET()" confidence="1" head="LET"/>
+          <lemma class="."/>
+        </w>
+      </s>
+      <s xml:id="example.p.1.s.4">
+        <t>Het resultaat is een interactieve installatie die draait om thema's als authenticiteit, creativiteit en de invloed van de digitale wereld op kunst.</t>
+        <w xml:id="example.p.1.s.4.w.1" class="WORD">
+          <t>Het</t>
+          <pos class="LID(bep,stan,evon)" confidence="0.999233" head="LID">
+            <feat class="bep" subset="lwtype"/>
+            <feat class="stan" subset="naamval"/>
+            <feat class="evon" subset="npagr"/>
+          </pos>
+          <lemma class="het"/>
+        </w>
+        <w xml:id="example.p.1.s.4.w.2" class="WORD">
+          <t>resultaat</t>
+          <pos class="N(soort,ev,basis,onz,stan)" confidence="0.996848" head="N">
+            <feat class="soort" subset="ntype"/>
+            <feat class="ev" subset="getal"/>
+            <feat class="basis" subset="graad"/>
+            <feat class="onz" subset="genus"/>
+            <feat class="stan" subset="naamval"/>
+          </pos>
+          <lemma class="resultaat"/>
+        </w>
+        <w xml:id="example.p.1.s.4.w.3" class="WORD">
+          <t>is</t>
+          <pos class="WW(pv,tgw,ev)" confidence="0.999891" head="WW">
+            <feat class="pv" subset="wvorm"/>
+            <feat class="tgw" subset="pvtijd"/>
+            <feat class="ev" subset="pvagr"/>
+          </pos>
+          <lemma class="zijn"/>
+        </w>
+        <w xml:id="example.p.1.s.4.w.4" class="WORD">
+          <t>een</t>
+          <pos class="LID(onbep,stan,agr)" confidence="0.995147" head="LID">
+            <feat class="onbep" subset="lwtype"/>
+            <feat class="stan" subset="naamval"/>
+            <feat class="agr" subset="npagr"/>
+          </pos>
+          <lemma class="een"/>
+        </w>
+        <w xml:id="example.p.1.s.4.w.5" class="WORD">
+          <t>interactieve</t>
+          <pos class="ADJ(prenom,basis,met-e,stan)" confidence="0.999828" head="ADJ">
+            <feat class="prenom" subset="positie"/>
+            <feat class="basis" subset="graad"/>
+            <feat class="met-e" subset="buiging"/>
+            <feat class="stan" subset="naamval"/>
+          </pos>
+          <lemma class="interactief"/>
+        </w>
+        <w xml:id="example.p.1.s.4.w.6" class="WORD">
+          <t>installatie</t>
+          <pos class="N(soort,ev,basis,zijd,stan)" confidence="0.999455" head="N">
+            <feat class="soort" subset="ntype"/>
+            <feat class="ev" subset="getal"/>
+            <feat class="basis" subset="graad"/>
+            <feat class="zijd" subset="genus"/>
+            <feat class="stan" subset="naamval"/>
+          </pos>
+          <lemma class="installatie"/>
+        </w>
+        <w xml:id="example.p.1.s.4.w.7" class="WORD">
+          <t>die</t>
+          <pos class="VNW(betr,pron,stan,vol,persoon,getal)" confidence="0.875" head="VNW">
+            <feat class="betr" subset="vwtype"/>
+            <feat class="pron" subset="pdtype"/>
+            <feat class="stan" subset="naamval"/>
+            <feat class="vol" subset="status"/>
+            <feat class="persoon" subset="persoon"/>
+            <feat class="getal" subset="getal"/>
+          </pos>
+          <lemma class="die"/>
+        </w>
+        <w xml:id="example.p.1.s.4.w.8" class="WORD">
+          <t>draait</t>
+          <pos class="WW(pv,tgw,met-t)" confidence="0.999772" head="WW">
+            <feat class="pv" subset="wvorm"/>
+            <feat class="tgw" subset="pvtijd"/>
+            <feat class="met-t" subset="pvagr"/>
+          </pos>
+          <lemma class="draaien"/>
+        </w>
+        <w xml:id="example.p.1.s.4.w.9" class="WORD">
+          <t>om</t>
+          <pos class="VZ(init)" confidence="0.999197" head="VZ">
+            <feat class="init" subset="vztype"/>
+          </pos>
+          <lemma class="om"/>
+        </w>
+        <w xml:id="example.p.1.s.4.w.10" class="WORD-WITHSUFFIX">
+          <t>thema's</t>
+          <pos class="N(soort,mv,basis)" confidence="0.992701" head="N">
+            <feat class="soort" subset="ntype"/>
+            <feat class="mv" subset="getal"/>
+            <feat class="basis" subset="graad"/>
+          </pos>
+          <lemma class="thema"/>
+        </w>
+        <w xml:id="example.p.1.s.4.w.11" class="WORD">
+          <t>als</t>
+          <pos class="VZ(init)" confidence="0.571429" head="VZ">
+            <feat class="init" subset="vztype"/>
+          </pos>
+          <lemma class="als"/>
+        </w>
+        <w xml:id="example.p.1.s.4.w.12" class="WORD" space="no">
+          <t>authenticiteit</t>
+          <pos class="N(soort,ev,basis,zijd,stan)" confidence="0.999633" head="N">
+            <feat class="soort" subset="ntype"/>
+            <feat class="ev" subset="getal"/>
+            <feat class="basis" subset="graad"/>
+            <feat class="zijd" subset="genus"/>
+            <feat class="stan" subset="naamval"/>
+          </pos>
+          <lemma class="authenticiteit"/>
+        </w>
+        <w xml:id="example.p.1.s.4.w.13" class="PUNCTUATION">
+          <t>,</t>
+          <pos class="LET()" confidence="1" head="LET"/>
+          <lemma class=","/>
+        </w>
+        <w xml:id="example.p.1.s.4.w.14" class="WORD">
+          <t>creativiteit</t>
+          <pos class="N(soort,ev,basis,zijd,stan)" confidence="0.998248" head="N">
+            <feat class="soort" subset="ntype"/>
+            <feat class="ev" subset="getal"/>
+            <feat class="basis" subset="graad"/>
+            <feat class="zijd" subset="genus"/>
+            <feat class="stan" subset="naamval"/>
+          </pos>
+          <lemma class="creativiteit"/>
+        </w>
+        <w xml:id="example.p.1.s.4.w.15" class="WORD">
+          <t>en</t>
+          <pos class="VG(neven)" confidence="0.999727" head="VG">
+            <feat class="neven" subset="conjtype"/>
+          </pos>
+          <lemma class="en"/>
+        </w>
+        <w xml:id="example.p.1.s.4.w.16" class="WORD">
+          <t>de</t>
+          <pos class="LID(bep,stan,rest)" confidence="0.999665" head="LID">
+            <feat class="bep" subset="lwtype"/>
+            <feat class="stan" subset="naamval"/>
+            <feat class="rest" subset="npagr"/>
+          </pos>
+          <lemma class="de"/>
+        </w>
+        <w xml:id="example.p.1.s.4.w.17" class="WORD">
+          <t>invloed</t>
+          <pos class="N(soort,ev,basis,zijd,stan)" confidence="0.999662" head="N">
+            <feat class="soort" subset="ntype"/>
+            <feat class="ev" subset="getal"/>
+            <feat class="basis" subset="graad"/>
+            <feat class="zijd" subset="genus"/>
+            <feat class="stan" subset="naamval"/>
+          </pos>
+          <lemma class="invloed"/>
+        </w>
+        <w xml:id="example.p.1.s.4.w.18" class="WORD">
+          <t>van</t>
+          <pos class="VZ(init)" confidence="0.999941" head="VZ">
+            <feat class="init" subset="vztype"/>
+          </pos>
+          <lemma class="van"/>
+        </w>
+        <w xml:id="example.p.1.s.4.w.19" class="WORD">
+          <t>de</t>
+          <pos class="LID(bep,stan,rest)" confidence="0.999805" head="LID">
+            <feat class="bep" subset="lwtype"/>
+            <feat class="stan" subset="naamval"/>
+            <feat class="rest" subset="npagr"/>
+          </pos>
+          <lemma class="de"/>
+        </w>
+        <w xml:id="example.p.1.s.4.w.20" class="WORD">
+          <t>digitale</t>
+          <pos class="ADJ(prenom,basis,met-e,stan)" confidence="0.999745" head="ADJ">
+            <feat class="prenom" subset="positie"/>
+            <feat class="basis" subset="graad"/>
+            <feat class="met-e" subset="buiging"/>
+            <feat class="stan" subset="naamval"/>
+          </pos>
+          <lemma class="digitaal"/>
+        </w>
+        <w xml:id="example.p.1.s.4.w.21" class="WORD">
+          <t>wereld</t>
+          <pos class="N(soort,ev,basis,zijd,stan)" confidence="0.99961" head="N">
+            <feat class="soort" subset="ntype"/>
+            <feat class="ev" subset="getal"/>
+            <feat class="basis" subset="graad"/>
+            <feat class="zijd" subset="genus"/>
+            <feat class="stan" subset="naamval"/>
+          </pos>
+          <lemma class="wereld"/>
+        </w>
+        <w xml:id="example.p.1.s.4.w.22" class="WORD">
+          <t>op</t>
+          <pos class="VZ(init)" confidence="0.991342" head="VZ">
+            <feat class="init" subset="vztype"/>
+          </pos>
+          <lemma class="op"/>
+        </w>
+        <w xml:id="example.p.1.s.4.w.23" class="WORD" space="no">
+          <t>kunst</t>
+          <pos class="N(soort,ev,basis,zijd,stan)" confidence="0.998865" head="N">
+            <feat class="soort" subset="ntype"/>
+            <feat class="ev" subset="getal"/>
+            <feat class="basis" subset="graad"/>
+            <feat class="zijd" subset="genus"/>
+            <feat class="stan" subset="naamval"/>
+          </pos>
+          <lemma class="kunst"/>
+        </w>
+        <w xml:id="example.p.1.s.4.w.24" class="PUNCTUATION">
+          <t>.</t>
+          <pos class="LET()" confidence="1" head="LET"/>
+          <lemma class="."/>
+        </w>
+      </s>
+    </p>
+  </text>
+</FoLiA>

@@ -12,20 +12,22 @@ import glob
 try:
     from pynlpl.formats import folia
 except:
-    print("ERROR: pynlpl not found, please obtain PyNLPL from the Python Package Manager ($ sudo easy_install pynlpl) or directly from github: $ git clone git://github.com/proycon/pynlpl.git",file=sys.stderr)
+    print("ERROR: pynlpl not found, please obtain PyNLPL from the Python Package Manager ($ sudo pip install pynlpl) or directly from github: $ git clone git://github.com/proycon/pynlpl.git",file=sys.stderr)
     sys.exit(2)
 
 def usage():
     print("foliatextcontent",file=sys.stderr)
     print("  by Maarten van Gompel (proycon)",file=sys.stderr)
+    print("  Centre for Language and Speech Technology",file=sys.stderr)
     print("  Radboud University Nijmegen",file=sys.stderr)
-    print("  2015 - Licensed under GPLv3",file=sys.stderr)
+    print("  2015-2017 - Licensed under GPLv3",file=sys.stderr)
     print("",file=sys.stderr)
-    print("This tool operates on some of the redundancy regarding text context inherent in FoLiA documents. It adds text content elements,  on the higher (untokenised) levels, adding offset information and mark-up element if present. Secondly, the tool may als adds text-markup elements for substrings (str element) (provided there is no overlap).",file=sys.stderr)
+    print("This tool operates on some of the redundancy regarding text context inherent in FoLiA documents. It can remove redundancy entirely or it can add text content elements on the higher (untokenised) levels, adding offset information and mark-up element if present. Secondly, the tool may also add text-markup elements for substrings (str element) (provided there is no overlap).",file=sys.stderr)
     print("",file=sys.stderr)
     print("Usage: foliatextcontent [options] file-or-dir1 file-or-dir2 ..etc..",file=sys.stderr)
     print("",file=sys.stderr)
     print("Parameters for output:"        ,file=sys.stderr)
+    print("  -c                           Clean any text redundancy and retain only text on the deepest level",file=sys.stderr)
     print("  -s                           Add text content on sentence level",file=sys.stderr)
     print("  -p                           Add text content on paragraph level"    ,file=sys.stderr)
     print("  -d                           Add text content on division level",file=sys.stderr)
@@ -36,6 +38,7 @@ def usage():
     print("  -M                           Add substring markup linking to string elements (if any, and when there is no overlap)"    ,file=sys.stderr)
     print("  -e [encoding]                Output encoding (default: utf-8)",file=sys.stderr)
     print("  -w                           Edit file(s) (overwrites input files), will output to stdout otherwise" ,file=sys.stderr)
+    print("  -D                           Debug" ,file=sys.stderr)
     print("Parameters for processing directories:",file=sys.stderr)
     print("  -r                           Process recursively",file=sys.stderr)
     print("  -E [extension]               Set extension (default: xml)",file=sys.stderr)
@@ -232,7 +235,17 @@ def settext(element, cls='current', offsets=True, forceoffsetref=False, debug=Fa
             if debug: print("Setting text for " + repr(element) + ":" , newtextsequence, file=sys.stderr)
             return element.replace(folia.TextContent, *newtextsequence, cls=cls) #appends if new
 
-
+def cleanredundancy(element, cls, debug=False):
+    if element.hastext(cls, strict=True):
+        try:
+            mycontent = element.textcontent(cls)
+        except folia.NoSuchText:
+            return
+        deepertexts = [ e for e in element.select(folia.TextContent, ignore=[True, folia.AbstractAnnotationLayer, folia.String, folia.Morpheme, folia.Phoneme, folia.Correction]) if e is not mycontent and e.cls == cls ]
+        if deepertexts:
+            #there is deeper text, remove text on this element
+            if debug: print("Removing text for " + repr(element) + ":" , mycontent.text(), file=sys.stderr)
+            element.remove(mycontent)
 
 def processelement(element, settings):
     if not isinstance(element, folia.AbstractSpanAnnotation): #prevent infinite recursion
@@ -243,7 +256,10 @@ def processelement(element, settings):
         if element.PRINTABLE:
             if any( isinstance(element,C) for C in settings.Classes):
                 for cls in element.doc.textclasses:
-                    settext(element, cls, settings.offsets, settings.forceoffsetref, settings.debug)
+                    if settings.cleanredundancy:
+                        cleanredundancy(element, cls, settings.debug)
+                    else:
+                        settext(element, cls, settings.offsets, settings.forceoffsetref, settings.debug)
 
 
 def process(filename, outputfile = None):
@@ -283,6 +299,8 @@ class settings:
     forceoffsetref = False
     linkstrings = False
 
+    cleanredundancy = False
+
     extension = 'xml'
     recurse = False
     encoding = 'utf-8'
@@ -294,7 +312,7 @@ class settings:
 
 def main():
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "E:hsSpPdDtTXMe:wT:Fc:", ["help"])
+        opts, args = getopt.getopt(sys.argv[1:], "E:hsSpPdDtTXMe:wT:Fc", ["help"])
     except getopt.GetoptError as err:
         print(str(err),file=sys.stderr)
         usage()
@@ -308,6 +326,9 @@ def main():
         if o == '-h' or o == '--help':
             usage()
             sys.exit(0)
+        elif o == '-c':
+            settings.cleanredundancy = True
+            settings.Classes.append(folia.AbstractStructureElement)
         elif o == '-d':
             settings.Classes.append(folia.Division)
         elif o == '-t':

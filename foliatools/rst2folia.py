@@ -25,7 +25,9 @@ from collections import defaultdict
 from copy import copy
 
 from docutils import writers, nodes
-from docutils.core import publish_cmdline, default_description
+from docutils.core import publish_cmdline, publish_string, default_description
+
+from pynlpl.formats import folia
 
 try:
     import locale
@@ -40,7 +42,7 @@ class Writer(writers.Writer):
     DEFAULTID = "untitled"
     TEMPLATE = """<?xml version="1.0" encoding="UTF-8"?>
 %(stylesheet)s
-<FoLiA xmlns="http://ilk.uvt.nl/folia" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="%(docid)s" version="0.11.3" generator="docutils-rst2folia-%(libversion)s">
+<FoLiA xmlns="http://ilk.uvt.nl/folia" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="%(docid)s" version="1.4" generator="docutils-rst2folia-%(libversion)s">
 <metadata type="native">
  <annotations>
 %(declarations)s
@@ -58,6 +60,8 @@ class Writer(writers.Writer):
         'style': 'https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/styles.foliaset.xml',
         'note': 'https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/notes.foliaset.xml',
         'gap': 'https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/gaps.foliaset.xml',
+        'term': 'https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/terms.foliaset.xml',
+        'definition': 'https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/definitions.foliaset.xml',
         'string': None,
     }
 
@@ -73,6 +77,13 @@ class Writer(writers.Writer):
             ('Parent Type. Assume all new elements start under an element of this type (FoLiA tag), this can be used to merge output back into a larger document, use with --parentid', ['--parenttype'], {'default': 'div', 'metavar': '<string>'}),
             ("Excerpt only. Output only the text node and all elements under it. No standalone document, results may be inserted verbatim into a larger document if used with --parentid/--parenttype and --declare-all", ['--excerpt'], {'default': False, 'action': 'store_true'}),
             ("Declare all possible sets, even if they're not used.", ['--declare-all'], {'default': False, 'action': 'store_true'}),
+            ("Strip relative hyperlinks", ['--strip-relative-links'], {'default': False, 'action': 'store_true'}),
+            ("Strip all hyperlinks", ['--strip-links'], {'default': False, 'action': 'store_true'}),
+            ("Strip all text styling", ['--strip-style'], {'default': False, 'action': 'store_true'}),
+            ("Strip all gaps (includes verbatim and code blocks)", ['--strip-gaps'], {'default': False, 'action': 'store_true'}),
+            ("Strip all raw content (do not encode as gaps)", ['--strip-raw'], {'default': False, 'action': 'store_true'}),
+            ("Strip tables", ['--strip-tables'], {'default': False, 'action': 'store_true'}),
+            ("Ignore lineblocks, treat as normal paragraphs", ['--ignore-lineblocks'], {'default': False, 'action': 'store_true'}),
             ("Sets. Comma separated list of annotationtype:seturl pairs. Example: division:https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/divisions.foliaset.xml", ['--sets'],{'default':""}),
             ("Stylesheet. XSL Stylesheet to associate with the document. Defaults to '%s'" % DEFAULTSTYLESHEET, ['--stylesheet'], {'default': "folia2html.xsl",'metavar':'<string>'}),
         )
@@ -132,9 +143,19 @@ class FoLiATranslator(nodes.NodeVisitor):
         self.sets = sets
         self.declared = {}
         self.texthandled = False
+        self.footnote_reference = None
+        self.footnote_seq_nr = 0
+        self.inserttextbreaks = False
         if document.settings.declare_all:
             for key in self.sets:
                 self.declare(key)
+        self.striprellinks = document.settings.strip_relative_links
+        self.striplinks = document.settings.strip_links
+        self.stripstyle = document.settings.strip_style
+        self.stripraw = document.settings.strip_raw
+        self.stripgaps = document.settings.strip_gaps
+        self.striptables = document.settings.strip_tables
+        self.ignorelineblocks = document.settings.ignore_lineblocks
         if document.settings.parentid:
             self.parentid = document.settings.parentid
             self.path.append( (document.settings.parenttype, self.parentid ) )
@@ -169,9 +190,24 @@ class FoLiATranslator(nodes.NodeVisitor):
         #Generate an ID
         if tag == "text":
             id = self.textid
+        elif tag == 'note' and attribs['cls'] == 'footnote':
+            self.footnote_seq_nr += 1
+            id = self.textid + '.footnote.' + str(self.footnote_seq_nr)
         else:
-            parenttag, parentid = self.path[-1]
-            id = self.generate_id(parentid, tag)
+            parenttag = None
+            for parenttag, parentid in reversed(self.path):
+                if parenttag != None:
+                    break
+            if parenttag is not None:
+                id = self.generate_id(parentid, tag)
+                parentclass = folia.XML2CLASS[parenttag]
+                currentclass = folia.XML2CLASS[tag]
+                if not parentclass.accepts(currentclass):
+                    print("WARNING: Adding " + tag + " to " + parenttag + " would violate FoLiA constraints. Skipping this element!",file=sys.stderr)
+                    self.path.append( (None, None) )
+                    return
+
+
         self.declare(tag)
         self.path.append( (tag, id ) )
         indentation = (len(self.path)-1) * " "
@@ -191,13 +227,23 @@ class FoLiATranslator(nodes.NodeVisitor):
     def closestructure(self, tag):
         """Generic depart function for structure elements"""
         _tag, id = self.path.pop()
-        if not tag == _tag:
+        if tag is None: #we skip this one (nesting violates folia constraints)
+            return
+        elif not tag == _tag:
             raise Exception("Mismatch in closestructure, expected closure for " + tag + ", got " + _tag)
         indentation = len(self.path) * " "
         o = ""
+        if self.footnote_reference and self.textbuffer and self.textbuffer[-1].strip() == self.footnote_reference:
+            self.textbuffer = self.textbuffer[:-1]
         if self.textbuffer:
-            o += indentation + " <t>"  + "".join(self.textbuffer) + "</t>\n"
+            if self.inserttextbreaks:
+                o += indentation + " <t>"  + " ".join([x.replace("\n","<br/>").strip() for x in self.textbuffer]) + "</t>\n"
+            else:
+                o += indentation + " <t>"  + " ".join([x.replace("\n"," ").strip() for x in self.textbuffer]) + "</t>\n"
         o += indentation + "</" + tag + ">\n"
+        if self.footnote_reference:
+            o += indentation + "<ref id=\"" + self.textid + ".footnote." + self.footnote_reference + "\"><t>[" + self.footnote_reference + "]</t></ref>\n"
+            self.footnote_reference = None
         self.textbuffer = []
         self.content.append(o)
 
@@ -230,12 +276,19 @@ class FoLiATranslator(nodes.NodeVisitor):
     def addstyle(self,node,style):
         self.texthandled = True
         self.declare('style')
-        self.textbuffer.append(  '<t-style class="' + style + '">' + self.encode(node.astext()) + '</t-style>' )
+        if self.stripstyle:
+            self.textbuffer.append( self.encode(node.astext()) )
+        else:
+            self.textbuffer.append(  '<t-style class="' + style + '">' + self.encode(node.astext()) + '</t-style>' )
 
     def addlink(self,node,url):
         self.texthandled = True
-        self.declare('string')
-        self.textbuffer.append(  '<t-str xlink:type="simple" xlink:href="' + url + '">' + self.encode(node.astext()) + '</t-str>' )
+        absolute = url.lower().startswith('http://') or url.lower().startswith('https://') or url.lower().startswith('ftp://') or url.lower().startswith('file://') or url[0] == '/'
+        if self.striplinks or (self.striprellinks and not absolute):
+            self.textbuffer.append(self.encode(node.astext()))
+        else:
+            self.declare('string')
+            self.textbuffer.append(  '<t-str xlink:type="simple" xlink:href="' + url + '">' + self.encode(node.astext()) + '</t-str>' )
 
     def addmetadata(self, key, node):
         self.texthandled = True
@@ -249,6 +302,8 @@ class FoLiATranslator(nodes.NodeVisitor):
             annotationtype = 'sentence'
         elif annotationtype == 'p':
             annotationtype = 'paragraph'
+        elif annotationtype == 'def':
+            annotationtype = 'definition'
         if not annotationtype in self.declared:
             if annotationtype in self.sets:
                 if self.sets[annotationtype]:
@@ -343,9 +398,52 @@ class FoLiATranslator(nodes.NodeVisitor):
 
 
     def visit_literal_block(self,node):
-        self.initstructure('gap',cls="verbatim")
         self.texthandled = True
+        if self.stripgaps:
+            pass
+        self.initstructure('gap',cls="verbatim")
     def depart_literal_block(self,node):
+        if self.stripgaps:
+            self.texthandled = False
+            return
+        tag = "gap"
+        _tag, id = self.path.pop()
+        if not tag == _tag:
+            raise Exception("Mismatch in closestructure, expected closure for " + tag + ", got " + _tag)
+        indentation = len(self.path) * " "
+        o = indentation + " <content><![CDATA["  + node.astext() + "]]></content>\n"
+        o += indentation + "</" + tag + ">\n"
+        self.content.append(o)
+        self.texthandled = False
+
+    def visit_raw(self,node):
+        self.texthandled = True
+        if self.stripraw:
+            return
+        self.initstructure('gap',cls="code")
+    def depart_raw(self,node):
+        if self.stripraw:
+            self.texthandled = False
+            return
+        tag = "gap"
+        _tag, id = self.path.pop()
+        if not tag == _tag:
+            raise Exception("Mismatch in closestructure, expected closure for " + tag + ", got " + _tag)
+        indentation = len(self.path) * " "
+        o = indentation + " <content><![CDATA["  + node.astext() + "]]></content>\n"
+        o += indentation + "</" + tag + ">\n"
+        self.content.append(o)
+        self.texthandled = False
+
+    def visit_code(self,node):
+        self.texthandled = True
+        if self.stripgaps:
+            return
+        self.initstructure('gap',cls="code")
+    def depart_code(self,node):
+        if self.stripgaps:
+            self.texthandled = False
+            return
         tag = "gap"
         _tag, id = self.path.pop()
         if not tag == _tag:
@@ -398,7 +496,7 @@ class FoLiATranslator(nodes.NodeVisitor):
     def visit_comment(self, node):
         self.texthandled = True
     def depart_comment(self, node):
-        self.content.append("<!-- " + node.astext() + " -->\n")
+        self.content.append("<!-- " + self.encode(node.astext()) + " -->\n")
         self.texthandled = False
 
 
@@ -460,6 +558,78 @@ class FoLiATranslator(nodes.NodeVisitor):
         self.initstructure('note',cls='important')
     def depart_important(self,node):
         self.closestructure('note')
+
+    def visit_table(self,node):
+        if self.striptables:
+            self.texthandled = True
+            return
+        self.initstructure('table')
+    def depart_table(self,node):
+        if self.striptables:
+            self.texthandled = False
+            return
+        self.closestructure('table')
+
+    def visit_colspec(self,node):
+        pass
+    def depart_colspec(self,node):
+        pass
+
+    def visit_tgroup(self,node):
+        pass
+    def depart_tgroup(self,node):
+        pass
+
+    def visit_tbody(self,node):
+        pass
+    def depart_tbody(self,node):
+        pass
+
+    def visit_thead(self,node):
+        pass
+    def depart_thead(self,node):
+        pass
+
+    def visit_row(self,node):
+        if self.striptables:
+            return
+        else:
+            self.initstructure('row')
+    def depart_row(self,node):
+        if self.striptables:
+            return
+        else:
+            self.closestructure('row')
+
+    def visit_entry(self,node):
+        if self.striptables:
+            return
+        else:
+            self.initstructure('cell')
+    def depart_entry(self,node):
+        if self.striptables:
+            return
+        else:
+            self.closestructure('cell')
+
+    def visit_label(self,node): #citation/footnote label
+        self.initstructure('w')
+    def depart_label(self,node):
+        self.closestructure('w')
+
+    def visit_footnote_reference(self,node): #TODO: doesn't seem to really work as it should yet
+        symbol = node.astext()
+        if symbol in ('#','*'):
+            raise NotImplementedError("Wildcard references [#] [*] are currently not yet supported by rst2folia") #TODO: later
+        self.footnote_reference = symbol.strip()
+    def depart_footnote_reference(self,node):
+        pass
+
+    def visit_title_reference(self, node):
+        self.addlink(node,"#") #TODO: title link points to nowhere now
+    def depart_title_reference(self, node):
+        self.texthandled = False
+
     ############# TRANSLATION HOOKS (METADATA, rst-specific fields) ################
 
     def visit_docinfo(self, node):
@@ -514,25 +684,113 @@ class FoLiATranslator(nodes.NodeVisitor):
     def depart_organization(self, node):
         self.texthandled = False
 
-
-
     def visit_address(self, node):
         self.addmetadata('address', node)
 
     def depart_address(self, node):
         self.texthandled = False
 
-
-    def visit_contact(self, node):
-        self.addmetadata('contact', node)
-
-    def depart_contact(self, node):
+    def visit_problematic(self, node):
+        print("WARNING: RST parser encountered a problematic node, skipping: ", node.astext(),file=sys.stderr)
+        self.texthandled = True
+    def depart_problematic(self,node):
         self.texthandled = False
 
+    def visit_system_message(self, node):
+        print("WARNING from RST parser: ", node.astext(),file=sys.stderr)
+        self.texthandled = True
+    def depart_system_message(self,node):
+        self.texthandled = False
+
+    def visit_substitution_definition(self, node):
+        print("WARNING substitution definition encountered, but not converted: ", node.astext(),file=sys.stderr)
+        self.texthandled = True
+    def depart_substitution_definition(self,node):
+        self.texthandled = False
+
+    def visit_line_block(self, node):
+        if self.ignorelineblocks:
+            self.initstructure('p')
+        else:
+            self.initstructure('div')
+    def depart_line_block(self, node):
+        if self.ignorelineblocks:
+            self.closestructure('p')
+        else:
+            self.closestructure('div')
+
+    def visit_line(self, node):
+        if self.ignorelineblocks:
+            pass
+        else:
+            self.initstructure('part')
+    def depart_line(self, node):
+        if self.ignorelineblocks:
+            pass
+        else:
+            self.closestructure('part')
+        self.content.append('<br/>')
+
+    def visit_transition(self, node):
+        pass
+    def depart_transition(self, node):
+        self.content.append("<br/>")
+
+
+
+    def visit_subscript(self, node):
+        self.addstyle(node,"subscript")
+    def depart_subscript(self, node):
+        self.texthandled = False
+
+    def visit_superscript(self, node):
+        self.addstyle(node,"superscript")
+    def depart_superscript(self, node):
+        self.texthandled = False
+
+    def visit_math(self, node):
+        self.addstyle(node,"math")
+    def depart_math(self, node):
+        self.texthandled = False
+
+    def visit_definition_list(self, node):
+        pass
+    def depart_definition_list(self, node):
+        pass
+
+    def visit_definition_list_item(self, node):
+        self.initstructure('entry')
+    def depart_definition_list_item(self, node):
+        self.closestructure('entry')
+
+    def visit_term(self, node):
+        self.initstructure('term')
+    def depart_term(self, node):
+        self.closestructure('term')
+
+    def visit_classifier(self, node):
+        texthandled= True
+        print("WARNING: Classifiers in definition_lists are currently not convertable yet, skipping: ", node.astext(),file=sys.stderr)
+    def depart_classifier(self, node):
+        texthandled= False
+
+    def visit_definition(self, node):
+        self.initstructure('def')
+    def depart_definition(self, node):
+        self.closestructure('def')
+
+    def visit_legend(self, node):
+        self.initstructure('div')
+    def depart_legend(self, node):
+        self.closestructure('div')
 
 def main():
     description = 'Generates FoLiA documents from reStructuredText. ' + default_description
     publish_cmdline(writer=Writer(), writer_name='folia', description=description)
+
+def rst2folia(srcstring, **settings):
+    if not settings: settings = None
+    return publish_string(srcstring, writer=Writer(), settings=settings, settings_overrides={'output_encoding': 'unicode'})
 
 if __name__ == '__main__':
     main()
