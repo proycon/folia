@@ -16,10 +16,13 @@ the developer of the language resources, and provides maximum flexibility. We me
 
 * **Expressive**: The format is highly expressive, annotations can be expressed in great detail and with flexibility to the user's needs, without forcing unwanted details. Moreover, FoLiA has generalised support for representing annotation alternatives, and annotation metadata such as information on annotator, time of annotation, and annotation confidence.
 * **Generic** - We apply the same paradigm to a wide variety of annotation types, assuring a uniform and consistent way of representing different annotation.
+* **Specific** - FoLiA very specifically defines various annotation types. This means it choses *not* to subscribe to a looser
+  paradigm where users themselves can invent their annotation types, but keeps this centralised to promote compliance to
+  a more rigid structure. This ensures that any FoLiA-capable tools know what to expect.
 * **Formalised** - The format is formalised, and can be validated on both a shallow and a deep level (the latter including tagset validation), and easily machine parsable, for which tools are provided.
 * **Practical** - FoLiA has been developed in a bottom-up fashion right alongside applications, programming libraries, and other toolkits and converters. Whilst the format is rich, we try to maintain it as simple and straightforward as possible, minimising the learning curve and making it easy to adopt FoLiA in practical applications.
 
-The FoLiA format is XML-based and makes mixed-use of inline and stand-off annotation. XML is an inherently hierarchic
+The FoLiA format is XML-based and makes mixed use of inline and stand-off annotation. XML is an inherently hierarchic
 format and FoLiA does justice to this by utilising a hierarchic, inline, setup where possible. Inline annotation is used
 for annotations pertaining to singular structural elements such as words/tokens, whilst stand-off annotation in separate
 annotation layers is adopted for annotation types that span over multiple structural elements.
@@ -39,7 +42,8 @@ elements into the following four generic annotation groups:
   annotations. Examples in this category are: Named entity annotation, co-reference annotation, semantic roles,
   dependency relations.
 * **Higher order Annotation** --  Annotations on annotations. This category subsumes various specialised annotation types that are
-  considered annotations on annotations, such as **Alternative Annotations** and **Corrections**.
+  considered annotations on annotations, such as **Alternative Annotations**, **Corrections** and **Feature
+  Annotation**.
 
 In each of these categories, FoLiA defines specific elements for specific annotation types.
 
@@ -98,7 +102,7 @@ The following extra common attributes apply in a speech context:
 Document structure
 ----------------------
 
-FoLiA is a document based format, representing each document and all relevant annotations in a single XML file.
+FoLiA is a document-based format, representing each document and all relevant annotations in a single XML file.
 The basic structure of such a FoLiA document is as follows and should always be UTF-8
 encoded.
 
@@ -126,11 +130,11 @@ the document complies to (not the version of the document!). The ``generator`` a
 software generated or last modified the FoLiA document. The document as a whole always carries an ID (``xml:id``), like
 all identifiers in FoLiA, this has to be a unique string.
 
-.. note:: All identifiers in FoLiA have to are of the XML NCName datatype, which roughly means it is a unique string that has to start with a letter, and may not contain colons or spaces.
+.. note:: All identifiers in FoLiA are of the XML NCName datatype, which roughly means it is a unique string that has to start with a letter, and may not contain colons or spaces.
 
-The structure of a FoLiA document can roughly be divided into two parts, the ``metadata`` section and the ``text`` body. The
-``metadata`` section features a mandatory ``annotations`` section containing **annotation declarations**. Here we declare what
-annotation types we are using in the document.
+The structure of a FoLiA document can roughly be divided into two parts, the ``metadata`` section and the ``text`` (or
+``speech``) body. The ``metadata`` section features a mandatory ``annotations`` section containing **annotation
+declarations**. Here we declare what annotation types we are using in the document.
 
 The following example declares a Part-of-Speech annotation using a particular FoLiA Set Definition. Each annotation type
 has a corresponding declaration.
@@ -141,30 +145,6 @@ has a corresponding declaration.
     </annotations>
 
 .. note:: For deep validation, and therefore full formal closure, a proper set definition is required. For certain practical applications, however, full closure is not needed and shallow validation suffices. In such cases, you can even make do with FoLiA even if the sets are not defined. The set attribute does not point to an actual URI but is just a simple identifier, if no set is provided at all it will default to ``undefined``.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
