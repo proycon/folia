@@ -204,16 +204,16 @@
 					text-decoration: none;
 					z-index: 24;
                 }
-                .sh { 
+                .sh {
                     background: #f4f9ca;
                 }
                 .cor {
                     background: #f9caca;
                 }
-                .s:hover .sh { 
+                .s:hover .sh {
 					background: #cfd0ed;
                 }
-                .s:hover .cor { 
+                .s:hover .cor {
 					background: #cfd0ed;
                 }
                 .word:hover svg.bigtree {
@@ -393,7 +393,7 @@
 </xsl:template>
 
 <xsl:template match="folia:p">
- <p id="{@xml:id}">    
+ <p id="{@xml:id}">
     <xsl:apply-templates />
  </p>
 </xsl:template>
@@ -659,7 +659,7 @@
         </xsl:if>
         <xsl:if test=".//folia:morphology">
             <xsl:for-each select=".//folia:morphology[not(ancestor-or-self::*/@auth)]">
-                <span class="attrlabel">Morphology</span> 
+                <span class="attrlabel">Morphology</span>
                 <span class="attrvalue">
                     <xsl:for-each select="folia:morpheme">
                         <span class="morpheme">
@@ -891,7 +891,7 @@
 
 
 <xsl:template match="folia:su" mode="xml2layout">
- <!-- Enrich SU for conversion to SVG --> 
+ <!-- Enrich SU for conversion to SVG -->
 
   <xsl:param name="id" />
 
@@ -998,6 +998,7 @@
   </text>
   <text x="{$x  * $su.scale}" y="{($y + 0.3) * $su.scale}" style="text-anchor: middle; font-size: 9px; font-weight: normal;">
     <xsl:for-each select="folia:wref">
+        <xsl:variable name="wrefid" select="@id" />
         <xsl:choose>
             <xsl:when test="@t">
                 <xsl:value-of select="@t" />
