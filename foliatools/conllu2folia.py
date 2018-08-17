@@ -69,6 +69,10 @@ def main():
                 else:
                     sent_id = doc_id + '.s.' + str(i+1)
                 sentence = folia.Sentence(doc, id=sent_id)
+                if 'text' in tokenlist.metadata:
+                    sentence.add(folia.TextContent, tokenlist.metadata['text'], cls="original")
+                elif 'text_en' in tokenlist.metadata:
+                    sentence.add(folia.TextContent, tokenlist.metadata['text_en'], cls="text_en")
                 wordindex = {} #quick lookup index for this sentence
                 for token in tokenlist:
                     if token['misc'] and 'SpaceAfter' in token['misc'] and token['misc']['SpaceAfter'].lower() == 'no':
