@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <set xml:id="namedentities" type="closed" xmlns="http://ilk.uvt.nl/folia" conceptlink="http://www.isocat.org/datcat/DC-2275">
+    <!-- NOTE: this legacy version is no longer updated, use the TTL version instead! -->
     <class xml:id="loc" label="Location">
         <class xml:id="loc.street" label="Location - Street" />
         <class xml:id="loc.building" label="Location - Building" />
-        <class xml:id="loc.nature" label="Location - Nature elements" />
+        <class xml:id="loc.nature" label="Location - Natural elements">
+            <class xml:id="loc.nature.river" label="Location - Nature - River" />
+            <class xml:id="loc.nature.mountain" label="Location - Nature - Mountain" />
+        </class>
         <class xml:id="loc.transport" label="Location - Transport infrastructure" />
         <class xml:id="loc.city" label="Location - City" />
         <class xml:id="loc.country" label="Location - Country" />

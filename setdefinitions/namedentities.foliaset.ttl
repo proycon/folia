@@ -8,13 +8,24 @@
 
 namedentities:Set a skos:Collection ;
     skos:member namedentities:eve,
+        namedentities:eve.disaster,
+        namedentities:eve.holiday,
+        namedentities:eve.festival,
+        namedentities:eve.meeting,
+        namedentities:eve.conference,
+        namedentities:eve.concert,
+        namedentities:eve.party,
         namedentities:loc,
         namedentities:loc.building,
         namedentities:loc.city,
         namedentities:loc.country,
+        namedentities:loc.housenumber,
         namedentities:loc.line,
         namedentities:loc.metaphysical,
         namedentities:loc.nature,
+        namedentities:loc.nature.river,
+        namedentities:loc.nature.mountain,
+        namedentities:loc.nature.forest,
         namedentities:loc.point,
         namedentities:loc.region,
         namedentities:loc.region.county,
@@ -29,12 +40,43 @@ namedentities:Set a skos:Collection ;
         namedentities:org,
         namedentities:per,
         namedentities:pro ;
+        namedentities:time ;
+        namedentities:veh ;
+        namedentities:veh.registration ;
     skos:notation "namedentities" .
 
 namedentities:eve a skos:Concept ;
     fsd:sequenceNumber 5 ;
     skos:notation "eve" ;
     skos:prefLabel "Event" .
+
+namedentities:eve.disaster a skos:Concept ;
+    skos:notation "eve.disaster" ;
+    skos:prefLabel "Event - Disaster" .
+
+namedentities:eve.holiday a skos:Concept ;
+    skos:notation "eve.holiday" ;
+    skos:prefLabel "Event - Holiday" .
+
+namedentities:eve.festival a skos:Concept ;
+    skos:notation "eve.festival" ;
+    skos:prefLabel "Event - Festival" .
+
+namedentities:eve.meeting a skos:Concept ;
+    skos:notation "eve.meeting" ;
+    skos:prefLabel "Event - Meeting" .
+
+namedentities:eve.conference a skos:Concept ;
+    skos:notation "eve.conference" ;
+    skos:prefLabel "Event - Conference" .
+
+namedentities:eve.concert a skos:Concept ;
+    skos:notation "eve.concert" ;
+    skos:prefLabel "Event - Concert" .
+
+namedentities:eve.party a skos:Concept ;
+    skos:notation "eve.party" ;
+    skos:prefLabel "Event - Party" .
 
 namedentities:loc.building a skos:Concept ;
     skos:broader namedentities:loc ;
@@ -64,7 +106,22 @@ namedentities:loc.metaphysical a skos:Concept ;
 namedentities:loc.nature a skos:Concept ;
     skos:broader namedentities:loc ;
     skos:notation "loc.nature" ;
-    skos:prefLabel "Location - Nature elements" .
+    skos:prefLabel "Location - Natural bodies" .
+
+namedentities:loc.nature.river a skos:Concept ;
+    skos:broader namedentities:loc ;
+    skos:notation "loc.nature.river" ;
+    skos:prefLabel "Location - Nature - River" .
+
+namedentities:loc.nature.mountain a skos:Concept ;
+    skos:broader namedentities:loc ;
+    skos:notation "loc.nature.mountain" ;
+    skos:prefLabel "Location - Nature - Mountain" .
+
+namedentities:loc.nature.forest a skos:Concept ;
+    skos:broader namedentities:loc ;
+    skos:notation "loc.nature.forest" ;
+    skos:prefLabel "Location - Nature - Forest" .
 
 namedentities:loc.point a skos:Concept ;
     skos:broader namedentities:loc ;
@@ -130,6 +187,20 @@ namedentities:pro a skos:Concept ;
     fsd:sequenceNumber 4 ;
     skos:notation "pro" ;
     skos:prefLabel "Product" .
+
+namedentities:time a skos:Concept ;
+    fsd:sequenceNumber 5 ;
+    skos:notation "time" ;
+    skos:prefLabel "Time" .
+
+namedentities:veh a skos:Concept ;
+    fsd:sequenceNumber 6 ;
+    skos:notation "veh" ;
+    skos:prefLabel "Vehicle" .
+
+namedentities:veh.registration a skos:Concept ;
+    skos:notation "veh.registration" ;
+    skos:prefLabel "Vehicle - Registration" .
 
 namedentities:loc.region a skos:Concept ;
     skos:broader namedentities:loc ;
