@@ -94,7 +94,7 @@ literate={á}{{\'a}}1 {ã}{{\~a}}1 {é}{{\'e}}1 {ˈ}{{\textipa{'}}}1 {ʊ}{{\text
 
 \HRule \\[0.5cm]
 { \Large \bfseries FoLiA: Format for Linguistic Annotation}\\[0.5cm] % Title of your document
-{\bf \small version 1.5.0 -- Revision 8.0} \\[0.5cm]
+{\bf \small version 1.5.0 -- Revision 8.1} \\[0.5cm]
 { \Large \bfseries Documentation}\\[0.5cm]
 {\large \emph{Maarten van Gompel}}\\[0.5cm]
 \HRule \\[1.0cm]
@@ -5651,7 +5651,7 @@ has been extended into more fine-grained subclasses.
 \end{lstlisting}
 
 In the SKOS model, this is more verbose as the hierarchy has to be modelled
-explicitly using the \texttt{skos:broader} property, as shown in the following excerpt:
+explicitly using the \texttt{skos:narrower} property, as shown in the following excerpt:
 
 \begin{lstlisting}
 <#namedentities>
@@ -5667,7 +5667,7 @@ explicitly using the \texttt{skos:broader} property, as shown in the following e
 	a skos:Concept ;
 	skos:notation	"loc.country" ;
 	skos:prefLabel "Country" ;
-	skos:broader <#loc> .
+	skos:narrower <#loc> .
 \end{lstlisting}
 
 It is recommended, but not mandatory, to set the class ID
