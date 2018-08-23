@@ -16,10 +16,12 @@ namedentities:Set a skos:Collection ;
         namedentities:eve.concert,
         namedentities:eve.party,
         namedentities:loc,
+        namedentities:loc.address,
+        namedentities:loc.address.housenumber,
+        namedentities:loc.address.postalcode,
         namedentities:loc.building,
         namedentities:loc.city,
         namedentities:loc.country,
-        namedentities:loc.housenumber,
         namedentities:loc.line,
         namedentities:loc.metaphysical,
         namedentities:loc.nature,
@@ -51,120 +53,142 @@ namedentities:eve a skos:Concept ;
     skos:prefLabel "Event" .
 
 namedentities:eve.disaster a skos:Concept ;
+    skos:narrower namedentities:eve ;
     skos:notation "eve.disaster" ;
     skos:prefLabel "Event - Disaster" .
 
 namedentities:eve.holiday a skos:Concept ;
+    skos:narrower namedentities:eve ;
     skos:notation "eve.holiday" ;
     skos:prefLabel "Event - Holiday" .
 
 namedentities:eve.festival a skos:Concept ;
+    skos:narrower namedentities:eve ;
     skos:notation "eve.festival" ;
     skos:prefLabel "Event - Festival" .
 
 namedentities:eve.meeting a skos:Concept ;
+    skos:narrower namedentities:eve ;
     skos:notation "eve.meeting" ;
     skos:prefLabel "Event - Meeting" .
 
 namedentities:eve.conference a skos:Concept ;
+    skos:narrower namedentities:eve ;
     skos:notation "eve.conference" ;
     skos:prefLabel "Event - Conference" .
 
 namedentities:eve.concert a skos:Concept ;
+    skos:narrower namedentities:eve ;
     skos:notation "eve.concert" ;
     skos:prefLabel "Event - Concert" .
 
 namedentities:eve.party a skos:Concept ;
+    skos:narrower namedentities:eve ;
     skos:notation "eve.party" ;
     skos:prefLabel "Event - Party" .
 
+namedentities:loc.address a skos:Concept ;
+    skos:narrower namedentities:loc ;
+    skos:notation "loc.address" ;
+    skos:prefLabel "Location - Address" .
+
+namedentities:loc.address.housenumber a skos:Concept ;
+    skos:narrower namedentities:loc.address ;
+    skos:notation "loc.address.housenumber" ;
+    skos:prefLabel "Location - Address - House number" .
+
+namedentities:loc.address.postalcode a skos:Concept ;
+    skos:narrower namedentities:loc.address ;
+    skos:notation "loc.address.postalcode" ;
+    skos:prefLabel "Location - Address - Postal code" .
+
 namedentities:loc.building a skos:Concept ;
-    skos:broader namedentities:loc ;
+    skos:narrower namedentities:loc ;
     skos:notation "loc.building" ;
     skos:prefLabel "Location - Building" .
 
 namedentities:loc.city a skos:Concept ;
-    skos:broader namedentities:loc ;
+    skos:narrower namedentities:loc ;
     skos:notation "loc.city" ;
     skos:prefLabel "Location - City" .
 
 namedentities:loc.country a skos:Concept ;
-    skos:broader namedentities:loc ;
+    skos:narrower namedentities:loc ;
     skos:notation "loc.country" ;
     skos:prefLabel "Location - Country" .
 
 namedentities:loc.line a skos:Concept ;
-    skos:broader namedentities:loc ;
+    skos:narrower namedentities:loc ;
     skos:notation "loc.line" ;
     skos:prefLabel "Location - Line" .
 
 namedentities:loc.metaphysical a skos:Concept ;
-    skos:broader namedentities:loc ;
+    skos:narrower namedentities:loc ;
     skos:notation "loc.metaphysical" ;
     skos:prefLabel "Location - Metaphysical" .
 
 namedentities:loc.nature a skos:Concept ;
-    skos:broader namedentities:loc ;
+    skos:narrower namedentities:loc ;
     skos:notation "loc.nature" ;
     skos:prefLabel "Location - Natural bodies" .
 
 namedentities:loc.nature.river a skos:Concept ;
-    skos:broader namedentities:loc ;
+    skos:narrower namedentities:loc ;
     skos:notation "loc.nature.river" ;
     skos:prefLabel "Location - Nature - River" .
 
 namedentities:loc.nature.mountain a skos:Concept ;
-    skos:broader namedentities:loc ;
+    skos:narrower namedentities:loc ;
     skos:notation "loc.nature.mountain" ;
     skos:prefLabel "Location - Nature - Mountain" .
 
 namedentities:loc.nature.forest a skos:Concept ;
-    skos:broader namedentities:loc ;
+    skos:narrower namedentities:loc ;
     skos:notation "loc.nature.forest" ;
     skos:prefLabel "Location - Nature - Forest" .
 
 namedentities:loc.point a skos:Concept ;
-    skos:broader namedentities:loc ;
+    skos:narrower namedentities:loc ;
     skos:notation "loc.point" ;
     skos:prefLabel "Location - Point" .
 
 namedentities:loc.region.county a skos:Concept ;
-    skos:broader namedentities:loc.region ;
+    skos:narrower namedentities:loc.region ;
     skos:notation "loc.region.county" ;
     skos:prefLabel "Location - Region - County" .
 
 namedentities:loc.region.estate a skos:Concept ;
-    skos:broader namedentities:loc.region ;
+    skos:narrower namedentities:loc.region ;
     skos:notation "loc.region.estate" ;
     skos:prefLabel "Location - Region - Estate" .
 
 namedentities:loc.region.province a skos:Concept ;
-    skos:broader namedentities:loc.region ;
+    skos:narrower namedentities:loc.region ;
     skos:notation "loc.region.province" ;
     skos:prefLabel "Location - Region - Province" .
 
 namedentities:loc.region.quarter a skos:Concept ;
-    skos:broader namedentities:loc.region ;
+    skos:narrower namedentities:loc.region ;
     skos:notation "loc.region.quarter" ;
     skos:prefLabel "Location - Region - Quarter" .
 
 namedentities:loc.region.state a skos:Concept ;
-    skos:broader namedentities:loc.region ;
+    skos:narrower namedentities:loc.region ;
     skos:notation "loc.region.state" ;
     skos:prefLabel "Location - Region - State" .
 
 namedentities:loc.street a skos:Concept ;
-    skos:broader namedentities:loc ;
+    skos:narrower namedentities:loc ;
     skos:notation "loc.street" ;
     skos:prefLabel "Location - Street" .
 
 namedentities:loc.transport a skos:Concept ;
-    skos:broader namedentities:loc ;
+    skos:narrower namedentities:loc ;
     skos:notation "loc.transport" ;
     skos:prefLabel "Location - Transport infrastructure" .
 
 namedentities:loc.unspecified a skos:Concept ;
-    skos:broader namedentities:loc ;
+    skos:narrower namedentities:loc ;
     skos:notation "loc.unspecified" ;
     skos:prefLabel "Location - Unspecified" .
 
@@ -203,7 +227,7 @@ namedentities:veh.registration a skos:Concept ;
     skos:prefLabel "Vehicle - Registration" .
 
 namedentities:loc.region a skos:Concept ;
-    skos:broader namedentities:loc ;
+    skos:narrower namedentities:loc ;
     skos:notation "loc.region" ;
     skos:prefLabel "Location - Region" .
 
