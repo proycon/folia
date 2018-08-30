@@ -25,9 +25,14 @@ namedentities:Set a skos:Collection ;
         namedentities:loc.line,
         namedentities:loc.metaphysical,
         namedentities:loc.nature,
-        namedentities:loc.nature.river,
-        namedentities:loc.nature.mountain,
         namedentities:loc.nature.forest,
+        namedentities:loc.nature.island,
+        namedentities:loc.nature.lake,
+        namedentities:loc.nature.mountain,
+        namedentities:loc.nature.river,
+        namedentities:loc.nature.canal,
+        namedentities:loc.nature.stream,
+        namedentities:loc.park,
         namedentities:loc.point,
         namedentities:loc.region,
         namedentities:loc.region.county,
@@ -35,6 +40,7 @@ namedentities:Set a skos:Collection ;
         namedentities:loc.region.province,
         namedentities:loc.region.quarter,
         namedentities:loc.region.state,
+        namedentities:loc.road,
         namedentities:loc.street,
         namedentities:loc.transport,
         namedentities:loc.unspecified,
@@ -137,6 +143,11 @@ namedentities:loc.nature.river a skos:Concept ;
     skos:notation "loc.nature.river" ;
     skos:prefLabel "Location - Nature - River" .
 
+namedentities:loc.nature.lake a skos:Concept ;
+    skos:narrower namedentities:loc ;
+    skos:notation "loc.nature.lake" ;
+    skos:prefLabel "Location - Nature - Lake" .
+
 namedentities:loc.nature.mountain a skos:Concept ;
     skos:narrower namedentities:loc ;
     skos:notation "loc.nature.mountain" ;
@@ -146,6 +157,11 @@ namedentities:loc.nature.forest a skos:Concept ;
     skos:narrower namedentities:loc ;
     skos:notation "loc.nature.forest" ;
     skos:prefLabel "Location - Nature - Forest" .
+
+namedentities:loc.nature.island a skos:Concept ;
+    skos:narrower namedentities:loc ;
+    skos:notation "loc.nature.island" ;
+    skos:prefLabel "Location - Nature - Island" .
 
 namedentities:loc.point a skos:Concept ;
     skos:narrower namedentities:loc ;
