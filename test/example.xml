@@ -1,23 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="folia2html.xsl"?>
-<FoLiA xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://ilk.uvt.nl/folia" xml:id="WR-P-E-J-0000000001" version="1.6" generator="manual">
+<FoLiA xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://ilk.uvt.nl/folia" xml:id="WR-P-E-J-0000000001" version="1.5" generator="manual">
   <metadata type="native">
     <annotations>
-      <token-annotation>
-          <annotator processor="proc.ucto" />
-      </token-annotation>
-      <sentence-annotation set="sentences">
-          <annotator processor="proc.ucto" />
-      </sentence-annotation>
-      <paragraph-annotation set="paragraphs">
-          <annotator processor="proc.ucto" />
-      </paragraph-annotation>
-      <pos-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn">
-          <annotator processor="proc.frog.mbpos" />
-      </pos-annotation>
-      <pos-annotation set="http://ilk.uvt.nl/folia/sets/frog-mbpos-clex">
-          <annotator processor="proc.frog.mbma" />
-      </pos-annotation>
+      <token-annotation annotator="ilktok" annotatortype="auto" />
+      <sentence-annotation set="sentences" annotator="ucto" annotatortype="auto" />
+      <paragraph-annotation set="paragraphs" annotator="ucto" annotatortype="auto" />
+      <pos-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn" annotator="frog" annotatortype="auto" />
+      <pos-annotation annotator="frog-mbma-1.0" annotatortype="auto" datetime="2017-04-20T16:48:45" set="http://ilk.uvt.nl/folia/sets/frog-mbpos-clex"/>
       <lemma-annotation set="lemmas-nl" annotator="tadpole" annotatortype="auto" />
       <correction-annotation set="corrections" annotator="proycon" annotatortype="manual" />
       <errordetection-annotation set="corrections" annotator="proycon" annotatortype="manual" />
@@ -27,10 +17,7 @@
       <event-annotation set="event-set" />
       <timesegment-annotation set="event-set" />
       <entity-annotation set="mwu-set" />
-      <entity-annotation set="http://raw.github.com/proycon/folia/master/setdefinitions/namedentities.foliaset.xml">
-          <annotator processor="proc.flat.proycon" />
-          <annotator processor="proc.flat.ko" />
-      </entity-annotation>
+      <entity-annotation set="http://raw.github.com/proycon/folia/master/setdefinitions/namedentities.foliaset.xml" />
       <syntax-annotation set="syntax-set" />
       <dependency-annotation set="alpino-set" />
       <alignment-annotation set="alignment-set" />
@@ -53,18 +40,6 @@
       <statement-annotation set="statement-set" />
       <observation-annotation set="spelling-set" />
     </annotations>
-    <provenance>
-        <processor xml:id="proc.ucto" name="ucto" type="auto" />
-        <processor xml:id="proc.frog" name="frog" type="auto">
-            <processor xml:id="proc.frog.mbpos" name="mbpos" type="auto" />
-            <processor xml:id="proc.frog.mblem" name="mblem" type="auto" />
-            <processor xml:id="proc.frog.mbma" name="mbma" type="auto" version="1.0" begindatetime="2017-04-20T16:48:45" />
-        </processor>
-        <processor xml:id="proc.flat" name="flat" type="auto">
-            <processor xml:id="proc.flat.proycon" name="Maarten van Gompel" type="manual" />
-            <processor xml:id="proc.flat.ko" name="Ko van der Sloot" type="manual" />
-        </processor>
-    </provenance>
     <meta id="title">Stemma</meta>
     <meta id="language">nl</meta>
     <meta id="genre">artikel</meta>
@@ -1352,7 +1327,7 @@
                 <t>Gompel</t>
               </w>
               <entities>
-                <entity class="per" set="http://raw.github.com/proycon/folia/master/setdefinitions/namedentities.foliaset.xml" processor="proc.flat.proycon">
+                <entity class="per" set="http://raw.github.com/proycon/folia/master/setdefinitions/namedentities.foliaset.xml">
                   <wref id="example.table.1.w.3" t="Maarten"/>
                   <wref id="example.table.1.w.4" t="van"/>
                   <wref id="example.table.1.w.5" t="Gompel"/>
@@ -1394,7 +1369,7 @@
                 <t>Sloot</t>
               </w>
               <entities>
-                <entity class="per" set="http://raw.github.com/proycon/folia/master/setdefinitions/namedentities.foliaset.xml" processor="proc.flat.ko">
+                <entity class="per" set="http://raw.github.com/proycon/folia/master/setdefinitions/namedentities.foliaset.xml">
                   <wref id="example.table.1.w.9" t="Ko"/>
                   <wref id="example.table.1.w.10" t="van"/>
                   <wref id="example.table.1.w.11" t="der"/>
