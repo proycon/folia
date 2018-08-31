@@ -11,14 +11,16 @@ The numbers in the filenames refer to the FoLiA version used. Once made, the exa
 
 ### Deep examples
 
-*deep examples are examples that refer to proper set definitions for all annotation types and therefore can be alidated
+*Deep examples are examples that refer to proper set definitions for all annotation types and therefore can be validated
 on a deep level*
 
-* ``deep.1.3.2.folia.xml``
+* ``frog-deep.1.3.2.folia.xml`` - Tokenised dutch text with part-of-speech tags, lemmas, named entities, shallow
+    parsing, dependency parsing, and morphological analysis. Produced by
+    [Frog](https://languagemachines.github.io/frog).
 
 ### 'Shallow' examples
 
-Shallow examples lack a complete set definition for at least one annotation type
+*Shallow examples lack a complete set definition for at least one annotation type*
 
 * ``arabic.0.12.folia.xml`` - A small manually-constructed example of some annotated arabic text
 * ``corrections.0.12.folia.xml`` - A manually constructed example showing different kinds of orthographical correction (dutch text)
@@ -30,7 +32,7 @@ Shallow examples lack a complete set definition for at least one annotation type
 
 ### Erroneous examples
 
-Erroneous examples are invalid FoLiA, they serve to either illustrate a bad practice or to use to test error handling.
-FoLiA libraries and validators should never accept these documents.
+*Erroneous examples are invalid FoLiA, they serve to either illustrate a bad practice or to use to test error handling.
+FoLiA libraries and validators should never accept these documents.*
 
 * ``erroneous/inconsistenttext.1.5.0.folia.xml``
