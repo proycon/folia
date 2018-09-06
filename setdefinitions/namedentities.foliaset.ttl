@@ -50,9 +50,9 @@ namedentities:Set a skos:Collection ;
         namedentities:misc,
         namedentities:org,
         namedentities:per,
-        namedentities:pro ;
-        namedentities:time ;
-        namedentities:veh ;
+        namedentities:pro ,
+        namedentities:time ,
+        namedentities:veh ,
         namedentities:veh.registration ;
     skos:notation "namedentities" .
 
