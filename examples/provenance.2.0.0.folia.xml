@@ -7,16 +7,19 @@
           <annotator processor="p0" />
       </token-annotation>
       <pos-annotation set="http://ilk.uvt.nl/folia/sets/frog-mbpos-cgn">
+          <!-- There are multiple annotators, this means that each pos annotation should explicitly refer to one of them using the @processor attribute -->
           <annotator processor="p1.1" />
           <annotator processor="p2.1" />
           <annotator processor="p2.2" />
       </pos-annotation>
       <lemma-annotation set="http://ilk.uvt.nl/folia/sets/frog-mblem-nl">
+          <!-- There is only one annotator so this will be the default, no need to explicitly refer to it from lemma annotations using the @processor attribute -->
           <annotator processor="p1.2" />
       </lemma-annotation>
     </annotations>
     <provenance>
         <processor xml:id="p0" name="ucto" version="0.15" folia_version="2.0" command="ucto -Lnld" host="mhysa" user="proycon" begindatetime="2018-09-12T00:00:00" enddatetime="2018-09-12T00:00:00" document_version="1">
+            <!-- We can add arbitrary meta fields to any processor, they are not defined by FoLiA but application-specific  -->
             <meta id="config">tokconfig-nld</meta>
             <meta id="language">nld</meta>
             <processor xml:id="p0.1" name="libfolia" version="2.0" folia_version="2.0" type="generator" />
