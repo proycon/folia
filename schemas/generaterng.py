@@ -44,6 +44,8 @@ RelaxNG schema for FoLiA XML v%s
 io.open('folia.rng','w',encoding='utf-8').writelines(data)
 
 
-print("Validating example documents...")
+print("Validating example documents...", file=sys.stderr)
 for filename in glob("../examples/*.folia.xml"):
+    print(" Validating " + filename,file=sys.stderr)
     folia.validate(filename)
+    print("   OK!",file=sys.stderr)
