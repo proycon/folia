@@ -1,9 +1,9 @@
 #!/bin/bash
 
 FAILURE=0
-for f in examples/*.folia.xml; do
+for f in ../examples/*.folia.xml; do
     echo "Validating $(basename $f) against RelaxNG schema..."
-    xmllint --schema schemas/folia.rng $f > /dev/null
+    xmllint --relaxng ../schemas/folia.rng $f > /dev/null
     if [ $? -ne 0 ]; then
         echo "...FAILED" >&2
         FAILURE=1
