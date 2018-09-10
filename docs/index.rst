@@ -1,0 +1,266 @@
+Introduction
+================
+
+FoLiA, an acronym for **Format for Linguistic Annotation**, is a data model and file format to represent digitised
+language resources enriched with linguistic annotation, e.g. linguistically enriched textual documents or transcriptions
+of speech. The format is intended to provide a standard for the storage and exchange of such language resources,
+including corpora and promote interoperability amongst Natural Language Processing tools that use the format.
+
+Our aim is to introduce a single rich format that can accommodate a wide variety of linguistic annotation types through
+a single generalised paradigm. We do not commit to any label/vocabulary set, language or linguistic theory.  This is
+always left to the developer of the language resources, and provides maximum flexibility. We merely specify the broad
+category of annotation types and provide other mechanisms that allow resource constructors to formalize vocabulary sets.
+
+FoLiA has the following characteristics:
+
+* **Expressive**: The format is highly expressive, annotations can be expressed in great detail and with flexibility to the user's needs, without forcing unwanted details. Moreover, FoLiA has generalised support for representing annotation alternatives, and annotation metadata such as information on annotator, time of annotation, and annotation confidence.
+* **Generic** - We apply the same paradigm to a wide variety of annotation types, assuring a uniform and consistent way of representing different annotation.
+* **Specific** - FoLiA very explicitly defines various annotation types. This means it choses *not* to subscribe to a looser
+  paradigm where users themselves can invent their annotation types, but keeps this centralised to promote compliance to
+  a more rigid structure. This ensures that any FoLiA-capable tools know what to expect.
+* **Formalised** - The format is formalised, and can be validated on both a shallow and a deep level (the latter including tagset validation), and easily machine parsable, for which tools are provided.
+* **Practical** - FoLiA has been developed in a bottom-up fashion right alongside applications, programming libraries, and other toolkits and converters. Whilst the format is rich, we try to maintain it as simple and straightforward as possible, minimising the learning curve and making it easy to adopt FoLiA in practical applications.
+
+The FoLiA format is XML-based and makes mixed use of inline and stand-off annotation. XML is an inherently hierarchic
+format and FoLiA does justice to this by utilising a hierarchic, inline, setup where possible. Inline annotation is used
+for annotations pertaining to singular structural elements such as words/tokens, whilst stand-off annotation in separate
+annotation layers is adopted for annotation types that span over multiple structural elements.
+
+FoLiA favours a **single-document** approach, meaning that a text and all linguistic annotations on that text are stored
+in a single XML file. This facilitates keeping all annotation layers in sync with eachother and prevents incomplete or
+loss of information. The single-document approach is not just limited to the annotation and text, but also encompasses
+the document structure and document mark-up (e.g. basic text styling). Nevertheless, there exists a FoLiA mechanism that
+does allow you to take a more stand-off approach and store annotations in seperate external FoLiA documents if
+absolutely needed.
+
+This documentation is limited to describing, in great detail, how FoLiA works, for more about the motivation behind the
+construction of FoLiA and how it compares to somewhat similar or comparable initiatives such as `TEI
+<http://tei-c.org>`_, LAF .. , `TCF <https://weblicht.sfs.uni-tuebingen.de/weblichtwiki/index.php/The_TCF_Format>`_,
+NAF, Paula XML, Tiger XML, and others, we refer you to our research paper providing a descriptive and comparative study
+[vanGompel2014]_ .
+
+.. [vanGompel2014] Maarten van Gompel & Martin Reynaert (2014). FoLiA: A practical XML format for linguistic annotation - a descriptive and comparative study; Computational Linguistics in the Netherlands Journal; 3:63-81; 2013.
+
+Generic Annotation Groups
+---------------------------
+
+FoLiA defines various XML elements to represent document structure and various annotations, we can divide these XML
+elements into the following four generic annotation groups:
+
+* **Structure Annotation** -- Elements to denote the structure of a document, e.g. division in paragraphs, sentences,
+  words, sections like chapters, lists, tables, etc...
+* **Inline Annotation** -- Annotation elements pertaining to a single
+  structural element. Examples in this category are: Part-of-Speech annotation, Lemmatisation.
+  This category is also known historically as **Token annotation**, as it is most often used in the context of a
+  token/word.
+* **Span Annotation** -- Annotation elements that span multiple words/tokens/structural elements. These are defined in
+  annotation layers. The annotation layers are embedded in any structural element (often a sentence) that covers the scope of the
+  annotations. Examples in this category are: Named entity annotation, co-reference annotation, semantic roles,
+  dependency relations.
+* **Text markup Annotation**
+* **Higher order Annotation** --  Annotations on annotations. This category subsumes various specialised annotation types that are
+  considered annotations on annotations, such as **Alternative Annotations**, **Corrections** and **Feature
+  Annotation**.
+
+In each of these categories, FoLiA defines specific elements for specific annotation types. This is a deliberate limit
+on the extensibility of FoLiA in favour of specificity; i.e. you can't just add your own annotation type. If a
+particular annotation type is not properly accommodated yet, contact the FoLiA developers and we will see how we can extend
+FoLiA.
+
+For good measure, we again emphasise that this is a limitation on annotation types only, not on the vocabulary the
+annotation types make use of, which is deliberately seperated from the FoLiA standard itself. The next section will
+elaborate on this.
+
+Vocabulary sets
+------------------
+
+We have just seen that FoLiA specifically defines various types of annotation, but it never defines the vocabulary (aka
+label/tag sets) you can use for those annotations. The vocabulary for, for instance, Part-of-Speech annotation can be
+defined by anyone in a separate publicly available file known as a **Set Definition**. Anybody is free to create and
+host their own set definitions on the internet. These set definitions are typically formulated according to a linked
+open data model (SKOS) and as-such provide a semantic foundation. Each FoLiA document *declares* in its metadata
+section, what set definitions to use (described by a URL pointing to a set definition file) for what annotation types.
+The individual labels inside a set are called **classes** in the FoLiA paradigm. Classes in a Part-of-Speech tagset, for
+instance, could be ``Noun``, ``Verb`` or ``Adjective``, or a more symbolic version thereof (human readable labelling is
+exlusively done inside the set definition, classes typically refer to more symbollic names, such as ``N``, ``V`` or
+``ADJ`` in this case).
+
+This vocabulary paradigm of independently defined sets and classes is a fundamental part of FoLiA and stretches accross
+all annotation types.
+
+.. seealso::
+
+    Read the full specification in the following section: `Set Definitions`
+
+Validation
+-------------
+
+If you create FoLiA documents in any shape or form, it is of great importance that you validate whether they indeed conform to the FoLiA
+specification; otherwise they can not be processed correctly by any FoLiA-aware software. FoLiA is a strict format by
+design, we prefer to be explicit and do away with any ambiguity or any ad-hoc constructions, this ensures that parsing
+FoLiA is clear for both humans and machines. Specific validator software is provided to this end.
+
+* A first level of validation is performed by comparing your document against the FoLiA schema (in RelaxNG), this gives you a
+  good indication whether the document is formed corrected; but is not sufficient for full validation!
+* For full validation, process the document using one of the provided validation tools. These tools make a distinction
+  between **shallow validation** and **deep validation**, the distinction being that only in the latter case the validity of all used
+  classes will be put to the test using the set definitions. Shallow validations allows users to still use FoLiA without
+  formally defining their annotation vocabularies.
+
+Validators are provided by the `FoLiA tools <https://github.com/proycon/foliatools>`_ (Python) or by the FoliAutils
+(C++), a command-line example of installation and invocation of the former:
+
+.. code-block:: bash
+
+    $ pip install foliatools
+    $ foliavalidator myfoliadocument.folia.xml
+
+
+Metadata
+----------
+
+Every FoLiA document starts with a metadata block, this contains at least a set of **declarations of used annotation
+types**, which is always mandatory. Optionally it then contains a **provenance** section and after that there is space
+for custom metadata, either document-wide metadata or submetadata applying to particular parts of the document.
+
+Annotation Declarations
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+All annotation types that are used in a FoLiA document have to be *declared*. In the metadata block you will find the
+``<annotations>`` block in which each annotation type that occurs in the document is mentioned, i.e. declared. So does
+your document include Part of Speech tagging? Then there will be an entry declaring it does so, and linking to the set
+definition used.
+
+This allows software to identify exactly what a FoLiA document consists of without needing to go through the entire
+document, on the basis of this software can determine whether it can handle the document in the first place. You can for
+instance imagine an NLP tool that does Named Entity Recognition but requires Part-of-Speech tags and Lemmas to do so,
+feeding it a FoLiA document without such annotation layers would then be pointless and easy to detect.
+
+.. seealso::
+
+    Read the full specification in the following section: `Annotation Declarations`
+
+Provenance Data
+~~~~~~~~~~~~~~~~~~
+
+Throughout its lifecycle, a FoLiA document may be enriched by multiple FoLiA-aware NLP tools. The provenance block in the
+metadata header of the document allows us to register precisely what tools were invoked, and optionally when they were
+invoked and by whom. It is tied to the `Declarations` section.
+
+.. seealso::
+
+    Read the full specification in the following section: `Provenance Data`
+
+Document Metadata
+~~~~~~~~~~~~~~~~~~~~~~
+
+FoLiA has support for metadata. Here we define metadata as distinct from (linguistic) annotation in the sense that it is
+information that describes either the document as a whole or a significant sub-part thereof, as opposed to a particular
+annotation on the text/speech, which is already covered by FoLiA's main paradigm. Metadata contains information such as
+authorship of the document, affiliations, sources, licenses, publication date, or whatever else you can think of. Note
+that it's up to the resource creator, FoLiA does not define any metadata vocabulary!
+
+FoLiA offers a simple native metadata system, which is essentially just a simple key-value store. Alternatively, you can
+embed foreign metadata schemes such as Dublin Core, CMDI, or whatever you please. You can also refer to metadata in
+external files, keeping it all separate from the FoLiA document.
+
+In addition to document-wide metadata, i.e. metadata that is applicable to the document as a whole, we already mentioned
+that FoLiA supports metadata on arbitrary parts of the document. This is referred to as submetadata.
+
+.. seealso::
+
+    Read the full specification in the following section: `Metadata`
+
+Document structure
+----------------------
+
+FoLiA is a document-based format, representing each document and all relevant annotations in a single XML file.
+
+We have not included any XML examples in this introduction thus-far, but from now on we will make heavy use of it. From
+this point forward, we therefore assume the reader has at least a basic familiarity with XML, its use of elements,
+attributes, comments and a simple understanding of the notion of an XML namespace and an XML schema. If not, we recommend the
+following `XML Tutorial <https://www.w3schools.com/xml/default.asp>`_.
+
+In our first XML snippet, we show the basic structure of such a FoLiA document is as follows and should always be UTF-8
+encoded.
+
+.. code-block:: xml
+
+    <?xml version="1.0" encoding="utf-8"?>
+    <FoLiA xmlns="http://ilk.uvt.nl/FoLiA"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      version="2.0"
+      xml:id="example">
+      <metadata>
+          <annotations>
+              ...
+          </annotations>
+          <provenance>
+              ..
+          </provenance>
+          ...
+      </metadata>
+      <text xml:id="example.text">
+         ...
+      </text>
+    </FoLiA>
+
+The root element of a FoLiA document is always the ``FoLiA`` element. This, and *all* other FoLiA elements should always
+be in the FoLiA XML Namespace, ``http://ilk.uvt.nl/FoLiA`` [#f1]_ .
+
+The mandatory ``version`` attribute describes the FoLiA version that
+the document complies to (this is **not** the version of the document! There is room in the `Provenance Data` for that).
+The document as a whole always carries an ID (``xml:id``), like all identifiers in FoLiA, this has to be a unique string. More about identifiers can be read in the next section.
+
+The structure of a FoLiA document can roughly be divided into two parts, the ``metadata`` section and the ``text`` (or
+``speech``) body. The ``metadata`` section features a mandatory ``annotations`` section containing the `Annotation
+Declarations`, next is the optional but recommended ``provenance`` block that contains the `Provenance Data`. After this
+there is space for other `Metadata`.
+
+.. [#f1] For historical reasons, the XML namespace URI refers to a research group at the University of Tilburg where FoLiA was first founded, but which no longer exists.
+
+Common attributes
+-------------------
+
+Annotation elements in FoLiA carry a subset of so-called *common attributes*, these are common properties (represented
+as XML attributes) that can be set on different annotations. The exact subset of mandatory or optional common attributes
+differs slightly per element. We distinguish the following:
+
+* ``xml:id`` -- The ID of the element; this has to be a unique in the entire document or collection of documents (corpus). All identifiers in FoLiA are of the `XML NCName <https://www.w3.org/TR/1999/WD-xmlschema-2-19990924/#NCName>`_ datatype, which roughly means it is a unique string that has to start with a letter (not a number or symbol), may contain numers, but may never contain colons or spaces.
+* ``set`` -- The set of the element (a URI linking to a set definition)
+* ``class`` -- The class of the annotation
+* ``annotator`` -- The name or ID of the system or human annotator that made the annotation.
+* ``annotatortype`` -- ``manual`` for human annotators, or ``auto`` for automated systems.
+* ``confidence`` -- A floating point value between zero and one; expresses the confidence the annotator places in his annotation.
+* ``datetime`` --  The date and time when this annotation was recorded, the format is ``YYYY-MM-DDThh:mm:ss`` (note the literal T in the middle to separate date from time), as per the XSD Datetime data type.
+* ``n`` --  A number in a sequence, corresponding to a number in the original document, for example chapter numbers, section numbers, list item numbers.
+
+The following extra common attributes apply in a speech context:
+
+* ``src`` -- Points to a file or full URL of a sound or video file. This attribute is inheritable.
+* ``begintime`` --  A timestamp in ``HH:MM:SS.MMM`` format, indicating the begin time of the speech. If a sound clip is specified (``src``); the timestamp refers to a location in the soundclip.
+* ``endtime`` -- A timestamp in ``HH:MM:SS.MMM`` format, indicating the end time of the speech. If a sound clip is specified (``src``); the timestamp refers to a location in the soundclip.
+* ``speaker`` -- A string identifying the speaker. This attribute is inheritable. Multiple speakers are not allowed, simply do not specify a speaker on a certain level if you are unable to link the speech to a specific (single) speaker.
+
+
+
+
+
+
+
+
+Contents:
+
+.. toctree::
+    :maxdepth: 3
+    :glob:
+
+    *
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+
