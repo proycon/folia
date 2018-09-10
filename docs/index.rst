@@ -45,20 +45,36 @@ Generic Annotation Groups
 ---------------------------
 
 FoLiA defines various XML elements to represent document structure and various annotations, we can divide these XML
-elements into the following four generic annotation groups:
+elements into several generic annotation groups. Below are the groups and underlying annotation types:
 
-* **Structure Annotation** -- Elements to denote the structure of a document, e.g. division in paragraphs, sentences,
+* `Structure Annotation` -- Elements to denote the structure of a document, e.g. division in paragraphs, sentences,
   words, sections like chapters, lists, tables, etc...
-* **Inline Annotation** -- Annotation elements pertaining to a single
+  - ``<w>`` -- `Token Annotation` -- Tokenisation layer
+  - ``<s>`` -- `Sentence Annotation` -- Sentences
+  - ``<p>`` -- `Paragraph Annotation` -- Paragraphs
+  - ``<div>`` -- `Division Annotation` -- Divide a text into (nestable) divisions like chapters, sections, subsections, etc... (FoLiA itself does not define the divisions)
+  - ``<figure>`` -- `Figure Annotation` -- Include images
+  - ``<table>`` -- `Table Annotation` -- Tabular environments
+    - ``<tablehead>`` -- A head of a table
+    - ``<row>`` -- A row in a table
+        - ``<cell>`` -- A cell in a table
+  - ``<utt>`` -- `Utterance Annotation` -- Often used in a speech context where it makes more sense to segment a text into utterances rather than sentences.
+  - ``<event>`` -- `Event Annotation` -- Structure element often used in new media contexts for things such as tweets, chat messages and forum posts. Not to be confused with event annotation in the NLP sense, which can be covered by `Entity Annotation`.
+  - ``<whitespace>`` - `Whitespace`
+  - ``<br>`` - `Linebreaks`
+* `Inline Annotation` -- Annotation elements pertaining to a single
   structural element. Examples in this category are: Part-of-Speech annotation, Lemmatisation.
   This category is also known historically as **Token annotation**, as it is most often used in the context of a
   token/word.
-* **Span Annotation** -- Annotation elements that span multiple words/tokens/structural elements. These are defined in
+  - ``<pos>`` - `Part-of-Speech Annotation`
+  - ``<lemma>`` - `Lemma Annotation`
+
+* `Span Annotation` -- Annotation elements that span multiple words/tokens/structural elements. These are defined in
   annotation layers. The annotation layers are embedded in any structural element (often a sentence) that covers the scope of the
   annotations. Examples in this category are: Named entity annotation, co-reference annotation, semantic roles,
   dependency relations.
-* **Text markup Annotation**
-* **Higher order Annotation** --  Annotations on annotations. This category subsumes various specialised annotation types that are
+* `Text markup Annotation`
+* `Higher-order Annotation` --  Annotations on annotations. This category subsumes various specialised annotation types that are
   considered annotations on annotations, such as **Alternative Annotations**, **Corrections** and **Feature
   Annotation**.
 
@@ -174,7 +190,7 @@ that FoLiA supports metadata on arbitrary parts of the document. This is referre
 Document structure
 ----------------------
 
-FoLiA is a document-based format, representing each document and all relevant annotations in a single XML file.
+FoLiA is a document-based format, representing each document and all relevant annotations in a single XML file. [#fex]
 
 We have not included any XML examples in this introduction thus-far, but from now on we will make heavy use of it. From
 this point forward, we therefore assume the reader has at least a basic familiarity with XML, its use of elements,
@@ -206,7 +222,7 @@ encoded.
     </FoLiA>
 
 The root element of a FoLiA document is always the ``FoLiA`` element. This, and *all* other FoLiA elements should always
-be in the FoLiA XML Namespace, ``http://ilk.uvt.nl/FoLiA`` [#f1]_ .
+be in the FoLiA XML Namespace, ``http://ilk.uvt.nl/FoLiA`` [#fns]_ .
 
 The mandatory ``version`` attribute describes the FoLiA version that
 the document complies to (this is **not** the version of the document! There is room in the `Provenance Data` for that).
@@ -217,33 +233,49 @@ The structure of a FoLiA document can roughly be divided into two parts, the ``m
 Declarations`, next is the optional but recommended ``provenance`` block that contains the `Provenance Data`. After this
 there is space for other `Metadata`.
 
-.. [#f1] For historical reasons, the XML namespace URI refers to a research group at the University of Tilburg where FoLiA was first founded, but which no longer exists.
+.. [#fex] There is an alternative stand-off serialisation available: `Extern`
+.. [#fns] For historical reasons, the XML namespace URI refers to a research group at the University of Tilburg where FoLiA was first founded, but which no longer exists.
 
 Common attributes
 -------------------
 
-Annotation elements in FoLiA carry a subset of so-called *common attributes*, these are common properties (represented
-as XML attributes) that can be set on different annotations. The exact subset of mandatory or optional common attributes
-differs slightly per element. We distinguish the following:
+Annotation elements in FoLiA carry a subset of so-called *common attributes*, these are common properties, represented
+as XML attributes, that can be set on different annotations. The exact subset of mandatory or optional common attributes
+differs slightly per annotation type. We distinguish the following:
 
-* ``xml:id`` -- The ID of the element; this has to be a unique in the entire document or collection of documents (corpus). All identifiers in FoLiA are of the `XML NCName <https://www.w3.org/TR/1999/WD-xmlschema-2-19990924/#NCName>`_ datatype, which roughly means it is a unique string that has to start with a letter (not a number or symbol), may contain numers, but may never contain colons or spaces.
-* ``set`` -- The set of the element (a URI linking to a set definition)
-* ``class`` -- The class of the annotation
+**Core Attributes:**
+
+* ``xml:id`` -- The ID of the element; this has to be a unique in the entire document or collection of documents (corpus). All identifiers in FoLiA are of the `XML NCName <https://www.w3.org/TR/1999/WD-xmlschema-2-19990924/#NCName>`_ datatype, which roughly means it is a unique string that has to start with a letter (not a number or symbol), may contain numers, but may never contain colons or spaces. FoLiA does not define any naming convention for IDs.
+* ``set`` -- The set of the element (a URI linking to a set definition).
+* ``class`` -- The class of the annotation, i.e. the annotation tag in the vocabulary defined by ``set``.
+
+**Provenance attributes:**
+
+* ``processor`` - This specifies the ID of a processor in the `Provenance Data`. The processor in turn defines exactly
+  was the annotator of the annotation.
+
+**Authorship attributes**, these provides a simpler mechanism stemming from earlier versions of FoLiA and can be used without full provenance (instead of ``processor``):
 * ``annotator`` -- The name or ID of the system or human annotator that made the annotation.
 * ``annotatortype`` -- ``manual`` for human annotators, or ``auto`` for automated systems.
+
+**Annotation attributes:**
+
 * ``confidence`` -- A floating point value between zero and one; expresses the confidence the annotator places in his annotation.
 * ``datetime`` --  The date and time when this annotation was recorded, the format is ``YYYY-MM-DDThh:mm:ss`` (note the literal T in the middle to separate date from time), as per the XSD Datetime data type.
 * ``n`` --  A number in a sequence, corresponding to a number in the original document, for example chapter numbers, section numbers, list item numbers.
 
-The following extra common attributes apply in a speech context:
+**Speech attributes**, the following attributes apply mostly in a speech context:
 
 * ``src`` -- Points to a file or full URL of a sound or video file. This attribute is inheritable.
 * ``begintime`` --  A timestamp in ``HH:MM:SS.MMM`` format, indicating the begin time of the speech. If a sound clip is specified (``src``); the timestamp refers to a location in the soundclip.
 * ``endtime`` -- A timestamp in ``HH:MM:SS.MMM`` format, indicating the end time of the speech. If a sound clip is specified (``src``); the timestamp refers to a location in the soundclip.
 * ``speaker`` -- A string identifying the speaker. This attribute is inheritable. Multiple speakers are not allowed, simply do not specify a speaker on a certain level if you are unable to link the speech to a specific (single) speaker.
 
+**XLink attributes**, the following applies only on text and text markup elements and allows creating hyperlinks. See the section `Hyperlinks` for
+details.
 
-
+* ``xlink:href`` -- Creates a hyperlink on a text to the specified URL
+* ``xlink:type`` -- Specifies the type of the hyperlink.
 
 
 
