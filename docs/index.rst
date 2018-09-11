@@ -1,3 +1,7 @@
+#########################################
+FoLiA Documentation and Reference Guide
+#########################################
+
 Introduction
 ================
 
@@ -41,11 +45,14 @@ NAF, Paula XML, Tiger XML, and others, we refer you to our research paper provid
 
 .. [vanGompel2014] Maarten van Gompel & Martin Reynaert (2014). FoLiA: A practical XML format for linguistic annotation - a descriptive and comparative study; Computational Linguistics in the Netherlands Journal; 3:63-81; 2013.
 
-Generic Annotation Groups
+Table of Contents
 ---------------------------
 
 FoLiA defines various XML elements to represent document structure and various annotations, we can divide these XML
 elements into several generic annotation groups. Below are the groups and underlying annotation types:
+
+.. foliaspec:toc
+
 
 * `Structure Annotation` -- Elements to denote the structure of a document, e.g. division in paragraphs, sentences,
   words, sections like chapters, lists, tables, etc...
@@ -277,7 +284,31 @@ details.
 * ``xlink:href`` -- Creates a hyperlink on a text to the specified URL
 * ``xlink:type`` -- Specifies the type of the hyperlink.
 
+Identifiers
+~~~~~~~~~~~~~~~
 
+Many elements in the FoLiA take an identifier by which the element is uniquely identifiable. This makes referring to any
+part of a FoLiA document easy. Identifiers should be unique in the entire document, and ideally within the entire corpus
+collection if you have multiple documents, though that is a recommendation and not enforced. The ID can be anything that
+qualifies as a valid ID according to the XML standard, that is, it is a non-colonized name (NCName) that starts with
+either a letter or an underscore and contains none other than letters, digits, underscores, hyphens and periods. A well
+proven convention for IDs is of a cumulative nature, in which you append the element name, a period, and a sequence
+number, to the identifier of a parent element higher in the hierarchy.  Identifiers are always encoded in the ``xml:id``
+attribute.
+
+The FoLiA document as a whole also carries an identifier.
+
+Identifiers are very important and used throughout the FoLiA format, and
+mandatory for almost all structural elements. They enable external resources
+and databases to easily point to a specific part of the document or an
+annotation therein. FoLiA has been set up in such a way that \emph{identifiers
+should never change}. Once an identifier is assigned, it should never change,
+re-numbering is strictly prohibited unless you intentionally want to create a
+new resource and break compatibility with the old one.
+
+Certain FoLiA elements take an \texttt{id} attribute in the FoLiA XML
+namespace instead of of the \texttt{XML} namespaces, these are
+always \emph{references} to the ID of another element.
 
 
 
