@@ -52,38 +52,7 @@ FoLiA defines various XML elements to represent document structure and various a
 elements into several generic annotation groups. Below are the groups and underlying annotation types:
 
 .. foliaspec:toc
-
-
-* `Structure Annotation` -- Elements to denote the structure of a document, e.g. division in paragraphs, sentences,
-  words, sections like chapters, lists, tables, etc...
-  - ``<w>`` -- `Token Annotation` -- Tokenisation layer
-  - ``<s>`` -- `Sentence Annotation` -- Sentences
-  - ``<p>`` -- `Paragraph Annotation` -- Paragraphs
-  - ``<div>`` -- `Division Annotation` -- Divide a text into (nestable) divisions like chapters, sections, subsections, etc... (FoLiA itself does not define the divisions)
-  - ``<figure>`` -- `Figure Annotation` -- Include images
-  - ``<table>`` -- `Table Annotation` -- Tabular environments
-    - ``<tablehead>`` -- A head of a table
-    - ``<row>`` -- A row in a table
-        - ``<cell>`` -- A cell in a table
-  - ``<utt>`` -- `Utterance Annotation` -- Often used in a speech context where it makes more sense to segment a text into utterances rather than sentences.
-  - ``<event>`` -- `Event Annotation` -- Structure element often used in new media contexts for things such as tweets, chat messages and forum posts. Not to be confused with event annotation in the NLP sense, which can be covered by `Entity Annotation`.
-  - ``<whitespace>`` - `Whitespace`
-  - ``<br>`` - `Linebreaks`
-* `Inline Annotation` -- Annotation elements pertaining to a single
-  structural element. Examples in this category are: Part-of-Speech annotation, Lemmatisation.
-  This category is also known historically as **Token annotation**, as it is most often used in the context of a
-  token/word.
-  - ``<pos>`` - `Part-of-Speech Annotation`
-  - ``<lemma>`` - `Lemma Annotation`
-
-* `Span Annotation` -- Annotation elements that span multiple words/tokens/structural elements. These are defined in
-  annotation layers. The annotation layers are embedded in any structural element (often a sentence) that covers the scope of the
-  annotations. Examples in this category are: Named entity annotation, co-reference annotation, semantic roles,
-  dependency relations.
-* `Text markup Annotation`
-* `Higher-order Annotation` --  Annotations on annotations. This category subsumes various specialised annotation types that are
-  considered annotations on annotations, such as **Alternative Annotations**, **Corrections** and **Feature
-  Annotation**.
+(ToC goes here)
 
 In each of these categories, FoLiA defines specific elements for specific annotation types. This is a deliberate limit
 on the extensibility of FoLiA in favour of specificity; i.e. you can't just add your own annotation type. If a

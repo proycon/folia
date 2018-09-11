@@ -17,26 +17,75 @@ attributes: [ ID, CLASS, ANNOTATOR, CONFIDENCE, N, DATETIME, BEGINTIME, ENDTIME,
 #All possible annotation types, each must be declared in the FoLiA header when used
 annotationtype: [ TEXT, TOKEN, DIVISION, PARAGRAPH, LIST, FIGURE, WHITESPACE, LINEBREAK, SENTENCE, POS, LEMMA, DOMAIN, SENSE, SYNTAX, CHUNKING, ENTITY, CORRECTION, ERRORDETECTION, PHON, SUBJECTIVITY, MORPHOLOGICAL, EVENT, DEPENDENCY, TIMESEGMENT, GAP, NOTE, ALIGNMENT, COMPLEXALIGNMENT, COREFERENCE, SEMROLE, METRIC, LANG, STRING, TABLE, STYLE, PART, UTTERANCE, ENTRY, TERM, DEFINITION, EXAMPLE, PHONOLOGICAL, PREDICATE, OBSERVATION, SENTIMENT, STATEMENT ]
 
-shortdescription:
-    text: "Text annotation associates actual textual content with structural elements, without it a document would be textless. FoLiA treats it as an annotation like any other."
-    token: "This annotation type introduces a tokenisation layer for the document. The terms **token** and **word** are used interchangeably in FoLiA as FoLiA itself does not commit to a specific tokenisation paradigm. Tokenisation is a prerequisite for the majority of linguistic annotation types offered by FoLiA and it is one of the most fundamental types of Structure Annotation. The words/tokens are typically embedded in other types of structure elements, such as sentences or paragraphs."
+#Documentation of annotation types (reStructuredText)
+annotationtype_doc:
+    text:
+        name: "Text Annotation"
+        description: "Text annotation associates actual textual content with structural elements, without it a document would be textless. FoLiA treats it as an annotation like any other."
+    token:
+        name: "Token Annotation"
+        description: "This annotation type introduces a tokenisation layer for the document. The terms **token** and **word** are used interchangeably in FoLiA as FoLiA itself does not commit to a specific tokenisation paradigm. Tokenisation is a prerequisite for the majority of linguistic annotation types offered by FoLiA and it is one of the most fundamental types of Structure Annotation. The words/tokens are typically embedded in other types of structure elements, such as sentences or paragraphs."
+    division:
+    paragraph:
+    list:
+    figure:
+    whitespace:
+    linebreak:
+    sentence:
+    pos:
+    lemma:
+    domains:
+    sensen:
+    syntax:
+    chunking:
+    entity:
+    correction:
+    errordetection:
+    phon:
+    subjectivity:
+    morphological:
+    event:
+    dependency:
+    timesegment:
+    gap:
+    note:
+    alignment:
+    complexalignment:
+    coreference:
+    semrole:
+    metric:
+    lang:
+    string:
+    table:
+    style:
+    part:
+    utterance:
+    entry:
+    term:
+    definition:
+    example:
+    phonological:
+    predicate:
+    observation:
+    sentiment:
+    statement:
 
-groups:
+categories:
     structure:
         name: "Structure Annotation"
-        description: "This group encompasses annotation types that define the structure of a document, e.g. paragraphs, sentences, words, sections like chapters, lists, tables, etc... These types are not strictly considered linguistic annotation and equivalents are also commonly found in other document formats such as HTML, TEI, MarkDown, LaTeX, and others. For FoLiA it provides the necessary structural basis that linguistic annotation can build on."
+        description: "This category encompasses annotation types that define the structure of a document, e.g. paragraphs, sentences, words, sections like chapters, lists, tables, etc... These types are not strictly considered linguistic annotation and equivalents are also commonly found in other document formats such as HTML, TEI, MarkDown, LaTeX, and others. For FoLiA it provides the necessary structural basis that linguistic annotation can build on."
         class: AbstractStructureElement
     inline:
         name: "Inline Annotation"
-        description: "This group encompasses (linguistic) annotation types describing a single structural element. Examples are Part-of-Speech Annotation or Lemmatisation, which often describe a single token."
+        description: "This category encompasses (linguistic) annotation types describing a single structural element. Examples are Part-of-Speech Annotation or Lemmatisation, which often describe a single token."
         class: AbstractTokenAnnotation
     span:
         name: "Span Annotation"
-        description: "This group encompasses (linguistic) annotation types that span one or more structural elements. Examples are (Named) Entities or Multi-word Expressions, Dependency Relations, and many others. FoLiA implements these as a stand-off layer that refers back to the structural elements (often words/tokens). The layer itself is embedded in a structural level of a wider scope (such as a sentence)."
+        description: "This category encompasses (linguistic) annotation types that span one or more structural elements. Examples are (Named) Entities or Multi-word Expressions, Dependency Relations, and many others. FoLiA implements these as a stand-off layer that refers back to the structural elements (often words/tokens). The layer itself is embedded in a structural level of a wider scope (such as a sentence)."
+        class: AbstractSpanAnnotation
     textmarkup:
         name: "Text Markup Annotation"
-        description: "The text content element (``<t>``) allows within its scope elements of a certain
-group; these are **Text Markup** elements, they always contain textual content and apply a certain markup to certain spans of the text. One of it's common uses is for styling (emphasis, underlines, etc.). Text markup elements may be nested."
+        description: "The text content element (``<t>``) allows within its scope elements of a this category; these are **Text Markup** elements, they always contain textual content and apply a certain markup to certain spans of the text. One of it's common uses is for styling (emphasis, underlines, etc.). Text markup elements may be nested."
         class: AbstractTextMarkup
     higherorder:
         name: "Higher-order Annotation"
