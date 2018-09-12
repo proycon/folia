@@ -11,7 +11,5 @@ notifications:
     template:
       - "%{repository_slug}#%{build_number} %{message} --> %{build_url}"
     skip_join: true
-install:
-  - python setup.py install
 script:
   - cd test && bash test.sh
