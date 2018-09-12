@@ -1,4 +1,6 @@
 language: python
+dist: trusty
+sudo: required
 python:
     - "2.7"
     - "3.3"
@@ -11,5 +13,8 @@ notifications:
     template:
       - "%{repository_slug}#%{build_number} %{message} --> %{build_url}"
     skip_join: true
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install -y libxml2-utils
 script:
   - cd test && bash test.sh
