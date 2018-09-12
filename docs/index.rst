@@ -45,23 +45,25 @@ NAF, Paula XML, Tiger XML, and others, we refer you to our research paper provid
 
 .. [vanGompel2014] Maarten van Gompel & Martin Reynaert (2014). FoLiA: A practical XML format for linguistic annotation - a descriptive and comparative study; Computational Linguistics in the Netherlands Journal; 3:63-81; 2013.
 
-Table of Contents
+Annotation Types
 ---------------------------
 
 FoLiA defines various XML elements to represent document structure and various annotations, we can divide these XML
-elements into several generic annotation groups. Below are the groups and underlying annotation types:
-
-.. foliaspec:toc
-(ToC goes here)
-
-In each of these categories, FoLiA defines specific elements for specific annotation types. This is a deliberate limit
-on the extensibility of FoLiA in favour of specificity; i.e. you can't just add your own annotation type. If a
-particular annotation type is not properly accommodated yet, contact the FoLiA developers and we will see how we can extend
-FoLiA.
+elements into several generic annotation groups. In each of these categories, FoLiA defines specific elements for
+specific annotation types. This is a deliberate limit on the extensibility of FoLiA in favour of specificity; i.e. you
+can't just add your own annotation type. If a particular annotation type is not properly accommodated yet, contact the
+FoLiA developers and we will see how we can extend FoLiA.
 
 For good measure, we again emphasise that this is a limitation on annotation types only, not on the vocabulary the
 annotation types make use of, which is deliberately seperated from the FoLiA standard itself. The next section will
 elaborate on this.
+
+Below are the categories and underlying annotation types, you can click each for exhaustive information (but please
+finish this introductory chapter first):
+
+.. foliaspec:toc
+(ToC goes here)
+
 
 Vocabulary sets
 ------------------
@@ -270,14 +272,14 @@ The FoLiA document as a whole also carries an identifier.
 Identifiers are very important and used throughout the FoLiA format, and
 mandatory for almost all structural elements. They enable external resources
 and databases to easily point to a specific part of the document or an
-annotation therein. FoLiA has been set up in such a way that \emph{identifiers
-should never change}. Once an identifier is assigned, it should never change,
+annotation therein. FoLiA has been set up in such a way that *identifiers
+should never change*. Once an identifier is assigned, it should never change,
 re-numbering is strictly prohibited unless you intentionally want to create a
 new resource and break compatibility with the old one.
 
-Certain FoLiA elements take an \texttt{id} attribute in the FoLiA XML
-namespace instead of of the \texttt{XML} namespaces, these are
-always \emph{references} to the ID of another element.
+Certain FoLiA elements take an ``id`` attribute in the FoLiA XML
+namespace instead of the ``XML`` namespace, these are
+always *references* to the ID of another element. It's important not to confuse the two.
 
 
 
