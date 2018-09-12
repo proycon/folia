@@ -84,7 +84,7 @@ all annotation types.
 
 .. seealso::
 
-    Read the full specification in the following section: `Set Definitions`
+    Read the full specification in the following section: :ref:`set_definitions`
 
 Validation
 -------------
@@ -132,7 +132,7 @@ feeding it a FoLiA document without such annotation layers would then be pointle
 
 .. seealso::
 
-    Read the full specification in the following section: `Annotation Declarations`
+    Read the full specification in the following section: :ref:`annotation_declarations`
 
 Provenance Data
 ~~~~~~~~~~~~~~~~~~
@@ -143,7 +143,7 @@ invoked and by whom. It is tied to the `Declarations` section.
 
 .. seealso::
 
-    Read the full specification in the following section: `Provenance Data`
+    Read the full specification in the following section: :ref:`provenance_data`
 
 Document Metadata
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -163,7 +163,7 @@ that FoLiA supports metadata on arbitrary parts of the document. This is referre
 
 .. seealso::
 
-    Read the full specification in the following section: `Metadata`
+    Read the full specification in the following section: :ref:`metadata`
 
 Document structure
 ----------------------
@@ -211,7 +211,7 @@ The structure of a FoLiA document can roughly be divided into two parts, the ``m
 Declarations`, next is the optional but recommended ``provenance`` block that contains the `Provenance Data`. After this
 there is space for other `Metadata`.
 
-.. [#fex] There is an alternative stand-off serialisation available: `Extern`
+.. [#fex] There is an alternative stand-off serialisation available: :ref:`external`
 .. [#fns] For historical reasons, the XML namespace URI refers to a research group at the University of Tilburg where FoLiA was first founded, but which no longer exists.
 
 Common attributes
@@ -229,7 +229,7 @@ differs slightly per annotation type. We distinguish the following:
 
 **Provenance attributes:**
 
-* ``processor`` - This specifies the ID of a processor in the `Provenance Data`. The processor in turn defines exactly
+* ``processor`` - This specifies the ID of a processor in the :ref:`provenance_data`. The processor in turn defines exactly
   was the annotator of the annotation.
 
 **Authorship attributes**, these provides a simpler mechanism stemming from earlier versions of FoLiA and can be used without full provenance (instead of ``processor``):
@@ -249,7 +249,7 @@ differs slightly per annotation type. We distinguish the following:
 * ``endtime`` -- A timestamp in ``HH:MM:SS.MMM`` format, indicating the end time of the speech. If a sound clip is specified (``src``); the timestamp refers to a location in the soundclip.
 * ``speaker`` -- A string identifying the speaker. This attribute is inheritable. Multiple speakers are not allowed, simply do not specify a speaker on a certain level if you are unable to link the speech to a specific (single) speaker.
 
-**XLink attributes**, the following applies only on text and text markup elements and allows creating hyperlinks. See the section `Hyperlinks` for
+**XLink attributes**, the following applies only on text and text markup elements and allows creating hyperlinks. See the section :ref:`hyperlinks` for
 details.
 
 * ``xlink:href`` -- Creates a hyperlink on a text to the specified URL
