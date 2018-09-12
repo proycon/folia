@@ -71,34 +71,100 @@ annotationtype_doc:
         name: "Correction Annotation"
         description: "Corrections are one of the most complex annotation types in FoLiA. Corrections can be applied not just over text, but over any type of structure annotation, inline annotation or span annotation. Corrections explicitly preserve the original, and recursively so if corrections are done over other corrections."
     errordetection:
+        name: "Error Detection"
+        description: "Error Detection is used to signal the presence of errors in a structural element."
     phon:
+        name: "Phonetic Annotation"
+        description: "This is the phonetic analogy to text content (``<t>``) and allows associating a phonetic transcription with any structural element, it is often used in a speech context. Note that for actual segmentation into phonemes, FoLiA has another related type: ``Phonological Annotation``"
     subjectivity:
+        name: "Subjectivity Annotation"
+        description: "This annotation type is deprecated in favour of `Sentiment Annotation` and only exists for backward-compatibility"
     morphological:
+        name: "Morphological Annotation"
+        description:  "Morphological Annotation allows splitting a word/token into morphemes, morphemes itself may be nested. It is embedded within a layer ``morphology`` which can be embedded within word/tokens."
     event:
+        name: "Event Annotation"
+        description: "Structural annotation type representing events, often used in new media contexts for things such as tweets, chat messages and forum posts (as defined by a user-defined set definition). Note that a more linguistic kind of event annotation can be accomplished with `Entity Annotation` or even `Time Segmentation` rather than this one."
     dependency:
+        name: "Dependency Annotation"
+        description: "Dependency relations are syntactic relations between spans of tokens. A dependency relation takes a particular class and consists of a single head component and a single dependent component. In the sample ``He sees'', there is  syntactic dependency between the two words: ``sees'' is the head, and ``He'' is the dependant, and the dependency relation can be qualified as  something like ``subject'', as the dependant is the subject of the head word, but this depends on the user-defined set."
     timesegment:
+        name: "Time Segmentation"
+        description: "FoLiA supports time segmentation to allow for more fine-grained control of timing information by associating spans of words/tokens with exact timestamps. It can provide a more linguistic alternative to `Event Annotation`."
     gap:
+        name: "Gap Annotation"
+        description: "Sometimes there are parts of a document you want to skip and not annotate at all, but
+include as is. This is where gap annotation comes in, the user-defined set may indicate the kind of gap. Common omissions
+in books are for example front-matter and back-matter, i.e. the cover."
     note:
+        name: "Note Annotation"
+        description: "Structural annotation used for notes, such as footnotes or warnings or notice blocks."
     alignment:
+        name: "Alignment Annotation"
+        description: "FoLiA provides a facility to align parts of your document with other parts of your document, or even with parts of other FoLiA documents or external
+resources, even in other formats. It thus allows linking resources together. We call this *alignments*. Within this context, the ``aref`` element is used to refer to the aligned FoLiA elements."
     complexalignment:
+        name: "Complex Alignments"
+        description: "Complex alignments are a stand-off extension of alignment annotation that allows for more complex alignments, such as word alignments that include
+many-to-one, one-to-many or many-to-many alignments. One of its uses is in the alignment of multiple translations of (parts) of a text."
     coreference:
+        name: "Coreference Annotation"
+        description: "Relations between words that refer to the same referent (anaphora) are expressed in FoLiA using Coreference Annotation. The co-reference relations are expressed by specifying the entire chain in which all links are coreferent."
     semrole:
+        name: "Semantic Role Annotation"
+        description: "This span annotation type allows for the expression of semantic roles, or thematic roles. It is often used together with `Predicate Annotation`"
     metric:
+        name: "Metric Annotation"
+        description: "Metric Annotation is a form of higher-order annotation that allows annotation of some kind of measurement. The type of measurement is defined by the class, which in turn is defined by the set as always. The metric element has a ``value`` attribute that stores the actual measurement, the value is often numeric but this needs not be the case."
     lang:
+        name: "Language Annotation"
+        description: "Language Annotation simply identifies the language a part of the text is in. Though this information is often part of the metadata, this form is considered an actual annotation."
     string:
+        name: "String Annotation"
+        description: "This is a form of higher-order annotation for selecting an arbitrary substring of a text, even untokenised, and allows further forms of higher-order annotation on the substring. It is also tied to a form of text markup annotation."
     table:
+        name: "Table Annotation"
+        description: "Structural annotation type for creating a simple tabular environment, i.e. a table with rows, columns and cells and an optional header."
     style:
+        name: "Style Annotation"
+        description: "This is a text markup annotation type for applying styling to text. The actual styling is defined by the user-defined set definition and can for example included classes such as italics, bold, underline"
     part:
+        name: "Part Annotation"
+        description: "The structure element ``part`` is a fairly abstract structure element that should only be used when a more specific structure element is not available. Most
+notably, the part element should never be used for representation of morphemes or phonemes! Part can be used to divide a larger structure element, such as a division, or a
+paragraph into arbitrary subparts."
     utterance:
+        name: "Utterance Annotation"
+        description: "An utterance is a structure element that may consist of words or sentences, which in turn may contain words. The opposite is also true, a sentence may consist of multiple
+utterances. Utterances are often used in the absence of sentences in a speech context, where neat grammatical sentences can not always be distinguished."
     entry:
+        name: "Entry Annotation"
+        description: "FoLiA has a set of structure elements that can be used to represent collections such as glossaries, dictionaries, thesauri, and wordnets. `Entry annotation` defines the entries in such collections, `Term annotation` defines the terms, and `Definition Annotation` provides the definitions."
     term:
+        name: "Term Annotation"
+        description: "FoLiA has a set of structure elements that can be used to represent collections such as glossaries, dictionaries, thesauri, and wordnets. `Entry annotation` defines the entries in such collections, `Term annotation` defines the terms, and `Definition Annotation` provides the definitions."
     definition:
+        name: "Definition Annotation"
+        description: "FoLiA has a set of structure elements that can be used to represent collections such as glossaries, dictionaries, thesauri, and wordnets. `Entry annotation` defines the entries in such collections, `Term annotation` defines the terms, and `Definition Annotation` provides the definitions."
     example:
+        name: "Example Annotation"
+        description: "FoLiA has a set of structure elements that can be used to represent collections such as glossaries, dictionaries, thesauri, and wordnets. `Examples annotation` defines examples in such collections."
     phonological:
+        name: "Phonological Annotation"
+        description:  "The smallest unit of annotatable speech in FoLiA is the phoneme level. The phoneme element is a form of structure annotation used for phonemes.  Alike to morphology, it is embedded within a layer ``phonology`` which can be embedded within word/tokens."
     predicate:
+        name: "Predicate Annotation"
+        description: "Allows annotation of predicates, this annotation type is usually used together with Semantic Role Annotation. The types of predicates are defined by a user-defined set definition."
     observation:
+        name: "Observation Annotation"
+        description: "Observation annotation is used to make an observation pertaining to one or more word tokens.  Observations offer a an external qualification on part of a text. The
+qualification is expressed by the class, in turn defined by a set. The precise semantics of the observation depends on the user-defined set."
     sentiment:
+        name: "Sentiment Annotation"
+        description: "Sentiment analysis marks subjective information such as sentiments or attitudes expressed in text. The sentiments/attitudes are defined by a user-defined set definition."
     statement:
+        name: "Statement Annotation"
+        description: "Statement annotation, sometimes also refered to as attribution, allows to decompose statements into the source of the statement, the content of the statement, and the way these relate, provided these are made explicit in the text."
 
 categories:
     structure:
@@ -108,11 +174,15 @@ categories:
     inline:
         name: "Inline Annotation"
         description: "This category encompasses (linguistic) annotation types describing a single structural element. Examples are Part-of-Speech Annotation or Lemmatisation, which often describe a single token."
-        class: AbstractTokenAnnotation
+        class: AbstractInlineAnnotation
     span:
         name: "Span Annotation"
         description: "This category encompasses (linguistic) annotation types that span one or more structural elements. Examples are (Named) Entities or Multi-word Expressions, Dependency Relations, and many others. FoLiA implements these as a stand-off layer that refers back to the structural elements (often words/tokens). The layer itself is embedded in a structural level of a wider scope (such as a sentence)."
         class: AbstractSpanAnnotation
+    subtoken:
+        name: "Subtoken Annotation"
+        description: "This category contains morphological annotation and phonological annotation, i.e. the segmentation of a word into morphemes and phonemes, and recursively so if desired. It is a special category that mixes characteristics from structure annotation (the ``morpheme`` and ``phoneme`` elements are very structure-like) and also from span annotation, as morphemes and phonemes are embedded in an annotation layer and refer back to the text/phonetic content they apply to."
+        class: AbstractSubtokenAnnotation
     textmarkup:
         name: "Text Markup Annotation"
         description: "The text content element (``<t>``) allows within its scope elements of a this category; these are **Text Markup** elements, they always contain textual content and apply a certain markup to certain spans of the text. One of it's common uses is for styling (emphasis, underlines, etc.). Text markup elements may be nested."
