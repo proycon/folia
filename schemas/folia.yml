@@ -26,20 +26,50 @@ annotationtype_doc:
         name: "Token Annotation"
         description: "This annotation type introduces a tokenisation layer for the document. The terms **token** and **word** are used interchangeably in FoLiA as FoLiA itself does not commit to a specific tokenisation paradigm. Tokenisation is a prerequisite for the majority of linguistic annotation types offered by FoLiA and it is one of the most fundamental types of Structure Annotation. The words/tokens are typically embedded in other types of structure elements, such as sentences or paragraphs."
     division:
+        name: "Division Annotation"
+        description: "Structure annotation representing some kind of division, typically used for chapters, sections, subsections (up to the set definition). Divisions may be nested at will, and may include almost all kinds of other structure elements."
     paragraph:
+        name: "Paragraph Annotation"
+        description: "Represents a paragraph and holds further structure annotation such as sentences."
     list:
+        name: "List Annotation"
+        description: "Structure annotation for enumeration/itemisation, e.g. bulleted lists."""
     figure:
+        name: "Figure Annotation"
+        description: "Structure annotation for including pictures, optionally captioned, in documents."""
     whitespace:
+        name: "Whitespace"
+        description: "Structure annotation introducing vertical whitespace"
     linebreak:
+        name: "Linebreak"
+        description: "Structure annotation representing a single linebreak and with special facilities to denote pagebreaks."
     sentence:
+        name: "Sentence Annotation"
+        description: "Structure annotation representing a sentence. Sentence detection is a common stage in NLP alongside tokenisation."
     pos:
+        name: "Part-of-Speech Annotation"
+        description: "Part-of-Speech Annotation, one of the most common types of linguistic annotation. Assigns a lexical class to words."
     lemma:
+        name: "Lemmatisation"
+        description: "Lemma Annotation, one of the most common types of linguistic annotation. Represents the canonical form of a word."
     domains:
-    sensen:
+        name: "Domain/topic Annotation"
+        description: "Domain/topic Annotation. A form of inline annotation used to assign a certain domain or topic to a structure element."
+    sense:
+        name: "Sense Annotation"
+        description: "Sense Annotation allows to assign a lexical semantic sense to a word."
     syntax:
+        name: "Syntactic Annotation"
+        description: "Assign grammatical categories to spans of words. Syntactic units are nestable and allow representation of complete syntax trees that are usually the result of consistuency parsing."
     chunking:
+        name: "Chunking"
+        description: "Assigns shallow grammatical categories to spans of words. Unlike syntax annotation, chunks are not nestable. They are often produced by a process called Shallow Parsing, or alternatively, chunking."
     entity:
+        name: "Entity Annotation"
+        description: "Entity annotation is a broad and common category in FoLiA. It is used for specifying all kinds of multi-word expressions, including but not limited to named entities. The set definition used determines the vocabulary and therefore the precise nature of the entity annotation."
     correction:
+        name: "Correction Annotation"
+        description: "Corrections are one of the most complex annotation types in FoLiA. Corrections can be applied not just over text, but over any type of structure annotation, inline annotation or span annotation. Corrections explicitly preserve the original, and recursively so if corrections are done over other corrections."
     errordetection:
     phon:
     subjectivity:
