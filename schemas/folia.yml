@@ -37,11 +37,11 @@ annotationtype_doc:
         history: "Since the beginning"
     list:
         name: "List Annotation"
-        description: "Structure annotation for enumeration/itemisation, e.g. bulleted lists."""
+        description: "Structure annotation for enumeration/itemisation, e.g. bulleted lists."
         history: "Since the beginning"
     figure:
         name: "Figure Annotation"
-        description: "Structure annotation for including pictures, optionally captioned, in documents."""
+        description: "Structure annotation for including pictures, optionally captioned, in documents."
         history: "Since the beginning"
     whitespace:
         name: "Whitespace"
