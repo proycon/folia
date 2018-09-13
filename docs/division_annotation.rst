@@ -15,7 +15,7 @@ Specification
 :Element Name (primary): ``<div>``
 :Category: :ref:`structure_annotation_category`
 :Declaration: ``<division-annotation set="...">`` *(note: ``set`` is optional for this annotation type)*
-:Required Attributes: 
+:Required Attributes:
 :Optional Attributes: * ``xml:id`` -- The ID of the element; this has to be a unique in the entire document or collection of documents (corpus). All identifiers in FoLiA are of the `XML NCName <https://www.w3.org/TR/1999/WD-xmlschema-2-19990924/#NCName>`_ datatype, which roughly means it is a unique string that has to start with a letter (not a number or symbol), may contain numers, but may never contain colons or spaces. FoLiA does not define any naming convention for IDs.
                       * ``set`` -- The set of the element, ideally a URI linking to a set definition (see :ref:`set_definitions`) or otherwise a uniquely identifying string. The ``set`` must be referred to also in the :ref:`annotation_declarations` for this annotation type.
                       * ``class`` -- The class of the annotation, i.e. the annotation tag in the vocabulary defined by ``set``.
@@ -36,6 +36,10 @@ Specification
 :Valid Context (as API Classes): ``Division``, ``Event``
 :Version History: Since the beginning
 
+:Set Definitions: You can use any of the following existing set definitions or simply create your own:
+                  * `https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/divisions.foliaset.xml`_
+
+
 Description & Examples
 -------------------------
 
@@ -43,17 +47,16 @@ The structure element ``<div>`` is used to create divisions and subdivisions wit
 
 Each division *may* be of a particular *class* pertaining to a *set* defining all possible classes, common classes for
 this annotation type would be *chapter*, *section*, *subsection*. A set, however, is not mandatory for most types of
-structure, so divisions may be
-set-less.
+structure, so divisions may be set-less.
 
 Divisions and other structural units are often numbered, think for example of
 chapters and sections. The number, as it was in the source document, can be
 encoded in the *n* attribute of the structure annotation element.
 
-Look at the following example, showing a full FoLiA document with structured
-divisions. The declared set is a fictitious example:
+The following example shows a FoLiA document with structured divisions with headers and paragraphs. It does not provide
+any further tokenisation.
 
-.. literalinclude:: ../examples/snippets/division.folia.xml
+.. literalinclude:: ../examples/untokenised-structure.2.0.0.folia.xml
     :linenos:
     :language: xml
 

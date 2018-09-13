@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FoLiA xmlns="http://ilk.uvt.nl/FoLiA" version="2.0" xml:id="example">
+  <metadata>
+      <annotations>
+          <token-annotation set="https://raw.githubusercontent.com/LanguageMachines/uctodata/master/setdefinitions/tokconfig-eng.foliaset.ttl">
+			 <annotator processor="p1" />
+		  </token-annotation>
+      </annotations>
+  </metadata>
+  <provenance>
+	 <processor xml:id="p1" name="proycon" type="manual" />
+  </provenance>
+  <text xml:id="example.text">
+    <p xml:id="example.p.1">
+      <s xml:id="example.p.1.s.1">
+         <w xml:id="example.p.1.s.1.w.1" class="WORD">
+            <t>Hello</t>
+         </w>
+         <w xml:id="example.p.1.s.1.w.2" class="WORD" space="no">
+            <t>World</t>
+         </w>
+         <w xml:id="example.p.1.s.1.w.3" class="PUNCTUATION">
+            <t>!</t>
+         </w>
+      </s>
+      <s xml:id="example.p.1.s.2">
+         <w xml:id="example.p.1.s.2.w.1" class="WORD">
+            <t>This</t>
+         </w>
+         <w xml:id="example.p.1.s.2.w.2" class="WORD">
+            <t>is</t>
+         </w>
+         <w xml:id="example.p.1.s.2.w.3" class="WORD">
+            <t>an</t>
+         </w>
+         <w xml:id="example.p.1.s.2.w.4" class="WORD" space="no">
+            <t>example</t>
+         </w>
+         <w xml:id="example.p.1.s.2.w.5" class="PUNCTUATION">
+            <t>.</t>
+         </w>
+      </s>
+    </p>
+  </text>
+</FoLiA>
