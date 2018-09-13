@@ -69,7 +69,7 @@ attributes_doc:
         group: speech
 
 #All possible annotation types, each must be declared in the FoLiA header when used
-annotationtype: [ TEXT, TOKEN, DIVISION, PARAGRAPH, LIST, FIGURE, WHITESPACE, LINEBREAK, SENTENCE, POS, LEMMA, DOMAIN, SENSE, SYNTAX, CHUNKING, ENTITY, CORRECTION, ERRORDETECTION, PHON, SUBJECTIVITY, MORPHOLOGICAL, EVENT, DEPENDENCY, TIMESEGMENT, GAP, NOTE, ALIGNMENT, COMPLEXALIGNMENT, COREFERENCE, SEMROLE, METRIC, LANG, STRING, TABLE, STYLE, PART, UTTERANCE, ENTRY, TERM, DEFINITION, EXAMPLE, PHONOLOGICAL, PREDICATE, OBSERVATION, SENTIMENT, STATEMENT ]
+annotationtype: [ TEXT, TOKEN, DIVISION, PARAGRAPH, HEAD, LIST, FIGURE, WHITESPACE, LINEBREAK, SENTENCE, POS, LEMMA, DOMAIN, SENSE, SYNTAX, CHUNKING, ENTITY, CORRECTION, ERRORDETECTION, PHON, SUBJECTIVITY, MORPHOLOGICAL, EVENT, DEPENDENCY, TIMESEGMENT, GAP, NOTE, ALIGNMENT, COMPLEXALIGNMENT, COREFERENCE, SEMROLE, METRIC, LANG, STRING, TABLE, STYLE, PART, UTTERANCE, ENTRY, TERM, DEFINITION, EXAMPLE, PHONOLOGICAL, PREDICATE, OBSERVATION, SENTIMENT, STATEMENT ]
 
 #Documentation of annotation types (reStructuredText)
 annotationtype_doc:
@@ -88,6 +88,10 @@ annotationtype_doc:
     paragraph:
         name: "Paragraph Annotation"
         description: "Represents a paragraph and holds further structure annotation such as sentences."
+        history: "Since the beginning"
+    head:
+        name: "Head Annotation"
+        description: "The ``head`` element is used to provide a header or title for the structure element in which it is embedded, usually a division (``<div>``)"
         history: "Since the beginning"
     list:
         name: "List Annotation"
@@ -605,6 +609,7 @@ elements:
                 accepted_data: [Caption, Sentence, String, TextContent]
           - class: Head
             properties:
+                annotationtype: HEAD
                 textdelimiter: "\n\n"
                 occurrences: 1
                 accepted_data: [AbstractInlineAnnotation, Event, Gap, Linebreak, PhonContent, Reference, Sentence, String, TextContent, Whitespace, Word]
