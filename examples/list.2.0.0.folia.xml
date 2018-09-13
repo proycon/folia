@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FoLiA xmlns="http://ilk.uvt.nl/FoLiA" version="2.0" xml:id="example">
+  <metadata>
+      <annotations>
+          <text-annotation />
+          <token-annotation>
+			 <annotator processor="p1" />
+		  </token-annotation>
+          <list-annotation />
+      </annotations>
+  </metadata>
+  <provenance>
+	 <processor xml:id="p1" name="proycon" type="manual" />
+  </provenance>
+  <text xml:id="example.text">
+      <list xml_id="example.list.1">
+          <item n="1">
+             <w xml:id="example.list.1.item.1">
+                <t>Hello</t>
+             </w>
+          </item>
+          <item n="2">
+             <w xml:id="example.list.1.item.2">
+                <t>Bonjour</t>
+             </w>
+          </item>
+          <item n="3">
+             <w xml:id="example.list.1.item.3">
+                <t>Hola</t>
+             </w>
+          </item>
+      </list>
+  </text>
+</FoLiA>
