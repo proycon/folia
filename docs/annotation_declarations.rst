@@ -36,7 +36,7 @@ Within the scope of each annotation's declaration, you can declare one or more *
 ``processor`` in the *provenance data*. These processors represent software tools or human annotators and carry
 various attributes, e.g. the name of the annotator/tool. So this part of declaration identifies *who* or *what* performed the annotation. Consider the following example:
 
-.. code::xml
+.. code-block:: xml
 
     <annotations>
         <token-annotation set="https://raw.githubusercontent.com/LanguageMachines/uctodata/master/setdefinitions/tokconfig-eng.foliaset.ttl">
@@ -55,7 +55,7 @@ which case individual annotation instances need not refer to any processor. If t
 individual annotation instances should refer to a processor to disambiguate.
 
 Provenance data is recommended but not required in FoLiA. A simpler mechanism from prior to FoLiA v2.0 is also still
-available. If you do not refer to processors for a certain annotation type and set, then you can specify the following
+available: If you do not refer to processors for a certain annotation type and set, then you can specify the following
 *optional* attributes on your declaration to set a default annotator:
 
 * ``annotator`` - The name of the default annotator (either human or software)
@@ -78,5 +78,9 @@ URL but another arbitrary identification string.
 
 If multiple sets are used for the same annotation type, which is perfectly valid, they each need a
 separate declaration.
+
+.. seealso::
+    :ref:`set_definitions`
+    :ref:`provenance_data`
 
 
