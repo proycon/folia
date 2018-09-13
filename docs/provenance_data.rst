@@ -8,10 +8,10 @@ in which order to produce a FoLiA document, this is called **provenance data**. 
 :ref:`annotation_declarations` FoLiA allows for a ``<provenance>`` block containing this information. It is not
 mandatory but it is strongly recommended.
 
-The ``<provenance>`` block defines one or more **processors**, processors are processes or entities that have performed any
-kind of manipulation of the document. The processors are listed in the order they were invoked. The
-:ref:`annotation_declarations` in turn link to these processors to tie a particular annotation type and set to one or
-more processors.
+The ``<provenance>`` block defines one or more **processors**, processors are processes or entities that have processed
+and often performend some kind of manipulation of the document, such as adding annotations. The processors are listed in
+the order they were invoked. The :ref:`annotation_declarations` in turn link to these processors to tie a particular
+annotation type and set to one or more processors.
 
 A ``<processor>`` carries the following attributes:
    * ``xml:id`` -- The ID of the processor (mandatory), this is how it is referred to from the ``<annotator processor=".." />`` element in the :ref:`annotation_declarations` and from the ``processor`` attribute (part of the common FoLiA attributes) on individual annotations.

@@ -16,14 +16,16 @@ XXX
 Description & Examples
 -------------------------
 
-The structure element ``div`` is used to create divisions and subdivisions within a text.
+The structure element ``<div>`` is used to create divisions and subdivisions within a text.
 
-Each division *may* be of
-a particular \emph{class} pertaining to a \emph{set} defining all possible classes.
+Each division *may* be of a particular *class* pertaining to a *set* defining all possible classes, common classes for
+this annotation type would be *chapter*, *section*, *subsection*. A set, however, is not mandatory for most types of
+structure, so divisions may be
+set-less.
 
 Divisions and other structural units are often numbered, think for example of
 chapters and sections. The number, as it was in the source document, can be
-encoded in the \texttt{n} attribute of the structure annotation element.
+encoded in the *n* attribute of the structure annotation element.
 
 Look at the following example, showing a full FoLiA document with structured
 divisions. The declared set is a fictitious example:

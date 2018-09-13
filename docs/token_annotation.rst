@@ -30,9 +30,6 @@ word (hence the element's name). This element occurs in the scope of wider struc
 (:ref:`sentence_annotation`)
 
 
-
-
-
 .. literalinclude:: ../examples/snippets/token.folia.xml
     :linenos:
     :language: xml

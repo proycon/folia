@@ -265,27 +265,33 @@ differs slightly per annotation type. We distinguish the following:
 
 **Core Attributes:**
 
+.. foliaspec:attributes_doc(core)
 * ``xml:id`` -- The ID of the element; this has to be a unique in the entire document or collection of documents (corpus). All identifiers in FoLiA are of the `XML NCName <https://www.w3.org/TR/1999/WD-xmlschema-2-19990924/#NCName>`_ datatype, which roughly means it is a unique string that has to start with a letter (not a number or symbol), may contain numers, but may never contain colons or spaces. FoLiA does not define any naming convention for IDs.
 * ``set`` -- The set of the element (a URI linking to a set definition).
 * ``class`` -- The class of the annotation, i.e. the annotation tag in the vocabulary defined by ``set``.
 
 **Provenance attributes:**
 
+.. foliaspec:attributes_doc(provenance)
 * ``processor`` - This specifies the ID of a processor in the :ref:`provenance_data`. The processor in turn defines exactly
   was the annotator of the annotation.
 
 **Authorship attributes**, these provides a simpler mechanism stemming from earlier versions of FoLiA and can be used without full provenance (instead of ``processor``):
+
+.. foliaspec:attributes_doc(authorship)
 * ``annotator`` -- The name or ID of the system or human annotator that made the annotation.
 * ``annotatortype`` -- ``manual`` for human annotators, or ``auto`` for automated systems.
 
 **Annotation attributes:**
 
+.. foliaspec:attributes_doc(annotation)
 * ``confidence`` -- A floating point value between zero and one; expresses the confidence the annotator places in his annotation.
 * ``datetime`` --  The date and time when this annotation was recorded, the format is ``YYYY-MM-DDThh:mm:ss`` (note the literal T in the middle to separate date from time), as per the XSD Datetime data type.
 * ``n`` --  A number in a sequence, corresponding to a number in the original document, for example chapter numbers, section numbers, list item numbers. This this not have to be an actual number but other sequence identifiers are also possible (think alphanumeric characters or roman numerals).
 
 **Speech attributes**, the following attributes apply mostly in a speech context:
 
+.. foliaspec:attributes_doc(speech)
 * ``src`` -- Points to a file or full URL of a sound or video file. This attribute is inheritable.
 * ``begintime`` --  A timestamp in ``HH:MM:SS.MMM`` format, indicating the begin time of the speech. If a sound clip is specified (``src``); the timestamp refers to a location in the soundclip.
 * ``endtime`` -- A timestamp in ``HH:MM:SS.MMM`` format, indicating the end time of the speech. If a sound clip is specified (``src``); the timestamp refers to a location in the soundclip.

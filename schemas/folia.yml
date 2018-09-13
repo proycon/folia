@@ -14,6 +14,60 @@ setdefinitionnamespace: "http://folia.science.ru.nl/setdefinition"
 #(@annotatortype and @processor are subsumed under ANNOTATOR)
 attributes: [ ID, CLASS, ANNOTATOR, CONFIDENCE, N, DATETIME, BEGINTIME, ENDTIME, SRC, SPEAKER, TEXTCLASS, METADATA ]
 
+attributes_doc:
+    id:
+        name: "xml:id"
+        description: "The ID of the element; this has to be a unique in the entire document or collection of documents (corpus). All identifiers in FoLiA are of the `XML NCName <https://www.w3.org/TR/1999/WD-xmlschema-2-19990924/#NCName>`_ datatype, which roughly means it is a unique string that has to start with a letter (not a number or symbol), may contain numers, but may never contain colons or spaces. FoLiA does not define any naming convention for IDs."
+        group: core
+    set:
+        name: "set"
+        description: "The set of the element, ideally a URI linking to a set definition (see :ref:`set_definitions`) or otherwise a uniquely identifying string. The ``set`` must be referred to also in the :ref:`annotation_declarations` for this annotation type."
+        group: core
+    class:
+        name: "class"
+        description: "The class of the annotation, i.e. the annotation tag in the vocabulary defined by ``set``."
+        group: core
+    processor:
+        name: "processor"
+        description: "This refers to the ID of a processor in the :ref:`provenance_data`. The processor in turn defines exactly who or what was the annotator of the annotation."
+        group: provenance
+    annotator:
+        name: "annotator"
+        description: "This is an older alternative to the ``processor`` attribute, without support for full provenance. The annotator attribute simply refers to the name o ID of the system or human annotator that made the annotation."
+        group: authorship
+    annotatortype:
+        name: "annotatortype"
+        description: "This is an older alternative to the ``processor`` attribute, without support for full provenance. It is used together with ``annotator`` and specific the type of the annotator, either ``manual`` for human annotators or ``auto`` for automated systems."
+        group: authorship
+    confidence:
+        name: "confidence"
+        description: "A floating point value between zero and one; expresses the confidence the annotator places in his annotation."
+        group: annotation
+    datetime:
+        name: "datetime"
+        description: "The date and time when this annotation was recorded, the format is ``YYYY-MM-DDThh:mm:ss`` (note the literal T in the middle to separate date from time), as per the XSD Datetime data type."
+        group: annotation
+    n:
+        name: "n"
+        description: "A number in a sequence, corresponding to a number in the original document, for example chapter numbers, section numbers, list item numbers. This this not have to be an actual number but other sequence identifiers are also possible (think alphanumeric characters or roman numerals)."
+        group: annotation
+    src:
+        name: "src"
+        description: "Points to a file or full URL of a sound or video file. This attribute is inheritable."
+        group: speech
+    begintime:
+        name: "begintime"
+        description: "A timestamp in ``HH:MM:SS.MMM`` format, indicating the begin time of the speech. If a sound clip is specified (``src``); the timestamp refers to a location in the soundclip."
+        group: speech
+    endtime:
+        name: "endtime"
+        description: "A timestamp in ``HH:MM:SS.MMM`` format, indicating the end time of the speech. If a sound clip is specified (``src``); the timestamp refers to a location in the soundclip."
+        group: speech
+    speaker:
+        name: "speaker"
+        description: "A string identifying the speaker. This attribute is inheritable. Multiple speakers are not allowed, simply do not specify a speaker on a certain level if you are unable to link the speech to a specific (single) speaker."
+        group: speech
+
 #All possible annotation types, each must be declared in the FoLiA header when used
 annotationtype: [ TEXT, TOKEN, DIVISION, PARAGRAPH, LIST, FIGURE, WHITESPACE, LINEBREAK, SENTENCE, POS, LEMMA, DOMAIN, SENSE, SYNTAX, CHUNKING, ENTITY, CORRECTION, ERRORDETECTION, PHON, SUBJECTIVITY, MORPHOLOGICAL, EVENT, DEPENDENCY, TIMESEGMENT, GAP, NOTE, ALIGNMENT, COMPLEXALIGNMENT, COREFERENCE, SEMROLE, METRIC, LANG, STRING, TABLE, STYLE, PART, UTTERANCE, ENTRY, TERM, DEFINITION, EXAMPLE, PHONOLOGICAL, PREDICATE, OBSERVATION, SENTIMENT, STATEMENT ]
 
