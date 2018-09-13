@@ -22,16 +22,11 @@
   <text xml:id="example.text">
      <div xml:id="example.div.1" class="chapter" n="1">
          <head>
-             <t>Chapter 1: In the beginning</t>
+             <t>Rosetta Stone</t>
          </head>
-         <div xml:id="example.div.1.1" class="section" n="1.1">
-             <head>
-                 <t>Section 1.1: The first steps</t>
-             </head>
-             <p xml:id="example.div.1.1.p.1">
-                 <t>And so the first paragraph commences...</t>
-             </p>
-         </div>
+         <figure xml:id="example.figure.1" n="1" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Rosetta_Stone.JPG/1280px-Rosetta_Stone.JPG">
+           <caption><t>Wikipedia: The Rosetta Stone is a granodiorite stele, found in 1799, inscribed with three versions of a decree issued at Memphis, Egypt in 196 BC during the Ptolemaic dynasty on behalf of King Ptolemy V </t></caption>
+         </figure>
      </div>
   </text>
 </FoLiA>
