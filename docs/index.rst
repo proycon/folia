@@ -258,6 +258,7 @@ there is space for other `Metadata`.
 
 Common attributes
 -------------------
+.. _common_attributes:
 
 Annotation elements in FoLiA carry a subset of so-called *common attributes*, these are common properties, represented
 as XML attributes, that can be set on different annotations. The exact subset of mandatory or optional common attributes
@@ -305,6 +306,7 @@ details.
 
 Identifiers
 ~~~~~~~~~~~~~~~
+.. _identifiers:
 
 Many elements in the FoLiA take an identifier by which the element is uniquely identifiable. This makes referring to any
 part of a FoLiA document easy. Identifiers should be unique in the entire document, and ideally within the entire corpus

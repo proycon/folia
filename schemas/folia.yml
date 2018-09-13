@@ -778,32 +778,30 @@ elements:
                 annotationtype: STYLE
                 xmltag: "t-style"
                 primaryelement: true
-    - class: AbstractTokenAnnotation
+    - class: AbstractInlineAnnotation
       properties:
           required_attribs: [ CLASS ]
           optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, TEXTCLASS, METADATA ]
           accepted_data: [ Feature , Metric, ForeignData ]
           occurrences_per_set: 1 #How often can a particular element+set combination occur under the parent (0 = unlimited)
       elements:
-          - class: AbstractExtendedTokenAnnotation
-            elements:
-                - class: DomainAnnotation
-                  properties:
-                      annotationtype: DOMAIN
-                      xmltag: "domain"
-                      label: "Domain"
-                      occurrences_per_set: 0
-                - class: ErrorDetection
-                  properties:
-                      annotationtype: ERRORDETECTION
-                      xmltag: "errordetection"
-                      label: "Error Detection"
-                      occurrences_per_set: 0
-                - class: LangAnnotation
-                  properties:
-                      annotationtype: LANG
-                      xmltag: "lang"
-                      label: "Language"
+          - class: DomainAnnotation
+            properties:
+                annotationtype: DOMAIN
+                xmltag: "domain"
+                label: "Domain"
+                occurrences_per_set: 0
+          - class: ErrorDetection
+            properties:
+                annotationtype: ERRORDETECTION
+                xmltag: "errordetection"
+                label: "Error Detection"
+                occurrences_per_set: 0
+          - class: LangAnnotation
+            properties:
+                annotationtype: LANG
+                xmltag: "lang"
+                label: "Language"
           - class: LemmaAnnotation
             properties:
                 annotationtype: LEMMA
