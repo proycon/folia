@@ -117,7 +117,7 @@ annotationtype_doc:
         name: "Lemmatisation"
         description: "Lemma Annotation, one of the most common types of linguistic annotation. Represents the canonical form of a word."
         history: "Since the beginning"
-    domains:
+    domain:
         name: "Domain/topic Annotation"
         description: "Domain/topic Annotation. A form of inline annotation used to assign a certain domain or topic to a structure element."
         history: "Since the beginning"
