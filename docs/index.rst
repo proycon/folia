@@ -72,6 +72,7 @@ finish this introductory chapter first):
    - :ref:`token_annotation` -- ``<w>`` -- This annotation type introduces a tokenisation layer for the document. The terms **token** and **word** are used interchangeably in FoLiA as FoLiA itself does not commit to a specific tokenisation paradigm. Tokenisation is a prerequisite for the majority of linguistic annotation types offered by FoLiA and it is one of the most fundamental types of Structure Annotation. The words/tokens are typically embedded in other types of structure elements, such as sentences or paragraphs.
    - :ref:`division_annotation` -- ``<div>`` -- Structure annotation representing some kind of division, typically used for chapters, sections, subsections (up to the set definition). Divisions may be nested at will, and may include almost all kinds of other structure elements.
    - :ref:`paragraph_annotation` -- ``<p>`` -- Represents a paragraph and holds further structure annotation such as sentences.
+   - :ref:`head_annotation` -- ``<head>`` -- The ``head`` element is used to provide a header or title for the structure element in which it is embedded, usually a division (``<div>``)
    - :ref:`list_annotation` -- ``<list>`` -- Structure annotation for enumeration/itemisation, e.g. bulleted lists.
    - :ref:`figure_annotation` -- ``<figure>`` -- Structure annotation for including pictures, optionally captioned, in documents.
    - :ref:`whitespace_annotation` -- ``<whitespace>`` -- Structure annotation introducing vertical whitespace

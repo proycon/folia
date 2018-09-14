@@ -12,13 +12,16 @@ Specification
 ---------------
 
 .. foliaspec:specification(division)
-:Element Name (primary): ``<div>``
-:Category: :ref:`structure_annotation_category`
+:Annotation Category: :ref:`structure_annotation_category`
 :Declaration: ``<division-annotation set="...">`` *(note: ``set`` is optional for this annotation type)*
-:Required Attributes:
+:Version History: Since the beginning
+:**Element**: ``<div>``
+:API Class: ``Division``
+:Required Attributes: 
 :Optional Attributes: * ``xml:id`` -- The ID of the element; this has to be a unique in the entire document or collection of documents (corpus). All identifiers in FoLiA are of the `XML NCName <https://www.w3.org/TR/1999/WD-xmlschema-2-19990924/#NCName>`_ datatype, which roughly means it is a unique string that has to start with a letter (not a number or symbol), may contain numers, but may never contain colons or spaces. FoLiA does not define any naming convention for IDs.
                       * ``set`` -- The set of the element, ideally a URI linking to a set definition (see :ref:`set_definitions`) or otherwise a uniquely identifying string. The ``set`` must be referred to also in the :ref:`annotation_declarations` for this annotation type.
                       * ``class`` -- The class of the annotation, i.e. the annotation tag in the vocabulary defined by ``set``.
+                      * ``processor`` -- This refers to the ID of a processor in the :ref:`provenance_data`. The processor in turn defines exactly who or what was the annotator of the annotation.
                       * ``annotator`` -- This is an older alternative to the ``processor`` attribute, without support for full provenance. The annotator attribute simply refers to the name o ID of the system or human annotator that made the annotation.
                       * ``annotatortype`` -- This is an older alternative to the ``processor`` attribute, without support for full provenance. It is used together with ``annotator`` and specific the type of the annotator, either ``manual`` for human annotators or ``auto`` for automated systems.
                       * ``confidence`` -- A floating point value between zero and one; expresses the confidence the annotator places in his annotation.
@@ -28,13 +31,8 @@ Specification
                       * ``begintime`` -- A timestamp in ``HH:MM:SS.MMM`` format, indicating the begin time of the speech. If a sound clip is specified (``src``); the timestamp refers to a location in the soundclip.
                       * ``endtime`` -- A timestamp in ``HH:MM:SS.MMM`` format, indicating the end time of the speech. If a sound clip is specified (``src``); the timestamp refers to a location in the soundclip.
                       * ``speaker`` -- A string identifying the speaker. This attribute is inheritable. Multiple speakers are not allowed, simply do not specify a speaker on a certain level if you are unable to link the speech to a specific (single) speaker.
-:Accepted Data (as Annotation Types): :ref:`alignment_annotation`, :ref:`correction_annotation`, :ref:`division_annotation`, :ref:`entry_annotation`, :ref:`event_annotation`, :ref:`example_annotation`, :ref:`figure_annotation`, :ref:`gap_annotation`, :ref:`linebreak_annotation`, :ref:`list_annotation`, :ref:`metric_annotation`, :ref:`note_annotation`, :ref:`paragraph_annotation`, :ref:`part_annotation`, :ref:`phon_annotation`, :ref:`sentence_annotation`, :ref:`table_annotation`, :ref:`text_annotation`, :ref:`utterance_annotation`, :ref:`whitespace_annotation`
-:Accepted Data (as FoLiA XML Elements): ``<alignment>``, ``<correction>``, ``<div>``, ``<entry>``, ``<event>``, ``<ex>``, ``<figure>``, ``<gap>``, ``<br>``, ``<list>``, ``<metric>``, ``<note>``, ``<p>``, ``<part>``, ``<ph>``, ``<s>``, ``<table>``, ``<t>``, ``<utt>``, ``<whitespace>``
-:Accepted Data (as API Classes): ``Alignment``, ``Correction``, ``Division``, ``Entry``, ``Event``, ``Example``, ``Figure``, ``Gap``, ``Linebreak``, ``List``, ``Metric``, ``Note``, ``Paragraph``, ``Part``, ``PhonContent``, ``Sentence``, ``Table``, ``TextContent``, ``Utterance``, ``Whitespace``
-:Valid Context (as Annotation Types): :ref:`division_annotation`, :ref:`event_annotation`
-:Valid Context (as FoLiA XML Elements): ``<div>``, ``<event>``
-:Valid Context (as API Classes): ``Division``, ``Event``
-:Version History: Since the beginning
+:Accepted Data: ``<alignment>`` (:ref:`alignment_annotation`), ``<correction>`` (:ref:`correction_annotation`), ``<div>`` (:ref:`division_annotation`), ``<entry>`` (:ref:`entry_annotation`), ``<event>`` (:ref:`event_annotation`), ``<ex>`` (:ref:`example_annotation`), ``<figure>`` (:ref:`figure_annotation`), ``<gap>`` (:ref:`gap_annotation`), ``<head>`` (:ref:`head_annotation`), ``<br>`` (:ref:`linebreak_annotation`), ``<list>`` (:ref:`list_annotation`), ``<metric>`` (:ref:`metric_annotation`), ``<note>`` (:ref:`note_annotation`), ``<p>`` (:ref:`paragraph_annotation`), ``<part>`` (:ref:`part_annotation`), ``<ph>`` (:ref:`phon_annotation`), ``<s>`` (:ref:`sentence_annotation`), ``<table>`` (:ref:`table_annotation`), ``<t>`` (:ref:`text_annotation`), ``<utt>`` (:ref:`utterance_annotation`), ``<whitespace>`` (:ref:`whitespace_annotation`)
+:Valid Context: ``<div>`` (:ref:`division_annotation`), ``<event>`` (:ref:`event_annotation`)
 
 :Set Definitions: You can use any of the following existing set definitions or simply create your own:
                   * `https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/divisions.foliaset.xml`_

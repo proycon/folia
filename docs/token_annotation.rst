@@ -12,13 +12,16 @@ Specification
 ---------------
 
 .. foliaspec:specification(token)
-:Element Name (primary): ``<w>``
-:Category: :ref:`structure_annotation_category`
+:Annotation Category: :ref:`structure_annotation_category`
 :Declaration: ``<token-annotation set="...">`` *(note: ``set`` is optional for this annotation type)*
+:Version History: Since the beginning
+:**Element**: ``<w>``
+:API Class: ``Word``
 :Required Attributes: 
 :Optional Attributes: * ``xml:id`` -- The ID of the element; this has to be a unique in the entire document or collection of documents (corpus). All identifiers in FoLiA are of the `XML NCName <https://www.w3.org/TR/1999/WD-xmlschema-2-19990924/#NCName>`_ datatype, which roughly means it is a unique string that has to start with a letter (not a number or symbol), may contain numers, but may never contain colons or spaces. FoLiA does not define any naming convention for IDs.
                       * ``set`` -- The set of the element, ideally a URI linking to a set definition (see :ref:`set_definitions`) or otherwise a uniquely identifying string. The ``set`` must be referred to also in the :ref:`annotation_declarations` for this annotation type.
                       * ``class`` -- The class of the annotation, i.e. the annotation tag in the vocabulary defined by ``set``.
+                      * ``processor`` -- This refers to the ID of a processor in the :ref:`provenance_data`. The processor in turn defines exactly who or what was the annotator of the annotation.
                       * ``annotator`` -- This is an older alternative to the ``processor`` attribute, without support for full provenance. The annotator attribute simply refers to the name o ID of the system or human annotator that made the annotation.
                       * ``annotatortype`` -- This is an older alternative to the ``processor`` attribute, without support for full provenance. It is used together with ``annotator`` and specific the type of the annotator, either ``manual`` for human annotators or ``auto`` for automated systems.
                       * ``confidence`` -- A floating point value between zero and one; expresses the confidence the annotator places in his annotation.
@@ -28,13 +31,8 @@ Specification
                       * ``begintime`` -- A timestamp in ``HH:MM:SS.MMM`` format, indicating the begin time of the speech. If a sound clip is specified (``src``); the timestamp refers to a location in the soundclip.
                       * ``endtime`` -- A timestamp in ``HH:MM:SS.MMM`` format, indicating the end time of the speech. If a sound clip is specified (``src``); the timestamp refers to a location in the soundclip.
                       * ``speaker`` -- A string identifying the speaker. This attribute is inheritable. Multiple speakers are not allowed, simply do not specify a speaker on a certain level if you are unable to link the speech to a specific (single) speaker.
-:Accepted Data (as Annotation Types): :ref:`alignment_annotation`, :ref:`correction_annotation`, :ref:`metric_annotation`, :ref:`part_annotation`, :ref:`phon_annotation`, :ref:`string_annotation`, :ref:`text_annotation`
-:Accepted Data (as FoLiA XML Elements): ``<alignment>``, ``<correction>``, ``<metric>``, ``<part>``, ``<ph>``, ``<str>``, ``<t>``
-:Accepted Data (as API Classes): ``Alignment``, ``Correction``, ``Metric``, ``Part``, ``PhonContent``, ``String``, ``TextContent``
-:Valid Context (as Annotation Types): :ref:`definition_annotation`, :ref:`event_annotation`, :ref:`example_annotation`, :ref:`note_annotation`, :ref:`paragraph_annotation`, :ref:`sentence_annotation`, :ref:`term_annotation`, :ref:`utterance_annotation`
-:Valid Context (as FoLiA XML Elements): ``<def>``, ``<event>``, ``<ex>``, ``<note>``, ``<p>``, ``<s>``, ``<term>``, ``<utt>``
-:Valid Context (as API Classes): ``Definition``, ``Event``, ``Example``, ``Note``, ``Paragraph``, ``Sentence``, ``Term``, ``Utterance``
-:Version History: Since the beginning
+:Accepted Data: ``<alignment>`` (:ref:`alignment_annotation`), ``<correction>`` (:ref:`correction_annotation`), ``<metric>`` (:ref:`metric_annotation`), ``<part>`` (:ref:`part_annotation`), ``<ph>`` (:ref:`phon_annotation`), ``<str>`` (:ref:`string_annotation`), ``<t>`` (:ref:`text_annotation`)
+:Valid Context: ``<def>`` (:ref:`definition_annotation`), ``<event>`` (:ref:`event_annotation`), ``<ex>`` (:ref:`example_annotation`), ``<head>`` (:ref:`head_annotation`), ``<note>`` (:ref:`note_annotation`), ``<p>`` (:ref:`paragraph_annotation`), ``<s>`` (:ref:`sentence_annotation`), ``<term>`` (:ref:`term_annotation`), ``<utt>`` (:ref:`utterance_annotation`)
 
 :Extra Attributes: ``space`` -- Indicates whether a space should be inserted after this token (value ``yes``, default if not specified) or not (value ``no``).
 
