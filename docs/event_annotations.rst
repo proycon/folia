@@ -1,23 +1,23 @@
-.. _whitespace_annotation:
+.. _event_annotation:
 .. DO NOT REMOVE ANY foliaspec COMMENTS NOR EDIT THE TEXT BLOCK IMMEDIATELY FOLLOWING SUCH COMMENTS! THEY WILL BE AUTOMATICALLY UPDATED BY THE foliaspec TOOL!
 
-.. foliaspec:annotationtype_title(whitespace)
-Whitespace
+.. foliaspec:annotationtype_title(event)
+Event Annotation
 ==================================================================
 
-.. foliaspec:annotationtype_description(whitespace)
-Structure annotation introducing vertical whitespace
+.. foliaspec:annotationtype_description(event)
+Structural annotation type representing events, often used in new media contexts for things such as tweets, chat messages and forum posts (as defined by a user-defined set definition). Note that a more linguistic kind of event annotation can be accomplished with `Entity Annotation` or even `Time Segmentation` rather than this one.
 
 Specification
 ---------------
 
-.. foliaspec:specification(whitespace)
+.. foliaspec:specification(event)
 :Annotation Category: :ref:`structure_annotation_category`
-:Declaration: ``<whitespace-annotation set="...">`` *(note: ``set`` is optional for this annotation type)*
-:Version History: Since the beginning
-:**Element**: ``<whitespace>``
-:API Class: ``Whitespace``
-:Required Attributes: 
+:Declaration: ``<event-annotation set="...">`` *(note: ``set`` is optional for this annotation type)*
+:Version History: since v0.7
+:**Element**: ``<event>``
+:API Class: ``Event``
+:Required Attributes:
 :Optional Attributes: * ``xml:id`` -- The ID of the element; this has to be a unique in the entire document or collection of documents (corpus). All identifiers in FoLiA are of the `XML NCName <https://www.w3.org/TR/1999/WD-xmlschema-2-19990924/#NCName>`_ datatype, which roughly means it is a unique string that has to start with a letter (not a number or symbol), may contain numers, but may never contain colons or spaces. FoLiA does not define any naming convention for IDs.
                       * ``set`` -- The set of the element, ideally a URI linking to a set definition (see :ref:`set_definitions`) or otherwise a uniquely identifying string. The ``set`` must be referred to also in the :ref:`annotation_declarations` for this annotation type.
                       * ``class`` -- The class of the annotation, i.e. the annotation tag in the vocabulary defined by ``set``.
@@ -31,18 +31,34 @@ Specification
                       * ``begintime`` -- A timestamp in ``HH:MM:SS.MMM`` format, indicating the begin time of the speech. If a sound clip is specified (``src``); the timestamp refers to a location in the soundclip.
                       * ``endtime`` -- A timestamp in ``HH:MM:SS.MMM`` format, indicating the end time of the speech. If a sound clip is specified (``src``); the timestamp refers to a location in the soundclip.
                       * ``speaker`` -- A string identifying the speaker. This attribute is inheritable. Multiple speakers are not allowed, simply do not specify a speaker on a certain level if you are unable to link the speech to a specific (single) speaker.
-:Accepted Data: ``<alignment>`` (:ref:`alignment_annotation`), ``<correction>`` (:ref:`correction_annotation`), ``<metric>`` (:ref:`metric_annotation`), ``<part>`` (:ref:`part_annotation`)
-:Valid Context: ``<def>`` (:ref:`definition_annotation`), ``<div>`` (:ref:`division_annotation`), ``<event>`` (:ref:`event_annotation`), ``<ex>`` (:ref:`example_annotation`), ``<head>`` (:ref:`head_annotation`), ``<note>`` (:ref:`note_annotation`), ``<p>`` (:ref:`paragraph_annotation`), ``<s>`` (:ref:`sentence_annotation`), ``<term>`` (:ref:`term_annotation`)
+:Accepted Data: ``<alignment>`` (:ref:`alignment_annotation`), ``<correction>`` (:ref:`correction_annotation`), ``<div>`` (:ref:`division_annotation`), ``<entry>`` (:ref:`entry_annotation`), ``<event>`` (:ref:`event_annotation`), ``<ex>`` (:ref:`example_annotation`), ``<figure>`` (:ref:`figure_annotation`), ``<gap>`` (:ref:`gap_annotation`), ``<head>`` (:ref:`head_annotation`), ``<br>`` (:ref:`linebreak_annotation`), ``<list>`` (:ref:`list_annotation`), ``<metric>`` (:ref:`metric_annotation`), ``<note>`` (:ref:`note_annotation`), ``<p>`` (:ref:`paragraph_annotation`), ``<part>`` (:ref:`part_annotation`), ``<ph>`` (:ref:`phon_annotation`), ``<s>`` (:ref:`sentence_annotation`), ``<str>`` (:ref:`string_annotation`), ``<table>`` (:ref:`table_annotation`), ``<t>`` (:ref:`text_annotation`), ``<utt>`` (:ref:`utterance_annotation`), ``<whitespace>`` (:ref:`whitespace_annotation`), ``<w>`` (:ref:`token_annotation`)
+:Valid Context: ``<div>`` (:ref:`division_annotation`), ``<event>`` (:ref:`event_annotation`), ``<head>`` (:ref:`head_annotation`), ``<list>`` (:ref:`list_annotation`), ``<p>`` (:ref:`paragraph_annotation`), ``<s>`` (:ref:`sentence_annotation`), ``<term>`` (:ref:`term_annotation`)
 
 Description & Examples
 -------------------------
 
-Sometimes you may want to explicitly specify vertical whitespace, rather than repeat multiple linebreaks
-(:ref:`Linebreak Annotation`), the `whitespace` element accomplishes this. Note that using `p` to denote paragraphs is always strongly preferred
-over using `whitespace` to mark their boundaries, this element should be used sparingly!
+Event structure,  though uncommon to regular written text, can be useful in
+certain documents. Divisions, paragraphs, sentences, or even words can be
+encapsulated in an event element to indicate they somehow form an event entity
+of a particular class. This kind of structure annotation is especially useful
+in dealing with computer-mediated communication such as chat logs, tweets, and internet fora, in
+which chat turns, forum posts, and tweets can be demarcated as particular
+events.
 
-The difference between ``br`` and ``whitespace`` is that the former specifies that only a linebreak was present, not
-forcing any vertical whitespace between the lines, whilst the latter actually generates an empty space, which would
-comparable to two successive ``br`` statements. Both elements can be used inside various structural elements, such as
-divisions, paragraphs, headers, and sentences.
+The event class predefines some feature subsets you can use (you can use these as XML attributes, see :ref:`features`
+for more information on features); the subsets ``begindatetime`` and ``enddatetime`` can be
+used express to the exact moment at which an event started or ended. Note that
+this differs from the common ``datetime`` attribute, which would describe
+the time at which the annotation was recorded, rather than when the event took
+place! The ``actor`` subset is used to associate the person responsible for the event, i.e. the speaker or poster.
+
+For more fine-grained control over timed events, for example within sentences.
+It is recommended to use :ref:`timesegment_annotation`!
+
+The following example shows a chat log composed of message events:
+
+.. literalinclude:: ../examples/snippets/token.folia.xml
+    :linenos:
+    :language: xml
+
 

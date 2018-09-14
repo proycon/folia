@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FoLiA xmlns="http://ilk.uvt.nl/FoLiA" version="2.0" xml:id="example">
+  <metadata>
+      <annotations>
+          <text-annotation>
+			 <annotator processor="p1" />
+          </text-annotation>
+          <event-annotation set="adhoc">
+			 <annotator processor="p1" />
+		  </event-annotation>
+          <sentence-annotation>
+			 <annotator processor="p1" />
+		  </sentence-annotation>
+      </annotations>
+      <provenance>
+         <processor xml:id="p1" name="proycon" type="manual" />
+      </provenance>
+  </metadata>
+  <text xml:id="example.text">
+    <event class="message" begindatetime="2011-12-15T19:01"
+     enddatetime="2011-12-15T19:05" actor="Jane Doe">
+        <s>
+            <t>Hello John.</t>
+        </s>
+        <s>
+            <t>How are you doing?</t>
+        </s>
+    </event>
+    <event class="message" begindatetime="2011-12-15T19:06"
+     actor="John Doe">
+        <s>
+            <t>I am fine Jane, thanks.</t>
+        </s>
+    </event>
+  </text>
+</FoLiA>
