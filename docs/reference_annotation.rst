@@ -16,7 +16,7 @@ XXX
 :Extra Attributes: * ``id`` -- The ID of the element to link to
                    * ``type`` (optional) -- The type of the element that is being linked to (e.g. ``note``)
 
-Description & Examples
+Explanation & Examples
 -------------------------
 
 FoLiA allows for things like footnotes and bibliography entry using :ref:`note_annotation`. In this section we show that

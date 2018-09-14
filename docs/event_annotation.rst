@@ -34,7 +34,7 @@ Specification
 :Accepted Data: ``<alignment>`` (:ref:`alignment_annotation`), ``<correction>`` (:ref:`correction_annotation`), ``<div>`` (:ref:`division_annotation`), ``<entry>`` (:ref:`entry_annotation`), ``<event>`` (:ref:`event_annotation`), ``<ex>`` (:ref:`example_annotation`), ``<figure>`` (:ref:`figure_annotation`), ``<gap>`` (:ref:`gap_annotation`), ``<head>`` (:ref:`head_annotation`), ``<br>`` (:ref:`linebreak_annotation`), ``<list>`` (:ref:`list_annotation`), ``<metric>`` (:ref:`metric_annotation`), ``<note>`` (:ref:`note_annotation`), ``<p>`` (:ref:`paragraph_annotation`), ``<part>`` (:ref:`part_annotation`), ``<ph>`` (:ref:`phon_annotation`), ``<s>`` (:ref:`sentence_annotation`), ``<str>`` (:ref:`string_annotation`), ``<table>`` (:ref:`table_annotation`), ``<t>`` (:ref:`text_annotation`), ``<utt>`` (:ref:`utterance_annotation`), ``<whitespace>`` (:ref:`whitespace_annotation`), ``<w>`` (:ref:`token_annotation`)
 :Valid Context: ``<div>`` (:ref:`division_annotation`), ``<event>`` (:ref:`event_annotation`), ``<head>`` (:ref:`head_annotation`), ``<list>`` (:ref:`list_annotation`), ``<p>`` (:ref:`paragraph_annotation`), ``<s>`` (:ref:`sentence_annotation`), ``<term>`` (:ref:`term_annotation`)
 
-Description & Examples
+Explanation
 -------------------------
 
 Event structure,  though uncommon to regular written text, can be useful in
@@ -54,6 +54,9 @@ place! The ``actor`` subset is used to associate the person responsible for the 
 
 For more fine-grained control over timed events, for example within sentences.
 It is recommended to use :ref:`timesegment_annotation`!
+
+Example
+---------
 
 The following example shows a chat log composed of message events:
 

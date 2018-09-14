@@ -17,7 +17,7 @@ Specification
 :Version History: Since the beginning
 :**Element**: ``<w>``
 :API Class: ``Word``
-:Required Attributes: 
+:Required Attributes:
 :Optional Attributes: * ``xml:id`` -- The ID of the element; this has to be a unique in the entire document or collection of documents (corpus). All identifiers in FoLiA are of the `XML NCName <https://www.w3.org/TR/1999/WD-xmlschema-2-19990924/#NCName>`_ datatype, which roughly means it is a unique string that has to start with a letter (not a number or symbol), may contain numers, but may never contain colons or spaces. FoLiA does not define any naming convention for IDs.
                       * ``set`` -- The set of the element, ideally a URI linking to a set definition (see :ref:`set_definitions`) or otherwise a uniquely identifying string. The ``set`` must be referred to also in the :ref:`annotation_declarations` for this annotation type.
                       * ``class`` -- The class of the annotation, i.e. the annotation tag in the vocabulary defined by ``set``.
@@ -36,12 +36,15 @@ Specification
 
 :Extra Attributes: ``space`` -- Indicates whether a space should be inserted after this token (value ``yes``, default if not specified) or not (value ``no``).
 
-Description & Examples
+Explanation
 -------------------------
 
 Tokenisation is a prerequisite for most forms of linguistic annotation. The ``<w>`` element is FoLiA's basic token or
 word (hence the element's name). This element occurs in the scope of wider structural elements such as ``<s>``
 (:ref:`sentence_annotation`)
+
+Example
+------------
 
 
 .. literalinclude:: ../examples/snippets/token.folia.xml

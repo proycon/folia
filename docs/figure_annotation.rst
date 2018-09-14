@@ -20,7 +20,7 @@ Figure
 :Version History: Since the beginning
 :**Element**: ``<figure>``
 :API Class: ``Figure``
-:Required Attributes: 
+:Required Attributes:
 :Optional Attributes: * ``xml:id`` -- The ID of the element; this has to be a unique in the entire document or collection of documents (corpus). All identifiers in FoLiA are of the `XML NCName <https://www.w3.org/TR/1999/WD-xmlschema-2-19990924/#NCName>`_ datatype, which roughly means it is a unique string that has to start with a letter (not a number or symbol), may contain numers, but may never contain colons or spaces. FoLiA does not define any naming convention for IDs.
                       * ``set`` -- The set of the element, ideally a URI linking to a set definition (see :ref:`set_definitions`) or otherwise a uniquely identifying string. The ``set`` must be referred to also in the :ref:`annotation_declarations` for this annotation type.
                       * ``class`` -- The class of the annotation, i.e. the annotation tag in the vocabulary defined by ``set``.
@@ -45,7 +45,7 @@ Caption
 .. foliaspec:specification_element(Caption)
 :**Element**: ``<caption>``
 :API Class: ``Caption``
-:Required Attributes: 
+:Required Attributes:
 :Optional Attributes: * ``xml:id`` -- The ID of the element; this has to be a unique in the entire document or collection of documents (corpus). All identifiers in FoLiA are of the `XML NCName <https://www.w3.org/TR/1999/WD-xmlschema-2-19990924/#NCName>`_ datatype, which roughly means it is a unique string that has to start with a letter (not a number or symbol), may contain numers, but may never contain colons or spaces. FoLiA does not define any naming convention for IDs.
                       * ``set`` -- The set of the element, ideally a URI linking to a set definition (see :ref:`set_definitions`) or otherwise a uniquely identifying string. The ``set`` must be referred to also in the :ref:`annotation_declarations` for this annotation type.
                       * ``class`` -- The class of the annotation, i.e. the annotation tag in the vocabulary defined by ``set``.
@@ -62,7 +62,7 @@ Caption
 :Accepted Data: ``<alignment>`` (:ref:`alignment_annotation`), ``<correction>`` (:ref:`correction_annotation`), ``<gap>`` (:ref:`gap_annotation`), ``<br>`` (:ref:`linebreak_annotation`), ``<metric>`` (:ref:`metric_annotation`), ``<part>`` (:ref:`part_annotation`), ``<ph>`` (:ref:`phon_annotation`), ``<s>`` (:ref:`sentence_annotation`), ``<str>`` (:ref:`string_annotation`), ``<t>`` (:ref:`text_annotation`), ``<whitespace>`` (:ref:`whitespace_annotation`)
 :Valid Context: ``<figure>`` (:ref:`figure_annotation`), ``<list>`` (:ref:`list_annotation`)
 
-Description & Examples
+Explanation
 -------------------------
 
 Even figures can be encoded in the FoLiA format, although the actual figure
@@ -70,6 +70,9 @@ itself can only be included as a mere reference to an external image file, but
 including such a reference with the ``src`` attribute is optional.
 
 Within the context of a figure, a ``caption`` element can be used.
+
+Example
+---------
 
 The following example shows a figure and caption:
 

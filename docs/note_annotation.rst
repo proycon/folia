@@ -16,7 +16,7 @@ XXX
 :Set Definitions: You can use any of the following existing set definitions or simply create your own:
                   * `https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/notes.foliaset.xml`_
 
-Description & Examples
+Explanation
 -------------------------
 
 The structure element ``<note>`` allows for notes to be included in FoLiA
@@ -28,6 +28,9 @@ usual forms of annotations.
 
 The place of a note in the text is where it will appear. References to the note
 are made using a specific tag, ``<ref>``, discussed in :ref:`reference_annotation`.
+
+Example
+---------
 
 .. literalinclude:: ../examples/note_ref.2.0.0.folia.xml
     :linenos:

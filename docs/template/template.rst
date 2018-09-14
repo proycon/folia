@@ -13,13 +13,15 @@ Specification
 .. foliaspec:specification(token)
 XXX
 
-Description & Examples
+Explanation
 -------------------------
 
 TODO
 
+Example
+-------------------------
 
-.. literalinclude:: ../examples/snippets/token.folia.xml
+.. literalinclude:: ../examples/token.folia.xml
     :linenos:
     :language: xml
 
