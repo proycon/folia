@@ -6,10 +6,10 @@
 			 <annotator processor="p1" />
 		  </token-annotation>
       </annotations>
+      <provenance>
+         <processor xml:id="p1" name="proycon" type="manual" />
+      </provenance>
   </metadata>
-  <provenance>
-	 <processor xml:id="p1" name="proycon" type="manual" />
-  </provenance>
   <text xml:id="example.text">
     <p xml:id="example.p.1">
       <s xml:id="example.p.1.s.1">

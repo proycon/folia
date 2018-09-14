@@ -11,14 +11,14 @@
           <head-annotation>
 			 <annotator processor="p1" />
 		  </head-annotation>
-          <part-annotation>
+          <figure-annotation>
 			 <annotator processor="p1" />
-		  </part-annotation>
+		  </figure-annotation>
       </annotations>
+      <provenance>
+         <processor xml:id="p1" name="proycon" type="manual" />
+      </provenance>
   </metadata>
-  <provenance>
-	 <processor xml:id="p1" name="proycon" type="manual" />
-  </provenance>
   <text xml:id="example.text">
      <div xml:id="example.div.1" class="chapter" n="1">
          <head>

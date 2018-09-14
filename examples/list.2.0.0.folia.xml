@@ -8,10 +8,10 @@
 		  </token-annotation>
           <list-annotation />
       </annotations>
+      <provenance>
+         <processor xml:id="p1" name="proycon" type="manual" />
+      </provenance>
   </metadata>
-  <provenance>
-	 <processor xml:id="p1" name="proycon" type="manual" />
-  </provenance>
   <text xml:id="example.text">
       <list xml_id="example.list.1">
           <item n="1">
