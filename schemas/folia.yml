@@ -69,7 +69,7 @@ attributes_doc:
         group: speech
 
 #All possible annotation types, each must be declared in the FoLiA header when used
-annotationtype: [ TEXT, TOKEN, DIVISION, PARAGRAPH, HEAD, LIST, FIGURE, WHITESPACE, LINEBREAK, SENTENCE, POS, LEMMA, DOMAIN, SENSE, SYNTAX, CHUNKING, ENTITY, CORRECTION, ERRORDETECTION, PHON, SUBJECTIVITY, MORPHOLOGICAL, EVENT, DEPENDENCY, TIMESEGMENT, GAP, NOTE, ALIGNMENT, COMPLEXALIGNMENT, COREFERENCE, SEMROLE, METRIC, LANG, STRING, TABLE, STYLE, PART, UTTERANCE, ENTRY, TERM, DEFINITION, EXAMPLE, PHONOLOGICAL, PREDICATE, OBSERVATION, SENTIMENT, STATEMENT ]
+annotationtype: [ TEXT, TOKEN, DIVISION, PARAGRAPH, HEAD, LIST, FIGURE, WHITESPACE, LINEBREAK, SENTENCE, POS, LEMMA, DOMAIN, SENSE, SYNTAX, CHUNKING, ENTITY, CORRECTION, ERRORDETECTION, PHON, SUBJECTIVITY, MORPHOLOGICAL, EVENT, DEPENDENCY, TIMESEGMENT, GAP, QUOTE, NOTE, REFERENCE, ALIGNMENT, COMPLEXALIGNMENT, COREFERENCE, SEMROLE, METRIC, LANG, STRING, TABLE, STYLE, PART, UTTERANCE, ENTRY, TERM, DEFINITION, EXAMPLE, PHONOLOGICAL, PREDICATE, OBSERVATION, SENTIMENT, STATEMENT ]
 
 #Documentation of annotation types (reStructuredText)
 annotationtype_doc:
@@ -179,10 +179,18 @@ annotationtype_doc:
 include as is. This is where gap annotation comes in, the user-defined set may indicate the kind of gap. Common omissions
 in books are for example front-matter and back-matter, i.e. the cover."
         history: "Since the beginning"
+    quote:
+        name: "Quote Annotation"
+        description: "Structural annotation used to explicitly mark quoted speech, i.e. that what is reported to be said and appears in the text in some form of quotation marks."
+        history: "Since v0.11"
     note:
         name: "Note Annotation"
         description: "Structural annotation used for notes, such as footnotes or warnings or notice blocks."
         history: "Since v0.11"
+    reference:
+        name: "Reference Annotation"
+        description: "Structural annotation for referring to other annotation types. Used e.g. for referring to bibliography entries (citations) and footnotes."
+        history: "Since v0.11, external references since v1.2"
     alignment:
         name: "Alignment Annotation"
         description: "FoLiA provides a facility to align parts of your document with other parts of your document, or even with parts of other FoLiA documents or external
@@ -679,11 +687,13 @@ elements:
                 accepted_data: [AbstractInlineAnnotation, FunctionFeature, PhonContent, Phoneme, String, TextContent]
           - class: Quote
             properties:
+                annotationtype: QUOTE
                 accepted_data: [Division, Gap, Paragraph, Quote, Sentence, String, TextContent, Utterance, Word, Reference]
                 xmltag: "quote"
                 label: "Quote"
           - class: Reference
             properties:
+                annotationtype: REFERENCE
                 textdelimiter: null
                 xmltag: "ref"
                 label: "Reference"
