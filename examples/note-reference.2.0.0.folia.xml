@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FoLiA xmlns="http://ilk.uvt.nl/FoLiA" version="2.0" xml:id="example">
+  <metadata>
+      <annotations>
+          <text-annotation>
+			 <annotator processor="p1" />
+          </text-annotation>
+          <note-annotation set="adhoc">
+			 <annotator processor="p1" />
+		  </note-annotation>
+          <sentence-annotation>
+			 <annotator processor="p1" />
+		  </sentence-annotation>
+      </annotations>
+      <provenance>
+         <processor xml:id="p1" name="proycon" type="manual" />
+      </provenance>
+  </metadata>
+  <text xml:id="example.text">
+      <!-- TODO -->
+  </text>
+</FoLiA>
