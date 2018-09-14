@@ -9,6 +9,9 @@
 ">
 			 <annotator processor="p1" />
 		  </note-annotation>
+          <reference-annotation>
+			 <annotator processor="p1" />
+          </reference-annotation>
           <sentence-annotation>
 			 <annotator processor="p1" />
 		  </sentence-annotation>
