@@ -560,12 +560,14 @@ elements:
             properties:
                 occurrences: 1
                 accepted_data: [AbstractInlineAnnotation, Gap, Linebreak, PhonContent, Reference, Sentence, String, TextContent, Whitespace]
+                optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
                 xmltag: "caption"
                 label: "Caption"
           - class: Cell
             properties:
                 textdelimiter: " | "
                 accepted_data: [AbstractInlineAnnotation, Entry, Event, Example, Gap, Head, Linebreak, Note, Paragraph, Reference, Sentence, String, TextContent, Whitespace, Word]
+                optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
                 xmltag: "cell"
                 label: "Cell"
           - class: Definition
@@ -638,6 +640,7 @@ elements:
             properties:
                 textdelimiter: "\n"
                 accepted_data: [AbstractInlineAnnotation, Event, Gap, Label, Linebreak, List, Note, Paragraph, Part, PhonContent, Reference, Sentence, String, TextContent, Whitespace, Word]
+                optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
                 xmltag: "item" #was listitem in an early erroneous version of FoLiA, libraries will unfortunately need to support that too for backward compatibility
                 label: "List Item"
           - class: Morpheme
@@ -713,6 +716,7 @@ elements:
           - class: TableHead
             properties:
                 accepted_data: [AbstractInlineAnnotation, Row]
+                optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
                 xmltag: "tablehead"
                 label: "Table Header"
           - class: Term
@@ -848,7 +852,7 @@ elements:
       properties:
           required_attribs: null
           speakable: false
-          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
+          optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
           printable: false
           accepted_data: [ AbstractInlineAnnotation, Correction, ForeignData,  MorphologyLayer, PhonologyLayer ]
           auth: false
@@ -858,7 +862,7 @@ elements:
       properties:
           required_attribs: null
           speakable: false
-          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
+          optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
           printable: false
           accepted_data: [ AbstractAnnotationLayer, ForeignData ]
           auth: false
