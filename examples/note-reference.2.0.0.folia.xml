@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FoLiA xmlns="http://ilk.uvt.nl/FoLiA" version="2.0" xml:id="example">
+<FoLiA xmlns="http://ilk.uvt.nl/FoLiA" xmlns:xlink="http://www.w3.org/1999/xlink" version="2.0" xml:id="example">
   <metadata>
       <annotations>
           <text-annotation>
@@ -15,6 +15,9 @@
           <paragraph-annotation>
 			 <annotator processor="p1" />
 		  </paragraph-annotation>
+          <part-annotation>
+			 <annotator processor="p1" />
+          </part-annotation>
       </annotations>
       <provenance>
          <processor xml:id="p1" name="proycon" type="manual" />
@@ -28,7 +31,10 @@
         <ref xml:id="example.ref.1" id="example.note.1" />
       </p>
       <note xml:id="example.note.1" class="footnote">
-        <t>See our website.</t>
+        <part>
+            <t>See our website.</t>
+        </part>
+        <ref xml:id="example.ref.2" xlink:href="https://github.io/folia" xlink:type="simple" format="text/html" />
       </note>
   </text>
 </FoLiA>
