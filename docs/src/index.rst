@@ -267,16 +267,25 @@ there is space for other :ref:`metadata`.
 Annotation Instances
 ----------------------
 
-All forms of annotation in FoLiA are encoded using an XML element, these may carry one or more :
-(TODO)
+All forms of annotation in FoLiA are encoded using an distinct XML element. The first few layers of nested XML elements
+are usually structural elements (see :ref:`structure_annotation_category`) such as divisions, paragraphs and sentences.
+Then the deepest structure layer is usually tokenisation (``<w>``, :ref:`token_annotation`). Within these structures,
+you find inline annotation elements (see :ref:`inline_annotation_category`) encoding linguistic information, you also
+find *layers* with span annotation (see :ref:`span_annotation_category`), which refer back to the tokens/words in a
+stand-off fashion.
+
+Whatever the annotation type, all annotation elements for it are bound by the same paradigm, making FoLiA predicatable
+and consistent to a large degree. Central to this paradigm are the notion of sets, declarations, set definitions and
+classes, as introduced in earlier sections, and the notion of *common attributes*:
 
 Common attributes
--------------------
+~~~~~~~~~~~~~~~~~~~~~~
 .. _common_attributes:
 
-Annotation elements in FoLiA carry a subset of so-called *common attributes*, these are common properties, represented
+Annotation elements in FoLiA carry so-called *common attributes*, these are common properties, represented
 as XML attributes, that can be set on different annotations. The exact subset of mandatory or optional common attributes
-differs slightly per annotation type. We distinguish the following:
+differs slightly per annotation type. In this documentation we will explicitly list the required and optional common
+attributes per annotation type. Altogether, we distinguish the following:
 
 **Core Attributes:**
 
