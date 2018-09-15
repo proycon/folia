@@ -118,7 +118,7 @@ finish this introductory chapter first):
 Vocabulary sets
 ------------------
 
-We have just seen that FoLiA specifically defines various types of annotation, but it never defines the vocabulary (aka
+FoLiA specifically defines various types of annotation, but it never defines the vocabulary (aka
 label/tag sets) you can use for those annotations. The vocabulary for, for instance, Part-of-Speech annotation can be
 defined by anyone in a separate publicly available file known as a **Set Definition**. Anybody is free to create and
 host their own set definitions on the internet. These set definitions are typically formulated according to a linked
@@ -305,7 +305,7 @@ differs slightly per annotation type. We distinguish the following:
 * ``endtime`` -- A timestamp in ``HH:MM:SS.MMM`` format, indicating the end time of the speech. If a sound clip is specified (``src``); the timestamp refers to a location in the soundclip.
 * ``speaker`` -- A string identifying the speaker. This attribute is inheritable. Multiple speakers are not allowed, simply do not specify a speaker on a certain level if you are unable to link the speech to a specific (single) speaker.
 
-**XLink attributes**, the following applies only on text and text markup elements and allows creating hyperlinks. See the section :ref:`hyperlinks` for
+**XLink attributes**, the following apply mainly on text and text markup elements and allow creating hyperlinks. See the section :ref:`hyperlinks` for
 details.
 
 * ``xlink:href`` -- Creates a hyperlink on a text to the specified URL
@@ -315,12 +315,12 @@ Identifiers
 ~~~~~~~~~~~~~~~
 .. _identifiers:
 
-Many elements in the FoLiA take an identifier by which the element is uniquely identifiable. This makes referring to any
+Many elements in FoLiA take an identifier by which the element is uniquely identifiable. This makes referring to any
 part of a FoLiA document easy. Identifiers should be unique in the entire document, and ideally within the entire corpus
 collection if you have multiple documents, though that is a recommendation and not enforced. The ID can be anything that
 qualifies as a valid ID according to the XML standard, that is, it is a non-colonized name (NCName) that starts with
 either a letter or an underscore and contains none other than letters, digits, underscores, hyphens and periods. A well
-proven convention for IDs is of a cumulative nature, in which you append the element name, a period, and a sequence
+proven *convention* for IDs is of a cumulative nature, in which you append the element name, a period, and a sequence
 number, to the identifier of a parent element higher in the hierarchy.  Identifiers are always encoded in the ``xml:id``
 attribute.
 
@@ -339,19 +339,10 @@ namespace instead of the ``XML`` namespace, these are
 always *references* to the ID of another element. It's important not to confuse the two.
 
 
+Annotation Instances
+----------------------
 
-Contents:
+All forms of annotation in FoLiA are encoded using an XML element.
+(TODO)
 
-.. toctree::
-    :maxdepth: 3
-    :glob:
-
-    *
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
 
