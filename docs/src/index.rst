@@ -264,6 +264,12 @@ there is space for other :ref:`metadata`.
 .. [#fex] There is an alternative stand-off serialisation available: :ref:`external`
 .. [#fns] For historical reasons, the XML namespace URI refers to a research group at the University of Tilburg where FoLiA was first founded, but which no longer exists.
 
+Annotation Instances
+----------------------
+
+All forms of annotation in FoLiA are encoded using an XML element, these may carry one or more :
+(TODO)
+
 Common attributes
 -------------------
 .. _common_attributes:
@@ -339,10 +345,5 @@ namespace instead of the ``XML`` namespace, these are
 always *references* to the ID of another element. It's important not to confuse the two.
 
 
-Annotation Instances
-----------------------
-
-All forms of annotation in FoLiA are encoded using an XML element.
-(TODO)
 
 
