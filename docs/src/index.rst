@@ -274,7 +274,7 @@ you find inline annotation elements (see :ref:`inline_annotation_category`) enco
 find *layers* with span annotation (see :ref:`span_annotation_category`), which refer back to the tokens/words in a
 stand-off fashion.
 
-Whatever the annotation type, all annotation elements for it are bound by the same paradigm, making FoLiA predicatable
+Whatever the annotation type, all annotation elements for it are bound by the same paradigm, making FoLiA predictable
 and consistent to a large degree. Central to this paradigm are the notion of sets, declarations, set definitions and
 classes, as introduced in earlier sections, and the notion of *common attributes*:
 
