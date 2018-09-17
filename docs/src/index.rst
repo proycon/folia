@@ -276,7 +276,13 @@ stand-off fashion.
 
 Whatever the annotation type, all annotation elements for it are bound by the same paradigm, making FoLiA predictable
 and consistent to a large degree. Central to this paradigm are the notion of sets, declarations, set definitions and
-classes, as introduced in earlier sections, and the notion of *common attributes*:
+classes, as introduced in earlier sections, and the notion of *common attributes*, as explained in the next section.
+
+The FoLiA paradigm can be schematically visualised as follows, don't worry if not all the details are immediately clear.
+This documentation will provide examples for all annotation types to guide you along.
+
+.. image:: folia_paradigm2.png
+    :align: center
 
 Common attributes
 ~~~~~~~~~~~~~~~~~~~~~~
