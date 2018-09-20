@@ -5,6 +5,9 @@
           <token-annotation set="https://raw.githubusercontent.com/LanguageMachines/uctodata/master/setdefinitions/tokconfig-eng.foliaset.ttl">
 			 <annotator processor="p1" />
 		  </token-annotation>
+          <text-annotation />
+          <sentence-annotation />
+          <paragraph-annotation />
       </annotations>
       <provenance>
          <processor xml:id="p1" name="proycon" type="manual" />

@@ -330,7 +330,7 @@ attributes per annotation type. Altogether, we distinguish the following:
 details.
 
 * ``xlink:href`` -- Creates a hyperlink on a text to the specified URL
-* ``xlink:type`` -- Specifies the type of the hyperlink.
+* ``xlink:type`` -- Specifies the type of the hyperlink. (should be set to ``simple`` in almost all cases)
 
 Identifiers
 ~~~~~~~~~~~~~~~
