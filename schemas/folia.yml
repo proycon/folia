@@ -147,15 +147,15 @@ annotationtype_doc:
         history: "Since v0.4"
     errordetection:
         name: "Error Detection"
-        description: "Error Detection is used to signal the presence of errors in a structural element."
-        history: "Revised in v0.8.2 (removed error attribute)"
+        description: "This annotation type is deprecated in favour of `Observation Annotation` and only exists for backward compatibility."
+        history: "Deprecated since v2.0.0"
     phon:
         name: "Phonetic Annotation"
         description: "This is the phonetic analogy to text content (``<t>``) and allows associating a phonetic transcription with any structural element, it is often used in a speech context. Note that for actual segmentation into phonemes, FoLiA has another related type: ``Phonological Annotation``"
         history: "Since v0.12"
     subjectivity:
         name: "Subjectivity Annotation"
-        description: "This annotation type is deprecated in favour of `Sentiment Annotation` and only exists for backward-compatibility"
+        description: "This annotation type is deprecated in favour of `Sentiment Annotation` and only exists for backward compatibility."
         history: "Deprecated since v1.5"
     morphological:
         name: "Morphological Annotation"

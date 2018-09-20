@@ -17,9 +17,6 @@
           <sense-annotation set="wordnet"> <!-- an ad-hoc set -->
 			 <annotator processor="p1" />
 		  </sense-annotation>
-          <domain-annotation set="topics"> <!-- an ad-hoc set -->
-			 <annotator processor="p1" />
-		  </domain-annotation>
           <description-annotation>
 			 <annotator processor="p1" />
 		  </description-annotation>
@@ -32,7 +29,6 @@
     <p xml:id="example.p.1">
       <s xml:id="example.p.1.s.2">
          <t>I show an example.</t>
-		 <domain class="informatics" />
          <w xml:id="example.p.1.s.2.w.1" class="WORD">
             <t>I</t>
          </w>

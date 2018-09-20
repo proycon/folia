@@ -16,12 +16,14 @@ XXX
 Explanation
 -------------------------
 
-TODO
+Language identification is used to identify a certain structural element as being in a
+certain language, so it can be applied to the text as a whole or smaller elements within it.
+The language vocabulary is determined by the set definition.
 
 Example
 -------------------------
 
-.. literalinclude:: ../examples/lang.folia.xml
+.. literalinclude:: ../examples/lang-domain.folia.xml
     :linenos:
     :language: xml
 

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FoLiA xmlns="http://ilk.uvt.nl/FoLiA" version="2.0" xml:id="example">
+  <metadata>
+      <annotations>
+          <text-annotation>
+			 <annotator processor="p1" />
+          </text-annotation>
+          <sentence-annotation>
+			 <annotator processor="p1" />
+          </sentence-annotation>
+          <paragraph-annotation>
+			 <annotator processor="p1" />
+          </paragraph-annotation>
+          <domain-annotation set="topics"> <!-- an ad-hoc set -->
+			 <annotator processor="p1" />
+		  </domain-annotation>
+          <lang-annotation set="iso638-3"> <!-- an ad-hoc set -->
+			 <annotator processor="p1" />
+		  </lang-annotation>
+      </annotations>
+      <provenance>
+         <processor xml:id="p1" name="proycon" type="manual" />
+      </provenance>
+  </metadata>
+  <text xml:id="example.text">
+    <p xml:id="example.p.1">
+      <s xml:id="example.p.1.s.1">
+         <t>I show an example:</t>
+         <lang class="eng" />
+      </s>
+      <s xml:id="example.p.1.s.2">
+         <t>У меня собака, она зовут Джайко.</t>
+         <domain class="animals" />
+         <lang class="rus" />
+      </s>
+    </p>
+  </text>
+</FoLiA>
