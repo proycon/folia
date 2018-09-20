@@ -13,15 +13,12 @@ Specification
 .. foliaspec:specification(lemma)
 XXX
 
-Explanation
--------------------------
-
-TODO
-
 Example
 -------------------------
 
-.. literalinclude:: ../examples/lemma.folia.xml
+The following example includes lemmas as well as part-of-speech tags:
+
+.. literalinclude:: ../examples/pos-features-deep.folia.xml
     :linenos:
     :language: xml
 

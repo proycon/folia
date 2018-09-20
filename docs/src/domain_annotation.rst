@@ -13,15 +13,12 @@ Specification
 .. foliaspec:specification(domain)
 XXX
 
-Explanation
--------------------------
-
-TODO
-
 Example
 -------------------------
 
-.. literalinclude:: ../examples/domain.folia.xml
+The following document shows a domain annotation on the sentence level:
+
+.. literalinclude:: ../examples/sense.2.0.0.folia.xml
     :linenos:
     :language: xml
 

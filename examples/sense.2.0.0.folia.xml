@@ -14,6 +14,15 @@
           <paragraph-annotation>
 			 <annotator processor="p1" />
           </paragraph-annotation>
+          <sense-annotation set="wordnet"> <!-- an ad-hoc set -->
+			 <annotator processor="p1" />
+		  </sense-annotation>
+          <domain-annotation set="topics"> <!-- an ad-hoc set -->
+			 <annotator processor="p1" />
+		  </domain-annotation>
+          <description-annotation>
+			 <annotator processor="p1" />
+		  </description-annotation>
       </annotations>
       <provenance>
          <processor xml:id="p1" name="proycon" type="manual" />
@@ -21,29 +30,26 @@
   </metadata>
   <text xml:id="example.text">
     <p xml:id="example.p.1">
-      <s xml:id="example.p.1.s.1">
-         <w xml:id="example.p.1.s.1.w.1" class="WORD">
-            <t>Hello</t>
-         </w>
-         <w xml:id="example.p.1.s.1.w.2" class="WORD" space="no">
-            <t>World</t>
-         </w>
-         <w xml:id="example.p.1.s.1.w.3" class="PUNCTUATION">
-            <t>!</t>
-         </w>
-      </s>
       <s xml:id="example.p.1.s.2">
+         <t>I show an example.</t>
+		 <domain class="informatics" />
          <w xml:id="example.p.1.s.2.w.1" class="WORD">
-            <t>This</t>
+            <t>I</t>
          </w>
          <w xml:id="example.p.1.s.2.w.2" class="WORD">
-            <t>is</t>
+            <t>show</t>
+            <sense class="show%2:39:02::">
+				<desc>give an exhibition of to an interested audience</desc>
+            </sense>
          </w>
          <w xml:id="example.p.1.s.2.w.3" class="WORD">
             <t>an</t>
          </w>
          <w xml:id="example.p.1.s.2.w.4" class="WORD" space="no">
             <t>example</t>
+            <sense class="example%1:09:00::">
+                <desc>an item of information that is typical of a class or group)</desc>
+            </sense>
          </w>
          <w xml:id="example.p.1.s.2.w.5" class="PUNCTUATION">
             <t>.</t>
