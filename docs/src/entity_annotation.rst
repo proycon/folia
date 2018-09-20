@@ -16,12 +16,22 @@ XXX
 Explanation
 -------------------------
 
-TODO
+.. note::
+
+    Please first ensure you are familiar with the general principles of :ref:`span_annotation` to make sense of this annotation type.
+
+The ``entities`` layer offers a generic solution to encode various types
+of entities or *multi-word expressions*, including but not limited to named
+entities. The set used determines the precise semantics behind the entities.
+
+This annotation type, being the simplest of all span annotations, is much used in FoLiA.
+
+It is recommended, but not required, for each entity to have a unique identifier.
 
 Example
 -------------------------
 
-.. literalinclude:: ../examples/entity.folia.xml
+.. literalinclude:: ../examples/entities-deep.2.0.0.folia.xml
     :linenos:
     :language: xml
 
