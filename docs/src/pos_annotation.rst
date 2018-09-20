@@ -66,7 +66,7 @@ Option two:
 
 The last examples demonstrates a full FoLiA document with part-of-speech tagging with features:
 
-.. literalinclude:: ../examples/pos-features.2.0.0.folia.xml
+.. literalinclude:: ../examples/pos-features-deep.2.0.0.folia.xml
     :linenos:
     :language: xml
 

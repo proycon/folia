@@ -118,6 +118,12 @@ The following example provides a small but complete FoLiA document with provenan
     :linenos:
     :language: xml
 
+And another more real-life example:
+
+.. literalinclude:: ../examples/pos-features-deep.2.0.0.folia.xml
+    :linenos:
+    :language: xml
+
 .. seealso::
     :ref:`annotation_declarations`
     :ref:`set_definitions`

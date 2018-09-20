@@ -11,14 +11,18 @@ set definition (See :ref:`set_definition`), so may be entirely user-defined.
 The element ``<feat>`` is used to add features to any kind of annotation. In
 the following example we make use of a subset we invented which ties a lemma to
 its plural form. This is just an example, you can think of any subset you like and associate all kinds of information
-with it. You only need to make sure not to use features if there is already a more appropriate FoLiA annotation
-available (e.g. don't use part-of-speech subset because there is already :ref:`pos_annotation` for that):
+with it.
 
 .. code-block:: xml
 
  <lemma class="house">
    <feat subset="plural" class="houses" />
  </lemma>
+
+.. note::
+
+    Do make sure not to use features and create subsets if there is already a more appropriate FoLiA annotation
+    available. For example; don't use a part-of-speech subset in a lemma set, because there is already :ref:`pos_annotation` for that.
 
 A more thorough example for part-of-speech tags with features will be explained
 in Section~\ref{sec:posfeat}.
