@@ -656,13 +656,6 @@ elements:
                 optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
                 xmltag: "item" #was listitem in an early erroneous version of FoLiA, libraries will unfortunately need to support that too for backward compatibility
                 label: "List Item"
-          - class: Morpheme
-            properties:
-                annotationtype: MORPHOLOGICAL
-                xmltag: "morpheme"
-                label: "Morpheme"
-                textdelimiter: ""
-                accepted_data: [AbstractInlineAnnotation, FunctionFeature, Morpheme, PhonContent, String, TextContent]
           - class: Note
             properties:
                 annotationtype: NOTE
@@ -683,13 +676,6 @@ elements:
                 accepted_data: [ AbstractStructureElement, AbstractInlineAnnotation, TextContent, PhonContent ] #too permissive really, should be context dependent
                 xmltag: "part"
                 label: "Part"
-          - class: Phoneme
-            properties:
-                annotationtype: PHONOLOGICAL
-                xmltag: "phoneme"
-                label: "Phoneme"
-                textdelimiter: ""
-                accepted_data: [AbstractInlineAnnotation, FunctionFeature, PhonContent, Phoneme, String, TextContent]
           - class: Quote
             properties:
                 annotationtype: QUOTE
@@ -767,6 +753,30 @@ elements:
                 label: "Word/Token"
                 textdelimiter: " " #may be overriden and set to "" if attribute space="no" is set on the word
                 optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, TEXTCLASS, METADATA ]
+    - class: AbstractSubtokenAnnotation
+      properties:
+          printable: true
+          required_attribs: null
+          textdelimiter: "\n\n"
+          speakable: true
+          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
+          accepted_data: [AbstractAnnotationLayer, Alignment, Alternative, AlternativeLayers, Correction, Feature, Metric, Part, ForeignData]
+          auto_generate_id: true
+      elements:
+          - class: Morpheme
+            properties:
+                annotationtype: MORPHOLOGICAL
+                xmltag: "morpheme"
+                label: "Morpheme"
+                textdelimiter: ""
+                accepted_data: [AbstractInlineAnnotation, FunctionFeature, Morpheme, PhonContent, String, TextContent]
+          - class: Phoneme
+            properties:
+                annotationtype: PHONOLOGICAL
+                xmltag: "phoneme"
+                label: "Phoneme"
+                textdelimiter: ""
+                accepted_data: [AbstractInlineAnnotation, FunctionFeature, PhonContent, Phoneme, String, TextContent]
     - class: AbstractTextMarkup
       properties:
           textcontainer: true
