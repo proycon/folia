@@ -16,13 +16,6 @@ XXX
 Explanation
 -------------------------
 
-TODO
-
-Example
--------------------------
-
-.. literalinclude:: ../examples/predicate.folia.xml
-    :linenos:
-    :language: xml
+Please see :ref:`semrole_annotation` for an explanation of predicates in the context of semantic role labelling.
 
 
