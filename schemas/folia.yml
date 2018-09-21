@@ -854,9 +854,6 @@ elements:
           required_attribs: [ ]
           optional_attribs: [ ]
       elements:
-        - class: AlignReference
-          properties:
-              xmltag: "aref"
         - class: Alignment
           properties:
               annotationtype: ALIGNMENT
@@ -1008,9 +1005,6 @@ elements:
               accepted_data: [AbstractInlineAnnotation, Alignment, Correction, Feature, ForeignData, Metric, PhonContent, TextContent]
               xmltag: "str"
               label: "String"
-        - class: WordReference
-          properties:
-              xmltag: "wref"
         - class: ForeignData
           properties:
               xmltag: "foreign-data"
@@ -1046,6 +1040,12 @@ elements:
               speakable: true
               xmltag: "ph"
               label: "Phonetic Content"
+    - class: WordReference
+      properties:
+          xmltag: "wref"
+    - class: AlignReference
+      properties:
+          xmltag: "aref"
 
 #Default ignore list for the select() method, do not descend into these
 default_ignore: [ Original, Suggestion, Alternative, AlternativeLayers, ForeignData ]
