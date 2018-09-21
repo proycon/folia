@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FoLiA xmlns="http://ilk.uvt.nl/FoLiA" version="2.0" xml:id="example">
+  <metadata>
+      <annotations>
+          <token-annotation set="https://raw.githubusercontent.com/LanguageMachines/uctodata/master/setdefinitions/tokconfig-eng.foliaset.ttl">
+			 <annotator processor="p1" />
+		  </token-annotation>
+          <text-annotation>
+			 <annotator processor="p1" />
+          </text-annotation>
+          <sentence-annotation>
+			 <annotator processor="p1" />
+          </sentence-annotation>
+          <paragraph-annotation>
+			 <annotator processor="p1" />
+          </paragraph-annotation>
+          <statement-annotation set="attributionset"> <!-- an ad-hoc set -->
+			 <annotator processor="p1" />
+		  </statement-annotation>
+      </annotations>
+      <provenance>
+         <processor xml:id="p1" name="proycon" type="manual" />
+      </provenance>
+  </metadata>
+  <text xml:id="example.text">
+    <s xml:id="s1">
+     <w xml:id="s1.w1"><t>They</t></w>
+     <w xml:id="s1.w2"><t>said</t></w>
+     <w xml:id="s1.w3"><t>the</t></w>
+     <w xml:id="s1.w4"><t>hotel</t></w>
+     <w xml:id="s1.w5"><t>was</t></w>
+     <w xml:id="s1.w6"><t>a</t></w>
+     <w xml:id="s1.w7"><t>nightmare</t></w>
+     <w xml:id="s1.w8"><t>.</t></w>
+     <statements>
+      <statement class="said">
+       <source>
+        <wref id="s1.w1" />
+       </source>
+       <hd>
+        <wref id="s1.w3" />
+        <wref id="s1.w4" />
+        <wref id="s1.w5" />
+        <wref id="s1.w6" />
+        <wref id="s1.w7" />
+       </hd>
+       <relation>
+         <wref id="s1.w2" />
+       </relation>
+      </statement>
+     </statements>
+    </s>
+  </text>
+</FoLiA>

@@ -167,7 +167,7 @@ annotationtype_doc:
         history: "since v0.7"
     dependency:
         name: "Dependency Annotation"
-        description: "Dependency relations are syntactic relations between spans of tokens. A dependency relation takes a particular class and consists of a single head component and a single dependent component. In the sample ``He sees'', there is  syntactic dependency between the two words: ``sees'' is the head, and ``He'' is the dependant, and the dependency relation can be qualified as  something like ``subject'', as the dependant is the subject of the head word, but this depends on the user-defined set."
+        description: "Dependency relations are syntactic relations between spans of tokens. A dependency relation takes a particular class and consists of a single head component and a single dependent component."
         history: "Slightly revised since v0.8 (no ``su`` attribute on ``hd``/``dep``)"
     timesegment:
         name: "Time Segmentation"
