@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FoLiA xmlns="http://ilk.uvt.nl/FoLiA" version="2.0" xml:id="example">
+  <metadata>
+      <annotations>
+          <token-annotation set="https://raw.githubusercontent.com/LanguageMachines/uctodata/master/setdefinitions/tokconfig-eng.foliaset.ttl">
+			 <annotator processor="p1" />
+		  </token-annotation>
+          <text-annotation>
+			 <annotator processor="p1" />
+          </text-annotation>
+          <sentence-annotation>
+			 <annotator processor="p1" />
+          </sentence-annotation>
+          <paragraph-annotation>
+			 <annotator processor="p1" />
+          </paragraph-annotation>
+          <observation-annotation set="errordetection"> <!-- an ad-hoc set -->
+			 <annotator processor="p2" />
+		  </observation-annotation>
+      </annotations>
+      <provenance>
+         <processor xml:id="p1" name="student" type="manual" />
+         <processor xml:id="p2" name="teacher" type="manual" />
+      </provenance>
+  </metadata>
+  <text xml:id="example.text">
+    <p xml:id="example.p.1">
+        <s xml:id="example.p.1.s.1">
+         <t>The Dalai Lama greated him.</t>
+         <w xml:id="example.p.1.s.1.w.1"><t>The</t></w>
+         <w xml:id="example.p.1.s.1.w.2"><t>Dalai</t></w>
+         <w xml:id="example.p.1.s.1.w.3"><t>Lama</t></w>
+         <w xml:id="example.p.1.s.1.w.4"><t>greated</t></w>
+         <w xml:id="example.p.1.s.1.w.5"><t>him</t></w>
+         <w xml:id="example.p.1.s.1.w.6"><t>.</t></w>
+         <observations>
+          <observation class="typo">
+           <wref id="example.p.1.s.1.w.4"/>
+          </observation>
+         </observations>
+        </s>
+    </p>
+  </text>
+</FoLiA>
