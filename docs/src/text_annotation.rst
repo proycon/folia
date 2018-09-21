@@ -151,6 +151,8 @@ FoLiA and should be rejected. Similar text consistency errors occur if you speci
 Text classes (advanced)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+.. _textclasses:
+
 It is possible to associate **multiple text content elements** with the same
 structural element, and thus associating multiple texts with the same element. You may
 wonder what could possibly be the point of such extra complexity. But there is
@@ -254,6 +256,8 @@ annotation types in FoLiA. We leave out the ocr text class:
 
 Text class attribute (advanced)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. _textclass_attribute:
 
 So as we have just seen, FoLiA allows for multiple text content elements on the same structural elements, these other text
 content elements must carry a different class. This indicates an alternative text for the same element and is used for
