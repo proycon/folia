@@ -281,7 +281,7 @@ classes, as introduced in earlier sections, and the notion of *common attributes
 The FoLiA paradigm can be schematically visualised as follows, don't worry if not all the details are immediately clear.
 This documentation will provide examples for all annotation types to guide you along.
 
-.. image:: folia_paradigm2.png
+.. image:: ../folia_paradigm2.png
     :align: center
 
 Common attributes
