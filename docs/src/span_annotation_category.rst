@@ -56,14 +56,12 @@ layer itself.
     The order of the references should always correspond to the order of the tokens in the text. However, the references need
     not be strictly continuous; there may be gaps.
 
-Depending on the type of span annotation, it is possible that the element may
-be nested. This is for example the case for :ref:`syntax_annotation`, where the
-nesting of syntactic units allows the building of syntax trees. Span
-annotation elements of a more complex nature may require or allow so-called **span
-role** elements. Span roles encapsulate references to the words and ascribe a more defined
-meaning to the span, for instance to mark the head or dependent in a dependency
-relation. Span role elements themselves never carry any classes and can
-only be used in the scope of a certain span annotation element, not standalone.
+Depending on the type of span annotation, it is possible that the element may be nested. This is for example the case
+for :ref:`syntax_annotation`, where the nesting of syntactic units allows the building of syntax trees. Span annotation
+elements of a more complex nature may require or allow so-called **span role** elements. Span roles encapsulate
+references to the words and ascribe a more defined meaning to the span, for instance to mark the head or dependent in a
+dependency relation. Span role elements themselves never carry any classes and can only be used in the scope of a
+certain span annotation element, not standalone. They can still carry :ref:`features`, though.
 
 Annotation Types
 -------------------

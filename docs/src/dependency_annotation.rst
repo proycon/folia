@@ -30,8 +30,8 @@ Each dependency relation is explicitly noted in FoLiA.
 The element ``<dependencies>`` introduces this annotation layer. Within it,
 ``<dependency>`` elements describe all dependency pairs.
 The ``<dependency>`` element always contains two *span roles*: one
-head element (``<hd>``) and one dependent element (``<dep>``). The words
-they cover are reiterated in the usual fashion, using ``<wref>``.
+head element (``<hd>``) and one dependent element (``<dep>``). Within these span roles, the words
+referenced in the usual stand-off fashion, using ``<wref>``.
 
 
 Example

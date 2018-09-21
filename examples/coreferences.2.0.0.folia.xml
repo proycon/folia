@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FoLiA xmlns="http://ilk.uvt.nl/FoLiA" version="2.0" xml:id="example">
+  <metadata>
+      <annotations>
+          <token-annotation set="https://raw.githubusercontent.com/LanguageMachines/uctodata/master/setdefinitions/tokconfig-eng.foliaset.ttl">
+			 <annotator processor="p1" />
+		  </token-annotation>
+          <text-annotation>
+			 <annotator processor="p1" />
+          </text-annotation>
+          <sentence-annotation>
+			 <annotator processor="p1" />
+          </sentence-annotation>
+          <paragraph-annotation>
+			 <annotator processor="p1" />
+          </paragraph-annotation>
+          <coreference-annotation set="adhoc"> <!-- an ad-hoc set -->
+			 <annotator processor="p1" />
+		  </coreference-annotation>
+      </annotations>
+      <provenance>
+         <processor xml:id="p1" name="proycon" type="manual" />
+      </provenance>
+  </metadata>
+  <text xml:id="example.text">
+    <p xml:id="example.p.1">
+        <s xml:id="example.p.1.s.1">
+          <t>The Dalai Lama greeted him.</t>
+          <w xml:id="example.p.1.s.1.w.1"><t>The</t></w>
+          <w xml:id="example.p.1.s.1.w.2"><t>Dalai</t></w>
+          <w xml:id="example.p.1.s.1.w.3"><t>Lama</t></w>
+          <w xml:id="example.p.1.s.1.w.4"><t>greeted</t></w>
+          <w xml:id="example.p.1.s.1.w.5"><t>him</t></w>
+          <w xml:id="example.p.1.s.1.w.6"><t>.</t></w>
+        </s>
+        <s xml:id="example.p.1.s.2">
+          <t>He was happy to see him.</t>
+          <w xml:id="example.p.1.s.2.w.1"><t>He</t></w>
+          <w xml:id="example.p.1.s.2.w.2"><t>was</t></w>
+          <w xml:id="example.p.1.s.2.w.3"><t>happy</t></w>
+          <w xml:id="example.p.1.s.2.w.4"><t>to</t></w>
+          <w xml:id="example.p.1.s.2.w.4"><t>see</t></w>
+          <w xml:id="example.p.1.s.2.w.5"><t>him</t></w>
+          <w xml:id="example.p.1.s.2.w.6"><t>.</t></w>
+        </s>
+        <s xml:id="example.p.1.s.3">
+          <t>He smiled.</t>
+          <w xml:id="example.p.1.s.3.w.1"><t>He</t></w>
+          <w xml:id="example.p.1.s.3.w.2"><t>smiled</t></w>
+          <w xml:id="example.p.1.s.3.w.3"><t>.</t></w>
+        </s>
+        <coreferences>
+            <coreferencechain class="dalailama">
+              <coreferencelink>
+                  <wref id="example.p.1.s.1.w.1" t="The" />
+                  <hd> <!-- extra span role to mark the head -->
+                    <wref id="example.p.1.s.1.w.2" t="Dalai" />
+                    <wref id="example.p.1.s.1.w.3" t="Lama" />
+                  </hd>
+              </coreferencelink>
+              <coreferencelink>
+                <wref id="example.p.1.s.2.w.1" t="he" />
+              </coreferencelink>
+            </coreferencechain>
+            <coreferencechain class="dalailama">
+              <coreferencelink>
+                <wref id="example.p.1.s.2.w.5" t="him" />
+              </coreferencelink>
+              <coreferencelink>
+                <wref id="example.p.1.s.2.w.6" t="him" />
+              </coreferencelink>
+              <coreferencelink>
+                <wref id="example.p.1.s.3.w.1" t="He" />
+              </coreferencelink>
+            </coreferencechain>
+        </coreferences>
+    </p>
+  </text>
+</FoLiA>
