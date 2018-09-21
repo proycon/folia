@@ -52,6 +52,7 @@ Phonetic transcription and text content can also go together without problem:
             <ph offset="8">wɝːld</ph>
             <t offset="6">world</t>
         </w>
+    </utt>
 
 .. note::
 
