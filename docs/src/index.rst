@@ -256,13 +256,22 @@ The mandatory ``version`` attribute describes the FoLiA version that
 the document complies to (this is **not** the version of the document! There is room in the :ref:`provenance_data` for that).
 The document as a whole always carries an ID (``xml:id``), like all identifiers in FoLiA, this has to be a unique string. More about identifiers can be read in the next section.
 
-The structure of a FoLiA document can roughly be divided into two parts, the ``metadata`` section and the ``text`` (or
-``speech``) body. The ``metadata`` section features a mandatory ``annotations`` section containing the
+The structure of a FoLiA document can roughly be divided into two parts, the ``metadata`` section and a body, the body
+is formed by either the ``<text>`` element or the ``<speech>`` element (see :ref:`Speech` for more information about using
+FoLiA for speech). The body elements (``<text>``/``<speech>``) are structural elements but take no sets, classes, nor
+a declaration.
+
+The ``metadata`` section features a mandatory ``annotations`` section containing the
 :ref:`annotation_declarations`, next is the optional but recommended ``provenance`` block that contains the :ref:`provenance_data`. After this
 there is space for other :ref:`metadata`.
 
+.. note::
+
+    Do not confuse the ``<text>`` body element with the ``<t>`` element and ``<text-annotation>`` declaration, which are both for :ref:`text_annotation`.
+
 .. [#fex] There is an alternative stand-off serialisation available: :ref:`external`
 .. [#fns] For historical reasons, the XML namespace URI refers to a research group at the University of Tilburg where FoLiA was first founded, but which no longer exists.
+
 
 Annotation Instances
 ----------------------
@@ -318,7 +327,7 @@ attributes per annotation type. Altogether, we distinguish the following:
 * ``datetime`` -- The date and time when this annotation was recorded, the format is ``YYYY-MM-DDThh:mm:ss`` (note the literal T in the middle to separate date from time), as per the XSD Datetime data type.
 * ``n`` -- A number in a sequence, corresponding to a number in the original document, for example chapter numbers, section numbers, list item numbers. This this not have to be an actual number but other sequence identifiers are also possible (think alphanumeric characters or roman numerals).
 
-**Speech attributes**, the following attributes apply mostly in a speech context:
+**Speech attributes**, the following attributes apply mostly in a speech context (please read :ref:`speech` for more):
 
 .. foliaspec:attributes_doc(speech)
 * ``src`` -- Points to a file or full URL of a sound or video file. This attribute is inheritable.
