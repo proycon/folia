@@ -52,7 +52,11 @@ Phonetic transcription and text content can also go together without problem:
             <ph offset="8">wɝːld</ph>
             <t offset="6">world</t>
         </w>
-    </utt>
+
+.. note::
+
+ You should still use the normal :ref:`text_annotation` for a normal textual transcription of the speech. This
+ annotation type is reserved for phonetic/phonological transcriptions.
 
 .. TODO: there is no counterpart for the textclass attribute for phonetic content
 

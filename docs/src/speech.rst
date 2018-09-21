@@ -30,7 +30,8 @@ If you want to associate timing information and the use of ``begintime`` and ``e
 insufficient for your needs, then look into :ref:`timesegment_annotation`.
 
 Speech has its counterpart to text, in the form of a phonetic or phonological transcription, i.e. a representation of
-the speech as it was pronounced/recorded. FoLiA has a separate content element for this, see :ref:`phon_annotation`.
+the speech as it was pronounced/recorded. FoLiA has a separate content element for this, see :ref:`phon_annotation`. You
+should still use the normal :ref:`text_annotation` for a normal textual transcription of the speech.
 
 For further segmentation of speech into phonemes, you can use :ref:`phonological_annotation`.
 
