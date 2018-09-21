@@ -39,9 +39,9 @@
           <w xml:id="example.p.1.s.2.w.2"><t>was</t></w>
           <w xml:id="example.p.1.s.2.w.3"><t>happy</t></w>
           <w xml:id="example.p.1.s.2.w.4"><t>to</t></w>
-          <w xml:id="example.p.1.s.2.w.4"><t>see</t></w>
-          <w xml:id="example.p.1.s.2.w.5"><t>him</t></w>
-          <w xml:id="example.p.1.s.2.w.6"><t>.</t></w>
+          <w xml:id="example.p.1.s.2.w.5"><t>see</t></w>
+          <w xml:id="example.p.1.s.2.w.6"><t>him</t></w>
+          <w xml:id="example.p.1.s.2.w.7"><t>.</t></w>
         </s>
         <s xml:id="example.p.1.s.3">
           <t>He smiled.</t>
@@ -64,7 +64,7 @@
             </coreferencechain>
             <coreferencechain class="dalailama">
               <coreferencelink>
-                <wref id="example.p.1.s.2.w.5" t="him" />
+                <wref id="example.p.1.s.1.w.5" t="him" />
               </coreferencelink>
               <coreferencelink>
                 <wref id="example.p.1.s.2.w.6" t="him" />
