@@ -73,7 +73,7 @@ attributes_doc:
         group: speech
 
 #All possible annotation types, each must be declared in the FoLiA header when used
-annotationtype: [ TEXT, TOKEN, DIVISION, PARAGRAPH, HEAD, LIST, FIGURE, WHITESPACE, LINEBREAK, SENTENCE, POS, LEMMA, DOMAIN, SENSE, SYNTAX, CHUNKING, ENTITY, CORRECTION, ERRORDETECTION, PHON, SUBJECTIVITY, MORPHOLOGICAL, EVENT, DEPENDENCY, TIMESEGMENT, GAP, QUOTE, NOTE, REFERENCE, ALIGNMENT, COMPLEXALIGNMENT, COREFERENCE, SEMROLE, METRIC, LANG, STRING, TABLE, STYLE, PART, UTTERANCE, ENTRY, TERM, DEFINITION, EXAMPLE, PHONOLOGICAL, PREDICATE, OBSERVATION, SENTIMENT, STATEMENT ]
+annotationtype: [ TEXT, TOKEN, DIVISION, PARAGRAPH, HEAD, LIST, FIGURE, WHITESPACE, LINEBREAK, SENTENCE, POS, LEMMA, DOMAIN, SENSE, SYNTAX, CHUNKING, ENTITY, CORRECTION, ERRORDETECTION, PHON, SUBJECTIVITY, MORPHOLOGICAL, EVENT, DEPENDENCY, TIMESEGMENT, GAP, QUOTE, NOTE, REFERENCE, ALIGNMENT, COMPLEXALIGNMENT, COREFERENCE, SEMROLE, METRIC, LANG, STRING, TABLE, STYLE, PART, UTTERANCE, ENTRY, TERM, DEFINITION, EXAMPLE, PHONOLOGICAL, PREDICATE, OBSERVATION, SENTIMENT, STATEMENT, ALTERNATIVE ]
 
 #Documentation of annotation types (reStructuredText)
 annotationtype_doc:
@@ -281,6 +281,10 @@ qualification is expressed by the class, in turn defined by a set. The precise s
         name: "Statement Annotation"
         description: "Statement annotation, sometimes also refered to as attribution, allows to decompose statements into the source of the statement, the content of the statement, and the way these relate, provided these are made explicit in the text."
         history: "since v1.3"
+    alternative:
+        name: "Alternative Annotation"
+        description: "This form of higher-order annotation encapsulates alternative annotations, i.e. annotations that are posed as an alternative option rather than the authoratitive chosen annotation"
+        history: "Since the beginning, may carry set and classes since v2.0"
 
 categories:
     structure:
@@ -881,6 +885,7 @@ elements:
               label: "Alignment"
         - class: Alternative
           properties:
+              annotationtype: ALTERNATIVE
               required_attribs: null
               speakable: false
               optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
@@ -891,6 +896,8 @@ elements:
               label: "Alternative"
         - class: AlternativeLayers
           properties:
+              annotationtype: ALTERNATIVE
+              primaryelement: false
               required_attribs: null
               speakable: false
               optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
