@@ -29,5 +29,8 @@ speech-context attributes associated:
 If you want to associate timing information and the use of ``begintime`` and ``endtime`` on structural elements is
 insufficient for your needs, then look into :ref:`timesegment_annotation`.
 
-.. TODO: phonetic content
-.. TODO: phononological annotation
+Speech has its counterpart to text, in the form of a phonetic or phonological transcription, i.e. a representation of
+the speech as it was pronounced/recorded. FoLiA has a separate content element for this, see :ref:`phon_annotation`.
+
+For further segmentation of speech into phonemes, you can use :ref:`phonological_annotation`.
+

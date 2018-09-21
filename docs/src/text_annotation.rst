@@ -16,10 +16,10 @@ XXX
 Explanation
 -------------------------
 
-Text is considered an annotation rather than a given in FoLiA, but it is ubiquitous in almost all FoLiA documents, as a
-document without text is a rare occurrence. Text content is always represented by the ``<t>`` element and can be
-associated with :ref:`structure_annotation_category` and :ref:`subtoken_annotation_category`. Consider text associated
-with a words in a sentence:
+Text is considered an annotation like any other rather than a given in FoLiA, but it is ubiquitous in almost all FoLiA
+documents, as a document without text is a rare occurrence. Text content is always represented by the ``<t>`` element
+and can be associated with :ref:`structure_annotation_category` and :ref:`subtoken_annotation_category`. Consider text
+associated with a words in a sentence:
 
 .. code-block:: xml
 
@@ -253,6 +253,12 @@ annotation types in FoLiA. We leave out the ocr text class:
         </w>
       </s>
     </p>
+
+
+.. seealso::
+
+    * :ref:`correction_annotation`
+    * :ref:`string_annotation`
 
 Text class attribute (advanced)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
