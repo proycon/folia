@@ -283,6 +283,10 @@ categories:
         name: "Structure Annotation"
         description: "This category encompasses annotation types that define the structure of a document, e.g. paragraphs, sentences, words, sections like chapters, lists, tables, etc... These types are not strictly considered linguistic annotation and equivalents are also commonly found in other document formats such as HTML, TEI, MarkDown, LaTeX, and others. For FoLiA it provides the necessary structural basis that linguistic annotation can build on."
         class: AbstractStructureElement
+    content:
+        name: "Content Annotation"
+        description: "This category groups text content and phonetic content, the former being one of the most frequent elements in FoLiA and used to associate text (or a phonetic transcription) with a structural element."
+        class: AbstractContentAnnotation
     inline:
         name: "Inline Annotation"
         description: "This category encompasses (linguistic) annotation types describing a single structural element. Examples are Part-of-Speech Annotation or Lemmatisation, which often describe a single token."
@@ -301,7 +305,8 @@ categories:
         class: AbstractTextMarkup
     higherorder:
         name: "Higher-order Annotation"
-        description: "Higher-order Annotation groups a diverse set of annotations that are considered *annotations on annotations*"
+        description: "Higher-order Annotation groups a very diverse set of annotation types that are considered *annotations on annotations*"
+        class: AbstractHigherOrderAnnotation
 
 #default properties for all elements. Are inherited from parent classes when not set, overridden when set for subclasses, except for accepted_data, which is cumulative with respect to the parents
 defaultproperties:
@@ -844,196 +849,203 @@ elements:
                 annotationtype: SUBJECTIVITY
                 xmltag: "subjectivity"
                 label: "Subjectivity/Sentiment"
-    - class: AlignReference
+    - class: AbstractHigherOrderAnnotation
       properties:
-          xmltag: "aref"
-    - class: Alignment
-      properties:
-          annotationtype: ALIGNMENT
-          speakable: false
-          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
-          printable: false
-          required_attribs: null
-          xlink: true
-          accepted_data: [ AlignReference, Metric, Feature, ForeignData ]
-          xmltag: "alignment"
-          label: "Alignment"
-    - class: Alternative
-      properties:
-          required_attribs: null
-          speakable: false
-          optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
-          printable: false
-          accepted_data: [ AbstractInlineAnnotation, Correction, ForeignData,  MorphologyLayer, PhonologyLayer ]
-          auth: false
-          xmltag: "alt"
-          label: "Alternative"
-    - class: AlternativeLayers
-      properties:
-          required_attribs: null
-          speakable: false
-          optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
-          printable: false
-          accepted_data: [ AbstractAnnotationLayer, ForeignData ]
-          auth: false
-          xmltag: "altlayers"
-          label: "Alternative Layers"
-    - class: ComplexAlignment
-      properties:
-          annotationtype: COMPLEXALIGNMENT
-          speakable: false
-          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
-          printable: false
-          required_attribs: null
-          accepted_data: [ Alignment, Metric, Feature, ForeignData ]
-          xmltag: "complexalignment"
-          label: "Complex Alignment"
-    - class: Content
-      properties:
-          xmltag: "content"
-          occurrences: 1
-          label: "Gap Content"
-    - class: Correction
-      properties:
-          annotationtype: CORRECTION
-          printable: true
-          accepted_data: [ New, Original, Current, Suggestion, ErrorDetection, Metric, Feature, ForeignData ]
-          speakable: true
-          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
-          xmltag: "correction"
-          label: "Correction"
-          textdelimiter: null
-    - class: Comment
-      properties:
-          xmltag: "comment"
-          label: "Comment"
-          optional_attribs: [ ID, ANNOTATOR, CONFIDENCE, DATETIME, N, METADATA ]
-          printable: false
-    - class: Description
-      properties:
-          occurrences: 1
-          xmltag: "desc"
-          label: "Description"
-          optional_attribs: [ ID, ANNOTATOR, CONFIDENCE, DATETIME, N, METADATA ]
-    - class: External
-      properties:
-          speakable: false
-          optional_attribs: null
-          xmltag: "external"
-          label: "External"
-          required_attribs: [ SRC ]
-          accepted_data: null
-          auth: true
-          printable: true
-    - class: Feature
-      properties:
-          xmltag: "feat"
-          label: "Feature"
+          required_attribs: [ ]
+          optional_attribs: [ ]
       elements:
-          - class: ActorFeature
-            properties:
-                xmltag: null
-                subset: "actor"
-          - class: BegindatetimeFeature
-            properties:
-                xmltag: null
-                subset: "begindatetime"
-          - class: EnddatetimeFeature
-            properties:
-                xmltag: null
-                subset: "enddatetime"
-          - class: FunctionFeature
-            properties:
-                xmltag: null
-                subset: "function"
-          - class: HeadFeature
-            properties:
-                xmltag: null
-                subset: "head"
-          - class: LevelFeature
-            properties:
-                xmltag: null
-                subset: "level"
-          - class: ModalityFeature
-            properties:
-                xmltag: null
-                subset: "modality"
-          - class: PolarityFeature
-            properties:
-                xmltag: null
-                subset: "polarity"
-          - class: StrengthFeature
-            properties:
-                xmltag: null
-                subset: "strength"
-          - class: StyleFeature
-            properties:
-                xmltag: null
-                subset: "style"
-          - class: SynsetFeature
-            properties:
-                xmltag: null
-                subset: "synset"
-          - class: TimeFeature
-            properties:
-                xmltag: null
-                subset: "time"
-          - class: ValueFeature
-            properties:
-                xmltag: null
-                subset: "value"
-    - class: Gap
+        - class: AlignReference
+          properties:
+              xmltag: "aref"
+        - class: Alignment
+          properties:
+              annotationtype: ALIGNMENT
+              speakable: false
+              optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
+              printable: false
+              required_attribs: null
+              xlink: true
+              accepted_data: [ AlignReference, Metric, Feature, ForeignData ]
+              xmltag: "alignment"
+              label: "Alignment"
+        - class: Alternative
+          properties:
+              required_attribs: null
+              speakable: false
+              optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
+              printable: false
+              accepted_data: [ AbstractInlineAnnotation, Correction, ForeignData,  MorphologyLayer, PhonologyLayer ]
+              auth: false
+              xmltag: "alt"
+              label: "Alternative"
+        - class: AlternativeLayers
+          properties:
+              required_attribs: null
+              speakable: false
+              optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
+              printable: false
+              accepted_data: [ AbstractAnnotationLayer, ForeignData ]
+              auth: false
+              xmltag: "altlayers"
+              label: "Alternative Layers"
+        - class: ComplexAlignment
+          properties:
+              annotationtype: COMPLEXALIGNMENT
+              speakable: false
+              optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
+              printable: false
+              required_attribs: null
+              accepted_data: [ Alignment, Metric, Feature, ForeignData ]
+              xmltag: "complexalignment"
+              label: "Complex Alignment"
+        - class: Content
+          properties:
+              xmltag: "content"
+              occurrences: 1
+              label: "Gap Content"
+        - class: Correction
+          properties:
+              annotationtype: CORRECTION
+              printable: true
+              accepted_data: [ New, Original, Current, Suggestion, ErrorDetection, Metric, Feature, ForeignData ]
+              speakable: true
+              optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
+              xmltag: "correction"
+              label: "Correction"
+              textdelimiter: null
+        - class: Comment
+          properties:
+              xmltag: "comment"
+              label: "Comment"
+              optional_attribs: [ ID, ANNOTATOR, CONFIDENCE, DATETIME, N, METADATA ]
+              printable: false
+        - class: Description
+          properties:
+              occurrences: 1
+              xmltag: "desc"
+              label: "Description"
+              optional_attribs: [ ID, ANNOTATOR, CONFIDENCE, DATETIME, N, METADATA ]
+        - class: External
+          properties:
+              speakable: false
+              optional_attribs: null
+              xmltag: "external"
+              label: "External"
+              required_attribs: [ SRC ]
+              accepted_data: null
+              auth: true
+              printable: true
+        - class: Feature
+          properties:
+              xmltag: "feat"
+              label: "Feature"
+          elements:
+              - class: ActorFeature
+                properties:
+                    xmltag: null
+                    subset: "actor"
+              - class: BegindatetimeFeature
+                properties:
+                    xmltag: null
+                    subset: "begindatetime"
+              - class: EnddatetimeFeature
+                properties:
+                    xmltag: null
+                    subset: "enddatetime"
+              - class: FunctionFeature
+                properties:
+                    xmltag: null
+                    subset: "function"
+              - class: HeadFeature
+                properties:
+                    xmltag: null
+                    subset: "head"
+              - class: LevelFeature
+                properties:
+                    xmltag: null
+                    subset: "level"
+              - class: ModalityFeature
+                properties:
+                    xmltag: null
+                    subset: "modality"
+              - class: PolarityFeature
+                properties:
+                    xmltag: null
+                    subset: "polarity"
+              - class: StrengthFeature
+                properties:
+                    xmltag: null
+                    subset: "strength"
+              - class: StyleFeature
+                properties:
+                    xmltag: null
+                    subset: "style"
+              - class: SynsetFeature
+                properties:
+                    xmltag: null
+                    subset: "synset"
+              - class: TimeFeature
+                properties:
+                    xmltag: null
+                    subset: "time"
+              - class: ValueFeature
+                properties:
+                    xmltag: null
+                    subset: "value"
+        - class: Metric
+          properties:
+              annotationtype: METRIC
+              optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
+              xmltag: "metric"
+              label: "Metric"
+              accepted_data: [ Feature, ValueFeature, ForeignData ]
+        - class: String
+          properties:
+              annotationtype: STRING
+              optional_attribs: [ ID, CLASS, ANNOTATOR, CONFIDENCE, DATETIME, N, SRC, BEGINTIME, ENDTIME, METADATA ]
+              occurrences: 0
+              printable: true
+              accepted_data: [AbstractInlineAnnotation, Alignment, Correction, Feature, ForeignData, Metric, PhonContent, TextContent]
+              xmltag: "str"
+              label: "String"
+        - class: WordReference
+          properties:
+              xmltag: "wref"
+        - class: ForeignData
+          properties:
+              xmltag: "foreign-data"
+        - class: Gap
+          properties:
+              annotationtype: GAP
+              optional_attribs: [ ID, CLASS, ANNOTATOR, N,  DATETIME, SRC, BEGINTIME, ENDTIME, METADATA ]
+              xmltag: "gap"
+              label: "Gap"
+              accepted_data: [Content, Feature, Metric, Part, ForeignData]
+    - class: AbstractContentAnnotation
       properties:
-          annotationtype: GAP
-          optional_attribs: [ ID, CLASS, ANNOTATOR, N,  DATETIME, SRC, BEGINTIME, ENDTIME, METADATA ]
-          xmltag: "gap"
-          label: "Gap"
-          accepted_data: [Content, Feature, Metric, Part, ForeignData]
-    - class: Metric
-      properties:
-          annotationtype: METRIC
-          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
-          xmltag: "metric"
-          label: "Metric"
-          accepted_data: [ Feature, ValueFeature, ForeignData ]
-    - class: PhonContent
-      properties:
-          annotationtype: PHON
-          printable: false
-          accepted_data: null
-          phoncontainer: true
-          speakable: true
+          required_attribs: [ ]
           optional_attribs: [ CLASS, ANNOTATOR, CONFIDENCE, DATETIME, METADATA ]
           occurrences: 0
-          xmltag: "ph"
-          label: "Phonetic Content"
-    - class: String
-      properties:
-          annotationtype: STRING
-          optional_attribs: [ ID, CLASS, ANNOTATOR, CONFIDENCE, DATETIME, N, SRC, BEGINTIME, ENDTIME, METADATA ]
-          occurrences: 0
-          printable: true
-          accepted_data: [AbstractInlineAnnotation, Alignment, Correction, Feature, ForeignData, Metric, PhonContent, TextContent]
-          xmltag: "str"
-          label: "String"
-    - class: TextContent
-      properties:
-          annotationtype: TEXT
-          textcontainer: true
-          printable: true
-          speakable: false
-          accepted_data: [ AbstractTextMarkup, Linebreak ] #Linebreak doubles as a AbstractTextMarkup and AbstractStructureAnnotation element
-          optional_attribs: [ CLASS, ANNOTATOR, CONFIDENCE, DATETIME, METADATA ]
-          occurrences: 0
-          xmltag: "t"
-          label: "Text"
-          xlink: true
-    - class: WordReference
-      properties:
-          xmltag: "wref"
-    - class: ForeignData
-      properties:
-          xmltag: "foreign-data"
+      elements:
+        - class: TextContent
+          properties:
+              annotationtype: TEXT
+              textcontainer: true
+              printable: true
+              speakable: false
+              accepted_data: [ AbstractTextMarkup, Linebreak ] #Linebreak doubles as a AbstractTextMarkup and AbstractStructureAnnotation element
+              xmltag: "t"
+              label: "Text"
+              xlink: true
+        - class: PhonContent
+          properties:
+              annotationtype: PHON
+              printable: false
+              accepted_data: null
+              phoncontainer: true
+              speakable: true
+              xmltag: "ph"
+              label: "Phonetic Content"
 
 #Default ignore list for the select() method, do not descend into these
 default_ignore: [ Original, Suggestion, Alternative, AlternativeLayers, ForeignData ]
