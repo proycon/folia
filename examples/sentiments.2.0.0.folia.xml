@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FoLiA xmlns="http://ilk.uvt.nl/FoLiA" version="2.0" xml:id="example">
+  <metadata>
+      <annotations>
+          <token-annotation set="https://raw.githubusercontent.com/LanguageMachines/uctodata/master/setdefinitions/tokconfig-eng.foliaset.ttl">
+			 <annotator processor="p1" />
+		  </token-annotation>
+          <text-annotation>
+			 <annotator processor="p1" />
+          </text-annotation>
+          <sentence-annotation>
+			 <annotator processor="p1" />
+          </sentence-annotation>
+          <sentiment-annotation set="sentiments"> <!-- an ad-hoc set -->
+			 <annotator processor="p1" />
+		  </sentiment-annotation>
+      </annotations>
+      <provenance>
+         <processor xml:id="p1" name="proycon" type="manual" />
+      </provenance>
+  </metadata>
+  <text xml:id="example.text">
+    <s xml:id="s1">
+     <w xml:id="s1.w1"><t>He</t></w>
+     <w xml:id="s1.w2"><t>is</t></w>
+     <w xml:id="s1.w3"><t>happy</t></w>
+     <w xml:id="s1.w4"><t>to</t></w>
+     <w xml:id="s1.w5"><t>see</t></w>
+     <w xml:id="s1.w6"><t>him</t></w>
+     <w xml:id="s1.w7"><t>.</t></w>
+     <sentiments>
+      <sentiment class="emotion.joy" polarity="positive" strength="moderate">
+        <source>
+          <wref id="s1.w1" t="he" />
+        </source>
+        <target>
+          <wref id="s1.w6" t="him" />
+        </target>
+        <hd>
+          <wref id="s1.w3" t="happy" />
+        </hd>
+      </sentiment>
+     </sentiments>
+    </s>
+  </text>
+</FoLiA>

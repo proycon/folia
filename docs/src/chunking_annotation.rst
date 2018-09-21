@@ -16,12 +16,14 @@ XXX
 Explanation
 -------------------------
 
-TODO
+.. note::
+
+    Please first ensure you are familiar with the general principles of :ref:`span_annotation` to make sense of this annotation type.
 
 Example
 -------------------------
 
-.. literalinclude:: ../examples/chunking.folia.xml
+.. literalinclude:: ../examples/chunking.2.0.0.folia.xml
     :linenos:
     :language: xml
 
