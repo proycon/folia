@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FoLiA xmlns="http://ilk.uvt.nl/FoLiA" version="2.0" xml:id="example">
+  <metadata>
+      <annotations>
+          <text-annotation>
+			 <annotator processor="p1" />
+          </text-annotation>
+          <table-annotation>
+			 <annotator processor="p1" />
+		  </table-annotation>
+          <token-annotation>
+			 <annotator processor="p1" />
+		  </token-annotation>
+      </annotations>
+      <provenance>
+         <processor xml:id="p1" name="proycon" type="manual" />
+      </provenance>
+  </metadata>
+  <text xml:id="example.text">
+    <table xml:id="example.table.1">
+      <tablehead>
+        <row>
+          <cell>
+            <w xml:id="example.table.1.w.1"><t>Name</t></w>
+          </cell>
+          <cell>
+            <w xml:id="example.table.1.w.2"><t>Affiliation</t></w>
+          </cell>
+        </row>
+      </tablehead>
+      <row>
+        <cell>
+          <w xml:id="example.table.1.w.3"><t>Maarten van Gompel</t></w>
+        </cell>
+        <cell>
+          <w xml:id="example.table.1.w.4">
+            <t>Radboud University Nijmegen</t>
+          </w>
+        </cell>
+      </row>
+      <row>
+        <cell>
+          <w xml:id="example.table.1.w.5"><t>Ko van der Sloot</t></w>
+        </cell>
+        <cell>
+          <w xml:id="example.table.1.w.6"><t>Radboud University Nijmegen</t></w>
+        </cell>
+      </row>
+    </table>
+  </text>
+</FoLiA>

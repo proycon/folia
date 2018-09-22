@@ -13,15 +13,31 @@ Specification
 .. foliaspec:specification(table)
 XXX
 
+.. foliaspec:specification(tablehead)
+
+XXX
+.. foliaspec:specification(row)
+XXX
+
+.. foliaspec:specification(cell)
+XXX
+
 Explanation
 -------------------------
 
-TODO
+Support for simple tables is provided in a fashion similar to HTML and TEI. The
+element ``<table>`` introduces a table, within its scope ``row``
+elements mark the various rows, ``<tablehead>`` marks the header of the
+table and contains one or more rows. The rows themselves consist of
+``<cell>`` elements, which in turn may contain other structural elements
+such as words, sentences or even entire paragraphs.
+
+Tables, rows and cells can all be assigned classes (in the same set).
 
 Example
 -------------------------
 
-.. literalinclude:: ../examples/table.folia.xml
+.. literalinclude:: ../examples/table.2.0.0.folia.xml
     :linenos:
     :language: xml
 
