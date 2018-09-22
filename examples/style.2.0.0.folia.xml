@@ -11,7 +11,7 @@
           <part-annotation>
 			 <annotator processor="p1" />
 		  </part-annotation>
-          <style-annotation>
+          <style-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/styles.foliaset.xml">
 			 <annotator processor="p1" />
 		  </style-annotation>
       </annotations>

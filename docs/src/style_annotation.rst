@@ -18,7 +18,7 @@ Explanation
 
 The text markup element ``<t-style>`` marks a specific portion of textual
 concent to be rendered in a specific style. Styles in turn are simply classes in your
-set, closely following the FoLiA paradigm. FoLiA does not predefine any actual styles but this is set dependent.
+set.
 
 Text-markup elements may always be nested.
 
