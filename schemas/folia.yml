@@ -73,7 +73,7 @@ attributes_doc:
         group: speech
 
 #All possible annotation types, each must be declared in the FoLiA header when used
-annotationtype: [ TEXT, TOKEN, DIVISION, PARAGRAPH, HEAD, LIST, FIGURE, WHITESPACE, LINEBREAK, SENTENCE, POS, LEMMA, DOMAIN, SENSE, SYNTAX, CHUNKING, ENTITY, CORRECTION, ERRORDETECTION, PHON, SUBJECTIVITY, MORPHOLOGICAL, EVENT, DEPENDENCY, TIMESEGMENT, GAP, QUOTE, NOTE, REFERENCE, ALIGNMENT, COMPLEXALIGNMENT, COREFERENCE, SEMROLE, METRIC, LANG, STRING, TABLE, STYLE, PART, UTTERANCE, ENTRY, TERM, DEFINITION, EXAMPLE, PHONOLOGICAL, PREDICATE, OBSERVATION, SENTIMENT, STATEMENT, ALTERNATIVE ]
+annotationtype: [ TEXT, TOKEN, DIVISION, PARAGRAPH, HEAD, LIST, FIGURE, WHITESPACE, LINEBREAK, SENTENCE, POS, LEMMA, DOMAIN, SENSE, SYNTAX, CHUNKING, ENTITY, CORRECTION, ERRORDETECTION, PHON, SUBJECTIVITY, MORPHOLOGICAL, EVENT, DEPENDENCY, TIMESEGMENT, GAP, QUOTE, NOTE, REFERENCE, ALIGNMENT, COMPLEXALIGNMENT, COREFERENCE, SEMROLE, METRIC, LANG, STRING, TABLE, STYLE, PART, UTTERANCE, ENTRY, TERM, DEFINITION, EXAMPLE, PHONOLOGICAL, PREDICATE, OBSERVATION, SENTIMENT, STATEMENT, ALTERNATIVE, RAWCONTENT ]
 
 #Documentation of annotation types (reStructuredText)
 annotationtype_doc:
@@ -285,6 +285,10 @@ qualification is expressed by the class, in turn defined by a set. The precise s
         name: "Alternative Annotation"
         description: "This form of higher-order annotation encapsulates alternative annotations, i.e. annotations that are posed as an alternative option rather than the authoratitive chosen annotation"
         history: "Since the beginning, may carry set and classes since v2.0"
+    rawcontent:
+        name: "Raw Content"
+        description: "This associates raw text content which can not carry any further annotation. It is used in the context of :ref:`gap_annotation`"
+        history: "Since the beginning, but revised and made a proper annotation type in v2.0"
 
 categories:
     structure:
@@ -916,11 +920,6 @@ elements:
               accepted_data: [ Alignment, Metric, Feature, ForeignData ]
               xmltag: "complexalignment"
               label: "Complex Alignment"
-        - class: Content
-          properties:
-              xmltag: "content"
-              occurrences: 1
-              label: "Gap Content"
         - class: Correction
           properties:
               annotationtype: CORRECTION
@@ -1061,6 +1060,13 @@ elements:
               speakable: true
               xmltag: "ph"
               label: "Phonetic Content"
+        - class: Content
+          properties:
+              printable: true
+              annotationtype: RAWCONTENT
+              xmltag: "content"
+              occurrences: 1
+              label: "Raw Content"
     - class: WordReference
       properties:
           xmltag: "wref"
