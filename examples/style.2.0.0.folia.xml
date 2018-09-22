@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FoLiA xmlns="http://ilk.uvt.nl/FoLiA" version="2.0" xml:id="example">
+  <metadata>
+      <annotations>
+          <text-annotation>
+			 <annotator processor="p1" />
+          </text-annotation>
+          <sentence-annotation>
+			 <annotator processor="p1" />
+		  </sentence-annotation>
+          <part-annotation>
+			 <annotator processor="p1" />
+		  </part-annotation>
+          <style-annotation>
+			 <annotator processor="p1" />
+		  </style-annotation>
+      </annotations>
+      <provenance>
+         <processor xml:id="p1" name="proycon" type="manual" />
+      </provenance>
+  </metadata>
+  <text xml:id="example.text">
+        <s>
+            <t>To <t-style class="italic">be</t-style> or not to be,<br/>that is the <t-style class="bold"><t-style class="red">question</t-style></t-style>.</t>
+        </s>
+  </text>
+</FoLiA>
