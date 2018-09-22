@@ -50,6 +50,12 @@ If you find that you want to mark your whole
 text content as being a ``<t-gap>``, then this is a sure sign you should use the
 structural element ``<gap>`` instead.
 
+.. note::
+
+    Both elements are the same annotation type so share the same declaration.
+
+
+
 Text Redundancy
 ~~~~~~~~~~~~~~~~~~
 
