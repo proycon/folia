@@ -13,7 +13,7 @@ Specification
 .. foliaspec:specification(alternative)
 XXX
 
-.. foliaspec:specification_element(altlayers)
+.. foliaspec:specification_element(AlternativeLayers)
 XXX
 
 Introduction

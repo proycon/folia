@@ -19,7 +19,7 @@ XXX
 Text markup Element
 ~~~~~~~~~~~~~~~~~~~
 
-.. foliaspec:specification_element(t-gap)
+.. foliaspec:specification_element(TextMarkupGap)
 XXX
 
 Explanation
