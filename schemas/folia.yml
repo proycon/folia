@@ -73,7 +73,7 @@ attributes_doc:
         group: speech
 
 #All possible annotation types, each must be declared in the FoLiA header when used
-annotationtype: [ TEXT, TOKEN, DIVISION, PARAGRAPH, HEAD, LIST, FIGURE, WHITESPACE, LINEBREAK, SENTENCE, POS, LEMMA, DOMAIN, SENSE, SYNTAX, CHUNKING, ENTITY, CORRECTION, ERRORDETECTION, PHON, SUBJECTIVITY, MORPHOLOGICAL, EVENT, DEPENDENCY, TIMESEGMENT, GAP, QUOTE, NOTE, REFERENCE, ALIGNMENT, COMPLEXALIGNMENT, COREFERENCE, SEMROLE, METRIC, LANG, STRING, TABLE, STYLE, PART, UTTERANCE, ENTRY, TERM, DEFINITION, EXAMPLE, PHONOLOGICAL, PREDICATE, OBSERVATION, SENTIMENT, STATEMENT, ALTERNATIVE, RAWCONTENT ]
+annotationtype: [ TEXT, TOKEN, DIVISION, PARAGRAPH, HEAD, LIST, FIGURE, WHITESPACE, LINEBREAK, SENTENCE, POS, LEMMA, DOMAIN, SENSE, SYNTAX, CHUNKING, ENTITY, CORRECTION, ERRORDETECTION, PHON, SUBJECTIVITY, MORPHOLOGICAL, EVENT, DEPENDENCY, TIMESEGMENT, GAP, QUOTE, NOTE, REFERENCE, ALIGNMENT, COMPLEXALIGNMENT, COREFERENCE, SEMROLE, METRIC, LANG, STRING, TABLE, STYLE, PART, UTTERANCE, ENTRY, TERM, DEFINITION, EXAMPLE, PHONOLOGICAL, PREDICATE, OBSERVATION, SENTIMENT, STATEMENT, ALTERNATIVE, RAWCONTENT, COMMENT, DESCRIPTION ]
 
 #Documentation of annotation types (reStructuredText)
 annotationtype_doc:
@@ -289,6 +289,14 @@ qualification is expressed by the class, in turn defined by a set. The precise s
         name: "Raw Content"
         description: "This associates raw text content which can not carry any further annotation. It is used in the context of :ref:`gap_annotation`"
         history: "Since the beginning, but revised and made a proper annotation type in v2.0"
+    comment:
+        name: "Comment Annotation"
+        description: "This is a form of higher-order annotation that allows you to associate comments with almost all other annotation elements"
+        history: "Since v1.3"
+    description:
+        name: "Description Annotation"
+        description: "This is a form of higher-order annotation that allows you to associate descriptions with almost all other annotation elements"
+        history: "Since the beginning"
 
 categories:
     structure:
@@ -932,12 +940,14 @@ elements:
               textdelimiter: null
         - class: Comment
           properties:
+              annotationtype: COMMENT
               xmltag: "comment"
               label: "Comment"
               optional_attribs: [ ID, ANNOTATOR, CONFIDENCE, DATETIME, N, METADATA ]
               printable: false
         - class: Description
           properties:
+              annotationtype: DESCRIPTION
               occurrences: 1
               xmltag: "desc"
               label: "Description"
