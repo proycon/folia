@@ -1,11 +1,11 @@
 .. _textmarkup_annotation_category:
 
 .. foliaspec:category_title(textmarkup)
-textmarkup Annotation
+Text Markup Annotation
 ===================================================================
 
 .. foliaspec:category_description(textmarkup)
-XXX
+The text content element (``<t>``) allows within its scope elements of a this category; these are **Text Markup** elements, they always contain textual content and apply a certain markup to certain spans of the text. One of it's common uses is for styling (emphasis, underlines, etc.). Text markup elements may be nested.
 
 
 Text markup elements may take sets and classes as most other elements, and any
@@ -35,4 +35,3 @@ Annotation Types
 -------------------
 
 .. foliaspec:toc(textmarkup)
-XXX

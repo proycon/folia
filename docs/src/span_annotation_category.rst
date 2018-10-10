@@ -5,7 +5,7 @@ Span Annotation
 ===================================================================
 
 .. foliaspec:category_description(span)
-This category encompasses (linguistic) annotation types that span one or more structural elements. Examples are (Named) Entities or Multi-word Expressions, Dependency Relations, and many others. FoLiA implements these as a stand-off layer that refers back to the structural elements (often words/tokens).
+This category encompasses (linguistic) annotation types that span one or more structural elements. Examples are (Named) Entities or Multi-word Expressions, Dependency Relations, and many others. FoLiA implements these as a stand-off layer that refers back to the structural elements (often words/tokens). The layer itself is embedded in a structural level of a wider scope (such as a sentence).
 
 Span annotation elements are always embedded in a **layer** element, this is an element that groups span annotations of
 a particular annotation type and set together. Each annotation type has its own layer element and the layer elements
@@ -67,4 +67,3 @@ Annotation Types
 -------------------
 
 .. foliaspec:toc(span)
-XXX

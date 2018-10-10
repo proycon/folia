@@ -14,4 +14,3 @@ Annotation Types
 -------------------
 
 .. foliaspec:toc(inline)
-XXX

@@ -8,7 +8,10 @@ generic FoLiA attributes are available for *all* structure annotation elements i
 a speech context:
 
 .. foliaspec:attributes_doc(speech)
-XXX
+* ``src`` -- Points to a file or full URL of a sound or video file. This attribute is inheritable.
+* ``begintime`` -- A timestamp in ``HH:MM:SS.MMM`` format, indicating the begin time of the speech. If a sound clip is specified (``src``); the timestamp refers to a location in the soundclip.
+* ``endtime`` -- A timestamp in ``HH:MM:SS.MMM`` format, indicating the end time of the speech. If a sound clip is specified (``src``); the timestamp refers to a location in the soundclip.
+* ``speaker`` -- A string identifying the speaker. This attribute is inheritable. Multiple speakers are not allowed, simply do not specify a speaker on a certain level if you are unable to link the speech to a specific (single) speaker.
 
 Speech generally asks for a different document structure than text documents. The top-level element for speech-centred
 resources is ``speech``, rather than ``text``. Most elements described in the section on text structure may be used
