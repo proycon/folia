@@ -49,6 +49,13 @@ NAF, Paula XML, Tiger XML, and others, we refer you to our research paper provid
 
 .. [vanGompel2014] Maarten van Gompel & Martin Reynaert (2014). FoLiA: A practical XML format for linguistic annotation - a descriptive and comparative study; Computational Linguistics in the Netherlands Journal; 3:63-81; 2013.
 
+Table of Contents
+-----------------------------
+
+.. toctree::
+   :maxdepth: 3
+   :caption: Contents:
+
 Annotation Types
 ---------------------------
 
@@ -385,5 +392,8 @@ namespace instead of the ``XML`` namespace, these are
 always *references* to the ID of another element. It's important not to confuse the two.
 
 
+Indices and tables
+==================
 
-
+* :ref:`genindex`
+* :ref:`search`
