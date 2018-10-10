@@ -6,8 +6,7 @@ Content Annotation
 .. foliaspec:category_description(content)
 This category groups text content and phonetic content, the former being one of the most frequent elements in FoLiA and used to associate text (or a phonetic transcription) with a structural element.
 
-Annotation Types
--------------------
+FoLiA defines the following types of content annotation:
 
 .. foliaspec:toc(content)
 * :ref:`content_annotation_category` -- This category groups text content and phonetic content, the former being one of the most frequent elements in FoLiA and used to associate text (or a phonetic transcription) with a structural element.

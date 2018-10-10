@@ -29,9 +29,7 @@ the value (if applicable) to facilitate the job of XML parsers. Certain elements
 attribute to refer to structural elements that cover the very same data. A markup element may thus take either
 ``xml:id`` or ``id`` (a reference to another element); they may never occur together.
 
-
-Annotation Types
--------------------
+FoLiA defines the following types of text markup annotation:
 
 .. foliaspec:toc(textmarkup)
 * :ref:`textmarkup_annotation_category` -- The text content element (``<t>``) allows within its scope elements of a this category; these are **Text Markup** elements, they always contain textual content and apply a certain markup to certain spans of the text. One of it's common uses is for styling (emphasis, underlines, etc.). Text markup elements may be nested.

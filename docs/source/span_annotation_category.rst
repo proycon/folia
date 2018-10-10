@@ -63,8 +63,7 @@ references to the words and ascribe a more defined meaning to the span, for inst
 dependency relation. Span role elements themselves never carry any classes and can only be used in the scope of a
 certain span annotation element, not standalone. They can still carry :ref:`features`, though.
 
-Annotation Types
--------------------
+FoLiA defines the following types of span annotation:
 
 .. foliaspec:toc(span)
 * :ref:`span_annotation_category` -- This category encompasses (linguistic) annotation types that span one or more structural elements. Examples are (Named) Entities or Multi-word Expressions, Dependency Relations, and many others. FoLiA implements these as a stand-off layer that refers back to the structural elements (often words/tokens). The layer itself is embedded in a structural level of a wider scope (such as a sentence).

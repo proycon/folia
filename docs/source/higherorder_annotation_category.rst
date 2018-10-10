@@ -6,8 +6,7 @@ Higher-order Annotation
 .. foliaspec:category_description(higherorder)
 Higher-order Annotation groups a very diverse set of annotation types that are considered *annotations on annotations*
 
-Annotation Types
--------------------
+FoLiA defines the following types of higher-order annotation:
 
 .. foliaspec:toc(higherorder)
 * :ref:`higherorder_annotation_category` -- Higher-order Annotation groups a very diverse set of annotation types that are considered *annotations on annotations*
