@@ -2,7 +2,8 @@
 
 .. _phon_annotation:
 
-==================
+Phonetic Annotation/Content
+=============================
 
 .. foliaspec:annotationtype_description(phon)
 This is the phonetic analogy to text content (``<t>``) and allows associating a phonetic transcription with any structural element, it is often used in a speech context. Note that for actual segmentation into phonemes, FoLiA has another related type: ``Phonological Annotation``

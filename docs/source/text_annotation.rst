@@ -278,10 +278,10 @@ annotation types in FoLiA. We leave out the ocr text class:
     * :ref:`correction_annotation`
     * :ref:`string_annotation`
 
+.. _textclass_attribute:
+
 Text class attribute (advanced)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. _textclass_attribute:
 
 So as we have just seen, FoLiA allows for multiple text content elements on the same structural elements, these other text
 content elements must carry a different class. This indicates an alternative text for the same element and is used for
