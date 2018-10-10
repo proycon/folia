@@ -264,6 +264,10 @@ utterances. Utterances are often used in the absence of sentences in a speech co
         name: "Phonological Annotation"
         description:  "The smallest unit of annotatable speech in FoLiA is the phoneme level. The phoneme element is a form of structure annotation used for phonemes.  Alike to morphology, it is embedded within a layer ``phonology`` which can be embedded within word/tokens."
         history: "since v0.12"
+    phonetic:
+        name: "Phonetic Annotation"
+        description:  "Phonetic Annotation associates a phonetic transcription with a structural element, analogous to text content (``<t>``) but for speech."
+        history: "since v0.12"
     predicate:
         name: "Predicate Annotation"
         description: "Allows annotation of predicates, this annotation type is usually used together with Semantic Role Annotation. The types of predicates are defined by a user-defined set definition."
