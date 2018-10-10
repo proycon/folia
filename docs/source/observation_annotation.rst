@@ -57,7 +57,7 @@ The element may for example act to mark errors in the text or to capture observa
 Example
 -------------------------
 
-.. literalinclude:: ../examples/observations.2.0.0.folia.xml
+.. literalinclude:: ../../examples/observations.2.0.0.folia.xml
     :linenos:
     :language: xml
 

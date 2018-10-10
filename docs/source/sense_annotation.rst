@@ -52,7 +52,7 @@ Example
 
 The following example shows sense annotations:
 
-.. literalinclude:: ../examples/sense.2.0.0.folia.xml
+.. literalinclude:: ../../examples/sense.2.0.0.folia.xml
     :linenos:
     :language: xml
 

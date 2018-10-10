@@ -69,7 +69,7 @@ always, this vocabulary is user-defined. Individual list items need to be wrappe
 Example
 ----------
 
-.. literalinclude:: ../examples/list.2.0.0.folia.xml
+.. literalinclude:: ../../examples/list.2.0.0.folia.xml
     :linenos:
     :language: xml
 

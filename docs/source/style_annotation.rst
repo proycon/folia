@@ -48,7 +48,7 @@ Text-markup elements may always be nested.
 Example
 -------------------------
 
-.. literalinclude:: ../examples/style.2.0.0.folia.xml
+.. literalinclude:: ../../examples/style.2.0.0.folia.xml
     :linenos:
     :language: xml
 

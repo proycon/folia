@@ -77,7 +77,7 @@ Example
 
 The following example illustrates the usage of time segmentation for event annotation:
 
-.. literalinclude:: ../examples/timesegments-events.2.0.0.folia.xml
+.. literalinclude:: ../../examples/timesegments-events.2.0.0.folia.xml
     :linenos:
     :language: xml
 
@@ -88,7 +88,7 @@ The following example illustrates the usage of time segmentation in a speech con
 the ``begintime`` and ``endtime`` attributes can also be directly associated with any structure elements in a speech
 context, making the use of this annotation type unnecessary or redundant if used this way.
 
-.. literalinclude:: ../examples/timesegments-speech.2.0.0.folia.xml
+.. literalinclude:: ../../examples/timesegments-speech.2.0.0.folia.xml
     :linenos:
     :language: xml
 

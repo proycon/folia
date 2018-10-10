@@ -47,7 +47,7 @@ Explanation
 Example
 -------------------------
 
-.. literalinclude:: ../examples/chunking.2.0.0.folia.xml
+.. literalinclude:: ../../examples/chunking.2.0.0.folia.xml
     :linenos:
     :language: xml
 

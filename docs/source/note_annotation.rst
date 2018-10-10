@@ -53,7 +53,7 @@ are made using a specific tag, ``<ref>``, discussed in :ref:`reference_annotatio
 Example
 ---------
 
-.. literalinclude:: ../examples/note_ref.2.0.0.folia.xml
+.. literalinclude:: ../../examples/note_ref.2.0.0.folia.xml
     :linenos:
     :language: xml
 

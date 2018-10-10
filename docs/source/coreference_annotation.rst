@@ -69,7 +69,7 @@ on the set used and are thus user-definable and never predefined:
 Example
 -------------------------
 
-.. literalinclude:: ../examples/coreferences.2.0.0.folia.xml
+.. literalinclude:: ../../examples/coreferences.2.0.0.folia.xml
     :linenos:
     :language: xml
 

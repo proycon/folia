@@ -74,7 +74,7 @@ further and we use XML CDATA type here to include it verbatim.
 
 The following example shows the the use of ``<gap>``:
 
-.. literalinclude:: ../examples/gaps.2.0.0.folia.xml
+.. literalinclude:: ../../examples/gaps.2.0.0.folia.xml
     :linenos:
     :language: xml
 

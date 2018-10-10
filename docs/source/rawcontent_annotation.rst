@@ -37,7 +37,7 @@ The content element associates raw text content with an element, it is specifica
 Example
 -------------------------
 
-.. literalinclude:: ../examples/gaps.2.0.0.folia.xml
+.. literalinclude:: ../../examples/gaps.2.0.0.folia.xml
     :linenos:
     :language: xml
 

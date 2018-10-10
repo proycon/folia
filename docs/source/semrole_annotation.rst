@@ -62,7 +62,7 @@ semantic role labelling.
 Example
 -------------------------
 
-.. literalinclude:: ../examples/semroles.2.0.0.folia.xml
+.. literalinclude:: ../../examples/semroles.2.0.0.folia.xml
     :linenos:
     :language: xml
 

@@ -63,7 +63,7 @@ Example
 
 The following example shows a chat log composed of message events:
 
-.. literalinclude:: ../examples/snippets/token.folia.xml
+.. literalinclude:: ../../examples/snippets/token.folia.xml
     :linenos:
     :language: xml
 

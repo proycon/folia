@@ -52,12 +52,12 @@ comparable to two successive ``br`` statements. Both elements can be used inside
 divisions, paragraphs, headers, and sentences.
 
 
-.. literalinclude:: ../examples/whitespace-linebreaks.folia.xml
+.. literalinclude:: ../../examples/whitespace-linebreaks.folia.xml
     :linenos:
     :language: xml
 
 You can use ``<br/>`` also in the context of :ref:`textmarkup_annotation_category`, as in the following example:
 
-.. literalinclude:: ../examples/style.2.0.0.folia.xml
+.. literalinclude:: ../../examples/style.2.0.0.folia.xml
     :linenos:
     :language: xml

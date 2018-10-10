@@ -39,7 +39,7 @@ Explanation & Examples
 
 The next example shows a paragraph with sentences and tokenisation:
 
-.. literalinclude:: ../examples/tokens-structure.2.0.0.folia.xml
+.. literalinclude:: ../../examples/tokens-structure.2.0.0.folia.xml
     :linenos:
     :language: xml
 

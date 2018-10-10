@@ -46,7 +46,7 @@ The language vocabulary is determined by the set definition.
 Example
 -------------------------
 
-.. literalinclude:: ../examples/lang-domain.folia.xml
+.. literalinclude:: ../../examples/lang-domain.folia.xml
     :linenos:
     :language: xml
 

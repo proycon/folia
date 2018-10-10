@@ -51,7 +51,7 @@ attribution (who said what etc). The element is used in a ``<statements>`` layer
 Example
 -------------------------
 
-.. literalinclude:: ../examples/statement.folia.xml
+.. literalinclude:: ../../examples/statement.folia.xml
     :linenos:
     :language: xml
 

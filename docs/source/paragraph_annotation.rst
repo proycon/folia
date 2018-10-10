@@ -40,12 +40,12 @@ Explanation & Examples
 
 Paragraphs are a very common structural element and their use is encouraged. The following example shows a single paragraph within a structure of divisions with headers, it does not provide any deeper tokenisation.
 
-.. literalinclude:: ../examples/untokenised-structure.2.0.0.folia.xml
+.. literalinclude:: ../../examples/untokenised-structure.2.0.0.folia.xml
     :linenos:
     :language: xml
 
 The next example shows a paragraph with sentences and tokenisation:
 
-.. literalinclude:: ../examples/tokens-structure.2.0.0.folia.xml
+.. literalinclude:: ../../examples/tokens-structure.2.0.0.folia.xml
     :linenos:
     :language: xml

@@ -44,7 +44,7 @@ Part-of-Speech annotation allows the annotation of lexical categories using the
 ``pos`` element. The following example shows a simple part-of-speech annotation. In this example , we declare PoS annotation to use the
 tagset from the brown corpus (although we do not have an actual set definition for it).
 
-.. literalinclude:: ../examples/pos.2.0.0.folia.xml
+.. literalinclude:: ../../examples/pos.2.0.0.folia.xml
     :linenos:
     :language: xml
 
@@ -90,7 +90,7 @@ Option two:
 
 The last examples demonstrates a full FoLiA document with part-of-speech tagging with features:
 
-.. literalinclude:: ../examples/pos-features-deep.2.0.0.folia.xml
+.. literalinclude:: ../../examples/pos-features-deep.2.0.0.folia.xml
     :linenos:
     :language: xml
 

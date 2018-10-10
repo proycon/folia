@@ -42,7 +42,7 @@ TODO
 Example
 -------------------------
 
-.. literalinclude:: ../examples/utterance.folia.xml
+.. literalinclude:: ../../examples/utterance.folia.xml
     :linenos:
     :language: xml
 

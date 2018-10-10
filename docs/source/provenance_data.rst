@@ -114,13 +114,13 @@ It is still possible to have FoLiA documents without provenance data at all.
 
 The following example provides a small but complete FoLiA document with provenance data:
 
-.. literalinclude:: ../examples/provenance.2.0.0.folia.xml
+.. literalinclude:: ../../examples/provenance.2.0.0.folia.xml
     :linenos:
     :language: xml
 
 And another more real-life example:
 
-.. literalinclude:: ../examples/pos-features-deep.2.0.0.folia.xml
+.. literalinclude:: ../../examples/pos-features-deep.2.0.0.folia.xml
     :linenos:
     :language: xml
 

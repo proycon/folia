@@ -57,7 +57,7 @@ explicit structural element. Divisions only cover large structures.
 The following example shows a FoLiA document with structured divisions with headers and paragraphs. It does not provide
 any further tokenisation.
 
-.. literalinclude:: ../examples/untokenised-structure.2.0.0.folia.xml
+.. literalinclude:: ../../examples/untokenised-structure.2.0.0.folia.xml
     :linenos:
     :language: xml
 

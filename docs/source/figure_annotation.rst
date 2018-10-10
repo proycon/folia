@@ -76,7 +76,7 @@ Example
 
 The following example shows a figure and caption:
 
-.. literalinclude:: ../examples/figure.2.0.0.folia.xml
+.. literalinclude:: ../../examples/figure.2.0.0.folia.xml
     :linenos:
     :language: xml
 

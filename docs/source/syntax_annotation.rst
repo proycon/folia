@@ -57,7 +57,7 @@ It is recommended for each syntactic unit to have a unique identifier.
 Example
 -------------------------
 
-.. literalinclude:: ../examples/syntax.2.0.0.folia.xml
+.. literalinclude:: ../../examples/syntax.2.0.0.folia.xml
     :linenos:
     :language: xml
 

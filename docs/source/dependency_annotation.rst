@@ -71,7 +71,7 @@ For a better understanding, The following figure illustrates the syntactic parse
 We show not only the dependency layer, but also the syntax layer (:ref:`syntax_annotation`)
 to which it is related.
 
-.. literalinclude:: ../examples/dependencies.2.0.0.folia.xml
+.. literalinclude:: ../../examples/dependencies.2.0.0.folia.xml
     :linenos:
     :language: xml
 

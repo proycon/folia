@@ -135,7 +135,7 @@ hyperlinking, whereas the other method is more of a text-markup or stylistic
 nature.
 
 
-.. literalinclude:: ../examples/note-reference.2.0.0.folia.xml
+.. literalinclude:: ../../examples/note-reference.2.0.0.folia.xml
     :linenos:
     :language: xml
 

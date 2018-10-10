@@ -41,7 +41,7 @@ Example
 
 Consider the following example in the context of :ref:`sense_annotation`.
 
-.. literalinclude:: ../examples/sense.2.0.0.folia.xml
+.. literalinclude:: ../../examples/sense.2.0.0.folia.xml
     :linenos:
     :language: xml
 

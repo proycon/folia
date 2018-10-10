@@ -66,7 +66,7 @@ Besides these predefined features, FoLiA's feature mechanism can be used to asso
 Example
 -------------------------
 
-.. literalinclude:: ../examples/sentiments.2.0.0.folia.xml
+.. literalinclude:: ../../examples/sentiments.2.0.0.folia.xml
     :linenos:
     :language: xml
 

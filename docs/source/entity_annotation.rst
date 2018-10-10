@@ -55,7 +55,7 @@ It is recommended, but not required, for each entity to have a unique identifier
 Example
 -------------------------
 
-.. literalinclude:: ../examples/entities-deep.2.0.0.folia.xml
+.. literalinclude:: ../../examples/entities-deep.2.0.0.folia.xml
     :linenos:
     :language: xml
 

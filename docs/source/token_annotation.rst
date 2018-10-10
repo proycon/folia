@@ -48,7 +48,7 @@ Example
 ------------
 
 
-.. literalinclude:: ../examples/snippets/token.folia.xml
+.. literalinclude:: ../../examples/snippets/token.folia.xml
     :linenos:
     :language: xml
 

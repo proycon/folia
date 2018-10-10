@@ -41,7 +41,7 @@ Example
 
 The following document shows a domain annotation on the sentence level:
 
-.. literalinclude:: ../examples/lang-domain.2.0.0.folia.xml
+.. literalinclude:: ../../examples/lang-domain.2.0.0.folia.xml
     :linenos:
     :language: xml
 

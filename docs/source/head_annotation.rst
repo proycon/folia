@@ -37,7 +37,7 @@ Specification
 Description & Examples
 -------------------------
 
-.. literalinclude:: ../examples/untokenised-structure.2.0.0.folia.xml
+.. literalinclude:: ../../examples/untokenised-structure.2.0.0.folia.xml
     :linenos:
     :language: xml
 

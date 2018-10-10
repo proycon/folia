@@ -110,7 +110,7 @@ Tables, rows and cells can all be assigned classes (in the same set).
 Example
 -------------------------
 
-.. literalinclude:: ../examples/table.2.0.0.folia.xml
+.. literalinclude:: ../../examples/table.2.0.0.folia.xml
     :linenos:
     :language: xml
 
