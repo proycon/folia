@@ -1,6 +1,5 @@
 .. _structure_annotation_category:
 
-.. foliaspec:category_title(structure)
 Structure Annotation
 ===================================================================
 

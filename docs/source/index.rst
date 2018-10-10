@@ -47,14 +47,7 @@ construction of FoLiA and how it compares to somewhat similar or comparable init
 NAF, Paula XML, Tiger XML, and others, we refer you to our research paper providing a descriptive and comparative study
 [vanGompel2014]_ .
 
-.. [vanGompel2014] Maarten van Gompel & Martin Reynaert (2014). FoLiA: A practical XML format for linguistic annotation - a descriptive and comparative study; Computational Linguistics in the Netherlands Journal; 3:63-81; 2013.
-
-Table of Contents
------------------------------
-
-.. toctree::
-   :maxdepth: 3
-   :caption: Contents:
+.. [vanGompel2014] Maarten van Gompel & Martin Reynaert (2014). FoLiA: A practical XML format for linguistic annotation - a descriptive and comparative study; Computational Linguistics in the Netherlands Journal; 3:63-81; 2013. `(PDF) <http://www.clinjournal.org/sites/clinjournal.org/files/05-vanGompel-Reynaert-CLIN2013.pdf>`_ `(BibTeX) <http://www.clinjournal.org/biblio/export/bibtex/39>`_
 
 Annotation Types
 ---------------------------
@@ -392,6 +385,15 @@ namespace instead of the ``XML`` namespace, these are
 always *references* to the ID of another element. It's important not to confuse the two.
 
 
+Table of Contents
+=====================
+
+.. toctree::
+   :maxdepth: 3
+   :caption: Contents:
+   :glob:
+
+   *
 Indices and tables
 ==================
 

@@ -1,6 +1,6 @@
+
 .. _span_annotation_category:
 
-.. foliaspec:category_title(span)
 Span Annotation
 ===================================================================
 

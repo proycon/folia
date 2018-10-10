@@ -1,6 +1,5 @@
 .. _inline_annotation_category:
 
-.. foliaspec:category_title(inline)
 Inline Annotation
 ===================================================================
 

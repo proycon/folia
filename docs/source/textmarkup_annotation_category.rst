@@ -1,6 +1,5 @@
 .. _textmarkup_annotation_category:
 
-.. foliaspec:category_title(textmarkup)
 Text Markup Annotation
 ===================================================================
 
