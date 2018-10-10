@@ -14,13 +14,23 @@ language resources enriched with linguistic annotation, e.g. linguistically enri
 of speech. The format is intended to provide a standard for the storage and exchange of such language resources,
 including corpora and promote interoperability amongst Natural Language Processing tools that use the format.
 
-**Get started with this FoLiA documentation by reading the full :ref:`introduction` !  **
+Get started with this FoLiA documentation by reading the full :ref:`introduction` !
 
 
 Table of Contents
 =====================
 
-.. foliaspec:toctree(withintroduction)
+.. toctree::
+    :maxdepth: 3
+
+    introduction
+    annotation_declarations
+    set_definitions
+    metadata
+    provenance_data
+    speech
+
+.. foliaspec:toctree
 XXX
 
 Indices and tables

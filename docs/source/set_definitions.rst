@@ -4,3 +4,7 @@ Set Definitions
 ========================
 
 (TODO)
+
+.. toctree::
+
+    features
