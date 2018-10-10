@@ -22,6 +22,7 @@ Table of Contents
 
 .. toctree::
     :maxdepth: 3
+    :includehidden:
 
     introduction
     annotation_declarations
@@ -29,9 +30,8 @@ Table of Contents
     metadata
     provenance_data
     speech
+    annotation_types
 
-.. foliaspec:toctree
-XXX
 
 Indices and tables
 ==================
