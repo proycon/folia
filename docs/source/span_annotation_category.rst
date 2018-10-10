@@ -67,3 +67,7 @@ Annotation Types
 -------------------
 
 .. foliaspec:toc(span)
+XXX
+
+.. foliaspec:toctree(span,hidden)
+XXX

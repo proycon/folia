@@ -34,3 +34,7 @@ Annotation Types
 -------------------
 
 .. foliaspec:toc(textmarkup)
+XXX
+
+.. foliaspec:toctree(textmarkup, hidden)
+XXX

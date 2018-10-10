@@ -13,3 +13,7 @@ Annotation Types
 -------------------
 
 .. foliaspec:toc(inline)
+XXX
+
+.. foliaspec:toctree(inline,hidden)
+XXX
