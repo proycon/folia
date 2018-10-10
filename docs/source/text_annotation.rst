@@ -17,7 +17,7 @@ Specification
 :Version History: Since the beginning, revised since v0.6
 :**Element**: ``<t>``
 :API Class: ``TextContent``
-:Required Attributes: 
+:Required Attributes:
 :Optional Attributes: * ``set`` -- The set of the element, ideally a URI linking to a set definition (see :ref:`set_definitions`) or otherwise a uniquely identifying string. The ``set`` must be referred to also in the :ref:`annotation_declarations` for this annotation type.
                       * ``class`` -- The class of the annotation, i.e. the annotation tag in the vocabulary defined by ``set``.
                       * ``processor`` -- This refers to the ID of a processor in the :ref:`provenance_data`. The processor in turn defines exactly who or what was the annotator of the annotation.
@@ -165,10 +165,11 @@ correspond with the text on a deeper level, as in the following *erroneous examp
 FoLiA validators (since version 1.5) will not accept this and produce a *text consistency error*, so this is invalid
 FoLiA and should be rejected. Similar text consistency errors occur if you specify offsets that are incorrect.
 
-Text classes (advanced)
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 .. _textclasses:
+
+Text classes (advanced)
+--------------------------
+
 
 It is possible to associate **multiple text content elements** with the same
 structural element, and thus associating multiple texts with the same element. You may

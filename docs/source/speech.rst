@@ -38,3 +38,11 @@ should still use the normal :ref:`text_annotation` for a normal textual transcri
 
 For further segmentation of speech into phonemes, you can use :ref:`phonological_annotation`.
 
+Example
+-----------
+
+An example of a simple speech document:
+
+.. literalinclude:: ../../examples/speech.2.0.0.folia.xml
+    :linenos:
+    :language: xml

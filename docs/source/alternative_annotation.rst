@@ -17,7 +17,7 @@ Specification
 :Version History: Since the beginning, may carry set and classes since v2.0
 :**Element**: ``<alt>``
 :API Class: ``Alternative``
-:Required Attributes: 
+:Required Attributes:
 :Optional Attributes: * ``xml:id`` -- The ID of the element; this has to be a unique in the entire document or collection of documents (corpus). All identifiers in FoLiA are of the `XML NCName <https://www.w3.org/TR/1999/WD-xmlschema-2-19990924/#NCName>`_ datatype, which roughly means it is a unique string that has to start with a letter (not a number or symbol), may contain numers, but may never contain colons or spaces. FoLiA does not define any naming convention for IDs.
                       * ``processor`` -- This refers to the ID of a processor in the :ref:`provenance_data`. The processor in turn defines exactly who or what was the annotator of the annotation.
                       * ``annotator`` -- This is an older alternative to the ``processor`` attribute, without support for full provenance. The annotator attribute simply refers to the name o ID of the system or human annotator that made the annotation.
@@ -35,7 +35,7 @@ Specification
 .. foliaspec:specification_element(AlternativeLayers)
 :**Element**: ``<altlayers>``
 :API Class: ``AlternativeLayers``
-:Required Attributes: 
+:Required Attributes:
 :Optional Attributes: * ``xml:id`` -- The ID of the element; this has to be a unique in the entire document or collection of documents (corpus). All identifiers in FoLiA are of the `XML NCName <https://www.w3.org/TR/1999/WD-xmlschema-2-19990924/#NCName>`_ datatype, which roughly means it is a unique string that has to start with a letter (not a number or symbol), may contain numers, but may never contain colons or spaces. FoLiA does not define any naming convention for IDs.
                       * ``processor`` -- This refers to the ID of a processor in the :ref:`provenance_data`. The processor in turn defines exactly who or what was the annotator of the annotation.
                       * ``annotator`` -- This is an older alternative to the ``processor`` attribute, without support for full provenance. The annotator attribute simply refers to the name o ID of the system or human annotator that made the annotation.
@@ -54,7 +54,7 @@ Introduction
 -------------------------
 
 The FoLiA format does not just allow for a single authoritative annotation per token; it allows the representation of
-*alternative* annotations. There is a specific form for :ref:`inline_annotation` and a form for :ref:`span_annotation`;
+*alternative* annotations. There is a specific form for :ref:`inline_annotation_category` and a form for :ref:`span_annotation_category`;
 both share the same declaration ``<alternative-annotation>`` with which a set may be associated.
 
 Alternative Inline Annotation
@@ -170,7 +170,7 @@ Alternative Span Annotation
 ---------------------------------
 
 With inline annotations one can specify an unbounded number of alternative
-annotations. This functionality is available for :ref:`span_annotation` as well, but
+annotations. This functionality is available for :ref:`span_annotation_category` as well, but
 due to the different nature of span annotations this happens in a slightly
 different way.
 

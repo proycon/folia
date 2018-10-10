@@ -16,7 +16,7 @@ Specification
 :Version History: Since v0.12
 :**Element**: ``<ph>``
 :API Class: ``PhonContent``
-:Required Attributes: 
+:Required Attributes:
 :Optional Attributes: * ``set`` -- The set of the element, ideally a URI linking to a set definition (see :ref:`set_definitions`) or otherwise a uniquely identifying string. The ``set`` must be referred to also in the :ref:`annotation_declarations` for this annotation type.
                       * ``class`` -- The class of the annotation, i.e. the annotation tag in the vocabulary defined by ``set``.
                       * ``processor`` -- This refers to the ID of a processor in the :ref:`provenance_data`. The processor in turn defines exactly who or what was the annotator of the annotation.
@@ -78,3 +78,12 @@ Phonetic transcription and text content can also go together without problem:
 .. seealso::
 
     If you want to actually do segmentation into *phonemes*, see :ref:`phonological_annotation`.
+
+Example
+-----------
+
+A simple example document:
+
+.. literalinclude:: ../../examples/speech.2.0.0.folia.xml
+    :linenos:
+    :language: xml
