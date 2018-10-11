@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FoLiA xmlns="http://ilk.uvt.nl/FoLiA" version="2.0" xml:id="example">
+  <metadata>
+      <annotations>
+          <token-annotation>
+             <annotator processor="p1" />
+          </token-annotation>
+          <text-annotation>
+             <annotator processor="p1" />
+          </text-annotation>
+          <sentence-annotation>
+             <annotator processor="p1" />
+          </sentence-annotation>
+          <quote-annotation>
+             <annotator processor="p1" />
+          </quote-annotation>
+      </annotations>
+      <provenance>
+         <processor xml:id="p1" name="proycon" type="manual" />
+      </provenance>
+  </metadata>
+  <text xml:id="example.text">
+     <s xml:id="example.p.1.s.1">
+      <w xml:id="example.p.1.s.1.w.1"><t>He</t></w>
+      <w xml:id="example.p.1.s.1.w.2"><t>said</t></w>
+      <w xml:id="example.p.1.s.1.w.3" space="no">
+        <t>:</t>
+      </w>
+      <w xml:id="example.p.1.s.1.w.4" space="no">
+        <t>''</t>
+      </w>
+      <quote xml:id="example.p.1.s.1.quote.1">
+        <s xml:id="example.p.1.s.1.quote.1.s.1">
+           <w xml:id="example.p.1.s.1.w.5"><t>I</t></w>
+           <w xml:id="example.p.1.s.1.w.6"><t>do</t></w>
+           <w xml:id="example.p.1.s.1.w.7"><t>not</t></w>
+           <w xml:id="example.p.1.s.1.w.8"><t>know</t></w>
+           <w xml:id="example.p.1.s.1.w.9" space="no">
+            <t>.</t>
+           </w>
+        </s>
+        <s xml:id="example.p.1.s.1.quote.1.s.2">
+           <w xml:id="example.p.1.s.1.w.10"><t>I</t></w>
+           <w xml:id="example.p.1.s.1.w.11"><t>think</t></w>
+           <w xml:id="example.p.1.s.1.w.12"><t>you</t></w>
+           <w xml:id="example.p.1.s.1.w.13"><t>are</t></w>
+           <w xml:id="example.p.1.s.1.w.14"><t>right</t></w>
+        </s>
+      </quote>
+      <w xml:id="example.p.1.s.1.w.15" space="no">
+       <t>''</t>
+      </w>
+      <w xml:id="example.p.1.s.1.w.16"><t>,</t></w>
+      <w xml:id="example.p.1.s.1.w.17"><t>and</t></w>
+      <w xml:id="example.p.1.s.1.w.18"><t>left</t></w>
+      <w xml:id="example.p.1.s.1.w.19" space="no">
+        <t>.</t>
+      </w>
+     </s>
+  </text>
+</FoLiA>
