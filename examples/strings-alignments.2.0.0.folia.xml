@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FoLiA xmlns="http://ilk.uvt.nl/FoLiA" version="2.0" xml:id="example">
+  <metadata>
+      <annotations>
+          <text-annotation>
+             <annotator processor="p1" />
+          </text-annotation>
+          <paragraph-annotation>
+             <annotator processor="p1" />
+          </paragraph-annotation>
+          <string-annotation>
+             <annotator processor="p1" />
+          </string-annotation>
+          <alignment-annotation>
+             <annotator processor="p1" />
+          </alignment-annotation>
+      </annotations>
+      <provenance>
+         <processor xml:id="p1" name="proycon" type="manual" />
+      </provenance>
+  </metadata>
+  <text xml:id="example.text">
+     <p xml:id="example.p.1">
+        <t><t-str id="example.p.1.str.1">Hello.</t-str> This is a sentence. Bye!</t>
+        <t class="ocroutput"><t-str id="example.p.1.str.2">Hell0</t-str> Th1s iz a sentence, Bye1</t>
+
+        <str xml:id="example.p.1.str.1">
+            <t offset="0">Hello.</t>
+            <alignment>
+                <aref id="example.p.1.str.2" type="str" />
+            </alignment>
+        </str>
+
+        <str xml:id="example.p.1.str.2">
+            <t class="ocroutput" offset="0">Hell0</t>
+            <alignment>
+                <aref id="example.p.1.str.1" type="str" />
+            </alignment>
+        </str>
+     </p>
+  </text>
+</FoLiA>

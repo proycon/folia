@@ -27,13 +27,13 @@ substring.  Consider the following example:
 
 .. code-block:: xml
 
-     <s xml:id="example.s.1">
+     <p xml:id="example.p.1">
         <t>Hello. This is a sentence. Bye!</t>
-        <str xml:id="example.s.1.str.1">
+        <str xml:id="example.p.1.str.1">
             <t offset="0">Hello</t>
             <desc>This is a word of greeting</desc>
         </str>
-     </s>
+     </p>
 
 In substrings, using an offset attribute on the text-content element enables
 substrings to be properly positioned with respect to their *parent* text.
@@ -43,13 +43,13 @@ share the same declaration. The text markup variant can be used in the scope of 
 
 .. code-block:: xml
 
-     <s xml:id="example.s.1">
-        <t><t-str id="example.s.1.str.1">Hello</t-str>. This is a sentence. Bye!</t>
-        <str xml:id="example.s.1.str.1">
+     <p xml:id="example.p.1">
+        <t><t-str id="example.p.1.str.1">Hello</t-str>. This is a sentence. Bye!</t>
+        <str xml:id="example.p.1.str.1">
             <t offset="0">Hello</t>
             <desc>This is a word of greeting</desc>
         </str>
-     </s>
+     </p>
 
 In the above example, the ``id`` parameter (distinct from ``xml:id``!) on ``<t-str>`` is a reference to the ``<str>``
 element, showing how the two elements can be used in combination.
@@ -75,60 +75,60 @@ substrings as well. Consider the following example with three text layers, from 
 
 .. code-block:: xml
 
-     <s xml:id="example.s.1">
+     <p xml:id="example.p.1">
         <t>Hello. This is a sentence. Bye!</t>
         <t class="normalised">Hello. This iz a sentence. Bye!</t>
         <t class="ocroutput">Hell0 Th1s iz a sentence, Bye1</t>
 
-        <str xml:id="example.s.1.str.1">
+        <str xml:id="example.p.1.str.1">
             <t class="ocroutput" offset="0">Hell0</t>
         </str>
 
-        <str xml:id="example.s.1.str.2">
+        <str xml:id="example.p.1.str.2">
             <t class="normalised" offset="0">Hello.</t>
         </str>
 
-        <str xml:id="example.s.1.str.3">
+        <str xml:id="example.p.1.str.3">
             <t offset="0">Hello.</t>
         </str>
-     </s>
+     </p>
 
 Instead of three seperate substrings, we can also opt for a single one. Which solution is right for you depends on your own use case:
 
 .. code-block:: xml
 
-     <s xml:id="example.s.1">
+     <p xml:id="example.p.1">
         <t>Hello. This is a sentence. Bye!</t>
         <t class="normalised">Hello. This iz a sentence. Bye!</t>
         <t class="ocroutput">Hell0 Th1s iz a sentence, Bye1</t>
 
-        <str xml:id="example.s.1.str.1">
+        <str xml:id="example.p.1.str.1">
             <t class="ocroutput" offset="0">Hell0</t>
             <t class="normalised" offset="0">Hello</t>
             <t offset="0">Hello.</t>
         </str>
-     </s>
+     </p>
 
 Or, if you do want seperate strings but you also want to make the relation between them very explicit, then you can
 resort to :ref:`alignment_annotation` as shown in the next example:
 
 .. code-block:: xml
 
- <s xml:id="example.s.1">
+ <p xml:id="example.p.1">
     <t>Hello. This is a sentence. Bye!</t>
     <t class="ocroutput">Hell0 Th1s iz a sentence, Bye1</t>
 
-    <str xml:id="example.s.1.str.1">
+    <str xml:id="example.p.1.str.1">
         <t class="ocroutput" offset="0">Hell0</t>
         <alignment>
-            <aref id="example.s.1.str.2" type="str" />
+            <aref id="example.p.1.str.2" type="str" />
         </alignment>
     </str>
 
-    <str xml:id="example.s.1.str.2">
+    <str xml:id="example.p.1.str.2">
         <t offset="0">Hello.</t>
         <alignment>
-            <aref id="example.s.1.str.1" type="str" />
+            <aref id="example.p.1.str.1" type="str" />
         </alignment>
     </str>
   </p>
@@ -140,8 +140,8 @@ FoLiA, as FoLiA only supports one authoritative tokenisation.
 Example
 -------------------------
 
-The next example shows a string annotations:
+The following examples combines various aspects discussed in this section:
 
-.. literalinclude:: ../../examples/strings.2.0.0.folia.xml
+.. literalinclude:: ../../examples/strings-alignments.2.0.0.folia.xml
     :linenos:
     :language: xml
