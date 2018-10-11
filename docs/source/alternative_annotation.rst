@@ -17,7 +17,7 @@ Specification
 :Version History: Since the beginning, may carry set and classes since v2.0
 :**Element**: ``<alt>``
 :API Class: ``Alternative``
-:Required Attributes: 
+:Required Attributes:
 :Optional Attributes: * ``xml:id`` -- The ID of the element; this has to be a unique in the entire document or collection of documents (corpus). All identifiers in FoLiA are of the `XML NCName <https://www.w3.org/TR/1999/WD-xmlschema-2-19990924/#NCName>`_ datatype, which roughly means it is a unique string that has to start with a letter (not a number or symbol), may contain numers, but may never contain colons or spaces. FoLiA does not define any naming convention for IDs.
                       * ``processor`` -- This refers to the ID of a processor in the :ref:`provenance_data`. The processor in turn defines exactly who or what was the annotator of the annotation.
                       * ``annotator`` -- This is an older alternative to the ``processor`` attribute, without support for full provenance. The annotator attribute simply refers to the name o ID of the system or human annotator that made the annotation.
@@ -35,7 +35,7 @@ Specification
 .. foliaspec:specification_element(AlternativeLayers)
 :**Element**: ``<altlayers>``
 :API Class: ``AlternativeLayers``
-:Required Attributes: 
+:Required Attributes:
 :Optional Attributes: * ``xml:id`` -- The ID of the element; this has to be a unique in the entire document or collection of documents (corpus). All identifiers in FoLiA are of the `XML NCName <https://www.w3.org/TR/1999/WD-xmlschema-2-19990924/#NCName>`_ datatype, which roughly means it is a unique string that has to start with a letter (not a number or symbol), may contain numers, but may never contain colons or spaces. FoLiA does not define any naming convention for IDs.
                       * ``processor`` -- This refers to the ID of a processor in the :ref:`provenance_data`. The processor in turn defines exactly who or what was the annotator of the annotation.
                       * ``annotator`` -- This is an older alternative to the ``processor`` attribute, without support for full provenance. The annotator attribute simply refers to the name o ID of the system or human annotator that made the annotation.
@@ -66,9 +66,12 @@ elements. If multiple annotations are grouped together under the same
 set of alternatives.
 
 Each alternative preferably is given a unique identifier. In the following example we see the Dutch word "bank" in the
-sense of a sofa, alternatively we see two alternative annotations with a different sense and domain. Any annotation
-element *within* an ``<alt>`` block by definition needs to be marked as non-authoritative by setting the mandatory
-attribute ``auth="no"``. This facilitates the job of parsers and queriers.
+sense of a sofa, alternatively we see two alternative annotations with a different sense and domain.
+
+.. DISCARDING THIS in v2 (issue #56)
+.. Any annotation
+.. element *within* an ``<alt>`` block by definition needs to be marked as non-authoritative by setting the mandatory
+.. attribute ``auth="no"``. This facilitates the job of parsers and queriers.
 
 .. code-block:: xml
 
@@ -79,14 +82,14 @@ attribute ``auth="no"``. This facilitates the job of parsers and queriers.
           <desc>furniture</desc>
         </sense>
         <alt xml:id="example.p.1.s.1.w.1.alt.1">
-            <domain auth="no" class="finance" />
-            <sense auth="no" class="r_n-5919" confidence="0.6">
+            <domain class="finance" />
+            <sense class="r_n-5919" confidence="0.6">
                 <desc>financial institution</desc>
             </sense>
         </alt>
         <alt xml:id="example.p.1.s.1.w.1.alt.2">
-            <domain auth="no" class="geology" />
-            <sense auth="no" class="r_n-5920" confidence="0.1">
+            <domain class="geology" />
+            <sense class="r_n-5920" confidence="0.1">
                 <desc>river bank</desc>
             </sense>
         </alt>
@@ -108,21 +111,21 @@ following expanded example in which we added a part-of-speech tag and a lemma.
         <pos class="n" />
         <lemma class="bank" />
         <alt xml:id="example.p.1.s.1.w.1.alt.1">
-            <domain auth="no" class="finance" />
-            <sense auth="no" class="r_n-5919" confidence="0.6">
+            <domain class="finance" />
+            <sense class="r_n-5919" confidence="0.6">
                 <desc>financial institutioni</desc>
             </sense>
         </alt>
         <alt xml:id="example.p.1.s.1.w.1.alt.2">
-            <domain auth="no" class="geology" />
-            <sense auth="no" class="r_n-5920" confidence="0.1">
+            <domain class="geology" />
+            <sense class="r_n-5920" confidence="0.1">
                 <desc>river bank</desc>
             </sense>
         </alt>
         <alt xml:id="example.p.1.s.1.w.1.alt.2" exclusive="yes">
             <t>bank</t>
-            <domain auth="no" class="navigation" />
-            <sense auth="no" class="r_n-1234">
+            <domain class="navigation" />
+            <sense class="r_n-1234">
                 <desc>to turn</desc>
             </sense>
             <pos class="v" />
@@ -139,7 +142,9 @@ otherwise there would be no lemma nor text associated with the exclusive
 alternative.
 
 .. TODO: is exclusive implemented?
+
 .. TODO: look at auth="no" usage
+.. RESPONSE: I'm discarding auth="no" from FoLiA v2.0 and making it an internal property only, no longer expressed (issue #56)
 
 Alternatives can be used as a great way of postponing actual annotation, due to
 their non-authoritative nature. When used in this way, they can be regarded as
@@ -153,14 +158,14 @@ annotation of these types whatsoever:
     <w xml:id="example.p.1.s.1.w.1">
         <t>bank</t>
         <alt xml:id="example.p.1.s.1.w.1.alt.1">
-            <domain auth="no" class="finance" />
-            <sense auth="no" class="r_n-5919" confidence="0.6">
+            <domain class="finance" />
+            <sense class="r_n-5919" confidence="0.6">
                 <desc>financial institution</desc>
             </sense>
         </alt>
         <alt xml:id="example.p.1.s.1.w.1.alt.2">
-            <domain auth="no" class="geology" />
-            <sense auth="no" class="r_n-5920" confidence="0.1">
+            <domain class="geology" />
+            <sense class="r_n-5920" confidence="0.1">
                 <desc>river bank</desc>
             </sense>
         </alt>
@@ -179,8 +184,7 @@ for span annotations. Under this element several alternative layers can be
 presented. Analogous to ``<alt>``, any layers grouped together are assumed
 to be somehow dependent. Multiple ``<altlayers>`` can be added to introduce
 independent alternatives. Each alternative may be associated with a unique
-identifier. The layers within ``<altlayers>`` need to be marked as
-non-autoritative using ``auth="no"`` to facilitate the job for parsers.
+identifier.
 
 Below is an example of a sentence that is chunked in two ways:
 
@@ -208,7 +212,7 @@ Below is an example of a sentence that is chunked in two ways:
         </chunk>
       </chunking>
       <altlayers xml:id="example.p.1.s.1.alt.1">
-           <chunking auth="no">
+           <chunking>
             <chunk xml:id="example.p.1.s.1.alt.1.chunk.1" confidence="0.001">
                 <wref id="example.p.1.s.1.w.1" t="The" />
                 <wref id="example.p.1.s.1.w.2" t="Dalai" />
