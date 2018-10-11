@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<FoLiA xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://ilk.uvt.nl/folia" xml:id="page1263" version="2.0.0">
+  <metadata type="native">
+    <annotations>
+      <token-annotation>
+          <annotator processor="p1" />
+      </token-annotation>
+      <text-annotation>
+          <annotator processor="p1" />
+      </text-annotation>
+      <correction-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/spellingcorrection.foliaset.xml">
+          <annotator processor="johndoe" />
+          <annotator processor="janedoe" />
+      </correction-annotation>
+    </annotations>
+    <provenance>
+       <processor xml:id="p1" name="proycon" type="manual" />
+       <processor xml:id="johndoe" name="johndoe" type="manual" />
+       <processor xml:id="janedoe" name="janedoe" type="manual" />
+    </provenance>
+  </metadata>
+  <text xml:id="example.text">
+    <s xml:id="example.s.1">
+        <t>Watch that tree</t>
+        <w xml:id="example.s.1.w.1">
+            <t>Watch</t>
+        </w>
+        <w xml:id="example.s.1.w.2">
+            <t>that</t>
+        </w>
+        <w xml:id="example.s.1.w.3">
+          <correction xml:id="example.correction.2" class="spelling"
+            processor="janedoe" confidence="1.0">
+              <new>
+                  <t>tree</t>
+              </new>
+              <original>
+                <correction xml:id="example.correction.1"
+                 class="spelling" processor="johndoe" confidence="0.6">
+                 <new>
+                     <t>three</t>
+                 </new>
+                 <original>
+                     <t>treee</t>
+                 </original>
+                </correction>
+              </original>
+          </correction>
+        </w>
+    </s>
+  </text>
+</FoLiA>
