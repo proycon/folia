@@ -18,7 +18,7 @@ Explanation & Examples
 -------------------------
 
 Correction annotation is arguably one of the most complex annotation forms in FoLiA. It is a form of
-:ref:`higherorder_annotation_category` which allows to annotate corrections on many types of annotation, including correction of text (i.e. spelling correction), of :ref:`inline_annotation`, :ref:`span_annotation` and even over :ref:`structure_annotation`.
+:ref:`higherorder_annotation_category` which allows to annotate corrections on many types of annotation, including correction of text (i.e. spelling correction), of :ref:`inline_annotation_category`, :ref:`span_annotation_category` and even over :ref:`structure_annotation_category`.
 
 All corrections are annotated using the ``<correction>`` element. The following example shows a
 spelling correction of the misspelled word *treee* to its corrected form *tree*.
@@ -38,7 +38,7 @@ spelling correction of the misspelled word *treee* to its corrected form *tree*.
         </correction>
     </w>
 
-The class indicates the kind of correction, according to a user-defined :ref:`set_definition`. The
+The class indicates the kind of correction, according to a user-defined set definition (see :ref:`set_definitions`). The
 ``<new>`` element holds the actual content of the correction. The
 ``<original>`` element holds the content prior to correction.  In this example, what we are
 correcting is the actual textual content (:ref:`text_annotation`, ``<t>``).
