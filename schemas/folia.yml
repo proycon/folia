@@ -881,8 +881,8 @@ elements:
                 label: "Subjectivity/Sentiment"
     - class: AbstractHigherOrderAnnotation
       properties:
-          required_attribs: [ ]
-          optional_attribs: [ ]
+          required_attribs: null
+          optional_attribs: null
       elements:
         - class: Alignment
           properties:
@@ -1047,7 +1047,7 @@ elements:
               accepted_data: [Content, Feature, Metric, Part, ForeignData]
     - class: AbstractContentAnnotation
       properties:
-          required_attribs: [ ]
+          required_attribs: null
           optional_attribs: [ CLASS, ANNOTATOR, CONFIDENCE, DATETIME, METADATA ]
           occurrences: 0
       elements:

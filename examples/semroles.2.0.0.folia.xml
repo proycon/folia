@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FoLiA xmlns="http://ilk.uvt.nl/FoLiA" version="2.0" xml:id="example">
+<FoLiA xmlns="http://ilk.uvt.nl/folia" version="2.0" xml:id="example">
   <metadata>
       <annotations>
           <token-annotation set="https://raw.githubusercontent.com/LanguageMachines/uctodata/master/setdefinitions/tokconfig-eng.foliaset.ttl">
