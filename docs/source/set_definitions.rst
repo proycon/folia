@@ -31,7 +31,7 @@ The role of FoLiA Set Definitions is:
 Prior to FoLiA v1.4, set definitions were stored in a simple custom XML format,
 distinct from FoLiA itself, which we call the legacy format and which is still
 supported for backward compatibility. Since FoLiA v1.4 however, we strongly
-prefer and recommend to store the set definitions as RDF, i.e.\ the
+prefer and recommend to store the set definitions as RDF, i.e. the
 technology that powers the semantic web. In this way, set definitions provide a
 formal semantic layer for FoLiA.
 
@@ -40,7 +40,7 @@ format can be indicated on the declarations in the document metadata using the
 ``format`` attribute, recognised values are:
 
 * ``application/rdf+xml`` -- XML for RDF (assumed for ``rdf.xml`` or ``rdf`` extensions
-* ``text/turtle`` -- Turtle\footnote{\url{https://www.w3.org/TeamSubmission/turtle/}} (for RDF) (assumed for ``ttl`` extensions)
+* ``text/turtle`` -- `Turtle <https://www.w3.org/TeamSubmission/turtle/>`_ (for RDF) (assumed for ``ttl`` extensions)
 * ``text/n3`` -- Notation 3 (for RDF) (assumed for ``n3`` extensions)
 * ``application/foliaset+xml`` - Legacy FoLiA Set Definition format (XML) (assumed for ``xml`` extensions and in most other cases)
 \end{itemize}
