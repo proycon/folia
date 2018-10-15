@@ -21,7 +21,7 @@ full in-depth validation cannot take place.
 The role of FoLiA Set Definitions is:
 
 * to define which classes are valid in a set
-* to define which subsets and classes are valid in \emph{features} (see section~\ref{sec:features}) in a set
+* to define which subsets and classes are valid in :ref:`features` in a set
 * to constrain which subsets and classes may co-occur in an annotation of the set
 * to allow enumeration over classes and subsets
 * to assign human-readable labels to symbolic classes
@@ -242,6 +242,11 @@ ID, however, does have to be unique in the entire set.
 Subsets
 ----------
 
+.. toctree::
+    :hidden:
+
+    features
+
 The section on :ref:`features` introduced subsets. Please ensure you are familiar with this notion before continuing
 with the current section.
 
@@ -314,7 +319,3 @@ the same set definition file.
    :ref:`annotation_declarations`
    :ref:`features`
 
-.. toctree::
-    :hidden:
-
-    features
