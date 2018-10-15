@@ -316,6 +316,6 @@ the same set definition file.
 
 .. seealso::
 
-   :ref:`annotation_declarations`
-   :ref:`features`
+   * :ref:`annotation_declarations`
+   * :ref:`features`
 
