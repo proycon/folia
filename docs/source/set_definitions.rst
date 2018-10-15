@@ -145,7 +145,7 @@ define the set and refer to all the classes it contains:
         a skos:Collection ;
         skos:notation	"simplepos" ;
         skos:prefLabel "A simple part of speech set" ;
-        skos:member <#N> , <#V> , #<A> ;
+        skos:member <#N> , <#V> , <#A> ;
 
 Then we define the classes:
 
