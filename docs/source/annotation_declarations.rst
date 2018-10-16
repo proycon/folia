@@ -80,7 +80,7 @@ If multiple sets are used for the same annotation type, which is perfectly valid
 separate declaration.
 
 .. seealso::
-    :ref:`set_definitions`
-    :ref:`provenance_data`
+    * :ref:`set_definitions`
+    * :ref:`provenance_data`
 
 
