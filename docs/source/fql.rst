@@ -36,9 +36,6 @@ Usually your queries on a particular annotation type are limited to one
 specific set. To prevent having to enter the set explicitly in your queries,
 you can set defaults. The annotation type corresponds to a FoLiA element::
 
-
-.. code-block::
-
     DEFAULTSET entity https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/namedentitycorrection.foliaset.xml
 
 If the FoLiA document only has one set of that type anyway, then this is not even
@@ -55,8 +52,6 @@ annotators or annotator types.
 Explicit declarations are possible using the *DECLARE* keyword followed by
 the annotation type you want to declare, this represented the tag of the
 respective FoLiA annotation element::
-
-.. code-block:: sql
 
     DECLARE entity OF "https://github.com/proycon/folia/blob/master/setdefinitions/namedentities.foliaset.xml"
     WITH annotator = "me" annotatortype = "manual"
@@ -87,9 +82,7 @@ available:
 
 Following the action verb is the focus expression, this starts with an
 annotation type, which is equal to the FoLiA XML element tag. The set is
-specified using ``OF <set>`` and/or the ID with ``ID <id>``. An example:
-
-.. code-block:: sql
+specified using ``OF <set>`` and/or the ID with ``ID <id>``. An example::
 
     pos OF "http://some.domain/some.folia.set.xml"
 
@@ -152,79 +145,55 @@ element. The target expression also determines what elements will be returned.
 More on this in a later section.
 
 The following FQL query shows how to get the part of speech tag for a
-word:
-
-.. code-block::
+word::
 
     SELECT pos FOR ID mydocument.word.3
 
-Or for all words:
-
-.. code-block::
+Or for all words::
 
     SELECT pos FOR w
 
-The *ADD* action almost always requires a target expression:
-
-.. code-block::
+The *ADD* action almost always requires a target expression::
 
     ADD pos WITH class "n" FOR ID mydocument.word.3
 
-Multiple targets may be specified, comma delimited:
-
-.. code-block::
+Multiple targets may be specified, comma delimited::
 
     ADD pos WITH class "n" FOR ID mydocument.word.3  , ID myword.document.word.25
 
-The target expression can again contain a *WHERE* filter:
-
-.. code-block::
+The target expression can again contain a *WHERE* filter::
 
     SELECT pos FOR w WHERE class != "PUNCT"
 
-Target expressions, starting with the *FOR* keyword, can be nested:
-
-.. code-block::
+Target expressions, starting with the *FOR* keyword, can be nested::
 
     SELECT pos FOR w WHERE class != "PUNCT" FOR event WHERE class = "tweet"
 
-You may also use the SELECT keyword without focus expression, but only with a target expression. This is particularly useful when you want to return multiple distinct elements, for instance by ID:
-
-.. code-block::
+You may also use the SELECT keyword without focus expression, but only with a target expression. This is particularly useful when you want to return multiple distinct elements, for instance by ID::
 
     SELECT FOR ID mydocument.word.3 , ID myword.document.word.25
 
-The *SELECT* keyword can also be used with the special *ALL* selector that selects all elemens in the scope, the following two statement are identical and will return all elements in the document:
-
-.. code-block::
+The *SELECT* keyword can also be used with the special *ALL* selector that selects all elemens in the scope, the following two statement are identical and will return all elements in the document::
 
     SELECT ALL
     SELECT FOR ALL
 
-It can be used at deeper levels too, the following will return everything under all words:
-
-.. code-block::
+It can be used at deeper levels too, the following will return everything under all words::
 
     SELECT ALL FOR w
 
 Target expressions are vital for span annotation, the keyword *SPAN* indicates
 that the target is a span (to do multiple spans at once, repeat the SPAN
 keyword again), the operator ``&`` is used for consecutive spans, whereas ``,``
-is used for disjoint spans:
-
-.. code-block::
+is used for disjoint spans::
 
     ADD entity WITH class "person" FOR SPAN ID mydocument.word.3 & ID myword.document.word.25
 
-This works with filters too, the ``&`` operator enforced a single consecutive span:
-
-.. code-block::
+This works with filters too, the ``&`` operator enforced a single consecutive span::
 
     ADD entity WITH class "person" FOR SPAN w WHERE text = "John" & w WHERE text = "Doe"
 
-Remember we can do multiple at once:
-
-.. code-block::
+Remember we can do multiple at once::
 
     ADD entity WITH class "person" FOR SPAN w WHERE text = "John" & w WHERE text = "Doe"
     SPAN w WHERE text = "Jane" & w WHERE text = "Doe"
@@ -232,9 +201,7 @@ Remember we can do multiple at once:
 The *HAS* keyword enables you to descend down in the document tree to
 siblings.  Consider the following example that changes the part of speech tag
 to "verb", for all occurrences of words that have lemma "fly". The parentheses
-are mandatory for a *HAS* statement:
-
-.. code-block::
+are mandatory for a *HAS* statement::
 
     EDIT pos OF "someposset" WITH class = "v" FOR w WHERE (lemma OF "somelemmaset" HAS class "fly")
 
@@ -244,22 +211,16 @@ child of the element in the *IN* statement, whereas *FOR* may skip
 intermediate elements. In analogy with XPath, *FOR* corresponds to \texttt{//} and
 *IN* corresponds to ``/``. *FOR* and *IN* may be nested and mixed at
 will. The following query would most likely not yield any results because there are
-likely to be paragraphs and/or sentences between the wod and event structures:
-
-.. code-block::
+likely to be paragraphs and/or sentences between the wod and event structures::
 
     SELECT pos FOR w WHERE class != "PUNCT" IN event WHERE class = "tweet"
 
-Multiple actions can be combined, all share the same target expressions:
-
-.. code-block::
+Multiple actions can be combined, all share the same target expressions::
 
     ADD pos WITH class "n" ADD lemma WITH class "house" FOR w WHERE text = "house" OR text = "houses"
 
 It is also possible to nest actions, use parentheses for this, the nesting
-occurs after any WHERE and WITH statements:
-
-.. code-block::
+occurs after any WHERE and WITH statements::
 
     ADD w ID mydoc.sentence.1.word.1 (ADD t WITH text "house" ADD pos WITH class "n") FOR ID mydoc.sentence.1
 
@@ -267,9 +228,7 @@ Though explicitly specified here, IDs will be automatically generated when neces
 
 The *ADD* action has two cousins: *APPEND* and *PREPEND*.
 Instead of adding something in the scope of the target expression, they either append
-or prepend an element, so the inserted element will be a sibling:
-
-.. code-block::
+or prepend an element, so the inserted element will be a sibling::
 
     APPEND w (ADD t WITH text "house") FOR w WHERE text = "the"
 
@@ -282,33 +241,25 @@ Our previous examples mostly focussed on part-of-speech annotation. In this
 section we look at text content, which in FoLiA is an annotation element too
 (t).
 
-Here we change the text of a word:
-
-.. code-block::
+Here we change the text of a word::
 
     EDIT t WITH text = "house" FOR ID mydoc.word.45
 
 Here we edit or add (recall that EDIT falls back to ADD when not found and
-there is no further selector) a lemma and check on text content:
-
-.. code-block::
+there is no further selector) a lemma and check on text content::
 
     EDIT lemma WITH class "house" FOR w WHERE text = "house" OR text = "houses"
 
 You can use WHERE text on all elements, it will cover both explicit text
 content as well as implicit text content, i.e. inferred from child elements. If
-you want to be really explicit you can do:
-
-.. code-block::
+you want to be really explicit you can do::
 
     EDIT lemma WITH class "house" FOR w WHERE (t HAS text = "house")
 
 *Advanced*:
 
 Such syntax is required when covering texts with custom classes, such as
-OCRed or otherwise pre-normalised text. Consider the following OCR correction:
-
-.. code-block::
+OCRed or otherwise pre-normalised text. Consider the following OCR correction::
 
     ADD t WITH text = "spell" FOR w WHERE (t HAS text = "5pe11" AND class = "OCR" )
 
@@ -328,9 +279,7 @@ returned. This is regulated using the *RETURN* keyword:
 The default focus mode just returns the focus. Sometimes, however, you may want
 more context and may want to return the target expression instead. In the
 following example returning only the pos-tag would not be so interesting, you
-are most likely interested in the word to which it applies:
-
-.. code-block::
+are most likely interested in the word to which it applies::
 
     SELECT pos WHERE class = "n" FOR w RETURN target
 
@@ -357,15 +306,11 @@ requested in the same HTTP request.
 When context is returned in *target* mode, this can get quite big, you may
 constrain the type of elements returned by using the *REQUEST* keyword, it
 takes the names of FoLiA XML elements. It can be used standalone so it applies
-to all subsequent queries:
-
-.. code-block::
+to all subsequent queries::
 
     REQUEST w,t,pos,lemma
 
-..or after a query:
-
-.. code-block::
+..or after a query::
 
     SELECT pos FOR w WHERE class!="PUNCT" FOR event WHERE class="tweet" REQUEST w,pos,lemma
 
@@ -383,45 +328,33 @@ stand-off layers, but you can forget this fact when composing FQL queries and ca
 access them right from the elements they apply to.
 
 The following query selects all named entities (of an actual rather than a
-fictitious set for a change) of people that have the name John:
-
-.. code-block::
+fictitious set for a change) of people that have the name John::
 
     SELECT entity OF "https://github.com/proycon/folia/blob/master/setdefinitions/namedentities.foliaset.xml"
     WHERE class = "person" FOR w WHERE text = "John"
 
 Or consider the selection of noun-phrase syntactic units (su) that contain the
-word house:
-
-.. code-block::
+word house::
 
     SELECT su WHERE class = "np" FOR w WHERE text CONTAINS "house"
 
 Note that if the *SPAN} keyword were used here, the selection would be
-exclusively constrained to single words "John":
-
-.. code-block::
+exclusively constrained to single words "John"::
 
     SELECT entity WHERE class = "person" FOR SPAN w WHERE text = "John"
 
-We can use that construct to select all people named John Doe for instance:
-
-.. code-blocK::
+We can use that construct to select all people named John Doe for instance::
 
     SELECT entity WHERE class = "person" FOR SPAN w WHERE text = "John" & w WHERE text = "Doe"
 
 Span annotations like syntactic units are typically nested trees, a tree query
 such as "//pp/np/adj" can be represented as follows. Recall that the *IN*
 statement starts a target expression like *FOR*, but is stricter on the
-hierarchy, which is what we would want here:
-
-.. code-block::
+hierarchy, which is what we would want here::
 
     SELECT su WHERE class = "adj" IN su WHERE class = "np" IN su WHERE class = "pp"
 
-In such instances we may be most interested in obtaining the full PP:
-
-.. code-block::
+In such instances we may be most interested in obtaining the full PP::
 
     SELECT su WHERE class = "adj" IN su WHERE class = "np" IN su WHERE class = "pp" RETURN outer-target
 
@@ -429,15 +362,11 @@ The *EDIT* action is not limited to editing attributes, sometimes you
 want to alter the element of a span. A separate *RESPAN* keyword (without
 FOR/IN/WITH) accomplishes this. It takes the keyword *RESPAN* which behaves the
 same as a *FOR SPAN* target expression and represents the new scope of the
-span, the normal target expression represents the old scope:
-
-.. code-block::
+span, the normal target expression represents the old scope::
 
     EDIT entity WHERE class= "person" RESPAN ID word.1 & ID word.2 FOR SPAN ID word.1 & ID word.2 & ID word.3
 
-*WITH* statements can be used still too, they always preceed *RESPAN*:
-
-.. code-block::
+*WITH* statements can be used still too, they always preceed *RESPAN*::
 
     EDIT entity WHERE class= "person" WITH class="location" RESPAN ID word.1 & ID word.2 FOR SPAN ID word.1 & ID word.2 & ID word.3
 
@@ -453,23 +382,17 @@ and set, and is not authoritative.
 
 The following example is a correction but not in the FoLiA sense, it bluntly changes part-of-speech
 annotation of all occurrences of the word *fly* from *n* to *v*, for example to
-correct erroneous tagger output:
-
-.. code-block::
+correct erroneous tagger output::
 
     EDIT pos WITH class "v" WHERE class = "n" FOR w WHERE text = "fly"
 
-Now we do the same but as an explicit correction:
-
-.. code-block::
+Now we do the same but as an explicit correction::
 
     EDIT pos WITH class "v" WHERE class = "n" (AS CORRECTION OF "some/correctionset" WITH class "wrongpos")
     FOR w WHERE text = "fly"
 
 Another example in a spelling correction context, we correct the misspelling
-*concous* to *conscious*:
-
-.. code-block::
+*concous* to *conscious*::
 
     EDIT t WITH text "conscious" (AS CORRECTION OF "some/correctionset" WITH class "spellingerror")
     FOR w WHERE text = "concous"
@@ -478,67 +401,49 @@ The *AS CORRECTION* keyword (always in a separate block within parentheses) is u
 initiate a correction. The correction is itself part of a set with a class that
 indicates the type of correction.
 
-Alternatives are simpler, but follow the same principle:
-
-.. code-block::
+Alternatives are simpler, but follow the same principle::
 
     EDIT pos WITH class "v" WHERE class = "n" (AS ALTERNATIVE) FOR w WHERE text = "fly"
 
-Confidence scores are often associationed with alternatives:
-
-.. code-block::
+Confidence scores are often associationed with alternatives::
 
     EDIT pos WITH class "v" WHERE class = "n" (AS ALTERNATIVE WITH confidence 0.6)
     FOR w WHERE text = "fly"
 
 The *AS* clause is also used to select alternatives rather than the
 authoritative form, this will get all alternative pos tags for words with the
-text "fly":
-
-.. code-block::
+text "fly"::
 
     SELECT pos (AS ALTERNATIVE) FOR w WHERE text = "fly"
 
 If you want the authoritative tag as well, you can chain the actions. The
 same target expression (FOR..) always applies to all chained actions, but the AS clause
-applies only to the action in the scope of which it appears:
-
-.. code-block::
+applies only to the action in the scope of which it appears::
 
     SELECT pos SELECT pos (AS ALTERNATIVE) FOR w WHERE text = "fly"
 
-Filters on the alternative themselves may be applied as expected using the WHERE clause:
-
-.. code-block::
+Filters on the alternative themselves may be applied as expected using the WHERE clause::
 
     SELECT pos (AS ALTERNATIVE WHERE confidence > 0.6) FOR w WHERE text = "fly"
 
 Note that filtering on the attributes of the annotation itself is outside of the scope of
-the AS clause:
-
-.. code-block::
+the AS clause::
 
     SELECT pos WHERE class = "n" (AS ALTERNATIVE WHERE confidence > 0.6) FOR w WHERE text = "fly"
 
 Corrections by definition are authoritative, so no special syntax is needed to
 obtain them. Assuming the part of speech tag is corrected, this will
-correctly obtain it, no AS clause is necessary:
-
-.. code-block::
+correctly obtain it, no AS clause is necessary::
 
     SELECT pos FOR w WHERE text = "fly"
 
 Adding *AS CORRECTION* will only enforce to return those that were actually
-corrected:
-
-.. code-block::
+corrected::
 
     SELECT pos (AS CORRECTION) FOR w WHERE text = "fly"
 
 However, if you want to obtain the original prior to correction, you can do so
-using *AS CORRECTION ORIGINAL*:
-
-.. code-block::
+using *AS CORRECTION ORIGINAL*::
 
     SELECT pos (AS CORRECTION ORIGINAL) FOR w WHERE text = "fly"
 
@@ -546,29 +451,21 @@ FoLiA does not just distinguish corrections, but also supports suggestions for
 correction. Envision a spelling checker suggesting output for misspelled
 words, but leaving it up to the user which of the suggestions to accept.
 Suggestions are not authoritative and can be obtained in a similar fashion
-by using the *SUGGESTION* keyword:
-
-.. code-block::
+by using the *SUGGESTION* keyword::
 
     SELECT pos (AS CORRECTION SUGGESTION) FOR w WHERE text = "fly"
 
 Note that *AS CORRECTION* may take the *OF* keyword to
-specify the correction set, they may also take a *WHERE* clause to filter:
-
-.. code-block::
+specify the correction set, they may also take a *WHERE* clause to filter::
 
     SELECT t (AS CORRECTION OF "some/correctionset" WHERE class = "confusible") FOR w
 
-The *SUGGESTION* keyword can take a WHERE filter too:
-
-.. code-block::
+The *SUGGESTION* keyword can take a WHERE filter too::
 
     SELECT t (AS CORRECTION OF "some/correctionset" WHERE class = "confusible" SUGGESTION WHERE confidence > 0.5) FOR w
 
 To add a suggestion for correction rather than an actual authoritative
-correction, you can do:
-
-.. code-block::
+correction, you can do::
 
     EDIT pos (AS CORRECTION OF "some/correctionset" WITH class "poscorrection" SUGGESTION class "n") FOR w ID some.word.1
 
@@ -577,47 +474,35 @@ purely a suggestion. The actual suggestion follows the *SUGGESTION*
 keyword.
 
 Any attributes associated with the suggestion can be set with a *WITH*
-statement after the suggestion:
-
-.. code-block::
+statement after the suggestion::
 
     EDIT pos (AS CORRECTION OF "some/correctionset" WITH class "poscorrection" SUGGESTION class "n" WITH confidence 0.8) FOR w ID some.word.1
 
 Even if a *WITH* statement is present for the action, making it an actual
-correction, you can still add suggestions:
-
-.. code-block::
+correction, you can still add suggestions::
 
     EDIT pos WITH class "v" (AS CORRECTION OF "some/correctionset" WITH class "poscorrection" SUGGESTION class "n" WITH confidence 0.8) FOR w ID some.word.1
 
-The *SUGGESTION* keyword can be chaineed to add multiple suggestions at once:
-
-.. code-block::
+The *SUGGESTION* keyword can be chaineed to add multiple suggestions at once::
 
     EDIT pos (AS CORRECTION OF "some/correctionset" WITH class "poscorrection"
     SUGGESTION class "n" WITH confidence 0.8
     SUGGESTION class "v" wITH confidence 0.2) FOR w ID some.word.1
 
-Another example in a spelling correction context:
-
-.. code-block::
+Another example in a spelling correction context::
 
     EDIT t (AS CORRECTION OF "some/correctionset" WITH class "spellingerror"
     SUGGESTION text "conscious" WITH confidence 0.8 SUGGESTION text "couscous" WITH confidence 0.2)
     FOR w WHERE text = "concous"
 
 A similar construction is available for alternatives as well. First we
-establish that the following two statements are identical:
-
-.. code-block::
+establish that the following two statements are identical::
 
     EDIT pos WHERE class = "n" WITH class "v" (AS ALTERNATIVE WITH confidence 0.6) FOR w WHERE text = "fly"
     EDIT pos WHERE class = "n" (AS ALTERNATIVE class "v" WITH confidence 0.6) FOR w WHERE text = "fly"
 
 Specifying multiple alternatives is then done by simply adding enother
-*ALTERNATIVE* clause:
-
-.. code-block::
+*ALTERNATIVE* clause::
 
     EDIT pos (AS ALTERNATIVE class "v" WITH confidence 0.6 ALTERNATIVE class "n" WITH confidence 0.4 ) FOR w WHERE text = "fly"
 
@@ -637,22 +522,16 @@ The most complex kind of corrections are splits and merges. A split separates a
 structure element such as a word into multiple, a merge unifies multiple
 structure elements into one.
 
-In FQL, this is achieved through substitution, using the action *SUBSTITUTE*:
-
-.. code-block::
+In FQL, this is achieved through substitution, using the action *SUBSTITUTE*::
 
     SUBSTITUTE w WITH text "together" FOR SPAN w WHERE text="to" & w WHERE text="gether"
 
-Subactions are common with SUBSTITUTE, the following is equivalent to the above:
-
-.. code-block::
+Subactions are common with SUBSTITUTE, the following is equivalent to the above::
 
     SUBSTITUTE w (ADD t WITH text "together") FOR SPAN w WHERE text="to" & w WHERE text="gether"
 
 To perform a split into multiple substitutes, simply chain the SUBSTITUTE
-clause:
-
-.. code-block::
+clause::
 
     SUBSTITUTE w WITH text "each" SUBSTITUTE w WITH TEXT "other" FOR w WHERE text="eachother"
 
@@ -660,26 +539,20 @@ Like *ADD*, both *SUBSTITUTE* may take assignments (*WITH*), but no filters (*WH
 
 You may have noticed that the merge and split examples were not corrections in
 the FoLiA-sense; the originals are removed and not preserved. Let's make it
-into proper corrections:
-
-.. code-block::
+into proper corrections::
 
     SUBSTITUTE w WITH text "together"
     (AS CORRECTION OF "some/correctionset" WITH class "spliterror")
     FOR SPAN w WHERE text="to" & w WHERE text="gether"
 
-And a split:
-
-.. code-block::
+And a split::
 
     SUBSTITUTE w WITH text "each" SUBSTITUTE w WITH text "other"
     (AS CORRECTION OF "some/correctionset WITH class "runonerror")
     FOR w WHERE text="eachother"
 
 To make this into a suggestion for correction instead, use the *SUGGESTION}
-folloed by  *SUBSTITUTE*,  inside the *AS* clause, where the chain of substitute statements has to be enclosed in parentheses:
-
-.. code-block::
+folloed by  *SUBSTITUTE*,  inside the *AS* clause, where the chain of substitute statements has to be enclosed in parentheses::
 
     SUBSTITUTE (AS CORRECTION OF "some/correctionset" WITH class "runonerror" SUGGESTION (SUBTITUTE w WITH text "each" SUBSTITUTE w WITH text "other") )
     FOR w WHERE text="eachother"
@@ -697,24 +570,18 @@ parentheses.
 For instance, consider a part-of-speech tagging scenario. If we have a word where
 the left neighbour is a determiner, and the right neighbour a noun, we can be
 pretty sure the word under our consideration (our target expression) is an
-adjective. Let's add the pos tag:
-
-.. code-block::
+adjective. Let's add the pos tag::
 
     EDIT pos WITH class = "adj" FOR w WHERE (PREVIOUS w WHERE (pos HAS class == "det")) AND (NEXT w WHERE (pos HAS class == "n"))
 
 You may append a number directly to the *PREVIOUS*/*NEXT* modifier if
 you're interested in further context, or you may use
 *LEFTCONTEXT*/*RIGHTCONTEXT*/*CONTEXT* if you don't care at what position
-something occurs:
-
-.. code-block::
+something occurs::
 
     EDIT pos WITH class = "adj" FOR w WHERE (PREVIOUS2 w WHERE (pos HAS class == "det")) AND (PREVIOUS w WHERE (pos HAS class == "adj")) AND (RIGHTCONTEXT w WHERE (pos HAS class == "n"))
 
-Instead of the *NEXT* and *PREVIOUS* keywords, a target expression can be used with the *SPAN* keyword and  the *&* operator:
-
-.. code-block::
+Instead of the *NEXT* and *PREVIOUS* keywords, a target expression can be used with the *SPAN* keyword and  the *&* operator::
 
     SELECT FOR SPAN w WHERE text = "the" & w WHERE (pos HAS class == "adj") & w WHERE text = "house"
 
@@ -722,9 +589,7 @@ Within a *SPAN* keyword, an *expansion expression* can be used to select
 any number, or a certain number, of elements. You can do this by appending
 curly braces after the element name (but not attached to it) and specifying the
 minimum and maximum number of elements. The following expression selects from
-zero up to three adjectives between the words *the* and *house*:
-
-.. code-block::
+zero up to three adjectives between the words *the* and *house*::
 
     SELECT FOR SPAN w WHERE text = "the" & w {0,3} WHERE (pos HAS class == "adj") & w WHERE text = "house"
 
@@ -739,34 +604,24 @@ server does not provide. You can therefore not do this real-time, but perhaps
 only as a first step to build an actual search index.
 
 Other modifiers are PARENT and and ANCESTOR. PARENT will at most go one element
-up, whereas ANCESTOR will go on to the largest element:
-
-.. code-block::
+up, whereas ANCESTOR will go on to the largest element::
 
     SELECT lemma FOR w WHERE (PARENT s WHERE  text CONTAINS "wine")
 
-Instead of *PARENT*, the use of a nested *FOR* is preferred and more efficient:
-
-.. code-block::
+Instead of *PARENT*, the use of a nested *FOR* is preferred and more efficient::
 
     SELECT lemma FOR w FOR s WHERE text CONTAINS "wine"
 
 Let's revisit syntax trees for a bit now we know how to obtain context. Imagine
-we want an NP to the left of a PP:
-
-.. code-block::
+we want an NP to the left of a PP::
 
     SELECT su WHERE class = "np" AND (NEXT su WHERE class = "pp")
 
-... and where the whole thing is part of a VP:
-
-.. code-block::
+... and where the whole thing is part of a VP::
 
     SELECT su WHERE class = "np" AND (NEXT su WHERE class = "pp") IN su WHERE class = "vp"
 
-... and return that whole tree rather than just the NP we were looking for:
-
-.. code-block::
+... and return that whole tree rather than just the NP we were looking for::
 
     SELECT su WHERE class = "np" AND (NEXT su WHERE class = "pp") IN su WHERE class = "vp" RETURN target
 
@@ -777,26 +632,20 @@ Shortcuts
 -----------
 
 Classes are prevalent all throughout FoLiA, it is very common to want to select
-on classes. To select words with pos tag ``n`` for example you can do:
-
-.. code-block::
+on classes. To select words with pos tag ``n`` for example you can do::
 
     SELECT w WHERE (pos HAS class = "n")
 
 Because this is so common, there is a shortcut. Specify the annotation type
 directly preceeded by a colon, and a HAS statement that matches on class will
-automatically be constructed:
-
-.. code-block::
+automatically be constructed::
 
     SELECT w WHERE :pos = "n"
 
 The two statements are completely equivalent.
 
 Another third alternative to obtain the same result set is to use a target
-expression:
-
-.. code-block::
+expression::
 
     SELECT pos WHERE class = "n" FOR w RETURN target
 
@@ -805,14 +654,10 @@ result set. Due to lazy evaluation in the FQL library, there is not much
 difference performance-wise.
 
 Another kind of shortcut exists for setting text on structural elements. The
-explicit procedure to add a word goes as follows:
-
-.. code-block::
+explicit procedure to add a word goes as follows::
 
     ADD w (ADD t WITH text "hello") IN ID some.sentence
 
-The shortcut is:
-
-.. code-block::
+The shortcut is::
 
     ADD w WITH text "hello" IN ID some.sentence
