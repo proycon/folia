@@ -30,7 +30,7 @@
           <w xml:id="example.p.1.s.1.w.2"><t>Dalai</t></w>
           <w xml:id="example.p.1.s.1.w.3"><t>Lama</t></w>
           <w xml:id="example.p.1.s.1.w.4"><t>greeted</t></w>
-          <w xml:id="example.p.1.s.1.w.5"><t>him</t></w>
+          <w xml:id="example.p.1.s.1.w.5" space="no"><t>him</t></w>
           <w xml:id="example.p.1.s.1.w.6"><t>.</t></w>
           <syntax>
             <su xml:id="example.p.1.s.1.su.1" class="s">

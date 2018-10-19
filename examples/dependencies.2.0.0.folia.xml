@@ -33,7 +33,7 @@
           <w xml:id="example.p.1.s.1.w.1"><t>De</t></w>
           <w xml:id="example.p.1.s.1.w.2"><t>man</t></w>
           <w xml:id="example.p.1.s.1.w.3"><t>begroette</t></w>
-          <w xml:id="example.p.1.s.1.w.4"><t>hem</t></w>
+          <w xml:id="example.p.1.s.1.w.4" space="no"><t>hem</t></w>
           <w xml:id="example.p.1.s.1.w.5"><t>.</t></w>
           <dependencies>
             <dependency xml:id="example.p.1.s.1.dependency.1" class="su">

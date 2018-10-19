@@ -35,7 +35,7 @@
       </morpheme>
      </morphology>
     </w>
-    <w xml:id="Xar.p.1.s.1.w.2">
+    <w xml:id="Xar.p.1.s.1.w.2" space="no">
      <t>مارتن</t>
      <ph>mārtin</ph>
      <pos class="noun_proper" />
@@ -57,7 +57,7 @@
      <ph>anā</ph>
      <pos class="pronoun_personal" />
     </w>
-    <w xml:id="Xar.p.1.s.2.w.2">
+    <w xml:id="Xar.p.1.s.2.w.2" space="no">
      <t>هولندي</t>
      <ph>hūlandī</ph>
      <pos class="adjective" />

@@ -30,7 +30,7 @@
           <w xml:id="example.p.1.s.1.w.2"><t>Dalai</t></w>
           <w xml:id="example.p.1.s.1.w.3"><t>Lama</t></w>
           <w xml:id="example.p.1.s.1.w.4"><t>greeted</t></w>
-          <w xml:id="example.p.1.s.1.w.5"><t>him</t></w>
+          <w xml:id="example.p.1.s.1.w.5" space="no"><t>him</t></w>
           <w xml:id="example.p.1.s.1.w.6"><t>.</t></w>
         </s>
         <s xml:id="example.p.1.s.2">
@@ -40,13 +40,13 @@
           <w xml:id="example.p.1.s.2.w.3"><t>happy</t></w>
           <w xml:id="example.p.1.s.2.w.4"><t>to</t></w>
           <w xml:id="example.p.1.s.2.w.5"><t>see</t></w>
-          <w xml:id="example.p.1.s.2.w.6"><t>him</t></w>
+          <w xml:id="example.p.1.s.2.w.6" space="no"><t>him</t></w>
           <w xml:id="example.p.1.s.2.w.7"><t>.</t></w>
         </s>
         <s xml:id="example.p.1.s.3">
           <t>He smiled.</t>
           <w xml:id="example.p.1.s.3.w.1"><t>He</t></w>
-          <w xml:id="example.p.1.s.3.w.2"><t>smiled</t></w>
+          <w xml:id="example.p.1.s.3.w.2" space="no"><t>smiled</t></w>
           <w xml:id="example.p.1.s.3.w.3"><t>.</t></w>
         </s>
         <coreferences>
