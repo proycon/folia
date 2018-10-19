@@ -14,7 +14,7 @@
       </token-annotation>
       <pos-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn">
 			 <annotator processor="p3.1" />
-       </pos-annotation>
+      </pos-annotation>
       <lemma-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mblem-nl">
 			 <annotator processor="p3.2" />
       </lemma-annotation>
@@ -28,7 +28,7 @@
            <processor xml:id="p3.2" name="mblem" version="1.1" />
        </processor>
     </provenance>
-    <meta language="nld" />
+    <meta id="language">nld</meta>
   </metadata>
   <text xml:id="example.deep.text">
       <s xml:id="example.deep.p.1.s.1">
