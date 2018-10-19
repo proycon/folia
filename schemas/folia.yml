@@ -709,6 +709,7 @@ elements:
                 xmltag: "ref"
                 label: "Reference"
                 accepted_data: [PhonContent, Paragraph, Quote, Sentence, String, TextContent, Utterance, Word, Linebreak, Whitespace]
+                xlink: true
           - class: Row
             properties:
                 textdelimiter: "\n"
