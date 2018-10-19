@@ -11,9 +11,9 @@
           <gap-annotation>
 			 <annotator processor="p1" />
 		  </gap-annotation>
-          <content-annotation>
+          <rawcontent-annotation>
 			 <annotator processor="p1" />
-		  </content-annotation>
+		  </rawcontent-annotation>
           <description-annotation>
 			 <annotator processor="p1" />
 		  </description-annotation>

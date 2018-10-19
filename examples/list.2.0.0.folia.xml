@@ -13,7 +13,7 @@
       </provenance>
   </metadata>
   <text xml:id="example.text">
-      <list xml_id="example.list.1">
+      <list xml:id="example.list.1">
           <item n="1">
              <w xml:id="example.list.1.item.1">
                 <t>Hello</t>

@@ -3784,6 +3784,22 @@ RelaxNG schema for FoLiA XML v2.0.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="href" ns="http://www.w3.org/1999/xlink"/>
+        <attribute name="type" ns="http://www.w3.org/1999/xlink"/>
+      </optional>
+      <optional>
+        <attribute name="role" ns="http://www.w3.org/1999/xlink"/>
+      </optional>
+      <optional>
+        <attribute name="title" ns="http://www.w3.org/1999/xlink"/>
+      </optional>
+      <optional>
+        <attribute name="label" ns="http://www.w3.org/1999/xlink"/>
+      </optional>
+      <optional>
+        <attribute name="show" ns="http://www.w3.org/1999/xlink"/>
+      </optional>
+      <optional>
         <attribute name="auth"/>
       </optional>
       <attribute name="id"/>

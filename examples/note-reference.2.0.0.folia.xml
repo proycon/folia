@@ -6,7 +6,6 @@
 			 <annotator processor="p1" />
           </text-annotation>
           <note-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/notes.foliaset.xml">
-">
 			 <annotator processor="p1" />
 		  </note-annotation>
           <reference-annotation>
