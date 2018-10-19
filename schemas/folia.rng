@@ -3802,7 +3802,9 @@ RelaxNG schema for FoLiA XML v2.0.0
       <optional>
         <attribute name="auth"/>
       </optional>
-      <attribute name="id"/>
+      <optional>
+          <attribute name="id"/>
+      </optional>
       <optional>
         <attribute name="type"/>
       </optional>
