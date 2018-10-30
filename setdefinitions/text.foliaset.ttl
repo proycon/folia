@@ -11,7 +11,7 @@ text:Set a skos:Collection ;
         text:original,
         text:ocr,
         text:translated,
-        text:normalised .
+        text:normalised ;
     skos:notation "text" .
 
 text:current a skos:Concept ;
