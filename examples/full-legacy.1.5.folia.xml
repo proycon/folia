@@ -140,12 +140,12 @@
           </syntax>
           <dependencies>
             <dependency xml:id="WR-P-E-J-0000000001.p.1.s.1.dep.1" class="su">
-              <hd>
-                <wref id="WR-P-E-J-0000000001.p.1.s.1.w.2" t="is"/>
-              </hd>
               <dep>
                 <wref id="WR-P-E-J-0000000001.p.1.s.1.w.1" t="Stemma"/>
               </dep>
+              <hd>
+                <wref id="WR-P-E-J-0000000001.p.1.s.1.w.2" t="is"/>
+              </hd>
             </dependency>
             <dependency xml:id="WR-P-E-J-0000000001.p.1.s.1.dep.2" class="predc">
               <hd>
@@ -156,28 +156,28 @@
               </dep>
             </dependency>
             <dependency xml:id="WR-P-E-J-0000000001.p.1.s.1.dep.3" class="det">
-              <hd>
-                <wref id="WR-P-E-J-0000000001.p.1.s.1.w.5" t="woord"/>
-              </hd>
               <dep>
                 <wref id="WR-P-E-J-0000000001.p.1.s.1.w.3" t="een"/>
               </dep>
-            </dependency>
-            <dependency xml:id="WR-P-E-J-0000000001.p.1.s.1.dep.4" class="mod">
               <hd>
                 <wref id="WR-P-E-J-0000000001.p.1.s.1.w.5" t="woord"/>
               </hd>
+            </dependency>
+            <dependency xml:id="WR-P-E-J-0000000001.p.1.s.1.dep.4" class="mod">
               <dep>
                 <wref id="WR-P-E-J-0000000001.p.1.s.1.w.4" t="ander"/>
               </dep>
-            </dependency>
-            <dependency xml:id="WR-P-E-J-0000000001.p.1.s.1.dep.5" class="mod">
               <hd>
                 <wref id="WR-P-E-J-0000000001.p.1.s.1.w.5" t="woord"/>
               </hd>
+            </dependency>
+            <dependency xml:id="WR-P-E-J-0000000001.p.1.s.1.dep.5" class="mod">
               <dep>
                 <wref id="WR-P-E-J-0000000001.p.1.s.1.w.6" t="voor"/>
               </dep>
+              <hd>
+                <wref id="WR-P-E-J-0000000001.p.1.s.1.w.5" t="woord"/>
+              </hd>
             </dependency>
             <dependency xml:id="WR-P-E-J-0000000001.p.1.s.1.dep.6" class="obj1">
               <hd>
@@ -1346,10 +1346,10 @@
               </w>
               <entities>
                 <entity xml:id="example.radboud.university.nijmegen.org" class="org" set="http://raw.github.com/proycon/folia/master/setdefinitions/namedentities.foliaset.xml">
+                  <comment annotator="proycon">This is our university!</comment>
                   <wref id="example.table.1.w.6" t="Radboud"/>
                   <wref id="example.table.1.w.7" t="University"/>
                   <wref id="example.table.1.w.8" t="Nijmegen"/>
-                  <comment annotator="proycon">This is our university!</comment>
                 </entity>
               </entities>
             </cell>
