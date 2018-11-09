@@ -204,7 +204,7 @@ resources, even in other formats. It thus allows linking resources together. Wit
         name: "Span Relation Annotation"
         description: "Span relations are a stand-off extension of relation annotation that allows for more complex relations, such as word alignments that include
 many-to-one, one-to-many or many-to-many alignments. One of its uses is in the alignment of multiple translations of (parts) of a text."
-        history: "since v0.8, renamed from complexalignment in v2.0",
+        history: "since v0.8, renamed from complexalignment in v2.0"
     coreference:
         name: "Coreference Annotation"
         description: "Relations between words that refer to the same referent (anaphora) are expressed in FoLiA using Coreference Annotation. The co-reference relations are expressed by specifying the entire chain in which all links are coreferent."
