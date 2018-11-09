@@ -172,12 +172,12 @@
               </hd>
             </dependency>
             <dependency xml:id="WR-P-E-J-0000000001.p.1.s.1.dep.5" class="mod">
-              <dep>
-                <wref id="WR-P-E-J-0000000001.p.1.s.1.w.6" t="voor"/>
-              </dep>
               <hd>
                 <wref id="WR-P-E-J-0000000001.p.1.s.1.w.5" t="woord"/>
               </hd>
+              <dep>
+                <wref id="WR-P-E-J-0000000001.p.1.s.1.w.6" t="voor"/>
+              </dep>
             </dependency>
             <dependency xml:id="WR-P-E-J-0000000001.p.1.s.1.dep.6" class="obj1">
               <hd>
