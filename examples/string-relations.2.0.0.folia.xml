@@ -11,9 +11,9 @@
           <string-annotation>
              <annotator processor="p1" />
           </string-annotation>
-          <alignment-annotation>
+          <relation-annotation>
              <annotator processor="p1" />
-          </alignment-annotation>
+          </relation-annotation>
       </annotations>
       <provenance>
          <processor xml:id="p1" name="proycon" type="manual" />
@@ -26,16 +26,16 @@
 
         <str xml:id="example.p.1.str.1">
             <t offset="0">Hello.</t>
-            <alignment>
-                <aref id="example.p.1.str.2" type="str" />
-            </alignment>
+            <relation>
+                <xref id="example.p.1.str.2" type="str" />
+            </relation>
         </str>
 
         <str xml:id="example.p.1.str.2">
             <t class="ocroutput" offset="0">Hell0</t>
-            <alignment>
-                <aref id="example.p.1.str.1" type="str" />
-            </alignment>
+            <relation>
+                <xref id="example.p.1.str.1" type="str" />
+            </relation>
         </str>
      </p>
   </text>

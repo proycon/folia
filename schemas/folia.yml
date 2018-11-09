@@ -73,7 +73,7 @@ attributes_doc:
         group: speech
 
 #All possible annotation types, each must be declared in the FoLiA header when used
-annotationtype: [ TEXT, TOKEN, DIVISION, PARAGRAPH, HEAD, LIST, FIGURE, WHITESPACE, LINEBREAK, SENTENCE, POS, LEMMA, DOMAIN, SENSE, SYNTAX, CHUNKING, ENTITY, CORRECTION, ERRORDETECTION, PHON, SUBJECTIVITY, MORPHOLOGICAL, EVENT, DEPENDENCY, TIMESEGMENT, GAP, QUOTE, NOTE, REFERENCE, ALIGNMENT, COMPLEXALIGNMENT, COREFERENCE, SEMROLE, METRIC, LANG, STRING, TABLE, STYLE, PART, UTTERANCE, ENTRY, TERM, DEFINITION, EXAMPLE, PHONOLOGICAL, PREDICATE, OBSERVATION, SENTIMENT, STATEMENT, ALTERNATIVE, RAWCONTENT, COMMENT, DESCRIPTION ]
+annotationtype: [ TEXT, TOKEN, DIVISION, PARAGRAPH, HEAD, LIST, FIGURE, WHITESPACE, LINEBREAK, SENTENCE, POS, LEMMA, DOMAIN, SENSE, SYNTAX, CHUNKING, ENTITY, CORRECTION, ERRORDETECTION, PHON, SUBJECTIVITY, MORPHOLOGICAL, EVENT, DEPENDENCY, TIMESEGMENT, GAP, QUOTE, NOTE, REFERENCE, RELATION, COMPLEXRELATION, COREFERENCE, SEMROLE, METRIC, LANG, STRING, TABLE, STYLE, PART, UTTERANCE, ENTRY, TERM, DEFINITION, EXAMPLE, PHONOLOGICAL, PREDICATE, OBSERVATION, SENTIMENT, STATEMENT, ALTERNATIVE, RAWCONTENT, COMMENT, DESCRIPTION ]
 
 #Documentation of annotation types (reStructuredText)
 annotationtype_doc:
@@ -195,16 +195,16 @@ in books are for example front-matter and back-matter, i.e. the cover."
         name: "Reference Annotation"
         description: "Structural annotation for referring to other annotation types. Used e.g. for referring to bibliography entries (citations) and footnotes."
         history: "Since v0.11, external references since v1.2"
-    alignment:
-        name: "Alignment Annotation"
-        description: "FoLiA provides a facility to align parts of your document with other parts of your document, or even with parts of other FoLiA documents or external
-resources, even in other formats. It thus allows linking resources together. We call this *alignments*. Within this context, the ``aref`` element is used to refer to the aligned FoLiA elements."
-        history: "Revised since v0.8"
-    complexalignment:
-        name: "Complex Alignments"
-        description: "Complex alignments are a stand-off extension of alignment annotation that allows for more complex alignments, such as word alignments that include
+    relation: #used to be alignment in FoLiA < 2
+        name: "Relation Annotation"
+        description: "FoLiA provides a facility to relate arbitrary parts of your document with other parts of your document, or even with parts of other FoLiA documents or external
+resources, even in other formats. It thus allows linking resources together. Within this context, the ``xref`` element is used to refer to the linked FoLiA elements."
+        history: "Revised since v0.8, renamed from alignment in v2.0"
+    spanrelation: #used to be complexalignment
+        name: "Span Relation Annotation"
+        description: "Span relations are a stand-off extension of relation annotation that allows for more complex relations, such as word alignments that include
 many-to-one, one-to-many or many-to-many alignments. One of its uses is in the alignment of multiple translations of (parts) of a text."
-        history: "since v0.8"
+        history: "since v0.8, renamed from complexalignment in v2.0",
     coreference:
         name: "Coreference Annotation"
         description: "Relations between words that refer to the same referent (anaphora) are expressed in FoLiA using Coreference Annotation. The co-reference relations are expressed by specifying the entire chain in which all links are coreferent."
@@ -365,11 +365,11 @@ elements:
                 xmltag: "chunking"
                 annotationtype: CHUNKING
                 primaryelement: false
-          - class: ComplexAlignmentLayer
+          - class: SpanRelationLayer
             properties:
-                accepted_data: [ ComplexAlignment]
-                xmltag: "complexalignments"
-                annotationtype: COMPLEXALIGNMENT
+                accepted_data: [ SpanRelation]
+                xmltag: "spanrelations"
+                annotationtype: SPANRELATION
                 primaryelement: false
           - class: CoreferenceLayer
             properties:
@@ -471,12 +471,12 @@ elements:
           printable: true
           speakable: true
           optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, TEXTCLASS, METADATA ]
-          accepted_data: [ Metric, Alignment, ForeignData, AlignReference ]
+          accepted_data: [ Metric, Relation, ForeignData, LinkReference ]
       elements:
           - class: AbstractSpanRole
             properties:
                 optional_attribs: [ ID, ANNOTATOR, N, DATETIME ]
-                accepted_data: [ Feature, WordReference, AlignReference]
+                accepted_data: [ Feature, WordReference, LinkReference]
             elements:
                 - class: CoreferenceLink
                   properties:
@@ -586,7 +586,7 @@ elements:
           textdelimiter: "\n\n"
           speakable: true
           optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
-          accepted_data: [AbstractAnnotationLayer, Alignment, Alternative, AlternativeLayers, Correction, Feature, Metric, Part, ForeignData]
+          accepted_data: [AbstractAnnotationLayer, Relation, Alternative, AlternativeLayers, Correction, Feature, Metric, Part, ForeignData]
           auto_generate_id: true
       elements:
           - class: Caption
@@ -652,7 +652,7 @@ elements:
                 label: "Head"
           - class: Label
             properties:
-                accepted_data: [ Word, Reference, TextContent, PhonContent, String, Alignment, Metric, Alternative, Alternative, AlternativeLayers, AbstractAnnotationLayer, AbstractInlineAnnotation, Correction, Part, Linebreak, Whitespace ]
+                accepted_data: [ Word, Reference, TextContent, PhonContent, String, Relation, Metric, Alternative, Alternative, AlternativeLayers, AbstractAnnotationLayer, AbstractInlineAnnotation, Correction, Part, Linebreak, Whitespace ]
                 xmltag: "label"
                 label: "Label"
           - class: Linebreak
@@ -666,7 +666,7 @@ elements:
             properties:
                 annotationtype: LIST
                 textdelimiter: "\n\n"
-                accepted_data: [AbstractInlineAnnotation, Alignment, Caption, Event, ListItem, Metric, Note, PhonContent, Reference, String, TextContent]
+                accepted_data: [AbstractInlineAnnotation, Relation, Caption, Event, ListItem, Metric, Note, PhonContent, Reference, String, TextContent]
                 xmltag: "list"
                 label: "List"
           - class: ListItem
@@ -781,7 +781,7 @@ elements:
           textdelimiter: "\n\n"
           speakable: true
           optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
-          accepted_data: [AbstractAnnotationLayer, Alignment, Alternative, AlternativeLayers, Correction, Feature, Metric, Part, ForeignData]
+          accepted_data: [AbstractAnnotationLayer, Relation, Alternative, AlternativeLayers, Correction, Feature, Metric, Part, ForeignData]
           auto_generate_id: true
       elements:
           - class: Morpheme
@@ -885,17 +885,17 @@ elements:
           required_attribs: null
           optional_attribs: null
       elements:
-        - class: Alignment
+        - class: Relation
           properties:
-              annotationtype: ALIGNMENT
+              annotationtype: RELATION
               speakable: false
               optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
               printable: false
               required_attribs: null
               xlink: true
-              accepted_data: [ AlignReference, Metric, Feature, ForeignData ]
-              xmltag: "alignment"
-              label: "Alignment"
+              accepted_data: [ LinkReference, Metric, Feature, ForeignData ]
+              xmltag: "relation"
+              label: "Relation"
         - class: Alternative
           properties:
               annotationtype: ALTERNATIVE
@@ -919,16 +919,16 @@ elements:
               auth: false
               xmltag: "altlayers"
               label: "Alternative Layers"
-        - class: ComplexAlignment
+        - class: SpanRelation
           properties:
-              annotationtype: COMPLEXALIGNMENT
+              annotationtype: SPANRELATION
               speakable: false
               optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
               printable: false
               required_attribs: null
-              accepted_data: [ Alignment, Metric, Feature, ForeignData ]
-              xmltag: "complexalignment"
-              label: "Complex Alignment"
+              accepted_data: [ Relation, Metric, Feature, ForeignData ]
+              xmltag: "spanrelation"
+              label: "Span Relation"
         - class: Correction
           properties:
               annotationtype: CORRECTION
@@ -1033,7 +1033,7 @@ elements:
               optional_attribs: [ ID, CLASS, ANNOTATOR, CONFIDENCE, DATETIME, N, SRC, BEGINTIME, ENDTIME, METADATA ]
               occurrences: 0
               printable: true
-              accepted_data: [AbstractInlineAnnotation, Alignment, Correction, Feature, ForeignData, Metric, PhonContent, TextContent]
+              accepted_data: [AbstractInlineAnnotation, Relation, Correction, Feature, ForeignData, Metric, PhonContent, TextContent]
               xmltag: "str"
               label: "String"
         - class: ForeignData
@@ -1081,9 +1081,9 @@ elements:
     - class: WordReference
       properties:
           xmltag: "wref"
-    - class: AlignReference
+    - class: LinkReference #used to be AlignReference in FoLiA < 2
       properties:
-          xmltag: "aref"
+          xmltag: "xref"
 
 #Default ignore list for the select() method, do not descend into these
 default_ignore: [ Original, Suggestion, Alternative, AlternativeLayers, ForeignData ]
@@ -1096,3 +1096,9 @@ default_ignore_structure: [ Original, Suggestion, Alternative, AlternativeLayers
 
 #Structure scope above the sentence level, used by next() and previous() methods
 structurescope: [ Sentence, Paragraph, Division, ListItem, Text, Event, Caption, Head ]
+
+#This maps some old XML tags to new ones
+oldtags:
+    aref: xref #folia 1.5 -> 2
+    alignment: relation #folia 1.5 -> 2
+    complexalignment: spanrelation #folia 1.5 -> 2
