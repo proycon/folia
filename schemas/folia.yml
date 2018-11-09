@@ -495,9 +495,9 @@ elements:
                       xmltag: "hd"
                       label: "Head"
                       occurrences: 1
-                - class: Relation
+                - class: StatementRelation
                   properties:
-                      xmltag: "relation"
+                      xmltag: "rel"
                       label: "Relation"
                       occurrences: 1
                 - class: Source
@@ -564,7 +564,7 @@ elements:
           - class: Statement
             properties:
                 annotationtype: STATEMENT
-                accepted_data: [ Feature, Headspan, Relation, Source, WordReference ]
+                accepted_data: [ Feature, Headspan, StatementRelation, Source, WordReference ]
                 xmltag: "statement"
                 label: "Statement"
           - class: SyntacticUnit

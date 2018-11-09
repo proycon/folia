@@ -44,9 +44,9 @@
         <wref id="s1.w6" />
         <wref id="s1.w7" />
        </hd>
-       <relation>
+       <rel>
          <wref id="s1.w2" />
-       </relation>
+       </rel>
       </statement>
      </statements>
     </s>
