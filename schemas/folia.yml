@@ -1103,3 +1103,4 @@ oldtags:
     alignment: relation #folia 1.5 -> 2
     complexalignment: spanrelation #folia 1.5 -> 2
     complexalignments: spanrelations #(the layer)
+    listitem: item #folia < 0.12?
