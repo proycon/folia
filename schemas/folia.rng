@@ -882,7 +882,65 @@ RelaxNG schema for FoLiA XML v2.0.0
                   </element>
                 </zeroOrMore>
               </element>
+              <element name="relation-annotation">
+                <optional>
+                  <attribute name="set">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="annotator">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="annotatortype">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="datetime">
+                    <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <zeroOrMore>
+                  <element name="annotator">
+                    <attribute name="processor">
+                      <data type="IDREF" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                    </attribute>
+                  </element>
+                </zeroOrMore>
+              </element>
               <element name="alignment-annotation">
+                <optional>
+                  <attribute name="set">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="annotator">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="annotatortype">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="datetime">
+                    <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <zeroOrMore>
+                  <element name="annotator">
+                    <attribute name="processor">
+                      <data type="IDREF" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                    </attribute>
+                  </element>
+                </zeroOrMore>
+              </element>
+              <element name="spanrelation-annotation">
                 <optional>
                   <attribute name="set">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
@@ -2752,6 +2810,9 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="observations"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="spanrelations"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="complexalignments"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -2872,9 +2933,6 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="text"/>
         </zeroOrMore>
         <zeroOrMore>
-          <ref name="alignment"/>
-        </zeroOrMore>
-        <zeroOrMore>
           <ref name="alt"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -2900,6 +2958,12 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="ph"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="t"/>
@@ -3133,13 +3197,13 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="observations"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="spanrelations"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="complexalignments"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="timing"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="alt"/>
@@ -3167,6 +3231,12 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="part"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
       </interleave>
     </element>
@@ -3277,13 +3347,13 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="observations"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="spanrelations"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="complexalignments"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="timing"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="alt"/>
@@ -3311,6 +3381,12 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="part"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
       </interleave>
     </element>
@@ -3427,6 +3503,9 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="observations"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="spanrelations"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="complexalignments"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -3452,9 +3531,6 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="subjectivity"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="alt"/>
@@ -3488,6 +3564,12 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="ref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="str"/>
@@ -3687,9 +3769,6 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="subjectivity"/>
         </zeroOrMore>
         <zeroOrMore>
-          <ref name="alignment"/>
-        </zeroOrMore>
-        <zeroOrMore>
           <ref name="comment"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -3709,6 +3788,12 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="ph"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="t"/>
@@ -3803,7 +3888,7 @@ RelaxNG schema for FoLiA XML v2.0.0
         <attribute name="auth"/>
       </optional>
       <optional>
-          <attribute name="id"/>
+        <attribute name="id"/>
       </optional>
       <optional>
         <attribute name="type"/>
@@ -3847,13 +3932,13 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="observations"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="spanrelations"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="complexalignments"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="timing"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="alt"/>
@@ -3895,6 +3980,12 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="quote"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="s"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -3917,8 +4008,8 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define name="aref" ns="http://ilk.uvt.nl/folia">
-    <element name="aref">
+  <define name="xref" ns="http://ilk.uvt.nl/folia">
+    <element name="xref">
       <attribute name="id">
         <text/>
       </attribute>
@@ -3936,15 +4027,15 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="alignment" ns="http://ilk.uvt.nl/folia">
-    <element name="alignment">
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="relation" ns="http://ilk.uvt.nl/folia">
+    <element name="relation">
       <a:documentation>
-    The Alignment element is a form of higher-order annotation taht is used to point to an external resource.
+    The Relation element is a form of higher-order annotation taht is used to point to an external resource.
 
     It concerns references as annotation rather than references which are
     explicitly part of the text, such as hyperlinks and :class:`Reference`.
 
-    Inside the Alignment element, the :class:`AlignReference` element may be used to point to specific elements (multiple denotes a span).
+    Inside the Relation element, the :class:`LinkReference` element may be used to point to specific elements (multiple denotes a span).
     </a:documentation>
       <optional>
         <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
@@ -4033,9 +4124,6 @@ RelaxNG schema for FoLiA XML v2.0.0
       <ref name="allow_foreign_attributes"/>
       <interleave>
         <zeroOrMore>
-          <ref name="aref"/>
-        </zeroOrMore>
-        <zeroOrMore>
           <ref name="comment"/>
         </zeroOrMore>
         <optional>
@@ -4046,6 +4134,12 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="foreign-data"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="xref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="aref"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="metric"/>
@@ -4236,7 +4330,7 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="target"/>
         </optional>
         <optional>
-          <ref name="relation"/>
+          <ref name="rel"/>
         </optional>
         <zeroOrMore>
           <ref name="dependency"/>
@@ -4437,7 +4531,7 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="target"/>
         </optional>
         <optional>
-          <ref name="relation"/>
+          <ref name="rel"/>
         </optional>
         <zeroOrMore>
           <ref name="dependency"/>
@@ -4639,7 +4733,7 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="target"/>
         </optional>
         <optional>
-          <ref name="relation"/>
+          <ref name="rel"/>
         </optional>
         <zeroOrMore>
           <ref name="dependency"/>
@@ -4844,7 +4938,7 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="target"/>
         </optional>
         <optional>
-          <ref name="relation"/>
+          <ref name="rel"/>
         </optional>
         <zeroOrMore>
           <ref name="dependency"/>
@@ -5329,6 +5423,9 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="observations"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="spanrelations"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="complexalignments"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -5450,12 +5547,6 @@ RelaxNG schema for FoLiA XML v2.0.0
       <ref name="allow_foreign_attributes"/>
       <interleave>
         <zeroOrMore>
-          <ref name="aref"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
-        </zeroOrMore>
-        <zeroOrMore>
           <ref name="comment"/>
         </zeroOrMore>
         <optional>
@@ -5468,7 +5559,19 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="foreign-data"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="xref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="aref"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="metric"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="su"/>
@@ -5555,12 +5658,6 @@ RelaxNG schema for FoLiA XML v2.0.0
       <ref name="allow_foreign_attributes"/>
       <interleave>
         <zeroOrMore>
-          <ref name="aref"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
-        </zeroOrMore>
-        <zeroOrMore>
           <ref name="comment"/>
         </zeroOrMore>
         <optional>
@@ -5573,7 +5670,19 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="foreign-data"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="xref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="aref"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="metric"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="wref"/>
@@ -5657,12 +5766,6 @@ RelaxNG schema for FoLiA XML v2.0.0
       <ref name="allow_foreign_attributes"/>
       <interleave>
         <zeroOrMore>
-          <ref name="aref"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
-        </zeroOrMore>
-        <zeroOrMore>
           <ref name="comment"/>
         </zeroOrMore>
         <optional>
@@ -5675,7 +5778,19 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="foreign-data"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="xref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="aref"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="metric"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="wref"/>
@@ -5726,12 +5841,6 @@ RelaxNG schema for FoLiA XML v2.0.0
       <ref name="allow_foreign_attributes"/>
       <interleave>
         <zeroOrMore>
-          <ref name="aref"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
-        </zeroOrMore>
-        <zeroOrMore>
           <ref name="comment"/>
         </zeroOrMore>
         <optional>
@@ -5744,7 +5853,19 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="foreign-data"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="xref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="aref"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="metric"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="wref"/>
@@ -5793,12 +5914,6 @@ RelaxNG schema for FoLiA XML v2.0.0
       <ref name="allow_foreign_attributes"/>
       <interleave>
         <zeroOrMore>
-          <ref name="aref"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
-        </zeroOrMore>
-        <zeroOrMore>
           <ref name="comment"/>
         </zeroOrMore>
         <optional>
@@ -5811,7 +5926,19 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="foreign-data"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="xref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="aref"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="metric"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="wref"/>
@@ -5858,12 +5985,6 @@ RelaxNG schema for FoLiA XML v2.0.0
       <ref name="allow_foreign_attributes"/>
       <interleave>
         <zeroOrMore>
-          <ref name="aref"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
-        </zeroOrMore>
-        <zeroOrMore>
           <ref name="comment"/>
         </zeroOrMore>
         <optional>
@@ -5876,7 +5997,19 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="foreign-data"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="xref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="aref"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="metric"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="wref"/>
@@ -5923,12 +6056,6 @@ RelaxNG schema for FoLiA XML v2.0.0
       <ref name="allow_foreign_attributes"/>
       <interleave>
         <zeroOrMore>
-          <ref name="aref"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
-        </zeroOrMore>
-        <zeroOrMore>
           <ref name="comment"/>
         </zeroOrMore>
         <optional>
@@ -5941,7 +6068,19 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="foreign-data"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="xref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="aref"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="metric"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="wref"/>
@@ -5951,8 +6090,8 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="relation" ns="http://ilk.uvt.nl/folia">
-    <element name="relation">
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="rel" ns="http://ilk.uvt.nl/folia">
+    <element name="rel">
       <a:documentation>The relation span role is used to mark the relation between the content of a statement and its source in a :class:`Statement`</a:documentation>
       <optional>
         <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
@@ -5988,12 +6127,6 @@ RelaxNG schema for FoLiA XML v2.0.0
       <ref name="allow_foreign_attributes"/>
       <interleave>
         <zeroOrMore>
-          <ref name="aref"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
-        </zeroOrMore>
-        <zeroOrMore>
           <ref name="comment"/>
         </zeroOrMore>
         <optional>
@@ -6006,7 +6139,19 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="foreign-data"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="xref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="aref"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="metric"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="wref"/>
@@ -6090,12 +6235,6 @@ RelaxNG schema for FoLiA XML v2.0.0
       <ref name="allow_foreign_attributes"/>
       <interleave>
         <zeroOrMore>
-          <ref name="aref"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
-        </zeroOrMore>
-        <zeroOrMore>
           <ref name="comment"/>
         </zeroOrMore>
         <ref name="dep"/>
@@ -6110,7 +6249,19 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <ref name="hd"/>
         <zeroOrMore>
+          <ref name="xref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="aref"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="metric"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
       </interleave>
     </element>
@@ -6163,12 +6314,6 @@ RelaxNG schema for FoLiA XML v2.0.0
       </optional>
       <interleave>
         <zeroOrMore>
-          <ref name="aref"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
-        </zeroOrMore>
-        <zeroOrMore>
           <ref name="comment"/>
         </zeroOrMore>
         <optional>
@@ -6184,7 +6329,19 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="hd"/>
         </optional>
         <zeroOrMore>
+          <ref name="xref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="aref"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="metric"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="wref"/>
@@ -6268,12 +6425,6 @@ RelaxNG schema for FoLiA XML v2.0.0
       <ref name="allow_foreign_attributes"/>
       <interleave>
         <zeroOrMore>
-          <ref name="aref"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
-        </zeroOrMore>
-        <zeroOrMore>
           <ref name="comment"/>
         </zeroOrMore>
         <oneOrMore>
@@ -6289,7 +6440,19 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="foreign-data"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="xref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="aref"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="metric"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
       </interleave>
     </element>
@@ -6368,12 +6531,6 @@ RelaxNG schema for FoLiA XML v2.0.0
       <ref name="allow_foreign_attributes"/>
       <interleave>
         <zeroOrMore>
-          <ref name="aref"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
-        </zeroOrMore>
-        <zeroOrMore>
           <ref name="comment"/>
         </zeroOrMore>
         <optional>
@@ -6389,7 +6546,19 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="hd"/>
         </optional>
         <zeroOrMore>
+          <ref name="xref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="aref"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="metric"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="wref"/>
@@ -6473,12 +6642,6 @@ RelaxNG schema for FoLiA XML v2.0.0
       <ref name="allow_foreign_attributes"/>
       <interleave>
         <zeroOrMore>
-          <ref name="aref"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
-        </zeroOrMore>
-        <zeroOrMore>
           <ref name="comment"/>
         </zeroOrMore>
         <optional>
@@ -6491,7 +6654,19 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="foreign-data"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="xref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="aref"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="metric"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="semrole"/>
@@ -6584,12 +6759,6 @@ RelaxNG schema for FoLiA XML v2.0.0
       </optional>
       <interleave>
         <zeroOrMore>
-          <ref name="aref"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
-        </zeroOrMore>
-        <zeroOrMore>
           <ref name="comment"/>
         </zeroOrMore>
         <optional>
@@ -6605,7 +6774,19 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="hd"/>
         </optional>
         <zeroOrMore>
+          <ref name="xref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="aref"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="metric"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <optional>
           <ref name="source"/>
@@ -6695,12 +6876,6 @@ RelaxNG schema for FoLiA XML v2.0.0
       <ref name="allow_foreign_attributes"/>
       <interleave>
         <zeroOrMore>
-          <ref name="aref"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
-        </zeroOrMore>
-        <zeroOrMore>
           <ref name="comment"/>
         </zeroOrMore>
         <optional>
@@ -6716,13 +6891,25 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="hd"/>
         </optional>
         <zeroOrMore>
+          <ref name="xref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="aref"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="metric"/>
         </zeroOrMore>
-        <optional>
+        <zeroOrMore>
           <ref name="relation"/>
-        </optional>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
+        </zeroOrMore>
         <optional>
           <ref name="source"/>
+        </optional>
+        <optional>
+          <ref name="rel"/>
         </optional>
         <zeroOrMore>
           <ref name="wref"/>
@@ -6806,12 +6993,6 @@ RelaxNG schema for FoLiA XML v2.0.0
       <ref name="allow_foreign_attributes"/>
       <interleave>
         <zeroOrMore>
-          <ref name="aref"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
-        </zeroOrMore>
-        <zeroOrMore>
           <ref name="comment"/>
         </zeroOrMore>
         <optional>
@@ -6824,7 +7005,19 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="foreign-data"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="xref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="aref"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="metric"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="wref"/>
@@ -6834,9 +7027,9 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="complexalignment" ns="http://ilk.uvt.nl/folia">
-    <element name="complexalignment">
-      <a:documentation>Complex Alignment</a:documentation>
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="spanrelation" ns="http://ilk.uvt.nl/folia">
+    <element name="spanrelation">
+      <a:documentation>Span Relation</a:documentation>
       <optional>
         <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
           <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
@@ -6905,9 +7098,6 @@ RelaxNG schema for FoLiA XML v2.0.0
       <ref name="allow_foreign_attributes"/>
       <interleave>
         <zeroOrMore>
-          <ref name="alignment"/>
-        </zeroOrMore>
-        <zeroOrMore>
           <ref name="comment"/>
         </zeroOrMore>
         <optional>
@@ -6921,6 +7111,12 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="metric"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
       </interleave>
     </element>
@@ -7034,6 +7230,9 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="observations"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="spanrelations"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="complexalignments"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -7059,9 +7258,6 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="subjectivity"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="alt"/>
@@ -7095,6 +7291,12 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="ph"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="str"/>
@@ -7214,6 +7416,9 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="observations"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="spanrelations"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="complexalignments"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -7239,9 +7444,6 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="subjectivity"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="alt"/>
@@ -7275,6 +7477,12 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="phoneme"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="str"/>
@@ -8082,8 +8290,8 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="complexalignments" ns="http://ilk.uvt.nl/folia">
-    <element name="complexalignments">
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="spanrelations" ns="http://ilk.uvt.nl/folia">
+    <element name="spanrelations">
       <a:documentation>Complex alignment layer</a:documentation>
       <optional>
         <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
@@ -8138,9 +8346,6 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="comment"/>
         </zeroOrMore>
         <zeroOrMore>
-          <ref name="complexalignment"/>
-        </zeroOrMore>
-        <zeroOrMore>
           <ref name="correction"/>
         </zeroOrMore>
         <optional>
@@ -8148,6 +8353,12 @@ RelaxNG schema for FoLiA XML v2.0.0
         </optional>
         <zeroOrMore>
           <ref name="foreign-data"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="spanrelation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="complexalignment"/>
         </zeroOrMore>
       </interleave>
     </element>
@@ -8625,6 +8836,9 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="observations"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="spanrelations"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="complexalignments"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -8650,9 +8864,6 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="subjectivity"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="alt"/>
@@ -8704,6 +8915,12 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="ref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="s"/>
@@ -8835,6 +9052,9 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="observations"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="spanrelations"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="complexalignments"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -8860,9 +9080,6 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="subjectivity"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="alt"/>
@@ -8908,6 +9125,12 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="ref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="s"/>
@@ -9039,6 +9262,9 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="observations"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="spanrelations"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="complexalignments"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -9064,9 +9290,6 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="subjectivity"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="alt"/>
@@ -9118,6 +9341,12 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="ref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="s"/>
@@ -9249,6 +9478,9 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="observations"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="spanrelations"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="complexalignments"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -9274,9 +9506,6 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="subjectivity"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="alt"/>
@@ -9322,6 +9551,12 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="ref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="s"/>
@@ -9453,13 +9688,13 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="observations"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="spanrelations"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="complexalignments"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="timing"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="alt"/>
@@ -9493,6 +9728,12 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="part"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="term"/>
@@ -9585,12 +9826,6 @@ RelaxNG schema for FoLiA XML v2.0.0
       </optional>
       <interleave>
         <zeroOrMore>
-          <ref name="aref"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
-        </zeroOrMore>
-        <zeroOrMore>
           <ref name="comment"/>
         </zeroOrMore>
         <optional>
@@ -9603,7 +9838,19 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="foreign-data"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="xref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="aref"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="metric"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="wref"/>
@@ -9974,13 +10221,13 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="observations"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="spanrelations"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="complexalignments"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="timing"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="alt"/>
@@ -10023,6 +10270,12 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="ref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="s"/>
@@ -10148,6 +10401,9 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="observations"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="spanrelations"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="complexalignments"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -10173,9 +10429,6 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="subjectivity"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="alt"/>
@@ -10230,6 +10483,12 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="ref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="str"/>
@@ -10352,6 +10611,9 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="observations"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="spanrelations"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="complexalignments"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -10377,9 +10639,6 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="subjectivity"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="alt"/>
@@ -10422,6 +10681,12 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="ref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="s"/>
@@ -10553,6 +10818,9 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="observations"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="spanrelations"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="complexalignments"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -10578,9 +10846,6 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="subjectivity"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="alt"/>
@@ -10650,6 +10915,12 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="ref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="s"/>
@@ -10771,6 +11042,9 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="observations"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="spanrelations"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="complexalignments"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -10796,9 +11070,6 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="subjectivity"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="alt"/>
@@ -10838,6 +11109,12 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="ref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="s"/>
@@ -10960,6 +11237,9 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="observations"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="spanrelations"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="complexalignments"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -10985,9 +11265,6 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="subjectivity"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="alt"/>
@@ -11024,6 +11301,12 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="ref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="str"/>
@@ -11136,6 +11419,9 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="observations"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="spanrelations"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="complexalignments"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -11161,9 +11447,6 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="subjectivity"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="alt"/>
@@ -11218,6 +11501,12 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="ref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="s"/>
@@ -11333,6 +11622,9 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="observations"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="spanrelations"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="complexalignments"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -11358,9 +11650,6 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="subjectivity"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="alt"/>
@@ -11415,6 +11704,12 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="ref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="s"/>
@@ -11540,6 +11835,9 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="observations"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="spanrelations"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="complexalignments"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -11565,9 +11863,6 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="subjectivity"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="alt"/>
@@ -11616,6 +11911,12 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="ref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="str"/>
@@ -11732,13 +12033,13 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="observations"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="spanrelations"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="complexalignments"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="timing"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="alt"/>
@@ -11769,6 +12070,12 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="part"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="s"/>
@@ -11890,6 +12197,9 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="observations"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="spanrelations"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="complexalignments"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -11915,9 +12225,6 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="subjectivity"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="alt"/>
@@ -11960,6 +12267,12 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="ref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="s"/>
@@ -12085,6 +12398,9 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="observations"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="spanrelations"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="complexalignments"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -12110,9 +12426,6 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="subjectivity"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="alt"/>
@@ -12176,6 +12489,12 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="ref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="s"/>
@@ -12291,6 +12610,9 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="observations"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="spanrelations"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="complexalignments"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -12316,9 +12638,6 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="subjectivity"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="alt"/>
@@ -12373,6 +12692,12 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="ref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="s"/>
@@ -12498,6 +12823,9 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="observations"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="spanrelations"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="complexalignments"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -12523,9 +12851,6 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="subjectivity"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="alt"/>
@@ -12556,6 +12881,12 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="part"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
       </interleave>
     </element>
@@ -12656,6 +12987,9 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="observations"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="spanrelations"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="complexalignments"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -12683,9 +13017,6 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="subjectivity"/>
         </zeroOrMore>
         <zeroOrMore>
-          <ref name="alignment"/>
-        </zeroOrMore>
-        <zeroOrMore>
           <ref name="alt"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -12711,6 +13042,12 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="part"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="row"/>
@@ -12824,6 +13161,9 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="observations"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="spanrelations"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="complexalignments"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -12851,9 +13191,6 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="subjectivity"/>
         </zeroOrMore>
         <zeroOrMore>
-          <ref name="alignment"/>
-        </zeroOrMore>
-        <zeroOrMore>
           <ref name="alt"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -12879,6 +13216,12 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="part"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="row"/>
@@ -12995,6 +13338,9 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="observations"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="spanrelations"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="complexalignments"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -13020,9 +13366,6 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="subjectivity"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="alt"/>
@@ -13092,6 +13435,12 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="ref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="s"/>
@@ -13217,6 +13566,9 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="observations"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="spanrelations"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="complexalignments"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -13242,9 +13594,6 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="subjectivity"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="alt"/>
@@ -13308,6 +13657,12 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="ref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="s"/>
@@ -13433,6 +13788,9 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="observations"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="spanrelations"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="complexalignments"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -13458,9 +13816,6 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="subjectivity"/>
-        </zeroOrMore>
-        <zeroOrMore>
-          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="alt"/>
@@ -13530,6 +13885,12 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="ref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="s"/>

@@ -2,9 +2,7 @@
 <FoLiA xmlns="http://ilk.uvt.nl/folia" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.5" xml:id="example-english">
   <metadata>
       <annotations>
-          <token-annotation set="https://raw.githubusercontent.com/LanguageMachines/uctodata/master/setdefinitions/tokconfig-eng.foliaset.ttl">
-             <annotator processor="p1" />
-          </token-annotation>
+          <token-annotation set="https://raw.githubusercontent.com/LanguageMachines/uctodata/master/setdefinitions/tokconfig-eng.foliaset.ttl"/>
           <alignment-annotation set="ad-hoc-translation-set" />
           <complexalignment-annotation />
       </annotations>
