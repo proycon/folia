@@ -27,10 +27,10 @@ Global variables
 -------------------
 
 * ``SET variable$=$value`` - Sets global variables that apply to all statements that follow. String values need to be in double quotes. Available variables are:
-  * ``annotator`` - The name of the annotator
-  * ``annotatortype`` - The type of the annotator, can be *auto* or *manual*
+  * ``processor`` - The ID of the processor
+  * ``annotator`` - The name of the annotator (the use of ``processor`` is preferred!)
+  * ``annotatortype`` - The type of the annotator, can be *auto* or *manual* (the use of ``processor`` is preferred!)
 
-.. todo:: add processor
 
 Usually your queries on a particular annotation type are limited to one
 specific set. To prevent having to enter the set explicitly in your queries,
@@ -40,6 +40,27 @@ you can set defaults. The annotation type corresponds to a FoLiA element::
 
 If the FoLiA document only has one set of that type anyway, then this is not even
 necessary and the default will be automatically set.
+
+Provenance
+----------------
+
+To make use of FoLiA's ability to register :ref:`provenance_data`, you need to define a processor as follows::
+
+    PROCESSOR id = "p0" name = "mytool" type = "auto"
+
+If you do not specify an ID manually one will be generated automatically. If the ID already exists, the existing one
+will be selected and modified. Any subsequent queries will be made using this processor.
+
+To add subprocessors under the currently selected processor, use ``SUBPROCESSOR`` instead of ``PROCESSOR``. The
+subprocessor will again be automatically selected for all subsequent queries (except it it has ``type = "generator"``). Example::
+
+    PROCESSOR name = "annotationtool" type = "auto"
+    SUBPROCESSOR name = "john doe" type = "manual"
+
+You can select the parent processor again with the ``PARENTPROCESSOR`` directive (or if you know the ID you can use
+``PROCESSOR id = "id"``), multiple calls to ``SUBPROCESSOR``
+would cause ever deeper nesting.
+
 
 Declarations
 ----------------
@@ -54,15 +75,26 @@ the annotation type you want to declare, this represented the tag of the
 respective FoLiA annotation element::
 
     DECLARE entity OF "https://github.com/proycon/folia/blob/master/setdefinitions/namedentities.foliaset.xml"
-    WITH annotator = "me" annotatortype = "manual"
 
-Note that the statement must be on one single line, it is split here only for ease of
-presentation.
-
-The *WITH* clause is optional, the set following the *OF* keyword is mandatory.
+The *WITH* clause is optional, the set following the *OF* keyword is mandatory for annotation types where you use a set.
 
 Declarations may be chained, i.e. multiple *DECLARE* statements may be issued
 on one line, as well as prepended to action statements (see next section).
+
+
+.. note::
+
+    If you don't intend to use FoLiA v2's provenance mechanism, i.e. processors, then you can declare default annotators
+    and annotator types the old way::
+
+        DECLARE entity OF "https://github.com/proycon/folia/blob/master/setdefinitions/namedentities.foliaset.xml"
+        WITH annotator = "me" annotatortype = "manual"
+
+    Note that the statement must be on one single line, it is split here only for ease of
+    presentation.
+
+
+
 
 
 .. _fel_actions:
