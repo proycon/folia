@@ -34,7 +34,7 @@ Specification
                       * ``begintime`` -- A timestamp in ``HH:MM:SS.MMM`` format, indicating the begin time of the speech. If a sound clip is specified (``src``); the timestamp refers to a location in the soundclip.
                       * ``endtime`` -- A timestamp in ``HH:MM:SS.MMM`` format, indicating the end time of the speech. If a sound clip is specified (``src``); the timestamp refers to a location in the soundclip.
                       * ``speaker`` -- A string identifying the speaker. This attribute is inheritable. Multiple speakers are not allowed, simply do not specify a speaker on a certain level if you are unable to link the speech to a specific (single) speaker.
-:Accepted Data: ``<alignment>`` (:ref:`alignment_annotation`), ``<comment>`` (:ref:`comment_annotation`), ``<coreferencelink>`` (:ref:`coreference_annotation`), ``<desc>`` (:ref:`description_annotation`), ``<metric>`` (:ref:`metric_annotation`)
+:Accepted Data: ``<comment>`` (:ref:`comment_annotation`), ``<coreferencelink>`` (:ref:`coreference_annotation`), ``<desc>`` (:ref:`description_annotation`), ``<metric>`` (:ref:`metric_annotation`), ``<relation>`` (:ref:`relation_annotation`)
 :Valid Context: ``<coreferences>`` (:ref:`coreference_annotation`)
 
 Explanation
