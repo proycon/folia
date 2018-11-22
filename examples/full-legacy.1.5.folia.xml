@@ -1249,10 +1249,6 @@
                     <source>
                         <wref id="WR-P-E-J-0000000001.sandbox.2.s.2.w.1" t="Hij" />
                     </source>
-                    <relation>
-                        <wref id="WR-P-E-J-0000000001.sandbox.2.s.2.w.2" t="had" />
-                        <wref id="WR-P-E-J-0000000001.sandbox.2.s.2.w.3" t="beloofd" />
-                    </relation>
                     <hd>
                         <wref id="WR-P-E-J-0000000001.sandbox.2.s.2.w.5" t="hij" />
                         <wref id="WR-P-E-J-0000000001.sandbox.2.s.2.w.6" t="zou" />

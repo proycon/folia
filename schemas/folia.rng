@@ -4027,8 +4027,149 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
+  <define name="aref" ns="http://ilk.uvt.nl/folia">
+    <element name="aref">
+      <attribute name="id">
+        <text/>
+      </attribute>
+      <optional>
+        <attribute name="t">
+          <text/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="type">
+          <text/>
+        </attribute>
+      </optional>
+    </element>
+  </define>
+
+
   <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="relation" ns="http://ilk.uvt.nl/folia">
     <element name="relation">
+      <a:documentation>
+    The Relation element is a form of higher-order annotation taht is used to point to an external resource.
+
+    It concerns references as annotation rather than references which are
+    explicitly part of the text, such as hyperlinks and :class:`Reference`.
+
+    Inside the Relation element, the :class:`LinkReference` element may be used to point to specific elements (multiple denotes a span).
+    </a:documentation>
+      <optional>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="annotatortype"/>
+      </optional>
+      <optional>
+        <attribute name="processor">
+          <data type="IDREF" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="confidence">
+          <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="datetime">
+          <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="begintime"/>
+      </optional>
+      <optional>
+        <attribute name="endtime"/>
+      </optional>
+      <optional>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="metadata"/>
+      </optional>
+      <optional>
+        <attribute name="href" ns="http://www.w3.org/1999/xlink"/>
+        <attribute name="type" ns="http://www.w3.org/1999/xlink"/>
+      </optional>
+      <optional>
+        <attribute name="role" ns="http://www.w3.org/1999/xlink"/>
+      </optional>
+      <optional>
+        <attribute name="title" ns="http://www.w3.org/1999/xlink"/>
+      </optional>
+      <optional>
+        <attribute name="label" ns="http://www.w3.org/1999/xlink"/>
+      </optional>
+      <optional>
+        <attribute name="show" ns="http://www.w3.org/1999/xlink"/>
+      </optional>
+      <optional>
+        <attribute name="auth"/>
+      </optional>
+      <optional>
+        <attribute name="format"/>
+      </optional>
+      <ref name="allow_foreign_attributes"/>
+      <interleave>
+        <zeroOrMore>
+          <ref name="comment"/>
+        </zeroOrMore>
+        <optional>
+          <ref name="desc"/>
+        </optional>
+        <zeroOrMore>
+          <ref name="feat"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="foreign-data"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="xref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="aref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="metric"/>
+        </zeroOrMore>
+      </interleave>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="alignment" ns="http://ilk.uvt.nl/folia">
+    <element name="alignment">
       <a:documentation>
     The Relation element is a form of higher-order annotation taht is used to point to an external resource.
 
@@ -7123,6 +7264,102 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="complexalignment" ns="http://ilk.uvt.nl/folia">
+    <element name="complexalignment">
+      <a:documentation>Span Relation</a:documentation>
+      <optional>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="annotatortype"/>
+      </optional>
+      <optional>
+        <attribute name="processor">
+          <data type="IDREF" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="confidence">
+          <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="datetime">
+          <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="begintime"/>
+      </optional>
+      <optional>
+        <attribute name="endtime"/>
+      </optional>
+      <optional>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="metadata"/>
+      </optional>
+      <optional>
+        <attribute name="auth"/>
+      </optional>
+      <ref name="allow_foreign_attributes"/>
+      <interleave>
+        <zeroOrMore>
+          <ref name="comment"/>
+        </zeroOrMore>
+        <optional>
+          <ref name="desc"/>
+        </optional>
+        <zeroOrMore>
+          <ref name="feat"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="foreign-data"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="metric"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
+        </zeroOrMore>
+      </interleave>
+    </element>
+  </define>
+
+
   <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="morpheme" ns="http://ilk.uvt.nl/folia">
     <element name="morpheme">
       <a:documentation>Morpheme element, represents one morpheme in morphological analysis, subtoken annotation element to be used in :class:`MorphologyLayer`</a:documentation>
@@ -8292,7 +8529,82 @@ RelaxNG schema for FoLiA XML v2.0.0
 
   <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="spanrelations" ns="http://ilk.uvt.nl/folia">
     <element name="spanrelations">
-      <a:documentation>Complex alignment layer</a:documentation>
+      <a:documentation>Span Relation Layer: Annotation layer for :class:`SpanRelation`</a:documentation>
+      <optional>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="annotatortype"/>
+      </optional>
+      <optional>
+        <attribute name="processor">
+          <data type="IDREF" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="confidence">
+          <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="datetime">
+          <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="textclass"/>
+      </optional>
+      <optional>
+        <attribute name="metadata"/>
+      </optional>
+      <optional>
+        <attribute name="auth"/>
+      </optional>
+      <optional>
+        <attribute name="set">
+          <text/>
+        </attribute>
+      </optional>
+      <ref name="allow_foreign_attributes"/>
+      <interleave>
+        <zeroOrMore>
+          <ref name="comment"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="correction"/>
+        </zeroOrMore>
+        <optional>
+          <ref name="desc"/>
+        </optional>
+        <zeroOrMore>
+          <ref name="foreign-data"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="spanrelation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="complexalignment"/>
+        </zeroOrMore>
+      </interleave>
+    </element>
+  </define>
+
+
+  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="complexalignments" ns="http://ilk.uvt.nl/folia">
+    <element name="complexalignments">
+      <a:documentation>Span Relation Layer: Annotation layer for :class:`SpanRelation`</a:documentation>
       <optional>
         <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
           <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
