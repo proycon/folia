@@ -7,6 +7,9 @@ FoLiA: Format for Linguistic Annotation
 .. image:: http://applejack.science.ru.nl/lamabadge.php/folia
    :target: http://applejack.science.ru.nl/languagemachines/
 
+.. image:: https://zenodo.org/badge/1948022.svg
+   :target: https://zenodo.org/badge/latestdoi/1948022
+
 *by Maarten van Gompel, Radboud University Nijmegen*
 
 https://proycon.github.io/folia

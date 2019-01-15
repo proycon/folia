@@ -58,7 +58,7 @@ subprocessor will again be automatically selected for all subsequent queries (ex
     SUBPROCESSOR name = "john doe" type = "manual"
 
 You can select the parent processor again with the ``PARENTPROCESSOR`` directive (or if you know the ID you can use
-``PROCESSOR id = "id"``), multiple calls to ``SUBPROCESSOR``
+``PROCESSOR id = "id"``), be aware that multiple calls to ``SUBPROCESSOR``
 would cause ever deeper nesting.
 
 
