@@ -353,6 +353,7 @@ defaultproperties:
     primaryelement: true #Is this the primary element for the advertised annotation type?
     auto_generate_id: false #Automatically generate an ID if none was provided?
     setonly: false #States that the element may take a set property only, and not a class property
+    wrefable: false #Indicates whether this element is referable as a token/word (applies only to a very select few elements, such as w, morpheme, and phoneme)
 
 elements:
     - class: AbstractAnnotationLayer
@@ -778,6 +779,7 @@ elements:
                 label: "Word/Token"
                 textdelimiter: " " #may be overriden and set to "" if attribute space="no" is set on the word
                 optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, TEXTCLASS, METADATA ]
+                wrefable: true
     - class: AbstractSubtokenAnnotation
       properties:
           printable: true
@@ -795,6 +797,7 @@ elements:
                 label: "Morpheme"
                 textdelimiter: ""
                 accepted_data: [AbstractInlineAnnotation, FunctionFeature, Morpheme, PhonContent, String, TextContent]
+                wrefable: true
           - class: Phoneme
             properties:
                 annotationtype: PHONOLOGICAL
@@ -802,6 +805,7 @@ elements:
                 label: "Phoneme"
                 textdelimiter: ""
                 accepted_data: [AbstractInlineAnnotation, FunctionFeature, PhonContent, Phoneme, String, TextContent]
+                wrefable: true
     - class: AbstractTextMarkup
       properties:
           textcontainer: true
