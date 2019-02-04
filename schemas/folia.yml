@@ -12,7 +12,7 @@ setdefinitionnamespace: "http://folia.science.ru.nl/setdefinition"
 
 #all possible common FoLiA attributes
 #(@annotatortype and @processor are subsumed under ANNOTATOR)
-attributes: [ ID, CLASS, ANNOTATOR, CONFIDENCE, N, DATETIME, BEGINTIME, ENDTIME, SRC, SPEAKER, TEXTCLASS, METADATA ]
+attributes: [ ID, CLASS, ANNOTATOR, CONFIDENCE, N, DATETIME, BEGINTIME, ENDTIME, SRC, SPEAKER, TEXTCLASS, METADATA, IDREF ]
 
 attributes_doc:
     id:
@@ -71,6 +71,10 @@ attributes_doc:
         name: "speaker"
         description: "A string identifying the speaker. This attribute is inheritable. Multiple speakers are not allowed, simply do not specify a speaker on a certain level if you are unable to link the speech to a specific (single) speaker."
         group: speech
+    idref:
+        name: "id"
+        description: "A reference to the ID of another element. This is a refernce and not an assignment, unlike xml:id, so do not confuse the two!"
+        group: core
 
 #All possible annotation types, each must be declared in the FoLiA header when used
 annotationtype: [ TEXT, TOKEN, DIVISION, PARAGRAPH, HEAD, LIST, FIGURE, WHITESPACE, LINEBREAK, SENTENCE, POS, LEMMA, DOMAIN, SENSE, SYNTAX, CHUNKING, ENTITY, CORRECTION, ERRORDETECTION, PHON, SUBJECTIVITY, MORPHOLOGICAL, EVENT, DEPENDENCY, TIMESEGMENT, GAP, QUOTE, NOTE, REFERENCE, RELATION, SPANRELATION, COREFERENCE, SEMROLE, METRIC, LANG, STRING, TABLE, STYLE, PART, UTTERANCE, ENTRY, TERM, DEFINITION, EXAMPLE, PHONOLOGICAL, PREDICATE, OBSERVATION, SENTIMENT, STATEMENT, ALTERNATIVE, RAWCONTENT, COMMENT, DESCRIPTION ]
@@ -1080,9 +1084,11 @@ elements:
               label: "Raw Content"
     - class: WordReference
       properties:
+          optional_attribs: [ IDREF ]
           xmltag: "wref"
     - class: LinkReference #used to be AlignReference in FoLiA < 2
       properties:
+          optional_attribs: [ IDREF ]
           xmltag: "xref"
 
 #Default ignore list for the select() method, do not descend into these
