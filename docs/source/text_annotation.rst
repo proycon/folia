@@ -17,7 +17,7 @@ Specification
 :Version History: Since the beginning, revised since v0.6
 :**Element**: ``<t>``
 :API Class: ``TextContent``
-:Required Attributes: 
+:Required Attributes:
 :Optional Attributes: * ``set`` -- The set of the element, ideally a URI linking to a set definition (see :ref:`set_definitions`) or otherwise a uniquely identifying string. The ``set`` must be referred to also in the :ref:`annotation_declarations` for this annotation type.
                       * ``class`` -- The class of the annotation, i.e. the annotation tag in the vocabulary defined by ``set``.
                       * ``processor`` -- This refers to the ID of a processor in the :ref:`provenance_data`. The processor in turn defines exactly who or what was the annotator of the annotation.
@@ -175,7 +175,7 @@ It is possible to associate **multiple text content elements** with the same
 structural element, and thus associating multiple texts with the same element. You may
 wonder what could possibly be the point of such extra complexity. But there is
 a clear use case when dealing with for example corrections, or wanting to
-associate the text version just prior or after a processing step such as
+associate the text version just after a processing step such as
 Optical Character Recognition or any another kind of normalisation.
 
 Text annotation, like most forms of annotations in FoLiA, is bound to the same paradigm of sets and classes. You can
