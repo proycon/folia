@@ -288,7 +288,7 @@ content elements must carry a different class. This indicates an alternative tex
 instance for pre-OCR vs. post-OCR or pre-normalisation vs. post-normalisation distinctions, or for
 transliterations.
 
-When adding linguistic annotations on a structure element that has multiple text representations, it may be desireable
+When adding linguistic annotations on a structure element that has multiple text representations, it may be desirable
 to explicitly state which text class was used in establishing the annotation. This is done with the ``textclass``
 attribute on any token or span annotation element. By default, this attribute is omitted, which implies it points to the
 default ``current`` text class.
