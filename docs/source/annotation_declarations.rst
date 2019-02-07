@@ -26,7 +26,7 @@ with the suffix ``-annotations`` and take the following attributes:
   closure, but limit it to only shallow validation.
   Some annotation types also work without an associated vocabulary, and for some they are optional, on such declarations the ``set`` attribute is not used or optional.
 * ``format`` - Set definitions can be stored in several formats, the format may be indicated (not mandatory) by the
-``format`` attribute on each declaration, its value should be a MIME type.
+  ``format`` attribute on each declaration, its value should be a MIME type.
 * ``alias`` - This is an optional attribute that specifies an alias for the set, this is useful in case an annotation
   type occurs multiple times with distinct sets, in which case individual annotation needs to explicitly mention the set
   but referring to sets by long URLs gets cumbersome. In such cases annotations can use the alias instead of the full
