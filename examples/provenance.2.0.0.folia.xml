@@ -3,6 +3,9 @@
 <FoLiA xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://ilk.uvt.nl/folia" xml:id="untitled" generator="manual" version="2.0.0">
   <metadata type="native">
     <annotations>
+      <text-annotation set="https://github.com/proycon/folia/blob/master/setdefinitions/text.foliaset.ttl"/>
+      <paragraph-annotation />
+      <sentence-annotation />
       <token-annotation set="tokconfig-nl">
           <annotator processor="p0" />
       </token-annotation>
