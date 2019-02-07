@@ -17,7 +17,7 @@ Specification
 :Version History: since v0.9.1
 :**Element**: ``<str>``
 :API Class: ``String``
-:Required Attributes: 
+:Required Attributes:
 :Optional Attributes: * ``xml:id`` -- The ID of the element; this has to be a unique in the entire document or collection of documents (corpus). All identifiers in FoLiA are of the `XML NCName <https://www.w3.org/TR/1999/WD-xmlschema-2-19990924/#NCName>`_ datatype, which roughly means it is a unique string that has to start with a letter (not a number or symbol), may contain numers, but may never contain colons or spaces. FoLiA does not define any naming convention for IDs.
                       * ``set`` -- The set of the element, ideally a URI linking to a set definition (see :ref:`set_definitions`) or otherwise a uniquely identifying string. The ``set`` must be referred to also in the :ref:`annotation_declarations` for this annotation type.
                       * ``class`` -- The class of the annotation, i.e. the annotation tag in the vocabulary defined by ``set``.
@@ -74,7 +74,7 @@ In the above example, the ``id`` parameter (distinct from ``xml:id``!) on ``<t-s
 element, showing how the two elements can be used in combination.
 
 One of the features of ``<str>`` is that you can put :ref:`inline_annotation_category` in its scope, so you can
-associate e.g. PoS tags and lemmas with substrings in special cases where you might need to do this. Do not that this is
+associate e.g. PoS tags and lemmas with substrings in special cases where you might need to do this. Do note that this is
 **NOT** a substitute or alternative for proper tokenisation (:ref:`token_annotation`), nor :ref:`morphological_annotation`!
 
 String elements are a form of higher-order annotation, they are similar to structure annotation but carry several
@@ -112,7 +112,7 @@ substrings as well. Consider the following example with three text layers, from 
         </str>
      </p>
 
-Instead of three seperate substrings, we can also opt for a single one. Which solution is right for you depends on your own use case:
+Instead of three separate substrings, we can also opt for a single one. Which solution is right for you depends on your own use case:
 
 .. code-block:: xml
 
@@ -128,7 +128,7 @@ Instead of three seperate substrings, we can also opt for a single one. Which so
         </str>
      </p>
 
-Or, if you do want seperate strings but you also want to make the relation between them very explicit, then you can
+Or, if you do want separate strings but you also want to make the relation between them very explicit, then you can
 resort to :ref:`alignment_annotation` as shown in the next example:
 
 .. code-block:: xml
