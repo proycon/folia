@@ -161,6 +161,6 @@ Example
 
 The following examples combines various aspects discussed in this section:
 
-.. literalinclude:: ../../examples/strings-alignments.2.0.0.folia.xml
+.. literalinclude:: ../../examples/string-relations.2.0.0.folia.xml
     :linenos:
     :language: xml
