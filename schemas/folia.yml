@@ -482,6 +482,7 @@ elements:
             properties:
                 optional_attribs: [ ID, ANNOTATOR, N, DATETIME ]
                 accepted_data: [ Feature, WordReference, LinkReference]
+                primaryelement: false
             elements:
                 - class: CoreferenceLink
                   properties:
@@ -495,26 +496,31 @@ elements:
                       xmltag: "dep"
                       label: "Dependent"
                       occurrences: 1
+                      primaryelement: false
                 - class: Headspan
                   properties:
                       xmltag: "hd"
                       label: "Head"
                       occurrences: 1
+                      primaryelement: false
                 - class: StatementRelation
                   properties:
                       xmltag: "rel"
                       label: "Relation"
                       occurrences: 1
+                      primaryelement: false
                 - class: Source
                   properties:
                       xmltag: "source"
                       label: "Source"
                       occurrences: 1
+                      primaryelement: false
                 - class: Target
                   properties:
                       xmltag: "target"
                       label: "Target"
                       occurrences: 1
+                      primaryelement: false
           - class: Chunk
             properties:
                 annotationtype: CHUNKING
