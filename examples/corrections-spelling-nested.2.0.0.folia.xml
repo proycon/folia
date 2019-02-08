@@ -5,6 +5,9 @@
       <token-annotation>
           <annotator processor="p1" />
       </token-annotation>
+      <sentence-annotation>
+          <annotator processor="p1" />
+      </sentence-annotation>
       <text-annotation>
           <annotator processor="p1" />
       </text-annotation>

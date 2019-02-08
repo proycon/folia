@@ -8,6 +8,9 @@
           <sentence-annotation>
 			 <annotator processor="p1" />
 		  </sentence-annotation>
+          <linebreak-annotation>
+			 <annotator processor="p1" />
+		  </linebreak-annotation>
           <part-annotation>
 			 <annotator processor="p1" />
 		  </part-annotation>

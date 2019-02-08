@@ -8,7 +8,7 @@
           <division-annotation set="https://raw.githubusercontent.com/LanguageMachines/uctodata/master/setdefinitions/divisions.foliaset.xml">
 			 <annotator processor="p1" />
 		  </division-annotation>
-          <gap-annotation>
+          <gap-annotation set="adhoc">
 			 <annotator processor="p1" />
 		  </gap-annotation>
           <rawcontent-annotation>
