@@ -1,4 +1,4 @@
-<grammar xmlns:folia="http://ilk.uvt.nl/folia" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+<grammar xmlns:a="http://relaxng.org/ns/annotation/0.9" xmlns:folia="http://ilk.uvt.nl/folia" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
 <!--
 RelaxNG schema for FoLiA XML v2.0.0
     by Maarten van Gompel
@@ -48,6 +48,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                   </attribute>
                 </optional>
                 <optional>
+                  <attribute name="alias">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
                   <attribute name="annotator">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
@@ -73,6 +78,11 @@ RelaxNG schema for FoLiA XML v2.0.0
               <element name="token-annotation">
                 <optional>
                   <attribute name="set">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="alias">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
@@ -106,6 +116,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                   </attribute>
                 </optional>
                 <optional>
+                  <attribute name="alias">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
                   <attribute name="annotator">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
@@ -131,6 +146,11 @@ RelaxNG schema for FoLiA XML v2.0.0
               <element name="paragraph-annotation">
                 <optional>
                   <attribute name="set">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="alias">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
@@ -164,6 +184,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                   </attribute>
                 </optional>
                 <optional>
+                  <attribute name="alias">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
                   <attribute name="annotator">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
@@ -189,6 +214,11 @@ RelaxNG schema for FoLiA XML v2.0.0
               <element name="list-annotation">
                 <optional>
                   <attribute name="set">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="alias">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
@@ -222,6 +252,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                   </attribute>
                 </optional>
                 <optional>
+                  <attribute name="alias">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
                   <attribute name="annotator">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
@@ -247,6 +282,11 @@ RelaxNG schema for FoLiA XML v2.0.0
               <element name="whitespace-annotation">
                 <optional>
                   <attribute name="set">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="alias">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
@@ -280,6 +320,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                   </attribute>
                 </optional>
                 <optional>
+                  <attribute name="alias">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
                   <attribute name="annotator">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
@@ -305,6 +350,11 @@ RelaxNG schema for FoLiA XML v2.0.0
               <element name="sentence-annotation">
                 <optional>
                   <attribute name="set">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="alias">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
@@ -338,6 +388,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                   </attribute>
                 </optional>
                 <optional>
+                  <attribute name="alias">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
                   <attribute name="annotator">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
@@ -363,6 +418,11 @@ RelaxNG schema for FoLiA XML v2.0.0
               <element name="lemma-annotation">
                 <optional>
                   <attribute name="set">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="alias">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
@@ -396,6 +456,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                   </attribute>
                 </optional>
                 <optional>
+                  <attribute name="alias">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
                   <attribute name="annotator">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
@@ -421,6 +486,11 @@ RelaxNG schema for FoLiA XML v2.0.0
               <element name="sense-annotation">
                 <optional>
                   <attribute name="set">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="alias">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
@@ -454,6 +524,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                   </attribute>
                 </optional>
                 <optional>
+                  <attribute name="alias">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
                   <attribute name="annotator">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
@@ -479,6 +554,11 @@ RelaxNG schema for FoLiA XML v2.0.0
               <element name="chunking-annotation">
                 <optional>
                   <attribute name="set">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="alias">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
@@ -512,6 +592,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                   </attribute>
                 </optional>
                 <optional>
+                  <attribute name="alias">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
                   <attribute name="annotator">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
@@ -537,6 +622,11 @@ RelaxNG schema for FoLiA XML v2.0.0
               <element name="correction-annotation">
                 <optional>
                   <attribute name="set">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="alias">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
@@ -570,6 +660,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                   </attribute>
                 </optional>
                 <optional>
+                  <attribute name="alias">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
                   <attribute name="annotator">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
@@ -595,6 +690,11 @@ RelaxNG schema for FoLiA XML v2.0.0
               <element name="phon-annotation">
                 <optional>
                   <attribute name="set">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="alias">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
@@ -628,6 +728,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                   </attribute>
                 </optional>
                 <optional>
+                  <attribute name="alias">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
                   <attribute name="annotator">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
@@ -653,6 +758,11 @@ RelaxNG schema for FoLiA XML v2.0.0
               <element name="morphological-annotation">
                 <optional>
                   <attribute name="set">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="alias">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
@@ -686,6 +796,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                   </attribute>
                 </optional>
                 <optional>
+                  <attribute name="alias">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
                   <attribute name="annotator">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
@@ -711,6 +826,11 @@ RelaxNG schema for FoLiA XML v2.0.0
               <element name="dependency-annotation">
                 <optional>
                   <attribute name="set">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="alias">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
@@ -744,6 +864,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                   </attribute>
                 </optional>
                 <optional>
+                  <attribute name="alias">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
                   <attribute name="annotator">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
@@ -769,6 +894,11 @@ RelaxNG schema for FoLiA XML v2.0.0
               <element name="gap-annotation">
                 <optional>
                   <attribute name="set">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="alias">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
@@ -802,6 +932,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                   </attribute>
                 </optional>
                 <optional>
+                  <attribute name="alias">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
                   <attribute name="annotator">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
@@ -827,6 +962,11 @@ RelaxNG schema for FoLiA XML v2.0.0
               <element name="note-annotation">
                 <optional>
                   <attribute name="set">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="alias">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
@@ -860,6 +1000,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                   </attribute>
                 </optional>
                 <optional>
+                  <attribute name="alias">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
                   <attribute name="annotator">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
@@ -885,6 +1030,11 @@ RelaxNG schema for FoLiA XML v2.0.0
               <element name="relation-annotation">
                 <optional>
                   <attribute name="set">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="alias">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
@@ -918,6 +1068,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                   </attribute>
                 </optional>
                 <optional>
+                  <attribute name="alias">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
                   <attribute name="annotator">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
@@ -943,6 +1098,11 @@ RelaxNG schema for FoLiA XML v2.0.0
               <element name="spanrelation-annotation">
                 <optional>
                   <attribute name="set">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="alias">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
@@ -976,6 +1136,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                   </attribute>
                 </optional>
                 <optional>
+                  <attribute name="alias">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
                   <attribute name="annotator">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
@@ -1001,6 +1166,11 @@ RelaxNG schema for FoLiA XML v2.0.0
               <element name="coreference-annotation">
                 <optional>
                   <attribute name="set">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="alias">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
@@ -1034,6 +1204,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                   </attribute>
                 </optional>
                 <optional>
+                  <attribute name="alias">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
                   <attribute name="annotator">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
@@ -1059,6 +1234,11 @@ RelaxNG schema for FoLiA XML v2.0.0
               <element name="metric-annotation">
                 <optional>
                   <attribute name="set">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="alias">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
@@ -1092,6 +1272,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                   </attribute>
                 </optional>
                 <optional>
+                  <attribute name="alias">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
                   <attribute name="annotator">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
@@ -1117,6 +1302,11 @@ RelaxNG schema for FoLiA XML v2.0.0
               <element name="string-annotation">
                 <optional>
                   <attribute name="set">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="alias">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
@@ -1150,6 +1340,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                   </attribute>
                 </optional>
                 <optional>
+                  <attribute name="alias">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
                   <attribute name="annotator">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
@@ -1175,6 +1370,11 @@ RelaxNG schema for FoLiA XML v2.0.0
               <element name="style-annotation">
                 <optional>
                   <attribute name="set">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="alias">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
@@ -1208,6 +1408,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                   </attribute>
                 </optional>
                 <optional>
+                  <attribute name="alias">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
                   <attribute name="annotator">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
@@ -1233,6 +1438,11 @@ RelaxNG schema for FoLiA XML v2.0.0
               <element name="utterance-annotation">
                 <optional>
                   <attribute name="set">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="alias">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
@@ -1266,6 +1476,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                   </attribute>
                 </optional>
                 <optional>
+                  <attribute name="alias">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
                   <attribute name="annotator">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
@@ -1291,6 +1506,11 @@ RelaxNG schema for FoLiA XML v2.0.0
               <element name="term-annotation">
                 <optional>
                   <attribute name="set">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="alias">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
@@ -1324,6 +1544,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                   </attribute>
                 </optional>
                 <optional>
+                  <attribute name="alias">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
                   <attribute name="annotator">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
@@ -1349,6 +1574,11 @@ RelaxNG schema for FoLiA XML v2.0.0
               <element name="example-annotation">
                 <optional>
                   <attribute name="set">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="alias">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
@@ -1382,6 +1612,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                   </attribute>
                 </optional>
                 <optional>
+                  <attribute name="alias">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
                   <attribute name="annotator">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
@@ -1407,6 +1642,11 @@ RelaxNG schema for FoLiA XML v2.0.0
               <element name="predicate-annotation">
                 <optional>
                   <attribute name="set">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="alias">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
@@ -1440,6 +1680,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                   </attribute>
                 </optional>
                 <optional>
+                  <attribute name="alias">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
                   <attribute name="annotator">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
@@ -1465,6 +1710,11 @@ RelaxNG schema for FoLiA XML v2.0.0
               <element name="sentiment-annotation">
                 <optional>
                   <attribute name="set">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="alias">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
@@ -1498,6 +1748,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                   </attribute>
                 </optional>
                 <optional>
+                  <attribute name="alias">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
                   <attribute name="annotator">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
@@ -1523,6 +1778,11 @@ RelaxNG schema for FoLiA XML v2.0.0
               <element name="alternative-annotation">
                 <optional>
                   <attribute name="set">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="alias">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
@@ -1556,6 +1816,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                   </attribute>
                 </optional>
                 <optional>
+                  <attribute name="alias">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
                   <attribute name="annotator">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
@@ -1585,6 +1850,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                   </attribute>
                 </optional>
                 <optional>
+                  <attribute name="alias">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
                   <attribute name="annotator">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
@@ -1610,6 +1880,11 @@ RelaxNG schema for FoLiA XML v2.0.0
               <element name="description-annotation">
                 <optional>
                   <attribute name="set">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="alias">
                     <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
@@ -1802,7 +2077,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="desc" ns="http://ilk.uvt.nl/folia">
+  <define name="desc" ns="http://ilk.uvt.nl/folia">
     <element name="desc">
       <text/>
       <a:documentation>Description is an element that can be used to associate a description with almost any other FoLiA element</a:documentation>
@@ -1858,7 +2133,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="comment" ns="http://ilk.uvt.nl/folia">
+  <define name="comment" ns="http://ilk.uvt.nl/folia">
     <element name="comment">
       <text/>
       <a:documentation>Comment is an element that can be used to associate a comment with almost any other FoLiA element</a:documentation>
@@ -1914,7 +2189,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="t-str" ns="http://ilk.uvt.nl/folia">
+  <define name="t-str" ns="http://ilk.uvt.nl/folia">
     <element name="t-str">
       <a:documentation>Markup element to mark arbitrary substrings in text content (:class:`TextContent`)</a:documentation>
       <optional>
@@ -2033,7 +2308,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="t-gap" ns="http://ilk.uvt.nl/folia">
+  <define name="t-gap" ns="http://ilk.uvt.nl/folia">
     <element name="t-gap">
       <a:documentation>Markup element to mark gaps in text content (:class:`TextContent`)
 
@@ -2155,7 +2430,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="t-correction" ns="http://ilk.uvt.nl/folia">
+  <define name="t-correction" ns="http://ilk.uvt.nl/folia">
     <element name="t-correction">
       <a:documentation>Markup element to mark corrections in text content (:class:`TextContent`).
 
@@ -2280,7 +2555,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="t-error" ns="http://ilk.uvt.nl/folia">
+  <define name="t-error" ns="http://ilk.uvt.nl/folia">
     <element name="t-error">
       <a:documentation>Markup element to mark gaps in text content (:class:`TextContent`)
 
@@ -2402,7 +2677,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="t-style" ns="http://ilk.uvt.nl/folia">
+  <define name="t-style" ns="http://ilk.uvt.nl/folia">
     <element name="t-style">
       <a:documentation>Markup element to style text content (:class:`TextContent`), e.g. make text bold, italics, underlined, coloured, etc..</a:documentation>
       <optional>
@@ -2521,7 +2796,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="t" ns="http://ilk.uvt.nl/folia">
+  <define name="t" ns="http://ilk.uvt.nl/folia">
     <element name="t">
       <a:documentation>Text content element (``t``), holds text to be associated with whatever element the text content element is a child of.
 
@@ -2626,7 +2901,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="ph" ns="http://ilk.uvt.nl/folia">
+  <define name="ph" ns="http://ilk.uvt.nl/folia">
     <element name="ph">
       <a:documentation>Phonetic content element (``ph``), holds a phonetic representation to be associated with whatever element the phonetic content element is a child of.
 
@@ -2703,7 +2978,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="part" ns="http://ilk.uvt.nl/folia">
+  <define name="part" ns="http://ilk.uvt.nl/folia">
     <element name="part">
       <a:documentation>Generic structure element used to mark a part inside another block.
 
@@ -2973,7 +3248,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="gap" ns="http://ilk.uvt.nl/folia">
+  <define name="gap" ns="http://ilk.uvt.nl/folia">
     <element name="gap">
       <a:documentation>Gap element, represents skipped portions of the text.
 
@@ -3061,7 +3336,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="br" ns="http://ilk.uvt.nl/folia">
+  <define name="br" ns="http://ilk.uvt.nl/folia">
     <element name="br">
       <a:documentation>Line break element, signals a line break.
 
@@ -3243,7 +3518,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="whitespace" ns="http://ilk.uvt.nl/folia">
+  <define name="whitespace" ns="http://ilk.uvt.nl/folia">
     <element name="whitespace">
       <a:documentation>Whitespace element, signals a vertical whitespace</a:documentation>
       <optional>
@@ -3393,7 +3668,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="w" ns="http://ilk.uvt.nl/folia">
+  <define name="w" ns="http://ilk.uvt.nl/folia">
     <element name="w">
       <a:documentation>Word (aka token) element. Holds a word/token and all its related token annotations.</a:documentation>
       <optional>
@@ -3590,7 +3865,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="metric" ns="http://ilk.uvt.nl/folia">
+  <define name="metric" ns="http://ilk.uvt.nl/folia">
     <element name="metric">
       <a:documentation>Metric elements provide a key/value pair to allow the annotation of any kind of metric with any kind of annotation element.
 
@@ -3682,7 +3957,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="str" ns="http://ilk.uvt.nl/folia">
+  <define name="str" ns="http://ilk.uvt.nl/folia">
     <element name="str">
       <a:documentation>String</a:documentation>
       <optional>
@@ -3803,7 +4078,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="ref" ns="http://ilk.uvt.nl/folia">
+  <define name="ref" ns="http://ilk.uvt.nl/folia">
     <element name="ref">
       <a:documentation>A structural element that denotes a reference, internal or external. Examples are references to footnotes, bibliographies, hyperlinks.</a:documentation>
       <optional>
@@ -4046,7 +4321,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="relation" ns="http://ilk.uvt.nl/folia">
+  <define name="relation" ns="http://ilk.uvt.nl/folia">
     <element name="relation">
       <a:documentation>
     The Relation element is a form of higher-order annotation taht is used to point to an external resource.
@@ -4168,7 +4443,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="alignment" ns="http://ilk.uvt.nl/folia">
+  <define name="alignment" ns="http://ilk.uvt.nl/folia">
     <element name="alignment">
       <a:documentation>
     The Relation element is a form of higher-order annotation taht is used to point to an external resource.
@@ -4290,7 +4565,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="errordetection" ns="http://ilk.uvt.nl/folia">
+  <define name="errordetection" ns="http://ilk.uvt.nl/folia">
     <element name="errordetection">
       <a:documentation>The ErrorDetection element is used to signal the presence of errors in a structural element.</a:documentation>
       <optional>
@@ -4381,7 +4656,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="suggestion" ns="http://ilk.uvt.nl/folia">
+  <define name="suggestion" ns="http://ilk.uvt.nl/folia">
     <element name="suggestion">
       <a:documentation>Suggestions are used in the context of :class:`Correction`, but rather than provide an authoritative correction, it instead offers a suggestion for correction.</a:documentation>
       <optional>
@@ -4622,7 +4897,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="new" ns="http://ilk.uvt.nl/folia">
+  <define name="new" ns="http://ilk.uvt.nl/folia">
     <element name="new">
       <optional>
         <attribute name="auth"/>
@@ -4823,7 +5098,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="original" ns="http://ilk.uvt.nl/folia">
+  <define name="original" ns="http://ilk.uvt.nl/folia">
     <element name="original">
       <a:documentation>Used in the context of :class:`Correction` to encapsulate the original annotations *prior* to correction.</a:documentation>
       <optional>
@@ -5025,7 +5300,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="current" ns="http://ilk.uvt.nl/folia">
+  <define name="current" ns="http://ilk.uvt.nl/folia">
     <element name="current">
       <a:documentation>Used in the context of :class:`Correction` to encapsulate the currently authoritative annotations.
 
@@ -5230,7 +5505,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="correction" ns="http://ilk.uvt.nl/folia">
+  <define name="correction" ns="http://ilk.uvt.nl/folia">
     <element name="correction">
       <a:documentation>
     Corrections are one of the most complex annotation types in FoLiA. Corrections
@@ -5351,7 +5626,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="alt" ns="http://ilk.uvt.nl/folia">
+  <define name="alt" ns="http://ilk.uvt.nl/folia">
     <element name="alt">
       <a:documentation>Element grouping alternative token annotation(s).
 
@@ -5470,7 +5745,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="altlayers" ns="http://ilk.uvt.nl/folia">
+  <define name="altlayers" ns="http://ilk.uvt.nl/folia">
     <element name="altlayers">
       <a:documentation>Element grouping alternative subtoken annotation(s). Multiple altlayers elements may occur, each denoting a different alternative. Elements grouped inside an alternative block are considered dependent.</a:documentation>
       <optional>
@@ -5614,7 +5889,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="su" ns="http://ilk.uvt.nl/folia">
+  <define name="su" ns="http://ilk.uvt.nl/folia">
     <element name="su">
       <a:documentation>Syntactic Unit, span annotation element to be used in :class:`SyntaxLayer`</a:documentation>
       <optional>
@@ -5725,7 +6000,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="chunk" ns="http://ilk.uvt.nl/folia">
+  <define name="chunk" ns="http://ilk.uvt.nl/folia">
     <element name="chunk">
       <a:documentation>Chunk element, span annotation element to be used in :class:`ChunkingLayer`</a:documentation>
       <optional>
@@ -5833,7 +6108,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="entity" ns="http://ilk.uvt.nl/folia">
+  <define name="entity" ns="http://ilk.uvt.nl/folia">
     <element name="entity">
       <a:documentation>Entity element, for entities such as named entities, multi-word expressions, temporal entities. This is a span annotation element to be used in :class:`EntitiesLayer`</a:documentation>
       <optional>
@@ -5941,7 +6216,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="hd" ns="http://ilk.uvt.nl/folia">
+  <define name="hd" ns="http://ilk.uvt.nl/folia">
     <element name="hd">
       <a:documentation>The headspan role is used to mark the head of a span annotation.
 
@@ -6016,7 +6291,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="dep" ns="http://ilk.uvt.nl/folia">
+  <define name="dep" ns="http://ilk.uvt.nl/folia">
     <element name="dep">
       <a:documentation>Span role element that marks the dependent in a dependency relation. Used in :class:`Dependency`.
 
@@ -6089,7 +6364,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="source" ns="http://ilk.uvt.nl/folia">
+  <define name="source" ns="http://ilk.uvt.nl/folia">
     <element name="source">
       <a:documentation>The source span role is used to mark the source in a :class:`Sentiment` or :class:`Statement` </a:documentation>
       <optional>
@@ -6160,7 +6435,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="target" ns="http://ilk.uvt.nl/folia">
+  <define name="target" ns="http://ilk.uvt.nl/folia">
     <element name="target">
       <a:documentation>The target span role is used to mark the target in a :class:`Sentiment` </a:documentation>
       <optional>
@@ -6231,7 +6506,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="rel" ns="http://ilk.uvt.nl/folia">
+  <define name="rel" ns="http://ilk.uvt.nl/folia">
     <element name="rel">
       <a:documentation>The relation span role is used to mark the relation between the content of a statement and its source in a :class:`Statement`</a:documentation>
       <optional>
@@ -6302,7 +6577,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="dependency" ns="http://ilk.uvt.nl/folia">
+  <define name="dependency" ns="http://ilk.uvt.nl/folia">
     <element name="dependency">
       <a:documentation>Span annotation element to encode dependency relations</a:documentation>
       <optional>
@@ -6409,7 +6684,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="coreferencelink" ns="http://ilk.uvt.nl/folia">
+  <define name="coreferencelink" ns="http://ilk.uvt.nl/folia">
     <element name="coreferencelink">
       <a:documentation>Coreference link. Used in :class:`CoreferenceChain`</a:documentation>
       <optional>
@@ -6492,7 +6767,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="coreferencechain" ns="http://ilk.uvt.nl/folia">
+  <define name="coreferencechain" ns="http://ilk.uvt.nl/folia">
     <element name="coreferencechain">
       <a:documentation>Coreference chain. Holds :class:`CoreferenceLink` instances.</a:documentation>
       <optional>
@@ -6600,7 +6875,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="semrole" ns="http://ilk.uvt.nl/folia">
+  <define name="semrole" ns="http://ilk.uvt.nl/folia">
     <element name="semrole">
       <a:documentation>Semantic Role</a:documentation>
       <optional>
@@ -6709,7 +6984,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="predicate" ns="http://ilk.uvt.nl/folia">
+  <define name="predicate" ns="http://ilk.uvt.nl/folia">
     <element name="predicate">
       <a:documentation>Predicate, used within :class:`SemanticRolesLayer`, takes :class:`SemanticRole` annotations as children, but has its own annotation type and separate declaration</a:documentation>
       <optional>
@@ -6820,7 +7095,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="sentiment" ns="http://ilk.uvt.nl/folia">
+  <define name="sentiment" ns="http://ilk.uvt.nl/folia">
     <element name="sentiment">
       <a:documentation>Sentiment. Takes span roles :class:`Headspan`, :class:`Source` and :class:`Target` as children</a:documentation>
       <optional>
@@ -6943,7 +7218,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="statement" ns="http://ilk.uvt.nl/folia">
+  <define name="statement" ns="http://ilk.uvt.nl/folia">
     <element name="statement">
       <a:documentation>Statement. Takes span roles :class:`Headspan`, :class:`Source` and :class:`Relation` as children</a:documentation>
       <optional>
@@ -7060,7 +7335,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="observation" ns="http://ilk.uvt.nl/folia">
+  <define name="observation" ns="http://ilk.uvt.nl/folia">
     <element name="observation">
       <a:documentation>Observation.</a:documentation>
       <optional>
@@ -7168,7 +7443,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="spanrelation" ns="http://ilk.uvt.nl/folia">
+  <define name="spanrelation" ns="http://ilk.uvt.nl/folia">
     <element name="spanrelation">
       <a:documentation>Span Relation</a:documentation>
       <optional>
@@ -7264,7 +7539,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="complexalignment" ns="http://ilk.uvt.nl/folia">
+  <define name="complexalignment" ns="http://ilk.uvt.nl/folia">
     <element name="complexalignment">
       <a:documentation>Span Relation</a:documentation>
       <optional>
@@ -7360,7 +7635,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="morpheme" ns="http://ilk.uvt.nl/folia">
+  <define name="morpheme" ns="http://ilk.uvt.nl/folia">
     <element name="morpheme">
       <a:documentation>Morpheme element, represents one morpheme in morphological analysis, subtoken annotation element to be used in :class:`MorphologyLayer`</a:documentation>
       <optional>
@@ -7546,7 +7821,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="phoneme" ns="http://ilk.uvt.nl/folia">
+  <define name="phoneme" ns="http://ilk.uvt.nl/folia">
     <element name="phoneme">
       <a:documentation>Phone element, represents one phone in phonetic analysis, subtoken annotation element to be used in :class:`PhonologyLayer`</a:documentation>
       <optional>
@@ -7732,7 +8007,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="syntax" ns="http://ilk.uvt.nl/folia">
+  <define name="syntax" ns="http://ilk.uvt.nl/folia">
     <element name="syntax">
       <a:documentation>Syntax Layer: Annotation layer for :class:`SyntacticUnit` span annotation elements</a:documentation>
       <optional>
@@ -7804,7 +8079,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="chunking" ns="http://ilk.uvt.nl/folia">
+  <define name="chunking" ns="http://ilk.uvt.nl/folia">
     <element name="chunking">
       <a:documentation>Chunking Layer: Annotation layer for :class:`Chunk` span annotation elements</a:documentation>
       <optional>
@@ -7876,7 +8151,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="entities" ns="http://ilk.uvt.nl/folia">
+  <define name="entities" ns="http://ilk.uvt.nl/folia">
     <element name="entities">
       <a:documentation>Entities Layer: Annotation layer for :class:`Entity` span annotation elements. For named entities.</a:documentation>
       <optional>
@@ -7948,7 +8223,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="dependencies" ns="http://ilk.uvt.nl/folia">
+  <define name="dependencies" ns="http://ilk.uvt.nl/folia">
     <element name="dependencies">
       <a:documentation>Dependencies Layer: Annotation layer for :class:`Dependency` span annotation elements. For dependency entities.</a:documentation>
       <optional>
@@ -8020,7 +8295,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="morphology" ns="http://ilk.uvt.nl/folia">
+  <define name="morphology" ns="http://ilk.uvt.nl/folia">
     <element name="morphology">
       <a:documentation>Morphology Layer: Annotation layer for :class:`Morpheme` subtoken annotation elements. For morphological analysis.</a:documentation>
       <optional>
@@ -8092,7 +8367,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="phonology" ns="http://ilk.uvt.nl/folia">
+  <define name="phonology" ns="http://ilk.uvt.nl/folia">
     <element name="phonology">
       <a:documentation>Phonology Layer: Annotation layer for :class:`Phoneme` subtoken annotation elements. For phonetic analysis.</a:documentation>
       <optional>
@@ -8164,7 +8439,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="coreferences" ns="http://ilk.uvt.nl/folia">
+  <define name="coreferences" ns="http://ilk.uvt.nl/folia">
     <element name="coreferences">
       <a:documentation>Syntax Layer: Annotation layer for :class:`SyntacticUnit` span annotation elements</a:documentation>
       <optional>
@@ -8236,7 +8511,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="semroles" ns="http://ilk.uvt.nl/folia">
+  <define name="semroles" ns="http://ilk.uvt.nl/folia">
     <element name="semroles">
       <a:documentation>Syntax Layer: Annotation layer for :class:`SemanticRole` span annotation elements</a:documentation>
       <optional>
@@ -8311,7 +8586,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="statements" ns="http://ilk.uvt.nl/folia">
+  <define name="statements" ns="http://ilk.uvt.nl/folia">
     <element name="statements">
       <a:documentation>Statement Layer: Annotation layer for :class:`Statement` span annotation elements, used for attribution annotation.</a:documentation>
       <optional>
@@ -8383,7 +8658,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="sentiments" ns="http://ilk.uvt.nl/folia">
+  <define name="sentiments" ns="http://ilk.uvt.nl/folia">
     <element name="sentiments">
       <a:documentation>Sentiment Layer: Annotation layer for :class:`Sentiment` span annotation elements, used for sentiment analysis.</a:documentation>
       <optional>
@@ -8455,7 +8730,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="observations" ns="http://ilk.uvt.nl/folia">
+  <define name="observations" ns="http://ilk.uvt.nl/folia">
     <element name="observations">
       <a:documentation>Observation Layer: Annotation layer for :class:`Observation` span annotation elements.</a:documentation>
       <optional>
@@ -8527,7 +8802,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="spanrelations" ns="http://ilk.uvt.nl/folia">
+  <define name="spanrelations" ns="http://ilk.uvt.nl/folia">
     <element name="spanrelations">
       <a:documentation>Span Relation Layer: Annotation layer for :class:`SpanRelation`</a:documentation>
       <optional>
@@ -8602,7 +8877,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="complexalignments" ns="http://ilk.uvt.nl/folia">
+  <define name="complexalignments" ns="http://ilk.uvt.nl/folia">
     <element name="complexalignments">
       <a:documentation>Span Relation Layer: Annotation layer for :class:`SpanRelation`</a:documentation>
       <optional>
@@ -8677,7 +8952,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="pos" ns="http://ilk.uvt.nl/folia">
+  <define name="pos" ns="http://ilk.uvt.nl/folia">
     <element name="pos">
       <a:documentation>Part-of-Speech annotation:  a token annotation element</a:documentation>
       <optional>
@@ -8771,7 +9046,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="lemma" ns="http://ilk.uvt.nl/folia">
+  <define name="lemma" ns="http://ilk.uvt.nl/folia">
     <element name="lemma">
       <a:documentation>Lemma annotation:  a token annotation element</a:documentation>
       <optional>
@@ -8862,7 +9137,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="lang" ns="http://ilk.uvt.nl/folia">
+  <define name="lang" ns="http://ilk.uvt.nl/folia">
     <element name="lang">
       <a:documentation>Language annotation:  an extended token annotation element</a:documentation>
       <optional>
@@ -8953,7 +9228,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="domain" ns="http://ilk.uvt.nl/folia">
+  <define name="domain" ns="http://ilk.uvt.nl/folia">
     <element name="domain">
       <a:documentation>Domain annotation:  an extended token annotation element</a:documentation>
       <optional>
@@ -9044,7 +9319,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="note" ns="http://ilk.uvt.nl/folia">
+  <define name="note" ns="http://ilk.uvt.nl/folia">
     <element name="note">
       <a:documentation>Element used for notes, such as footnotes or warnings or notice blocks.</a:documentation>
       <optional>
@@ -9260,7 +9535,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="def" ns="http://ilk.uvt.nl/folia">
+  <define name="def" ns="http://ilk.uvt.nl/folia">
     <element name="def">
       <a:documentation>Element used in :class:`Entry` for the portion that provides a definition for the entry.</a:documentation>
       <optional>
@@ -9470,7 +9745,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="term" ns="http://ilk.uvt.nl/folia">
+  <define name="term" ns="http://ilk.uvt.nl/folia">
     <element name="term">
       <a:documentation>A term, often used in contect of :class:`Entry`</a:documentation>
       <optional>
@@ -9686,7 +9961,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="ex" ns="http://ilk.uvt.nl/folia">
+  <define name="ex" ns="http://ilk.uvt.nl/folia">
     <element name="ex">
       <a:documentation>Element that provides an example. Used for instance in the context of :class:`Entry`</a:documentation>
       <optional>
@@ -9896,7 +10171,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="entry" ns="http://ilk.uvt.nl/folia">
+  <define name="entry" ns="http://ilk.uvt.nl/folia">
     <element name="entry">
       <a:documentation>Represents an entry in a glossary/lexicon/dictionary.</a:documentation>
       <optional>
@@ -10055,7 +10330,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="timesegment" ns="http://ilk.uvt.nl/folia">
+  <define name="timesegment" ns="http://ilk.uvt.nl/folia">
     <element name="timesegment">
       <a:documentation>A time segment</a:documentation>
       <optional>
@@ -10172,7 +10447,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="timing" ns="http://ilk.uvt.nl/folia">
+  <define name="timing" ns="http://ilk.uvt.nl/folia">
     <element name="timing">
       <a:documentation>Timing layer: Annotation layer for :class:`TimeSegment` span annotation elements. </a:documentation>
       <optional>
@@ -10244,7 +10519,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="sense" ns="http://ilk.uvt.nl/folia">
+  <define name="sense" ns="http://ilk.uvt.nl/folia">
     <element name="sense">
       <a:documentation>Sense annotation: a token annotation element</a:documentation>
       <optional>
@@ -10338,7 +10613,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="subjectivity" ns="http://ilk.uvt.nl/folia">
+  <define name="subjectivity" ns="http://ilk.uvt.nl/folia">
     <element name="subjectivity">
       <a:documentation>Subjectivity annotation/Sentiment analysis: a token annotation element</a:documentation>
       <optional>
@@ -10429,7 +10704,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="quote" ns="http://ilk.uvt.nl/folia">
+  <define name="quote" ns="http://ilk.uvt.nl/folia">
     <element name="quote">
       <a:documentation>Quote: a structure element. For quotes/citations. May hold :class:`Word`, :class:`Sentence` or :class:`Paragraph` data.</a:documentation>
       <optional>
@@ -10609,7 +10884,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="s" ns="http://ilk.uvt.nl/folia">
+  <define name="s" ns="http://ilk.uvt.nl/folia">
     <element name="s">
       <a:documentation>Sentence element. A structure element. Represents a sentence and holds all its words (:class:`Word`), and possibly other structure such as :class:`LineBreak`, :class:`Whitespace` and :class:`Quote`</a:documentation>
       <optional>
@@ -10819,7 +11094,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="utt" ns="http://ilk.uvt.nl/folia">
+  <define name="utt" ns="http://ilk.uvt.nl/folia">
     <element name="utt">
       <a:documentation>Utterance element. A structure element for speech annotation.</a:documentation>
       <optional>
@@ -11017,7 +11292,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="event" ns="http://ilk.uvt.nl/folia">
+  <define name="event" ns="http://ilk.uvt.nl/folia">
     <element name="event">
       <a:documentation>Structural element representing events, often used in new media contexts for things such as tweets,chat messages and forum posts.</a:documentation>
       <optional>
@@ -11260,7 +11535,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="caption" ns="http://ilk.uvt.nl/folia">
+  <define name="caption" ns="http://ilk.uvt.nl/folia">
     <element name="caption">
       <a:documentation>Element used for captions for :class:`Figure` or :class:`Table`</a:documentation>
       <optional>
@@ -11445,7 +11720,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="label" ns="http://ilk.uvt.nl/folia">
+  <define name="label" ns="http://ilk.uvt.nl/folia">
     <element name="label">
       <a:documentation>Element used for labels. Mostly in within list item. Contains words.</a:documentation>
       <optional>
@@ -11637,7 +11912,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="item" ns="http://ilk.uvt.nl/folia">
+  <define name="item" ns="http://ilk.uvt.nl/folia">
     <element name="item">
       <a:documentation>Single element in a List. Structure element. Contained within :class:`List` element.</a:documentation>
       <optional>
@@ -11840,7 +12115,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="listitem" ns="http://ilk.uvt.nl/folia">
+  <define name="listitem" ns="http://ilk.uvt.nl/folia">
     <element name="listitem">
       <a:documentation>Single element in a List. Structure element. Contained within :class:`List` element.</a:documentation>
       <optional>
@@ -12043,7 +12318,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="list" ns="http://ilk.uvt.nl/folia">
+  <define name="list" ns="http://ilk.uvt.nl/folia">
     <element name="list">
       <a:documentation>Element for enumeration/itemisation. Structure element. Contains :class:`ListItem` elements.</a:documentation>
       <optional>
@@ -12241,7 +12516,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="figure" ns="http://ilk.uvt.nl/folia">
+  <define name="figure" ns="http://ilk.uvt.nl/folia">
     <element name="figure">
       <a:documentation>Element for the representation of a graphical figure. Structure element.</a:documentation>
       <optional>
@@ -12403,7 +12678,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="head" ns="http://ilk.uvt.nl/folia">
+  <define name="head" ns="http://ilk.uvt.nl/folia">
     <element name="head">
       <a:documentation>Head element; a structure element that acts as the header/title of a :class:`Division`.
 
@@ -12606,7 +12881,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="p" ns="http://ilk.uvt.nl/folia">
+  <define name="p" ns="http://ilk.uvt.nl/folia">
     <element name="p">
       <a:documentation>Paragraph element. A structure element. Represents a paragraph and holds all its sentences (and possibly other structure Whitespace and Quotes).</a:documentation>
       <optional>
@@ -12828,7 +13103,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="cell" ns="http://ilk.uvt.nl/folia">
+  <define name="cell" ns="http://ilk.uvt.nl/folia">
     <element name="cell">
       <a:documentation>A cell in a :class:`Row` in a :class:`Table`</a:documentation>
       <optional>
@@ -13031,7 +13306,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="row" ns="http://ilk.uvt.nl/folia">
+  <define name="row" ns="http://ilk.uvt.nl/folia">
     <element name="row">
       <a:documentation>A row in a :class:`Table`</a:documentation>
       <optional>
@@ -13205,7 +13480,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="tablehead" ns="http://ilk.uvt.nl/folia">
+  <define name="tablehead" ns="http://ilk.uvt.nl/folia">
     <element name="tablehead">
       <a:documentation>Encapsulated the header of a table, contains :class:`Cell` elements</a:documentation>
       <optional>
@@ -13369,7 +13644,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="table" ns="http://ilk.uvt.nl/folia">
+  <define name="table" ns="http://ilk.uvt.nl/folia">
     <element name="table">
       <a:documentation>A table consisting of :class:`Row` elements that in turn consist of :class:`Cell` elements</a:documentation>
       <optional>
@@ -13546,7 +13821,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="div" ns="http://ilk.uvt.nl/folia">
+  <define name="div" ns="http://ilk.uvt.nl/folia">
     <element name="div">
       <a:documentation>Structure element representing some kind of division. Divisions may be nested at will, and may include almost all kinds of other structure elements.</a:documentation>
       <optional>
@@ -13774,7 +14049,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="speech" ns="http://ilk.uvt.nl/folia">
+  <define name="speech" ns="http://ilk.uvt.nl/folia">
     <element name="speech">
       <a:documentation>A full speech. This is a high-level element. This element may contain :class:`Division`,:class:`Paragraph`, class:`Sentence`, etc..</a:documentation>
       <optional>
@@ -13996,7 +14271,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   </define>
 
 
-  <define xmlns:a="http://relaxng.org/ns/annotation/0.9" name="text" ns="http://ilk.uvt.nl/folia">
+  <define name="text" ns="http://ilk.uvt.nl/folia">
     <element name="text">
       <a:documentation>A full text. This is a high-level element (not to be confused with TextContent!). This element may contain :class:`Division`,:class:`Paragraph`, class:`Sentence`, etc..</a:documentation>
       <optional>
