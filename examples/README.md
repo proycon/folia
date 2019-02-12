@@ -41,6 +41,10 @@ The following examples are extracted from existing corpora that are delivered in
     named entities, and morphology.
 * ``speech-opencgn.0.12.1.folia.xml`` - An example of a (dutch) document from the OpenCGN corpus, it is a transcription of speech and includes a phonetic transcription layer and timing information. There are also PoS tags and lemmas.
 
+### Test examples
+
+The directory ``tests/`` holds examples that are used by automated unit and integration tests, most notably for FoLiA
+libraries. These tests are all valid FoLiA, but may be less useful to end users as examples.
 
 ### Erroneous examples
 
