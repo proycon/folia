@@ -630,7 +630,7 @@ elements:
           - class: Entry
             properties:
                 annotationtype: ENTRY
-                accepted_data: [Definition, Example, Term]
+                accepted_data: [Definition, Example, Term, TextContent, String]
                 xmltag: "entry"
                 label: "Entry"
           - class: Event
