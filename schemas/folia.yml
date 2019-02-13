@@ -652,7 +652,7 @@ elements:
                 label: "Figure"
                 speakable: false
                 textdelimiter: "\n\n"
-                accepted_data: [Caption]
+                accepted_data: [Caption, Sentence, String, TextContent]
           - class: Head
             properties:
                 annotationtype: HEAD
