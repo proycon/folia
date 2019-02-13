@@ -3,7 +3,10 @@
 Implementations
 ======================
 
-Currently, the following FoLiA implementations exist. Both follow a highly
+Libraries
+------------
+
+Currently, the following FoLiA library implementations exist. Both follow a highly
 object-oriented model in which FoLiA XML elements correspond with classes.
 
 * `FoLiApy <https://github.com/proycon/foliapy>`_ - A FoLiA library in Python.
@@ -17,7 +20,8 @@ libraries is present in the status boxes throughout this documentation. The
 following table shows the level of FoLiA support in these
 libraries:
 
-The following table lists FoLiA library implementations:
+The following table lists FoLiA library implementations, the last column lists the predecessor of FoLiApy, which was
+part of `PyNLPl <https://github.com/proycon/pynlpl>`_.
 
 .. csv-table:: FoLiA Library Implementations
    :file: libraries.csv
