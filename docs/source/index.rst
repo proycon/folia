@@ -32,6 +32,7 @@ Table of Contents
     speech
     annotation_types
     querying
+    implementations
 
 
 Indices and tables
