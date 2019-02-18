@@ -46,20 +46,20 @@ Provenance
 
 To make use of FoLiA's ability to register :ref:`provenance_data`, you need to define a processor as follows::
 
-    PROCESSOR id = "p0" name = "mytool" type = "auto"
+    PROCESSOR id "p0" name "mytool" type "auto"
 
 If you do not specify an ID manually one will be generated automatically. If the ID already exists, the existing one
-will be selected and modified. Any subsequent queries will be made using this processor.
+will be selected and modified, so ensure your ID is sufficiently unique (preferably with a random component). Any
+subsequent declaration queries (see next section) will be made using this processor.
 
-To add subprocessors under the currently selected processor, use ``PROCESSOR SUB`` instead of ``PROCESSOR``. The
+To add subprocessors under the currently selected processor, use ``PROCESSOR IN`` followed by the ID of the parent
+processor, instead of ``PROCESSOR``. The
 subprocessor will again be automatically selected for all subsequent queries (except if it has ``type = "generator"``). Example::
 
-    PROCESSOR name = "annotationtool" type = "auto"
-    PROCESSOR SUB name = "john doe" type = "manual"
+    PROCESSOR id "p0" name "annotationtool" type "auto"
+    PROCESSOR IN p0 id "p0.1" name "john doe" type "manual"
 
-You can select the parent processor again with the ``PROCESSOR PARENT`` directive, or if you know the ID you can always
-use ``PROCESSOR id = "id"``, be aware that multiple calls to ``PROCESSOR SUB``
-would cause ever deeper nesting. To deselect a processor, use ``PROCESSOR NONE``.
+You can select any existing processor again using ``PROCESSOR id "id"``. To deselect a processor, use ``PROCESSOR NONE``.
 
 
 Declarations
@@ -80,6 +80,9 @@ The *WITH* clause is optional, the set following the *OF* keyword is mandatory f
 Declarations may be chained, i.e. multiple *DECLARE* statements may be issued
 on one line, as well as prepended to action statements (see next section).
 
+You can declare a processor and use it in a declaration in one line::
+
+    PROCESSOR id "p0" name "named-entity-recogniser" version "1.0" DECLARE entity OF "https://github.com/proycon/folia/blob/master/setdefinitions/namedentities.foliaset.xml"
 
 .. note::
 
