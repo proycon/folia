@@ -51,24 +51,23 @@ To make use of FoLiA's ability to register :ref:`provenance_data`, you need to d
 If you do not specify an ID manually one will be generated automatically. If the ID already exists, the existing one
 will be selected and modified. Any subsequent queries will be made using this processor.
 
-To add subprocessors under the currently selected processor, use ``SUBPROCESSOR`` instead of ``PROCESSOR``. The
-subprocessor will again be automatically selected for all subsequent queries (except it it has ``type = "generator"``). Example::
+To add subprocessors under the currently selected processor, use ``PROCESSOR SUB`` instead of ``PROCESSOR``. The
+subprocessor will again be automatically selected for all subsequent queries (except if it has ``type = "generator"``). Example::
 
     PROCESSOR name = "annotationtool" type = "auto"
-    SUBPROCESSOR name = "john doe" type = "manual"
+    PROCESSOR SUB name = "john doe" type = "manual"
 
-You can select the parent processor again with the ``PARENTPROCESSOR`` directive (or if you know the ID you can use
-``PROCESSOR id = "id"``), be aware that multiple calls to ``SUBPROCESSOR``
-would cause ever deeper nesting.
+You can select the parent processor again with the ``PROCESSOR PARENT`` directive, or if you know the ID you can always
+use ``PROCESSOR id = "id"``, be aware that multiple calls to ``PROCESSOR SUB``
+would cause ever deeper nesting. To deselect a processor, use ``PROCESSOR NONE``.
 
 
 Declarations
 ----------------
 
-All annotation types in FoLiA need to be declared. FQL does this for you
-automatically. If you make an edit of a previously undeclared set, it will be
-declared for you. These default declarations will never assign default
-annotators or annotator types.
+All annotation types in FoLiA need to be declared. FQL does this for you automatically. If you make an edit of a
+previously undeclared set, it will be declared for you. These default declarations will never assign default annotators
+or annotator types, and if a *PROCESSOR* statement was issued earlier, it will use that processor.
 
 Explicit declarations are possible using the *DECLARE* keyword followed by
 the annotation type you want to declare, this represented the tag of the
