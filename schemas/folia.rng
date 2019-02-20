@@ -1911,6 +1911,40 @@ RelaxNG schema for FoLiA XML v2.0.0
                   </element>
                 </zeroOrMore>
               </element>
+              <element name="hyphenation-annotation">
+                <optional>
+                  <attribute name="set">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="alias">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="annotator">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="annotatortype">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="datetime">
+                    <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <zeroOrMore>
+                  <element name="annotator">
+                    <attribute name="processor">
+                      <data type="IDREF" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                    </attribute>
+                  </element>
+                </zeroOrMore>
+              </element>
             </choice>
           </zeroOrMore>
         </element>
@@ -2298,6 +2332,9 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="br"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="t-hbr"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="comment"/>
         </zeroOrMore>
         <optional>
@@ -2418,6 +2455,9 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="br"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-hbr"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="comment"/>
@@ -2545,6 +2585,9 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="br"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="t-hbr"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="comment"/>
         </zeroOrMore>
         <optional>
@@ -2667,6 +2710,9 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="br"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="t-hbr"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="comment"/>
         </zeroOrMore>
         <optional>
@@ -2786,6 +2832,9 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="br"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="t-hbr"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="comment"/>
         </zeroOrMore>
         <optional>
@@ -2889,6 +2938,9 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="br"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-hbr"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="comment"/>
@@ -3513,6 +3565,137 @@ RelaxNG schema for FoLiA XML v2.0.0
         <zeroOrMore>
           <ref name="alignment"/>
         </zeroOrMore>
+      </interleave>
+    </element>
+  </define>
+
+
+  <define name="t-hbr" ns="http://ilk.uvt.nl/folia">
+    <element name="t-hbr">
+      <a:documentation>Hyphenation break element, signals a hyphenised linebreak in a word</a:documentation>
+      <optional>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="annotatortype"/>
+      </optional>
+      <optional>
+        <attribute name="processor">
+          <data type="IDREF" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="confidence">
+          <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="datetime">
+          <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="begintime"/>
+      </optional>
+      <optional>
+        <attribute name="endtime"/>
+      </optional>
+      <optional>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="metadata"/>
+      </optional>
+      <optional>
+        <attribute name="href" ns="http://www.w3.org/1999/xlink"/>
+        <attribute name="type" ns="http://www.w3.org/1999/xlink"/>
+      </optional>
+      <optional>
+        <attribute name="role" ns="http://www.w3.org/1999/xlink"/>
+      </optional>
+      <optional>
+        <attribute name="title" ns="http://www.w3.org/1999/xlink"/>
+      </optional>
+      <optional>
+        <attribute name="label" ns="http://www.w3.org/1999/xlink"/>
+      </optional>
+      <optional>
+        <attribute name="show" ns="http://www.w3.org/1999/xlink"/>
+      </optional>
+      <optional>
+        <attribute name="auth"/>
+      </optional>
+      <optional>
+        <attribute name="pagenr"/>
+      </optional>
+      <optional>
+        <attribute name="linenr"/>
+      </optional>
+      <optional>
+        <attribute name="newpage"/>
+      </optional>
+      <optional>
+        <attribute name="id"/>
+      </optional>
+      <ref name="allow_foreign_attributes"/>
+      <interleave>
+        <text/>
+        <zeroOrMore>
+          <ref name="t-str"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-gap"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-correction"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-error"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-style"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="br"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-hbr"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="comment"/>
+        </zeroOrMore>
+        <optional>
+          <ref name="desc"/>
+        </optional>
       </interleave>
     </element>
   </define>
@@ -10323,7 +10506,13 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="str"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="term"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t"/>
         </zeroOrMore>
       </interleave>
     </element>
@@ -11689,6 +11878,9 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="metric"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="p"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="part"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -12665,9 +12857,6 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="alignment"/>
         </zeroOrMore>
         <zeroOrMore>
-          <ref name="s"/>
-        </zeroOrMore>
-        <zeroOrMore>
           <ref name="str"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -12845,6 +13034,9 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="metric"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="p"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="part"/>
