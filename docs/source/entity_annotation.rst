@@ -18,8 +18,8 @@ Specification
 :**Element**: ``<entity>``
 :API Class: ``Entity``
 :Layer Element: entities
-:Span Role Elements: 
-:Required Attributes: 
+:Span Role Elements:
+:Required Attributes:
 :Optional Attributes: * ``xml:id`` -- The ID of the element; this has to be a unique in the entire document or collection of documents (corpus). All identifiers in FoLiA are of the `XML NCName <https://www.w3.org/TR/1999/WD-xmlschema-2-19990924/#NCName>`_ datatype, which roughly means it is a unique string that has to start with a letter (not a number or symbol), may contain numers, but may never contain colons or spaces. FoLiA does not define any naming convention for IDs.
                       * ``set`` -- The set of the element, ideally a URI linking to a set definition (see :ref:`set_definitions`) or otherwise a uniquely identifying string. The ``set`` must be referred to also in the :ref:`annotation_declarations` for this annotation type.
                       * ``class`` -- The class of the annotation, i.e. the annotation tag in the vocabulary defined by ``set``.
@@ -52,11 +52,17 @@ This annotation type, being the simplest of all span annotations, is much used i
 
 It is recommended, but not required, for each entity to have a unique identifier.
 
-Example
+Examples
 -------------------------
 
 .. literalinclude:: ../../examples/entities-deep.2.0.0.folia.xml
     :linenos:
     :language: xml
 
+It is possible to associate inline annotations with span annotations, provided you declare the annotation type with
+``groupannotations="yes"``. For entities, this is useful in case you have a more fine-grained tokenisation layer but
+want to associate certain information such as part-of-speech tags or lemmas with larger entities than tokens:
 
+.. literalinclude:: ../../examples/group-annotations.2.0.0.folia.xml
+    :linenos:
+    :language: xml

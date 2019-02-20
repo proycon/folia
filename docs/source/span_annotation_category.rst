@@ -106,4 +106,6 @@ Group Annotations: Inline Annotations on Span Annotations
 It is possible to directly apply inline annotations (see :ref:`inline_annotation_category`) to span annotations, which allows for example to assign a
 part-of-speech tag or lemma directly to an entity, rather than to a word (``<w>``) as is customary. This functionality, however, needs to be explicitly enabled by adding the ``groupannotations=yes`` attribute to the declaration, as it adds extra complexity to a FoLiA document and in this way informs parsers to be aware of this.
 
-
+.. literalinclude:: ../../examples/group-annotations.2.0.0.folia.xml
+    :linenos:
+    :language: xml
