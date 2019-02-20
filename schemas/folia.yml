@@ -480,7 +480,7 @@ elements:
           printable: true
           speakable: true
           optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, TEXTCLASS, METADATA ]
-          accepted_data: [ Metric, Relation, ForeignData, LinkReference ]
+          accepted_data: [ Metric, Relation, ForeignData, LinkReference, AbstractInlineAnnotation ]
       elements:
           - class: AbstractSpanRole
             properties:
