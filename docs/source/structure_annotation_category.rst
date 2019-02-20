@@ -30,6 +30,7 @@ FoLiA defines the following types of structure annotation:
    - :ref:`term_annotation` -- ``<term>`` -- FoLiA has a set of structure elements that can be used to represent collections such as glossaries, dictionaries, thesauri, and wordnets. `Entry annotation` defines the entries in such collections, `Term annotation` defines the terms, and `Definition Annotation` provides the definitions.
    - :ref:`definition_annotation` -- ``<def>`` -- FoLiA has a set of structure elements that can be used to represent collections such as glossaries, dictionaries, thesauri, and wordnets. `Entry annotation` defines the entries in such collections, `Term annotation` defines the terms, and `Definition Annotation` provides the definitions.
    - :ref:`example_annotation` -- ``<ex>`` -- FoLiA has a set of structure elements that can be used to represent collections such as glossaries, dictionaries, thesauri, and wordnets. `Examples annotation` defines examples in such collections.
+   - :ref:`hyphenation_annotation` -- ``<t-hbr>`` -- This is a text-markup annotation form that indicates where in the original text a linebreak was inserted and a word was hyphenised.
 
 .. foliaspec:begin:toctree(structure,hidden)
 .. toctree::
@@ -56,5 +57,6 @@ FoLiA defines the following types of structure annotation:
    term_annotation
    definition_annotation
    example_annotation
+   hyphenation_annotation
 
 .. foliaspec:end:toctree
