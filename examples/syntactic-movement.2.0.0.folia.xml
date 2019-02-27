@@ -20,6 +20,9 @@
           <syntax-annotation set="adhoc">
 			 <annotator processor="p1" />
           </syntax-annotation>
+          <description-annotation>
+			 <annotator processor="p1" />
+          </description-annotation>
       </annotations>
       <provenance>
          <processor xml:id="p1" name="proycon" type="manual" />
