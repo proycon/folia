@@ -12,7 +12,7 @@ setdefinitionnamespace: "http://folia.science.ru.nl/setdefinition"
 
 #all possible common FoLiA attributes
 #(@annotatortype and @processor are subsumed under ANNOTATOR)
-attributes: [ ID, CLASS, ANNOTATOR, CONFIDENCE, N, DATETIME, BEGINTIME, ENDTIME, SRC, SPEAKER, TEXTCLASS, METADATA, IDREF ]
+attributes: [ ID, CLASS, ANNOTATOR, CONFIDENCE, N, DATETIME, BEGINTIME, ENDTIME, SRC, SPEAKER, TEXTCLASS, METADATA, IDREF, SPACE ]
 
 attributes_doc:
     id:
@@ -81,7 +81,7 @@ attributes_doc:
         group: core
 
 #All possible annotation types, each must be declared in the FoLiA header when used
-annotationtype: [ TEXT, TOKEN, DIVISION, PARAGRAPH, HEAD, LIST, FIGURE, WHITESPACE, LINEBREAK, SENTENCE, POS, LEMMA, DOMAIN, SENSE, SYNTAX, CHUNKING, ENTITY, CORRECTION, ERRORDETECTION, PHON, SUBJECTIVITY, MORPHOLOGICAL, EVENT, DEPENDENCY, TIMESEGMENT, GAP, QUOTE, NOTE, REFERENCE, RELATION, SPANRELATION, COREFERENCE, SEMROLE, METRIC, LANG, STRING, TABLE, STYLE, PART, UTTERANCE, ENTRY, TERM, DEFINITION, EXAMPLE, PHONOLOGICAL, PREDICATE, OBSERVATION, SENTIMENT, STATEMENT, ALTERNATIVE, RAWCONTENT, COMMENT, DESCRIPTION, HYPHENATION ]
+annotationtype: [ TEXT, TOKEN, DIVISION, PARAGRAPH, HEAD, LIST, FIGURE, WHITESPACE, LINEBREAK, SENTENCE, POS, LEMMA, DOMAIN, SENSE, SYNTAX, CHUNKING, ENTITY, CORRECTION, ERRORDETECTION, PHON, SUBJECTIVITY, MORPHOLOGICAL, EVENT, DEPENDENCY, TIMESEGMENT, GAP, QUOTE, NOTE, REFERENCE, RELATION, SPANRELATION, COREFERENCE, SEMROLE, METRIC, LANG, STRING, TABLE, STYLE, PART, UTTERANCE, ENTRY, TERM, DEFINITION, EXAMPLE, PHONOLOGICAL, PREDICATE, OBSERVATION, SENTIMENT, STATEMENT, ALTERNATIVE, RAWCONTENT, COMMENT, DESCRIPTION, HYPHENATION, HIDDENTOKEN ]
 
 #Documentation of annotation types (reStructuredText)
 annotationtype_doc:
@@ -309,6 +309,10 @@ qualification is expressed by the class, in turn defined by a set. The precise s
         name: "Hyphenation Annotation"
         description: "This is a text-markup annotation form that indicates where in the original text a linebreak was inserted and a word was hyphenised."
         history: "Since v2.0"
+    hiddentoken:
+        name: "Hidden Token Annotation"
+        description: "This annotation type allows for a hidden token layer in the document. Hidden tokens are ignored for most intents and purposes but may serve a purpose when annotations on implicit tokens is required, for example as targets for syntactic movement annotation."
+        history: "Since v2.0"
 
 categories:
     structure:
@@ -484,7 +488,7 @@ elements:
           printable: true
           speakable: true
           optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, TEXTCLASS, METADATA ]
-          accepted_data: [ Metric, Relation, ForeignData, LinkReference ]
+          accepted_data: [ Metric, Relation, ForeignData, LinkReference, AbstractInlineAnnotation ]
       elements:
           - class: AbstractSpanRole
             properties:
@@ -604,7 +608,7 @@ elements:
           required_attribs: null
           textdelimiter: "\n\n"
           speakable: true
-          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
+          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA, SPACE ]
           accepted_data: [AbstractAnnotationLayer, Relation, Alternative, AlternativeLayers, Correction, Feature, Metric, Part, ForeignData]
           auto_generate_id: true
       elements:
@@ -612,20 +616,20 @@ elements:
             properties:
                 occurrences: 1
                 accepted_data: [AbstractInlineAnnotation, Gap, Linebreak, Paragraph, PhonContent, Reference, Sentence, String, TextContent, Whitespace]
-                optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
+                optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA, SPACE ]
                 xmltag: "caption"
                 label: "Caption"
           - class: Cell
             properties:
                 textdelimiter: " | "
-                accepted_data: [AbstractInlineAnnotation, Entry, Event, Example, Gap, Head, Linebreak, Note, Paragraph, Reference, Sentence, String, TextContent, Whitespace, Word]
-                optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
+                accepted_data: [AbstractInlineAnnotation, Entry, Event, Example, Gap, Head, Linebreak, Note, Paragraph, Reference, Sentence, String, TextContent, Whitespace, Word, Hiddenword ]
+                optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA, SPACE  ]
                 xmltag: "cell"
                 label: "Cell"
           - class: Definition
             properties:
                 annotationtype: DEFINITION
-                accepted_data: [AbstractInlineAnnotation, Figure, List, Metric, Paragraph, PhonContent, Reference, Sentence, String, Table, TextContent, Utterance, Word, Linebreak, Whitespace]
+                accepted_data: [AbstractInlineAnnotation, Figure, List, Metric, Paragraph, PhonContent, Reference, Sentence, String, Table, TextContent, Utterance, Word, Hiddenword, Linebreak, Whitespace]
                 xmltag: "def"
                 label: "Definition"
           - class: Division
@@ -644,13 +648,13 @@ elements:
           - class: Event
             properties:
                 annotationtype: EVENT
-                accepted_data: [AbstractInlineAnnotation, ActorFeature, BegindatetimeFeature, Division, EnddatetimeFeature, Entry, Event, Example, Figure, Gap, Head, Linebreak, List, Note, Paragraph, Part, PhonContent, Quote, Reference, Sentence, String, Table, TextContent, Utterance, Whitespace, Word]
+                accepted_data: [AbstractInlineAnnotation, ActorFeature, BegindatetimeFeature, Division, EnddatetimeFeature, Entry, Event, Example, Figure, Gap, Head, Linebreak, List, Note, Paragraph, Part, PhonContent, Quote, Reference, Sentence, String, Table, TextContent, Utterance, Whitespace, Word, Hiddenword ]
                 xmltag: "event"
                 label: "Event"
           - class: Example
             properties:
                 annotationtype: EXAMPLE
-                accepted_data: [AbstractInlineAnnotation, Figure, Linebreak, List, Paragraph, PhonContent, Reference, Sentence, String, Table, TextContent, Utterance, Word, Whitespace]
+                accepted_data: [AbstractInlineAnnotation, Figure, Linebreak, List, Paragraph, PhonContent, Reference, Sentence, String, Table, TextContent, Utterance, Word, Hiddenword, Whitespace]
                 xmltag: "ex"
                 label: "Example"
           - class: Figure
@@ -666,9 +670,20 @@ elements:
                 annotationtype: HEAD
                 textdelimiter: "\n\n"
                 occurrences: 1
-                accepted_data: [AbstractInlineAnnotation, Event, Gap, Linebreak, Paragraph, PhonContent, Reference, Sentence, String, TextContent, Whitespace, Word]
+                accepted_data: [AbstractInlineAnnotation, Event, Gap, Linebreak, Paragraph, PhonContent, Reference, Sentence, String, TextContent, Whitespace, Word, Hiddenword ]
                 xmltag: "head"
                 label: "Head"
+          - class: Hiddenword
+            properties:
+                annotationtype: HIDDENTOKEN
+                accepted_data: [AbstractInlineAnnotation, PhonContent, Reference, String, TextContent]
+                xmltag: "hiddenw"
+                label: "Hidden Word/Token"
+                textdelimiter: " " #may be overriden and set to "" if attribute space="no" is set on the word
+                optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, TEXTCLASS, METADATA, SPACE ]
+                wrefable: true
+                printable: false
+                speakable: false
           - class: Hyphbreak
             properties:
                 annotationtype: HYPHENATION
@@ -677,7 +692,7 @@ elements:
                 textdelimiter: ""
           - class: Label
             properties:
-                accepted_data: [ Word, Reference, TextContent, PhonContent, String, Relation, Metric, Alternative, Alternative, AlternativeLayers, AbstractAnnotationLayer, AbstractInlineAnnotation, Correction, Part, Linebreak, Whitespace ]
+                accepted_data: [ Word, Hiddenword, Reference, TextContent, PhonContent, String, Relation, Metric, Alternative, Alternative, AlternativeLayers, AbstractAnnotationLayer, AbstractInlineAnnotation, Correction, Part, Linebreak, Whitespace ]
                 xmltag: "label"
                 label: "Label"
           - class: Linebreak
@@ -697,21 +712,21 @@ elements:
           - class: ListItem
             properties:
                 textdelimiter: "\n"
-                accepted_data: [AbstractInlineAnnotation, Event, Gap, Label, Linebreak, List, Note, Paragraph, Part, PhonContent, Reference, Sentence, String, TextContent, Whitespace, Word]
+                accepted_data: [AbstractInlineAnnotation, Event, Gap, Label, Linebreak, List, Note, Paragraph, Part, PhonContent, Reference, Sentence, String, TextContent, Whitespace, Word, Hiddenword]
                 optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
                 xmltag: "item" #was listitem in an early erroneous version of FoLiA, libraries will unfortunately need to support that too for backward compatibility
                 label: "List Item"
           - class: Note
             properties:
                 annotationtype: NOTE
-                accepted_data: [AbstractInlineAnnotation, Example, Figure, Head, Linebreak, List, Paragraph, PhonContent, Reference, Sentence, String, Table, TextContent, Utterance, Whitespace, Word]
+                accepted_data: [AbstractInlineAnnotation, Example, Figure, Head, Linebreak, List, Paragraph, PhonContent, Reference, Sentence, String, Table, TextContent, Utterance, Whitespace, Word, Hiddenword]
                 xmltag: "note"
                 label: "Note"
           - class: Paragraph
             properties:
                 annotationtype: PARAGRAPH
                 textdelimiter: "\n\n"
-                accepted_data: [AbstractInlineAnnotation, Entry, Event, Example, Figure, Gap, Head, Linebreak, List, Note, PhonContent, Quote, Reference, Sentence, String, TextContent, Whitespace, Word]
+                accepted_data: [AbstractInlineAnnotation, Entry, Event, Example, Figure, Gap, Head, Linebreak, List, Note, PhonContent, Quote, Reference, Sentence, String, TextContent, Whitespace, Word, Hiddenword]
                 xmltag: "p"
                 label: "Paragraph"
           - class: Part
@@ -724,7 +739,7 @@ elements:
           - class: Quote
             properties:
                 annotationtype: QUOTE
-                accepted_data: [Division, Gap, Paragraph, Quote, Sentence, String, TextContent, Utterance, Word, Reference]
+                accepted_data: [Division, Gap, Paragraph, Quote, Sentence, String, TextContent, Utterance, Word, Hiddenword, Reference]
                 xmltag: "quote"
                 label: "Quote"
           - class: Reference
@@ -733,7 +748,7 @@ elements:
                 textdelimiter: null
                 xmltag: "ref"
                 label: "Reference"
-                accepted_data: [PhonContent, Paragraph, Quote, Sentence, String, TextContent, Utterance, Word, Linebreak, Whitespace]
+                accepted_data: [PhonContent, Paragraph, Quote, Sentence, String, TextContent, Utterance, Word, Hiddenword, Linebreak, Whitespace]
                 xlink: true
           - class: Row
             properties:
@@ -744,7 +759,7 @@ elements:
           - class: Sentence
             properties:
                 annotationtype: SENTENCE
-                accepted_data: [AbstractInlineAnnotation, Entry, Event, Example, Gap, Linebreak, Note, PhonContent, Quote, Reference, String, TextContent, Whitespace, Word]
+                accepted_data: [AbstractInlineAnnotation, Entry, Event, Example, Gap, Linebreak, Note, PhonContent, Quote, Reference, String, TextContent, Whitespace, Word, Hiddenword]
                 xmltag: "s"
                 label: "Sentence"
                 textdelimiter: " "
@@ -753,7 +768,7 @@ elements:
                 xmltag: "speech"
                 label: "Speech Body"
                 textdelimiter: "\n\n\n"
-                accepted_data: [AbstractInlineAnnotation, Division, Entry, Event, Example, External, Gap, List, Note, Paragraph, PhonContent, Quote, Reference, Sentence, String, TextContent, Utterance, Word]
+                accepted_data: [AbstractInlineAnnotation, Division, Entry, Event, Example, External, Gap, List, Note, Paragraph, PhonContent, Quote, Reference, Sentence, String, TextContent, Utterance, Word, Hiddenword]
           - class: Table
             properties:
                 annotationtype: TABLE
@@ -769,7 +784,7 @@ elements:
           - class: Term
             properties:
                 annotationtype: TERM
-                accepted_data: [AbstractInlineAnnotation, Event, Figure, Gap, List, Paragraph, PhonContent, Reference, Sentence, String, Table, TextContent, Utterance, Word, Linebreak, Whitespace]
+                accepted_data: [AbstractInlineAnnotation, Event, Figure, Gap, List, Paragraph, PhonContent, Reference, Sentence, String, Table, TextContent, Utterance, Word, Hiddenword, Linebreak, Whitespace]
                 xmltag: "term"
                 label: "Term"
           - class: Text
@@ -777,12 +792,12 @@ elements:
                 xmltag: "text"
                 label: "Text Body"
                 textdelimiter: "\n\n\n"
-                accepted_data: [AbstractInlineAnnotation, Division, Entry, Event, Example, External, Figure, Gap, List, Note, Paragraph, PhonContent, Quote, Reference, Sentence, String, Table, TextContent, Word, Linebreak, Whitespace]
+                accepted_data: [AbstractInlineAnnotation, Division, Entry, Event, Example, External, Figure, Gap, List, Note, Paragraph, PhonContent, Quote, Reference, Sentence, String, Table, TextContent, Word, Hiddenword, Linebreak, Whitespace]
           - class: Utterance
             properties:
                 annotationtype: UTTERANCE
                 textdelimiter: " "
-                accepted_data: [AbstractInlineAnnotation, Gap, Note, PhonContent, Quote, Reference, Sentence, String, TextContent, Word]
+                accepted_data: [AbstractInlineAnnotation, Gap, Note, PhonContent, Quote, Reference, Sentence, String, TextContent, Word, Hiddenword]
                 xmltag: "utt"
                 label: "Utterance"
           - class: Whitespace
@@ -798,7 +813,7 @@ elements:
                 xmltag: "w"
                 label: "Word/Token"
                 textdelimiter: " " #may be overriden and set to "" if attribute space="no" is set on the word
-                optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, TEXTCLASS, METADATA ]
+                optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, TEXTCLASS, METADATA, SPACE ]
                 wrefable: true
     - class: AbstractSubtokenAnnotation
       properties:
