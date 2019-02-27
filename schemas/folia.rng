@@ -25,9 +25,7 @@ RelaxNG schema for FoLiA XML v2.0.0
   <start>
     <element name="FoLiA" ns="http://ilk.uvt.nl/folia">
       <attribute name="id" ns="http://www.w3.org/XML/1998/namespace"/>
-      <optional>
-        <attribute name="version"/>
-      </optional>
+      <attribute name="version"/>
       <optional>
         <attribute name="generator"/>
       </optional>
@@ -67,6 +65,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
                 <zeroOrMore>
                   <element name="annotator">
                     <attribute name="processor">
@@ -99,6 +102,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                 <optional>
                   <attribute name="datetime">
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
                 <zeroOrMore>
@@ -135,6 +143,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
                 <zeroOrMore>
                   <element name="annotator">
                     <attribute name="processor">
@@ -167,6 +180,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                 <optional>
                   <attribute name="datetime">
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
                 <zeroOrMore>
@@ -203,6 +221,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
                 <zeroOrMore>
                   <element name="annotator">
                     <attribute name="processor">
@@ -235,6 +258,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                 <optional>
                   <attribute name="datetime">
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
                 <zeroOrMore>
@@ -271,6 +299,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
                 <zeroOrMore>
                   <element name="annotator">
                     <attribute name="processor">
@@ -303,6 +336,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                 <optional>
                   <attribute name="datetime">
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
                 <zeroOrMore>
@@ -339,6 +377,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
                 <zeroOrMore>
                   <element name="annotator">
                     <attribute name="processor">
@@ -371,6 +414,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                 <optional>
                   <attribute name="datetime">
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
                 <zeroOrMore>
@@ -407,6 +455,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
                 <zeroOrMore>
                   <element name="annotator">
                     <attribute name="processor">
@@ -439,6 +492,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                 <optional>
                   <attribute name="datetime">
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
                 <zeroOrMore>
@@ -475,6 +533,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
                 <zeroOrMore>
                   <element name="annotator">
                     <attribute name="processor">
@@ -507,6 +570,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                 <optional>
                   <attribute name="datetime">
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
                 <zeroOrMore>
@@ -543,6 +611,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
                 <zeroOrMore>
                   <element name="annotator">
                     <attribute name="processor">
@@ -575,6 +648,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                 <optional>
                   <attribute name="datetime">
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
                 <zeroOrMore>
@@ -611,6 +689,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
                 <zeroOrMore>
                   <element name="annotator">
                     <attribute name="processor">
@@ -643,6 +726,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                 <optional>
                   <attribute name="datetime">
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
                 <zeroOrMore>
@@ -679,6 +767,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
                 <zeroOrMore>
                   <element name="annotator">
                     <attribute name="processor">
@@ -711,6 +804,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                 <optional>
                   <attribute name="datetime">
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
                 <zeroOrMore>
@@ -747,6 +845,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
                 <zeroOrMore>
                   <element name="annotator">
                     <attribute name="processor">
@@ -779,6 +882,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                 <optional>
                   <attribute name="datetime">
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
                 <zeroOrMore>
@@ -815,6 +923,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
                 <zeroOrMore>
                   <element name="annotator">
                     <attribute name="processor">
@@ -847,6 +960,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                 <optional>
                   <attribute name="datetime">
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
                 <zeroOrMore>
@@ -883,6 +1001,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
                 <zeroOrMore>
                   <element name="annotator">
                     <attribute name="processor">
@@ -915,6 +1038,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                 <optional>
                   <attribute name="datetime">
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
                 <zeroOrMore>
@@ -951,6 +1079,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
                 <zeroOrMore>
                   <element name="annotator">
                     <attribute name="processor">
@@ -983,6 +1116,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                 <optional>
                   <attribute name="datetime">
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
                 <zeroOrMore>
@@ -1019,6 +1157,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
                 <zeroOrMore>
                   <element name="annotator">
                     <attribute name="processor">
@@ -1051,6 +1194,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                 <optional>
                   <attribute name="datetime">
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
                 <zeroOrMore>
@@ -1121,6 +1269,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
                 <zeroOrMore>
                   <element name="annotator">
                     <attribute name="processor">
@@ -1189,6 +1342,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
                 <zeroOrMore>
                   <element name="annotator">
                     <attribute name="processor">
@@ -1221,6 +1379,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                 <optional>
                   <attribute name="datetime">
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
                 <zeroOrMore>
@@ -1257,6 +1420,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
                 <zeroOrMore>
                   <element name="annotator">
                     <attribute name="processor">
@@ -1289,6 +1457,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                 <optional>
                   <attribute name="datetime">
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
                 <zeroOrMore>
@@ -1325,6 +1498,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
                 <zeroOrMore>
                   <element name="annotator">
                     <attribute name="processor">
@@ -1357,6 +1535,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                 <optional>
                   <attribute name="datetime">
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
                 <zeroOrMore>
@@ -1393,6 +1576,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
                 <zeroOrMore>
                   <element name="annotator">
                     <attribute name="processor">
@@ -1425,6 +1613,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                 <optional>
                   <attribute name="datetime">
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
                 <zeroOrMore>
@@ -1461,6 +1654,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
                 <zeroOrMore>
                   <element name="annotator">
                     <attribute name="processor">
@@ -1493,6 +1691,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                 <optional>
                   <attribute name="datetime">
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
                 <zeroOrMore>
@@ -1529,6 +1732,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
                 <zeroOrMore>
                   <element name="annotator">
                     <attribute name="processor">
@@ -1561,6 +1769,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                 <optional>
                   <attribute name="datetime">
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
                 <zeroOrMore>
@@ -1597,6 +1810,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
                 <zeroOrMore>
                   <element name="annotator">
                     <attribute name="processor">
@@ -1629,6 +1847,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                 <optional>
                   <attribute name="datetime">
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
                 <zeroOrMore>
@@ -1665,6 +1888,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
                 <zeroOrMore>
                   <element name="annotator">
                     <attribute name="processor">
@@ -1697,6 +1925,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                 <optional>
                   <attribute name="datetime">
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
                 <zeroOrMore>
@@ -1733,6 +1966,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
                 <zeroOrMore>
                   <element name="annotator">
                     <attribute name="processor">
@@ -1765,6 +2003,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                 <optional>
                   <attribute name="datetime">
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
                 <zeroOrMore>
@@ -1801,6 +2044,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
                 <zeroOrMore>
                   <element name="annotator">
                     <attribute name="processor">
@@ -1833,6 +2081,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                 <optional>
                   <attribute name="datetime">
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
                 <zeroOrMore>
@@ -1869,6 +2122,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
                 <zeroOrMore>
                   <element name="annotator">
                     <attribute name="processor">
@@ -1903,6 +2161,11 @@ RelaxNG schema for FoLiA XML v2.0.0
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
                 <zeroOrMore>
                   <element name="annotator">
                     <attribute name="processor">
@@ -1935,6 +2198,50 @@ RelaxNG schema for FoLiA XML v2.0.0
                 <optional>
                   <attribute name="datetime">
                     <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <zeroOrMore>
+                  <element name="annotator">
+                    <attribute name="processor">
+                      <data type="IDREF" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                    </attribute>
+                  </element>
+                </zeroOrMore>
+              </element>
+              <element name="hiddentoken-annotation">
+                <optional>
+                  <attribute name="set">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="alias">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="annotator">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="annotatortype">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="datetime">
+                    <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
                   </attribute>
                 </optional>
                 <zeroOrMore>
@@ -3099,6 +3406,9 @@ RelaxNG schema for FoLiA XML v2.0.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="space"/>
+      </optional>
+      <optional>
         <attribute name="auth"/>
       </optional>
       <ref name="allow_foreign_attributes"/>
@@ -3177,6 +3487,9 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="w"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="hiddenw"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="ref"/>
@@ -3455,6 +3768,9 @@ RelaxNG schema for FoLiA XML v2.0.0
       </optional>
       <optional>
         <attribute name="metadata"/>
+      </optional>
+      <optional>
+        <attribute name="space"/>
       </optional>
       <optional>
         <attribute name="href" ns="http://www.w3.org/1999/xlink"/>
@@ -3767,6 +4083,9 @@ RelaxNG schema for FoLiA XML v2.0.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="space"/>
+      </optional>
+      <optional>
         <attribute name="auth"/>
       </optional>
       <ref name="allow_foreign_attributes"/>
@@ -3920,10 +4239,199 @@ RelaxNG schema for FoLiA XML v2.0.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="space"/>
+      </optional>
+      <optional>
         <attribute name="auth"/>
+      </optional>
+      <ref name="allow_foreign_attributes"/>
+      <interleave>
+        <zeroOrMore>
+          <ref name="syntax"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="chunking"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="entities"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="dependencies"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="morphology"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="phonology"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="coreferences"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="semroles"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="statements"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="sentiments"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="observations"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="spanrelations"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="complexalignments"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="timing"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="errordetection"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="pos"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lemma"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lang"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="domain"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="sense"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="subjectivity"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alt"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="altlayers"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="comment"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="correction"/>
+        </zeroOrMore>
+        <optional>
+          <ref name="desc"/>
+        </optional>
+        <zeroOrMore>
+          <ref name="feat"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="foreign-data"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="metric"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="part"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="ph"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="ref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="relation"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="alignment"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="str"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t"/>
+        </zeroOrMore>
+      </interleave>
+    </element>
+  </define>
+
+
+  <define name="hiddenw" ns="http://ilk.uvt.nl/folia">
+    <element name="hiddenw">
+      <a:documentation>Hidden word (aka token) element. Holds a word/token and all its related token annotations, but the word is ignored for most intents and purposes. It may act as a dummy for e.g. syntactic movement annotation.</a:documentation>
+      <optional>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="annotatortype"/>
+      </optional>
+      <optional>
+        <attribute name="processor">
+          <data type="IDREF" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="confidence">
+          <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="datetime">
+          <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="begintime"/>
+      </optional>
+      <optional>
+        <attribute name="endtime"/>
+      </optional>
+      <optional>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="textclass"/>
+      </optional>
+      <optional>
+        <attribute name="metadata"/>
       </optional>
       <optional>
         <attribute name="space"/>
+      </optional>
+      <optional>
+        <attribute name="auth"/>
       </optional>
       <ref name="allow_foreign_attributes"/>
       <interleave>
@@ -4325,6 +4833,9 @@ RelaxNG schema for FoLiA XML v2.0.0
       </optional>
       <optional>
         <attribute name="metadata"/>
+      </optional>
+      <optional>
+        <attribute name="space"/>
       </optional>
       <optional>
         <attribute name="href" ns="http://www.w3.org/1999/xlink"/>
@@ -4971,6 +5482,9 @@ RelaxNG schema for FoLiA XML v2.0.0
           <ref name="w"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="hiddenw"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="ref"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -5170,6 +5684,9 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="w"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="hiddenw"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="ref"/>
@@ -5372,6 +5889,9 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="w"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="hiddenw"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="ref"/>
@@ -5577,6 +6097,9 @@ RelaxNG schema for FoLiA XML v2.0.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="w"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="hiddenw"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="ref"/>
@@ -6146,6 +6669,27 @@ RelaxNG schema for FoLiA XML v2.0.0
       <ref name="allow_foreign_attributes"/>
       <interleave>
         <zeroOrMore>
+          <ref name="errordetection"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="pos"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lemma"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lang"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="domain"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="sense"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="subjectivity"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="comment"/>
         </zeroOrMore>
         <optional>
@@ -6257,6 +6801,27 @@ RelaxNG schema for FoLiA XML v2.0.0
       <ref name="allow_foreign_attributes"/>
       <interleave>
         <zeroOrMore>
+          <ref name="errordetection"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="pos"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lemma"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lang"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="domain"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="sense"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="subjectivity"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="comment"/>
         </zeroOrMore>
         <optional>
@@ -6365,6 +6930,27 @@ RelaxNG schema for FoLiA XML v2.0.0
       <ref name="allow_foreign_attributes"/>
       <interleave>
         <zeroOrMore>
+          <ref name="errordetection"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="pos"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lemma"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lang"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="domain"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="sense"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="subjectivity"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="comment"/>
         </zeroOrMore>
         <optional>
@@ -6440,6 +7026,27 @@ RelaxNG schema for FoLiA XML v2.0.0
       <ref name="allow_foreign_attributes"/>
       <interleave>
         <zeroOrMore>
+          <ref name="errordetection"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="pos"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lemma"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lang"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="domain"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="sense"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="subjectivity"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="comment"/>
         </zeroOrMore>
         <optional>
@@ -6513,6 +7120,27 @@ RelaxNG schema for FoLiA XML v2.0.0
       <ref name="allow_foreign_attributes"/>
       <interleave>
         <zeroOrMore>
+          <ref name="errordetection"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="pos"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lemma"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lang"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="domain"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="sense"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="subjectivity"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="comment"/>
         </zeroOrMore>
         <optional>
@@ -6583,6 +7211,27 @@ RelaxNG schema for FoLiA XML v2.0.0
       </optional>
       <ref name="allow_foreign_attributes"/>
       <interleave>
+        <zeroOrMore>
+          <ref name="errordetection"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="pos"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lemma"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lang"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="domain"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="sense"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="subjectivity"/>
+        </zeroOrMore>
         <zeroOrMore>
           <ref name="comment"/>
         </zeroOrMore>
@@ -6655,6 +7304,27 @@ RelaxNG schema for FoLiA XML v2.0.0
       <ref name="allow_foreign_attributes"/>
       <interleave>
         <zeroOrMore>
+          <ref name="errordetection"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="pos"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lemma"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lang"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="domain"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="sense"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="subjectivity"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="comment"/>
         </zeroOrMore>
         <optional>
@@ -6725,6 +7395,27 @@ RelaxNG schema for FoLiA XML v2.0.0
       </optional>
       <ref name="allow_foreign_attributes"/>
       <interleave>
+        <zeroOrMore>
+          <ref name="errordetection"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="pos"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lemma"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lang"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="domain"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="sense"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="subjectivity"/>
+        </zeroOrMore>
         <zeroOrMore>
           <ref name="comment"/>
         </zeroOrMore>
@@ -6834,6 +7525,27 @@ RelaxNG schema for FoLiA XML v2.0.0
       <ref name="allow_foreign_attributes"/>
       <interleave>
         <zeroOrMore>
+          <ref name="errordetection"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="pos"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lemma"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lang"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="domain"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="sense"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="subjectivity"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="comment"/>
         </zeroOrMore>
         <ref name="dep"/>
@@ -6912,6 +7624,27 @@ RelaxNG schema for FoLiA XML v2.0.0
         <attribute name="time"/>
       </optional>
       <interleave>
+        <zeroOrMore>
+          <ref name="errordetection"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="pos"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lemma"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lang"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="domain"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="sense"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="subjectivity"/>
+        </zeroOrMore>
         <zeroOrMore>
           <ref name="comment"/>
         </zeroOrMore>
@@ -7024,6 +7757,27 @@ RelaxNG schema for FoLiA XML v2.0.0
       <ref name="allow_foreign_attributes"/>
       <interleave>
         <zeroOrMore>
+          <ref name="errordetection"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="pos"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lemma"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lang"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="domain"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="sense"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="subjectivity"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="comment"/>
         </zeroOrMore>
         <oneOrMore>
@@ -7129,6 +7883,27 @@ RelaxNG schema for FoLiA XML v2.0.0
       </optional>
       <ref name="allow_foreign_attributes"/>
       <interleave>
+        <zeroOrMore>
+          <ref name="errordetection"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="pos"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lemma"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lang"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="domain"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="sense"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="subjectivity"/>
+        </zeroOrMore>
         <zeroOrMore>
           <ref name="comment"/>
         </zeroOrMore>
@@ -7240,6 +8015,27 @@ RelaxNG schema for FoLiA XML v2.0.0
       </optional>
       <ref name="allow_foreign_attributes"/>
       <interleave>
+        <zeroOrMore>
+          <ref name="errordetection"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="pos"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lemma"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lang"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="domain"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="sense"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="subjectivity"/>
+        </zeroOrMore>
         <zeroOrMore>
           <ref name="comment"/>
         </zeroOrMore>
@@ -7358,6 +8154,27 @@ RelaxNG schema for FoLiA XML v2.0.0
       </optional>
       <interleave>
         <zeroOrMore>
+          <ref name="errordetection"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="pos"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lemma"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lang"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="domain"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="sense"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="subjectivity"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="comment"/>
         </zeroOrMore>
         <optional>
@@ -7475,6 +8292,27 @@ RelaxNG schema for FoLiA XML v2.0.0
       <ref name="allow_foreign_attributes"/>
       <interleave>
         <zeroOrMore>
+          <ref name="errordetection"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="pos"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lemma"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lang"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="domain"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="sense"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="subjectivity"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="comment"/>
         </zeroOrMore>
         <optional>
@@ -7591,6 +8429,27 @@ RelaxNG schema for FoLiA XML v2.0.0
       </optional>
       <ref name="allow_foreign_attributes"/>
       <interleave>
+        <zeroOrMore>
+          <ref name="errordetection"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="pos"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lemma"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lang"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="domain"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="sense"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="subjectivity"/>
+        </zeroOrMore>
         <zeroOrMore>
           <ref name="comment"/>
         </zeroOrMore>
@@ -9568,6 +10427,9 @@ RelaxNG schema for FoLiA XML v2.0.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="space"/>
+      </optional>
+      <optional>
         <attribute name="auth"/>
       </optional>
       <ref name="allow_foreign_attributes"/>
@@ -9784,6 +10646,9 @@ RelaxNG schema for FoLiA XML v2.0.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="space"/>
+      </optional>
+      <optional>
         <attribute name="auth"/>
       </optional>
       <ref name="allow_foreign_attributes"/>
@@ -9992,6 +10857,9 @@ RelaxNG schema for FoLiA XML v2.0.0
       </optional>
       <optional>
         <attribute name="metadata"/>
+      </optional>
+      <optional>
+        <attribute name="space"/>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -10210,6 +11078,9 @@ RelaxNG schema for FoLiA XML v2.0.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="space"/>
+      </optional>
+      <optional>
         <attribute name="auth"/>
       </optional>
       <ref name="allow_foreign_attributes"/>
@@ -10420,6 +11291,9 @@ RelaxNG schema for FoLiA XML v2.0.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="space"/>
+      </optional>
+      <optional>
         <attribute name="auth"/>
       </optional>
       <ref name="allow_foreign_attributes"/>
@@ -10601,6 +11475,27 @@ RelaxNG schema for FoLiA XML v2.0.0
         <attribute name="enddatetime"/>
       </optional>
       <interleave>
+        <zeroOrMore>
+          <ref name="errordetection"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="pos"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lemma"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="lang"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="domain"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="sense"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="subjectivity"/>
+        </zeroOrMore>
         <zeroOrMore>
           <ref name="comment"/>
         </zeroOrMore>
@@ -10959,6 +11854,9 @@ RelaxNG schema for FoLiA XML v2.0.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="space"/>
+      </optional>
+      <optional>
         <attribute name="auth"/>
       </optional>
       <ref name="allow_foreign_attributes"/>
@@ -11137,6 +12035,9 @@ RelaxNG schema for FoLiA XML v2.0.0
       </optional>
       <optional>
         <attribute name="metadata"/>
+      </optional>
+      <optional>
+        <attribute name="space"/>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -11349,6 +12250,9 @@ RelaxNG schema for FoLiA XML v2.0.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="space"/>
+      </optional>
+      <optional>
         <attribute name="auth"/>
       </optional>
       <ref name="allow_foreign_attributes"/>
@@ -11545,6 +12449,9 @@ RelaxNG schema for FoLiA XML v2.0.0
       </optional>
       <optional>
         <attribute name="metadata"/>
+      </optional>
+      <optional>
+        <attribute name="space"/>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -11780,6 +12687,9 @@ RelaxNG schema for FoLiA XML v2.0.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="space"/>
+      </optional>
+      <optional>
         <attribute name="auth"/>
       </optional>
       <ref name="allow_foreign_attributes"/>
@@ -11976,6 +12886,9 @@ RelaxNG schema for FoLiA XML v2.0.0
       </optional>
       <optional>
         <attribute name="metadata"/>
+      </optional>
+      <optional>
+        <attribute name="space"/>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -12576,6 +13489,9 @@ RelaxNG schema for FoLiA XML v2.0.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="space"/>
+      </optional>
+      <optional>
         <attribute name="auth"/>
       </optional>
       <ref name="allow_foreign_attributes"/>
@@ -12774,6 +13690,9 @@ RelaxNG schema for FoLiA XML v2.0.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="space"/>
+      </optional>
+      <optional>
         <attribute name="auth"/>
       </optional>
       <ref name="allow_foreign_attributes"/>
@@ -12933,6 +13852,9 @@ RelaxNG schema for FoLiA XML v2.0.0
       </optional>
       <optional>
         <attribute name="metadata"/>
+      </optional>
+      <optional>
+        <attribute name="space"/>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -13137,6 +14059,9 @@ RelaxNG schema for FoLiA XML v2.0.0
       </optional>
       <optional>
         <attribute name="metadata"/>
+      </optional>
+      <optional>
+        <attribute name="space"/>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -13351,6 +14276,9 @@ RelaxNG schema for FoLiA XML v2.0.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="space"/>
+      </optional>
+      <optional>
         <attribute name="auth"/>
       </optional>
       <ref name="allow_foreign_attributes"/>
@@ -13562,6 +14490,9 @@ RelaxNG schema for FoLiA XML v2.0.0
       </optional>
       <optional>
         <attribute name="metadata"/>
+      </optional>
+      <optional>
+        <attribute name="space"/>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -13902,6 +14833,9 @@ RelaxNG schema for FoLiA XML v2.0.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="space"/>
+      </optional>
+      <optional>
         <attribute name="auth"/>
       </optional>
       <ref name="allow_foreign_attributes"/>
@@ -14077,6 +15011,9 @@ RelaxNG schema for FoLiA XML v2.0.0
       </optional>
       <optional>
         <attribute name="metadata"/>
+      </optional>
+      <optional>
+        <attribute name="space"/>
       </optional>
       <optional>
         <attribute name="auth"/>
@@ -14307,6 +15244,9 @@ RelaxNG schema for FoLiA XML v2.0.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="space"/>
+      </optional>
+      <optional>
         <attribute name="auth"/>
       </optional>
       <ref name="allow_foreign_attributes"/>
@@ -14527,6 +15467,9 @@ RelaxNG schema for FoLiA XML v2.0.0
       </optional>
       <optional>
         <attribute name="metadata"/>
+      </optional>
+      <optional>
+        <attribute name="space"/>
       </optional>
       <optional>
         <attribute name="auth"/>
