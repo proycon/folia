@@ -12,7 +12,7 @@ setdefinitionnamespace: "http://folia.science.ru.nl/setdefinition"
 
 #all possible common FoLiA attributes
 #(@annotatortype and @processor are subsumed under ANNOTATOR)
-attributes: [ ID, CLASS, ANNOTATOR, CONFIDENCE, N, DATETIME, BEGINTIME, ENDTIME, SRC, SPEAKER, TEXTCLASS, METADATA, IDREF ]
+attributes: [ ID, CLASS, ANNOTATOR, CONFIDENCE, N, DATETIME, BEGINTIME, ENDTIME, SRC, SPEAKER, TEXTCLASS, METADATA, IDREF, SPACE ]
 
 attributes_doc:
     id:
@@ -362,6 +362,7 @@ defaultproperties:
     auto_generate_id: false #Automatically generate an ID if none was provided?
     setonly: false #States that the element may take a set property only, and not a class property
     wrefable: false #Indicates whether this element is referable as a token/word (applies only to a very select few elements, such as w, morpheme, and phoneme)
+    space: false #Indicates whether instances of this element may carry a space="no" attribute that overrides the default textdelimiter (sets it to "" effectively)
 
 elements:
     - class: AbstractAnnotationLayer
@@ -607,6 +608,7 @@ elements:
           optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
           accepted_data: [AbstractAnnotationLayer, Relation, Alternative, AlternativeLayers, Correction, Feature, Metric, Part, ForeignData]
           auto_generate_id: true
+          space: true #instances may carry a space="no" attribute
       elements:
           - class: Caption
             properties:
