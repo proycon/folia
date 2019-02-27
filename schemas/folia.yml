@@ -55,6 +55,10 @@ attributes_doc:
         name: "textclass"
         description: "Refers to the text class this annotation is based on. This is an advanced attribute, if not specified, it defaults to ``current``. See :ref:`textclass_attribute`."
         group: annotation
+    space:
+        name: "space"
+        description: "This attribute indicates whether spacing should be inserted after this element (it's default value is always ``yes``, so it does not need to be specified in that case), but if tokens or other structural elements are glued together then the value should be set to ``no``. This allows for reconstruction of the detokenised original text. "
+        group: annotation
     src:
         name: "src"
         description: "Points to a file or full URL of a sound or video file. This attribute is inheritable."
