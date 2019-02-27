@@ -362,7 +362,6 @@ defaultproperties:
     auto_generate_id: false #Automatically generate an ID if none was provided?
     setonly: false #States that the element may take a set property only, and not a class property
     wrefable: false #Indicates whether this element is referable as a token/word (applies only to a very select few elements, such as w, morpheme, and phoneme)
-    space: false #Indicates whether instances of this element may carry a space="no" attribute that overrides the default textdelimiter (sets it to "" effectively)
 
 elements:
     - class: AbstractAnnotationLayer
@@ -605,23 +604,22 @@ elements:
           required_attribs: null
           textdelimiter: "\n\n"
           speakable: true
-          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
+          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA, SPACE ]
           accepted_data: [AbstractAnnotationLayer, Relation, Alternative, AlternativeLayers, Correction, Feature, Metric, Part, ForeignData]
           auto_generate_id: true
-          space: true #instances may carry a space="no" attribute
       elements:
           - class: Caption
             properties:
                 occurrences: 1
                 accepted_data: [AbstractInlineAnnotation, Gap, Linebreak, Paragraph, PhonContent, Reference, Sentence, String, TextContent, Whitespace]
-                optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
+                optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA, SPACE ]
                 xmltag: "caption"
                 label: "Caption"
           - class: Cell
             properties:
                 textdelimiter: " | "
                 accepted_data: [AbstractInlineAnnotation, Entry, Event, Example, Gap, Head, Linebreak, Note, Paragraph, Reference, Sentence, String, TextContent, Whitespace, Word]
-                optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
+                optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA, SPACE  ]
                 xmltag: "cell"
                 label: "Cell"
           - class: Definition
@@ -678,7 +676,7 @@ elements:
                 xmltag: "hiddenw"
                 label: "Hidden Word/Token"
                 textdelimiter: " " #may be overriden and set to "" if attribute space="no" is set on the word
-                optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, TEXTCLASS, METADATA ]
+                optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, TEXTCLASS, METADATA, SPACE ]
                 wrefable: true
           - class: Hyphbreak
             properties:
@@ -809,7 +807,7 @@ elements:
                 xmltag: "w"
                 label: "Word/Token"
                 textdelimiter: " " #may be overriden and set to "" if attribute space="no" is set on the word
-                optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, TEXTCLASS, METADATA ]
+                optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, TEXTCLASS, METADATA, SPACE ]
                 wrefable: true
     - class: AbstractSubtokenAnnotation
       properties:
