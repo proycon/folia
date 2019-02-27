@@ -77,7 +77,7 @@ attributes_doc:
         group: core
 
 #All possible annotation types, each must be declared in the FoLiA header when used
-annotationtype: [ TEXT, TOKEN, DIVISION, PARAGRAPH, HEAD, LIST, FIGURE, WHITESPACE, LINEBREAK, SENTENCE, POS, LEMMA, DOMAIN, SENSE, SYNTAX, CHUNKING, ENTITY, CORRECTION, ERRORDETECTION, PHON, SUBJECTIVITY, MORPHOLOGICAL, EVENT, DEPENDENCY, TIMESEGMENT, GAP, QUOTE, NOTE, REFERENCE, RELATION, SPANRELATION, COREFERENCE, SEMROLE, METRIC, LANG, STRING, TABLE, STYLE, PART, UTTERANCE, ENTRY, TERM, DEFINITION, EXAMPLE, PHONOLOGICAL, PREDICATE, OBSERVATION, SENTIMENT, STATEMENT, ALTERNATIVE, RAWCONTENT, COMMENT, DESCRIPTION, HYPHENATION ]
+annotationtype: [ TEXT, TOKEN, DIVISION, PARAGRAPH, HEAD, LIST, FIGURE, WHITESPACE, LINEBREAK, SENTENCE, POS, LEMMA, DOMAIN, SENSE, SYNTAX, CHUNKING, ENTITY, CORRECTION, ERRORDETECTION, PHON, SUBJECTIVITY, MORPHOLOGICAL, EVENT, DEPENDENCY, TIMESEGMENT, GAP, QUOTE, NOTE, REFERENCE, RELATION, SPANRELATION, COREFERENCE, SEMROLE, METRIC, LANG, STRING, TABLE, STYLE, PART, UTTERANCE, ENTRY, TERM, DEFINITION, EXAMPLE, PHONOLOGICAL, PREDICATE, OBSERVATION, SENTIMENT, STATEMENT, ALTERNATIVE, RAWCONTENT, COMMENT, DESCRIPTION, HYPHENATION, HIDDENTOKEN ]
 
 #Documentation of annotation types (reStructuredText)
 annotationtype_doc:
@@ -304,6 +304,10 @@ qualification is expressed by the class, in turn defined by a set. The precise s
     hyphenation:
         name: "Hyphenation Annotation"
         description: "This is a text-markup annotation form that indicates where in the original text a linebreak was inserted and a word was hyphenised."
+        history: "Since v2.0"
+    hiddentoken:
+        name: "Hidden Token Annotation"
+        description: "This annotation type allows for a hidden token layer in the document. Hidden tokens are ignored for most intents and purposes but may serve a purpose when annotations on implicit tokens is required, for example as targets for syntactic movement annotation."
         history: "Since v2.0"
 
 categories:
@@ -665,6 +669,15 @@ elements:
                 accepted_data: [AbstractInlineAnnotation, Event, Gap, Linebreak, Paragraph, PhonContent, Reference, Sentence, String, TextContent, Whitespace, Word]
                 xmltag: "head"
                 label: "Head"
+          - class: Hiddenword
+            properties:
+                annotationtype: HIDDENTOKEN
+                accepted_data: [AbstractInlineAnnotation, PhonContent, Reference, String, TextContent]
+                xmltag: "hiddenw"
+                label: "Hidden Word/Token"
+                textdelimiter: " " #may be overriden and set to "" if attribute space="no" is set on the word
+                optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, TEXTCLASS, METADATA ]
+                wrefable: true
           - class: Hyphbreak
             properties:
                 annotationtype: HYPHENATION
