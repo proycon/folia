@@ -678,6 +678,8 @@ elements:
                 textdelimiter: " " #may be overriden and set to "" if attribute space="no" is set on the word
                 optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, TEXTCLASS, METADATA, SPACE ]
                 wrefable: true
+                printable: false
+                speakable: false
           - class: Hyphbreak
             properties:
                 annotationtype: HYPHENATION
