@@ -1130,6 +1130,9 @@ elements:
           optional_attribs: [ IDREF ]
           xmltag: "xref"
 
+#List of elements that can be a target of wref in span anntation
+wrefables: [ Word, Hiddenword, Morpheme, Phoneme ]
+
 #Default ignore list for the select() method, do not descend into these
 default_ignore: [ Original, Suggestion, Alternative, AlternativeLayers, ForeignData ]
 
