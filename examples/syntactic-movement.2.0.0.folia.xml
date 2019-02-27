@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FoLiA xmlns="http://ilk.uvt.nl/folia" version="2.0" xml:id="example">
+  <metadata>
+      <annotations>
+          <token-annotation set="https://raw.githubusercontent.com/LanguageMachines/uctodata/master/setdefinitions/tokconfig-eng.foliaset.ttl">
+			 <annotator processor="p1" />
+		  </token-annotation>
+          <hiddentoken-annotation>
+			 <annotator processor="p1" />
+		  </hiddentoken-annotation>
+          <text-annotation>
+			 <annotator processor="p1" />
+          </text-annotation>
+          <sentence-annotation>
+			 <annotator processor="p1" />
+          </sentence-annotation>
+          <pos-annotation set="adhoc">
+			 <annotator processor="p1" />
+          </pos-annotation>
+          <syntax-annotation set="adhoc">
+			 <annotator processor="p1" />
+          </syntax-annotation>
+      </annotations>
+      <provenance>
+         <processor xml:id="p1" name="proycon" type="manual" />
+      </provenance>
+  </metadata>
+  <text xml:id="example.text">
+    <s xml:id="example.s.1">
+        <hiddenw xml:id="example.s.1.w.0">
+            <t>*exp*</t>
+            <desc>empty expletive subject</desc>
+            <pos class="EX" />
+        </hiddenw>
+        <w xml:id="example.s.1.w.1" space="no">
+            <t>Is</t>
+            <pos class="BEP" />
+        </w>
+        <w xml:id="example.s.1.w.2">
+            <t>n't</t>
+            <pos class="NEG" />
+        </w>
+        <w xml:id="example.s.1.w.3">
+            <t>a</t>
+            <pos class="D" />
+        </w>
+        <w xml:id="example.s.1.w.4">
+            <t>whole</t>
+            <pos class="ADJ" />
+        </w>
+        <w xml:id="example.s.1.w.5">
+            <t>lot</t>
+            <pos class="N" />
+        </w>
+        <w xml:id="example.s.1.w.6" space="no">
+            <t>left</t>
+            <pos class="VAN" />
+        </w>
+        <w xml:id="example.s.1.w.7">
+            <t>.</t>
+            <pos class="PUNC" />
+        </w>
+        <syntax>
+            <su xml:id="example.s.1.su.1" class="IP-MAT">
+                <su xml:id="example.s.1.su.2" class="NP-SBJ">
+                    <wref id="example.s.1.w.0" />
+                </su>
+                <su xml:id="example.s.1.su.3" class="VP">
+                    <su xml:id="example.s.1.su.4" class="BEP">
+                        <wref id="example.s.1.w.1" />
+                    </su>
+                    <su xml:id="example.s.1.su.5" class="NEG">
+                        <wref id="example.s.1.w.2" />
+                    </su>
+                    <su xml:id="example.s.1.su.6" class="VP">
+                        <su xml:id="example.s.1.su.7" class="NP-LGS">
+                            <wref id="example.s.1.w.3" />
+                            <su xml:id="example.s.1.su.8" class="ADJP">
+                                <wref id="example.s.1.w.4" />
+                            </su>
+                            <wref id="example.s.1.w.5" />
+                        </su>
+                        <wref id="example.s1.w.6" />
+                    </su>
+                </su>
+                <su class="PUNC">
+                    <wref id="example.s.1.w.7" />
+                </su>
+            </su>
+        </syntax>
+    </s>
+  </text>
+</FoLiA>
