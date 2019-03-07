@@ -23,6 +23,7 @@ Supported Features,Relations,yes,yes,yes
 Supported Features,Native Metadata,yes,yes,yes
 Supported Features,Foreign Metadata,yes,yes,yes
 Supported Features,Provenance data,yes,yes,no
+Supported Features,Foreign Annotations,yes,yes,yes
 
 Validation,Shallow Validation,yes,yes,yes
 Validation,Text Consistency Validation,yes,yes,yes
