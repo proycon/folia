@@ -32,6 +32,7 @@ Table of Contents
     speech
     annotation_types
     hyperlinks
+    foreign_annotation
     querying
     implementations
 
