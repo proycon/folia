@@ -17,7 +17,7 @@ Specification
 :Version History: Since the beginning, may carry set and classes since v2.0
 :**Element**: ``<alt>``
 :API Class: ``Alternative``
-:Required Attributes: 
+:Required Attributes:
 :Optional Attributes: * ``xml:id`` -- The ID of the element; this has to be a unique in the entire document or collection of documents (corpus). All identifiers in FoLiA are of the `XML NCName <https://www.w3.org/TR/1999/WD-xmlschema-2-19990924/#NCName>`_ datatype, which roughly means it is a unique string that has to start with a letter (not a number or symbol), may contain numers, but may never contain colons or spaces. FoLiA does not define any naming convention for IDs.
                       * ``processor`` -- This refers to the ID of a processor in the :ref:`provenance_data`. The processor in turn defines exactly who or what was the annotator of the annotation.
                       * ``annotator`` -- This is an older alternative to the ``processor`` attribute, without support for full provenance. The annotator attribute simply refers to the name o ID of the system or human annotator that made the annotation.
@@ -35,7 +35,7 @@ Specification
 .. foliaspec:specification_element(AlternativeLayers)
 :**Element**: ``<altlayers>``
 :API Class: ``AlternativeLayers``
-:Required Attributes: 
+:Required Attributes:
 :Optional Attributes: * ``xml:id`` -- The ID of the element; this has to be a unique in the entire document or collection of documents (corpus). All identifiers in FoLiA are of the `XML NCName <https://www.w3.org/TR/1999/WD-xmlschema-2-19990924/#NCName>`_ datatype, which roughly means it is a unique string that has to start with a letter (not a number or symbol), may contain numers, but may never contain colons or spaces. FoLiA does not define any naming convention for IDs.
                       * ``processor`` -- This refers to the ID of a processor in the :ref:`provenance_data`. The processor in turn defines exactly who or what was the annotator of the annotation.
                       * ``annotator`` -- This is an older alternative to the ``processor`` attribute, without support for full provenance. The annotator attribute simply refers to the name o ID of the system or human annotator that made the annotation.
@@ -113,7 +113,7 @@ following expanded example in which we added a part-of-speech tag and a lemma.
         <alt xml:id="example.p.1.s.1.w.1.alt.1">
             <domain class="finance" />
             <sense class="r_n-5919" confidence="0.6">
-                <desc>financial institutioni</desc>
+                <desc>financial institution</desc>
             </sense>
         </alt>
         <alt xml:id="example.p.1.s.1.w.1.alt.2">
@@ -142,6 +142,7 @@ otherwise there would be no lemma nor text associated with the exclusive
 alternative.
 
 .. TODO: is exclusive implemented?
+.. RESPONSE: It is now
 
 .. TODO: look at auth="no" usage
 .. RESPONSE: I'm discarding auth="no" from FoLiA v2.0 and making it an internal property only, no longer expressed (issue #56)
