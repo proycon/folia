@@ -17,7 +17,7 @@ Specification
 :Version History: since v0.11.2
 :**Element**: ``<part>``
 :API Class: ``Part``
-:Required Attributes: 
+:Required Attributes:
 :Optional Attributes: * ``xml:id`` -- The ID of the element; this has to be a unique in the entire document or collection of documents (corpus). All identifiers in FoLiA are of the `XML NCName <https://www.w3.org/TR/1999/WD-xmlschema-2-19990924/#NCName>`_ datatype, which roughly means it is a unique string that has to start with a letter (not a number or symbol), may contain numers, but may never contain colons or spaces. FoLiA does not define any naming convention for IDs.
                       * ``set`` -- The set of the element, ideally a URI linking to a set definition (see :ref:`set_definitions`) or otherwise a uniquely identifying string. The ``set`` must be referred to also in the :ref:`annotation_declarations` for this annotation type.
                       * ``class`` -- The class of the annotation, i.e. the annotation tag in the vocabulary defined by ``set``.
@@ -27,7 +27,7 @@ Specification
                       * ``confidence`` -- A floating point value between zero and one; expresses the confidence the annotator places in his annotation.
                       * ``datetime`` -- The date and time when this annotation was recorded, the format is ``YYYY-MM-DDThh:mm:ss`` (note the literal T in the middle to separate date from time), as per the XSD Datetime data type.
                       * ``n`` -- A number in a sequence, corresponding to a number in the original document, for example chapter numbers, section numbers, list item numbers. This this not have to be an actual number but other sequence identifiers are also possible (think alphanumeric characters or roman numerals).
-                      * ``space`` -- This attribute indicates whether spacing should be inserted after this element (it's default value is always ``yes``, so it does not need to be specified in that case), but if tokens or other structural elements are glued together then the value should be set to ``no``. This allows for reconstruction of the detokenised original text. 
+                      * ``space`` -- This attribute indicates whether spacing should be inserted after this element (it's default value is always ``yes``, so it does not need to be specified in that case), but if tokens or other structural elements are glued together then the value should be set to ``no``. This allows for reconstruction of the detokenised original text.
                       * ``src`` -- Points to a file or full URL of a sound or video file. This attribute is inheritable.
                       * ``begintime`` -- A timestamp in ``HH:MM:SS.MMM`` format, indicating the begin time of the speech. If a sound clip is specified (``src``); the timestamp refers to a location in the soundclip.
                       * ``endtime`` -- A timestamp in ``HH:MM:SS.MMM`` format, indicating the end time of the speech. If a sound clip is specified (``src``); the timestamp refers to a location in the soundclip.
@@ -38,13 +38,29 @@ Specification
 Explanation
 -------------------------
 
-TODO
+Part can be used to divide a larger structure element, such as a division, or a
+paragraph into arbitrary subparts.
 
-Example
--------------------------
+.. code-block:: xml
 
-.. literalinclude:: ../../examples/part.folia.xml
-    :linenos:
-    :language: xml
+   <p>
+     <part xml:id="p.1.part.1">
+       <t>First part of the paragraph.</t>
+     </part>
+     <part xml:id="p.2.part.2">
+       <t>Last part of the paragraph.</t>
+     </part>
+   </p>
 
+The part element may seem alike to the division element, but divisions are typically used
+for text blocks larger than a paragraph, typically correspondings to chapters,
+sections or subsections and often carrying a ``<head>`` element. Do not use
+parts for these structures!
 
+The part element, on the other hand, is more abstract and plays a role on
+a deeper level. It can be embedded within paragraphs, sentences, and most other
+structure elements, even words, though we have to again emphasize **it should not
+be used for morphology**, there are other solutions for that!
+
+Contact the FoLiA authors if you find yourself using part and you feel a
+more specific FoLiA element is missing.
