@@ -5,7 +5,7 @@ Metadata
 
 FoLiA supports associating metadata with your document. An extensive and mandatory part of the metadata is the
 :ref:`annotation_declarations` block (``<annotations>``), and optionally also the block for :ref:`provenance_data`
-(``<provenance``). To associate other arbitrary metadata with a FoLiA document, there is FoLiA's native metadata system,
+(``<provenance>``). To associate other arbitrary metadata with a FoLiA document, there is FoLiA's native metadata system,
 in which simple metadata fields can be defined and used at will through the ``<meta>`` element. The following example shows
 document-wide metadata:
 

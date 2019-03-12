@@ -1,7 +1,7 @@
 .. _set_definitions:
 
-Set Definitions
-========================
+Set Definitions (Vocabulary)
+==============================
 
 Introduction
 ---------------
