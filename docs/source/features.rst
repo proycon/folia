@@ -6,7 +6,7 @@ Features
 In addition to a main class, an arbitrary number of *features* can be
 added to *any* annotation element that takes a set. Each feature pertains to a specific
 *subset* in that set and assigns a *class* in the subset. The subsets and classes therein are defined in the
-set definition (See :ref:`set_definition`), so may be entirely user-defined.
+set definition (See :ref:`set_definitions`), so may be entirely user-defined.
 
 The element ``<feat>`` is used to add features to any kind of annotation. In
 the following example we make use of a subset we invented which ties a lemma to
@@ -68,6 +68,7 @@ no longer suffices, and the ``<feat>`` element must be used explicitly.
 
 .. TODO: is this really implemented well in the libraries??
 .. code-block:: xml
+
     <event class="conversation">
      <feat subset="actor" class="John Doe" />
      <feat subset="actor" class="Jane Doe" />

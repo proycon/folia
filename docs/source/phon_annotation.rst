@@ -17,7 +17,7 @@ Specification
 :Version History: Since v0.12
 :**Element**: ``<ph>``
 :API Class: ``PhonContent``
-:Required Attributes: 
+:Required Attributes:
 :Optional Attributes: * ``set`` -- The set of the element, ideally a URI linking to a set definition (see :ref:`set_definitions`) or otherwise a uniquely identifying string. The ``set`` must be referred to also in the :ref:`annotation_declarations` for this annotation type.
                       * ``class`` -- The class of the annotation, i.e. the annotation tag in the vocabulary defined by ``set``.
                       * ``processor`` -- This refers to the ID of a processor in the :ref:`provenance_data`. The processor in turn defines exactly who or what was the annotator of the annotation.
@@ -31,7 +31,7 @@ Specification
 Explanation
 -------------------------
 
-Written text is always contained in the text content element (``<t>``, see :ref:`text_content`), for
+Written text is always contained in the text content element (``<t>``, see :ref:`text_annotation`), for
 phonology there is a similar counterpart that behaves almost identically: ``<ph>``. This element
 holds a phonetic or phonological transcription. It is used in a very similar fashion:
 

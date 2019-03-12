@@ -43,7 +43,7 @@ Explanation
 
 .. note::
 
-    Please first ensure you are familiar with the general principles of :ref:`span_annotation` to make sense of this annotation type.
+    Please first ensure you are familiar with the general principles of :ref:`span_annotation_category` to make sense of this annotation type.
 
 Semantic roles are usually embedded within the ``<predicate>`` span
 annotation element (see :ref:`predicate_annotation`, since FoLiA v1.3). This is a *separate* span

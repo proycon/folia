@@ -36,7 +36,7 @@ references (``<ref>`` elements) that are actual structure elements. The
 hyperlinking method described in this section is of a more text-mark-up or stylistic
 nature. Actual references are usually preferred when applicable.
 
-Another notion of linking is implemented using FoLiA's *relations* (:ref:`relation_annotatation`).  Relations are actual
+Another notion of linking is implemented using FoLiA's *relations* (:ref:`relation_annotation`).  Relations are actual
 higher-order annotations that can link anything but it needs not be reflected in the actual text, whereas the hyperlinks
 described here and the references of :ref:`reference_annotation` do always show in the text.
 

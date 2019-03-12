@@ -93,10 +93,11 @@ edit a FoLiA document and add/edit annotations:
         </processor>
     </provenance>
 
-From the :ref:`annotation declarations`, we can then also refer directly to subprocessors. Moreover, a processor can be
+From the :ref:`annotation_declarations`, we can then also refer directly to subprocessors. Moreover, a processor can be
 referred to from multiple annotation types/sets:
 
 .. code-block:: xml
+
     <annotations>
       ...
       <pos-annotation set="...">

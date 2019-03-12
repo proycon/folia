@@ -17,7 +17,7 @@ Specification
 :Version History: since v0.9.1
 :**Element**: ``<str>``
 :API Class: ``String``
-:Required Attributes: 
+:Required Attributes:
 :Optional Attributes: * ``xml:id`` -- The ID of the element; this has to be a unique in the entire document or collection of documents (corpus). All identifiers in FoLiA are of the `XML NCName <https://www.w3.org/TR/1999/WD-xmlschema-2-19990924/#NCName>`_ datatype, which roughly means it is a unique string that has to start with a letter (not a number or symbol), may contain numers, but may never contain colons or spaces. FoLiA does not define any naming convention for IDs.
                       * ``set`` -- The set of the element, ideally a URI linking to a set definition (see :ref:`set_definitions`) or otherwise a uniquely identifying string. The ``set`` must be referred to also in the :ref:`annotation_declarations` for this annotation type.
                       * ``class`` -- The class of the annotation, i.e. the annotation tag in the vocabulary defined by ``set``.
@@ -129,7 +129,7 @@ Instead of three separate substrings, we can also opt for a single one. Which so
      </p>
 
 Or, if you do want separate strings but you also want to make the relation between them very explicit, then you can
-resort to :ref:`alignment_annotation` as shown in the next example:
+resort to :ref:`relation_annotation` as shown in the next example:
 
 .. code-block:: xml
 

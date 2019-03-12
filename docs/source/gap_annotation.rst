@@ -20,7 +20,7 @@ Structure Element
 :Version History: Since the beginning
 :**Element**: ``<gap>``
 :API Class: ``Gap``
-:Required Attributes: 
+:Required Attributes:
 :Optional Attributes: * ``xml:id`` -- The ID of the element; this has to be a unique in the entire document or collection of documents (corpus). All identifiers in FoLiA are of the `XML NCName <https://www.w3.org/TR/1999/WD-xmlschema-2-19990924/#NCName>`_ datatype, which roughly means it is a unique string that has to start with a letter (not a number or symbol), may contain numers, but may never contain colons or spaces. FoLiA does not define any naming convention for IDs.
                       * ``set`` -- The set of the element, ideally a URI linking to a set definition (see :ref:`set_definitions`) or otherwise a uniquely identifying string. The ``set`` must be referred to also in the :ref:`annotation_declarations` for this annotation type.
                       * ``class`` -- The class of the annotation, i.e. the annotation tag in the vocabulary defined by ``set``.
@@ -41,7 +41,7 @@ Text markup Element
 .. foliaspec:specification_element(TextMarkupGap)
 :**Element**: ``<t-gap>``
 :API Class: ``TextMarkupGap``
-:Required Attributes: 
+:Required Attributes:
 :Optional Attributes: * ``xml:id`` -- The ID of the element; this has to be a unique in the entire document or collection of documents (corpus). All identifiers in FoLiA are of the `XML NCName <https://www.w3.org/TR/1999/WD-xmlschema-2-19990924/#NCName>`_ datatype, which roughly means it is a unique string that has to start with a letter (not a number or symbol), may contain numers, but may never contain colons or spaces. FoLiA does not define any naming convention for IDs.
                       * ``set`` -- The set of the element, ideally a URI linking to a set definition (see :ref:`set_definitions`) or otherwise a uniquely identifying string. The ``set`` must be referred to also in the :ref:`annotation_declarations` for this annotation type.
                       * ``class`` -- The class of the annotation, i.e. the annotation tag in the vocabulary defined by ``set``.
@@ -58,7 +58,7 @@ Text markup Element
                       * ``xlink:href`` -- Turns this element into a hyperlink to the specified URL
                       * ``xlink:type`` -- The type of link (you'll want to use ``simple`` in almost all cases).
 :Accepted Data: ``<comment>`` (:ref:`comment_annotation`), ``<desc>`` (:ref:`description_annotation`), ``<br>`` (:ref:`linebreak_annotation`)
-:Valid Context: 
+:Valid Context:
 
 Explanation
 -------------------------
@@ -69,7 +69,7 @@ user-defined set. Common omissions are for example front-matter and back-matter,
 a foreign language. Again, the semantics depend on your set.
 
 Although a gap skips over content, you may still want to explicitly add the raw content, this is done with the ``<content>``
-element (see :ref:`content_annotation`). As this concerns raw content, it can not be annotated any
+element (see :ref:`rawcontent_annotation`). As this concerns raw content, it can not be annotated any
 further and we use XML CDATA type here to include it verbatim.
 
 The following example shows the the use of ``<gap>``:
