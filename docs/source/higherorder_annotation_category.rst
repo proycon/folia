@@ -9,7 +9,8 @@ Higher-order Annotation groups a very diverse set of annotation types that are c
 FoLiA defines the following types of higher-order annotation:
 
 .. foliaspec:toc(higherorder)
-* :ref:`higherorder_annotation_category` -- Higher-order Annotation groups a very diverse set of annotation types that are considered *annotations on annotations*
+* :ref:`higherorder_annotation_category` --
+  Higher-order Annotation groups a very diverse set of annotation types that are considered *annotations on annotations*
    - :ref:`correction_annotation` -- ``<correction>`` -- Corrections are one of the most complex annotation types in FoLiA. Corrections can be applied not just over text, but over any type of structure annotation, inline annotation or span annotation. Corrections explicitly preserve the original, and recursively so if corrections are done over other corrections.
    - :ref:`gap_annotation` -- ``<gap>`` -- Sometimes there are parts of a document you want to skip and not annotate at all, but include as is. This is where gap annotation comes in, the user-defined set may indicate the kind of gap. Common omissions in books are for example front-matter and back-matter, i.e. the cover.
    - :ref:`relation_annotation` -- ``<relation>`` -- FoLiA provides a facility to relate arbitrary parts of your document with other parts of your document, or even with parts of other FoLiA documents or external resources, even in other formats. It thus allows linking resources together. Within this context, the ``xref`` element is used to refer to the linked FoLiA elements.

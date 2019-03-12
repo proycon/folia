@@ -66,7 +66,8 @@ certain span annotation element, not standalone. They can still carry :ref:`feat
 FoLiA defines the following types of span annotation:
 
 .. foliaspec:toc(span)
-* :ref:`span_annotation_category` -- This category encompasses (linguistic) annotation types that span one or more structural elements. Examples are (Named) Entities or Multi-word Expressions, Dependency Relations, and many others. FoLiA implements these as a stand-off layer that refers back to the structural elements (often words/tokens). The layer itself is embedded in a structural level of a wider scope (such as a sentence).
+* :ref:`span_annotation_category` --
+  This category encompasses (linguistic) annotation types that span one or more structural elements. Examples are (Named) Entities or Multi-word Expressions, Dependency Relations, and many others. FoLiA implements these as a stand-off layer that refers back to the structural elements (often words/tokens). The layer itself is embedded in a structural level of a wider scope (such as a sentence).
    - :ref:`syntax_annotation` -- ``<su>`` -- Assign grammatical categories to spans of words. Syntactic units are nestable and allow representation of complete syntax trees that are usually the result of consistuency parsing.
    - :ref:`chunking_annotation` -- ``<chunk>`` -- Assigns shallow grammatical categories to spans of words. Unlike syntax annotation, chunks are not nestable. They are often produced by a process called Shallow Parsing, or alternatively, chunking.
    - :ref:`entity_annotation` -- ``<entity>`` -- Entity annotation is a broad and common category in FoLiA. It is used for specifying all kinds of multi-word expressions, including but not limited to named entities. The set definition used determines the vocabulary and therefore the precise nature of the entity annotation.

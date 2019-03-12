@@ -12,7 +12,8 @@ which they apply (often words/tokens but not necessarily so) and make use of the
 FoLiA defines the following types of inline annotation:
 
 .. foliaspec:toc(inline)
-* :ref:`inline_annotation_category` -- This category encompasses (linguistic) annotation types describing a single structural element. Examples are Part-of-Speech Annotation or Lemmatisation, which often describe a single token.
+* :ref:`inline_annotation_category` --
+  This category encompasses (linguistic) annotation types describing a single structural element. Examples are Part-of-Speech Annotation or Lemmatisation, which often describe a single token.
    - :ref:`pos_annotation` -- ``<pos>`` -- Part-of-Speech Annotation, one of the most common types of linguistic annotation. Assigns a lexical class to words.
    - :ref:`lemma_annotation` -- ``<lemma>`` -- Lemma Annotation, one of the most common types of linguistic annotation. Represents the canonical form of a word.
    - :ref:`domain_annotation` -- ``<domain>`` -- Domain/topic Annotation. A form of inline annotation used to assign a certain domain or topic to a structure element.
