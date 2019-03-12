@@ -3,8 +3,6 @@
 FoLiA Query Language (FQL)
 =============================
 
-.. todo:: DOCUMENT PROVENANCE
-
 Whereas XPath is a very generic query language, the FoLiA Query Language (FQL)
 is a very specific language, designed purely for FoLiA. It allows advanced querying and
 document editing.
@@ -171,8 +169,8 @@ Here is an *EDIT* query that changes all nouns in the document to verbs (assumin
 
 * ``EDIT pos WHERE class = "n" WITH class "v" AND annotator = "johndoe"``
 
-The query is fairly crude as it still lacks a *target expression*: A \emph{target
-expression} determines what elements the focus is applied to, rather than to
+The query is fairly crude as it still lacks a *target expression*: A target
+expression determines what elements the focus is applied to, rather than to
 the document as a whole, it starts with the keyword *FOR* and is followed by
 either an annotation type (i.e. a FoLiA XML element tag) *or* the ID of an
 element. The target expression also determines what elements will be returned.
@@ -242,7 +240,7 @@ are mandatory for a *HAS* statement::
 Target expressions can be former with either *FOR* or with *IN*, the
 difference is that *IN* is much stricter, the element has to be a direct
 child of the element in the *IN* statement, whereas *FOR* may skip
-intermediate elements. In analogy with XPath, *FOR* corresponds to \texttt{//} and
+intermediate elements. In analogy with XPath, *FOR* corresponds to ``//`` and
 *IN* corresponds to ``/``. *FOR* and *IN* may be nested and mixed at
 will. The following query would most likely not yield any results because there are
 likely to be paragraphs and/or sentences between the wod and event structures::

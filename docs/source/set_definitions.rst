@@ -43,7 +43,6 @@ format can be indicated on the declarations in the document metadata using the
 * ``text/turtle`` -- `Turtle <https://www.w3.org/TeamSubmission/turtle/>`_ (for RDF) (assumed for ``ttl`` extensions)
 * ``text/n3`` -- Notation 3 (for RDF) (assumed for ``n3`` extensions)
 * ``application/foliaset+xml`` - Legacy FoLiA Set Definition format (XML) (assumed for ``xml`` extensions and in most other cases)
-\end{itemize}
 
 FoLiA applications should attempt to autodetect the format based on the extension.
 Not all applications may be able to deal with all formats/serialisations, however.
@@ -114,7 +113,7 @@ After this preamble, we can define a set as follows:
         fsd:open	false .
 
 The first two lines state that ``http://your/namespace/#your-set-i`` is
-\emph{a} [#ftype]_ SKOS Collection, which is what we use for FoLiA Sets. The ``skos:notation``
+*a* [#ftype]_ SKOS Collection, which is what we use for FoLiA Sets. The ``skos:notation``
 property corresponds to the ID of the Set, only one is allowed [#fnotation]_ .
 
 A set can be either open or closed (default), an open set allows any classes,

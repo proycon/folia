@@ -25,7 +25,7 @@ with it.
     available. For example; don't use a part-of-speech subset in a lemma set, because there is already :ref:`pos_annotation` for that.
 
 A more thorough example for part-of-speech tags with features will be explained
-in Section~\ref{sec:posfeat}.
+in the section on :ref:`pos_annotation`.
 
 Some annotation types take *predefined subsets* because some features are very commonly used. These subsets have clearly
 defined semantics. However, it still depends on the set on whether these can be used, and which classes these take.
