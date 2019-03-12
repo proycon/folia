@@ -28,7 +28,9 @@ Supported Features,Foreign Annotations,yes,yes,yes
 Validation,Shallow Validation,yes,yes,yes
 Validation,Text Consistency Validation,yes,yes,yes
 Validation,Deep Validation,yes,no,yes
-Validation,.. with legacy XML sets,yes,no,yes
+Validation,... with RDF+XML sets,yes,no,yes
+Validation,... with RDF+turtle sets,yes,no,yes
+Validation,... with legacy XML sets,yes,no,yes
 Validation,RelaxNG schema generation,yes,no,yes
 
 Querying,FoLiA Query Language (FQL),yes,no,yes
