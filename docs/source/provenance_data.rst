@@ -1,7 +1,7 @@
 .. _provenance_data:
 
 Provenance Data
-========================
+----------------------
 
 It is often desireable to know exactly what tools (and what versions thereof and even with what parameters) were invoked
 in which order to produce a FoLiA document, this is called **provenance data**. In the metadata section, right after the

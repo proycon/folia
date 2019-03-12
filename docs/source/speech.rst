@@ -1,7 +1,7 @@
 .. _speech:
 
 Speech
-===========
+---------
 
 FoLiA is also suited for annotation of speech data. The following additional
 generic FoLiA attributes are available for *all* structure annotation elements in
@@ -39,7 +39,7 @@ should still use the normal :ref:`text_annotation` for a normal textual transcri
 For further segmentation of speech into phonemes, you can use :ref:`phonological_annotation`.
 
 Example
------------
+~~~~~~~~~
 
 An example of a simple speech document:
 

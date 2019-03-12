@@ -1,10 +1,7 @@
 .. _annotation_declarations:
 
 Annotation Declarations
-==========================
-
-Introduction
----------------
+--------------------------
 
 All annotation types that are used in a FoLiA document have to be *declared*. In the metadata block you will find the
 ``<annotations>`` block in which each annotation type that occurs in the document is mentioned, i.e. declared. So does
@@ -61,8 +58,7 @@ available: If you do not refer to processors for a certain annotation type and s
 * ``annotator`` - The name of the default annotator (either human or software)
 * ``annotatortype`` - Set to ``auto`` if the default annotator is automatic annotation by software or ``manual`` for human annotators
 
-
-More about set definitions
+Set definitions
 ---------------------------
 
 A *set definition* (see :ref:`set_definitions`) specifies exactly what classes are allowed in a particular vocabulary.

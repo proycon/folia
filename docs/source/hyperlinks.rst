@@ -1,7 +1,7 @@
 .. _hyperlinks:
 
 Hyperlinks
-====================================================
+----------------
 
 Hyperlinks are ubiquitous in documents from the web and are therefore supported
 in FoLiA as well. A hyperlink can be defined as a pointer from a span of text to an

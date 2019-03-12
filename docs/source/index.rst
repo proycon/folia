@@ -20,13 +20,9 @@ Get started with this FoLiA documentation by reading the full :ref:`introduction
     :includehidden:
 
     introduction
-    annotation_declarations
-    set_definitions
     metadata
-    provenance_data
-    speech
+    set_definitions
     annotation_types
-    hyperlinks
     foreign_annotation
     querying
     implementations

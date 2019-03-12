@@ -3,9 +3,21 @@
 Metadata
 ========================
 
-FoLiA supports associating metadata with your document. An extensive and mandatory part of the metadata is the
-:ref:`annotation_declarations` block (``<annotations>``), and optionally also the block for :ref:`provenance_data`
-(``<provenance>``). To associate other arbitrary metadata with a FoLiA document, there is FoLiA's native metadata system,
+FoLiA supports associating metadata with your document, you will find this in the ``<metadata>`` document at the very
+beginning of the document. An extensive and mandatory part of this metadata is the
+:ref:`annotation_declarations` block (``<annotations>``), and second (optionally) the block for :ref:`provenance_data`
+(``<provenance>``). The remainder of the ``<metadata>`` block may be filled with Document Metadata as described in
+:ref:`document_metadata` later.
+on.
+
+.. include:: annotation_declarations.rst
+
+.. _document_metadata:
+
+Document Metadata
+-----------------------
+
+To associate other arbitrary metadata with a FoLiA document, there is FoLiA's native metadata system,
 in which simple metadata fields can be defined and used at will through the ``<meta>`` element. The following example shows
 document-wide metadata:
 
@@ -120,3 +132,5 @@ multiple structural elements if there is no catch-all structure).
 
 Submetadata is inherited (recursively), i.e. it is not necessary to explicitly assign the ``metadata`` attribute to the children
 of an element that already has such an assignment.
+
+.. include:: provenance_data.rst
