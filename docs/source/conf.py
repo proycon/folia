@@ -19,14 +19,14 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'FoLiA'
-copyright = '2018, Maarten van Gompel'
+project = 'FoLiA: Format for Linguistic Annotation'
+copyright = '2019, Maarten van Gompel'
 author = 'Maarten van Gompel'
 
 # The short X.Y version
-version = '2.0.0'
+version = '2.0'
 # The full version, including alpha/beta/rc tags
-release = ''
+release = 'v2.0 (rev 9.0)'
 
 
 # -- General configuration ---------------------------------------------------
@@ -124,7 +124,7 @@ htmlhelp_basename = 'FoLiAdoc'
 latex_elements = {
     # The paper size ('letterpaper' or 'a4paper').
     #
-    # 'papersize': 'letterpaper',
+     'papersize': 'a4paper',
 
     # The font size ('10pt', '11pt' or '12pt').
     #
@@ -132,7 +132,7 @@ latex_elements = {
 
     # Additional stuff for the LaTeX preamble.
     #
-    # 'preamble': '',
+     'preamble': r'\setmainfont{Latin Modern Sans}', #in package otf-latin-modern on Arch Linux, fonts-lmodern on debian/ubuntu
 
     # Latex figure (float) alignment
     #
@@ -143,10 +143,11 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'FoLiA.tex', 'FoLiA Documentation',
+    (master_doc, 'folia.tex', 'FoLiA: Format for Linguistic Annotation - Documentation',
      'Maarten van Gompel', 'manual'),
 ]
 
+latex_engine = "xelatex"
 
 # -- Options for manual page output ------------------------------------------
 
