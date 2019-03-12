@@ -22,20 +22,20 @@
   <text xml:id="example.text">
      <s xml:id="example.p.1.s.1">
       <w xml:id="example.p.1.s.1.w.1"><t>He</t></w>
-      <w xml:id="example.p.1.s.1.w.2"><t>said</t></w>
-      <w xml:id="example.p.1.s.1.w.3" space="no">
+      <w xml:id="example.p.1.s.1.w.2" space="no"><t>said</t></w>
+      <w xml:id="example.p.1.s.1.w.3">
         <t>:</t>
       </w>
-      <w xml:id="example.p.1.s.1.w.4" space="no">
-        <t>''</t>
-      </w>
       <quote xml:id="example.p.1.s.1.quote.1">
+        <w xml:id="example.p.1.s.1.w.4" space="no">
+          <t>"</t>
+        </w>
         <s xml:id="example.p.1.s.1.quote.1.s.1">
            <w xml:id="example.p.1.s.1.w.5"><t>I</t></w>
            <w xml:id="example.p.1.s.1.w.6"><t>do</t></w>
            <w xml:id="example.p.1.s.1.w.7"><t>not</t></w>
-           <w xml:id="example.p.1.s.1.w.8"><t>know</t></w>
-           <w xml:id="example.p.1.s.1.w.9" space="no">
+           <w xml:id="example.p.1.s.1.w.8" space="no"><t>know</t></w>
+           <w xml:id="example.p.1.s.1.w.9">
             <t>.</t>
            </w>
         </s>
@@ -44,16 +44,16 @@
            <w xml:id="example.p.1.s.1.w.11"><t>think</t></w>
            <w xml:id="example.p.1.s.1.w.12"><t>you</t></w>
            <w xml:id="example.p.1.s.1.w.13"><t>are</t></w>
-           <w xml:id="example.p.1.s.1.w.14"><t>right</t></w>
+           <w xml:id="example.p.1.s.1.w.14" space="no"><t>right</t></w>
         </s>
+        <w xml:id="example.p.1.s.1.w.15">
+          <t>"</t>
+        </w>
       </quote>
-      <w xml:id="example.p.1.s.1.w.15" space="no">
-       <t>''</t>
-      </w>
       <w xml:id="example.p.1.s.1.w.16"><t>,</t></w>
       <w xml:id="example.p.1.s.1.w.17"><t>and</t></w>
-      <w xml:id="example.p.1.s.1.w.18"><t>left</t></w>
-      <w xml:id="example.p.1.s.1.w.19" space="no">
+      <w xml:id="example.p.1.s.1.w.18" space="no">><t>left</t></w>
+      <w xml:id="example.p.1.s.1.w.19"
         <t>.</t>
       </w>
      </s>
