@@ -36,7 +36,7 @@ FoLiA favours a **single-document** approach, meaning that a text and all lingui
 in a single XML file. This facilitates keeping all annotation layers in sync with eachother and prevents incomplete or
 loss of information. The single-document approach is not just limited to the annotation and text, but also encompasses
 the document structure and document mark-up (e.g. basic text styling). Nevertheless, there exists a FoLiA mechanism that
-does allow you to take a more stand-off approach and store annotations in seperate external FoLiA documents if
+does allow you to take a more stand-off approach and store annotations in separate external FoLiA documents if
 absolutely needed.
 
 This documentation is limited to describing, in great detail, how FoLiA works, for more about the motivation behind the
@@ -57,7 +57,7 @@ can't just add your own annotation type. If a particular annotation type is not 
 FoLiA developers and we will see how we can extend FoLiA.
 
 For good measure, we again emphasise that this is a limitation on annotation types only, not on the vocabulary the
-annotation types make use of, which is deliberately seperated from the FoLiA standard itself. The next section will
+annotation types make use of, which is deliberately separated from the FoLiA standard itself. The next section will
 elaborate on this.
 
 Below are the categories and underlying annotation types, you can click each for exhaustive information (but please

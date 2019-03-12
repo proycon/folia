@@ -10,7 +10,7 @@ can't just add your own annotation type. If a particular annotation type is not 
 FoLiA developers and we will see how we can extend FoLiA.
 
 For good measure, we again emphasise that this is a limitation on annotation types only, not on the vocabulary the
-annotation types make use of, which is deliberately seperated from the FoLiA standard itself. The next section will
+annotation types make use of, which is deliberately separated from the FoLiA standard itself. The next section will
 elaborate on this.
 
 Below are the categories and underlying annotation types, you can click each for exhaustive information (but please
