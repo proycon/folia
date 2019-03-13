@@ -6337,7 +6337,7 @@ RelaxNG schema for FoLiA XML v2.0.0
 
   <define name="alt" ns="http://ilk.uvt.nl/folia">
     <element name="alt">
-      <a:documentation>Element grouping alternative token annotation(s).
+      <a:documentation>Element grouping alternative inline annotation(s).
 
     Multiple alternative elements may occur, each denoting a different alternative. Elements grouped inside an alternative block are considered dependent.
 
@@ -6408,6 +6408,9 @@ RelaxNG schema for FoLiA XML v2.0.0
       <optional>
         <attribute name="auth"/>
       </optional>
+      <optional>
+        <attribute name="exclusive"/>
+      </optional>
       <ref name="allow_foreign_attributes"/>
       <interleave>
         <zeroOrMore>
@@ -6456,7 +6459,7 @@ RelaxNG schema for FoLiA XML v2.0.0
 
   <define name="altlayers" ns="http://ilk.uvt.nl/folia">
     <element name="altlayers">
-      <a:documentation>Element grouping alternative subtoken annotation(s). Multiple altlayers elements may occur, each denoting a different alternative. Elements grouped inside an alternative block are considered dependent.</a:documentation>
+      <a:documentation>Element grouping alternative span or subtoken annotation(s). Multiple altlayers elements may occur, each denoting a different alternative. Elements grouped inside an alternative block are considered dependent.</a:documentation>
       <optional>
         <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
           <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
@@ -6511,6 +6514,9 @@ RelaxNG schema for FoLiA XML v2.0.0
       </optional>
       <optional>
         <attribute name="auth"/>
+      </optional>
+      <optional>
+        <attribute name="exclusive"/>
       </optional>
       <ref name="allow_foreign_attributes"/>
       <interleave>
