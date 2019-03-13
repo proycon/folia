@@ -35,7 +35,7 @@ The following tool collections are available:
 
 * `FoLiA Tools <https://github.com/proycon/foliapy>`_ - A set of Python-based command-line tools for FoLiA processing.
   Contains a validator, convertors, and more.
- - `Tool overview and documentation <https://foliatools.readthedocs.io>`_
+ - `Tool overview and documentation <https://folia-tools.readthedocs.io>`_
 * `FoLiAutils <https://github.com/LanguageMachines/foliautils>`_ - A set of command-line utilities for working with
   FoLiA, powered by libfolia.
 
