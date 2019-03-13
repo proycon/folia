@@ -129,10 +129,21 @@ latex_elements = {
     # The font size ('10pt', '11pt' or '12pt').
     #
     # 'pointsize': '10pt',
+    #
+
+    'fontenc': r'\usepackage[LGR,T2A,T1]{fontenc}',
 
     # Additional stuff for the LaTeX preamble.
     #
-     'preamble': r'\setmainfont{Latin Modern Sans}', #in package otf-latin-modern on Arch Linux, fonts-lmodern on debian/ubuntu
+     'preamble': r"""
+\usepackage{tipa}
+\usepackage{iftex}
+\ifXeTeX
+\setmainfont{Latin Modern Sans}
+\else
+\renewcommand{\familydefault}{\sfdefault}
+\fi
+""", #in package otf-latin-modern on Arch Linux, fonts-lmodern on debian/ubuntu
 
     # Latex figure (float) alignment
     #
