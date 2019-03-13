@@ -26,6 +26,7 @@ version: 2.0.0
     foreign_annotation
     querying
     implementations
+    guidelines
 
 * :ref:`genindex`
 * :ref:`search`

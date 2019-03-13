@@ -10,7 +10,7 @@ Currently, the following FoLiA library implementations exist. Both follow a high
 object-oriented model in which FoLiA XML elements correspond with classes.
 
 * `FoLiApy <https://github.com/proycon/foliapy>`_ - A FoLiA library in Python.
-* `libfolia <https://github.com/LanguageMachines/libfolia>`_ - A FoLiA library in C++. Obtain from https://proycon.github.io/folia
+* `libfolia <https://github.com/LanguageMachines/libfolia>`_ - A FoLiA library in C++.
 
 Both libraries are shipped as part of our `LaMachine <https://proycon.github.io/LaMachine>`_ software
 distribution.

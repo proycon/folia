@@ -158,6 +158,9 @@ all annotation types.
 
     Read the full specification in the following section: :ref:`set_definitions`
 
+
+.. _validation:
+
 Validation
 -------------
 
@@ -167,7 +170,7 @@ design, we prefer to be explicit and do away with any ambiguity or any ad-hoc co
 FoLiA is clear for both humans and machines. Specific validator software is provided to this end.
 
 * A first level of validation is performed by comparing your document against the FoLiA schema (in RelaxNG), this gives you a
-  good indication whether the document is formed corrected; but is not sufficient for full validation!
+  good indication whether the document is formed corrected; but is **not sufficient** for full validation!
 * For full validation, process the document using one of the provided validation tools. These tools make a distinction
   between **shallow validation** and **deep validation**, the distinction being that only in the latter case the validity of all used
   classes will be put to the test using the set definitions. Shallow validations allows users to still use FoLiA without
@@ -350,7 +353,7 @@ attributes per annotation type. Altogether, we distinguish the following:
 * ``datetime`` -- The date and time when this annotation was recorded, the format is ``YYYY-MM-DDThh:mm:ss`` (note the literal T in the middle to separate date from time), as per the XSD Datetime data type.
 * ``n`` -- A number in a sequence, corresponding to a number in the original document, for example chapter numbers, section numbers, list item numbers. This this not have to be an actual number but other sequence identifiers are also possible (think alphanumeric characters or roman numerals).
 * ``textclass`` -- Refers to the text class this annotation is based on. This is an advanced attribute, if not specified, it defaults to ``current``. See :ref:`textclass_attribute`.
-* ``space`` -- This attribute indicates whether spacing should be inserted after this element (it's default value is always ``yes``, so it does not need to be specified in that case), but if tokens or other structural elements are glued together then the value should be set to ``no``. This allows for reconstruction of the detokenised original text. 
+* ``space`` -- This attribute indicates whether spacing should be inserted after this element (it's default value is always ``yes``, so it does not need to be specified in that case), but if tokens or other structural elements are glued together then the value should be set to ``no``. This allows for reconstruction of the detokenised original text.
 
 **Speech attributes**, the following attributes apply mostly in a speech context (please read :ref:`speech` for more):
 
@@ -366,9 +369,10 @@ details.
 * ``xlink:href`` -- Creates a hyperlink on a text to the specified URL
 * ``xlink:type`` -- Specifies the type of the hyperlink. (should be set to ``simple`` in almost all cases)
 
+.. _identifiers:
+
 Identifiers
 ~~~~~~~~~~~~~~~
-.. _identifiers:
 
 Many elements in FoLiA take an identifier by which the element is uniquely identifiable. This makes referring to any
 part of a FoLiA document easy. Identifiers should be unique in the entire document, and ideally within the entire corpus
