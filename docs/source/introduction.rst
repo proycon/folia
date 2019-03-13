@@ -41,11 +41,19 @@ absolutely needed.
 
 This documentation is limited to describing, in great detail, how FoLiA works, for more about the motivation behind the
 construction of FoLiA and how it compares to somewhat similar or comparable initiatives such as `TEI
-<http://tei-c.org>`_, LAF .. , `TCF <https://weblicht.sfs.uni-tuebingen.de/weblichtwiki/index.php/The_TCF_Format>`_,
-NAF, Paula XML, Tiger XML, and others, we refer you to our research paper providing a descriptive and comparative study
+<http://tei-c.org>`_ [Burnard2007]_ , LAF [Ide2004]_ , `TCF <https://weblicht.sfs.uni-tuebingen.de/weblichtwiki/index.php/The_TCF_Format>`_ [Heid2010]_,
+NAF [Fokkens2014]_, Paula XML, Tiger XML, and others, we refer you to our research paper providing a descriptive and comparative study:
 [vanGompel2014]_ .
 
 .. [vanGompel2014] Maarten van Gompel & Martin Reynaert (2014). FoLiA: A practical XML format for linguistic annotation - a descriptive and comparative study; Computational Linguistics in the Netherlands Journal; 3:63-81; 2013. `(PDF) <http://www.clinjournal.org/sites/clinjournal.org/files/05-vanGompel-Reynaert-CLIN2013.pdf>`_ `(BibTeX) <http://www.clinjournal.org/biblio/export/bibtex/39>`_
+
+.. [Burnard2007] Lou Burnard & Syd Bauman (2007). TEI P5: Guidelines for Electronic Text Encoding and Interchange.  `(HTML) <https://tei-c.org/release/doc/tei-p5-doc/en/html/SG.html>`_
+
+.. [Ide2004] Nancy Ide & Laurent Romary (2005). International standard for a linguistic annotation framework. In: Natural Language Engineering. Volume 10. pp 211-225.
+
+.. [Heid2010] Ulrich Heid and Helmut Schmid and Kerstin Eckart and Erhard Hinrichs (2010). A Corpus Representation Format for Linguistic Web Services: The D-SPIN Text Corpus Format and its Relationship with ISO Standards. In: Proceedings of the Seventh International Conference on Language Resources and Evaluation (LREC'10).
+
+.. [Fokkens2014] Antske Fokkens and Aitor Soroa and Zuhaitz Beloki and German Rigan and Willem Robert van Hage and Piek Vossen. NAF: The NLP Annotation Format. `(PDF) <www.newsreader-project.eu/files/2013/01/techreport.pdf>`_
 
 Annotation Types
 ---------------------------

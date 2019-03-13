@@ -31,7 +31,7 @@ The role of FoLiA Set Definitions is:
 Prior to FoLiA v1.4, set definitions were stored in a simple custom XML format,
 distinct from FoLiA itself, which we call the legacy format and which is still
 supported for backward compatibility. Since FoLiA v1.4 however, we strongly
-prefer and recommend to store the set definitions as RDF, i.e. the
+prefer and recommend to store the set definitions as RDF [RDF_], i.e. the
 technology that powers the semantic web. In this way, set definitions provide a
 formal semantic layer for FoLiA.
 
