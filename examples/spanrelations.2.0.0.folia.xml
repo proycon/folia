@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FoLiA xmlns="http://ilk.uvt.nl/folia" xmlns:xlink="http://www.w3.org/1999/xlink" version="2.0" xml:id="example-english">
+  <metadata>
+      <annotations>
+          <token-annotation set="https://raw.githubusercontent.com/LanguageMachines/uctodata/master/setdefinitions/tokconfig-eng.foliaset.ttl">
+             <annotator processor="p1" />
+          </token-annotation>
+          <text-annotation>
+             <annotator processor="p1" />
+          </text-annotation>
+          <sentence-annotation>
+             <annotator processor="p1" />
+          </sentence-annotation>
+          <relation-annotation set="ad-hoc-translation-set">
+             <annotator processor="p1" />
+          </relation-annotation>
+          <spanrelation-annotation>
+             <annotator processor="p1" />
+          </spanrelation-annotation>
+      </annotations>
+      <provenance>
+         <processor xml:id="p1" name="proycon" type="manual" />
+      </provenance>
+  </metadata>
+  <text xml:id="example-english.text">
+    <s xml:id="example-english.p.1.s.1">
+      <t>The Dalai Lama greeted him.</t>
+      <w xml:id="example-english.p.1.s.1.w.1"><t>The</t></w>
+      <w xml:id="example-english.p.1.s.1.w.2"><t>Dalai</t></w>
+      <w xml:id="example-english.p.1.s.1.w.3"><t>Lama</t></w>
+      <w xml:id="example-english.p.1.s.1.w.4"><t>greeted</t></w>
+      <w xml:id="example-english.p.1.s.1.w.5" space="no"><t>him</t></w>
+      <w xml:id="example-english.p.1.s.1.w.6"><t>.</t></w>
+      <spanrelations>
+        <spanrelation>
+          <relation class="original">
+            <xref id="example-english.p.1.s.1.w.2" t="Dalai" type="w"/>
+            <xref id="example-english.p.1.s.1.w.3" t="Lama" type="w"/>
+          </relation>
+          <relation class="french" xlink:href="doc-french.xml" xlink:type="simple">
+            <xref id="example-french.p.1.s.1.w.2" t="Dalai" type="w"/>
+            <xref id="example-french.p.1.s.1.w.3" t="Lama" type="w"/>
+          </relation>
+        </spanrelation>
+      </spanrelations>
+    </s>
+  </text>
+</FoLiA>

@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<FoLiA xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://ilk.uvt.nl/folia" xml:id="page1263" version="2.0.0">
+  <metadata type="native">
+    <annotations>
+      <token-annotation>
+          <annotator processor="p1" />
+      </token-annotation>
+      <sentence-annotation>
+          <annotator processor="p1" />
+      </sentence-annotation>
+      <text-annotation>
+          <annotator processor="p1" />
+      </text-annotation>
+      <correction-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/spellingcorrection.foliaset.xml">
+          <annotator processor="spellingcorrector" />
+      </correction-annotation>
+    </annotations>
+    <provenance>
+       <processor xml:id="p1" name="proycon" type="manual" />
+       <processor xml:id="spellingcorrector" name="spellingcorrector" />
+    </provenance>
+  </metadata>
+  <text xml:id="example.text">
+    <s xml:id="example.s.1">
+        <w xml:id="example.s.1.w.1">
+          <t>Watch</t>
+        </w>
+        <w xml:id="example.s.1.w.2">
+          <t>that</t>
+        </w>
+        <w xml:id="example.s.1.w.3">
+          <t>treee</t>
+          <correction xml:id="example.correction.1" class="spelling" processor="spellingcorrector">
+              <suggestion confidence="0.8" processor="spellingcorrector">
+                  <t>tree</t>
+              </suggestion>
+              <suggestion confidence="0.2" processor="spellingcorrector">
+                  <t>three</t>
+              </suggestion>
+          </correction>
+        </w>
+    </s>
+  </text>
+</FoLiA>

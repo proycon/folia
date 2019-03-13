@@ -1,0 +1,45 @@
+Category,Name, FoLiApy, libfolia, pynlpl.formats.folia
+
+General,Language,Python 3.5+,C++,Python 2.7 and 3.4+
+General,Uses official specification,yes,yes
+General,Maintenance Status,active,active,deprecated; superseded by FoLiApy
+General,Lead developer,Maarten van Gompel,Ko van der Sloot,Maarten van Gompel
+
+General,Supports latest version,2.0,1.5,1.5
+General,Backward compatibility since,0.1,0.1,0.1
+
+Implementation,Full in-memory representation?,default,default,default
+Implementation,Streaming parser?,optional,optional,optional
+
+Supported Features,Structure annotation,yes,yes,yes
+Supported Features,Inline annotation,yes,yes,yes
+Supported Features,Span annotation,yes,yes,yes
+Supported Features,Text mark-up,yes,yes,yes
+Supported Features,Subtoken annotation (e.g. morphology),yes,yes,yes
+Supported Features,Alternatives,yes,yes,yes
+Supported Features,Corrections,yes,yes,yes
+Supported Features,Substrings,yes,yes,yes
+Supported Features,Relations,yes,yes,yes
+Supported Features,Native Metadata,yes,yes,yes
+Supported Features,Foreign Metadata,yes,yes,yes
+Supported Features,Provenance data,yes,yes,no
+Supported Features,Foreign Annotations,yes,yes,yes
+
+Validation,Shallow Validation,yes,yes,yes
+Validation,Text Consistency Validation,yes,yes,yes
+Validation,Deep Validation,yes,no,yes
+Validation,... with RDF+XML sets,yes,no,yes
+Validation,... with RDF+turtle sets,yes,no,yes
+Validation,... with legacy XML sets,yes,no,yes
+Validation,RelaxNG schema generation,yes,no,yes
+
+Querying,FoLiA Query Language (FQL),yes,no,yes
+Querying,... CQL support,yes,no,yes
+Querying,Document findwords() method,yes,yes,yes
+
+Quality Control,Integration tests,yes,yes,yes
+
+Documentation,API reference,yes,no,yes
+Documentation,Tutorial,yes,no,yes
+
+Legacy,D-Coi read compatibility,no,no,yes

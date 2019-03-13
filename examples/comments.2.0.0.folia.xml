@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FoLiA xmlns="http://ilk.uvt.nl/folia" version="2.0" xml:id="example">
+  <metadata>
+      <annotations>
+          <token-annotation set="https://raw.githubusercontent.com/LanguageMachines/uctodata/master/setdefinitions/tokconfig-eng.foliaset.ttl">
+			 <annotator processor="p1" />
+		  </token-annotation>
+          <text-annotation>
+			 <annotator processor="p1" />
+          </text-annotation>
+          <sentence-annotation>
+			 <annotator processor="p1" />
+          </sentence-annotation>
+          <paragraph-annotation>
+			 <annotator processor="p1" />
+         </paragraph-annotation>
+          <comment-annotation>
+			 <annotator processor="p1" />
+          </comment-annotation>
+      </annotations>
+      <provenance>
+         <processor xml:id="p1" name="proycon" type="manual" />
+      </provenance>
+  </metadata>
+  <text xml:id="example.text">
+    <p xml:id="example.p.1">
+      <s xml:id="example.p.1.s.1">
+         <w xml:id="example.p.1.s.1.w.1" class="WORD">
+            <t>Hello</t>
+         </w>
+         <w xml:id="example.p.1.s.1.w.2" class="WORD" space="no">
+            <t>World</t>
+         </w>
+         <comment>This is a common test phrase in computer programming</comment>
+         <!-- Unlike the above comment, this is an XML comment; it will be ignored for almost all purposes -->
+      </s>
+    </p>
+  </text>
+</FoLiA>

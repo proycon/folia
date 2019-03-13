@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FoLiA xmlns="http://ilk.uvt.nl/folia" version="2.0" xml:id="example">
+  <metadata>
+      <annotations>
+          <token-annotation set="https://raw.githubusercontent.com/LanguageMachines/uctodata/master/setdefinitions/tokconfig-eng.foliaset.ttl">
+			 <annotator processor="p1" />
+		  </token-annotation>
+          <text-annotation>
+			 <annotator processor="p1" />
+          </text-annotation>
+          <sentence-annotation>
+			 <annotator processor="p1" />
+          </sentence-annotation>
+          <paragraph-annotation>
+			 <annotator processor="p1" />
+          </paragraph-annotation>
+          <entity-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/namedentities.foliaset.ttl">
+			 <annotator processor="p1" />
+		  </entity-annotation>
+      </annotations>
+      <provenance>
+         <processor xml:id="p1" name="proycon" type="manual" />
+      </provenance>
+  </metadata>
+  <text xml:id="example.text">
+    <p xml:id="example.p.1">
+      <s xml:id="example.p.1.s.1">
+         <t>The Dalai Lama currently lives in Dharamsala in India.</t>
+         <w xml:id="example.p.1.s.1.w.1" class="WORD">
+            <t>The</t>
+         </w>
+         <w xml:id="example.p.1.s.1.w.2" class="WORD">
+            <t>Dalai</t>
+         </w>
+         <w xml:id="example.p.1.s.1.w.3" class="WORD">
+            <t>Lama</t>
+         </w>
+         <w xml:id="example.p.1.s.1.w.4" class="WORD">
+            <t>currently</t>
+         </w>
+         <w xml:id="example.p.1.s.1.w.5" class="WORD">
+            <t>lives</t>
+         </w>
+         <w xml:id="example.p.1.s.1.w.6" class="WORD">
+            <t>in</t>
+         </w>
+         <w xml:id="example.p.1.s.1.w.7" class="WORD">
+            <t>Dharamsala</t>
+         </w>
+         <w xml:id="example.p.1.s.1.w.8" class="WORD">
+            <t>in</t>
+         </w>
+         <w xml:id="example.p.1.s.1.w.9" class="WORD" space="no">
+            <t>India</t>
+         </w>
+         <w xml:id="example.p.1.s.1.w.10" class="PUNCTUATION">
+            <t>.</t>
+         </w>
+         <entities>
+             <entity xml:id="example.p.1.s.1.entity.1" class="per">
+                 <wref id="example.p.1.s.1.w.2" t="Dalai" />
+                 <wref id="example.p.1.s.1.w.2" t="Lama" />
+             </entity>
+             <entity xml:id="example.p.1.s.1.entity.2" class="loc.city">
+                 <wref id="example.p.1.s.1.w.7" t="Dharamsala" />
+             </entity>
+             <entity xml:id="example.p.1.s.1.entity.3" class="loc.country">
+                 <wref id="example.p.1.s.1.w.9" t="India" />
+             </entity>
+         </entities>
+      </s>
+    </p>
+  </text>
+</FoLiA>

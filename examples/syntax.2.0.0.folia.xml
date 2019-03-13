@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FoLiA xmlns="http://ilk.uvt.nl/folia" version="2.0" xml:id="example">
+  <metadata>
+      <annotations>
+          <token-annotation set="https://raw.githubusercontent.com/LanguageMachines/uctodata/master/setdefinitions/tokconfig-eng.foliaset.ttl">
+			 <annotator processor="p1" />
+		  </token-annotation>
+          <text-annotation>
+			 <annotator processor="p1" />
+          </text-annotation>
+          <sentence-annotation>
+			 <annotator processor="p1" />
+          </sentence-annotation>
+          <paragraph-annotation>
+			 <annotator processor="p1" />
+          </paragraph-annotation>
+          <syntax-annotation set="syntax"> <!-- an ad-hoc set -->
+			 <annotator processor="p1" />
+		  </syntax-annotation>
+      </annotations>
+      <provenance>
+         <processor xml:id="p1" name="proycon" type="manual" />
+      </provenance>
+  </metadata>
+  <text xml:id="example.text">
+    <p xml:id="example.p.1">
+        <s xml:id="example.p.1.s.1">
+          <t>The Dalai Lama greeted him.</t>
+          <w xml:id="example.p.1.s.1.w.1"><t>The</t></w>
+          <w xml:id="example.p.1.s.1.w.2"><t>Dalai</t></w>
+          <w xml:id="example.p.1.s.1.w.3"><t>Lama</t></w>
+          <w xml:id="example.p.1.s.1.w.4"><t>greeted</t></w>
+          <w xml:id="example.p.1.s.1.w.5" space="no"><t>him</t></w>
+          <w xml:id="example.p.1.s.1.w.6"><t>.</t></w>
+          <syntax>
+            <su xml:id="example.p.1.s.1.su.1" class="s">
+              <su xml:id="example.p.1.s.1.su.1_1" class="np">
+                  <su xml:id="example.p.1.s.1.su.1_1_1" class="det">
+                     <wref id="example.p.1.s.1.w.1" t="The" />
+                  </su>
+                  <su xml:id="example.p.1.s.1.su.1_1_2" class="pn">
+                     <wref id="example.p.1.s.1.w.2" t="Dalai" />
+                     <wref id="example.p.1.s.1.w.3" t="Lama" />
+                  </su>
+              </su>
+              <su xml:id="example.p.1.s.1.su.1_2" class="vp">
+                <su xml:id="example.p.1.s.1.su.1_2_1" class="v">
+                    <wref id="example.p.1.s.1.w.4" t="greeted" />
+                </su>
+                <su xml:id="example.p.1.s.1.su.1_2_2" class="pron">
+                  <wref id="example.p.1.s.1.w.5" t="him" />
+                </su>
+              </su>
+            </su>
+          </syntax>
+        </s>
+    </p>
+  </text>
+</FoLiA>

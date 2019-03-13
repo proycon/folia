@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FoLiA xmlns="http://ilk.uvt.nl/folia" version="2.0" xml:id="example">
+  <metadata>
+      <annotations>
+          <token-annotation set="https://raw.githubusercontent.com/LanguageMachines/uctodata/master/setdefinitions/tokconfig-eng.foliaset.ttl">
+			 <annotator processor="p1" />
+		  </token-annotation>
+          <text-annotation>
+			 <annotator processor="p1" />
+          </text-annotation>
+          <utterance-annotation>
+			 <annotator processor="p1" />
+          </utterance-annotation>
+          <timesegment-annotation set="events"> <!-- an ad-hoc set -->
+			 <annotator processor="p1" />
+		  </timesegment-annotation>
+      </annotations>
+      <provenance>
+         <processor xml:id="p1" name="proycon" type="manual" />
+      </provenance>
+  </metadata>
+  <speech xml:id="example.speech">
+    <utt src="ithinkihavetogo.mp3">
+     <w xml:id="example.utt.1.w.1"><t>I</t></w>
+     <w xml:id="example.utt.1.w.2"><t>think</t></w>
+     <w xml:id="example.utt.1.w.3"><t>I</t></w>
+     <w xml:id="example.utt.1.w.4"><t>have</t></w>
+     <w xml:id="example.utt.1.w.5"><t>to</t></w>
+     <w xml:id="example.utt.1.w.6"><t>go</t></w>
+     <w xml:id="example.utt.1.w.7"><t>.</t></w>
+     <timing>
+      <timesegment begintime="00:00:00.000" endtime="00:00:00.250">
+        <wref id="example.utt.1.w.1" t="I" />
+      </timesegment>
+      <timesegment begintime="00:00:00.250" endtime="00:00:00.500">
+        <wref id="example.utt.1.w.2" t="think" />
+      </timesegment>
+      <timesegment begintime="00:00:00.500" endtime="00:00:00.750">
+        <wref id="example.utt.1.w.3" t="I" />
+      </timesegment>
+      <timesegment begintime="00:00:00.750" endtime="00:00:01.000">
+        <wref id="example.utt.1.w.4" t="have" />
+      </timesegment>
+      <timesegment begintime="00:00:01.000" endtime="00:00:01.250">
+        <wref id="example.utt.1.w.5" t="to" />
+      </timesegment>
+      <timesegment begintime="00:00:01.250" endtime="00:00:01.500">
+        <wref id="example.utt.1.w.6" t="go" />
+      </timesegment>
+     </timing>
+    </utt>
+  </speech>
+</FoLiA>

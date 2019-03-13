@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FoLiA xmlns="http://ilk.uvt.nl/folia" version="2.0" xml:id="example">
+  <metadata>
+      <annotations>
+          <text-annotation>
+			 <annotator processor="p1" />
+          </text-annotation>
+          <division-annotation set="https://raw.githubusercontent.com/LanguageMachines/uctodata/master/setdefinitions/divisions.foliaset.xml">
+			 <annotator processor="p1" />
+		  </division-annotation>
+          <gap-annotation set="adhoc">
+			 <annotator processor="p1" />
+		  </gap-annotation>
+          <rawcontent-annotation>
+			 <annotator processor="p1" />
+		  </rawcontent-annotation>
+          <description-annotation>
+			 <annotator processor="p1" />
+		  </description-annotation>
+          <paragraph-annotation>
+			 <annotator processor="p1" />
+		  </paragraph-annotation>
+      </annotations>
+      <provenance>
+         <processor xml:id="p1" name="proycon" type="manual" />
+      </provenance>
+  </metadata>
+  <text xml:id="example.text">
+     <gap class="frontmatter">
+        <desc>This is the cover of the book</desc>
+        <content>
+<![CDATA[
+
+            SHOW WHITE AND THE SEVEN DWARFS
+
+
+                by the Brothers Grimm
+
+                    first edition
+
+
+            Copyright(c) blah blah
+]]>
+        </content>
+     </gap>
+     <div xml:id="example.div.1" class="chapter" n="1">
+         <t>In the <t-gap class="illegible" /> there was a princess...</t>
+     </div>
+  </text>
+</FoLiA>

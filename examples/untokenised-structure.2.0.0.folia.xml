@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FoLiA xmlns="http://ilk.uvt.nl/folia" version="2.0" xml:id="example">
+  <metadata>
+      <annotations>
+          <text-annotation>
+			 <annotator processor="p1" />
+          </text-annotation>
+          <division-annotation set="https://raw.githubusercontent.com/LanguageMachines/uctodata/master/setdefinitions/divisions.foliaset.xml">
+			 <annotator processor="p1" />
+		  </division-annotation>
+          <head-annotation>
+			 <annotator processor="p1" />
+		  </head-annotation>
+          <paragraph-annotation>
+			 <annotator processor="p1" />
+		  </paragraph-annotation>
+      </annotations>
+      <provenance>
+         <processor xml:id="p1" name="proycon" type="manual" />
+      </provenance>
+  </metadata>
+  <text xml:id="example.text">
+     <div xml:id="example.div.1" class="chapter" n="1">
+         <head>
+             <t>Chapter 1: In the beginning</t>
+         </head>
+         <div xml:id="example.div.1.1" class="section" n="1.1">
+             <head>
+                 <t>Section 1.1: The first steps</t>
+             </head>
+             <p xml:id="example.div.1.1.p.1">
+                 <t>And so the first paragraph commences...</t>
+             </p>
+         </div>
+     </div>
+  </text>
+</FoLiA>

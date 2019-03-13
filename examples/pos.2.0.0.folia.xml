@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FoLiA xmlns="http://ilk.uvt.nl/folia" version="2.0" xml:id="example">
+  <metadata>
+      <annotations>
+          <text-annotation />
+          <token-annotation set="https://raw.githubusercontent.com/LanguageMachines/uctodata/master/setdefinitions/tokconfig-eng.foliaset.ttl">
+			 <annotator processor="p1" />
+		  </token-annotation>
+          <sentence-annotation>
+			 <annotator processor="p1" />
+          </sentence-annotation>
+          <paragraph-annotation>
+			 <annotator processor="p1" />
+          </paragraph-annotation>
+          <pos-annotation set="brown"> <!-- This is an ad-hoc set declaration as it is no URL and therefore not really defined -->
+			 <annotator processor="p1" />
+          </pos-annotation>
+      </annotations>
+      <provenance>
+         <processor xml:id="p1" name="proycon" type="manual" />
+      </provenance>
+  </metadata>
+  <text xml:id="example.text">
+    <s xml:id="example.p.1.s.2">
+     <w xml:id="example.p.1.s.2.w.1" class="WORD">
+        <t>This</t>
+        <pos class="DT"/>
+     </w>
+     <w xml:id="example.p.1.s.2.w.2" class="WORD">
+        <t>is</t>
+        <pos class="VBZ"/>
+     </w>
+     <w xml:id="example.p.1.s.2.w.3" class="WORD">
+        <t>an</t>
+        <pos class="AT"/>
+     </w>
+     <w xml:id="example.p.1.s.2.w.4" class="WORD" space="no">
+        <t>example</t>
+        <pos class="NN"/>
+     </w>
+     <w xml:id="example.p.1.s.2.w.5" class="PUNCTUATION">
+        <t>.</t>
+        <pos class="."/>
+     </w>
+    </s>
+  </text>
+</FoLiA>

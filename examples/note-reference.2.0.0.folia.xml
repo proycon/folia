@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FoLiA xmlns="http://ilk.uvt.nl/folia" xmlns:xlink="http://www.w3.org/1999/xlink" version="2.0" xml:id="example">
+  <metadata>
+      <annotations>
+          <text-annotation>
+			 <annotator processor="p1" />
+          </text-annotation>
+          <note-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/notes.foliaset.xml">
+			 <annotator processor="p1" />
+		  </note-annotation>
+          <reference-annotation>
+			 <annotator processor="p1" />
+          </reference-annotation>
+          <sentence-annotation>
+			 <annotator processor="p1" />
+		  </sentence-annotation>
+          <paragraph-annotation>
+			 <annotator processor="p1" />
+		  </paragraph-annotation>
+          <part-annotation>
+			 <annotator processor="p1" />
+          </part-annotation>
+      </annotations>
+      <provenance>
+         <processor xml:id="p1" name="proycon" type="manual" />
+      </provenance>
+  </metadata>
+  <text xml:id="example.text">
+      <p xml:id="example.p.1">
+        <s xml:id="example.p.1.s.1">
+          <t>We demonstrated this earlier.</t>
+        </s>
+        <ref xml:id="example.ref.1" id="example.note.1" />
+      </p>
+      <note xml:id="example.note.1" class="footnote">
+        <part>
+            <t>See our website.</t>
+        </part>
+        <ref xml:id="example.ref.2" xlink:href="https://github.io/folia" xlink:type="simple" format="text/html" />
+      </note>
+  </text>
+</FoLiA>

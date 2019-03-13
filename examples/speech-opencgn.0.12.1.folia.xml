@@ -1,0 +1,2453 @@
+<?xml version='1.0' encoding='utf-8'?>
+<FoLiA xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://ilk.uvt.nl/folia" xml:id="fv601273" version="0.12.1" generator="pynlpl.formats.folia-v0.12.1.70">
+  <metadata xmlns="http://ilk.uvt.nl/folia" src="fv601273.imdi" type="imdi">
+    <annotations>
+      <pos-annotation set="hdl:1839/00-SCHM-0000-0000-000B-9"/>
+      <lemma-annotation set="hdl:1839/00-SCHM-0000-0000-000E-3"/>
+      <phon-annotation set="cgn"/>
+      <timesegment-annotation set="cgn"/>
+      <entity-annotation set="http://ilk.uvt.nl/folia/sets/frog-mwu-nl"/>
+    </annotations>
+  </metadata>
+  <speech xmlns="http://ilk.uvt.nl/folia" xml:id="fv601273.speech">
+    <s speaker="V60151" xml:id="fv601273.1">
+      <w xml:id="fv601273.1.1">
+        <t>Guy</t>
+        <pos class="SPEC(deeleigen)"/>
+        <lemma class="_"/>
+        <ph set="cgn">Gi</ph>
+      </w>
+      <w xml:id="fv601273.1.2">
+        <t>Janssens</t>
+        <pos class="SPEC(deeleigen)"/>
+        <lemma class="_"/>
+        <ph set="cgn">jAns@s</ph>
+      </w>
+      <w xml:id="fv601273.1.3">
+        <t>mocht</t>
+        <pos class="WW(pv,verl,ev)"/>
+        <lemma class="mogen"/>
+        <ph set="cgn">mOxt</ph>
+      </w>
+      <w xml:id="fv601273.1.4">
+        <t>bij</t>
+        <pos class="VZ(init)"/>
+        <lemma class="bij"/>
+        <ph set="cgn">bE+</ph>
+      </w>
+      <w xml:id="fv601273.1.5">
+        <t>deze</t>
+        <pos class="VNW(aanw,det,stan,prenom,met-e,rest)"/>
+        <lemma class="deze"/>
+        <ph set="cgn">dez@</ph>
+      </w>
+      <w xml:id="fv601273.1.6">
+        <t>uitzending</t>
+        <pos class="N(soort,ev,basis,zijd,stan)"/>
+        <lemma class="uitzending"/>
+        <ph set="cgn">Y+tsEndIN</ph>
+      </w>
+      <w xml:id="fv601273.1.7">
+        <t>niet</t>
+        <pos class="BW()"/>
+        <lemma class="niet"/>
+        <ph set="cgn">nit</ph>
+      </w>
+      <w xml:id="fv601273.1.8">
+        <t>ontbreken</t>
+        <pos class="WW(inf,vrij,zonder)"/>
+        <lemma class="ontbreken"/>
+        <ph set="cgn">Onbrek@</ph>
+      </w>
+      <w xml:id="fv601273.1.9">
+        <t>want</t>
+        <pos class="VG(neven)"/>
+        <lemma class="want"/>
+        <ph set="cgn">wAnt</ph>
+      </w>
+      <w xml:id="fv601273.1.10">
+        <t>hij</t>
+        <pos class="VNW(pers,pron,nomin,vol,3,ev,masc)"/>
+        <lemma class="hij"/>
+        <ph set="cgn">E+</ph>
+      </w>
+      <w xml:id="fv601273.1.11">
+        <t>is</t>
+        <pos class="WW(pv,tgw,ev)"/>
+        <lemma class="zijn"/>
+        <ph set="cgn">Is</ph>
+      </w>
+      <w xml:id="fv601273.1.12">
+        <t>jarenlang</t>
+        <pos class="ADJ(vrij,basis,zonder)"/>
+        <lemma class="jarenlang"/>
+        <ph set="cgn">jar@lAN</ph>
+      </w>
+      <w xml:id="fv601273.1.13">
+        <t>Europaverslaggever</t>
+        <pos class="N(soort,ev,basis,zijd,stan)"/>
+        <lemma class="Europaverslaggever"/>
+        <ph set="cgn">2ropAv@rslAxev@r</ph>
+      </w>
+      <w xml:id="fv601273.1.14">
+        <t>geweest</t>
+        <pos class="WW(vd,vrij,zonder)"/>
+        <lemma class="zijn"/>
+        <ph set="cgn">G@west</ph>
+      </w>
+      <w xml:id="fv601273.1.15">
+        <t>bij</t>
+        <pos class="VZ(init)"/>
+        <lemma class="bij"/>
+        <ph set="cgn">bE+</ph>
+      </w>
+      <w xml:id="fv601273.1.16">
+        <t>het</t>
+        <pos class="LID(bep,stan,evon)"/>
+        <lemma class="het"/>
+        <ph set="cgn">@t</ph>
+      </w>
+      <w xml:id="fv601273.1.17">
+        <t>journaal</t>
+        <pos class="N(soort,ev,basis,onz,stan)"/>
+        <lemma class="journaal"/>
+        <ph set="cgn">Zurnal</ph>
+      </w>
+      <w xml:id="fv601273.1.18">
+        <t>.</t>
+        <pos class="LET()"/>
+        <lemma class="."/>
+      </w>
+      <timing>
+        <timesegment begintime="00:00:00.059" endtime="00:00:00.262">
+          <wref id="fv601273.1.1" t="Guy"/>
+        </timesegment>
+        <timesegment begintime="00:00:00.262" endtime="00:00:00.631">
+          <wref id="fv601273.1.2" t="Janssens"/>
+        </timesegment>
+        <timesegment begintime="00:00:00.631" endtime="00:00:00.868">
+          <wref id="fv601273.1.3" t="mocht"/>
+        </timesegment>
+        <timesegment begintime="00:00:00.868" endtime="00:00:01.079">
+          <wref id="fv601273.1.4" t="bij"/>
+        </timesegment>
+        <timesegment begintime="00:00:01.079" endtime="00:00:01.371">
+          <wref id="fv601273.1.5" t="deze"/>
+        </timesegment>
+        <timesegment begintime="00:00:01.371" endtime="00:00:01.906">
+          <wref id="fv601273.1.6" t="uitzending"/>
+        </timesegment>
+        <timesegment begintime="00:00:01.906" endtime="00:00:02.199">
+          <wref id="fv601273.1.7" t="niet"/>
+        </timesegment>
+        <timesegment begintime="00:00:02.199" endtime="00:00:02.619">
+          <wref id="fv601273.1.8" t="ontbreken"/>
+        </timesegment>
+        <timesegment begintime="00:00:02.619" endtime="00:00:02.782">
+          <wref id="fv601273.1.9" t="want"/>
+        </timesegment>
+        <timesegment begintime="00:00:02.782" endtime="00:00:02.848">
+          <wref id="fv601273.1.10" t="hij"/>
+        </timesegment>
+        <timesegment begintime="00:00:02.848" endtime="00:00:02.970">
+          <wref id="fv601273.1.11" t="is"/>
+        </timesegment>
+        <timesegment begintime="00:00:02.970" endtime="00:00:03.446">
+          <wref id="fv601273.1.12" t="jarenlang"/>
+        </timesegment>
+        <timesegment begintime="00:00:03.753" endtime="00:00:04.846">
+          <wref id="fv601273.1.13" t="Europaverslaggever"/>
+        </timesegment>
+        <timesegment begintime="00:00:04.846" endtime="00:00:05.252">
+          <wref id="fv601273.1.14" t="geweest"/>
+        </timesegment>
+        <timesegment begintime="00:00:05.308" endtime="00:00:05.466">
+          <wref id="fv601273.1.15" t="bij"/>
+        </timesegment>
+        <timesegment begintime="00:00:05.466" endtime="00:00:05.614">
+          <wref id="fv601273.1.16" t="het"/>
+        </timesegment>
+        <timesegment begintime="00:00:05.676" endtime="00:00:06.071">
+          <wref id="fv601273.1.17" t="journaal"/>
+        </timesegment>
+      </timing>
+    </s>
+    <s speaker="V60151" xml:id="fv601273.2">
+      <w xml:id="fv601273.2.1">
+        <t>een</t>
+        <pos class="LID(onbep,stan,agr)"/>
+        <lemma class="een"/>
+        <ph set="cgn">n</ph>
+      </w>
+      <w xml:id="fv601273.2.2">
+        <t>periode</t>
+        <pos class="N(soort,ev,basis,zijd,stan)"/>
+        <lemma class="periode"/>
+        <ph set="cgn">p@rjod@</ph>
+      </w>
+      <w xml:id="fv601273.2.3">
+        <t>die</t>
+        <pos class="VNW(betr,pron,stan,vol,persoon,getal)"/>
+        <lemma class="die"/>
+        <ph set="cgn">di</ph>
+      </w>
+      <w xml:id="fv601273.2.4">
+        <t>hij</t>
+        <pos class="VNW(pers,pron,nomin,vol,3,ev,masc)"/>
+        <lemma class="hij"/>
+        <ph set="cgn">E+</ph>
+      </w>
+      <w xml:id="fv601273.2.5">
+        <t>nu</t>
+        <pos class="BW()"/>
+        <lemma class="nu"/>
+        <ph set="cgn">ny</ph>
+      </w>
+      <w xml:id="fv601273.2.6">
+        <t>afsluit</t>
+        <pos class="WW(pv,tgw,ev)"/>
+        <lemma class="afsluiten"/>
+        <ph set="cgn">AfslY+t</ph>
+      </w>
+      <w xml:id="fv601273.2.7">
+        <t>met</t>
+        <pos class="VZ(init)"/>
+        <lemma class="met"/>
+        <ph set="cgn">mEt</ph>
+      </w>
+      <w xml:id="fv601273.2.8">
+        <t>een</t>
+        <pos class="LID(onbep,stan,agr)"/>
+        <lemma class="een"/>
+        <ph set="cgn">@m</ph>
+      </w>
+      <w xml:id="fv601273.2.9">
+        <t>boek</t>
+        <pos class="N(soort,ev,basis,onz,stan)"/>
+        <lemma class="boek"/>
+        <ph set="cgn">buk</ph>
+      </w>
+      <w xml:id="fv601273.2.10">
+        <t>In</t>
+        <pos class="VZ(init)"/>
+        <lemma class="In"/>
+        <ph set="cgn">In</ph>
+      </w>
+      <w xml:id="fv601273.2.11">
+        <t>De</t>
+        <pos class="LID(bep,stan,rest)"/>
+        <lemma class="De"/>
+        <ph set="cgn">d@</ph>
+      </w>
+      <w xml:id="fv601273.2.12">
+        <t>Schaduw</t>
+        <pos class="N(soort,ev,basis,zijd,stan)"/>
+        <lemma class="Schaduw"/>
+        <ph set="cgn">sxadyw</ph>
+      </w>
+      <w xml:id="fv601273.2.13">
+        <t>Van</t>
+        <pos class="VZ(init)"/>
+        <lemma class="Van"/>
+        <ph set="cgn">vAn</ph>
+      </w>
+      <w xml:id="fv601273.2.14">
+        <t>Schuman</t>
+        <pos class="N(eigen,ev,basis,zijd,stan)"/>
+        <lemma class="Schuman"/>
+        <ph set="cgn">SumAn</ph>
+      </w>
+      <w xml:id="fv601273.2.15">
+        <t>Belgi&amp;euml;</t>
+        <pos class="N(eigen,ev,basis,onz,stan)"/>
+        <lemma class="Belgi&amp;euml;"/>
+        <ph set="cgn">bElGj@</ph>
+      </w>
+      <w xml:id="fv601273.2.16">
+        <t>In</t>
+        <pos class="VZ(init)"/>
+        <lemma class="In"/>
+        <ph set="cgn">In</ph>
+      </w>
+      <w xml:id="fv601273.2.17">
+        <t>De</t>
+        <pos class="LID(bep,stan,rest)"/>
+        <lemma class="De"/>
+        <ph set="cgn">d@</ph>
+      </w>
+      <w xml:id="fv601273.2.18">
+        <t>Greep</t>
+        <pos class="N(eigen,ev,basis,zijd,stan)"/>
+        <lemma class="Greep"/>
+        <ph set="cgn">Grep</ph>
+      </w>
+      <w xml:id="fv601273.2.19">
+        <t>Van</t>
+        <pos class="VZ(init)"/>
+        <lemma class="Van"/>
+        <ph set="cgn">vAn</ph>
+      </w>
+      <w xml:id="fv601273.2.20">
+        <t>Europa</t>
+        <pos class="N(eigen,ev,basis,onz,stan)"/>
+        <lemma class="Europa"/>
+        <ph set="cgn">2ropa</ph>
+      </w>
+      <w xml:id="fv601273.2.21">
+        <t>.</t>
+        <pos class="LET()"/>
+        <lemma class="."/>
+      </w>
+      <timing>
+        <timesegment begintime="00:00:06.362" endtime="00:00:06.412">
+          <wref id="fv601273.2.1" t="een"/>
+        </timesegment>
+        <timesegment begintime="00:00:06.412" endtime="00:00:06.810">
+          <wref id="fv601273.2.2" t="periode"/>
+        </timesegment>
+        <timesegment begintime="00:00:06.810" endtime="00:00:07.020">
+          <wref id="fv601273.2.3" t="die"/>
+        </timesegment>
+        <timesegment begintime="00:00:07.020" endtime="00:00:07.161">
+          <wref id="fv601273.2.4" t="hij"/>
+        </timesegment>
+        <timesegment begintime="00:00:07.161" endtime="00:00:07.309">
+          <wref id="fv601273.2.5" t="nu"/>
+        </timesegment>
+        <timesegment begintime="00:00:07.363" endtime="00:00:07.876">
+          <wref id="fv601273.2.6" t="afsluit"/>
+        </timesegment>
+        <timesegment begintime="00:00:07.940" endtime="00:00:08.137">
+          <wref id="fv601273.2.7" t="met"/>
+        </timesegment>
+        <timesegment begintime="00:00:08.137" endtime="00:00:08.234">
+          <wref id="fv601273.2.8" t="een"/>
+        </timesegment>
+        <timesegment begintime="00:00:08.234" endtime="00:00:08.495">
+          <wref id="fv601273.2.9" t="boek"/>
+        </timesegment>
+        <timesegment begintime="00:00:08.791" endtime="00:00:08.894">
+          <wref id="fv601273.2.10" t="In"/>
+        </timesegment>
+        <timesegment begintime="00:00:08.894" endtime="00:00:08.960">
+          <wref id="fv601273.2.11" t="De"/>
+        </timesegment>
+        <timesegment begintime="00:00:08.960" endtime="00:00:09.403">
+          <wref id="fv601273.2.12" t="Schaduw"/>
+        </timesegment>
+        <timesegment begintime="00:00:09.403" endtime="00:00:09.595">
+          <wref id="fv601273.2.13" t="Van"/>
+        </timesegment>
+        <timesegment begintime="00:00:09.646" endtime="00:00:10.011">
+          <wref id="fv601273.2.14" t="Schuman"/>
+        </timesegment>
+        <timesegment begintime="00:00:10.070" endtime="00:00:10.491">
+          <wref id="fv601273.2.15" t="Belgi&amp;euml;"/>
+        </timesegment>
+        <timesegment begintime="00:00:10.491" endtime="00:00:10.736">
+          <wref id="fv601273.2.16" t="In"/>
+        </timesegment>
+        <timesegment begintime="00:00:10.804" endtime="00:00:10.966">
+          <wref id="fv601273.2.17" t="De"/>
+        </timesegment>
+        <timesegment begintime="00:00:11.031" endtime="00:00:11.363">
+          <wref id="fv601273.2.18" t="Greep"/>
+        </timesegment>
+        <timesegment begintime="00:00:11.454" endtime="00:00:11.708">
+          <wref id="fv601273.2.19" t="Van"/>
+        </timesegment>
+        <timesegment begintime="00:00:11.842" endtime="00:00:12.237">
+          <wref id="fv601273.2.20" t="Europa"/>
+        </timesegment>
+      </timing>
+    </s>
+    <s speaker="V60151" xml:id="fv601273.3">
+      <w xml:id="fv601273.3.1">
+        <t>nu</t>
+        <pos class="BW()"/>
+        <lemma class="nu"/>
+        <ph set="cgn">ny</ph>
+      </w>
+      <w xml:id="fv601273.3.2">
+        <t>woont</t>
+        <pos class="WW(pv,tgw,met-t)"/>
+        <lemma class="wonen"/>
+        <ph set="cgn">wont</ph>
+      </w>
+      <w xml:id="fv601273.3.3">
+        <t>en</t>
+        <pos class="VG(neven)"/>
+        <lemma class="en"/>
+        <ph set="cgn">En</ph>
+      </w>
+      <w xml:id="fv601273.3.4">
+        <t>werkt</t>
+        <pos class="WW(pv,tgw,met-t)"/>
+        <lemma class="werken"/>
+        <ph set="cgn">wEr@kt</ph>
+      </w>
+      <w xml:id="fv601273.3.5">
+        <t>hij</t>
+        <pos class="VNW(pers,pron,nomin,vol,3,ev,masc)"/>
+        <lemma class="hij"/>
+        <ph set="cgn">hE+</ph>
+      </w>
+      <w xml:id="fv601273.3.6">
+        <t>in</t>
+        <pos class="VZ(init)"/>
+        <lemma class="in"/>
+        <ph set="cgn">In</ph>
+      </w>
+      <w xml:id="fv601273.3.7">
+        <t>Nederland</t>
+        <pos class="N(eigen,ev,basis,onz,stan)"/>
+        <lemma class="Nederland"/>
+        <ph set="cgn">ned@rlAnt</ph>
+      </w>
+      <w xml:id="fv601273.3.8">
+        <t>.</t>
+        <pos class="LET()"/>
+        <lemma class="."/>
+      </w>
+      <timing>
+        <timesegment begintime="00:00:12.674" endtime="00:00:12.832">
+          <wref id="fv601273.3.1" t="nu"/>
+        </timesegment>
+        <timesegment begintime="00:00:12.832" endtime="00:00:13.085">
+          <wref id="fv601273.3.2" t="woont"/>
+        </timesegment>
+        <timesegment begintime="00:00:13.085" endtime="00:00:13.248">
+          <wref id="fv601273.3.3" t="en"/>
+        </timesegment>
+        <timesegment begintime="00:00:13.248" endtime="00:00:13.509">
+          <wref id="fv601273.3.4" t="werkt"/>
+        </timesegment>
+        <timesegment begintime="00:00:13.509" endtime="00:00:13.697">
+          <wref id="fv601273.3.5" t="hij"/>
+        </timesegment>
+        <timesegment begintime="00:00:13.697" endtime="00:00:13.992">
+          <wref id="fv601273.3.6" t="in"/>
+        </timesegment>
+        <timesegment begintime="00:00:14.053" endtime="00:00:14.489">
+          <wref id="fv601273.3.7" t="Nederland"/>
+        </timesegment>
+      </timing>
+    </s>
+    <s speaker="V60151" xml:id="fv601273.4">
+      <w xml:id="fv601273.4.1">
+        <t>in</t>
+        <pos class="VZ(init)"/>
+        <lemma class="in"/>
+        <ph set="cgn">In</ph>
+      </w>
+      <w xml:id="fv601273.4.2">
+        <t>Den</t>
+        <pos class="SPEC(deeleigen)"/>
+        <lemma class="_"/>
+        <ph set="cgn">d@n</ph>
+      </w>
+      <w xml:id="fv601273.4.3">
+        <t>Haag</t>
+        <pos class="SPEC(deeleigen)"/>
+        <lemma class="_"/>
+        <ph set="cgn">hax</ph>
+      </w>
+      <w xml:id="fv601273.4.4">
+        <t>vertegenwoordigt</t>
+        <pos class="WW(pv,tgw,met-t)"/>
+        <lemma class="vertegenwoordigen"/>
+        <ph set="cgn">v@rteG@word@xt</ph>
+      </w>
+      <w xml:id="fv601273.4.5">
+        <t>hij</t>
+        <pos class="VNW(pers,pron,nomin,vol,3,ev,masc)"/>
+        <lemma class="hij"/>
+        <ph set="cgn">hE+</ph>
+      </w>
+      <w xml:id="fv601273.4.6">
+        <t>Vlaanderen</t>
+        <pos class="N(eigen,ev,basis,onz,stan)"/>
+        <lemma class="Vlaanderen"/>
+        <ph set="cgn">vland@r@</ph>
+      </w>
+      <w xml:id="fv601273.4.7">
+        <t>en</t>
+        <pos class="VG(neven)"/>
+        <lemma class="en"/>
+        <ph set="cgn">En</ph>
+      </w>
+      <w xml:id="fv601273.4.8">
+        <t>de</t>
+        <pos class="LID(bep,stan,rest)"/>
+        <lemma class="de"/>
+        <ph set="cgn">d@</ph>
+      </w>
+      <w xml:id="fv601273.4.9">
+        <t>Vlaamse</t>
+        <pos class="SPEC(deeleigen)"/>
+        <lemma class="_"/>
+        <ph set="cgn">vlams@</ph>
+      </w>
+      <w xml:id="fv601273.4.10">
+        <t>Gemeenschap</t>
+        <pos class="SPEC(deeleigen)"/>
+        <lemma class="_"/>
+        <ph set="cgn">G@mensxAp</ph>
+      </w>
+      <w xml:id="fv601273.4.11">
+        <t>.</t>
+        <pos class="LET()"/>
+        <lemma class="."/>
+      </w>
+      <timing>
+        <timesegment begintime="00:00:14.489" endtime="00:00:14.617">
+          <wref id="fv601273.4.1" t="in"/>
+        </timesegment>
+        <timesegment begintime="00:00:14.617" endtime="00:00:14.731">
+          <wref id="fv601273.4.2" t="Den"/>
+        </timesegment>
+        <timesegment begintime="00:00:14.731" endtime="00:00:15.008">
+          <wref id="fv601273.4.3" t="Haag"/>
+        </timesegment>
+        <timesegment begintime="00:00:15.259" endtime="00:00:15.898">
+          <wref id="fv601273.4.4" t="vertegenwoordigt"/>
+        </timesegment>
+        <timesegment begintime="00:00:15.898" endtime="00:00:16.049">
+          <wref id="fv601273.4.5" t="hij"/>
+        </timesegment>
+        <timesegment begintime="00:00:16.122" endtime="00:00:16.593">
+          <wref id="fv601273.4.6" t="Vlaanderen"/>
+        </timesegment>
+        <timesegment begintime="00:00:16.648" endtime="00:00:16.794">
+          <wref id="fv601273.4.7" t="en"/>
+        </timesegment>
+        <timesegment begintime="00:00:16.794" endtime="00:00:16.924">
+          <wref id="fv601273.4.8" t="de"/>
+        </timesegment>
+        <timesegment begintime="00:00:17.005" endtime="00:00:17.511">
+          <wref id="fv601273.4.9" t="Vlaamse"/>
+        </timesegment>
+        <timesegment begintime="00:00:17.609" endtime="00:00:18.212">
+          <wref id="fv601273.4.10" t="Gemeenschap"/>
+        </timesegment>
+      </timing>
+    </s>
+    <s speaker="V60151" xml:id="fv601273.5">
+      <w xml:id="fv601273.5.1">
+        <t>vandaag</t>
+        <pos class="BW()"/>
+        <lemma class="vandaag"/>
+        <ph set="cgn">vAndaG</ph>
+      </w>
+      <w xml:id="fv601273.5.2">
+        <t>is</t>
+        <pos class="WW(pv,tgw,ev)"/>
+        <lemma class="zijn"/>
+        <ph set="cgn">Iz</ph>
+      </w>
+      <w xml:id="fv601273.5.3">
+        <t>hij</t>
+        <pos class="VNW(pers,pron,nomin,vol,3,ev,masc)"/>
+        <lemma class="hij"/>
+        <ph set="cgn">E+</ph>
+      </w>
+      <w xml:id="fv601273.5.4">
+        <t>hier</t>
+        <pos class="VNW(aanw,adv-pron,obl,vol,3o,getal)"/>
+        <lemma class="hier"/>
+        <ph set="cgn">ir</ph>
+      </w>
+      <w xml:id="fv601273.5.5">
+        <t>om</t>
+        <pos class="VZ(init)"/>
+        <lemma class="om"/>
+        <ph set="cgn">Om</ph>
+      </w>
+      <w xml:id="fv601273.5.6">
+        <t>zijn</t>
+        <pos class="VNW(bez,det,stan,vol,3,ev,prenom,zonder,agr)"/>
+        <lemma class="zijn"/>
+        <ph set="cgn">zE+n</ph>
+      </w>
+      <w xml:id="fv601273.5.7">
+        <t>opinie</t>
+        <pos class="N(soort,ev,basis,zijd,stan)"/>
+        <lemma class="opinie"/>
+        <ph set="cgn">OpIni</ph>
+      </w>
+      <w xml:id="fv601273.5.8">
+        <t>te</t>
+        <pos class="VZ(init)"/>
+        <lemma class="te"/>
+        <ph set="cgn">t@</ph>
+      </w>
+      <w xml:id="fv601273.5.9">
+        <t>geven</t>
+        <pos class="WW(inf,vrij,zonder)"/>
+        <lemma class="geven"/>
+        <ph set="cgn">Gev@</ph>
+      </w>
+      <w xml:id="fv601273.5.10">
+        <t>over</t>
+        <pos class="VZ(init)"/>
+        <lemma class="over"/>
+        <ph set="cgn">ov@r</ph>
+      </w>
+      <w xml:id="fv601273.5.11">
+        <t>die</t>
+        <pos class="VNW(aanw,det,stan,prenom,zonder,rest)"/>
+        <lemma class="die"/>
+        <ph set="cgn">di</ph>
+      </w>
+      <w xml:id="fv601273.5.12">
+        <t>euro</t>
+        <pos class="N(soort,ev,basis,zijd,stan)"/>
+        <lemma class="euro"/>
+        <ph set="cgn">2ro</ph>
+      </w>
+      <w xml:id="fv601273.5.13">
+        <t>.</t>
+        <pos class="LET()"/>
+        <lemma class="."/>
+      </w>
+      <timing>
+        <timesegment begintime="00:00:18.548" endtime="00:00:18.858">
+          <wref id="fv601273.5.1" t="vandaag"/>
+        </timesegment>
+        <timesegment begintime="00:00:18.858" endtime="00:00:18.981">
+          <wref id="fv601273.5.2" t="is"/>
+        </timesegment>
+        <timesegment begintime="00:00:18.981" endtime="00:00:19.087">
+          <wref id="fv601273.5.3" t="hij"/>
+        </timesegment>
+        <timesegment begintime="00:00:19.087" endtime="00:00:19.303">
+          <wref id="fv601273.5.4" t="hier"/>
+        </timesegment>
+        <timesegment begintime="00:00:19.512" endtime="00:00:19.644">
+          <wref id="fv601273.5.5" t="om"/>
+        </timesegment>
+        <timesegment begintime="00:00:19.644" endtime="00:00:19.872">
+          <wref id="fv601273.5.6" t="zijn"/>
+        </timesegment>
+        <timesegment begintime="00:00:19.925" endtime="00:00:20.259">
+          <wref id="fv601273.5.7" t="opinie"/>
+        </timesegment>
+        <timesegment begintime="00:00:20.259" endtime="00:00:20.356">
+          <wref id="fv601273.5.8" t="te"/>
+        </timesegment>
+        <timesegment begintime="00:00:20.356" endtime="00:00:20.667">
+          <wref id="fv601273.5.9" t="geven"/>
+        </timesegment>
+        <timesegment begintime="00:00:20.667" endtime="00:00:21.016">
+          <wref id="fv601273.5.10" t="over"/>
+        </timesegment>
+        <timesegment begintime="00:00:21.163" endtime="00:00:21.380">
+          <wref id="fv601273.5.11" t="die"/>
+        </timesegment>
+        <timesegment begintime="00:00:21.439" endtime="00:00:21.656">
+          <wref id="fv601273.5.12" t="euro"/>
+        </timesegment>
+      </timing>
+    </s>
+    <s speaker="V60151" xml:id="fv601273.6">
+      <w xml:id="fv601273.6.1">
+        <t>Guy</t>
+        <pos class="N(eigen,ev,basis,zijd,stan)"/>
+        <lemma class="Guy"/>
+        <ph set="cgn">Gi</ph>
+      </w>
+      <w xml:id="fv601273.6.2">
+        <t>aan</t>
+        <pos class="VZ(init)"/>
+        <lemma class="aan"/>
+        <ph set="cgn">aJ</ph>
+      </w>
+      <w xml:id="fv601273.6.3">
+        <t>jou</t>
+        <pos class="VNW(pers,pron,obl,vol,2v,ev)"/>
+        <lemma class="jou"/>
+        <ph set="cgn">JA+</ph>
+      </w>
+      <w xml:id="fv601273.6.4">
+        <t>.</t>
+        <pos class="LET()"/>
+        <lemma class="."/>
+      </w>
+      <timing>
+        <timesegment begintime="00:00:21.831" endtime="00:00:22.016">
+          <wref id="fv601273.6.1" t="Guy"/>
+        </timesegment>
+        <timesegment begintime="00:00:22.072" endtime="00:00:22.195">
+          <wref id="fv601273.6.2" t="aan"/>
+        </timesegment>
+        <timesegment begintime="00:00:22.195" endtime="00:00:22.281">
+          <wref id="fv601273.6.3" t="jou"/>
+        </timesegment>
+      </timing>
+    </s>
+    <s speaker="V60319" xml:id="fv601273.7">
+      <w xml:id="fv601273.7.1">
+        <t>van</t>
+        <pos class="VZ(init)"/>
+        <lemma class="van"/>
+        <ph set="cgn">vAn</ph>
+      </w>
+      <w xml:id="fv601273.7.2">
+        <t>de</t>
+        <pos class="LID(bep,stan,rest)"/>
+        <lemma class="de"/>
+        <ph set="cgn">d@</ph>
+      </w>
+      <w xml:id="fv601273.7.3">
+        <t>week</t>
+        <pos class="N(soort,ev,basis,zijd,stan)"/>
+        <lemma class="week"/>
+        <ph set="cgn">wek</ph>
+      </w>
+      <w xml:id="fv601273.7.4">
+        <t>zijn</t>
+        <pos class="WW(pv,tgw,mv)"/>
+        <lemma class="zijn"/>
+        <ph set="cgn">s@n</ph>
+      </w>
+      <w xml:id="fv601273.7.5">
+        <t>in</t>
+        <pos class="VZ(init)"/>
+        <lemma class="in"/>
+        <ph set="cgn">In</ph>
+      </w>
+      <w xml:id="fv601273.7.6">
+        <t>Nederland</t>
+        <pos class="N(eigen,ev,basis,onz,stan)"/>
+        <lemma class="Nederland"/>
+        <ph set="cgn">ned@rlAnt</ph>
+      </w>
+      <w xml:id="fv601273.7.7">
+        <t>de</t>
+        <pos class="LID(bep,stan,rest)"/>
+        <lemma class="de"/>
+        <ph set="cgn">t@</ph>
+      </w>
+      <w xml:id="fv601273.7.8">
+        <t>laatste</t>
+        <pos class="ADJ(prenom,sup,met-e,stan)"/>
+        <lemma class="laat"/>
+        <ph set="cgn">latst@</ph>
+      </w>
+      <w xml:id="fv601273.7.9">
+        <t>guldens</t>
+        <pos class="N(soort,mv,basis)"/>
+        <lemma class="gulden"/>
+        <ph set="cgn">GYld@s</ph>
+      </w>
+      <w xml:id="fv601273.7.10">
+        <t>geslagen</t>
+        <pos class="WW(vd,vrij,zonder)"/>
+        <lemma class="slaan"/>
+        <ph set="cgn">x@slaG@</ph>
+      </w>
+      <w xml:id="fv601273.7.11">
+        <t>.</t>
+        <pos class="LET()"/>
+        <lemma class="."/>
+      </w>
+      <timing>
+        <timesegment begintime="00:00:22.608" endtime="00:00:22.740">
+          <wref id="fv601273.7.1" t="van"/>
+        </timesegment>
+        <timesegment begintime="00:00:22.740" endtime="00:00:22.804">
+          <wref id="fv601273.7.2" t="de"/>
+        </timesegment>
+        <timesegment begintime="00:00:22.804" endtime="00:00:23.009">
+          <wref id="fv601273.7.3" t="week"/>
+        </timesegment>
+        <timesegment begintime="00:00:23.009" endtime="00:00:23.169">
+          <wref id="fv601273.7.4" t="zijn"/>
+        </timesegment>
+        <timesegment begintime="00:00:23.169" endtime="00:00:23.274">
+          <wref id="fv601273.7.5" t="in"/>
+        </timesegment>
+        <timesegment begintime="00:00:23.274" endtime="00:00:23.740">
+          <wref id="fv601273.7.6" t="Nederland"/>
+        </timesegment>
+        <timesegment begintime="00:00:23.694" endtime="00:00:23.789">
+          <wref id="fv601273.7.7" t="de"/>
+        </timesegment>
+        <timesegment begintime="00:00:23.789" endtime="00:00:24.203">
+          <wref id="fv601273.7.8" t="laatste"/>
+        </timesegment>
+        <timesegment begintime="00:00:24.203" endtime="00:00:24.665">
+          <wref id="fv601273.7.9" t="guldens"/>
+        </timesegment>
+        <timesegment begintime="00:00:24.665" endtime="00:00:25.155">
+          <wref id="fv601273.7.10" t="geslagen"/>
+        </timesegment>
+      </timing>
+    </s>
+    <s speaker="V60319" xml:id="fv601273.8">
+      <w xml:id="fv601273.8.1">
+        <t>nog</t>
+        <pos class="BW()"/>
+        <lemma class="nog"/>
+        <ph set="cgn">nOx</ph>
+      </w>
+      <w xml:id="fv601273.8.2">
+        <t>eventjes</t>
+        <pos class="BW()"/>
+        <lemma class="eventjes"/>
+        <ph set="cgn">ev@ntj@s</ph>
+      </w>
+      <w xml:id="fv601273.8.3">
+        <t>worden</t>
+        <pos class="WW(pv,tgw,mv)"/>
+        <lemma class="worden"/>
+        <ph set="cgn">wOrd@</ph>
+      </w>
+      <w xml:id="fv601273.8.4">
+        <t>bij</t>
+        <pos class="VZ(init)"/>
+        <lemma class="bij"/>
+        <ph set="cgn">bE+j</ph>
+      </w>
+      <w xml:id="fv601273.8.5">
+        <t>onze</t>
+        <pos class="VNW(bez,det,stan,vol,1,mv,prenom,met-e,rest)"/>
+        <lemma class="ons"/>
+        <ph set="cgn">jOnz@</ph>
+      </w>
+      <w xml:id="fv601273.8.6">
+        <t>noorderburen</t>
+        <pos class="N(soort,mv,basis)"/>
+        <lemma class="noorderbuur"/>
+        <ph set="cgn">nord@rbyr@</ph>
+      </w>
+      <w xml:id="fv601273.8.7">
+        <t>de</t>
+        <pos class="LID(bep,stan,rest)"/>
+        <lemma class="de"/>
+        <ph set="cgn">d@</ph>
+      </w>
+      <w xml:id="fv601273.8.8">
+        <t>dubbeltjes</t>
+        <pos class="N(soort,mv,dim)"/>
+        <lemma class="dubbeltje"/>
+        <ph set="cgn">dYb@ltj@s</ph>
+      </w>
+      <w xml:id="fv601273.8.9">
+        <t>kwartjes</t>
+        <pos class="N(soort,mv,dim)"/>
+        <lemma class="kwartje"/>
+        <ph set="cgn">kwArtj@z</ph>
+      </w>
+      <w xml:id="fv601273.8.10">
+        <t>en</t>
+        <pos class="VG(neven)"/>
+        <lemma class="en"/>
+        <ph set="cgn">En</ph>
+      </w>
+      <w xml:id="fv601273.8.11">
+        <t>tientjes</t>
+        <pos class="N(soort,mv,dim)"/>
+        <lemma class="tientje"/>
+        <ph set="cgn">tintj@s</ph>
+      </w>
+      <w xml:id="fv601273.8.12">
+        <t>gekoesterd</t>
+        <pos class="WW(vd,vrij,zonder)"/>
+        <lemma class="koesteren"/>
+        <ph set="cgn">x@kust@rt</ph>
+      </w>
+      <w xml:id="fv601273.8.13">
+        <t>voor</t>
+        <pos class="VZ(init)"/>
+        <lemma class="voor"/>
+        <ph set="cgn">for</ph>
+      </w>
+      <w xml:id="fv601273.8.14">
+        <t>ze</t>
+        <pos class="VNW(pers,pron,stan,red,3,mv)"/>
+        <lemma class="ze"/>
+        <ph set="cgn">z@</ph>
+      </w>
+      <w xml:id="fv601273.8.15">
+        <t>over</t>
+        <pos class="VZ(init)"/>
+        <lemma class="over"/>
+        <ph set="cgn">ov@r</ph>
+      </w>
+      <w xml:id="fv601273.8.16">
+        <t>een</t>
+        <pos class="LID(onbep,stan,agr)"/>
+        <lemma class="een"/>
+        <ph set="cgn">@n</ph>
+      </w>
+      <w xml:id="fv601273.8.17">
+        <t>half</t>
+        <pos class="ADJ(prenom,basis,zonder)"/>
+        <lemma class="half"/>
+        <ph set="cgn">Al@f</ph>
+      </w>
+      <w xml:id="fv601273.8.18">
+        <t>jaar</t>
+        <pos class="N(soort,ev,basis,onz,stan)"/>
+        <lemma class="jaar"/>
+        <ph set="cgn">jar</ph>
+      </w>
+      <w xml:id="fv601273.8.19">
+        <t>definitief</t>
+        <pos class="ADJ(vrij,basis,zonder)"/>
+        <lemma class="definitief"/>
+        <ph set="cgn">definitif</ph>
+      </w>
+      <w xml:id="fv601273.8.20">
+        <t>verdwijnen</t>
+        <pos class="WW(pv,tgw,mv)"/>
+        <lemma class="verdwijnen"/>
+        <ph set="cgn">v@rdwE+n@</ph>
+      </w>
+      <w xml:id="fv601273.8.21">
+        <t>.</t>
+        <pos class="LET()"/>
+        <lemma class="."/>
+      </w>
+      <timing>
+        <timesegment begintime="00:00:25.317" endtime="00:00:25.512">
+          <wref id="fv601273.8.1" t="nog"/>
+        </timesegment>
+        <timesegment begintime="00:00:25.512" endtime="00:00:26.000">
+          <wref id="fv601273.8.2" t="eventjes"/>
+        </timesegment>
+        <timesegment begintime="00:00:26.000" endtime="00:00:26.260">
+          <wref id="fv601273.8.3" t="worden"/>
+        </timesegment>
+        <timesegment begintime="00:00:26.260" endtime="00:00:26.397">
+          <wref id="fv601273.8.4" t="bij"/>
+        </timesegment>
+        <timesegment begintime="00:00:26.397" endtime="00:00:26.625">
+          <wref id="fv601273.8.5" t="onze"/>
+        </timesegment>
+        <timesegment begintime="00:00:26.625" endtime="00:00:27.265">
+          <wref id="fv601273.8.6" t="noorderburen"/>
+        </timesegment>
+        <timesegment begintime="00:00:27.265" endtime="00:00:27.378">
+          <wref id="fv601273.8.7" t="de"/>
+        </timesegment>
+        <timesegment begintime="00:00:27.378" endtime="00:00:27.908">
+          <wref id="fv601273.8.8" t="dubbeltjes"/>
+        </timesegment>
+        <timesegment begintime="00:00:27.908" endtime="00:00:28.415">
+          <wref id="fv601273.8.9" t="kwartjes"/>
+        </timesegment>
+        <timesegment begintime="00:00:28.415" endtime="00:00:28.605">
+          <wref id="fv601273.8.10" t="en"/>
+        </timesegment>
+        <timesegment begintime="00:00:28.658" endtime="00:00:29.032">
+          <wref id="fv601273.8.11" t="tientjes"/>
+        </timesegment>
+        <timesegment begintime="00:00:29.032" endtime="00:00:29.663">
+          <wref id="fv601273.8.12" t="gekoesterd"/>
+        </timesegment>
+        <timesegment begintime="00:00:29.663" endtime="00:00:29.928">
+          <wref id="fv601273.8.13" t="voor"/>
+        </timesegment>
+        <timesegment begintime="00:00:29.928" endtime="00:00:30.070">
+          <wref id="fv601273.8.14" t="ze"/>
+        </timesegment>
+        <timesegment begintime="00:00:30.070" endtime="00:00:30.286">
+          <wref id="fv601273.8.15" t="over"/>
+        </timesegment>
+        <timesegment begintime="00:00:30.286" endtime="00:00:30.372">
+          <wref id="fv601273.8.16" t="een"/>
+        </timesegment>
+        <timesegment begintime="00:00:30.422" endtime="00:00:30.674">
+          <wref id="fv601273.8.17" t="half"/>
+        </timesegment>
+        <timesegment begintime="00:00:30.674" endtime="00:00:30.952">
+          <wref id="fv601273.8.18" t="jaar"/>
+        </timesegment>
+        <timesegment begintime="00:00:31.190" endtime="00:00:31.817">
+          <wref id="fv601273.8.19" t="definitief"/>
+        </timesegment>
+        <timesegment begintime="00:00:31.896" endtime="00:00:32.404">
+          <wref id="fv601273.8.20" t="verdwijnen"/>
+        </timesegment>
+      </timing>
+    </s>
+    <s speaker="V60319" xml:id="fv601273.9">
+      <w xml:id="fv601273.9.1">
+        <t>tegelijk</t>
+        <pos class="BW()"/>
+        <lemma class="tegelijk"/>
+        <ph set="cgn">t@G@lE+k</ph>
+      </w>
+      <w xml:id="fv601273.9.2">
+        <t>is</t>
+        <pos class="WW(pv,tgw,ev)"/>
+        <lemma class="zijn"/>
+        <ph set="cgn">Iz</ph>
+      </w>
+      <w xml:id="fv601273.9.3">
+        <t>aangekondigd</t>
+        <pos class="WW(vd,vrij,zonder)"/>
+        <lemma class="aankondigen"/>
+        <ph set="cgn">aG@kOnd@xt</ph>
+      </w>
+      <w xml:id="fv601273.9.4">
+        <t>dat</t>
+        <pos class="VG(onder)"/>
+        <lemma class="dat"/>
+        <ph set="cgn">tAt</ph>
+      </w>
+      <w xml:id="fv601273.9.5">
+        <t>tegen</t>
+        <pos class="VZ(init)"/>
+        <lemma class="tegen"/>
+        <ph set="cgn">teG@</ph>
+      </w>
+      <w xml:id="fv601273.9.6">
+        <t>twee</t>
+        <pos class="TW(hoofd,vrij)"/>
+        <lemma class="twee"/>
+        <ph set="cgn">twe</ph>
+      </w>
+      <w xml:id="fv601273.9.7">
+        <t>februari</t>
+        <pos class="N(eigen,ev,basis,zijd,stan)"/>
+        <lemma class="februari"/>
+        <ph set="cgn">febrYwari</ph>
+      </w>
+      <w xml:id="fv601273.9.8">
+        <t>van</t>
+        <pos class="VZ(init)"/>
+        <lemma class="van"/>
+        <ph set="cgn">vAn</ph>
+      </w>
+      <w xml:id="fv601273.9.9">
+        <t>volgend</t>
+        <pos class="WW(od,prenom,zonder)"/>
+        <lemma class="volgen"/>
+        <ph set="cgn">vOlG@nt</ph>
+      </w>
+      <w xml:id="fv601273.9.10">
+        <t>jaar</t>
+        <pos class="N(soort,ev,basis,onz,stan)"/>
+        <lemma class="jaar"/>
+        <ph set="cgn">jar</ph>
+      </w>
+      <w xml:id="fv601273.9.11">
+        <t>bij</t>
+        <pos class="VZ(init)"/>
+        <lemma class="bij"/>
+        <ph set="cgn">bE+</ph>
+      </w>
+      <w xml:id="fv601273.9.12">
+        <t>het</t>
+        <pos class="LID(bep,stan,evon)"/>
+        <lemma class="het"/>
+        <ph set="cgn">t</ph>
+      </w>
+      <w xml:id="fv601273.9.13">
+        <t>huwelijk</t>
+        <pos class="N(soort,ev,basis,onz,stan)"/>
+        <lemma class="huwelijk"/>
+        <ph set="cgn">hyw@l@k</ph>
+      </w>
+      <w xml:id="fv601273.9.14">
+        <t>van</t>
+        <pos class="VZ(init)"/>
+        <lemma class="van"/>
+        <ph set="cgn">fAn</ph>
+      </w>
+      <w xml:id="fv601273.9.15">
+        <t>Willem-Alexander</t>
+        <pos class="N(eigen,ev,basis,zijd,stan)"/>
+        <lemma class="Willem-Alexander"/>
+        <ph set="cgn">wIl@mAl@ksAnd@r</ph>
+      </w>
+      <w xml:id="fv601273.9.16">
+        <t>en</t>
+        <pos class="VG(neven)"/>
+        <lemma class="en"/>
+        <ph set="cgn">En</ph>
+      </w>
+      <w xml:id="fv601273.9.17">
+        <t>M&amp;aacute;xima</t>
+        <pos class="N(eigen,ev,basis,zijd,stan)"/>
+        <lemma class="M&amp;aacute;xima"/>
+        <ph set="cgn">mAksimA</ph>
+      </w>
+      <w xml:id="fv601273.9.18">
+        <t>een</t>
+        <pos class="LID(onbep,stan,agr)"/>
+        <lemma class="een"/>
+        <ph set="cgn">@n</ph>
+      </w>
+      <w xml:id="fv601273.9.19">
+        <t>hou</t>
+        <pos class="WW(pv,tgw,ev)"/>
+        <lemma class="houden"/>
+        <ph set="cgn">A+w</ph>
+      </w>
+      <w xml:id="fv601273.9.20">
+        <t>u</t>
+        <pos class="VNW(pers,pron,nomin,vol,2b,getal)"/>
+        <lemma class="u"/>
+        <ph set="cgn">wy</ph>
+      </w>
+      <w xml:id="fv601273.9.21">
+        <t>vast</t>
+        <pos class="ADJ(vrij,basis,zonder)"/>
+        <lemma class="vast"/>
+        <ph set="cgn">vAst</ph>
+      </w>
+      <w xml:id="fv601273.9.22">
+        <t>gelegenheidseuro</t>
+        <pos class="N(soort,ev,basis,zijd,stan)"/>
+        <lemma class="gelegenheidseuro"/>
+        <ph set="cgn">G@leG@nE+ts2ro</ph>
+      </w>
+      <w xml:id="fv601273.9.23">
+        <t>zal</t>
+        <pos class="WW(pv,tgw,ev)"/>
+        <lemma class="zullen"/>
+        <ph set="cgn">zAl</ph>
+      </w>
+      <w xml:id="fv601273.9.24">
+        <t>worden</t>
+        <pos class="WW(inf,vrij,zonder)"/>
+        <lemma class="worden"/>
+        <ph set="cgn">wOrd@</ph>
+      </w>
+      <w xml:id="fv601273.9.25">
+        <t>geslagen</t>
+        <pos class="WW(vd,vrij,zonder)"/>
+        <lemma class="slaan"/>
+        <ph set="cgn">G@slaG@</ph>
+      </w>
+      <w xml:id="fv601273.9.26">
+        <t>.</t>
+        <pos class="LET()"/>
+        <lemma class="."/>
+      </w>
+      <timing>
+        <timesegment begintime="00:00:33.069" endtime="00:00:33.405">
+          <wref id="fv601273.9.1" t="tegelijk"/>
+        </timesegment>
+        <timesegment begintime="00:00:33.405" endtime="00:00:33.536">
+          <wref id="fv601273.9.2" t="is"/>
+        </timesegment>
+        <timesegment begintime="00:00:33.536" endtime="00:00:34.142">
+          <wref id="fv601273.9.3" t="aangekondigd"/>
+        </timesegment>
+        <timesegment begintime="00:00:34.094" endtime="00:00:34.300">
+          <wref id="fv601273.9.4" t="dat"/>
+        </timesegment>
+        <timesegment begintime="00:00:34.213" endtime="00:00:34.484">
+          <wref id="fv601273.9.5" t="tegen"/>
+        </timesegment>
+        <timesegment begintime="00:00:34.484" endtime="00:00:34.718">
+          <wref id="fv601273.9.6" t="twee"/>
+        </timesegment>
+        <timesegment begintime="00:00:34.718" endtime="00:00:35.281">
+          <wref id="fv601273.9.7" t="februari"/>
+        </timesegment>
+        <timesegment begintime="00:00:35.281" endtime="00:00:35.443">
+          <wref id="fv601273.9.8" t="van"/>
+        </timesegment>
+        <timesegment begintime="00:00:35.443" endtime="00:00:35.834">
+          <wref id="fv601273.9.9" t="volgend"/>
+        </timesegment>
+        <timesegment begintime="00:00:35.834" endtime="00:00:36.106">
+          <wref id="fv601273.9.10" t="jaar"/>
+        </timesegment>
+        <timesegment begintime="00:00:36.106" endtime="00:00:36.319">
+          <wref id="fv601273.9.11" t="bij"/>
+        </timesegment>
+        <timesegment begintime="00:00:36.319" endtime="00:00:36.406">
+          <wref id="fv601273.9.12" t="het"/>
+        </timesegment>
+        <timesegment begintime="00:00:36.406" endtime="00:00:36.697">
+          <wref id="fv601273.9.13" t="huwelijk"/>
+        </timesegment>
+        <timesegment begintime="00:00:36.697" endtime="00:00:36.938">
+          <wref id="fv601273.9.14" t="van"/>
+        </timesegment>
+        <timesegment begintime="00:00:36.938" endtime="00:00:37.773">
+          <wref id="fv601273.9.15" t="Willem-Alexander"/>
+        </timesegment>
+        <timesegment begintime="00:00:37.773" endtime="00:00:37.875">
+          <wref id="fv601273.9.16" t="en"/>
+        </timesegment>
+        <timesegment begintime="00:00:37.875" endtime="00:00:38.353">
+          <wref id="fv601273.9.17" t="M&amp;aacute;xima"/>
+        </timesegment>
+        <timesegment begintime="00:00:38.420" endtime="00:00:38.602">
+          <wref id="fv601273.9.18" t="een"/>
+        </timesegment>
+        <timesegment begintime="00:00:38.830" endtime="00:00:38.962">
+          <wref id="fv601273.9.19" t="hou"/>
+        </timesegment>
+        <timesegment begintime="00:00:38.962" endtime="00:00:39.061">
+          <wref id="fv601273.9.20" t="u"/>
+        </timesegment>
+        <timesegment begintime="00:00:39.061" endtime="00:00:39.431">
+          <wref id="fv601273.9.21" t="vast"/>
+        </timesegment>
+        <timesegment begintime="00:00:39.489" endtime="00:00:40.824">
+          <wref id="fv601273.9.22" t="gelegenheidseuro"/>
+        </timesegment>
+        <timesegment begintime="00:00:40.889" endtime="00:00:41.071">
+          <wref id="fv601273.9.23" t="zal"/>
+        </timesegment>
+        <timesegment begintime="00:00:41.071" endtime="00:00:41.264">
+          <wref id="fv601273.9.24" t="worden"/>
+        </timesegment>
+        <timesegment begintime="00:00:41.264" endtime="00:00:41.674">
+          <wref id="fv601273.9.25" t="geslagen"/>
+        </timesegment>
+      </timing>
+    </s>
+    <s speaker="V60319" xml:id="fv601273.10">
+      <w xml:id="fv601273.10.1">
+        <t>ik</t>
+        <pos class="VNW(pers,pron,nomin,vol,1,ev)"/>
+        <lemma class="ik"/>
+        <ph set="cgn">Ik</ph>
+      </w>
+      <w xml:id="fv601273.10.2">
+        <t>juich</t>
+        <pos class="WW(pv,tgw,ev)"/>
+        <lemma class="juichen"/>
+        <ph set="cgn">jY+G</ph>
+      </w>
+      <w xml:id="fv601273.10.3">
+        <t>dat</t>
+        <pos class="VNW(aanw,det,stan,prenom,zonder,evon)"/>
+        <lemma class="dat"/>
+        <ph set="cgn">dAt</ph>
+      </w>
+      <w xml:id="fv601273.10.4">
+        <t>toe</t>
+        <pos class="VZ(fin)"/>
+        <lemma class="toe"/>
+        <ph set="cgn">tu</ph>
+      </w>
+      <w xml:id="fv601273.10.5">
+        <t>maar</t>
+        <pos class="VG(neven)"/>
+        <lemma class="maar"/>
+        <ph set="cgn">mar</ph>
+      </w>
+      <w xml:id="fv601273.10.6">
+        <t>alles</t>
+        <pos class="VNW(onbep,pron,stan,vol,3o,ev)"/>
+        <lemma class="alles"/>
+        <ph set="cgn">Al@s</ph>
+      </w>
+      <w xml:id="fv601273.10.7">
+        <t>kan</t>
+        <pos class="WW(pv,tgw,ev)"/>
+        <lemma class="kunnen"/>
+        <ph set="cgn">kAn</ph>
+      </w>
+      <w xml:id="fv601273.10.8">
+        <t>beter</t>
+        <pos class="ADJ(vrij,comp,zonder)"/>
+        <lemma class="goed"/>
+        <ph set="cgn">bet@r</ph>
+      </w>
+      <w xml:id="fv601273.10.9">
+        <t>.</t>
+        <pos class="LET()"/>
+        <lemma class="."/>
+      </w>
+      <timing>
+        <timesegment begintime="00:00:42.246" endtime="00:00:42.385">
+          <wref id="fv601273.10.1" t="ik"/>
+        </timesegment>
+        <timesegment begintime="00:00:42.385" endtime="00:00:42.564">
+          <wref id="fv601273.10.2" t="juich"/>
+        </timesegment>
+        <timesegment begintime="00:00:42.564" endtime="00:00:42.786">
+          <wref id="fv601273.10.3" t="dat"/>
+        </timesegment>
+        <timesegment begintime="00:00:42.683" endtime="00:00:42.887">
+          <wref id="fv601273.10.4" t="toe"/>
+        </timesegment>
+        <timesegment begintime="00:00:42.887" endtime="00:00:43.187">
+          <wref id="fv601273.10.5" t="maar"/>
+        </timesegment>
+        <timesegment begintime="00:00:43.239" endtime="00:00:43.537">
+          <wref id="fv601273.10.6" t="alles"/>
+        </timesegment>
+        <timesegment begintime="00:00:43.537" endtime="00:00:43.802">
+          <wref id="fv601273.10.7" t="kan"/>
+        </timesegment>
+        <timesegment begintime="00:00:43.858" endtime="00:00:44.368">
+          <wref id="fv601273.10.8" t="beter"/>
+        </timesegment>
+      </timing>
+    </s>
+    <s speaker="V60319" xml:id="fv601273.11">
+      <w xml:id="fv601273.11.1">
+        <t>dat</t>
+        <pos class="VG(onder)"/>
+        <lemma class="dat"/>
+        <ph set="cgn">dAt</ph>
+      </w>
+      <w xml:id="fv601273.11.2">
+        <t>er</t>
+        <pos class="VNW(aanw,adv-pron,stan,red,3,getal)"/>
+        <lemma class="er"/>
+        <ph set="cgn">@r</ph>
+      </w>
+      <w xml:id="fv601273.11.3">
+        <t>bij</t>
+        <pos class="VZ(init)"/>
+        <lemma class="bij"/>
+        <ph set="cgn">bE+</ph>
+      </w>
+      <w xml:id="fv601273.11.4">
+        <t>koninklijke</t>
+        <pos class="ADJ(prenom,basis,met-e,stan)"/>
+        <lemma class="koninklijk"/>
+        <ph set="cgn">konINkl@k@</ph>
+      </w>
+      <w xml:id="fv601273.11.5">
+        <t>gebeurtenissen</t>
+        <pos class="N(soort,mv,basis)"/>
+        <lemma class="gebeurtenis"/>
+        <ph set="cgn">G@b2rt@nIs@n</ph>
+      </w>
+      <w xml:id="fv601273.11.6">
+        <t>een</t>
+        <pos class="LID(onbep,stan,agr)"/>
+        <lemma class="een"/>
+        <ph set="cgn">@n</ph>
+      </w>
+      <w xml:id="fv601273.11.7">
+        <t>feestmunt</t>
+        <pos class="N(soort,ev,basis,zijd,stan)"/>
+        <lemma class="feestmunt"/>
+        <ph set="cgn">festmYnt</ph>
+      </w>
+      <w xml:id="fv601273.11.8">
+        <t>wordt</t>
+        <pos class="WW(pv,tgw,met-t)"/>
+        <lemma class="worden"/>
+        <ph set="cgn">wOrt</ph>
+      </w>
+      <w xml:id="fv601273.11.9">
+        <t>geslagen</t>
+        <pos class="WW(vd,vrij,zonder)"/>
+        <lemma class="slaan"/>
+        <ph set="cgn">G@slaG@n</ph>
+      </w>
+      <w xml:id="fv601273.11.10">
+        <t>is</t>
+        <pos class="WW(pv,tgw,ev)"/>
+        <lemma class="zijn"/>
+        <ph set="cgn">Is</ph>
+      </w>
+      <w xml:id="fv601273.11.11">
+        <t>betamelijk</t>
+        <pos class="ADJ(vrij,basis,zonder)"/>
+        <lemma class="betamelijk"/>
+        <ph set="cgn">b@tam@l@k</ph>
+      </w>
+      <w xml:id="fv601273.11.12">
+        <t>en</t>
+        <pos class="VG(neven)"/>
+        <lemma class="en"/>
+        <ph set="cgn">En</ph>
+      </w>
+      <w xml:id="fv601273.11.13">
+        <t>passend</t>
+        <pos class="WW(od,vrij,zonder)"/>
+        <lemma class="passen"/>
+        <ph set="cgn">pAs@nt</ph>
+      </w>
+      <w xml:id="fv601273.11.14">
+        <t>en</t>
+        <pos class="VG(neven)"/>
+        <lemma class="en"/>
+        <ph set="cgn">En</ph>
+      </w>
+      <w xml:id="fv601273.11.15">
+        <t>beter</t>
+        <pos class="ADJ(vrij,comp,zonder)"/>
+        <lemma class="goed"/>
+        <ph set="cgn">bet@r</ph>
+      </w>
+      <w xml:id="fv601273.11.16">
+        <t>dan</t>
+        <pos class="VG(onder)"/>
+        <lemma class="dan"/>
+        <ph set="cgn">dAn</ph>
+      </w>
+      <w xml:id="fv601273.11.17">
+        <t>een</t>
+        <pos class="LID(onbep,stan,agr)"/>
+        <lemma class="een"/>
+        <ph set="cgn">n</ph>
+      </w>
+      <w xml:id="fv601273.11.18">
+        <t>postzegel</t>
+        <pos class="N(soort,ev,basis,zijd,stan)"/>
+        <lemma class="postzegel"/>
+        <ph set="cgn">pOsseG@l</ph>
+      </w>
+      <w xml:id="fv601273.11.19">
+        <t>want</t>
+        <pos class="VG(neven)"/>
+        <lemma class="want"/>
+        <ph set="cgn">wAnt</ph>
+      </w>
+      <w xml:id="fv601273.11.20">
+        <t>een</t>
+        <pos class="LID(onbep,stan,agr)"/>
+        <lemma class="een"/>
+        <ph set="cgn">@n</ph>
+      </w>
+      <w xml:id="fv601273.11.21">
+        <t>munt</t>
+        <pos class="N(soort,ev,basis,zijd,stan)"/>
+        <lemma class="munt"/>
+        <ph set="cgn">mYnt</ph>
+      </w>
+      <w xml:id="fv601273.11.22">
+        <t>bewaart</t>
+        <pos class="WW(pv,tgw,met-t)"/>
+        <lemma class="bewaren"/>
+        <ph set="cgn">b@wart</ph>
+      </w>
+      <w xml:id="fv601273.11.23">
+        <t>langer</t>
+        <pos class="ADJ(vrij,comp,zonder)"/>
+        <lemma class="lang"/>
+        <ph set="cgn">lAN@r</ph>
+      </w>
+      <w xml:id="fv601273.11.24">
+        <t>.</t>
+        <pos class="LET()"/>
+        <lemma class="."/>
+      </w>
+      <timing>
+        <timesegment begintime="00:00:44.913" endtime="00:00:45.036">
+          <wref id="fv601273.11.1" t="dat"/>
+        </timesegment>
+        <timesegment begintime="00:00:45.036" endtime="00:00:45.103">
+          <wref id="fv601273.11.2" t="er"/>
+        </timesegment>
+        <timesegment begintime="00:00:45.103" endtime="00:00:45.292">
+          <wref id="fv601273.11.3" t="bij"/>
+        </timesegment>
+        <timesegment begintime="00:00:45.292" endtime="00:00:45.861">
+          <wref id="fv601273.11.4" t="koninklijke"/>
+        </timesegment>
+        <timesegment begintime="00:00:45.861" endtime="00:00:46.624">
+          <wref id="fv601273.11.5" t="gebeurtenissen"/>
+        </timesegment>
+        <timesegment begintime="00:00:46.624" endtime="00:00:46.742">
+          <wref id="fv601273.11.6" t="een"/>
+        </timesegment>
+        <timesegment begintime="00:00:46.792" endtime="00:00:47.395">
+          <wref id="fv601273.11.7" t="feestmunt"/>
+        </timesegment>
+        <timesegment begintime="00:00:47.395" endtime="00:00:47.569">
+          <wref id="fv601273.11.8" t="wordt"/>
+        </timesegment>
+        <timesegment begintime="00:00:47.569" endtime="00:00:48.071">
+          <wref id="fv601273.11.9" t="geslagen"/>
+        </timesegment>
+        <timesegment begintime="00:00:48.071" endtime="00:00:48.207">
+          <wref id="fv601273.11.10" t="is"/>
+        </timesegment>
+        <timesegment begintime="00:00:48.207" endtime="00:00:48.928">
+          <wref id="fv601273.11.11" t="betamelijk"/>
+        </timesegment>
+        <timesegment begintime="00:00:48.991" endtime="00:00:49.163">
+          <wref id="fv601273.11.12" t="en"/>
+        </timesegment>
+        <timesegment begintime="00:00:49.246" endtime="00:00:49.721">
+          <wref id="fv601273.11.13" t="passend"/>
+        </timesegment>
+        <timesegment begintime="00:00:49.777" endtime="00:00:49.990">
+          <wref id="fv601273.11.14" t="en"/>
+        </timesegment>
+        <timesegment begintime="00:00:49.990" endtime="00:00:50.313">
+          <wref id="fv601273.11.15" t="beter"/>
+        </timesegment>
+        <timesegment begintime="00:00:50.313" endtime="00:00:50.464">
+          <wref id="fv601273.11.16" t="dan"/>
+        </timesegment>
+        <timesegment begintime="00:00:50.464" endtime="00:00:50.520">
+          <wref id="fv601273.11.17" t="een"/>
+        </timesegment>
+        <timesegment begintime="00:00:50.520" endtime="00:00:51.135">
+          <wref id="fv601273.11.18" t="postzegel"/>
+        </timesegment>
+        <timesegment begintime="00:00:51.289" endtime="00:00:51.445">
+          <wref id="fv601273.11.19" t="want"/>
+        </timesegment>
+        <timesegment begintime="00:00:51.445" endtime="00:00:51.547">
+          <wref id="fv601273.11.20" t="een"/>
+        </timesegment>
+        <timesegment begintime="00:00:51.547" endtime="00:00:51.813">
+          <wref id="fv601273.11.21" t="munt"/>
+        </timesegment>
+        <timesegment begintime="00:00:51.907" endtime="00:00:52.266">
+          <wref id="fv601273.11.22" t="bewaart"/>
+        </timesegment>
+        <timesegment begintime="00:00:52.266" endtime="00:00:52.488">
+          <wref id="fv601273.11.23" t="langer"/>
+        </timesegment>
+      </timing>
+    </s>
+    <s speaker="V60319" xml:id="fv601273.12">
+      <w xml:id="fv601273.12.1">
+        <t>maar</t>
+        <pos class="VG(neven)"/>
+        <lemma class="maar"/>
+        <ph set="cgn">mar</ph>
+      </w>
+      <w xml:id="fv601273.12.2">
+        <t>laten</t>
+        <pos class="WW(pv,tgw,mv)"/>
+        <lemma class="laten"/>
+        <ph set="cgn">lat@</ph>
+      </w>
+      <w xml:id="fv601273.12.3">
+        <t>we</t>
+        <pos class="VNW(pers,pron,nomin,red,1,mv)"/>
+        <lemma class="we"/>
+        <ph set="cgn">w@</ph>
+      </w>
+      <w xml:id="fv601273.12.4">
+        <t>die</t>
+        <pos class="VNW(aanw,det,stan,prenom,zonder,rest)"/>
+        <lemma class="die"/>
+        <ph set="cgn">di</ph>
+      </w>
+      <w xml:id="fv601273.12.5">
+        <t>gelegenheden</t>
+        <pos class="N(soort,mv,basis)"/>
+        <lemma class="gelegenheid"/>
+        <ph set="cgn">G@leG@nhed@</ph>
+      </w>
+      <w xml:id="fv601273.12.6">
+        <t>aangrijpen</t>
+        <pos class="WW(inf,vrij,zonder)"/>
+        <lemma class="aangrijpen"/>
+        <ph set="cgn">anGrE+p@n</ph>
+      </w>
+      <w xml:id="fv601273.12.7">
+        <t>om</t>
+        <pos class="VZ(init)"/>
+        <lemma class="om"/>
+        <ph set="cgn">Om</ph>
+      </w>
+      <w xml:id="fv601273.12.8">
+        <t>de</t>
+        <pos class="LID(bep,stan,rest)"/>
+        <lemma class="de"/>
+        <ph set="cgn">d@n</ph>
+      </w>
+      <w xml:id="fv601273.12.9">
+        <t>herinnering</t>
+        <pos class="N(soort,ev,basis,zijd,stan)"/>
+        <lemma class="herinnering"/>
+        <ph set="cgn">nErIn@rIN</ph>
+      </w>
+      <w xml:id="fv601273.12.10">
+        <t>aan</t>
+        <pos class="VZ(init)"/>
+        <lemma class="aan"/>
+        <ph set="cgn">an</ph>
+      </w>
+      <w xml:id="fv601273.12.11">
+        <t>de</t>
+        <pos class="LID(bep,stan,rest)"/>
+        <lemma class="de"/>
+        <ph set="cgn">d@</ph>
+      </w>
+      <w xml:id="fv601273.12.12">
+        <t>nationale</t>
+        <pos class="ADJ(prenom,basis,met-e,stan)"/>
+        <lemma class="nationaal"/>
+        <ph set="cgn">nAsjOnal@</ph>
+      </w>
+      <w xml:id="fv601273.12.13">
+        <t>munten</t>
+        <pos class="N(soort,mv,basis)"/>
+        <lemma class="munt"/>
+        <ph set="cgn">mYnt@</ph>
+      </w>
+      <w xml:id="fv601273.12.14">
+        <t>levendig</t>
+        <pos class="ADJ(vrij,basis,zonder)"/>
+        <lemma class="levendig"/>
+        <ph set="cgn">lev@nd@x</ph>
+      </w>
+      <w xml:id="fv601273.12.15">
+        <t>te</t>
+        <pos class="VZ(init)"/>
+        <lemma class="te"/>
+        <ph set="cgn">t@</ph>
+      </w>
+      <w xml:id="fv601273.12.16">
+        <t>houden</t>
+        <pos class="WW(inf,vrij,zonder)"/>
+        <lemma class="houden"/>
+        <ph set="cgn">A+d@</ph>
+      </w>
+      <w xml:id="fv601273.12.17">
+        <t>.</t>
+        <pos class="LET()"/>
+        <lemma class="."/>
+      </w>
+      <timing>
+        <timesegment begintime="00:00:53.215" endtime="00:00:53.455">
+          <wref id="fv601273.12.1" t="maar"/>
+        </timesegment>
+        <timesegment begintime="00:00:53.455" endtime="00:00:53.692">
+          <wref id="fv601273.12.2" t="laten"/>
+        </timesegment>
+        <timesegment begintime="00:00:53.692" endtime="00:00:53.752">
+          <wref id="fv601273.12.3" t="we"/>
+        </timesegment>
+        <timesegment begintime="00:00:53.752" endtime="00:00:53.849">
+          <wref id="fv601273.12.4" t="die"/>
+        </timesegment>
+        <timesegment begintime="00:00:53.849" endtime="00:00:54.461">
+          <wref id="fv601273.12.5" t="gelegenheden"/>
+        </timesegment>
+        <timesegment begintime="00:00:54.461" endtime="00:00:55.124">
+          <wref id="fv601273.12.6" t="aangrijpen"/>
+        </timesegment>
+        <timesegment begintime="00:00:55.124" endtime="00:00:55.243">
+          <wref id="fv601273.12.7" t="om"/>
+        </timesegment>
+        <timesegment begintime="00:00:55.243" endtime="00:00:55.348">
+          <wref id="fv601273.12.8" t="de"/>
+        </timesegment>
+        <timesegment begintime="00:00:55.348" endtime="00:00:55.810">
+          <wref id="fv601273.12.9" t="herinnering"/>
+        </timesegment>
+        <timesegment begintime="00:00:55.810" endtime="00:00:56.013">
+          <wref id="fv601273.12.10" t="aan"/>
+        </timesegment>
+        <timesegment begintime="00:00:56.013" endtime="00:00:56.130">
+          <wref id="fv601273.12.11" t="de"/>
+        </timesegment>
+        <timesegment begintime="00:00:56.181" endtime="00:00:56.857">
+          <wref id="fv601273.12.12" t="nationale"/>
+        </timesegment>
+        <timesegment begintime="00:00:56.857" endtime="00:00:57.238">
+          <wref id="fv601273.12.13" t="munten"/>
+        </timesegment>
+        <timesegment begintime="00:00:57.293" endtime="00:00:57.776">
+          <wref id="fv601273.12.14" t="levendig"/>
+        </timesegment>
+        <timesegment begintime="00:00:57.776" endtime="00:00:57.962">
+          <wref id="fv601273.12.15" t="te"/>
+        </timesegment>
+        <timesegment begintime="00:00:57.962" endtime="00:00:58.103">
+          <wref id="fv601273.12.16" t="houden"/>
+        </timesegment>
+      </timing>
+    </s>
+    <s speaker="V60319" xml:id="fv601273.13">
+      <w xml:id="fv601273.13.1">
+        <t>in</t>
+        <pos class="VZ(init)"/>
+        <lemma class="in"/>
+        <ph set="cgn">Im</ph>
+      </w>
+      <w xml:id="fv601273.13.2">
+        <t>plaats</t>
+        <pos class="N(soort,ev,basis,zijd,stan)"/>
+        <lemma class="plaats"/>
+        <ph set="cgn">plats</ph>
+      </w>
+      <w xml:id="fv601273.13.3">
+        <t>van</t>
+        <pos class="VZ(init)"/>
+        <lemma class="van"/>
+        <ph set="cgn">fA</ph>
+      </w>
+      <w xml:id="fv601273.13.4">
+        <t>franken</t>
+        <pos class="N(soort,mv,basis)"/>
+        <lemma class="frank"/>
+        <ph set="cgn">frANk@</ph>
+      </w>
+      <w xml:id="fv601273.13.5">
+        <t>guldens</t>
+        <pos class="N(soort,mv,basis)"/>
+        <lemma class="gulden"/>
+        <ph set="cgn">GYld@s</ph>
+      </w>
+      <w xml:id="fv601273.13.6">
+        <t>peseta's</t>
+        <pos class="N(soort,mv,basis)"/>
+        <lemma class="peseta"/>
+        <ph set="cgn">pezetAs</ph>
+      </w>
+      <w xml:id="fv601273.13.7">
+        <t>of</t>
+        <pos class="VG(neven)"/>
+        <lemma class="of"/>
+        <ph set="cgn">Of</ph>
+      </w>
+      <w xml:id="fv601273.13.8">
+        <t>ponden</t>
+        <pos class="N(soort,mv,basis)"/>
+        <lemma class="pond"/>
+        <ph set="cgn">pOnd@</ph>
+      </w>
+      <w xml:id="fv601273.13.9">
+        <t>langzaam</t>
+        <pos class="ADJ(vrij,basis,zonder)"/>
+        <lemma class="langzaam"/>
+        <ph set="cgn">lANzam</ph>
+      </w>
+      <w xml:id="fv601273.13.10">
+        <t>te</t>
+        <pos class="VZ(init)"/>
+        <lemma class="te"/>
+        <ph set="cgn">t@</ph>
+      </w>
+      <w xml:id="fv601273.13.11">
+        <t>laten</t>
+        <pos class="WW(inf,vrij,zonder)"/>
+        <lemma class="laten"/>
+        <ph set="cgn">lat@</ph>
+      </w>
+      <w xml:id="fv601273.13.12">
+        <t>uitdoven</t>
+        <pos class="WW(inf,vrij,zonder)"/>
+        <lemma class="uitdoven"/>
+        <ph set="cgn">Y+dov@</ph>
+      </w>
+      <w xml:id="fv601273.13.13">
+        <t>moeten</t>
+        <pos class="WW(pv,tgw,mv)"/>
+        <lemma class="moeten"/>
+        <ph set="cgn">mut@</ph>
+      </w>
+      <w xml:id="fv601273.13.14">
+        <t>we</t>
+        <pos class="VNW(pers,pron,nomin,red,1,mv)"/>
+        <lemma class="we"/>
+        <ph set="cgn">w@</ph>
+      </w>
+      <w xml:id="fv601273.13.15">
+        <t>ze</t>
+        <pos class="VNW(pers,pron,stan,red,3,mv)"/>
+        <lemma class="ze"/>
+        <ph set="cgn">z@</ph>
+      </w>
+      <w xml:id="fv601273.13.16">
+        <t>een</t>
+        <pos class="LID(onbep,stan,agr)"/>
+        <lemma class="een"/>
+        <ph set="cgn">@n</ph>
+      </w>
+      <w xml:id="fv601273.13.17">
+        <t>nieuw</t>
+        <pos class="ADJ(prenom,basis,zonder)"/>
+        <lemma class="nieuw"/>
+        <ph set="cgn">niw</ph>
+      </w>
+      <w xml:id="fv601273.13.18">
+        <t>adellijk</t>
+        <pos class="ADJ(prenom,basis,zonder)"/>
+        <lemma class="adellijk"/>
+        <ph set="cgn">ad@l@g</ph>
+      </w>
+      <w xml:id="fv601273.13.19">
+        <t>bestaan</t>
+        <pos class="N(soort,ev,basis,onz,stan)"/>
+        <lemma class="bestaan"/>
+        <ph set="cgn">b@stan</ph>
+      </w>
+      <w xml:id="fv601273.13.20">
+        <t>bezorgen</t>
+        <pos class="WW(inf,vrij,zonder)"/>
+        <lemma class="bezorgen"/>
+        <ph set="cgn">b@zOrG@</ph>
+      </w>
+      <w xml:id="fv601273.13.21">
+        <t>.</t>
+        <pos class="LET()"/>
+        <lemma class="."/>
+      </w>
+      <timing>
+        <timesegment begintime="00:00:58.584" endtime="00:00:58.662">
+          <wref id="fv601273.13.1" t="in"/>
+        </timesegment>
+        <timesegment begintime="00:00:58.662" endtime="00:00:58.933">
+          <wref id="fv601273.13.2" t="plaats"/>
+        </timesegment>
+        <timesegment begintime="00:00:58.933" endtime="00:00:59.051">
+          <wref id="fv601273.13.3" t="van"/>
+        </timesegment>
+        <timesegment begintime="00:00:59.051" endtime="00:00:59.529">
+          <wref id="fv601273.13.4" t="franken"/>
+        </timesegment>
+        <timesegment begintime="00:00:59.529" endtime="00:00:59.968">
+          <wref id="fv601273.13.5" t="guldens"/>
+        </timesegment>
+        <timesegment begintime="00:00:60.145" endtime="00:00:60.648">
+          <wref id="fv601273.13.6" t="peseta's"/>
+        </timesegment>
+        <timesegment begintime="00:00:60.648" endtime="00:00:60.811">
+          <wref id="fv601273.13.7" t="of"/>
+        </timesegment>
+        <timesegment begintime="00:00:60.811" endtime="00:01:01.125">
+          <wref id="fv601273.13.8" t="ponden"/>
+        </timesegment>
+        <timesegment begintime="00:01:01.380" endtime="00:01:01.904">
+          <wref id="fv601273.13.9" t="langzaam"/>
+        </timesegment>
+        <timesegment begintime="00:01:01.904" endtime="00:01:02.009">
+          <wref id="fv601273.13.10" t="te"/>
+        </timesegment>
+        <timesegment begintime="00:01:02.009" endtime="00:01:02.301">
+          <wref id="fv601273.13.11" t="laten"/>
+        </timesegment>
+        <timesegment begintime="00:01:02.301" endtime="00:01:02.810">
+          <wref id="fv601273.13.12" t="uitdoven"/>
+        </timesegment>
+        <timesegment begintime="00:01:03.046" endtime="00:01:03.213">
+          <wref id="fv601273.13.13" t="moeten"/>
+        </timesegment>
+        <timesegment begintime="00:01:03.213" endtime="00:01:03.273">
+          <wref id="fv601273.13.14" t="we"/>
+        </timesegment>
+        <timesegment begintime="00:01:03.273" endtime="00:01:03.395">
+          <wref id="fv601273.13.15" t="ze"/>
+        </timesegment>
+        <timesegment begintime="00:01:03.395" endtime="00:01:03.554">
+          <wref id="fv601273.13.16" t="een"/>
+        </timesegment>
+        <timesegment begintime="00:01:03.554" endtime="00:01:03.839">
+          <wref id="fv601273.13.17" t="nieuw"/>
+        </timesegment>
+        <timesegment begintime="00:01:04.123" endtime="00:01:04.524">
+          <wref id="fv601273.13.18" t="adellijk"/>
+        </timesegment>
+        <timesegment begintime="00:01:04.524" endtime="00:01:04.987">
+          <wref id="fv601273.13.19" t="bestaan"/>
+        </timesegment>
+        <timesegment begintime="00:01:04.987" endtime="00:01:05.313">
+          <wref id="fv601273.13.20" t="bezorgen"/>
+        </timesegment>
+      </timing>
+    </s>
+    <s speaker="V60319" xml:id="fv601273.14">
+      <w xml:id="fv601273.14.1">
+        <t>voortaan</t>
+        <pos class="BW()"/>
+        <lemma class="voortaan"/>
+        <ph set="cgn">vortan</ph>
+      </w>
+      <w xml:id="fv601273.14.2">
+        <t>moet</t>
+        <pos class="WW(pv,tgw,ev)"/>
+        <lemma class="moeten"/>
+        <ph set="cgn">mud</ph>
+      </w>
+      <w xml:id="fv601273.14.3">
+        <t>bij</t>
+        <pos class="VZ(init)"/>
+        <lemma class="bij"/>
+        <ph set="cgn">bE+</ph>
+      </w>
+      <w xml:id="fv601273.14.4">
+        <t>elk</t>
+        <pos class="VNW(onbep,det,stan,prenom,zonder,evon)"/>
+        <lemma class="elk"/>
+        <ph set="cgn">El@k</ph>
+      </w>
+      <w xml:id="fv601273.14.5">
+        <t>huwelijk</t>
+        <pos class="N(soort,ev,basis,onz,stan)"/>
+        <lemma class="huwelijk"/>
+        <ph set="cgn">yw@l@k</ph>
+      </w>
+      <w xml:id="fv601273.14.6">
+        <t>of</t>
+        <pos class="VG(neven)"/>
+        <lemma class="of"/>
+        <ph set="cgn">Ov</ph>
+      </w>
+      <w xml:id="fv601273.14.7">
+        <t>elke</t>
+        <pos class="VNW(onbep,det,stan,prenom,met-e,evz)"/>
+        <lemma class="elk"/>
+        <ph set="cgn">Elk@</ph>
+      </w>
+      <w xml:id="fv601273.14.8">
+        <t>geboorte</t>
+        <pos class="N(soort,ev,basis,zijd,stan)"/>
+        <lemma class="geboorte"/>
+        <ph set="cgn">G@bort@</ph>
+      </w>
+      <w xml:id="fv601273.14.9">
+        <t>in</t>
+        <pos class="VZ(init)"/>
+        <lemma class="in"/>
+        <ph set="cgn">In</ph>
+      </w>
+      <w xml:id="fv601273.14.10">
+        <t>een</t>
+        <pos class="LID(onbep,stan,agr)"/>
+        <lemma class="een"/>
+        <ph set="cgn">@n</ph>
+      </w>
+      <w xml:id="fv601273.14.11">
+        <t>Europees</t>
+        <pos class="ADJ(prenom,basis,zonder)"/>
+        <lemma class="Europees"/>
+        <ph set="cgn">2ropes</ph>
+      </w>
+      <w xml:id="fv601273.14.12">
+        <t>koningshuis</t>
+        <pos class="N(soort,ev,basis,onz,stan)"/>
+        <lemma class="koningshuis"/>
+        <ph set="cgn">konINsY+s</ph>
+      </w>
+      <w xml:id="fv601273.14.13">
+        <t>een</t>
+        <pos class="LID(onbep,stan,agr)"/>
+        <lemma class="een"/>
+        <ph set="cgn">@n</ph>
+      </w>
+      <w xml:id="fv601273.14.14">
+        <t>gedenkpenning</t>
+        <pos class="N(soort,ev,basis,zijd,stan)"/>
+        <lemma class="gedenkpenning"/>
+        <ph set="cgn">G@dENkpEnIN</ph>
+      </w>
+      <w xml:id="fv601273.14.15">
+        <t>worden</t>
+        <pos class="WW(pv,tgw,mv)"/>
+        <lemma class="worden"/>
+        <ph set="cgn">wOrd@</ph>
+      </w>
+      <w xml:id="fv601273.14.16">
+        <t>geslagen</t>
+        <pos class="WW(vd,vrij,zonder)"/>
+        <lemma class="slaan"/>
+        <ph set="cgn">G@slaG@</ph>
+      </w>
+      <w xml:id="fv601273.14.17">
+        <t>in</t>
+        <pos class="VZ(init)"/>
+        <lemma class="in"/>
+        <ph set="cgn">In</ph>
+      </w>
+      <w xml:id="fv601273.14.18">
+        <t>de</t>
+        <pos class="LID(bep,stan,rest)"/>
+        <lemma class="de"/>
+        <ph set="cgn">d@</ph>
+      </w>
+      <w xml:id="fv601273.14.19">
+        <t>ter</t>
+        <pos class="VZ(versm)"/>
+        <lemma class="te"/>
+        <ph set="cgn">t@r</ph>
+      </w>
+      <w xml:id="fv601273.14.20">
+        <t>ziele</t>
+        <pos class="N(soort,ev,basis,dat)"/>
+        <lemma class="ziel"/>
+        <ph set="cgn">zil@</ph>
+      </w>
+      <w xml:id="fv601273.14.21">
+        <t>gegane</t>
+        <pos class="WW(vd,prenom,met-e)"/>
+        <lemma class="gaan"/>
+        <ph set="cgn">G@Gan@</ph>
+      </w>
+      <w xml:id="fv601273.14.22">
+        <t>munteenheid</t>
+        <pos class="N(soort,ev,basis,zijd,stan)"/>
+        <lemma class="munteenheid"/>
+        <ph set="cgn">mYntenE+t</ph>
+      </w>
+      <w xml:id="fv601273.14.23">
+        <t>.</t>
+        <pos class="LET()"/>
+        <lemma class="."/>
+      </w>
+      <timing>
+        <timesegment begintime="00:01:05.663" endtime="00:01:06.139">
+          <wref id="fv601273.14.1" t="voortaan"/>
+        </timesegment>
+        <timesegment begintime="00:01:06.316" endtime="00:01:06.455">
+          <wref id="fv601273.14.2" t="moet"/>
+        </timesegment>
+        <timesegment begintime="00:01:06.455" endtime="00:01:06.612">
+          <wref id="fv601273.14.3" t="bij"/>
+        </timesegment>
+        <timesegment begintime="00:01:06.667" endtime="00:01:06.893">
+          <wref id="fv601273.14.4" t="elk"/>
+        </timesegment>
+        <timesegment begintime="00:01:06.948" endtime="00:01:07.261">
+          <wref id="fv601273.14.5" t="huwelijk"/>
+        </timesegment>
+        <timesegment begintime="00:01:07.261" endtime="00:01:07.366">
+          <wref id="fv601273.14.6" t="of"/>
+        </timesegment>
+        <timesegment begintime="00:01:07.366" endtime="00:01:07.572">
+          <wref id="fv601273.14.7" t="elke"/>
+        </timesegment>
+        <timesegment begintime="00:01:07.572" endtime="00:01:08.088">
+          <wref id="fv601273.14.8" t="geboorte"/>
+        </timesegment>
+        <timesegment begintime="00:01:08.088" endtime="00:01:08.197">
+          <wref id="fv601273.14.9" t="in"/>
+        </timesegment>
+        <timesegment begintime="00:01:08.197" endtime="00:01:08.291">
+          <wref id="fv601273.14.10" t="een"/>
+        </timesegment>
+        <timesegment begintime="00:01:08.346" endtime="00:01:08.716">
+          <wref id="fv601273.14.11" t="Europees"/>
+        </timesegment>
+        <timesegment begintime="00:01:08.716" endtime="00:01:09.369">
+          <wref id="fv601273.14.12" t="koningshuis"/>
+        </timesegment>
+        <timesegment begintime="00:01:09.614" endtime="00:01:09.756">
+          <wref id="fv601273.14.13" t="een"/>
+        </timesegment>
+        <timesegment begintime="00:01:09.810" endtime="00:01:10.556">
+          <wref id="fv601273.14.14" t="gedenkpenning"/>
+        </timesegment>
+        <timesegment begintime="00:01:10.556" endtime="00:01:10.750">
+          <wref id="fv601273.14.15" t="worden"/>
+        </timesegment>
+        <timesegment begintime="00:01:10.750" endtime="00:01:11.287">
+          <wref id="fv601273.14.16" t="geslagen"/>
+        </timesegment>
+        <timesegment begintime="00:01:11.533" endtime="00:01:11.744">
+          <wref id="fv601273.14.17" t="in"/>
+        </timesegment>
+        <timesegment begintime="00:01:11.744" endtime="00:01:11.854">
+          <wref id="fv601273.14.18" t="de"/>
+        </timesegment>
+        <timesegment begintime="00:01:11.854" endtime="00:01:12.085">
+          <wref id="fv601273.14.19" t="ter"/>
+        </timesegment>
+        <timesegment begintime="00:01:12.085" endtime="00:01:12.423">
+          <wref id="fv601273.14.20" t="ziele"/>
+        </timesegment>
+        <timesegment begintime="00:01:12.423" endtime="00:01:12.888">
+          <wref id="fv601273.14.21" t="gegane"/>
+        </timesegment>
+        <timesegment begintime="00:01:12.888" endtime="00:01:13.789">
+          <wref id="fv601273.14.22" t="munteenheid"/>
+        </timesegment>
+      </timing>
+    </s>
+    <s speaker="V60319" xml:id="fv601273.15">
+      <w xml:id="fv601273.15.1">
+        <t>zo</t>
+        <pos class="BW()"/>
+        <lemma class="zo"/>
+        <ph set="cgn">zo</ph>
+      </w>
+      <w xml:id="fv601273.15.2">
+        <t>houden</t>
+        <pos class="WW(pv,tgw,mv)"/>
+        <lemma class="houden"/>
+        <ph set="cgn">A+d@</ph>
+      </w>
+      <w xml:id="fv601273.15.3">
+        <t>we</t>
+        <pos class="VNW(pers,pron,nomin,red,1,mv)"/>
+        <lemma class="we"/>
+        <ph set="cgn">w@</ph>
+      </w>
+      <w xml:id="fv601273.15.4">
+        <t>de</t>
+        <pos class="LID(bep,stan,rest)"/>
+        <lemma class="de"/>
+        <ph set="cgn">d@</ph>
+      </w>
+      <w xml:id="fv601273.15.5">
+        <t>herinnering</t>
+        <pos class="N(soort,ev,basis,zijd,stan)"/>
+        <lemma class="herinnering"/>
+        <ph set="cgn">@rIn@rIN</ph>
+      </w>
+      <w xml:id="fv601273.15.6">
+        <t>levendig</t>
+        <pos class="ADJ(vrij,basis,zonder)"/>
+        <lemma class="levendig"/>
+        <ph set="cgn">lev@nd@x</ph>
+      </w>
+      <w xml:id="fv601273.15.7">
+        <t>aan</t>
+        <pos class="VZ(init)"/>
+        <lemma class="aan"/>
+        <ph set="cgn">an</ph>
+      </w>
+      <w xml:id="fv601273.15.8">
+        <t>ons</t>
+        <pos class="VNW(bez,det,stan,vol,1,mv,prenom,zonder,evon)"/>
+        <lemma class="ons"/>
+        <ph set="cgn">Os</ph>
+      </w>
+      <w xml:id="fv601273.15.9">
+        <t>economische</t>
+        <pos class="ADJ(prenom,basis,met-e,stan)"/>
+        <lemma class="economisch"/>
+        <ph set="cgn">ekOnomIs@</ph>
+      </w>
+      <w xml:id="fv601273.15.10">
+        <t>erfgoed</t>
+        <pos class="N(soort,ev,basis,onz,stan)"/>
+        <lemma class="erfgoed"/>
+        <ph set="cgn">Er@fxut</ph>
+      </w>
+      <w xml:id="fv601273.15.11">
+        <t>.</t>
+        <pos class="LET()"/>
+        <lemma class="."/>
+      </w>
+      <timing>
+        <timesegment begintime="00:01:14.209" endtime="00:01:14.468">
+          <wref id="fv601273.15.1" t="zo"/>
+        </timesegment>
+        <timesegment begintime="00:01:14.513" endtime="00:01:14.741">
+          <wref id="fv601273.15.2" t="houden"/>
+        </timesegment>
+        <timesegment begintime="00:01:14.741" endtime="00:01:14.863">
+          <wref id="fv601273.15.3" t="we"/>
+        </timesegment>
+        <timesegment begintime="00:01:14.863" endtime="00:01:14.933">
+          <wref id="fv601273.15.4" t="de"/>
+        </timesegment>
+        <timesegment begintime="00:01:14.933" endtime="00:01:15.292">
+          <wref id="fv601273.15.5" t="herinnering"/>
+        </timesegment>
+        <timesegment begintime="00:01:15.292" endtime="00:01:15.742">
+          <wref id="fv601273.15.6" t="levendig"/>
+        </timesegment>
+        <timesegment begintime="00:01:15.947" endtime="00:01:16.068">
+          <wref id="fv601273.15.7" t="aan"/>
+        </timesegment>
+        <timesegment begintime="00:01:16.068" endtime="00:01:16.231">
+          <wref id="fv601273.15.8" t="ons"/>
+        </timesegment>
+        <timesegment begintime="00:01:16.281" endtime="00:01:16.880">
+          <wref id="fv601273.15.9" t="economische"/>
+        </timesegment>
+        <timesegment begintime="00:01:16.936" endtime="00:01:17.509">
+          <wref id="fv601273.15.10" t="erfgoed"/>
+        </timesegment>
+      </timing>
+    </s>
+    <s speaker="V60319" xml:id="fv601273.16">
+      <w xml:id="fv601273.16.1">
+        <t>en</t>
+        <pos class="VG(neven)"/>
+        <lemma class="en"/>
+        <ph set="cgn">En</ph>
+      </w>
+      <w xml:id="fv601273.16.2">
+        <t>voor</t>
+        <pos class="VZ(init)"/>
+        <lemma class="voor"/>
+        <ph set="cgn">vor</ph>
+      </w>
+      <w xml:id="fv601273.16.3">
+        <t>de</t>
+        <pos class="LID(bep,stan,rest)"/>
+        <lemma class="de"/>
+        <ph set="cgn">d@</ph>
+      </w>
+      <w xml:id="fv601273.16.4">
+        <t>regerende</t>
+        <pos class="WW(od,prenom,met-e)"/>
+        <lemma class="regeren"/>
+        <ph set="cgn">rEGer@nd@</ph>
+      </w>
+      <w xml:id="fv601273.16.5">
+        <t>vorstenhuizen</t>
+        <pos class="N(soort,mv,basis)"/>
+        <lemma class="vorstenhuis"/>
+        <ph set="cgn">vOrst@hY+z@</ph>
+      </w>
+      <w xml:id="fv601273.16.6">
+        <t>kan</t>
+        <pos class="WW(pv,tgw,ev)"/>
+        <lemma class="kunnen"/>
+        <ph set="cgn">kAn</ph>
+      </w>
+      <w xml:id="fv601273.16.7">
+        <t>het</t>
+        <pos class="VNW(pers,pron,stan,red,3,ev,onz)"/>
+        <lemma class="het"/>
+        <ph set="cgn">t</ph>
+      </w>
+      <w xml:id="fv601273.16.8">
+        <t>een</t>
+        <pos class="LID(onbep,stan,agr)"/>
+        <lemma class="een"/>
+        <ph set="cgn">@n</ph>
+      </w>
+      <w xml:id="fv601273.16.9">
+        <t>aansporing</t>
+        <pos class="N(soort,ev,basis,zijd,stan)"/>
+        <lemma class="aansporing"/>
+        <ph set="cgn">ansporIN</ph>
+      </w>
+      <w xml:id="fv601273.16.10">
+        <t>zijn</t>
+        <pos class="WW(inf,vrij,zonder)"/>
+        <lemma class="zijn"/>
+        <ph set="cgn">zE+n</ph>
+      </w>
+      <w xml:id="fv601273.16.11">
+        <t>om</t>
+        <pos class="VZ(init)"/>
+        <lemma class="om"/>
+        <ph set="cgn">Om</ph>
+      </w>
+      <w xml:id="fv601273.16.12">
+        <t>het</t>
+        <pos class="LID(bep,stan,evon)"/>
+        <lemma class="het"/>
+        <ph set="cgn">@t</ph>
+      </w>
+      <w xml:id="fv601273.16.13">
+        <t>geslacht</t>
+        <pos class="N(soort,ev,basis,onz,stan)"/>
+        <lemma class="geslacht"/>
+        <ph set="cgn">x@slAxt</ph>
+      </w>
+      <w xml:id="fv601273.16.14">
+        <t>voort</t>
+        <pos class="BW()"/>
+        <lemma class="voort"/>
+        <ph set="cgn">vort</ph>
+      </w>
+      <w xml:id="fv601273.16.15">
+        <t>te</t>
+        <pos class="VZ(init)"/>
+        <lemma class="te"/>
+        <ph set="cgn">t@</ph>
+      </w>
+      <w xml:id="fv601273.16.16">
+        <t>zetten</t>
+        <pos class="WW(inf,vrij,zonder)"/>
+        <lemma class="zetten"/>
+        <ph set="cgn">zEt@</ph>
+      </w>
+      <w xml:id="fv601273.16.17">
+        <t>.</t>
+        <pos class="LET()"/>
+        <lemma class="."/>
+      </w>
+      <timing>
+        <timesegment begintime="00:01:18.224" endtime="00:01:18.337">
+          <wref id="fv601273.16.1" t="en"/>
+        </timesegment>
+        <timesegment begintime="00:01:18.337" endtime="00:01:18.555">
+          <wref id="fv601273.16.2" t="voor"/>
+        </timesegment>
+        <timesegment begintime="00:01:18.555" endtime="00:01:18.629">
+          <wref id="fv601273.16.3" t="de"/>
+        </timesegment>
+        <timesegment begintime="00:01:18.629" endtime="00:01:19.097">
+          <wref id="fv601273.16.4" t="regerende"/>
+        </timesegment>
+        <timesegment begintime="00:01:19.097" endtime="00:01:19.797">
+          <wref id="fv601273.16.5" t="vorstenhuizen"/>
+        </timesegment>
+        <timesegment begintime="00:01:19.797" endtime="00:01:19.984">
+          <wref id="fv601273.16.6" t="kan"/>
+        </timesegment>
+        <timesegment begintime="00:01:19.984" endtime="00:01:20.038">
+          <wref id="fv601273.16.7" t="het"/>
+        </timesegment>
+        <timesegment begintime="00:01:20.038" endtime="00:01:20.156">
+          <wref id="fv601273.16.8" t="een"/>
+        </timesegment>
+        <timesegment begintime="00:01:20.156" endtime="00:01:20.759">
+          <wref id="fv601273.16.9" t="aansporing"/>
+        </timesegment>
+        <timesegment begintime="00:01:20.759" endtime="00:01:21.031">
+          <wref id="fv601273.16.10" t="zijn"/>
+        </timesegment>
+        <timesegment begintime="00:01:21.083" endtime="00:01:21.239">
+          <wref id="fv601273.16.11" t="om"/>
+        </timesegment>
+        <timesegment begintime="00:01:21.239" endtime="00:01:21.331">
+          <wref id="fv601273.16.12" t="het"/>
+        </timesegment>
+        <timesegment begintime="00:01:21.331" endtime="00:01:21.837">
+          <wref id="fv601273.16.13" t="geslacht"/>
+        </timesegment>
+        <timesegment begintime="00:01:21.894" endtime="00:01:22.243">
+          <wref id="fv601273.16.14" t="voort"/>
+        </timesegment>
+        <timesegment begintime="00:01:22.201" endtime="00:01:22.303">
+          <wref id="fv601273.16.15" t="te"/>
+        </timesegment>
+        <timesegment begintime="00:01:22.303" endtime="00:01:22.537">
+          <wref id="fv601273.16.16" t="zetten"/>
+        </timesegment>
+      </timing>
+    </s>
+    <s speaker="V60319" xml:id="fv601273.17">
+      <w xml:id="fv601273.17.1">
+        <t>het</t>
+        <pos class="LID(bep,stan,evon)"/>
+        <lemma class="het"/>
+        <ph set="cgn">@t</ph>
+      </w>
+      <w xml:id="fv601273.17.2">
+        <t>Belgische</t>
+        <pos class="ADJ(prenom,basis,met-e,stan)"/>
+        <lemma class="Belgisch"/>
+        <ph set="cgn">bElGis@</ph>
+      </w>
+      <w xml:id="fv601273.17.3">
+        <t>voorzitterschap</t>
+        <pos class="N(soort,ev,basis,onz,stan)"/>
+        <lemma class="voorzitterschap"/>
+        <ph set="cgn">vorzIt@rsxAp</ph>
+      </w>
+      <w xml:id="fv601273.17.4">
+        <t>en</t>
+        <pos class="VG(neven)"/>
+        <lemma class="en"/>
+        <ph set="cgn">Em</ph>
+      </w>
+      <w xml:id="fv601273.17.5">
+        <t>minister</t>
+        <pos class="N(soort,ev,basis,zijd,stan)"/>
+        <lemma class="minister"/>
+        <ph set="cgn">mInIst@r</ph>
+      </w>
+      <w xml:id="fv601273.17.6">
+        <t>Reynders</t>
+        <pos class="N(eigen,ev,basis,zijd,stan)"/>
+        <lemma class="Reynders"/>
+        <ph set="cgn">rE+nd@rs</ph>
+      </w>
+      <w xml:id="fv601273.17.7">
+        <t>op</t>
+        <pos class="VZ(init)"/>
+        <lemma class="op"/>
+        <ph set="cgn">Op</ph>
+      </w>
+      <w xml:id="fv601273.17.8">
+        <t>kop</t>
+        <pos class="N(soort,ev,basis,zijd,stan)"/>
+        <lemma class="kop"/>
+        <ph set="cgn">kOp</ph>
+      </w>
+      <w xml:id="fv601273.17.9">
+        <t>mogen</t>
+        <pos class="WW(pv,tgw,mv)"/>
+        <lemma class="mogen"/>
+        <ph set="cgn">moG@n</ph>
+      </w>
+      <w xml:id="fv601273.17.10">
+        <t>in</t>
+        <pos class="VZ(init)"/>
+        <lemma class="in"/>
+        <ph set="cgn">In</ph>
+      </w>
+      <w xml:id="fv601273.17.11">
+        <t>november</t>
+        <pos class="N(eigen,ev,basis,zijd,stan)"/>
+        <lemma class="november"/>
+        <ph set="cgn">novEmb@r</ph>
+      </w>
+      <w xml:id="fv601273.17.12">
+        <t>in</t>
+        <pos class="VZ(init)"/>
+        <lemma class="in"/>
+        <ph set="cgn">In</ph>
+      </w>
+      <w xml:id="fv601273.17.13">
+        <t>deze</t>
+        <pos class="VNW(aanw,det,stan,prenom,met-e,rest)"/>
+        <lemma class="deze"/>
+        <ph set="cgn">dez@</ph>
+      </w>
+      <w xml:id="fv601273.17.14">
+        <t>voortvarend</t>
+        <pos class="ADJ(vrij,basis,zonder)"/>
+        <lemma class="voortvarend"/>
+        <ph set="cgn">vortfar@nt</ph>
+      </w>
+      <w xml:id="fv601273.17.15">
+        <t>optreden</t>
+        <pos class="WW(inf,vrij,zonder)"/>
+        <lemma class="optreden"/>
+        <ph set="cgn">Optred@</ph>
+      </w>
+      <w xml:id="fv601273.17.16">
+        <t>.</t>
+        <pos class="LET()"/>
+        <lemma class="."/>
+      </w>
+      <timing>
+        <timesegment begintime="00:01:23.156" endtime="00:01:23.250">
+          <wref id="fv601273.17.1" t="het"/>
+        </timesegment>
+        <timesegment begintime="00:01:23.250" endtime="00:01:23.625">
+          <wref id="fv601273.17.2" t="Belgische"/>
+        </timesegment>
+        <timesegment begintime="00:01:23.625" endtime="00:01:24.267">
+          <wref id="fv601273.17.3" t="voorzitterschap"/>
+        </timesegment>
+        <timesegment begintime="00:01:24.518" endtime="00:01:24.611">
+          <wref id="fv601273.17.4" t="en"/>
+        </timesegment>
+        <timesegment begintime="00:01:24.611" endtime="00:01:24.936">
+          <wref id="fv601273.17.5" t="minister"/>
+        </timesegment>
+        <timesegment begintime="00:01:24.936" endtime="00:01:25.237">
+          <wref id="fv601273.17.6" t="Reynders"/>
+        </timesegment>
+        <timesegment begintime="00:01:25.237" endtime="00:01:25.371">
+          <wref id="fv601273.17.7" t="op"/>
+        </timesegment>
+        <timesegment begintime="00:01:25.371" endtime="00:01:25.589">
+          <wref id="fv601273.17.8" t="kop"/>
+        </timesegment>
+        <timesegment begintime="00:01:25.791" endtime="00:01:26.069">
+          <wref id="fv601273.17.9" t="mogen"/>
+        </timesegment>
+        <timesegment begintime="00:01:26.069" endtime="00:01:26.140">
+          <wref id="fv601273.17.10" t="in"/>
+        </timesegment>
+        <timesegment begintime="00:01:26.140" endtime="00:01:26.589">
+          <wref id="fv601273.17.11" t="november"/>
+        </timesegment>
+        <timesegment begintime="00:01:26.673" endtime="00:01:26.872">
+          <wref id="fv601273.17.12" t="in"/>
+        </timesegment>
+        <timesegment begintime="00:01:26.872" endtime="00:01:27.219">
+          <wref id="fv601273.17.13" t="deze"/>
+        </timesegment>
+        <timesegment begintime="00:01:27.385" endtime="00:01:28.076">
+          <wref id="fv601273.17.14" t="voortvarend"/>
+        </timesegment>
+        <timesegment begintime="00:01:28.139" endtime="00:01:28.617">
+          <wref id="fv601273.17.15" t="optreden"/>
+        </timesegment>
+      </timing>
+    </s>
+  </speech>
+</FoLiA>

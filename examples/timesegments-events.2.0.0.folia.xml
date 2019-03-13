@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FoLiA xmlns="http://ilk.uvt.nl/folia" version="2.0" xml:id="example">
+  <metadata>
+      <annotations>
+          <token-annotation set="https://raw.githubusercontent.com/LanguageMachines/uctodata/master/setdefinitions/tokconfig-eng.foliaset.ttl">
+			 <annotator processor="p1" />
+		  </token-annotation>
+          <text-annotation>
+			 <annotator processor="p1" />
+          </text-annotation>
+          <sentence-annotation>
+			 <annotator processor="p1" />
+          </sentence-annotation>
+          <paragraph-annotation>
+			 <annotator processor="p1" />
+          </paragraph-annotation>
+          <timesegment-annotation set="events"> <!-- an ad-hoc set -->
+			 <annotator processor="p1" />
+		  </timesegment-annotation>
+      </annotations>
+      <provenance>
+         <processor xml:id="p1" name="proycon" type="manual" />
+      </provenance>
+  </metadata>
+  <text xml:id="example.text">
+    <p xml:id="example.p.1">
+        <s xml:id="example.p.1.s.1">
+         <w xml:id="example.p.1.s.1.w.1"><t>I</t></w>
+         <w xml:id="example.p.1.s.1.w.2"><t>think</t></w>
+         <w xml:id="example.p.1.s.1.w.3"><t>I</t></w>
+         <w xml:id="example.p.1.s.1.w.4"><t>have</t></w>
+         <w xml:id="example.p.1.s.1.w.5"><t>to</t></w>
+         <w xml:id="example.p.1.s.1.w.6"><t>go</t></w>
+         <w xml:id="example.p.1.s.1.w.7"><t>.</t></w>
+         <timing>
+          <timesegment class="utterance" begindatetime="2011-12-15T19:01"
+           enddatetime="2011-12-15T19:03" actor="myself">
+            <wref id="example.p.1.s.1.w.1" t="I" />
+            <wref id="example.p.1.s.1.w.2" t="think" />
+          </timesegment>
+          <timesegment class="cough" begindatetime="2011-12-15T19:03"
+           enddatetime="2011-12-15T19:05" actor="myself">
+          </timesegment>
+          <timesegment class="utterance" begindatetime="2011-12-15T19:05"
+           enddatetime="2011-12-15T19:06" actor="myself">
+            <wref id="example.p.1.s.1.w.3" t="I" />
+            <wref id="example.p.1.s.1.w.4" t="have" />
+            <wref id="example.p.1.s.1.w.5" t="to" />
+            <wref id="example.p.1.s.1.w.6" t="go" />
+          </timesegment>
+         </timing>
+        </s>
+    </p>
+  </text>
+</FoLiA>

@@ -2,7 +2,7 @@
 #    This is a technical specification of FoLiA, for use by FoLiA libraries
 
 #The FoLiA version
-version: "1.5.1"
+version: "2.0.0"
 
 #The FoLiA namespace
 namespace: "http://ilk.uvt.nl/folia"
@@ -11,11 +11,339 @@ namespace: "http://ilk.uvt.nl/folia"
 setdefinitionnamespace: "http://folia.science.ru.nl/setdefinition"
 
 #all possible common FoLiA attributes
-attributes: [ ID, CLASS, ANNOTATOR, CONFIDENCE, N, DATETIME, BEGINTIME, ENDTIME, SRC, SPEAKER, TEXTCLASS, METADATA ]
+#(@annotatortype and @processor are subsumed under ANNOTATOR)
+attributes: [ ID, CLASS, ANNOTATOR, CONFIDENCE, N, DATETIME, BEGINTIME, ENDTIME, SRC, SPEAKER, TEXTCLASS, METADATA, IDREF, SPACE ]
+
+attributes_doc:
+    id:
+        name: "xml:id"
+        description: "The ID of the element; this has to be a unique in the entire document or collection of documents (corpus). All identifiers in FoLiA are of the `XML NCName <https://www.w3.org/TR/1999/WD-xmlschema-2-19990924/#NCName>`_ datatype, which roughly means it is a unique string that has to start with a letter (not a number or symbol), may contain numers, but may never contain colons or spaces. FoLiA does not define any naming convention for IDs."
+        group: core
+    set:
+        name: "set"
+        description: "The set of the element, ideally a URI linking to a set definition (see :ref:`set_definitions`) or otherwise a uniquely identifying string. The ``set`` must be referred to also in the :ref:`annotation_declarations` for this annotation type."
+        group: core
+    class:
+        name: "class"
+        description: "The class of the annotation, i.e. the annotation tag in the vocabulary defined by ``set``."
+        group: core
+    processor:
+        name: "processor"
+        description: "This refers to the ID of a processor in the :ref:`provenance_data`. The processor in turn defines exactly who or what was the annotator of the annotation."
+        group: provenance
+    annotator:
+        name: "annotator"
+        description: "This is an older alternative to the ``processor`` attribute, without support for full provenance. The annotator attribute simply refers to the name o ID of the system or human annotator that made the annotation."
+        group: authorship
+    annotatortype:
+        name: "annotatortype"
+        description: "This is an older alternative to the ``processor`` attribute, without support for full provenance. It is used together with ``annotator`` and specific the type of the annotator, either ``manual`` for human annotators or ``auto`` for automated systems."
+        group: authorship
+    confidence:
+        name: "confidence"
+        description: "A floating point value between zero and one; expresses the confidence the annotator places in his annotation."
+        group: annotation
+    datetime:
+        name: "datetime"
+        description: "The date and time when this annotation was recorded, the format is ``YYYY-MM-DDThh:mm:ss`` (note the literal T in the middle to separate date from time), as per the XSD Datetime data type."
+        group: annotation
+    n:
+        name: "n"
+        description: "A number in a sequence, corresponding to a number in the original document, for example chapter numbers, section numbers, list item numbers. This this not have to be an actual number but other sequence identifiers are also possible (think alphanumeric characters or roman numerals)."
+        group: annotation
+    textclass:
+        name: "textclass"
+        description: "Refers to the text class this annotation is based on. This is an advanced attribute, if not specified, it defaults to ``current``. See :ref:`textclass_attribute`."
+        group: annotation
+    space:
+        name: "space"
+        description: "This attribute indicates whether spacing should be inserted after this element (it's default value is always ``yes``, so it does not need to be specified in that case), but if tokens or other structural elements are glued together then the value should be set to ``no``. This allows for reconstruction of the detokenised original text. "
+        group: annotation
+    src:
+        name: "src"
+        description: "Points to a file or full URL of a sound or video file. This attribute is inheritable."
+        group: speech
+    begintime:
+        name: "begintime"
+        description: "A timestamp in ``HH:MM:SS.MMM`` format, indicating the begin time of the speech. If a sound clip is specified (``src``); the timestamp refers to a location in the soundclip."
+        group: speech
+    endtime:
+        name: "endtime"
+        description: "A timestamp in ``HH:MM:SS.MMM`` format, indicating the end time of the speech. If a sound clip is specified (``src``); the timestamp refers to a location in the soundclip."
+        group: speech
+    speaker:
+        name: "speaker"
+        description: "A string identifying the speaker. This attribute is inheritable. Multiple speakers are not allowed, simply do not specify a speaker on a certain level if you are unable to link the speech to a specific (single) speaker."
+        group: speech
+    idref:
+        name: "id"
+        description: "A reference to the ID of another element. This is a reference and not an assignment, unlike xml:id, so do not confuse the two! It is only supported on certain elements that are referential in nature."
+        group: core
+
 
 #All possible annotation types, each must be declared in the FoLiA header when used
-annotationtype: [ TEXT, TOKEN, DIVISION, PARAGRAPH, LIST, FIGURE, WHITESPACE, LINEBREAK, SENTENCE, POS, LEMMA, DOMAIN, SENSE, SYNTAX, CHUNKING, ENTITY, CORRECTION, ERRORDETECTION, PHON, SUBJECTIVITY, MORPHOLOGICAL, EVENT, DEPENDENCY, TIMESEGMENT, GAP, NOTE, ALIGNMENT, COMPLEXALIGNMENT, COREFERENCE, SEMROLE, METRIC, LANG, STRING, TABLE, STYLE, PART, UTTERANCE, ENTRY, TERM, DEFINITION, EXAMPLE, PHONOLOGICAL, PREDICATE, OBSERVATION, SENTIMENT, STATEMENT ]
+annotationtype: [ TEXT, TOKEN, DIVISION, PARAGRAPH, HEAD, LIST, FIGURE, WHITESPACE, LINEBREAK, SENTENCE, POS, LEMMA, DOMAIN, SENSE, SYNTAX, CHUNKING, ENTITY, CORRECTION, ERRORDETECTION, PHON, SUBJECTIVITY, MORPHOLOGICAL, EVENT, DEPENDENCY, TIMESEGMENT, GAP, QUOTE, NOTE, REFERENCE, RELATION, SPANRELATION, COREFERENCE, SEMROLE, METRIC, LANG, STRING, TABLE, STYLE, PART, UTTERANCE, ENTRY, TERM, DEFINITION, EXAMPLE, PHONOLOGICAL, PREDICATE, OBSERVATION, SENTIMENT, STATEMENT, ALTERNATIVE, RAWCONTENT, COMMENT, DESCRIPTION, HYPHENATION, HIDDENTOKEN ]
 
+#Documentation of annotation types (reStructuredText)
+annotationtype_doc:
+    text:
+        name: "Text Annotation"
+        description: "Text annotation associates actual textual content with structural elements, without it a document would be textless. FoLiA treats it as an annotation like any other."
+        history: "Since the beginning, revised since v0.6"
+    token:
+        name: "Token Annotation"
+        description: "This annotation type introduces a tokenisation layer for the document. The terms **token** and **word** are used interchangeably in FoLiA as FoLiA itself does not commit to a specific tokenisation paradigm. Tokenisation is a prerequisite for the majority of linguistic annotation types offered by FoLiA and it is one of the most fundamental types of Structure Annotation. The words/tokens are typically embedded in other types of structure elements, such as sentences or paragraphs."
+        history: "Since the beginning"
+    division:
+        name: "Division Annotation"
+        description: "Structure annotation representing some kind of division, typically used for chapters, sections, subsections (up to the set definition). Divisions may be nested at will, and may include almost all kinds of other structure elements."
+        history: "Since the beginning"
+    paragraph:
+        name: "Paragraph Annotation"
+        description: "Represents a paragraph and holds further structure annotation such as sentences."
+        history: "Since the beginning"
+    head:
+        name: "Head Annotation"
+        description: "The ``head`` element is used to provide a header or title for the structure element in which it is embedded, usually a division (``<div>``)"
+        history: "Since the beginning"
+    list:
+        name: "List Annotation"
+        description: "Structure annotation for enumeration/itemisation, e.g. bulleted lists."
+        history: "Since the beginning"
+    figure:
+        name: "Figure Annotation"
+        description: "Structure annotation for including pictures, optionally captioned, in documents."
+        history: "Since the beginning"
+    whitespace:
+        name: "Whitespace"
+        description: "Structure annotation introducing vertical whitespace"
+        history: "Since the beginning"
+    linebreak:
+        name: "Linebreak"
+        description: "Structure annotation representing a single linebreak and with special facilities to denote pagebreaks."
+        history: "Since the beginning"
+    sentence:
+        name: "Sentence Annotation"
+        description: "Structure annotation representing a sentence. Sentence detection is a common stage in NLP alongside tokenisation."
+        history: "Since the beginning"
+    pos:
+        name: "Part-of-Speech Annotation"
+        description: "Part-of-Speech Annotation, one of the most common types of linguistic annotation. Assigns a lexical class to words."
+        history: "Since the beginning"
+    lemma:
+        name: "Lemmatisation"
+        description: "Lemma Annotation, one of the most common types of linguistic annotation. Represents the canonical form of a word."
+        history: "Since the beginning"
+    domain:
+        name: "Domain/topic Annotation"
+        description: "Domain/topic Annotation. A form of inline annotation used to assign a certain domain or topic to a structure element."
+        history: "Since the beginning"
+    sense:
+        name: "Sense Annotation"
+        description: "Sense Annotation allows to assign a lexical semantic sense to a word."
+        history: "Since the beginning"
+    syntax:
+        name: "Syntactic Annotation"
+        description: "Assign grammatical categories to spans of words. Syntactic units are nestable and allow representation of complete syntax trees that are usually the result of consistuency parsing."
+        history: "Since the beginning"
+    chunking:
+        name: "Chunking"
+        description: "Assigns shallow grammatical categories to spans of words. Unlike syntax annotation, chunks are not nestable. They are often produced by a process called Shallow Parsing, or alternatively, chunking."
+        history: "Since the beginning"
+    entity:
+        name: "Entity Annotation"
+        description: "Entity annotation is a broad and common category in FoLiA. It is used for specifying all kinds of multi-word expressions, including but not limited to named entities. The set definition used determines the vocabulary and therefore the precise nature of the entity annotation."
+        history: "Since the beginning"
+    correction:
+        name: "Correction Annotation"
+        description: "Corrections are one of the most complex annotation types in FoLiA. Corrections can be applied not just over text, but over any type of structure annotation, inline annotation or span annotation. Corrections explicitly preserve the original, and recursively so if corrections are done over other corrections."
+        history: "Since v0.4"
+    errordetection:
+        name: "Error Detection"
+        description: "This annotation type is deprecated in favour of `Observation Annotation` and only exists for backward compatibility."
+        history: "Deprecated since v2.0.0"
+    phon:
+        name: "Phonetic Annotation"
+        description: "This is the phonetic analogy to text content (``<t>``) and allows associating a phonetic transcription with any structural element, it is often used in a speech context. Note that for actual segmentation into phonemes, FoLiA has another related type: ``Phonological Annotation``"
+        history: "Since v0.12"
+    subjectivity:
+        name: "Subjectivity Annotation"
+        description: "This annotation type is deprecated in favour of `Sentiment Annotation` and only exists for backward compatibility."
+        history: "Deprecated since v1.5"
+    morphological:
+        name: "Morphological Annotation"
+        description:  "Morphological Annotation allows splitting a word/token into morphemes, morphemes itself may be nested. It is embedded within a layer ``morphology`` which can be embedded within word/tokens."
+        history: "Heavily revised since v0.9"
+    event:
+        name: "Event Annotation"
+        description: "Structural annotation type representing events, often used in new media contexts for things such as tweets, chat messages and forum posts (as defined by a user-defined set definition). Note that a more linguistic kind of event annotation can be accomplished with `Entity Annotation` or even `Time Segmentation` rather than this one."
+        history: "since v0.7"
+    dependency:
+        name: "Dependency Annotation"
+        description: "Dependency relations are syntactic relations between spans of tokens. A dependency relation takes a particular class and consists of a single head component and a single dependent component."
+        history: "Slightly revised since v0.8 (no ``su`` attribute on ``hd``/``dep``)"
+    timesegment:
+        name: "Time Segmentation"
+        description: "FoLiA supports time segmentation to allow for more fine-grained control of timing information by associating spans of words/tokens with exact timestamps. It can provide a more linguistic alternative to `Event Annotation`."
+        history: "Since v0.8 but renamed since v0.9"
+    gap:
+        name: "Gap Annotation"
+        description: "Sometimes there are parts of a document you want to skip and not annotate at all, but
+include as is. This is where gap annotation comes in, the user-defined set may indicate the kind of gap. Common omissions
+in books are for example front-matter and back-matter, i.e. the cover."
+        history: "Since the beginning"
+    quote:
+        name: "Quote Annotation"
+        description: "Structural annotation used to explicitly mark quoted speech, i.e. that what is reported to be said and appears in the text in some form of quotation marks."
+        history: "Since v0.11"
+    note:
+        name: "Note Annotation"
+        description: "Structural annotation used for notes, such as footnotes or warnings or notice blocks."
+        history: "Since v0.11"
+    reference:
+        name: "Reference Annotation"
+        description: "Structural annotation for referring to other annotation types. Used e.g. for referring to bibliography entries (citations) and footnotes."
+        history: "Since v0.11, external references since v1.2"
+    relation: #used to be alignment in FoLiA < 2
+        name: "Relation Annotation"
+        description: "FoLiA provides a facility to relate arbitrary parts of your document with other parts of your document, or even with parts of other FoLiA documents or external
+resources, even in other formats. It thus allows linking resources together. Within this context, the ``xref`` element is used to refer to the linked FoLiA elements."
+        history: "Revised since v0.8, renamed from alignment in v2.0"
+    spanrelation: #used to be complexalignment
+        name: "Span Relation Annotation"
+        description: "Span relations are a stand-off extension of relation annotation that allows for more complex relations, such as word alignments that include
+many-to-one, one-to-many or many-to-many alignments. One of its uses is in the alignment of multiple translations of (parts) of a text."
+        history: "since v0.8, renamed from complexalignment in v2.0"
+    coreference:
+        name: "Coreference Annotation"
+        description: "Relations between words that refer to the same referent (anaphora) are expressed in FoLiA using Coreference Annotation. The co-reference relations are expressed by specifying the entire chain in which all links are coreferent."
+        history: "since v0.9"
+    semrole:
+        name: "Semantic Role Annotation"
+        description: "This span annotation type allows for the expression of semantic roles, or thematic roles. It is often used together with `Predicate Annotation`"
+        history: "since v0.9, revised since v1.3 (added predicates)"
+    metric:
+        name: "Metric Annotation"
+        description: "Metric Annotation is a form of higher-order annotation that allows annotation of some kind of measurement. The type of measurement is defined by the class, which in turn is defined by the set as always. The metric element has a ``value`` attribute that stores the actual measurement, the value is often numeric but this needs not be the case."
+        history: "since v0.9"
+    lang:
+        name: "Language Annotation"
+        description: "Language Annotation simply identifies the language a part of the text is in. Though this information is often part of the metadata, this form is considered an actual annotation."
+        history: "since v0.8.1"
+    string:
+        name: "String Annotation"
+        description: "This is a form of higher-order annotation for selecting an arbitrary substring of a text, even untokenised, and allows further forms of higher-order annotation on the substring. It is also tied to a form of text markup annotation."
+        history: "since v0.9.1"
+    table:
+        name: "Table Annotation"
+        description: "Structural annotation type for creating a simple tabular environment, i.e. a table with rows, columns and cells and an optional header."
+        history: "since v0.9.2"
+    style:
+        name: "Style Annotation"
+        description: "This is a text markup annotation type for applying styling to text. The actual styling is defined by the user-defined set definition and can for example included classes such as italics, bold, underline"
+        history: "since v0.10"
+    part:
+        name: "Part Annotation"
+        description: "The structure element ``part`` is a fairly abstract structure element that should only be used when a more specific structure element is not available. Most
+notably, the part element should never be used for representation of morphemes or phonemes! Part can be used to divide a larger structure element, such as a division, or a
+paragraph into arbitrary subparts."
+        history: "since v0.11.2"
+    utterance:
+        name: "Utterance Annotation"
+        description: "An utterance is a structure element that may consist of words or sentences, which in turn may contain words. The opposite is also true, a sentence may consist of multiple
+utterances. Utterances are often used in the absence of sentences in a speech context, where neat grammatical sentences can not always be distinguished."
+        history: "since v0.12"
+    entry:
+        name: "Entry Annotation"
+        description: "FoLiA has a set of structure elements that can be used to represent collections such as glossaries, dictionaries, thesauri, and wordnets. `Entry annotation` defines the entries in such collections, `Term annotation` defines the terms, and `Definition Annotation` provides the definitions."
+        history: "since v0.12"
+    term:
+        name: "Term Annotation"
+        description: "FoLiA has a set of structure elements that can be used to represent collections such as glossaries, dictionaries, thesauri, and wordnets. `Entry annotation` defines the entries in such collections, `Term annotation` defines the terms, and `Definition Annotation` provides the definitions."
+        history: "since v0.12"
+    definition:
+        name: "Definition Annotation"
+        description: "FoLiA has a set of structure elements that can be used to represent collections such as glossaries, dictionaries, thesauri, and wordnets. `Entry annotation` defines the entries in such collections, `Term annotation` defines the terms, and `Definition Annotation` provides the definitions."
+        history: "since v0.12"
+    example:
+        name: "Example Annotation"
+        description: "FoLiA has a set of structure elements that can be used to represent collections such as glossaries, dictionaries, thesauri, and wordnets. `Examples annotation` defines examples in such collections."
+        history: "since v0.12"
+    phonological:
+        name: "Phonological Annotation"
+        description:  "The smallest unit of annotatable speech in FoLiA is the phoneme level. The phoneme element is a form of structure annotation used for phonemes.  Alike to morphology, it is embedded within a layer ``phonology`` which can be embedded within word/tokens."
+        history: "since v0.12"
+    predicate:
+        name: "Predicate Annotation"
+        description: "Allows annotation of predicates, this annotation type is usually used together with Semantic Role Annotation. The types of predicates are defined by a user-defined set definition."
+        history: "since v1.3"
+    observation:
+        name: "Observation Annotation"
+        description: "Observation annotation is used to make an observation pertaining to one or more word tokens.  Observations offer a an external qualification on part of a text. The
+qualification is expressed by the class, in turn defined by a set. The precise semantics of the observation depends on the user-defined set."
+        history: "since v1.3"
+    sentiment:
+        name: "Sentiment Annotation"
+        description: "Sentiment analysis marks subjective information such as sentiments or attitudes expressed in text. The sentiments/attitudes are defined by a user-defined set definition."
+        history: "since v1.3"
+    statement:
+        name: "Statement Annotation"
+        description: "Statement annotation, sometimes also refered to as attribution, allows to decompose statements into the source of the statement, the content of the statement, and the way these relate, provided these are made explicit in the text."
+        history: "since v1.3"
+    alternative:
+        name: "Alternative Annotation"
+        description: "This form of higher-order annotation encapsulates alternative annotations, i.e. annotations that are posed as an alternative option rather than the authoratitive chosen annotation"
+        history: "Since the beginning, may carry set and classes since v2.0"
+    rawcontent:
+        name: "Raw Content"
+        description: "This associates raw text content which can not carry any further annotation. It is used in the context of :ref:`gap_annotation`"
+        history: "Since the beginning, but revised and made a proper annotation type in v2.0"
+    comment:
+        name: "Comment Annotation"
+        description: "This is a form of higher-order annotation that allows you to associate comments with almost all other annotation elements"
+        history: "Since v1.3"
+    description:
+        name: "Description Annotation"
+        description: "This is a form of higher-order annotation that allows you to associate descriptions with almost all other annotation elements"
+        history: "Since the beginning"
+    hyphenation:
+        name: "Hyphenation Annotation"
+        description: "This is a text-markup annotation form that indicates where in the original text a linebreak was inserted and a word was hyphenised."
+        history: "Since v2.0"
+    hiddentoken:
+        name: "Hidden Token Annotation"
+        description: "This annotation type allows for a hidden token layer in the document. Hidden tokens are ignored for most intents and purposes but may serve a purpose when annotations on implicit tokens is required, for example as targets for syntactic movement annotation."
+        history: "Since v2.0"
+
+categories:
+    structure:
+        name: "Structure Annotation"
+        description: "This category encompasses annotation types that define the structure of a document, e.g. paragraphs, sentences, words, sections like chapters, lists, tables, etc... These types are not strictly considered linguistic annotation and equivalents are also commonly found in other document formats such as HTML, TEI, MarkDown, LaTeX, and others. For FoLiA it provides the necessary structural basis that linguistic annotation can build on."
+        class: AbstractStructureElement
+    content:
+        name: "Content Annotation"
+        description: "This category groups text content and phonetic content, the former being one of the most frequent elements in FoLiA and used to associate text (or a phonetic transcription) with a structural element."
+        class: AbstractContentAnnotation
+    inline:
+        name: "Inline Annotation"
+        description: "This category encompasses (linguistic) annotation types describing a single structural element. Examples are Part-of-Speech Annotation or Lemmatisation, which often describe a single token."
+        class: AbstractInlineAnnotation
+    span:
+        name: "Span Annotation"
+        description: "This category encompasses (linguistic) annotation types that span one or more structural elements. Examples are (Named) Entities or Multi-word Expressions, Dependency Relations, and many others. FoLiA implements these as a stand-off layer that refers back to the structural elements (often words/tokens). The layer itself is embedded in a structural level of a wider scope (such as a sentence)."
+        class: AbstractSpanAnnotation
+    subtoken:
+        name: "Subtoken Annotation"
+        description: "This category contains morphological annotation and phonological annotation, i.e. the segmentation of a word into morphemes and phonemes, and recursively so if desired. It is a special category that mixes characteristics from structure annotation (the ``morpheme`` and ``phoneme`` elements are very structure-like) and also from span annotation, as morphemes and phonemes are embedded in an annotation layer and refer back to the text/phonetic content they apply to. Like words/tokens, these elements may also be referenced from ``wref`` elements."
+        class: AbstractSubtokenAnnotation
+    textmarkup:
+        name: "Text Markup Annotation"
+        description: "The text content element (``<t>``) allows within its scope elements of a this category; these are **Text Markup** elements, they always contain textual content and apply a certain markup to certain spans of the text. One of it's common uses is for styling (emphasis, underlines, etc.). Text markup elements may be nested."
+        class: AbstractTextMarkup
+    higherorder:
+        name: "Higher-order Annotation"
+        description: "Higher-order Annotation groups a very diverse set of annotation types that are considered *annotations on annotations*"
+        class: AbstractHigherOrderAnnotation
 
 #default properties for all elements. Are inherited from parent classes when not set, overridden when set for subclasses, except for accepted_data, which is cumulative with respect to the parents
 defaultproperties:
@@ -38,6 +366,7 @@ defaultproperties:
     primaryelement: true #Is this the primary element for the advertised annotation type?
     auto_generate_id: false #Automatically generate an ID if none was provided?
     setonly: false #States that the element may take a set property only, and not a class property
+    wrefable: false #Indicates whether this element is referable as a token/word (applies only to a very select few elements, such as w, morpheme, and phoneme)
 
 elements:
     - class: AbstractAnnotationLayer
@@ -54,11 +383,11 @@ elements:
                 xmltag: "chunking"
                 annotationtype: CHUNKING
                 primaryelement: false
-          - class: ComplexAlignmentLayer
+          - class: SpanRelationLayer
             properties:
-                accepted_data: [ ComplexAlignment]
-                xmltag: "complexalignments"
-                annotationtype: COMPLEXALIGNMENT
+                accepted_data: [ SpanRelation]
+                xmltag: "spanrelations"
+                annotationtype: SPANRELATION
                 primaryelement: false
           - class: CoreferenceLayer
             properties:
@@ -132,7 +461,7 @@ elements:
           optional_attribs: [ ID, ANNOTATOR, CONFIDENCE, DATETIME, N ]
           printable: true
           textdelimiter: null
-          accepted_data: [ AbstractTokenAnnotation, AbstractSpanAnnotation, AbstractStructureElement, Correction, Metric, PhonContent, String, TextContent, ForeignData]
+          accepted_data: [ AbstractInlineAnnotation, AbstractSpanAnnotation, AbstractStructureElement, Correction, Metric, PhonContent, String, TextContent, ForeignData]
       elements:
           - class: Current
             properties:
@@ -160,12 +489,13 @@ elements:
           printable: true
           speakable: true
           optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, TEXTCLASS, METADATA ]
-          accepted_data: [ Metric, Alignment, ForeignData, AlignReference ]
+          accepted_data: [ Metric, Relation, ForeignData, LinkReference, AbstractInlineAnnotation ]
       elements:
           - class: AbstractSpanRole
             properties:
                 optional_attribs: [ ID, ANNOTATOR, N, DATETIME ]
-                accepted_data: [ Feature, WordReference, AlignReference]
+                accepted_data: [ Feature, WordReference, LinkReference]
+                primaryelement: false
             elements:
                 - class: CoreferenceLink
                   properties:
@@ -179,26 +509,31 @@ elements:
                       xmltag: "dep"
                       label: "Dependent"
                       occurrences: 1
+                      primaryelement: false
                 - class: Headspan
                   properties:
                       xmltag: "hd"
                       label: "Head"
                       occurrences: 1
-                - class: Relation
+                      primaryelement: false
+                - class: StatementRelation
                   properties:
-                      xmltag: "relation"
+                      xmltag: "rel"
                       label: "Relation"
                       occurrences: 1
+                      primaryelement: false
                 - class: Source
                   properties:
                       xmltag: "source"
                       label: "Source"
                       occurrences: 1
+                      primaryelement: false
                 - class: Target
                   properties:
                       xmltag: "target"
                       label: "Target"
                       occurrences: 1
+                      primaryelement: false
           - class: Chunk
             properties:
                 annotationtype: CHUNKING
@@ -253,7 +588,7 @@ elements:
           - class: Statement
             properties:
                 annotationtype: STATEMENT
-                accepted_data: [ Feature, Headspan, Relation, Source, WordReference ]
+                accepted_data: [ Feature, Headspan, StatementRelation, Source, WordReference ]
                 xmltag: "statement"
                 label: "Statement"
           - class: SyntacticUnit
@@ -274,26 +609,28 @@ elements:
           required_attribs: null
           textdelimiter: "\n\n"
           speakable: true
-          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
-          accepted_data: [AbstractAnnotationLayer, Alignment, Alternative, AlternativeLayers, Correction, Feature, Metric, Part, ForeignData]
+          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA, SPACE ]
+          accepted_data: [AbstractAnnotationLayer, Relation, Alternative, AlternativeLayers, Correction, Feature, Metric, Part, ForeignData]
           auto_generate_id: true
       elements:
           - class: Caption
             properties:
                 occurrences: 1
-                accepted_data: [AbstractExtendedTokenAnnotation, Gap, Linebreak, PhonContent, Reference, Sentence, String, TextContent, Whitespace]
+                accepted_data: [AbstractInlineAnnotation, Gap, Linebreak, Paragraph, PhonContent, Reference, Sentence, String, TextContent, Whitespace]
+                optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA, SPACE ]
                 xmltag: "caption"
                 label: "Caption"
           - class: Cell
             properties:
                 textdelimiter: " | "
-                accepted_data: [AbstractExtendedTokenAnnotation, Entry, Event, Example, Gap, Head, Linebreak, Note, Paragraph, Reference, Sentence, String, TextContent, Whitespace, Word]
+                accepted_data: [AbstractInlineAnnotation, Entry, Event, Example, Gap, Head, Linebreak, Note, Paragraph, Reference, Sentence, String, TextContent, Whitespace, Word, Hiddenword ]
+                optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA, SPACE  ]
                 xmltag: "cell"
                 label: "Cell"
           - class: Definition
             properties:
                 annotationtype: DEFINITION
-                accepted_data: [AbstractExtendedTokenAnnotation, Figure, List, Metric, Paragraph, PhonContent, Reference, Sentence, String, Table, TextContent, Utterance, Word, Linebreak, Whitespace]
+                accepted_data: [AbstractInlineAnnotation, Figure, List, Metric, Paragraph, PhonContent, Reference, Sentence, String, Table, TextContent, Utterance, Word, Hiddenword, Linebreak, Whitespace]
                 xmltag: "def"
                 label: "Definition"
           - class: Division
@@ -302,23 +639,23 @@ elements:
                 xmltag: "div"
                 label: "Division"
                 textdelimiter: "\n\n\n"
-                accepted_data: [AbstractExtendedTokenAnnotation, Division, Entry, Event, Example, Figure, Gap, Head, Linebreak, List, Note, Paragraph, Part, PhonContent, Quote, Reference, Sentence, Table, TextContent, Utterance, Whitespace]
+                accepted_data: [AbstractInlineAnnotation, Division, Entry, Event, Example, Figure, Gap, Head, Linebreak, List, Note, Paragraph, Part, PhonContent, Quote, Reference, Sentence, Table, TextContent, Utterance, Whitespace]
           - class: Entry
             properties:
                 annotationtype: ENTRY
-                accepted_data: [Definition, Example, Term]
+                accepted_data: [Definition, Example, Term, TextContent, String]
                 xmltag: "entry"
                 label: "Entry"
           - class: Event
             properties:
                 annotationtype: EVENT
-                accepted_data: [AbstractExtendedTokenAnnotation, ActorFeature, BegindatetimeFeature, Division, EnddatetimeFeature, Entry, Event, Example, Figure, Gap, Head, Linebreak, List, Note, Paragraph, Part, PhonContent, Quote, Reference, Sentence, String, Table, TextContent, Utterance, Whitespace, Word]
+                accepted_data: [AbstractInlineAnnotation, ActorFeature, BegindatetimeFeature, Division, EnddatetimeFeature, Entry, Event, Example, Figure, Gap, Head, Linebreak, List, Note, Paragraph, Part, PhonContent, Quote, Reference, Sentence, String, Table, TextContent, Utterance, Whitespace, Word, Hiddenword ]
                 xmltag: "event"
                 label: "Event"
           - class: Example
             properties:
                 annotationtype: EXAMPLE
-                accepted_data: [AbstractExtendedTokenAnnotation, Figure, Linebreak, List, Paragraph, PhonContent, Reference, Sentence, String, Table, TextContent, Utterance, Word, Whitespace]
+                accepted_data: [AbstractInlineAnnotation, Figure, Linebreak, List, Paragraph, PhonContent, Reference, Sentence, String, Table, TextContent, Utterance, Word, Hiddenword, Whitespace]
                 xmltag: "ex"
                 label: "Example"
           - class: Figure
@@ -328,17 +665,35 @@ elements:
                 label: "Figure"
                 speakable: false
                 textdelimiter: "\n\n"
-                accepted_data: [Caption, Sentence, String, TextContent]
+                accepted_data: [Caption, String, TextContent]
           - class: Head
             properties:
+                annotationtype: HEAD
                 textdelimiter: "\n\n"
                 occurrences: 1
-                accepted_data: [AbstractExtendedTokenAnnotation, Event, Gap, Linebreak, PhonContent, Reference, Sentence, String, TextContent, Whitespace, Word]
+                accepted_data: [AbstractInlineAnnotation, Event, Gap, Linebreak, Paragraph, PhonContent, Reference, Sentence, String, TextContent, Whitespace, Word, Hiddenword ]
                 xmltag: "head"
                 label: "Head"
+          - class: Hiddenword
+            properties:
+                annotationtype: HIDDENTOKEN
+                accepted_data: [AbstractInlineAnnotation, PhonContent, Reference, String, TextContent]
+                xmltag: "hiddenw"
+                label: "Hidden Word/Token"
+                textdelimiter: " " #may be overriden and set to "" if attribute space="no" is set on the word
+                optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, TEXTCLASS, METADATA, SPACE ]
+                wrefable: true
+                printable: false
+                speakable: false
+          - class: Hyphbreak
+            properties:
+                annotationtype: HYPHENATION
+                xmltag: "t-hbr"
+                label: "Hyphbreak"
+                textdelimiter: ""
           - class: Label
             properties:
-                accepted_data: [ Word, Reference, TextContent, PhonContent, String, Alignment, Metric, Alternative, Alternative, AlternativeLayers, AbstractAnnotationLayer, AbstractExtendedTokenAnnotation, Correction, Part, Linebreak, Whitespace ]
+                accepted_data: [ Word, Hiddenword, Reference, TextContent, PhonContent, String, Relation, Metric, Alternative, Alternative, AlternativeLayers, AbstractAnnotationLayer, AbstractInlineAnnotation, Correction, Part, Linebreak, Whitespace ]
                 xmltag: "label"
                 label: "Label"
           - class: Linebreak
@@ -352,70 +707,60 @@ elements:
             properties:
                 annotationtype: LIST
                 textdelimiter: "\n\n"
-                accepted_data: [AbstractExtendedTokenAnnotation, Alignment, Caption, Event, ListItem, Metric, Note, PhonContent, Reference, String, TextContent]
+                accepted_data: [AbstractInlineAnnotation, Relation, Caption, Event, ListItem, Metric, Note, PhonContent, Reference, String, TextContent]
                 xmltag: "list"
                 label: "List"
           - class: ListItem
             properties:
                 textdelimiter: "\n"
-                accepted_data: [AbstractExtendedTokenAnnotation, Event, Gap, Label, Linebreak, List, Note, Paragraph, Part, PhonContent, Reference, Sentence, String, TextContent, Whitespace, Word]
+                accepted_data: [AbstractInlineAnnotation, Event, Gap, Label, Linebreak, List, Note, Paragraph, Part, PhonContent, Reference, Sentence, String, TextContent, Whitespace, Word, Hiddenword]
+                optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
                 xmltag: "item" #was listitem in an early erroneous version of FoLiA, libraries will unfortunately need to support that too for backward compatibility
                 label: "List Item"
-          - class: Morpheme
-            properties:
-                annotationtype: MORPHOLOGICAL
-                xmltag: "morpheme"
-                label: "Morpheme"
-                textdelimiter: ""
-                accepted_data: [AbstractTokenAnnotation, FunctionFeature, Morpheme, PhonContent, String, TextContent]
           - class: Note
             properties:
                 annotationtype: NOTE
-                accepted_data: [AbstractExtendedTokenAnnotation, Example, Figure, Head, Linebreak, List, Paragraph, PhonContent, Reference, Sentence, String, Table, TextContent, Utterance, Whitespace, Word]
+                accepted_data: [AbstractInlineAnnotation, Example, Figure, Head, Linebreak, List, Paragraph, PhonContent, Reference, Sentence, String, Table, TextContent, Utterance, Whitespace, Word, Hiddenword]
                 xmltag: "note"
                 label: "Note"
           - class: Paragraph
             properties:
                 annotationtype: PARAGRAPH
                 textdelimiter: "\n\n"
-                accepted_data: [AbstractExtendedTokenAnnotation, Entry, Event, Example, Figure, Gap, Head, Linebreak, List, Note, PhonContent, Quote, Reference, Sentence, String, TextContent, Whitespace, Word]
+                accepted_data: [AbstractInlineAnnotation, Entry, Event, Example, Figure, Gap, Head, Linebreak, List, Note, PhonContent, Quote, Reference, Sentence, String, TextContent, Whitespace, Word, Hiddenword]
                 xmltag: "p"
                 label: "Paragraph"
           - class: Part
             properties:
                 annotationtype: PART
                 textdelimiter: null
-                accepted_data: [ AbstractStructureElement, AbstractExtendedTokenAnnotation, TextContent, PhonContent ] #too permissive really, should be context dependent
+                accepted_data: [ AbstractStructureElement, AbstractInlineAnnotation, TextContent, PhonContent ] #too permissive really, should be context dependent
                 xmltag: "part"
                 label: "Part"
-          - class: Phoneme
-            properties:
-                annotationtype: PHONOLOGICAL
-                xmltag: "phoneme"
-                label: "Phoneme"
-                textdelimiter: ""
-                accepted_data: [AbstractTokenAnnotation, FunctionFeature, PhonContent, Phoneme, String, TextContent]
           - class: Quote
             properties:
-                accepted_data: [Division, Gap, Paragraph, Quote, Sentence, String, TextContent, Utterance, Word, Reference]
+                annotationtype: QUOTE
+                accepted_data: [Division, Gap, Paragraph, Quote, Sentence, String, TextContent, Utterance, Word, Hiddenword, Reference]
                 xmltag: "quote"
                 label: "Quote"
           - class: Reference
             properties:
+                annotationtype: REFERENCE
                 textdelimiter: null
                 xmltag: "ref"
                 label: "Reference"
-                accepted_data: [PhonContent, Paragraph, Quote, Sentence, String, TextContent, Utterance, Word, Linebreak, Whitespace]
+                accepted_data: [PhonContent, Paragraph, Quote, Sentence, String, TextContent, Utterance, Word, Hiddenword, Linebreak, Whitespace]
+                xlink: true
           - class: Row
             properties:
                 textdelimiter: "\n"
-                accepted_data: [ Cell, AbstractExtendedTokenAnnotation ]
+                accepted_data: [ Cell, AbstractInlineAnnotation ]
                 xmltag: "row"
                 label: "Table Row"
           - class: Sentence
             properties:
                 annotationtype: SENTENCE
-                accepted_data: [AbstractExtendedTokenAnnotation, Entry, Event, Example, Gap, Linebreak, Note, PhonContent, Quote, Reference, String, TextContent, Whitespace, Word]
+                accepted_data: [AbstractInlineAnnotation, Entry, Event, Example, Gap, Linebreak, Note, PhonContent, Quote, Reference, String, TextContent, Whitespace, Word, Hiddenword]
                 xmltag: "s"
                 label: "Sentence"
                 textdelimiter: " "
@@ -424,22 +769,23 @@ elements:
                 xmltag: "speech"
                 label: "Speech Body"
                 textdelimiter: "\n\n\n"
-                accepted_data: [AbstractExtendedTokenAnnotation, Division, Entry, Event, Example, External, Gap, List, Note, Paragraph, PhonContent, Quote, Reference, Sentence, String, TextContent, Utterance, Word]
+                accepted_data: [AbstractInlineAnnotation, Division, Entry, Event, Example, External, Gap, List, Note, Paragraph, PhonContent, Quote, Reference, Sentence, String, TextContent, Utterance, Word, Hiddenword]
           - class: Table
             properties:
                 annotationtype: TABLE
-                accepted_data: [AbstractExtendedTokenAnnotation, Row, TableHead]
+                accepted_data: [AbstractInlineAnnotation, Row, TableHead]
                 xmltag: "table"
                 label: "Table"
           - class: TableHead
             properties:
-                accepted_data: [AbstractExtendedTokenAnnotation, Row]
+                accepted_data: [AbstractInlineAnnotation, Row]
+                optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
                 xmltag: "tablehead"
                 label: "Table Header"
           - class: Term
             properties:
                 annotationtype: TERM
-                accepted_data: [AbstractExtendedTokenAnnotation, Event, Figure, Gap, List, Paragraph, PhonContent, Reference, Sentence, String, Table, TextContent, Utterance, Word, Linebreak, Whitespace]
+                accepted_data: [AbstractInlineAnnotation, Event, Figure, Gap, List, Paragraph, PhonContent, Reference, Sentence, String, Table, TextContent, Utterance, Word, Hiddenword, Linebreak, Whitespace]
                 xmltag: "term"
                 label: "Term"
           - class: Text
@@ -447,12 +793,12 @@ elements:
                 xmltag: "text"
                 label: "Text Body"
                 textdelimiter: "\n\n\n"
-                accepted_data: [AbstractExtendedTokenAnnotation, Division, Entry, Event, Example, External, Figure, Gap, List, Note, Paragraph, PhonContent, Quote, Reference, Sentence, String, Table, TextContent, Word, Linebreak, Whitespace]
+                accepted_data: [AbstractInlineAnnotation, Division, Entry, Event, Example, External, Figure, Gap, List, Note, Paragraph, PhonContent, Quote, Reference, Sentence, String, Table, TextContent, Word, Hiddenword, Linebreak, Whitespace]
           - class: Utterance
             properties:
                 annotationtype: UTTERANCE
                 textdelimiter: " "
-                accepted_data: [AbstractExtendedTokenAnnotation, Gap, Note, PhonContent, Quote, Reference, Sentence, String, TextContent, Word]
+                accepted_data: [AbstractInlineAnnotation, Gap, Note, PhonContent, Quote, Reference, Sentence, String, TextContent, Word, Hiddenword]
                 xmltag: "utt"
                 label: "Utterance"
           - class: Whitespace
@@ -464,11 +810,38 @@ elements:
           - class: Word
             properties:
                 annotationtype: TOKEN
-                accepted_data: [AbstractTokenAnnotation, PhonContent, Reference, String, TextContent]
+                accepted_data: [AbstractInlineAnnotation, PhonContent, Reference, String, TextContent]
                 xmltag: "w"
                 label: "Word/Token"
                 textdelimiter: " " #may be overriden and set to "" if attribute space="no" is set on the word
-                optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, TEXTCLASS, METADATA ]
+                optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, TEXTCLASS, METADATA, SPACE ]
+                wrefable: true
+    - class: AbstractSubtokenAnnotation
+      properties:
+          printable: true
+          required_attribs: null
+          textdelimiter: "\n\n"
+          speakable: true
+          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
+          accepted_data: [AbstractAnnotationLayer, Relation, Alternative, AlternativeLayers, Correction, Feature, Metric, Part, ForeignData]
+          auto_generate_id: true
+      elements:
+          - class: Morpheme
+            properties:
+                annotationtype: MORPHOLOGICAL
+                xmltag: "morpheme"
+                label: "Morpheme"
+                textdelimiter: ""
+                accepted_data: [AbstractInlineAnnotation, FunctionFeature, Morpheme, PhonContent, String, TextContent]
+                wrefable: true
+          - class: Phoneme
+            properties:
+                annotationtype: PHONOLOGICAL
+                xmltag: "phoneme"
+                label: "Phoneme"
+                textdelimiter: ""
+                accepted_data: [AbstractInlineAnnotation, FunctionFeature, PhonContent, Phoneme, String, TextContent]
+                wrefable: true
     - class: AbstractTextMarkup
       properties:
           textcontainer: true
@@ -504,32 +877,30 @@ elements:
                 annotationtype: STYLE
                 xmltag: "t-style"
                 primaryelement: true
-    - class: AbstractTokenAnnotation
+    - class: AbstractInlineAnnotation
       properties:
           required_attribs: [ CLASS ]
           optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, TEXTCLASS, METADATA ]
           accepted_data: [ Feature , Metric, ForeignData ]
           occurrences_per_set: 1 #How often can a particular element+set combination occur under the parent (0 = unlimited)
       elements:
-          - class: AbstractExtendedTokenAnnotation
-            elements:
-                - class: DomainAnnotation
-                  properties:
-                      annotationtype: DOMAIN
-                      xmltag: "domain"
-                      label: "Domain"
-                      occurrences_per_set: 0
-                - class: ErrorDetection
-                  properties:
-                      annotationtype: ERRORDETECTION
-                      xmltag: "errordetection"
-                      label: "Error Detection"
-                      occurrences_per_set: 0
-                - class: LangAnnotation
-                  properties:
-                      annotationtype: LANG
-                      xmltag: "lang"
-                      label: "Language"
+          - class: DomainAnnotation
+            properties:
+                annotationtype: DOMAIN
+                xmltag: "domain"
+                label: "Domain"
+                occurrences_per_set: 0
+          - class: ErrorDetection
+            properties:
+                annotationtype: ERRORDETECTION
+                xmltag: "errordetection"
+                label: "Error Detection"
+                occurrences_per_set: 0
+          - class: LangAnnotation
+            properties:
+                annotationtype: LANG
+                xmltag: "lang"
+                label: "Language"
           - class: LemmaAnnotation
             properties:
                 annotationtype: LEMMA
@@ -553,196 +924,215 @@ elements:
                 annotationtype: SUBJECTIVITY
                 xmltag: "subjectivity"
                 label: "Subjectivity/Sentiment"
-    - class: AlignReference
-      properties:
-          xmltag: "aref"
-    - class: Alignment
-      properties:
-          annotationtype: ALIGNMENT
-          speakable: false
-          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
-          printable: false
-          required_attribs: null
-          xlink: true
-          accepted_data: [ AlignReference, Metric, Feature, ForeignData ]
-          xmltag: "alignment"
-          label: "Alignment"
-    - class: Alternative
+    - class: AbstractHigherOrderAnnotation
       properties:
           required_attribs: null
-          speakable: false
-          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
-          printable: false
-          accepted_data: [ AbstractTokenAnnotation, Correction, ForeignData,  MorphologyLayer, PhonologyLayer ]
-          auth: false
-          xmltag: "alt"
-          label: "Alternative"
-    - class: AlternativeLayers
-      properties:
-          required_attribs: null
-          speakable: false
-          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
-          printable: false
-          accepted_data: [ AbstractAnnotationLayer, ForeignData ]
-          auth: false
-          xmltag: "altlayers"
-          label: "Alternative Layers"
-    - class: ComplexAlignment
-      properties:
-          annotationtype: COMPLEXALIGNMENT
-          speakable: false
-          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
-          printable: false
-          required_attribs: null
-          accepted_data: [ Alignment, Metric, Feature, ForeignData ]
-          xmltag: "complexalignment"
-          label: "Complex Alignment"
-    - class: Content
-      properties:
-          xmltag: "content"
-          occurrences: 1
-          label: "Gap Content"
-    - class: Correction
-      properties:
-          annotationtype: CORRECTION
-          printable: true
-          accepted_data: [ New, Original, Current, Suggestion, ErrorDetection, Metric, Feature, ForeignData ]
-          speakable: true
-          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
-          xmltag: "correction"
-          label: "Correction"
-          textdelimiter: null
-    - class: Comment
-      properties:
-          xmltag: "comment"
-          label: "Comment"
-          optional_attribs: [ ID, ANNOTATOR, CONFIDENCE, DATETIME, N, METADATA ]
-          printable: false
-    - class: Description
-      properties:
-          occurrences: 1
-          xmltag: "desc"
-          label: "Description"
-          optional_attribs: [ ID, ANNOTATOR, CONFIDENCE, DATETIME, N, METADATA ]
-    - class: External
-      properties:
-          speakable: false
           optional_attribs: null
-          xmltag: "external"
-          label: "External"
-          required_attribs: [ SRC ]
-          accepted_data: null
-          auth: true
-          printable: true
-    - class: Feature
-      properties:
-          xmltag: "feat"
-          label: "Feature"
       elements:
-          - class: ActorFeature
-            properties:
-                xmltag: null
-                subset: "actor"
-          - class: BegindatetimeFeature
-            properties:
-                xmltag: null
-                subset: "begindatetime"
-          - class: EnddatetimeFeature
-            properties:
-                xmltag: null
-                subset: "enddatetime"
-          - class: FunctionFeature
-            properties:
-                xmltag: null
-                subset: "function"
-          - class: HeadFeature
-            properties:
-                xmltag: null
-                subset: "head"
-          - class: LevelFeature
-            properties:
-                xmltag: null
-                subset: "level"
-          - class: ModalityFeature
-            properties:
-                xmltag: null
-                subset: "modality"
-          - class: PolarityFeature
-            properties:
-                xmltag: null
-                subset: "polarity"
-          - class: StrengthFeature
-            properties:
-                xmltag: null
-                subset: "strength"
-          - class: StyleFeature
-            properties:
-                xmltag: null
-                subset: "style"
-          - class: SynsetFeature
-            properties:
-                xmltag: null
-                subset: "synset"
-          - class: TimeFeature
-            properties:
-                xmltag: null
-                subset: "time"
-          - class: ValueFeature
-            properties:
-                xmltag: null
-                subset: "value"
-    - class: Gap
+        - class: Relation
+          properties:
+              annotationtype: RELATION
+              speakable: false
+              optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
+              printable: false
+              required_attribs: null
+              xlink: true
+              accepted_data: [ LinkReference, Metric, Feature, ForeignData ]
+              xmltag: "relation"
+              label: "Relation"
+        - class: Alternative
+          properties:
+              annotationtype: ALTERNATIVE
+              required_attribs: null
+              speakable: false
+              optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
+              printable: false
+              accepted_data: [ AbstractInlineAnnotation, Correction, ForeignData,  MorphologyLayer, PhonologyLayer ]
+              auth: false
+              xmltag: "alt"
+              label: "Alternative"
+        - class: AlternativeLayers
+          properties:
+              annotationtype: ALTERNATIVE
+              primaryelement: false
+              required_attribs: null
+              speakable: false
+              optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
+              printable: false
+              accepted_data: [ AbstractAnnotationLayer, ForeignData ]
+              auth: false
+              xmltag: "altlayers"
+              label: "Alternative Layers"
+        - class: SpanRelation
+          properties:
+              annotationtype: SPANRELATION
+              speakable: false
+              optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
+              printable: false
+              required_attribs: null
+              accepted_data: [ Relation, Metric, Feature, ForeignData ]
+              xmltag: "spanrelation"
+              label: "Span Relation"
+        - class: Correction
+          properties:
+              annotationtype: CORRECTION
+              printable: true
+              accepted_data: [ New, Original, Current, Suggestion, ErrorDetection, Metric, Feature, ForeignData ]
+              speakable: true
+              optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
+              xmltag: "correction"
+              label: "Correction"
+              textdelimiter: null
+        - class: Comment
+          properties:
+              annotationtype: COMMENT
+              xmltag: "comment"
+              label: "Comment"
+              optional_attribs: [ ID, ANNOTATOR, CONFIDENCE, DATETIME, N, METADATA ]
+              printable: false
+        - class: Description
+          properties:
+              annotationtype: DESCRIPTION
+              occurrences: 1
+              xmltag: "desc"
+              label: "Description"
+              optional_attribs: [ ID, ANNOTATOR, CONFIDENCE, DATETIME, N, METADATA ]
+        - class: External
+          properties:
+              speakable: false
+              optional_attribs: null
+              xmltag: "external"
+              label: "External"
+              required_attribs: [ SRC ]
+              accepted_data: null
+              auth: true
+              printable: true
+        - class: Feature
+          properties:
+              xmltag: "feat"
+              label: "Feature"
+          elements:
+              - class: ActorFeature
+                properties:
+                    xmltag: null
+                    subset: "actor"
+              - class: BegindatetimeFeature
+                properties:
+                    xmltag: null
+                    subset: "begindatetime"
+              - class: EnddatetimeFeature
+                properties:
+                    xmltag: null
+                    subset: "enddatetime"
+              - class: FunctionFeature
+                properties:
+                    xmltag: null
+                    subset: "function"
+              - class: HeadFeature
+                properties:
+                    xmltag: null
+                    subset: "head"
+              - class: LevelFeature
+                properties:
+                    xmltag: null
+                    subset: "level"
+              - class: ModalityFeature
+                properties:
+                    xmltag: null
+                    subset: "modality"
+              - class: PolarityFeature
+                properties:
+                    xmltag: null
+                    subset: "polarity"
+              - class: StrengthFeature
+                properties:
+                    xmltag: null
+                    subset: "strength"
+              - class: StyleFeature
+                properties:
+                    xmltag: null
+                    subset: "style"
+              - class: SynsetFeature
+                properties:
+                    xmltag: null
+                    subset: "synset"
+              - class: TimeFeature
+                properties:
+                    xmltag: null
+                    subset: "time"
+              - class: ValueFeature
+                properties:
+                    xmltag: null
+                    subset: "value"
+        - class: Metric
+          properties:
+              annotationtype: METRIC
+              optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
+              xmltag: "metric"
+              label: "Metric"
+              accepted_data: [ Feature, ValueFeature, ForeignData ]
+        - class: String
+          properties:
+              annotationtype: STRING
+              optional_attribs: [ ID, CLASS, ANNOTATOR, CONFIDENCE, DATETIME, N, SRC, BEGINTIME, ENDTIME, METADATA ]
+              occurrences: 0
+              printable: true
+              accepted_data: [AbstractInlineAnnotation, Relation, Correction, Feature, ForeignData, Metric, PhonContent, TextContent]
+              xmltag: "str"
+              label: "String"
+        - class: ForeignData
+          properties:
+              xmltag: "foreign-data"
+        - class: Gap
+          properties:
+              annotationtype: GAP
+              optional_attribs: [ ID, CLASS, ANNOTATOR, N,  DATETIME, SRC, BEGINTIME, ENDTIME, METADATA ]
+              xmltag: "gap"
+              label: "Gap"
+              accepted_data: [Content, Feature, Metric, Part, ForeignData]
+    - class: AbstractContentAnnotation
       properties:
-          annotationtype: GAP
-          optional_attribs: [ ID, CLASS, ANNOTATOR, N,  DATETIME, SRC, BEGINTIME, ENDTIME, METADATA ]
-          xmltag: "gap"
-          label: "Gap"
-          accepted_data: [Content, Feature, Metric, Part, ForeignData]
-    - class: Metric
-      properties:
-          annotationtype: METRIC
-          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
-          xmltag: "metric"
-          label: "Metric"
-          accepted_data: [ Feature, ValueFeature, ForeignData ]
-    - class: PhonContent
-      properties:
-          annotationtype: PHON
-          printable: false
-          accepted_data: null
-          phoncontainer: true
-          speakable: true
+          required_attribs: null
           optional_attribs: [ CLASS, ANNOTATOR, CONFIDENCE, DATETIME, METADATA ]
           occurrences: 0
-          xmltag: "ph"
-          label: "Phonetic Content"
-    - class: String
-      properties:
-          annotationtype: STRING
-          optional_attribs: [ ID, CLASS, ANNOTATOR, CONFIDENCE, DATETIME, N, SRC, BEGINTIME, ENDTIME, METADATA ]
-          occurrences: 0
-          printable: true
-          accepted_data: [AbstractExtendedTokenAnnotation, Alignment, Correction, Feature, ForeignData, Metric, PhonContent, TextContent]
-          xmltag: "str"
-          label: "String"
-    - class: TextContent
-      properties:
-          annotationtype: TEXT
-          textcontainer: true
-          printable: true
-          speakable: false
-          accepted_data: [ AbstractTextMarkup, Linebreak ] #Linebreak doubles as a AbstractTextMarkup and AbstractStructureAnnotation element
-          optional_attribs: [ CLASS, ANNOTATOR, CONFIDENCE, DATETIME, METADATA ]
-          occurrences: 0
-          xmltag: "t"
-          label: "Text"
-          xlink: true
+      elements:
+        - class: TextContent
+          properties:
+              annotationtype: TEXT
+              textcontainer: true
+              printable: true
+              speakable: false
+              accepted_data: [ AbstractTextMarkup, Linebreak ] #Linebreak doubles as a AbstractTextMarkup and AbstractStructureAnnotation element
+              xmltag: "t"
+              label: "Text"
+              xlink: true
+        - class: PhonContent
+          properties:
+              annotationtype: PHON
+              printable: false
+              accepted_data: null
+              phoncontainer: true
+              speakable: true
+              xmltag: "ph"
+              label: "Phonetic Content"
+        - class: Content
+          properties:
+              printable: true
+              annotationtype: RAWCONTENT
+              xmltag: "content"
+              occurrences: 1
+              label: "Raw Content"
     - class: WordReference
       properties:
+          optional_attribs: [ IDREF ]
           xmltag: "wref"
-    - class: ForeignData
+    - class: LinkReference #used to be AlignReference in FoLiA < 2
       properties:
-          xmltag: "foreign-data"
+          optional_attribs: [ IDREF ]
+          xmltag: "xref"
+
+#List of elements that can be a target of wref in span anntation
+wrefables: [ Word, Hiddenword, Morpheme, Phoneme ]
 
 #Default ignore list for the select() method, do not descend into these
 default_ignore: [ Original, Suggestion, Alternative, AlternativeLayers, ForeignData ]
@@ -755,3 +1145,11 @@ default_ignore_structure: [ Original, Suggestion, Alternative, AlternativeLayers
 
 #Structure scope above the sentence level, used by next() and previous() methods
 structurescope: [ Sentence, Paragraph, Division, ListItem, Text, Event, Caption, Head ]
+
+#This maps some old XML tags to new ones
+oldtags:
+    aref: xref #folia 1.5 -> 2
+    alignment: relation #folia 1.5 -> 2
+    complexalignment: spanrelation #folia 1.5 -> 2
+    complexalignments: spanrelations #(the layer)
+    listitem: item #folia < 0.12?
