@@ -79,37 +79,55 @@ href="https://github.com/proycon/folia">FoLiA github repository</a>  for all
 available resources.</p>
 
 <ul>
-<li><a href="https://github.com/proycon/folia/blob/master/docs/folia.pdf?raw=true">FoLiA documentation (PDF)</a></li>
-<li><a href="https://github.com/proycon/folia">FoLiA source repository on github</a> (contains converter scripts, schemas, XSL stylesheets, etc)</li>
+<li><a href="https://folia.readthedocs.io">FoLiA documentation</a></li>
+<li><a href="https://github.com/proycon/folia">FoLiA source repository</a> (contains specifications, schemas and examples)
+<ul>
 <li><a href="https://github.com/proycon/folia/blob/master/schemas/folia.rng">FoLiA RelaxNG schema</a> (for validation)</li>
-<li><a href="example.xml">Example of a FoLiA document</a> (with in-browser visualisation through XSL, view source for XML)</li>
+</ul></li>
 </ul>
 
-<p>Two software libraries are available for working with the FoLiA format from
+<p>Software libraries are available for working with the FoLiA format from
 within your own scripts and applications. Make sure to check back regularly for
 updates, as both are still being actively developed.</p>
 
 <ul>
-<li><tt><a href="https://pypi.python.org/pypi/PyNLPl/">pynlpl.formats.folia</a></tt> (Python library) - by Maarten van Gompel, distributed as part of PyNLPl
+<li><tt><a href="https://github.com/proycon/foliapy/">FoLiApy</a></tt> (Python 3 library) - by Maarten van Gompel
 <ul>
-	<li><a href="https://pynlpl.readthedocs.io/en/latest/folia.html">Library documentation (Introductory tutorial and API reference)</a></li>
-	<li>We recommend obtaining pynlpl through the <a href="https://pypi.python.org/pypi/PyNLPl/">Python Package Index</a> or directly from github, this ensures you have the latest version and can keep it up to date: $ sudo pip install pynlpl</li>
+	<li><a href="https://foliapy.readthedocs.io">Library documentation (Introductory tutorial and API reference)</a></li>
+    <li>We recommend obtaining foliapy through the <a href="https://pypi.python.org/pypi/foliapy/">Python Package Index</a>: <tt>$ pip install folia</tt></li>
 </ul>
 </li>
 <li><tt><a href="https://github.com/LanguageMachines/libfolia">libfolia</a></tt> (C++ library) - by Ko van der Sloot, Tilburg University.
 <ul>
 	<li>No documentation available yet</li>
-	<li><strong>Note:</strong> libfolia is a dependency for both Frog and ucto. You will need it to compile them!</li>
+	<li><strong>Note:</strong> libfolia is a dependency for both Frog and ucto.</li>
 </ul>
 </li>
+<li><tt><a href="https://github.com/proycon/pynlpl/">pynlpl.formats.folia</a></tt> (<b>LEGACY</b> Python library) - by Maarten van Gompel, distributed as part of PyNLPl. Use FoLiApy instead and fall back to this only if you need Python 2.7 support still.</li>
 </ul>
 
-<p>
-A web-based annotation tool is available, allowing creation and editing of FoLiA documents:
-</p>
+Various software (also by third parties) is available that supports FoLiA, the following list gives an impression and is not exhaustive:
 
 <ul>
-    <li><a href="https://github.com/proycon/flat/">FLAT: FoLiA Linguistic Annotation Tool</a> - Web-based annotation tool for FoLiA</li>
+    <li><a href="https://pypi.python.org/pypi/folia-tools">FoLiA Tools</a> - A set of command-line tools for various operations on FoLiA documents. Contains a validator, convertors and more. <strong>Always install and use this to validator your FoLiA documents!</strong></li>
+    <li><a href="https://github.com/LanguageMachines/foliautils">FoLiA Utilities</a> - Another set of (complementary) command-line tools for various operations on FoLiA documents. Contains a validator, other convertors and more</li>
+    <li><a href="https://github.com/proycon/flat/">FLAT: FoLiA Linguistic Annotation Tool</a> - An elaborate web-based annotation tool for FoLiA.</li>
+    <li><a href="https://languagemachines.github.io/ucto">Ucto</a> - A multilingual rule-based tokeniser with extensive FoLiA support.</li>
+    <li><a href="https://languagemachines.github.io/frog">Frog</a> - An NLP suite for Dutch with extensive FoLiA support. </li>
+    <li><a href="https://github.com/LanguageMachines/PICCL">PICCL</a> - A set of workflows for corpus building through OCR, post-correction, modernization of historic language and Natural Language Processing. </li>
+    <li><a href="https://proycon.github.io/colibri-core">Colibri Core</a> - Colibri Core is software to quickly and efficiently count and extract patterns from large corpus data, to extract various statistics on the extracted patterns, and to compute relations between the extracted patterns. (limited FoLiA input support)</li>
+    <li><a href="https://github.com/proycon/foliadocserve/">FoLiA Document Server</a> - HTTP webservice backend for serving and annotating FoLiA documents. Serves as the back-end to FLAT.</li>
+    <li><a href="https://github.com/proycon/tscan/">T-scan</a> - An analysis tool for dutch texts to assess the complexity of the text.</li>
+    <li><a href="https://github.com/rug-compling/paqu">PaQu</a> - PaQu is a webservice allowing people to analyse dutch text documents and research word relations. (limited FoLiA support) </li>
+    <li><a href="https://github.com/INL/BlackLab">BlackLab</a> - A corpus retrieval engine based on Apache Lucene. (limited FoLiA indexing support)</li>
+    <li><a href="https://github.com/meertensinstituut/mtas">MTAS</a> - Multi-Tier Annotation Search (limited FoLiA indexing support)</li>
+    <li><a href="https://github.com/ErwinKomen/FoliaParse">FoliaParse</a> - Command-line application that converts 'basic' FoLiA + Alpino into syntactically parsed FoLiA (includes 'surfacing')</li>
+    <li><a href="https://github.com/ErwinKomen/FoliaEntity">FoliaEntity</a> - Named-entity Linker</li>
+    <li><a href="https://github.com/birch-group/elan2folia">ELAN2FoLiA</a> - ELAN-to-FoLiA (EAF-to-FoLiA) converter</li>
+    <li><a href="https://github.com/INL/OpenConvert">OpenConvert</a> - Text conversion tool (from e.g. Word, HTML, txt) to corpus formats TEI or FoLiA) (limited FoLiA support!)</li>
+    <li><a href="https://github.com/A-Atef-NLP/CoreNLP2FoLiA">CoreNLP2FoLiA</a> - Extend stanford CoreNLP to support exporting FoLiA format.</li>
+    <li><a href="https://github.com/cltl/NAFFoLiAPy">NAFFoLiAPy</a> - Library for converting NAF to FoLiA (limited) and FoLiA to NAF (very limited)</li>
+    <li><a href="https://github.com/UiL-OTS-labs/essay-annotation">Essay Annotation</a> - Parses Word documents with a specific markup (called essay annotation) into FoLiA XML and back.</li>
 </ul>
 
 <p>
@@ -123,12 +141,14 @@ For additional support use our  <a href="https://github.com/proycon/folia/issues
 <h2>Publications</h2>
 
 <p>
-If you make use of FoLiA in your work, please cite one or more of the following publications:
+If you make use of FoLiA in your work, please cite one or more of the following publications. A link to this website is also much appreciated.
 </p>
 
 <ul>
-    <li>[<a href="http://www.clinjournal.org/sites/clinjournal.org/files/05-vanGompel-Reynaert-CLIN2013.pdf">PDF</a>|<a href="http://www.clinjournal.org/biblio/export/bibtex/39">BibTex</a>] Maarten van Gompel &amp; Martin Reynaert (2014). <strong>FoLiA: A practical XML format for linguistic annotation - a descriptive and comparative study</strong>; Computational Linguistics in the Netherlands Journal; 3:63-81; 2013.</li>
-    <li>[<a href="http://github.com/proycon/folia/blob/master/docs/folia.pdf?raw=true">PDF</a>] Maarten van Gompel (2014). <strong>FoLiA: Format for Linguistic Annotation. Documentation</strong> Language and Speech Technology Technical Report Series LST-14-01. Radboud University Nijmegen.</li>
+    <li>[<a href="https://clinjournal.org/clinj/article/view/26/22">PDF</a>|<a href="https://clinjournal.org/clinj/citationstylelanguage/download/bibtex?submissionId=26">BibTex</a>] Maarten van Gompel &amp; Martin Reynaert (2014). <strong>FoLiA: A practical XML format for linguistic annotation - a descriptive and comparative study</strong>; Computational Linguistics in the Netherlands Journal; 3:63-81; 2013.</li>
+    <li>[<a href="https://www.jstor.org/stable/j.ctv3t5qjk.13?seq=1#metadata_info_tab_contents">PDF</a>] Maarten van Gompel, Ko van der Sloot, Martin Reynaert, Antal van den Bosch (2017). FoLiA in Practice: The Infrastructure of a Linguistic Annotation Format.  In: CLARIN in the Low Countries. Eds: Jan Odijk and Arjan van Hessen. Pp. 71-81.</li>
+    <li>[<a href="https://github.com/proycon/folia/raw/master/docs/folia.pdf">PDF</a>|<a href="https://folia.readthedocs.io">HTML</a>] Maarten van Gompel (2019). <strong>FoLiA: Format for Linguistic Annotation. Documentation</strong> Language and Speech Technology Technical Report Series. Radboud University Nijmegen.</li>
+    <li>Maarten van Gompel (2014). <strong>FoLiA: Format for Linguistic Annotation. Documentation.</strong> Language and Speech Technology Technical Report Series LST-14-01. Radboud University Nijmegen.</li>
     <li>Maarten van Gompel (2012). <strong>FoLiA: Format for Linguistic Annotation. Documentation.</strong> ILK Technical Report 12-03. Tilburg University</li>
 </ul>
 </section>
@@ -137,11 +157,13 @@ If you make use of FoLiA in your work, please cite one or more of the following 
 <h2>Posters &amp; Presentations</h2>
 
 <ul>
-    <li>[<a href="http://proycon.anaproy.nl/pubs/folia_poster2.png">PNG</a>] Maarten van Gompel (2013). <em>Poster:</em> <strong>FoLiA: Format for Linguistic Annotation</strong>. Presented for CLARIN-NL, Utrecht University</li>    <li>[<a href="http://proycon.anaproy.nl/pubs/folia_pres_clin.pdf">PDF</a>] Maarten van Gompel (2012). <em>Presentation:</em> <strong>FoLiA: Format for Linguistic Annotation</strong>. Presented at CLIN22. Tilburg University</li>
+	<li>[<a href="https://anaproy.nl/proycon/pubs/folia_poster3_a0.pdf">PDF</a>] Maarten van Gompel (2018). <em>Poster:</em> <strong>FoLiA: Format for Linguistic Annotation</strong>. Presented at CLIN28. Nijmegen University</li>
+    <li>[<a href="https://proycon.anaproy.nl/pubs/folia_poster2.png">PNG</a>] Maarten van Gompel (2013). <em>Poster:</em> <strong>FoLiA: Format for Linguistic Annotation</strong>. Presented for CLARIN-NL, Utrecht University</li>
+    <li>[<a href="http://proycon.anaproy.nl/pubs/folia_pres_clin.pdf">PDF</a>] Maarten van Gompel (2012). <em>Presentation:</em> <strong>FoLiA: Format for Linguistic Annotation</strong>. Presented at CLIN22. Tilburg University</li>
 </ul>
 
 
-<p>FoLiA is currently used in a wide variety of projects in the Dutch and Flemish Natural Language Processing community. The largest Dutch corpus, SoNaR, is delivered in FoLiA format, and various <a href="http://www.clarin.nl">CLARIN projects</a> make use of it as well. Support for FoLiA is integrated into various software projects; including <a href="http://ilk.uvt.nl/ucto">ucto</a>, <a href="http://ilk.uvt.nl/frog">Frog</a>, <a href="http://valkuil.net">Valkuil.net</a>.</p>
+<p>FoLiA is currently used in a wide variety of projects in the Dutch and Flemish Natural Language Processing community. The largest Dutch corpus, SoNaR, is delivered in FoLiA format, and various <a href="http://www.clarin.nl">CLARIN-NL</a> and <a href="https://clariah.nl">CLARIAH</a> projects</a> make use of it as well. Support for FoLiA is integrated into various software projects; including but not limited to <a href="https://languagemachines.github.io/ucto">ucto</a>, <a href="https://languagemachines.github.io/frog">Frog</a>, <a href="http://valkuil.net">Valkuil.net</a>.</p>
 
 <p>FoLiA was developed by Maarten van Gompel at Tilburg University and now at Radboud University Nijmegen, with input from Antal van den Bosch, Ko van der Sloot, Martin Reynaert and many other people in the academic community. </p>
 
@@ -149,4 +171,4 @@ If you make use of FoLiA in your work, please cite one or more of the following 
 
 </section>
 
-<a href="http://applejack.science.ru.nl/languagemachines" style="display: block"><img src="http://applejack.science.ru.nl/lamabadge.php/folia" alt="badge" /></a>
+<a href="https://applejack.science.ru.nl/languagemachines" style="display: block"><img src="https://applejack.science.ru.nl/lamabadge.php/folia" alt="badge" /></a>

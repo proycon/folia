@@ -1,44 +1,44 @@
 ---
 exclude: [bundle]
 defaults:
-   - 
+   -
     scope:
      path: ""
      type: pages
-    values: 
+    values:
      layout: lamalayout
-     title: FoLiA 
+     title: FoLiA
      subtitle: Format for Linguistic Annotation
      author: Maarten van Gompel (proycon)
-     keywords: folia, format for linguistic annotation, xml, tei, d-coi, clarin
+     keywords: folia, format for linguistic annotation, xml, tei, d-coi, clarin, clariah
      description: FoLiA is an XML-based format for Linguistic Annotation suitable for representing written language resources such as corpora. Its goal is to unify a variety of linguistic annotations in one single rich format, without committing to any particular standard annotation set.
      lang: en
-     menu: 
+     menu:
       - label: Home
         url: https://proycon.github.io/folia/
       - label: Source
         url: https://github.com/proycon/folia/
       - label: Documentation
-        url: https://github.com/proycon/folia/raw/master/docs/folia.pdf
-      - label: Python Library Documentation 
+        url: https://folia.readthedocs.io
+      - label: Python Library
+        url: https://pypi.python.org/pypi/folia
+      - label: Python Library Documentation
         url: http://pynlpl.readthedocs.io/en/latest/folia.html
-      - label: Example Document
-        url: example.xml
-      - label: FoLiA Tools @PyPi
+      - label: FoLiA Tools
         url: https://pypi.python.org/pypi/FoLiA-tools
      languages:
       - lang: en
         label: English
-      - lang: nl
-        label: Nederlands
-      - lang: de
-        label: Deutsch
-      - lang: fr
-        label: Français
-      - lang: es
-        label: Español
-      - lang: pt
-        label: Português
-      - lang: tr
-        label: Türkçe
+     #- lang: nl
+     #  label: Nederlands
+     #- lang: de
+     #  label: Deutsch
+     #- lang: fr
+     #  label: Français
+     #- lang: es
+     #  label: Español
+     #- lang: pt
+     #  label: Português
+     #- lang: tr
+     #  label: Türkçe
 ---
