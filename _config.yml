@@ -23,7 +23,7 @@ defaults:
       - label: Python Library
         url: https://pypi.python.org/pypi/folia
       - label: Python Library Documentation
-        url: http://pynlpl.readthedocs.io/en/latest/folia.html
+        url: https://foliapy.readthedocs.io
       - label: FoLiA Tools
         url: https://pypi.python.org/pypi/FoLiA-tools
      languages:
