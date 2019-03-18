@@ -17,7 +17,7 @@
       </provenance>
   </metadata>
   <speech xml:id="example.speech">
-    <utt xml:id="example.utt.1" src="helloworld.mp3"  begintime="00:00:01.000" endtime="00:00:02:000">
+    <utt xml:id="example.utt.1" src="helloworld.mp3"  begintime="00:00:01.000" endtime="00:00:02.000">
         <ph>helˈoʊ wɝːld</ph>
         <w xml:id="example.utt.1.w.1" begintime="00:00:00.000" endtime="00:00:01.000">
             <ph>helˈoʊ</ph>
