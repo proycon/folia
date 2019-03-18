@@ -189,7 +189,7 @@ Validators are provided by the `FoLiA tools <https://github.com/proycon/foliatoo
 
 .. code-block:: bash
 
-    $ pip install foliatools
+    $ pip install folia-tools
     $ foliavalidator myfoliadocument.folia.xml
 
 
