@@ -77,18 +77,30 @@ Notable features are:
 Resources
 ---------
 
--  `Website <http://proycon.github.io/folia>`_
--  `Documentation <http://github.com/proycon/folia/blob/master/docs/folia.pdf?raw=true>`__
--  `RelaxNG schema <http://github.com/proycon/folia/blob/master/schemas/folia.rng>`__
--  **Example** of a FoLiA document (with in-browser visualisation
-   through XSL, use view source for XML):
-   http://proycon.github.io/folia/example.xml
--  **FoLiA library for Python**: ``pynlpl.formats.folia`` (`source <http://github.com/proycon/pynlpl/blob/master/formats/folia.py>`__, `documentation <https://pythonhosted.org/PyNLPl/folia.html>`__)
--  **C++ Library**: ``libfolia`` (`download <http://ilk.uvt.nl/folia/download-libfolia.php>`__, *by Ko van der Sloot (Tilburg University)*
+-  `Website <https://proycon.github.io/folia>`_ - **Please visit this FoLiA website for more information**
+-  `Documentation <https://folia.readthedocs.io>`__
+-  `RelaxNG schema <http://github.com/proycon/folia/blob/master/schemas/folia.rng>`__ (not sufficient for full
+  validation, use the `foliavalidator <https://github.com/proycon/foliatools>`_ or `folialint
+  <https://github.com/LanguageMachines/libfolia>`_ tool!)
+-  `Examples of FoLiA documents <https://github.com/proycon/folia/tree/master/examples>`_
+-  `FoLiApy: FoLiA library for Python <https://github.com/proycon/foliapy>`_ (``pip install folia``)
+   - `Library documentation <https://foliapy.readthedocs.io>`_
+-  `libfolia: FoLiA library C++ <https://github.com/LanguageMachines/libfolia>`_
+-  `FoLiA Tools: Various command-line tools for FoLiA <https://github.com/proycon/foliatools>`_ (``pip install folia-tools``)
+-  `FoLiA Utilities: Various command-line tools for FoLiA <https://github.com/LanguageMachines/foliautils>`_
+-  `FLAT: A web-based annotation environment <https://github.com/proycon/flat>`_
+
+A more extensive list of FoLiA-capable software is maintained on the `FoLiA website <https://proycon.github.io/folia>`_
 
 Publications
 ------------
 
+See the `FoLiA website <https://proycon.github.io/folia>`_ for more publications and full text links.
+
+-  Maarten van Gompel (2019). FoLiA: Format for Linguistic Annotation - Documentation. Language and Speech Technology Technical Report Series. Radboud University Nijmegen.
+-  Maarten van Gompel, Ko van der Sloot, Martin Reynaert, Antal van den Bosch (2017). **FoLiA in Practice: The
+   Infrastructure of a Linguistic Annotation Format.** In: CLARIN in the Low Countries. Eds: Jan Odijk and Arjan van
+   Hessen. Pp. 71-81.
 -  Maarten van Gompel & Martin Reynaert (2014). **FoLiA: A practical XML
    format for linguistic annotation - a descriptive and comparative
    study;** Computational Linguistics in the Netherlands Journal;
