@@ -35,6 +35,7 @@ FoLiA defines the following types of text markup annotation:
 * :ref:`textmarkup_annotation_category` --
   The text content element (``<t>``) allows within its scope elements of a this category; these are **Text Markup** elements, they always contain textual content and apply a certain markup to certain spans of the text. One of it's common uses is for styling (emphasis, underlines, etc.). Text markup elements may be nested.
    - :ref:`style_annotation` -- ``<t-style>`` -- This is a text markup annotation type for applying styling to text. The actual styling is defined by the user-defined set definition and can for example included classes such as italics, bold, underline
+   - :ref:`hyphenation_annotation` -- ``<t-hbr>`` -- This is a text-markup annotation form that indicates where in the original text a linebreak was inserted and a word was hyphenised.
 
 .. foliaspec:begin:toctree(textmarkup,hidden)
 .. toctree::
@@ -42,5 +43,6 @@ FoLiA defines the following types of text markup annotation:
    :maxdepth: 3
 
    style_annotation
+   hyphenation_annotation
 
 .. foliaspec:end:toctree
