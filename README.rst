@@ -79,8 +79,7 @@ Resources
 
 -  `Website <https://proycon.github.io/folia>`_ - **Please visit this FoLiA website for more information**
 -  `Documentation <https://folia.readthedocs.io>`__
--  `RelaxNG schema <http://github.com/proycon/folia/blob/master/schemas/folia.rng>`__ (not sufficient for full
-    validation, use the `foliavalidator <https://github.com/proycon/foliatools>`_ or `folialint <https://github.com/LanguageMachines/libfolia>`_ tool!)
+-  `RelaxNG schema <http://github.com/proycon/folia/blob/master/schemas/folia.rng>`_ (not sufficient for full validation, use the `foliavalidator <https://github.com/proycon/foliatools>`_ or `folialint <https://github.com/LanguageMachines/libfolia>`_ tool!)
 -  `Examples of FoLiA documents <https://github.com/proycon/folia/tree/master/examples>`_
 -  `FoLiApy: FoLiA library for Python <https://github.com/proycon/foliapy>`_ (``pip install folia``)
    - `Library documentation <https://foliapy.readthedocs.io>`_
