@@ -14,15 +14,15 @@ the order they were invoked. The :ref:`annotation_declarations` in turn link to 
 annotation type and set to one or more processors.
 
 A ``<processor>`` carries the following attributes:
-   * ``xml:id`` -- The ID of the processor (mandatory), this is how it is referred to from the ``<annotator processor=".." />`` element in the :ref:`annotation_declarations` and from the ``processor`` attribute (part of the common FoLiA attributes) on individual annotations.
-   * ``name`` -- The name identifies actual tool or human annotator
-   * ``type`` -- Each processor contains a type:
+   * ``xml:id`` (mandatory) -- The ID of the processor, this is how it is referred to from the ``<annotator processor=".." />`` element in the :ref:`annotation_declarations` and from the ``processor`` attribute (part of the common FoLiA attributes) on individual annotations.
+   * ``name`` (mandatory) -- The name identifies actual tool or human annotator
+   * ``type`` (mandatory) -- Each processor contains a type:
         * ``auto`` - (default) - The processor is an automated tool that provided annotations
         * ``manual`` - The processor refers a manual annotator
         * ``generator`` - The processor indicates the FoLiA library used by the parent and sibling processors (unless sibling processes specify another generator in their scope)
         * ``datasource`` - The processor is a reference to a particular data source that was used by the parent processor
    * ``version`` -- (optional but strongly recommended) is the version of the processor aka tool
-   * ``document_version``  -- The version of the document, refers to any label the user desires to indicate a version of the document, so the format is not predetermined and needs not be numeric.
+   * ``document_version`` (optional)  -- The version of the document, refers to any label the user desires to indicate a version of the document, so the format is not predetermined and needs not be numeric.
    * ``command`` (optional) -- The exact command that was run
    * ``host`` (optional) -- The host on which the processor ran, this identifies individual systems on a network/cluster
    * ``user`` (optional) -- The user/executor which ran the processor, this identifies who ran an automated process rather than who the annotator was!
