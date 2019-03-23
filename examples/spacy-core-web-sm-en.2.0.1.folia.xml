@@ -3,41 +3,41 @@
   <metadata type="native">
     <annotations>
       <text-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/text.foliaset.ttl">
-        <annotator processor="proc.spacy2folia.0000cb35"/>
+        <annotator processor="proc.spacy2folia.0000c641"/>
       </text-annotation>
       <paragraph-annotation>
-        <annotator processor="proc.spacy2folia.0000cb35"/>
+        <annotator processor="proc.spacy2folia.0000c641"/>
       </paragraph-annotation>
       <sentence-annotation>
-        <annotator processor="proc.spacy2folia.0000cb35"/>
+        <annotator processor="proc.spacy2folia.0000c641"/>
       </sentence-annotation>
       <token-annotation>
-        <annotator processor="proc.spacy2folia.0000cb35"/>
+        <annotator processor="proc.spacy2folia.0000c641"/>
       </token-annotation>
-      <pos-annotation set="spacy-pos-en">
-        <annotator processor="proc.spacy2folia.0000cb35"/>
+      <pos-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/spacy/spacy-core_web_sm_en-pos">
+        <annotator processor="proc.spacy2folia.0000c641"/>
       </pos-annotation>
       <pos-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/universal-pos.foliaset.ttl">
-        <annotator processor="proc.spacy2folia.0000cb35"/>
+        <annotator processor="proc.spacy2folia.0000c641"/>
       </pos-annotation>
-      <lemma-annotation set="spacy-lemma-en">
-        <annotator processor="proc.spacy2folia.0000cb35"/>
+      <lemma-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/spacy/spacy-core_web_sm_en-lemma">
+        <annotator processor="proc.spacy2folia.0000c641"/>
       </lemma-annotation>
-      <entity-annotation set="spacy-namedentitities-en">
-        <annotator processor="proc.spacy2folia.0000cb35"/>
+      <entity-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/spacy/spacy-core_web_sm_en-namedentitities">
+        <annotator processor="proc.spacy2folia.0000c641"/>
       </entity-annotation>
-      <chunking-annotation set="spacy-nounchunks-en">
-        <annotator processor="proc.spacy2folia.0000cb35"/>
+      <chunking-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/spacy/spacy-core_web_sm_en-nounchunks">
+        <annotator processor="proc.spacy2folia.0000c641"/>
       </chunking-annotation>
-      <dependency-annotation set="spacy-dependencies-en">
-        <annotator processor="proc.spacy2folia.0000cb35"/>
+      <dependency-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/spacy/spacy-core_web_sm_en-dependencies">
+        <annotator processor="proc.spacy2folia.0000c641"/>
       </dependency-annotation>
     </annotations>
     <provenance>
-      <processor xml:id="proc.spacy2folia.0000cb35" name="spacy2folia" type="auto" folia_version="2.0.1" command="spacy2folia --model en_core_web_sm /tmp/test.txt" host="mhysa.anaproy.nl" user="proycon" begindatetime="2019-03-23T13:05:04">
-        <processor xml:id="proc.spacy2folia.0000cb35.generator" name="foliapy" type="generator" version="2.0.4" folia_version="2.0.1"/>
-        <processor xml:id="proc.spacy.0000638e" name="spacy" type="auto" version="2.1.2">
-          <processor xml:id="proc.core_web_sm_en.0000d717" name="core_web_sm_en" type="datasource" version="2.1.0">
+      <processor xml:id="proc.spacy2folia.0000c641" name="spacy2folia" type="auto" folia_version="2.0.1" command="spacy2folia --model en_core_web_sm /tmp/test.txt" host="mhysa.anaproy.nl" user="proycon" begindatetime="2019-03-23T13:19:07">
+        <processor xml:id="proc.spacy2folia.0000c641.generator" name="foliapy" type="generator" version="2.0.4" folia_version="2.0.1"/>
+        <processor xml:id="proc.spacy.000048b3" name="spacy" type="auto" version="2.1.2">
+          <processor xml:id="proc.core_web_sm_en.0000d651" name="core_web_sm_en" type="datasource" version="2.1.0">
             <meta id="author">Explosion AI</meta>
             <meta id="description">English multi-task CNN trained on OntoNotes. Assigns context-specific token vectors, POS tags, dependency parse and named entities.</meta>
             <meta id="email">contact@explosion.ai</meta>
@@ -58,49 +58,49 @@
       <s xml:id="test.text.p.1.s.1">
         <w xml:id="test.text.p.1.s.1.w.1">
           <t>The</t>
-          <pos set="spacy-pos-en" class="DT"/>
+          <pos set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/spacy/spacy-core_web_sm_en-pos" class="DT"/>
           <pos set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/universal-pos.foliaset.ttl" class="DET"/>
           <lemma class="the"/>
         </w>
         <w xml:id="test.text.p.1.s.1.w.2">
           <t>capital</t>
-          <pos set="spacy-pos-en" class="NN"/>
+          <pos set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/spacy/spacy-core_web_sm_en-pos" class="NN"/>
           <pos set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/universal-pos.foliaset.ttl" class="NOUN"/>
           <lemma class="capital"/>
         </w>
         <w xml:id="test.text.p.1.s.1.w.3">
           <t>of</t>
-          <pos set="spacy-pos-en" class="IN"/>
+          <pos set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/spacy/spacy-core_web_sm_en-pos" class="IN"/>
           <pos set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/universal-pos.foliaset.ttl" class="ADP"/>
           <lemma class="of"/>
         </w>
         <w xml:id="test.text.p.1.s.1.w.4">
           <t>the</t>
-          <pos set="spacy-pos-en" class="DT"/>
+          <pos set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/spacy/spacy-core_web_sm_en-pos" class="DT"/>
           <pos set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/universal-pos.foliaset.ttl" class="DET"/>
           <lemma class="the"/>
         </w>
         <w xml:id="test.text.p.1.s.1.w.5">
           <t>Netherlands</t>
-          <pos set="spacy-pos-en" class="NNP"/>
+          <pos set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/spacy/spacy-core_web_sm_en-pos" class="NNP"/>
           <pos set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/universal-pos.foliaset.ttl" class="PROPN"/>
           <lemma class="Netherlands"/>
         </w>
         <w xml:id="test.text.p.1.s.1.w.6">
           <t>is</t>
-          <pos set="spacy-pos-en" class="VBZ"/>
+          <pos set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/spacy/spacy-core_web_sm_en-pos" class="VBZ"/>
           <pos set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/universal-pos.foliaset.ttl" class="VERB"/>
           <lemma class="be"/>
         </w>
         <w xml:id="test.text.p.1.s.1.w.7" space="no">
           <t>Amsterdam</t>
-          <pos set="spacy-pos-en" class="NNP"/>
+          <pos set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/spacy/spacy-core_web_sm_en-pos" class="NNP"/>
           <pos set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/universal-pos.foliaset.ttl" class="PROPN"/>
           <lemma class="Amsterdam"/>
         </w>
         <w xml:id="test.text.p.1.s.1.w.8" space="no">
           <t>.</t>
-          <pos set="spacy-pos-en" class="."/>
+          <pos set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/spacy/spacy-core_web_sm_en-pos" class="."/>
           <pos set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/universal-pos.foliaset.ttl" class="PUNCT"/>
           <lemma class="."/>
         </w>
