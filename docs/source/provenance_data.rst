@@ -16,7 +16,7 @@ annotation type and set to one or more processors.
 A ``<processor>`` carries the following attributes:
    * ``xml:id`` (mandatory) -- The ID of the processor, this is how it is referred to from the ``<annotator processor=".." />`` element in the :ref:`annotation_declarations` and from the ``processor`` attribute (part of the common FoLiA attributes) on individual annotations.
    * ``name`` (mandatory) -- The name identifies actual tool or human annotator
-   * ``type`` (mandatory) -- Each processor contains a type:
+   * ``type`` -- Each processor contains a type:
         * ``auto`` - (default) - The processor is an automated tool that provided annotations
         * ``manual`` - The processor refers a manual annotator
         * ``generator`` - The processor indicates the FoLiA library used by the parent and sibling processors (unless sibling processes specify another generator in their scope)
@@ -122,6 +122,12 @@ The following example provides a small but complete FoLiA document with provenan
 And another more real-life example:
 
 .. literalinclude:: ../../examples/pos-features-deep.2.0.0.folia.xml
+    :linenos:
+    :language: xml
+
+Another example with many annotation types and extensive provenance data:
+
+.. literalinclude:: ../../examples/spacy-core-web-sm-en.2.0.0.folia.xml
     :linenos:
     :language: xml
 

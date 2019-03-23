@@ -1,0 +1,197 @@
+<?xml version='1.0' encoding='utf-8'?>
+<FoLiA xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://ilk.uvt.nl/folia" xml:id="test" version="2.0.1" generator="foliapy-v2.0.4">
+  <metadata type="native">
+    <annotations>
+      <text-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/text.foliaset.ttl">
+        <annotator processor="proc.spacy2folia.0000cb35"/>
+      </text-annotation>
+      <paragraph-annotation>
+        <annotator processor="proc.spacy2folia.0000cb35"/>
+      </paragraph-annotation>
+      <sentence-annotation>
+        <annotator processor="proc.spacy2folia.0000cb35"/>
+      </sentence-annotation>
+      <token-annotation>
+        <annotator processor="proc.spacy2folia.0000cb35"/>
+      </token-annotation>
+      <pos-annotation set="spacy-pos-en">
+        <annotator processor="proc.spacy2folia.0000cb35"/>
+      </pos-annotation>
+      <pos-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/universal-pos.foliaset.ttl">
+        <annotator processor="proc.spacy2folia.0000cb35"/>
+      </pos-annotation>
+      <lemma-annotation set="spacy-lemma-en">
+        <annotator processor="proc.spacy2folia.0000cb35"/>
+      </lemma-annotation>
+      <entity-annotation set="spacy-namedentitities-en">
+        <annotator processor="proc.spacy2folia.0000cb35"/>
+      </entity-annotation>
+      <chunking-annotation set="spacy-nounchunks-en">
+        <annotator processor="proc.spacy2folia.0000cb35"/>
+      </chunking-annotation>
+      <dependency-annotation set="spacy-dependencies-en">
+        <annotator processor="proc.spacy2folia.0000cb35"/>
+      </dependency-annotation>
+    </annotations>
+    <provenance>
+      <processor xml:id="proc.spacy2folia.0000cb35" name="spacy2folia" type="auto" folia_version="2.0.1" command="spacy2folia --model en_core_web_sm /tmp/test.txt" host="mhysa.anaproy.nl" user="proycon" begindatetime="2019-03-23T13:05:04">
+        <processor xml:id="proc.spacy2folia.0000cb35.generator" name="foliapy" type="generator" version="2.0.4" folia_version="2.0.1"/>
+        <processor xml:id="proc.spacy.0000638e" name="spacy" type="auto" version="2.1.2">
+          <processor xml:id="proc.core_web_sm_en.0000d717" name="core_web_sm_en" type="datasource" version="2.1.0">
+            <meta id="author">Explosion AI</meta>
+            <meta id="description">English multi-task CNN trained on OntoNotes. Assigns context-specific token vectors, POS tags, dependency parse and named entities.</meta>
+            <meta id="email">contact@explosion.ai</meta>
+            <meta id="license">MIT</meta>
+            <meta id="parent_package">spacy</meta>
+            <meta id="pipeline">tagger,parser,ner</meta>
+            <meta id="sources">OntoNotes 5</meta>
+            <meta id="spacy_version">&gt;=2.1.0</meta>
+            <meta id="url">https://explosion.ai</meta>
+          </processor>
+        </processor>
+      </processor>
+    </provenance>
+    <meta id="lang">en</meta>
+  </metadata>
+  <text xml:id="test.text">
+    <p xml:id="test.text.p.1">
+      <s xml:id="test.text.p.1.s.1">
+        <w xml:id="test.text.p.1.s.1.w.1">
+          <t>The</t>
+          <pos set="spacy-pos-en" class="DT"/>
+          <pos set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/universal-pos.foliaset.ttl" class="DET"/>
+          <lemma class="the"/>
+        </w>
+        <w xml:id="test.text.p.1.s.1.w.2">
+          <t>capital</t>
+          <pos set="spacy-pos-en" class="NN"/>
+          <pos set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/universal-pos.foliaset.ttl" class="NOUN"/>
+          <lemma class="capital"/>
+        </w>
+        <w xml:id="test.text.p.1.s.1.w.3">
+          <t>of</t>
+          <pos set="spacy-pos-en" class="IN"/>
+          <pos set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/universal-pos.foliaset.ttl" class="ADP"/>
+          <lemma class="of"/>
+        </w>
+        <w xml:id="test.text.p.1.s.1.w.4">
+          <t>the</t>
+          <pos set="spacy-pos-en" class="DT"/>
+          <pos set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/universal-pos.foliaset.ttl" class="DET"/>
+          <lemma class="the"/>
+        </w>
+        <w xml:id="test.text.p.1.s.1.w.5">
+          <t>Netherlands</t>
+          <pos set="spacy-pos-en" class="NNP"/>
+          <pos set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/universal-pos.foliaset.ttl" class="PROPN"/>
+          <lemma class="Netherlands"/>
+        </w>
+        <w xml:id="test.text.p.1.s.1.w.6">
+          <t>is</t>
+          <pos set="spacy-pos-en" class="VBZ"/>
+          <pos set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/universal-pos.foliaset.ttl" class="VERB"/>
+          <lemma class="be"/>
+        </w>
+        <w xml:id="test.text.p.1.s.1.w.7" space="no">
+          <t>Amsterdam</t>
+          <pos set="spacy-pos-en" class="NNP"/>
+          <pos set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/universal-pos.foliaset.ttl" class="PROPN"/>
+          <lemma class="Amsterdam"/>
+        </w>
+        <w xml:id="test.text.p.1.s.1.w.8" space="no">
+          <t>.</t>
+          <pos set="spacy-pos-en" class="."/>
+          <pos set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/universal-pos.foliaset.ttl" class="PUNCT"/>
+          <lemma class="."/>
+        </w>
+        <entities>
+          <entity class="GPE">
+            <wref id="test.text.p.1.s.1.w.5" t="Netherlands"/>
+          </entity>
+          <entity class="GPE">
+            <wref id="test.text.p.1.s.1.w.7" t="Amsterdam"/>
+          </entity>
+        </entities>
+        <chunking>
+          <chunk class="NP">
+            <wref id="test.text.p.1.s.1.w.1" t="The"/>
+            <wref id="test.text.p.1.s.1.w.2" t="capital"/>
+          </chunk>
+          <chunk class="NP">
+            <wref id="test.text.p.1.s.1.w.4" t="the"/>
+            <wref id="test.text.p.1.s.1.w.5" t="Netherlands"/>
+          </chunk>
+          <chunk class="NP">
+            <wref id="test.text.p.1.s.1.w.7" t="Amsterdam"/>
+          </chunk>
+        </chunking>
+        <dependencies>
+          <dependency class="det">
+            <dep>
+              <wref id="test.text.p.1.s.1.w.1" t="The"/>
+            </dep>
+            <hd>
+              <wref id="test.text.p.1.s.1.w.2" t="capital"/>
+            </hd>
+          </dependency>
+          <dependency class="nsubj">
+            <dep>
+              <wref id="test.text.p.1.s.1.w.2" t="capital"/>
+            </dep>
+            <hd>
+              <wref id="test.text.p.1.s.1.w.6" t="is"/>
+            </hd>
+          </dependency>
+          <dependency class="prep">
+            <hd>
+              <wref id="test.text.p.1.s.1.w.2" t="capital"/>
+            </hd>
+            <dep>
+              <wref id="test.text.p.1.s.1.w.3" t="of"/>
+            </dep>
+          </dependency>
+          <dependency class="det">
+            <dep>
+              <wref id="test.text.p.1.s.1.w.4" t="the"/>
+            </dep>
+            <hd>
+              <wref id="test.text.p.1.s.1.w.5" t="Netherlands"/>
+            </hd>
+          </dependency>
+          <dependency class="pobj">
+            <hd>
+              <wref id="test.text.p.1.s.1.w.3" t="of"/>
+            </hd>
+            <dep>
+              <wref id="test.text.p.1.s.1.w.5" t="Netherlands"/>
+            </dep>
+          </dependency>
+          <dependency class="ROOT">
+            <hd>
+              <wref id="test.text.p.1.s.1.w.6" t="is"/>
+            </hd>
+            <dep>
+              <wref id="test.text.p.1.s.1.w.6" t="is"/>
+            </dep>
+          </dependency>
+          <dependency class="attr">
+            <hd>
+              <wref id="test.text.p.1.s.1.w.6" t="is"/>
+            </hd>
+            <dep>
+              <wref id="test.text.p.1.s.1.w.7" t="Amsterdam"/>
+            </dep>
+          </dependency>
+          <dependency class="punct">
+            <hd>
+              <wref id="test.text.p.1.s.1.w.6" t="is"/>
+            </hd>
+            <dep>
+              <wref id="test.text.p.1.s.1.w.8" t="."/>
+            </dep>
+          </dependency>
+        </dependencies>
+      </s>
+    </p>
+  </text>
+</FoLiA>
