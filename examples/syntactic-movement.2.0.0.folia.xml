@@ -30,6 +30,7 @@
   </metadata>
   <text xml:id="example.text">
     <s xml:id="example.s.1">
+      <t>Isn't a whole lot left.</t>
         <hiddenw xml:id="example.s.1.w.0">
             <t>*exp*</t>
             <desc>empty expletive subject</desc>
