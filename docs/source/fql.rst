@@ -46,18 +46,20 @@ To make use of FoLiA's ability to register :ref:`provenance_data`, you need to d
 
     PROCESSOR id "p0" name "mytool" type "auto"
 
-If you do not specify an ID manually one will be generated automatically. If the ID already exists, the existing one
-will be selected and modified, so ensure your ID is sufficiently unique (preferably with a random component). Any
-subsequent declaration queries (see next section) will be made using this processor.
+The processor will be created and appended to the provenance chain. If you do not specify an ID, one will be generated
+for you automatically, unless the **last** processor in the chain matches, then that one will be reused.
 
-To add subprocessors under the currently selected processor, use ``PROCESSOR IN`` followed by the ID of the parent
-processor, instead of ``PROCESSOR``. The
-subprocessor will again be automatically selected for all subsequent queries (except if it has ``type = "generator"``). Example::
+If you do specify an ID and it already exists, the existing processor will be selected, any subsequent assignments you
+make will overwrite the original values.
 
-    PROCESSOR id "p0" name "annotationtool" type "auto"
-    PROCESSOR IN p0 id "p0.1" name "john doe" type "manual"
+Processors can be nested using the ``IN PROCESSOR`` keyword, the matching rules when omitting an ID apply here as well, but for
+subprocessors all candidates are considered rather than only the last processor::
 
-You can select any existing processor again using ``PROCESSOR id "id"``. To deselect a processor, use ``PROCESSOR NONE``.
+    PROCESSOR id "p0.1" name "john doe" type "manual" IN PROCESSOR id "p0" name "annotationtool" type "auto"
+
+As you see, the ``PROCESSOR`` statement allows you to create and select processors. The selected processor will be used
+for all subsequent queries, meaning that all annotations make will be associated with that processor. You can select any
+existing processor again using ``PROCESSOR id "id"``. To deselect processors entirely, use ``PROCESSOR NONE``.
 
 
 Declarations
