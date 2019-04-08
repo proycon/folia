@@ -24,7 +24,7 @@ A ``<processor>`` carries the following attributes:
    * ``version`` -- (optional but strongly recommended) is the version of the processor aka tool
    * ``document_version`` (optional)  -- The version of the document, refers to any label the user desires to indicate a version of the document, so the format is not predetermined and needs not be numeric.
    * ``command`` (optional) -- The exact command that was run
-   * ``host`` (optional) -- The host on which the processor ran, this identifies individual systems on a network/cluster
+   * ``host`` (optional) -- The host on which the processor ran, this identifies individual systems on a network/cluster. It may also take a full URL in case the tool is an online tool.
    * ``user`` (optional) -- The user/executor which ran the processor, this identifies who ran an automated process rather than who the annotator was!
    * ``folia_version`` (optional)  - The folia version that was written
    * ``begindatetime`` (optional) -- Specifies when the process started, format is  ``YYYY-MM-DDThh:mm:ss`` (note the literal T in the middle to separate date from time), as per the XSD Datetime data type.
