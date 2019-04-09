@@ -51,12 +51,14 @@ defined. If there is only one annotator declared, then this is the default for a
 which case individual annotation instances need not refer to any processor. If there are multiple annotators, the
 individual annotation instances should refer to a processor to disambiguate.
 
-Provenance data is recommended but not required in FoLiA. A simpler mechanism from prior to FoLiA v2.0 is also still
-available: If you do not refer to processors for a certain annotation type and set, then you can specify the following
-*optional* attributes on your declaration to set a default annotator:
+Provenance data is *recommended* but not required in FoLiA. A simpler mechanism from prior to FoLiA v2.0 is also still
+available: If you do not refer to processors for a certain annotation type and set (i.e. no ``<annotator>`` elements),
+then you can specify the following *optional* attributes on your declaration to set a default annotator. They act as a
+default value that can be overriden on individual annotations:
 
 * ``annotator`` - The name of the default annotator (either human or software)
 * ``annotatortype`` - Set to ``auto`` if the default annotator is automatic annotation by software or ``manual`` for human annotators
+* ``datetime`` -- The date and time when all annotations of this type were recorded, the format is ``YYYY-MM-DDThh:mm:ss`` (note the literal T in the middle to separate date from time), as per the XSD Datetime data type.
 
 Set definitions
 ---------------------------
