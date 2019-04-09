@@ -2,7 +2,7 @@
 <FoLiA xmlns="http://ilk.uvt.nl/folia" version="2.0" xml:id="example">
   <metadata>
       <annotations>
-          <token-annotation set="https://raw.githubusercontent.com/LanguageMachines/uctodata/master/setdefinitions/tokconfig-eng.foliaset.ttl">
+          <token-annotation set="https://raw.githubusercontent.com/LanguageMachines/uctodata/master/setdefinitions/tokconfig-eng.foliaset.ttl" format="text/turtle">
 			 <annotator processor="p1" />
 		  </token-annotation>
           <text-annotation>
@@ -14,7 +14,7 @@
           <paragraph-annotation>
 			 <annotator processor="p1" />
           </paragraph-annotation>
-          <entity-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/namedentities.foliaset.ttl">
+          <entity-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/namedentities.foliaset.ttl" format="text/turtle">
 			 <annotator processor="p1" />
 		  </entity-annotation>
       </annotations>
