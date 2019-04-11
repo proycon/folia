@@ -481,6 +481,7 @@ elements:
                 auth: false
           - class: Suggestion
             properties:
+                annotationtype: CORRECTION
                 xmltag: "suggestion"
                 occurrences: 0
                 auth: false
