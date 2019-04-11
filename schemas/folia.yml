@@ -465,26 +465,33 @@ elements:
       elements:
           - class: Current
             properties:
+                annotationtype: CORRECTION
                 optional_attribs: null
                 xmltag: "current"
                 occurrences: 1
+                primaryelement: false
           - class: New
             properties:
+                annotationtype: CORRECTION
                 optional_attribs: null
                 xmltag: "new"
                 occurrences: 1
+                primaryelement: false
           - class: Original
             properties:
+                annotationtype: CORRECTION
                 optional_attribs: null
                 xmltag: "original"
                 occurrences: 1
                 auth: false
+                primaryelement: false
           - class: Suggestion
             properties:
                 annotationtype: CORRECTION
                 xmltag: "suggestion"
                 occurrences: 0
                 auth: false
+                primaryelement: false
     - class: AbstractSpanAnnotation
       properties:
           printable: true
