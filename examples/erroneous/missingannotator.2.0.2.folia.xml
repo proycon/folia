@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FoLiA xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://ilk.uvt.nl/folia" xml:id="untitled" version="2.0.2" generator="foliapy-v2.0.7">
+  <metadata type="native">
+    <annotations>
+      <text-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/text.foliaset.ttl"/>
+      <paragraph-annotation/>
+      <sentence-annotation/>
+      <token-annotation set="tokconfig-nl">
+        <annotator processor="p0"/>
+      </token-annotation>
+      <pos-annotation set="http://ilk.uvt.nl/folia/sets/frog-mbpos-cgn">
+        <annotator processor="p1.1"/>
+        <annotator processor="p2.1"/>
+        <annotator processor="p2.2"/>
+      </pos-annotation>
+      <lemma-annotation set="http://ilk.uvt.nl/folia/sets/frog-mblem-nl">
+        <annotator processor="p1.2"/>
+      </lemma-annotation>
+    </annotations>
+    <provenance>
+      <processor xml:id="p0" name="ucto" type="auto" version="0.15" document_version="1" folia_version="2.0" command="ucto -Lnld" host="mhysa" user="proycon" begindatetime="2018-09-12T00:00:00" enddatetime="2018-09-12T00:00:00">
+        <meta id="config">tokconfig-nld</meta>
+        <meta id="language">nld</meta>
+        <processor xml:id="p0.1" name="libfolia" type="generator" version="2.0" folia_version="2.0"/>
+      </processor>
+      <processor xml:id="p1" name="frog" type="auto" version="0.16" document_version="2" folia_version="2.0" command="frog --skip=pn" host="mhysa" user="proycon" begindatetime="2018-09-12T00:01:00" enddatetime="2018-09-12T00:02:00">
+        <processor xml:id="p1.0" name="libfolia" type="generator" version="2.0" folia_version="2.0"/>
+        <processor xml:id="p1.1" name="mbpos" type="auto" version="0.16">
+          <processor xml:id="p1.1.1" name="CGN Corpus" type="datasource" version="unknown"/>
+          <processor xml:id="p1.1.2" name="WOTAN Corpus" type="datasource" version="unknown"/>
+          <processor xml:id="p1.1.3" name="DCOI Corpus" type="datasource" version="unknown"/>
+          <processor xml:id="p1.1.4" name="Lassy Klein Corpus" type="datasource" version="unknown"/>
+        </processor>
+        <processor xml:id="p1.2" name="mblem" type="auto"/>
+      </processor>
+      <processor xml:id="p2" name="flat" type="auto" version="0.8" document_version="3" folia_version="2.0" host="flat.science.ru.nl" begindatetime="2018-09-12T00:10:00" enddatetime="2018-09-12T00:20:00">
+        <processor xml:id="p2.0" name="foliapy" type="generator" version="2.0" folia_version="2.0"/>
+        <processor xml:id="p2.1" name="proycon" type="manual"/>
+        <processor xml:id="p2.2" name="ko" type="manual"/>
+      </processor>
+      <processor xml:id="proc.foliadocserve.7b49e89f" name="foliadocserve" type="auto" version="0.7.0" folia_version="2.0.2" host="mhysa.anaproy.nl">
+        <processor xml:id="proc.flat.6f4fab98" name="FLAT" type="auto" version="0.8.0" folia_version="2.0.2" host="127.0.0.1:8000">
+          <processor xml:id="proc.proycon.da24dcd7" name="proycon" type="manual" folia_version="2.0.2"/>
+        </processor>
+      </processor>
+    </provenance>
+  </metadata>
+  <text xml:id="untitled.text">
+    <p xml:id="untitled.p.1">
+      <s xml:id="untitled.p.1.s.1">
+        <t>De belastingdienst doet aangifte tegen frauderende mensen.</t>
+        <w xml:id="untitled.p.1.s.1.w.1" class="WORD">
+          <t>De</t>
+          <pos class="LID(bep,stan,rest)" processor="p1.1" confidence="0.999701" head="LID">
+            <feat subset="lwtype" class="bep"/>
+            <feat subset="naamval" class="stan"/>
+            <feat subset="npagr" class="rest"/>
+          </pos>
+          <lemma class="de"/>
+        </w>
+        <w xml:id="untitled.p.1.s.1.w.2" class="WORD">
+          <t>belastingdienst</t>
+          <pos class="N(soort,ev,basis,zijd,stan)" processor="p2.1" confidence="0.998836" head="N">
+            <feat subset="ntype" class="soort"/>
+            <feat subset="getal" class="ev"/>
+            <feat subset="graad" class="basis"/>
+            <feat subset="genus" class="zijd"/>
+            <feat subset="naamval" class="stan"/>
+          </pos>
+          <lemma class="belastingdienst"/>
+        </w>
+        <w xml:id="untitled.p.1.s.1.w.3" class="WORD">
+          <t>doet</t>
+          <pos class="WW(pv,tgw,met-t)" processor="p1.1" confidence="0.999262" head="WW">
+            <feat subset="wvorm" class="pv"/>
+            <feat subset="pvtijd" class="tgw"/>
+            <feat subset="pvagr" class="met-t"/>
+          </pos>
+          <lemma class="doen"/>
+        </w>
+        <w xml:id="untitled.p.1.s.1.w.4" class="WORD">
+          <t>aangifte</t>
+          <pos class="N(soort,ev,basis,zijd,stan)" processor="p2.2" confidence="0.998701" head="N">
+            <feat subset="ntype" class="soort"/>
+            <feat subset="getal" class="ev"/>
+            <feat subset="graad" class="basis"/>
+            <feat subset="genus" class="zijd"/>
+            <feat subset="naamval" class="stan"/>
+          </pos>
+          <lemma class="aangifte"/>
+        </w>
+        <w xml:id="untitled.p.1.s.1.w.5" class="WORD">
+          <t>tegen</t>
+          <pos class="VZ(init)" processor="p1.1" confidence="0.854093" head="VZ">
+            <feat subset="vztype" class="init"/>
+          </pos>
+          <lemma class="tegen"/>
+        </w>
+        <w xml:id="untitled.p.1.s.1.w.6" class="WORD">
+          <t>frauderende</t>
+          <pos class="WW(od,prenom,met-e)" processor="p1.1" confidence="0.96" head="WW">
+            <feat subset="wvorm" class="od"/>
+            <feat subset="positie" class="prenom"/>
+            <feat subset="buiging" class="met-e"/>
+          </pos>
+          <lemma class="frauderen"/>
+        </w>
+        <w xml:id="untitled.p.1.s.1.w.7" class="WORD" space="no">
+          <t>mensen</t>
+          <pos class="N(soort,mv,basis)" processor="proc.proycon.da24dcd7" confidence="0.74" datetime="2019-04-11T13:03:48" head="N">
+            <feat subset="ntype" class="soort"/>
+            <feat subset="getal" class="mv"/>
+            <feat subset="graad" class="basis"/>
+          </pos>
+          <lemma class="mens"/>
+        </w>
+        <w xml:id="untitled.p.1.s.1.w.8" class="PUNCTUATION">
+          <t>.</t>
+          <pos class="LET()" processor="p1.1" confidence="1.0" head="LET"/>
+          <lemma class="."/>
+        </w>
+      </s>
+    </p>
+  </text>
+</FoLiA>
