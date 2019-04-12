@@ -13,10 +13,10 @@ Specification
 
 .. foliaspec:specification(rawcontent)
 :Annotation Category: :ref:`content_annotation_category`
-:Declaration: ``<rawcontent-annotation set="...">`` *(note: ``set`` is optional for this annotation type)*
+:Declaration: ``<rawcontent-annotation set="...">`` *(note: set is optional for this annotation type; if you declare this annotation type to be setless you can not assign classes)*
 :Version History: Since the beginning, but revised and made a proper annotation type in v2.0
 :**Element**: ``<content>``
-:API Class: ``Content``
+:API Class: ``Content`` (`FoLiApy API Reference <https://foliapy.readthedocs.io/en/latest/_autosummary/folia.main.Content>`_)
 :Required Attributes: 
 :Optional Attributes: * ``set`` -- The set of the element, ideally a URI linking to a set definition (see :ref:`set_definitions`) or otherwise a uniquely identifying string. The ``set`` must be referred to also in the :ref:`annotation_declarations` for this annotation type.
                       * ``class`` -- The class of the annotation, i.e. the annotation tag in the vocabulary defined by ``set``.

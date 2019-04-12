@@ -13,10 +13,10 @@ Specification
 
 .. foliaspec:specification(alternative)
 :Annotation Category: :ref:`higherorder_annotation_category`
-:Declaration: ``<alternative-annotation>`` *(note: there is no set associated with this annotation type)
+:Declaration: ``<alternative-annotation>`` *(note: there is never a set associated with this annotation type)
 :Version History: Since the beginning, may carry set and classes since v2.0
 :**Element**: ``<alt>``
-:API Class: ``Alternative``
+:API Class: ``Alternative`` (`FoLiApy API Reference <https://foliapy.readthedocs.io/en/latest/_autosummary/folia.main.Alternative>`_)
 :Required Attributes: 
 :Optional Attributes: * ``xml:id`` -- The ID of the element; this has to be a unique in the entire document or collection of documents (corpus). All identifiers in FoLiA are of the `XML NCName <https://www.w3.org/TR/1999/WD-xmlschema-2-19990924/#NCName>`_ datatype, which roughly means it is a unique string that has to start with a letter (not a number or symbol), may contain numers, but may never contain colons or spaces. FoLiA does not define any naming convention for IDs.
                       * ``processor`` -- This refers to the ID of a processor in the :ref:`provenance_data`. The processor in turn defines exactly who or what was the annotator of the annotation.
@@ -34,7 +34,7 @@ Specification
 
 .. foliaspec:specification_element(AlternativeLayers)
 :**Element**: ``<altlayers>``
-:API Class: ``AlternativeLayers``
+:API Class: ``AlternativeLayers`` (`FoLiApy API Reference <https://foliapy.readthedocs.io/en/latest/_autosummary/folia.main.AlternativeLayers>`_)
 :Required Attributes: 
 :Optional Attributes: * ``xml:id`` -- The ID of the element; this has to be a unique in the entire document or collection of documents (corpus). All identifiers in FoLiA are of the `XML NCName <https://www.w3.org/TR/1999/WD-xmlschema-2-19990924/#NCName>`_ datatype, which roughly means it is a unique string that has to start with a letter (not a number or symbol), may contain numers, but may never contain colons or spaces. FoLiA does not define any naming convention for IDs.
                       * ``processor`` -- This refers to the ID of a processor in the :ref:`provenance_data`. The processor in turn defines exactly who or what was the annotator of the annotation.

@@ -13,11 +13,11 @@ Specification
 
 .. foliaspec:specification(predicate)
 :Annotation Category: :ref:`span_annotation_category`
-:Declaration: ``<predicate-annotation set="...">`` *(note: ``set`` is optional for this annotation type)*
+:Declaration: ``<predicate-annotation set="...">`` *(note: set is optional for this annotation type; if you declare this annotation type to be setless you can not assign classes)*
 :Version History: since v1.3
 :**Element**: ``<predicate>``
-:API Class: ``Predicate``
-:Layer Element: None
+:API Class: ``Predicate`` (`FoLiApy API Reference <https://foliapy.readthedocs.io/en/latest/_autosummary/folia.main.Predicate>`_)
+:Layer Element: ``<None>``
 :Span Role Elements: 
 :Required Attributes: 
 :Optional Attributes: * ``xml:id`` -- The ID of the element; this has to be a unique in the entire document or collection of documents (corpus). All identifiers in FoLiA are of the `XML NCName <https://www.w3.org/TR/1999/WD-xmlschema-2-19990924/#NCName>`_ datatype, which roughly means it is a unique string that has to start with a letter (not a number or symbol), may contain numers, but may never contain colons or spaces. FoLiA does not define any naming convention for IDs.
