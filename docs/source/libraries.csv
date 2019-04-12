@@ -1,7 +1,7 @@
 Category,Name, FoLiApy, libfolia, pynlpl.formats.folia
 
 General,Language,Python 3.5+,C++,Python 2.7 and 3.4+
-General,Uses official specification,yes,yes
+General,Uses official specification,yes,yes,yes
 General,Maintenance Status,active,active,deprecated; superseded by FoLiApy
 General,Lead developer,Maarten van Gompel,Ko van der Sloot,Maarten van Gompel
 
@@ -34,7 +34,7 @@ Validation,... with legacy XML sets,yes,no,yes
 Validation,RelaxNG schema generation,yes,no,yes
 
 Querying,FoLiA Query Language (FQL),yes,no,yes
-Querying,... CQL support,yes,no,yes
+Querying,... CQL support,through pynlpl,no,yes
 Querying,Document findwords() method,yes,yes,yes
 
 Quality Control,Integration tests,yes,yes,yes
