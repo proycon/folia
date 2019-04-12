@@ -19,7 +19,7 @@ has no notion of a default namespace.
 
 This seems simple, but there are important caveats. When formulating XPath queries, however, one needs to be well aware
 of how FoLiA works, as XPath is a generic tool that can not take care of specific FoLiA ideosyncracies for you, unlike
-:ref:`fql`. These simple queries will be insufficient when dealing with a document containing
+:ref:`fql` or the FoLiA programming libraries. These simple queries will be insufficient when dealing with a document containing
 :ref:`correction_annotation`, :ref:`alternative_annotation` or even :ref:`quote_annotation`. You can rely on the
 :ref:`annotation_declarations` to know whether this is the case. To formulate queries that work in all cases, you need
 to be aware of the exceptions.
@@ -30,7 +30,7 @@ annotations, we may end up also getting lemmas that were specified as an alterna
 what you want, but you need to be aware of it. A construct you will often see in FoLiA XPath Queries is
 ``not(ancestor-or-self::*/X)``, where X is a particular FoLiA element.
 
-Consider the following more though-out and more generic queries:
+Consider the following more thought-out and more generic queries:
 
 * XPath query for the text of all words/tokens: `//w//t[not(ancestor-or-self::*/original) and
   not(ancestor-or-self::*/suggestion) and not(ancestor-or-self::*/alt) and  not(ancestor-or-self::*/morpheme) and not(ancestor-or-self::*/str) and
