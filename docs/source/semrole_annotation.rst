@@ -16,7 +16,7 @@ Specification
 :Declaration: ``<semrole-annotation set="...">`` *(note: set is mandatory)*
 :Version History: since v0.9, revised since v1.3 (added predicates)
 :**Element**: ``<semrole>``
-:API Class: ``SemanticRole`` (`FoLiApy API Reference <https://foliapy.readthedocs.io/en/latest/_autosummary/folia.main.SemanticRole>`_)
+:API Class: ``SemanticRole`` (`FoLiApy API Reference <https://foliapy.readthedocs.io/en/latest/_autosummary/folia.main.SemanticRole.html>`_)
 :Layer Element: ``<semroles>``
 :Span Role Elements: ``<hd>`` (``Headspan``)
 :Required Attributes: * ``set`` -- The set of the element, ideally a URI linking to a set definition (see :ref:`set_definitions`) or otherwise a uniquely identifying string. The ``set`` must be referred to also in the :ref:`annotation_declarations` for this annotation type.

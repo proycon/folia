@@ -16,7 +16,7 @@ Specification
 :Declaration: ``<predicate-annotation set="...">`` *(note: set is optional for this annotation type; if you declare this annotation type to be setless you can not assign classes)*
 :Version History: since v1.3
 :**Element**: ``<predicate>``
-:API Class: ``Predicate`` (`FoLiApy API Reference <https://foliapy.readthedocs.io/en/latest/_autosummary/folia.main.Predicate>`_)
+:API Class: ``Predicate`` (`FoLiApy API Reference <https://foliapy.readthedocs.io/en/latest/_autosummary/folia.main.Predicate.html>`_)
 :Layer Element: ``<None>``
 :Span Role Elements: 
 :Required Attributes: 

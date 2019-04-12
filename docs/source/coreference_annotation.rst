@@ -16,7 +16,7 @@ Specification
 :Declaration: ``<coreference-annotation set="...">`` *(note: set is optional for this annotation type; if you declare this annotation type to be setless you can not assign classes)*
 :Version History: since v0.9
 :**Element**: ``<coreferencechain>``
-:API Class: ``CoreferenceChain`` (`FoLiApy API Reference <https://foliapy.readthedocs.io/en/latest/_autosummary/folia.main.CoreferenceChain>`_)
+:API Class: ``CoreferenceChain`` (`FoLiApy API Reference <https://foliapy.readthedocs.io/en/latest/_autosummary/folia.main.CoreferenceChain.html>`_)
 :Layer Element: ``<coreferences>``
 :Span Role Elements: ``<coreferencelink>`` (``CoreferenceLink``)
 :Required Attributes: 

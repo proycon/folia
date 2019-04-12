@@ -16,7 +16,7 @@ Specification
 :Declaration: ``<statement-annotation set="...">`` *(note: set is optional for this annotation type; if you declare this annotation type to be setless you can not assign classes)*
 :Version History: since v1.3
 :**Element**: ``<statement>``
-:API Class: ``Statement`` (`FoLiApy API Reference <https://foliapy.readthedocs.io/en/latest/_autosummary/folia.main.Statement>`_)
+:API Class: ``Statement`` (`FoLiApy API Reference <https://foliapy.readthedocs.io/en/latest/_autosummary/folia.main.Statement.html>`_)
 :Layer Element: ``<statements>``
 :Span Role Elements: ``<hd>`` (``Headspan``), ``<source>`` (``Source``), ``<rel>`` (``StatementRelation``)
 :Required Attributes: 

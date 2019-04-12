@@ -16,7 +16,7 @@ Specification
 :Declaration: ``<chunking-annotation set="...">`` *(note: set is optional for this annotation type; if you declare this annotation type to be setless you can not assign classes)*
 :Version History: Since the beginning
 :**Element**: ``<chunk>``
-:API Class: ``Chunk`` (`FoLiApy API Reference <https://foliapy.readthedocs.io/en/latest/_autosummary/folia.main.Chunk>`_)
+:API Class: ``Chunk`` (`FoLiApy API Reference <https://foliapy.readthedocs.io/en/latest/_autosummary/folia.main.Chunk.html>`_)
 :Layer Element: ``<chunking>``
 :Span Role Elements: 
 :Required Attributes: 

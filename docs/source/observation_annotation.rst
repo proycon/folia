@@ -16,7 +16,7 @@ Specification
 :Declaration: ``<observation-annotation set="...">`` *(note: set is optional for this annotation type; if you declare this annotation type to be setless you can not assign classes)*
 :Version History: since v1.3
 :**Element**: ``<observation>``
-:API Class: ``Observation`` (`FoLiApy API Reference <https://foliapy.readthedocs.io/en/latest/_autosummary/folia.main.Observation>`_)
+:API Class: ``Observation`` (`FoLiApy API Reference <https://foliapy.readthedocs.io/en/latest/_autosummary/folia.main.Observation.html>`_)
 :Layer Element: ``<observations>``
 :Span Role Elements: 
 :Required Attributes: 

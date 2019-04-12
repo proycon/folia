@@ -16,7 +16,7 @@ Specification
 :Declaration: ``<timesegment-annotation set="...">`` *(note: set is optional for this annotation type; if you declare this annotation type to be setless you can not assign classes)*
 :Version History: Since v0.8 but renamed since v0.9
 :**Element**: ``<timesegment>``
-:API Class: ``TimeSegment`` (`FoLiApy API Reference <https://foliapy.readthedocs.io/en/latest/_autosummary/folia.main.TimeSegment>`_)
+:API Class: ``TimeSegment`` (`FoLiApy API Reference <https://foliapy.readthedocs.io/en/latest/_autosummary/folia.main.TimeSegment.html>`_)
 :Layer Element: ``<timing>``
 :Span Role Elements: 
 :Required Attributes: 

@@ -16,7 +16,7 @@ Specification
 :Declaration: ``<entity-annotation set="...">`` *(note: set is optional for this annotation type; if you declare this annotation type to be setless you can not assign classes)*
 :Version History: Since the beginning
 :**Element**: ``<entity>``
-:API Class: ``Entity`` (`FoLiApy API Reference <https://foliapy.readthedocs.io/en/latest/_autosummary/folia.main.Entity>`_)
+:API Class: ``Entity`` (`FoLiApy API Reference <https://foliapy.readthedocs.io/en/latest/_autosummary/folia.main.Entity.html>`_)
 :Layer Element: ``<entities>``
 :Span Role Elements: 
 :Required Attributes: 

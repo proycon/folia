@@ -16,7 +16,7 @@ Specification
 :Declaration: ``<dependency-annotation set="...">`` *(note: set is optional for this annotation type; if you declare this annotation type to be setless you can not assign classes)*
 :Version History: Slightly revised since v0.8 (no ``su`` attribute on ``hd``/``dep``)
 :**Element**: ``<dependency>``
-:API Class: ``Dependency`` (`FoLiApy API Reference <https://foliapy.readthedocs.io/en/latest/_autosummary/folia.main.Dependency>`_)
+:API Class: ``Dependency`` (`FoLiApy API Reference <https://foliapy.readthedocs.io/en/latest/_autosummary/folia.main.Dependency.html>`_)
 :Layer Element: ``<dependencies>``
 :Span Role Elements: ``<dep>`` (``DependencyDependent``), ``<hd>`` (``Headspan``)
 :Required Attributes: 

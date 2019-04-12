@@ -16,7 +16,7 @@ Specification
 :Declaration: ``<syntax-annotation set="...">`` *(note: set is optional for this annotation type; if you declare this annotation type to be setless you can not assign classes)*
 :Version History: Since the beginning
 :**Element**: ``<su>``
-:API Class: ``SyntacticUnit`` (`FoLiApy API Reference <https://foliapy.readthedocs.io/en/latest/_autosummary/folia.main.SyntacticUnit>`_)
+:API Class: ``SyntacticUnit`` (`FoLiApy API Reference <https://foliapy.readthedocs.io/en/latest/_autosummary/folia.main.SyntacticUnit.html>`_)
 :Layer Element: ``<syntax>``
 :Span Role Elements: 
 :Required Attributes: 

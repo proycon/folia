@@ -16,7 +16,7 @@ Specification
 :Declaration: ``<sentiment-annotation set="...">`` *(note: set is optional for this annotation type; if you declare this annotation type to be setless you can not assign classes)*
 :Version History: since v1.3
 :**Element**: ``<sentiment>``
-:API Class: ``Sentiment`` (`FoLiApy API Reference <https://foliapy.readthedocs.io/en/latest/_autosummary/folia.main.Sentiment>`_)
+:API Class: ``Sentiment`` (`FoLiApy API Reference <https://foliapy.readthedocs.io/en/latest/_autosummary/folia.main.Sentiment.html>`_)
 :Layer Element: ``<sentiments>``
 :Span Role Elements: ``<hd>`` (``Headspan``), ``<source>`` (``Source``), ``<target>`` (``Target``)
 :Required Attributes: 
