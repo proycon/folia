@@ -488,6 +488,7 @@ elements:
           - class: Suggestion
             properties:
                 annotationtype: CORRECTION
+                optional_attribs: [ CONFIDENCE, N ]
                 xmltag: "suggestion"
                 occurrences: 0
                 auth: false

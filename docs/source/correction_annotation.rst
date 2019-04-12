@@ -125,10 +125,10 @@ named John Doe took one of the suggestions and made the actual correction:
             <new>
                 <t>tree</t>
             </new>
-            <suggestion confidence="0.8" processor="spellingcorrector">
+            <suggestion confidence="0.8">
                 <t>tree</t>
             </suggestion>
-            <suggestion confidence="0.2" processor="spellingcorrector">
+            <suggestion confidence="0.2">
                 <t>three</t>
             </suggestion>
             <original>

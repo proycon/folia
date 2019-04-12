@@ -31,10 +31,10 @@
         <w xml:id="example.s.1.w.3">
           <t>treee</t>
           <correction xml:id="example.correction.1" class="spelling" processor="spellingcorrector">
-              <suggestion confidence="0.8" processor="spellingcorrector">
+              <suggestion confidence="0.8">
                   <t>tree</t>
               </suggestion>
-              <suggestion confidence="0.2" processor="spellingcorrector">
+              <suggestion confidence="0.2">
                   <t>three</t>
               </suggestion>
           </correction>
