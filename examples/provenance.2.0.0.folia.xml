@@ -21,13 +21,13 @@
       </lemma-annotation>
     </annotations>
     <provenance>
-        <processor xml:id="p0" name="ucto" version="0.15" folia_version="2.0" command="ucto -Lnld" host="mhysa" user="proycon" begindatetime="2018-09-12T00:00:00" enddatetime="2018-09-12T00:00:00" document_version="1">
+        <processor xml:id="p0" name="ucto" version="0.15" folia_version="2.0" command="ucto -Lnld" host="mhysa" user="proycon" src="https://github.com/LanguageMachines/ucto" begindatetime="2018-09-12T00:00:00" enddatetime="2018-09-12T00:00:00" document_version="1">
             <!-- We can add arbitrary meta fields to any processor, they are not defined by FoLiA but application-specific  -->
             <meta id="config">tokconfig-nld</meta>
             <meta id="language">nld</meta>
             <processor xml:id="p0.1" name="libfolia" version="2.0" folia_version="2.0" type="generator" />
         </processor>
-        <processor xml:id="p1" name="frog" version="0.16" folia_version="2.0" command="frog --skip=pn" host="mhysa" user="proycon" begindatetime="2018-09-12T00:01:00" enddatetime="2018-09-12T00:02:00" document_version="2">
+        <processor xml:id="p1" name="frog" version="0.16" folia_version="2.0" command="frog --skip=pn" host="mhysa" user="proycon" src="https://github.com/LanguageMachines/frog" begindatetime="2018-09-12T00:01:00" enddatetime="2018-09-12T00:02:00" document_version="2">
             <processor xml:id="p1.0" name="libfolia" version="2.0" folia_version="2.0" type="generator" />
             <processor xml:id="p1.1" name="mbpos" version="0.16">
                   <processor xml:id="p1.1.1" type="datasource" name="CGN Corpus" version="unknown" />
@@ -37,8 +37,8 @@
             </processor>
             <processor xml:id="p1.2" name="mblem" />
         </processor>
-        <processor xml:id="p2" name="flat" version="0.8" folia_version="2.0" host="flat.science.ru.nl" begindatetime="2018-09-12T00:10:00" enddatetime="2018-09-12T00:20:00" document_version="3">
-            <processor xml:id="p2.0" name="foliapy" version="2.0" folia_version="2.0" type="generator" />
+        <processor xml:id="p2" name="flat" version="0.8" folia_version="2.0" host="flat.science.ru.nl" src="https://flat.science.ru.nl" begindatetime="2018-09-12T00:10:00" enddatetime="2018-09-12T00:20:00" document_version="3">
+            <processor xml:id="p2.0" name="foliapy" version="2.0" folia_version="2.0" type="generator" src="https://github.com/proycon/foliapy" />
             <processor xml:id="p2.1" name="proycon" type="manual" />
             <processor xml:id="p2.2" name="ko" type="manual" />
         </processor>
