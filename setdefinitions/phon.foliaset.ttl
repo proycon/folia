@@ -7,7 +7,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 phon:Set a skos:Collection ;
-    skos:member phon:current,
+    skos:member phon:current ;
     skos:notation "phon" .
 
 phon:current a skos:Concept ;
