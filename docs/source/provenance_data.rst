@@ -20,12 +20,14 @@ A ``<processor>`` carries the following attributes:
         * ``auto`` - (default) - The processor is an automated tool that provided annotations
         * ``manual`` - The processor refers a manual annotator
         * ``generator`` - The processor indicates the FoLiA library used by the parent and sibling processors (unless sibling processes specify another generator in their scope)
-        * ``datasource`` - The processor is a reference to a particular data source that was used by the parent processor
+        * ``datasource`` - The processor is a reference to a particular data source that was used by the parent processor. If there is no parent processor but it is instead directly part of the provenance chain, often as the very first element, then you can interpret this to be the original data source from which the document sprung.
    * ``version`` -- (optional but strongly recommended) is the version of the processor aka tool
    * ``document_version`` (optional)  -- The version of the document, refers to any label the user desires to indicate a version of the document, so the format is not predetermined and needs not be numeric.
    * ``command`` (optional) -- The exact command that was run
-   * ``host`` (optional) -- The host on which the processor ran, this identifies individual systems on a network/cluster. It may also take a full URL in case the tool is an online tool.
+   * ``host`` (optional) -- The host on which the processor ran, this identifies individual systems on a network/cluster.
    * ``user`` (optional) -- The user/executor which ran the processor, this identifies who ran an automated process rather than who the annotator was!
+   * ``src`` (optional) -- The source of the processor, a URL to the software's website or repository, or to the tool itself in case the software is an online tool. If the processor is of the ``datasource`` type, then this attribute should point to that data set or a website describing it.
+   * ``format`` (optional) -- MIME type describing the kind of resource pointed to by ``src``. Use ``text/html`` for websites. Especially useful for processors of type ``datasource``.
    * ``folia_version`` (optional)  - The folia version that was written
    * ``begindatetime`` (optional) -- Specifies when the process started, format is  ``YYYY-MM-DDThh:mm:ss`` (note the literal T in the middle to separate date from time), as per the XSD Datetime data type.
    * ``enddatetime`` (optional) -- Specifies when the process finished, format is  ``YYYY-MM-DDThh:mm:ss`` (note the literal T in the middle to separate date from time), as per the XSD Datetime data type.
