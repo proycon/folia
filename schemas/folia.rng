@@ -2679,6 +2679,16 @@ RelaxNG schema for FoLiA XML v2.0.2
         </attribute>
       </optional>
       <optional>
+        <attribute name="src">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="format">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
         <attribute name="begindatetime">
           <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
@@ -5642,24 +5652,6 @@ RelaxNG schema for FoLiA XML v2.0.2
     <element name="suggestion">
       <a:documentation>Suggestions are used in the context of :class:`Correction`, but rather than provide an authoritative correction, it instead offers a suggestion for correction.</a:documentation>
       <optional>
-        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
-          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
-        </attribute>
-      </optional>
-      <optional>
-        <attribute name="annotator">
-          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
-        </attribute>
-      </optional>
-      <optional>
-        <attribute name="annotatortype"/>
-      </optional>
-      <optional>
-        <attribute name="processor">
-          <data type="IDREF" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
-        </attribute>
-      </optional>
-      <optional>
         <attribute name="confidence">
           <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
@@ -5667,11 +5659,6 @@ RelaxNG schema for FoLiA XML v2.0.2
       <optional>
         <attribute name="n">
           <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
-        </attribute>
-      </optional>
-      <optional>
-        <attribute name="datetime">
-          <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
       <optional>
