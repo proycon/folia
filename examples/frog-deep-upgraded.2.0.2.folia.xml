@@ -1,0 +1,3089 @@
+<?xml version='1.0' encoding='utf-8'?>
+<FoLiA xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://ilk.uvt.nl/folia" xml:id="example.deep" version="2.0.2" generator="foliapy-v2.0.7">
+  <metadata type="native">
+    <annotations>
+      <text-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/text.foliaset.ttl"/>
+      <phon-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/phon.foliaset.ttl"/>
+      <token-annotation set="https://raw.githubusercontent.com/LanguageMachines/uctodata/folia1.4/setdefinitions/tokconfig-nld.foliaset.ttl">
+        <annotator processor="proc.ucto.1ae287c9"/>
+      </token-annotation>
+      <pos-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mbpos-cgn">
+        <annotator processor="proc.frog-mbpos-1.0.55a6b965"/>
+      </pos-annotation>
+      <lemma-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mblem-nl">
+        <annotator processor="proc.frog-mblem-1.1.c420ff6a"/>
+      </lemma-annotation>
+      <chunking-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-chunker-nl">
+        <annotator processor="proc.frog-chunker-1.0.b8052711"/>
+      </chunking-annotation>
+      <entity-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-ner-nl">
+        <annotator processor="proc.frog-ner-1.0.2fc870f2"/>
+      </entity-annotation>
+      <entity-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mwu-nl">
+        <annotator processor="proc.frog-mwu-1.0.1fd06aea"/>
+      </entity-annotation>
+      <dependency-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-depparse-nl">
+        <annotator processor="proc.frog-depparse-1.0.900638ed"/>
+      </dependency-annotation>
+      <sentence-annotation/>
+      <paragraph-annotation/>
+      <alternative-annotation/>
+    </annotations>
+    <provenance>
+      <processor xml:id="proc.example.deep.pre-upgrade.5aeb339e" name="example.deep.pre-upgrade" type="datasource" folia_version="1.3.2" src="frog-deep.1.3.2.folia.xml" format="text/folia+xml"/>
+      <processor xml:id="proc.foliaupgrade.34a32c50" name="foliaupgrade" type="auto" version="2.0.5" folia_version="2.0.2" command="foliaupgrade -n frog-deep.1.3.2.folia.xml" host="mhysa.anaproy.nl" user="proycon" begindatetime="2019-04-15T18:40:06" src="https://github.com/proycon/foliatools">
+        <processor xml:id="proc.foliaupgrade.34a32c50.generator" name="foliapy" type="generator" version="2.0.7" folia_version="2.0.2" src="https://github.com/proycon/foliapy"/>
+        <processor xml:id="proc.ucto.1ae287c9" name="ucto" type="auto" begindatetime="2016-11-15T15:12:00"/>
+        <processor xml:id="proc.frog-mbpos-1.0.55a6b965" name="frog-mbpos-1.0" type="auto" begindatetime="2016-11-15T15:12:00"/>
+        <processor xml:id="proc.frog-mblem-1.1.c420ff6a" name="frog-mblem-1.1" type="auto" begindatetime="2016-11-15T15:12:00"/>
+        <processor xml:id="proc.frog-chunker-1.0.b8052711" name="frog-chunker-1.0" type="auto" begindatetime="2016-11-15T15:12:00"/>
+        <processor xml:id="proc.frog-ner-1.0.2fc870f2" name="frog-ner-1.0" type="auto" begindatetime="2016-11-15T15:12:00"/>
+        <processor xml:id="proc.frog-mwu-1.0.1fd06aea" name="frog-mwu-1.0" type="auto" begindatetime="2016-11-15T15:12:00"/>
+        <processor xml:id="proc.frog-depparse-1.0.900638ed" name="frog-depparse-1.0" type="auto"/>
+      </processor>
+    </provenance>
+  </metadata>
+  <text xml:id="example.deep.text">
+    <p xml:id="example.deep.p.1">
+      <t>De Russen kennen Nova Zembla sinds de 11e of 12e eeuw, toen handelaars van Novgorod het eiland al aandeden. West-Europeanen ontdekten de eilanden in de 16e eeuw tijdens de zoektocht naar een noordoostelijke doorgang naar de Stille Oceaan.</t>
+      <s xml:id="example.deep.p.1.s.1">
+        <t>De Russen kennen Nova Zembla sinds de 11e of 12e eeuw, toen handelaars van Novgorod het eiland al aandeden.</t>
+        <w xml:id="example.deep.p.1.s.1.w.1" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>De</t>
+          <pos class="LID(bep,stan,rest)" confidence="0.779762" datetime="2016-11-15T15:12:00" head="LID">
+            <feat subset="lwtype" class="bep"/>
+            <feat subset="naamval" class="stan"/>
+            <feat subset="npagr" class="rest"/>
+          </pos>
+          <lemma class="de" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.1.s.1.w.2" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>Russen</t>
+          <pos class="SPEC(deeleigen)" confidence="1.0" datetime="2016-11-15T15:12:00" head="SPEC">
+            <feat subset="spectype" class="deeleigen"/>
+          </pos>
+          <lemma class="Russen" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.1.s.1.w.3" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>kennen</t>
+          <pos class="WW(pv,tgw,mv)" confidence="0.833333" datetime="2016-11-15T15:12:00" head="WW">
+            <feat subset="wvorm" class="pv"/>
+            <feat subset="pvtijd" class="tgw"/>
+            <feat subset="pvagr" class="mv"/>
+          </pos>
+          <lemma class="kennen" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.1.s.1.w.4" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>Nova</t>
+          <pos class="SPEC(deeleigen)" confidence="1.0" datetime="2016-11-15T15:12:00" head="SPEC">
+            <feat subset="spectype" class="deeleigen"/>
+          </pos>
+          <lemma class="Nova" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.1.s.1.w.5" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>Zembla</t>
+          <pos class="SPEC(deeleigen)" annotator="frog-mbpos-1.0" annotatortype="auto" confidence="1.0" datetime="2016-11-15T15:12:00" head="SPEC">
+            <feat subset="spectype" class="deeleigen"/>
+          </pos>
+          <lemma class="Zembla" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.1.s.1.w.6" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>sinds</t>
+          <pos class="VZ(init)" confidence="0.999078" datetime="2016-11-15T15:12:00" head="VZ">
+            <feat subset="vztype" class="init"/>
+          </pos>
+          <lemma class="sinds" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.1.s.1.w.7" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>de</t>
+          <pos class="LID(bep,stan,rest)" confidence="0.981886" datetime="2016-11-15T15:12:00" head="LID">
+            <feat subset="lwtype" class="bep"/>
+            <feat subset="naamval" class="stan"/>
+            <feat subset="npagr" class="rest"/>
+          </pos>
+          <lemma class="de" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.1.s.1.w.8" class="NUMBER-ORDINAL" datetime="2016-11-15T15:12:00">
+          <t>11e</t>
+          <pos class="TW(rang,prenom,stan)" confidence="0.990632" datetime="2016-11-15T15:12:00" head="TW">
+            <feat subset="numtype" class="rang"/>
+            <feat subset="positie" class="prenom"/>
+            <feat subset="naamval" class="stan"/>
+          </pos>
+          <lemma class="11" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.1.s.1.w.9" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>of</t>
+          <pos class="VG(neven)" confidence="0.855677" datetime="2016-11-15T15:12:00" head="VG">
+            <feat subset="conjtype" class="neven"/>
+          </pos>
+          <lemma class="of" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.1.s.1.w.10" class="NUMBER-ORDINAL" datetime="2016-11-15T15:12:00">
+          <t>12e</t>
+          <pos class="TW(rang,prenom,stan)" confidence="0.990632" datetime="2016-11-15T15:12:00" head="TW">
+            <feat subset="numtype" class="rang"/>
+            <feat subset="positie" class="prenom"/>
+            <feat subset="naamval" class="stan"/>
+          </pos>
+          <lemma class="12" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.1.s.1.w.11" class="WORD" datetime="2016-11-15T15:12:00" space="no">
+          <t>eeuw</t>
+          <pos class="N(soort,ev,basis,zijd,stan)" confidence="0.999633" datetime="2016-11-15T15:12:00" head="N">
+            <feat subset="ntype" class="soort"/>
+            <feat subset="getal" class="ev"/>
+            <feat subset="graad" class="basis"/>
+            <feat subset="genus" class="zijd"/>
+            <feat subset="naamval" class="stan"/>
+          </pos>
+          <lemma class="eeuw" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.1.s.1.w.12" class="PUNCTUATION" datetime="2016-11-15T15:12:00">
+          <t>,</t>
+          <pos class="LET()" confidence="1.0" datetime="2016-11-15T15:12:00" head="LET"/>
+          <lemma class="," datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.1.s.1.w.13" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>toen</t>
+          <pos class="VG(onder)" confidence="0.571429" datetime="2016-11-15T15:12:00" head="VG">
+            <feat subset="conjtype" class="onder"/>
+          </pos>
+          <lemma class="toen" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.1.s.1.w.14" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>handelaars</t>
+          <pos class="N(soort,mv,basis)" confidence="0.99944" datetime="2016-11-15T15:12:00" head="N">
+            <feat subset="ntype" class="soort"/>
+            <feat subset="getal" class="mv"/>
+            <feat subset="graad" class="basis"/>
+          </pos>
+          <lemma class="handelaar" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.1.s.1.w.15" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>van</t>
+          <pos class="VZ(init)" confidence="0.999469" datetime="2016-11-15T15:12:00" head="VZ">
+            <feat subset="vztype" class="init"/>
+          </pos>
+          <lemma class="van" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.1.s.1.w.16" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>Novgorod</t>
+          <pos class="SPEC(deeleigen)" confidence="1.0" datetime="2016-11-15T15:12:00" head="SPEC">
+            <feat subset="spectype" class="deeleigen"/>
+          </pos>
+          <lemma class="Novgorod" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.1.s.1.w.17" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>het</t>
+          <pos class="LID(bep,stan,evon)" confidence="0.996855" datetime="2016-11-15T15:12:00" head="LID">
+            <feat subset="lwtype" class="bep"/>
+            <feat subset="naamval" class="stan"/>
+            <feat subset="npagr" class="evon"/>
+          </pos>
+          <lemma class="het" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.1.s.1.w.18" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>eiland</t>
+          <pos class="N(soort,ev,basis,onz,stan)" confidence="0.996804" datetime="2016-11-15T15:12:00" head="N">
+            <feat subset="ntype" class="soort"/>
+            <feat subset="getal" class="ev"/>
+            <feat subset="graad" class="basis"/>
+            <feat subset="genus" class="onz"/>
+            <feat subset="naamval" class="stan"/>
+          </pos>
+          <lemma class="eiland" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.1.s.1.w.19" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>al</t>
+          <pos class="BW()" confidence="0.90383" datetime="2016-11-15T15:12:00" head="BW"/>
+          <lemma class="al" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.1.s.1.w.20" class="WORD" datetime="2016-11-15T15:12:00" space="no">
+          <t>aandeden</t>
+          <pos class="WW(pv,verl,mv)" confidence="0.999559" datetime="2016-11-15T15:12:00" head="WW">
+            <feat subset="wvorm" class="pv"/>
+            <feat subset="pvtijd" class="verl"/>
+            <feat subset="pvagr" class="mv"/>
+          </pos>
+          <lemma class="aandoen" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.1.s.1.w.21" class="PUNCTUATION" datetime="2016-11-15T15:12:00">
+          <t>.</t>
+          <pos class="LET()" confidence="1.0" datetime="2016-11-15T15:12:00" head="LET"/>
+          <lemma class="." datetime="2016-11-15T15:12:00"/>
+        </w>
+        <chunking xml:id="example.deep.p.1.s.1.chunking.1" datetime="2016-11-15T15:12:00">
+          <chunk xml:id="example.deep.p.1.s.1.chunking.1.chunk.1" class="NP" confidence="0.969974" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.1.s.1.w.1" t="De"/>
+            <wref id="example.deep.p.1.s.1.w.2" t="Russen"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.1.s.1.chunking.1.chunk.2" class="VP" confidence="0.992138" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.1.s.1.w.3" t="kennen"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.1.s.1.chunking.1.chunk.3" class="NP" confidence="0.998897" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.1.s.1.w.4" t="Nova"/>
+            <wref id="example.deep.p.1.s.1.w.5" t="Zembla"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.1.s.1.chunking.1.chunk.4" class="PP" confidence="0.932702" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.1.s.1.w.6" t="sinds"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.1.s.1.chunking.1.chunk.5" class="NP" confidence="0.657825" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.1.s.1.w.7" t="de"/>
+            <wref id="example.deep.p.1.s.1.w.8" t="11e"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.1.s.1.chunking.1.chunk.6" class="CONJP" confidence="0.631579" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.1.s.1.w.9" t="of"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.1.s.1.chunking.1.chunk.7" class="NP" confidence="0.991573" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.1.s.1.w.10" t="12e"/>
+            <wref id="example.deep.p.1.s.1.w.11" t="eeuw"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.1.s.1.chunking.1.chunk.8" class="NP" confidence="0.780941" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.1.s.1.w.13" t="toen"/>
+            <wref id="example.deep.p.1.s.1.w.14" t="handelaars"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.1.s.1.chunking.1.chunk.9" class="PP" confidence="0.995017" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.1.s.1.w.15" t="van"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.1.s.1.chunking.1.chunk.10" class="NP" confidence="1.0" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.1.s.1.w.16" t="Novgorod"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.1.s.1.chunking.1.chunk.11" class="NP" confidence="0.94991" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.1.s.1.w.17" t="het"/>
+            <wref id="example.deep.p.1.s.1.w.18" t="eiland"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.1.s.1.chunking.1.chunk.12" class="ADVP" confidence="0.743316" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.1.s.1.w.19" t="al"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.1.s.1.chunking.1.chunk.13" class="VP" confidence="0.848559" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.1.s.1.w.20" t="aandeden"/>
+          </chunk>
+        </chunking>
+        <entities xml:id="example.deep.p.1.s.1.entities.1">
+          <entity xml:id="example.deep.p.1.s.1.entities.1.entity.1" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-ner-nl" class="loc" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.1.s.1.w.2" t="Russen"/>
+          </entity>
+          <entity xml:id="example.deep.p.1.s.1.entities.1.entity.2" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-ner-nl" class="org" confidence="0.5" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.1.s.1.w.4" t="Nova"/>
+            <wref id="example.deep.p.1.s.1.w.5" t="Zembla"/>
+          </entity>
+          <entity xml:id="example.deep.p.1.s.1.entities.1.entity.3" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-ner-nl" class="loc" confidence="0.535656" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.1.s.1.w.16" t="Novgorod"/>
+          </entity>
+        </entities>
+        <entities xml:id="example.deep.p.1.s.1.entities.2">
+          <entity xml:id="example.deep.p.1.s.1.entities.2.entity.1" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mwu-nl" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.1.s.1.w.4" t="Nova"/>
+            <wref id="example.deep.p.1.s.1.w.5" t="Zembla"/>
+          </entity>
+        </entities>
+        <dependencies xml:id="example.deep.p.1.s.1.dependencies.1">
+          <dependency xml:id="example.deep.p.1.s.1.dependencies.1.dependency.1" class="det">
+            <dep>
+              <wref id="example.deep.p.1.s.1.w.1" t="De"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.1.s.1.w.2" t="Russen"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.1.s.1.dependencies.1.dependency.2" class="su">
+            <dep>
+              <wref id="example.deep.p.1.s.1.w.2" t="Russen"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.1.s.1.w.3" t="kennen"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.1.s.1.dependencies.1.dependency.3" class="obj1">
+            <hd>
+              <wref id="example.deep.p.1.s.1.w.3" t="kennen"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.1.s.1.w.4" t="Nova"/>
+              <wref id="example.deep.p.1.s.1.w.5" t="Zembla"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.1.s.1.dependencies.1.dependency.4" class="mod">
+            <hd>
+              <wref id="example.deep.p.1.s.1.w.4" t="Nova"/>
+              <wref id="example.deep.p.1.s.1.w.5" t="Zembla"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.1.s.1.w.6" t="sinds"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.1.s.1.dependencies.1.dependency.5" class="det">
+            <dep>
+              <wref id="example.deep.p.1.s.1.w.7" t="de"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.1.s.1.w.11" t="eeuw"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.1.s.1.dependencies.1.dependency.6" class="cnj">
+            <dep>
+              <wref id="example.deep.p.1.s.1.w.8" t="11e"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.1.s.1.w.9" t="of"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.1.s.1.dependencies.1.dependency.7" class="mod">
+            <dep>
+              <wref id="example.deep.p.1.s.1.w.9" t="of"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.1.s.1.w.11" t="eeuw"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.1.s.1.dependencies.1.dependency.8" class="cnj">
+            <hd>
+              <wref id="example.deep.p.1.s.1.w.9" t="of"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.1.s.1.w.10" t="12e"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.1.s.1.dependencies.1.dependency.9" class="obj1">
+            <hd>
+              <wref id="example.deep.p.1.s.1.w.6" t="sinds"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.1.s.1.w.11" t="eeuw"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.1.s.1.dependencies.1.dependency.10" class="punct">
+            <hd>
+              <wref id="example.deep.p.1.s.1.w.11" t="eeuw"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.1.s.1.w.12" t=","/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.1.s.1.dependencies.1.dependency.11" class="mod">
+            <hd>
+              <wref id="example.deep.p.1.s.1.w.11" t="eeuw"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.1.s.1.w.13" t="toen"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.1.s.1.dependencies.1.dependency.12" class="su">
+            <dep>
+              <wref id="example.deep.p.1.s.1.w.14" t="handelaars"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.1.s.1.w.20" t="aandeden"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.1.s.1.dependencies.1.dependency.13" class="mod">
+            <hd>
+              <wref id="example.deep.p.1.s.1.w.14" t="handelaars"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.1.s.1.w.15" t="van"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.1.s.1.dependencies.1.dependency.14" class="obj1">
+            <hd>
+              <wref id="example.deep.p.1.s.1.w.15" t="van"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.1.s.1.w.16" t="Novgorod"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.1.s.1.dependencies.1.dependency.15" class="det">
+            <dep>
+              <wref id="example.deep.p.1.s.1.w.17" t="het"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.1.s.1.w.18" t="eiland"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.1.s.1.dependencies.1.dependency.16" class="obj1">
+            <dep>
+              <wref id="example.deep.p.1.s.1.w.18" t="eiland"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.1.s.1.w.20" t="aandeden"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.1.s.1.dependencies.1.dependency.17" class="mod">
+            <dep>
+              <wref id="example.deep.p.1.s.1.w.19" t="al"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.1.s.1.w.20" t="aandeden"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.1.s.1.dependencies.1.dependency.18" class="body">
+            <hd>
+              <wref id="example.deep.p.1.s.1.w.13" t="toen"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.1.s.1.w.20" t="aandeden"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.1.s.1.dependencies.1.dependency.19" class="punct">
+            <hd>
+              <wref id="example.deep.p.1.s.1.w.20" t="aandeden"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.1.s.1.w.21" t="."/>
+            </dep>
+          </dependency>
+        </dependencies>
+      </s>
+      <s xml:id="example.deep.p.1.s.2">
+        <t>West-Europeanen ontdekten de eilanden in de 16e eeuw tijdens de zoektocht naar een noordoostelijke doorgang naar de Stille Oceaan.</t>
+        <w xml:id="example.deep.p.1.s.2.w.1" class="WORD-COMPOUND" datetime="2016-11-15T15:12:00">
+          <t>West-Europeanen</t>
+          <pos class="SPEC(deeleigen)" confidence="1.0" datetime="2016-11-15T15:12:00" head="SPEC">
+            <feat subset="spectype" class="deeleigen"/>
+          </pos>
+          <lemma class="West-Europeanen" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.1.s.2.w.2" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>ontdekten</t>
+          <pos class="WW(pv,verl,mv)" confidence="0.999193" datetime="2016-11-15T15:12:00" head="WW">
+            <feat subset="wvorm" class="pv"/>
+            <feat subset="pvtijd" class="verl"/>
+            <feat subset="pvagr" class="mv"/>
+          </pos>
+          <lemma class="ontdekken" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.1.s.2.w.3" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>de</t>
+          <pos class="LID(bep,stan,rest)" confidence="0.999852" datetime="2016-11-15T15:12:00" head="LID">
+            <feat subset="lwtype" class="bep"/>
+            <feat subset="naamval" class="stan"/>
+            <feat subset="npagr" class="rest"/>
+          </pos>
+          <lemma class="de" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.1.s.2.w.4" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>eilanden</t>
+          <pos class="N(soort,mv,basis)" confidence="0.998726" datetime="2016-11-15T15:12:00" head="N">
+            <feat subset="ntype" class="soort"/>
+            <feat subset="getal" class="mv"/>
+            <feat subset="graad" class="basis"/>
+          </pos>
+          <lemma class="eiland" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.1.s.2.w.5" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>in</t>
+          <pos class="VZ(init)" confidence="0.998814" datetime="2016-11-15T15:12:00" head="VZ">
+            <feat subset="vztype" class="init"/>
+          </pos>
+          <lemma class="in" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.1.s.2.w.6" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>de</t>
+          <pos class="LID(bep,stan,rest)" confidence="0.981886" datetime="2016-11-15T15:12:00" head="LID">
+            <feat subset="lwtype" class="bep"/>
+            <feat subset="naamval" class="stan"/>
+            <feat subset="npagr" class="rest"/>
+          </pos>
+          <lemma class="de" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.1.s.2.w.7" class="NUMBER-ORDINAL" datetime="2016-11-15T15:12:00">
+          <t>16e</t>
+          <pos class="TW(rang,prenom,stan)" confidence="0.990632" datetime="2016-11-15T15:12:00" head="TW">
+            <feat subset="numtype" class="rang"/>
+            <feat subset="positie" class="prenom"/>
+            <feat subset="naamval" class="stan"/>
+          </pos>
+          <lemma class="16" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.1.s.2.w.8" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>eeuw</t>
+          <pos class="N(soort,ev,basis,zijd,stan)" confidence="0.999467" datetime="2016-11-15T15:12:00" head="N">
+            <feat subset="ntype" class="soort"/>
+            <feat subset="getal" class="ev"/>
+            <feat subset="graad" class="basis"/>
+            <feat subset="genus" class="zijd"/>
+            <feat subset="naamval" class="stan"/>
+          </pos>
+          <lemma class="eeuw" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.1.s.2.w.9" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>tijdens</t>
+          <pos class="VZ(init)" confidence="0.972946" datetime="2016-11-15T15:12:00" head="VZ">
+            <feat subset="vztype" class="init"/>
+          </pos>
+          <lemma class="tijdens" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.1.s.2.w.10" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>de</t>
+          <pos class="LID(bep,stan,rest)" confidence="0.999964" datetime="2016-11-15T15:12:00" head="LID">
+            <feat subset="lwtype" class="bep"/>
+            <feat subset="naamval" class="stan"/>
+            <feat subset="npagr" class="rest"/>
+          </pos>
+          <lemma class="de" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.1.s.2.w.11" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>zoektocht</t>
+          <pos class="N(soort,ev,basis,zijd,stan)" confidence="0.998827" datetime="2016-11-15T15:12:00" head="N">
+            <feat subset="ntype" class="soort"/>
+            <feat subset="getal" class="ev"/>
+            <feat subset="graad" class="basis"/>
+            <feat subset="genus" class="zijd"/>
+            <feat subset="naamval" class="stan"/>
+          </pos>
+          <lemma class="zoektocht" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.1.s.2.w.12" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>naar</t>
+          <pos class="VZ(init)" confidence="0.992908" datetime="2016-11-15T15:12:00" head="VZ">
+            <feat subset="vztype" class="init"/>
+          </pos>
+          <lemma class="naar" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.1.s.2.w.13" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>een</t>
+          <pos class="LID(onbep,stan,agr)" confidence="0.995147" datetime="2016-11-15T15:12:00" head="LID">
+            <feat subset="lwtype" class="onbep"/>
+            <feat subset="naamval" class="stan"/>
+            <feat subset="npagr" class="agr"/>
+          </pos>
+          <lemma class="een" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.1.s.2.w.14" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>noordoostelijke</t>
+          <pos class="ADJ(prenom,basis,met-e,stan)" confidence="0.999828" datetime="2016-11-15T15:12:00" head="ADJ">
+            <feat subset="positie" class="prenom"/>
+            <feat subset="graad" class="basis"/>
+            <feat subset="buiging" class="met-e"/>
+            <feat subset="naamval" class="stan"/>
+          </pos>
+          <lemma class="noordoostelijk" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.1.s.2.w.15" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>doorgang</t>
+          <pos class="N(soort,ev,basis,zijd,stan)" confidence="0.998827" datetime="2016-11-15T15:12:00" head="N">
+            <feat subset="ntype" class="soort"/>
+            <feat subset="getal" class="ev"/>
+            <feat subset="graad" class="basis"/>
+            <feat subset="genus" class="zijd"/>
+            <feat subset="naamval" class="stan"/>
+          </pos>
+          <lemma class="doorgang" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.1.s.2.w.16" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>naar</t>
+          <pos class="VZ(init)" confidence="0.999754" datetime="2016-11-15T15:12:00" head="VZ">
+            <feat subset="vztype" class="init"/>
+          </pos>
+          <lemma class="naar" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.1.s.2.w.17" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>de</t>
+          <pos class="LID(bep,stan,rest)" confidence="0.995902" datetime="2016-11-15T15:12:00" head="LID">
+            <feat subset="lwtype" class="bep"/>
+            <feat subset="naamval" class="stan"/>
+            <feat subset="npagr" class="rest"/>
+          </pos>
+          <lemma class="de" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.1.s.2.w.18" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>Stille</t>
+          <pos class="SPEC(deeleigen)" confidence="1.0" datetime="2016-11-15T15:12:00" head="SPEC">
+            <feat subset="spectype" class="deeleigen"/>
+          </pos>
+          <lemma class="Stille" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.1.s.2.w.19" class="WORD" datetime="2016-11-15T15:12:00" space="no">
+          <t>Oceaan</t>
+          <pos class="SPEC(deeleigen)" annotator="frog-mbpos-1.0" annotatortype="auto" confidence="1.0" datetime="2016-11-15T15:12:00" head="SPEC">
+            <feat subset="spectype" class="deeleigen"/>
+          </pos>
+          <lemma class="Oceaan" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.1.s.2.w.20" class="PUNCTUATION" datetime="2016-11-15T15:12:00">
+          <t>.</t>
+          <pos class="LET()" confidence="1.0" datetime="2016-11-15T15:12:00" head="LET"/>
+          <lemma class="." datetime="2016-11-15T15:12:00"/>
+        </w>
+        <chunking xml:id="example.deep.p.1.s.2.chunking.1" datetime="2016-11-15T15:12:00">
+          <chunk xml:id="example.deep.p.1.s.2.chunking.1.chunk.1" class="NP" confidence="0.526644" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.1.s.2.w.1" t="West-Europeanen"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.1.s.2.chunking.1.chunk.2" class="VP" confidence="0.996734" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.1.s.2.w.2" t="ontdekten"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.1.s.2.chunking.1.chunk.3" class="NP" confidence="0.945726" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.1.s.2.w.3" t="de"/>
+            <wref id="example.deep.p.1.s.2.w.4" t="eilanden"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.1.s.2.chunking.1.chunk.4" class="PP" confidence="0.985263" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.1.s.2.w.5" t="in"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.1.s.2.chunking.1.chunk.5" class="NP" confidence="0.971335" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.1.s.2.w.6" t="de"/>
+            <wref id="example.deep.p.1.s.2.w.7" t="16e"/>
+            <wref id="example.deep.p.1.s.2.w.8" t="eeuw"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.1.s.2.chunking.1.chunk.6" class="PP" confidence="0.991071" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.1.s.2.w.9" t="tijdens"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.1.s.2.chunking.1.chunk.7" class="NP" confidence="0.982289" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.1.s.2.w.10" t="de"/>
+            <wref id="example.deep.p.1.s.2.w.11" t="zoektocht"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.1.s.2.chunking.1.chunk.8" class="PP" confidence="0.99005" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.1.s.2.w.12" t="naar"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.1.s.2.chunking.1.chunk.9" class="NP" confidence="0.964902" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.1.s.2.w.13" t="een"/>
+            <wref id="example.deep.p.1.s.2.w.14" t="noordoostelijke"/>
+            <wref id="example.deep.p.1.s.2.w.15" t="doorgang"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.1.s.2.chunking.1.chunk.10" class="PP" confidence="0.99005" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.1.s.2.w.16" t="naar"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.1.s.2.chunking.1.chunk.11" class="NP" confidence="0.958302" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.1.s.2.w.17" t="de"/>
+            <wref id="example.deep.p.1.s.2.w.18" t="Stille"/>
+            <wref id="example.deep.p.1.s.2.w.19" t="Oceaan"/>
+          </chunk>
+        </chunking>
+        <entities xml:id="example.deep.p.1.s.2.entities.1">
+          <entity xml:id="example.deep.p.1.s.2.entities.1.entity.1" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-ner-nl" class="loc" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.1.s.2.w.18" t="Stille"/>
+            <wref id="example.deep.p.1.s.2.w.19" t="Oceaan"/>
+          </entity>
+        </entities>
+        <entities xml:id="example.deep.p.1.s.2.entities.2">
+          <entity xml:id="example.deep.p.1.s.2.entities.2.entity.1" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mwu-nl" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.1.s.2.w.18" t="Stille"/>
+            <wref id="example.deep.p.1.s.2.w.19" t="Oceaan"/>
+          </entity>
+        </entities>
+        <dependencies xml:id="example.deep.p.1.s.2.dependencies.1">
+          <dependency xml:id="example.deep.p.1.s.2.dependencies.1.dependency.1" class="su">
+            <dep>
+              <wref id="example.deep.p.1.s.2.w.1" t="West-Europeanen"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.1.s.2.w.2" t="ontdekten"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.1.s.2.dependencies.1.dependency.2" class="det">
+            <dep>
+              <wref id="example.deep.p.1.s.2.w.3" t="de"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.1.s.2.w.4" t="eilanden"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.1.s.2.dependencies.1.dependency.3" class="su">
+            <hd>
+              <wref id="example.deep.p.1.s.2.w.2" t="ontdekten"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.1.s.2.w.4" t="eilanden"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.1.s.2.dependencies.1.dependency.4" class="mod">
+            <hd>
+              <wref id="example.deep.p.1.s.2.w.2" t="ontdekten"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.1.s.2.w.5" t="in"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.1.s.2.dependencies.1.dependency.5" class="det">
+            <dep>
+              <wref id="example.deep.p.1.s.2.w.6" t="de"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.1.s.2.w.8" t="eeuw"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.1.s.2.dependencies.1.dependency.6" class="mod">
+            <dep>
+              <wref id="example.deep.p.1.s.2.w.7" t="16e"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.1.s.2.w.8" t="eeuw"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.1.s.2.dependencies.1.dependency.7" class="obj1">
+            <hd>
+              <wref id="example.deep.p.1.s.2.w.5" t="in"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.1.s.2.w.8" t="eeuw"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.1.s.2.dependencies.1.dependency.8" class="mod">
+            <hd>
+              <wref id="example.deep.p.1.s.2.w.8" t="eeuw"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.1.s.2.w.9" t="tijdens"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.1.s.2.dependencies.1.dependency.9" class="det">
+            <dep>
+              <wref id="example.deep.p.1.s.2.w.10" t="de"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.1.s.2.w.11" t="zoektocht"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.1.s.2.dependencies.1.dependency.10" class="obj1">
+            <hd>
+              <wref id="example.deep.p.1.s.2.w.9" t="tijdens"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.1.s.2.w.11" t="zoektocht"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.1.s.2.dependencies.1.dependency.11" class="mod">
+            <hd>
+              <wref id="example.deep.p.1.s.2.w.11" t="zoektocht"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.1.s.2.w.12" t="naar"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.1.s.2.dependencies.1.dependency.12" class="det">
+            <dep>
+              <wref id="example.deep.p.1.s.2.w.13" t="een"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.1.s.2.w.15" t="doorgang"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.1.s.2.dependencies.1.dependency.13" class="mod">
+            <dep>
+              <wref id="example.deep.p.1.s.2.w.14" t="noordoostelijke"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.1.s.2.w.15" t="doorgang"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.1.s.2.dependencies.1.dependency.14" class="obj1">
+            <hd>
+              <wref id="example.deep.p.1.s.2.w.12" t="naar"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.1.s.2.w.15" t="doorgang"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.1.s.2.dependencies.1.dependency.15" class="mod">
+            <hd>
+              <wref id="example.deep.p.1.s.2.w.15" t="doorgang"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.1.s.2.w.16" t="naar"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.1.s.2.dependencies.1.dependency.16" class="det">
+            <dep>
+              <wref id="example.deep.p.1.s.2.w.17" t="de"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.1.s.2.w.18" t="Stille"/>
+              <wref id="example.deep.p.1.s.2.w.19" t="Oceaan"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.1.s.2.dependencies.1.dependency.17" class="obj1">
+            <hd>
+              <wref id="example.deep.p.1.s.2.w.16" t="naar"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.1.s.2.w.18" t="Stille"/>
+              <wref id="example.deep.p.1.s.2.w.19" t="Oceaan"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.1.s.2.dependencies.1.dependency.18" class="punct">
+            <hd>
+              <wref id="example.deep.p.1.s.2.w.18" t="Stille"/>
+              <wref id="example.deep.p.1.s.2.w.19" t="Oceaan"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.1.s.2.w.20" t="."/>
+            </dep>
+          </dependency>
+        </dependencies>
+      </s>
+    </p>
+    <p xml:id="example.deep.p.2">
+      <t>De eerste bekende westerse bezoeker was Hugh Willoughby in 1553. Willem Barentsz en Jacob van Heemskerck voeren in 1596 rond het noordelijkste punt van de eilanden en overwinterden noodgedwongen aan de oostelijke kust, dicht bij de noordelijke top. Hun expeditie overwinterde in een zelfgemaakt onderkomen, het Behouden Huys. Gedurende de reis werden de eilanden voor het eerst in kaart gebracht. Gerrit de Veer maakte van deze tocht een reisverslag. Hij beschreef op 24 januari 1597 een zonsopgang, twee weken eerder dan verwacht. Ter verklaring van dit verschijnsel werd door Johannes Kepler al lichtbreking voorgesteld. Tegenwoordig wordt het beschouwd als een arctische luchtspiegeling en staat het bekend als het Nova Zembla-effect.</t>
+      <s xml:id="example.deep.p.2.s.1">
+        <t>De eerste bekende westerse bezoeker was Hugh Willoughby in 1553.</t>
+        <w xml:id="example.deep.p.2.s.1.w.1" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>De</t>
+          <pos class="LID(bep,stan,rest)" confidence="0.877577" datetime="2016-11-15T15:12:00" head="LID">
+            <feat subset="lwtype" class="bep"/>
+            <feat subset="naamval" class="stan"/>
+            <feat subset="npagr" class="rest"/>
+          </pos>
+          <lemma class="de" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.1.w.2" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>eerste</t>
+          <pos class="TW(rang,prenom,stan)" confidence="0.947368" datetime="2016-11-15T15:12:00" head="TW">
+            <feat subset="numtype" class="rang"/>
+            <feat subset="positie" class="prenom"/>
+            <feat subset="naamval" class="stan"/>
+          </pos>
+          <lemma class="een" datetime="2016-11-15T15:12:00"/>
+          <alt xml:id="example.deep.p.2.s.1.w.2.alt-lem.1" auth="no">
+            <lemma class="eerste" datetime="2016-11-15T15:12:00"/>
+          </alt>
+          <alt xml:id="example.deep.p.2.s.1.w.2.alt-lem.2" auth="no">
+            <lemma class="één" datetime="2016-11-15T15:12:00"/>
+          </alt>
+        </w>
+        <w xml:id="example.deep.p.2.s.1.w.3" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>bekende</t>
+          <pos class="ADJ(prenom,basis,met-e,stan)" confidence="0.991031" datetime="2016-11-15T15:12:00" head="ADJ">
+            <feat subset="positie" class="prenom"/>
+            <feat subset="graad" class="basis"/>
+            <feat subset="buiging" class="met-e"/>
+            <feat subset="naamval" class="stan"/>
+          </pos>
+          <lemma class="bekend" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.1.w.4" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>westerse</t>
+          <pos class="ADJ(prenom,basis,met-e,stan)" confidence="0.999763" datetime="2016-11-15T15:12:00" head="ADJ">
+            <feat subset="positie" class="prenom"/>
+            <feat subset="graad" class="basis"/>
+            <feat subset="buiging" class="met-e"/>
+            <feat subset="naamval" class="stan"/>
+          </pos>
+          <lemma class="westers" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.1.w.5" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>bezoeker</t>
+          <pos class="N(soort,ev,basis,zijd,stan)" confidence="0.999049" datetime="2016-11-15T15:12:00" head="N">
+            <feat subset="ntype" class="soort"/>
+            <feat subset="getal" class="ev"/>
+            <feat subset="graad" class="basis"/>
+            <feat subset="genus" class="zijd"/>
+            <feat subset="naamval" class="stan"/>
+          </pos>
+          <lemma class="bezoeker" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.1.w.6" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>was</t>
+          <pos class="WW(pv,verl,ev)" confidence="0.998698" datetime="2016-11-15T15:12:00" head="WW">
+            <feat subset="wvorm" class="pv"/>
+            <feat subset="pvtijd" class="verl"/>
+            <feat subset="pvagr" class="ev"/>
+          </pos>
+          <lemma class="zijn" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.1.w.7" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>Hugh</t>
+          <pos class="SPEC(deeleigen)" confidence="1.0" datetime="2016-11-15T15:12:00" head="SPEC">
+            <feat subset="spectype" class="deeleigen"/>
+          </pos>
+          <lemma class="Hugh" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.1.w.8" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>Willoughby</t>
+          <pos class="SPEC(deeleigen)" annotator="frog-mbpos-1.0" annotatortype="auto" confidence="1.0" datetime="2016-11-15T15:12:00" head="SPEC">
+            <feat subset="spectype" class="deeleigen"/>
+          </pos>
+          <lemma class="Willoughby" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.1.w.9" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>in</t>
+          <pos class="VZ(init)" confidence="0.931125" datetime="2016-11-15T15:12:00" head="VZ">
+            <feat subset="vztype" class="init"/>
+          </pos>
+          <lemma class="in" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.1.w.10" class="NUMBER" datetime="2016-11-15T15:12:00" space="no">
+          <t>1553</t>
+          <pos class="TW(hoofd,vrij)" confidence="1.0" datetime="2016-11-15T15:12:00" head="TW">
+            <feat subset="numtype" class="hoofd"/>
+            <feat subset="positie" class="vrij"/>
+          </pos>
+          <lemma class="1553" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.1.w.11" class="PUNCTUATION" datetime="2016-11-15T15:12:00">
+          <t>.</t>
+          <pos class="LET()" confidence="1.0" datetime="2016-11-15T15:12:00" head="LET"/>
+          <lemma class="." datetime="2016-11-15T15:12:00"/>
+        </w>
+        <entities xml:id="example.deep.p.2.s.1.entities.1">
+          <entity xml:id="example.deep.p.2.s.1.entities.1.entity.1" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-ner-nl" class="per" confidence="0.5" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.1.w.7" t="Hugh"/>
+            <wref id="example.deep.p.2.s.1.w.8" t="Willoughby"/>
+          </entity>
+        </entities>
+        <chunking xml:id="example.deep.p.2.s.1.chunking.1" datetime="2016-11-15T15:12:00">
+          <chunk xml:id="example.deep.p.2.s.1.chunking.1.chunk.1" class="NP" confidence="0.818497" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.1.w.1" t="De"/>
+            <wref id="example.deep.p.2.s.1.w.2" t="eerste"/>
+            <wref id="example.deep.p.2.s.1.w.3" t="bekende"/>
+            <wref id="example.deep.p.2.s.1.w.4" t="westerse"/>
+            <wref id="example.deep.p.2.s.1.w.5" t="bezoeker"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.1.chunking.1.chunk.2" class="VP" confidence="0.957307" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.1.w.6" t="was"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.1.chunking.1.chunk.3" class="NP" confidence="0.992765" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.1.w.7" t="Hugh"/>
+            <wref id="example.deep.p.2.s.1.w.8" t="Willoughby"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.1.chunking.1.chunk.4" class="PP" confidence="0.868675" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.1.w.9" t="in"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.1.chunking.1.chunk.5" class="NP" confidence="1.0" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.1.w.10" t="1553"/>
+          </chunk>
+        </chunking>
+        <entities xml:id="example.deep.p.2.s.1.entities.2">
+          <entity xml:id="example.deep.p.2.s.1.entities.2.entity.1" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mwu-nl" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.1.w.7" t="Hugh"/>
+            <wref id="example.deep.p.2.s.1.w.8" t="Willoughby"/>
+          </entity>
+        </entities>
+        <dependencies xml:id="example.deep.p.2.s.1.dependencies.1">
+          <dependency xml:id="example.deep.p.2.s.1.dependencies.1.dependency.1" class="det">
+            <dep>
+              <wref id="example.deep.p.2.s.1.w.1" t="De"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.2.s.1.w.5" t="bezoeker"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.1.dependencies.1.dependency.2" class="mod">
+            <dep>
+              <wref id="example.deep.p.2.s.1.w.2" t="eerste"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.2.s.1.w.5" t="bezoeker"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.1.dependencies.1.dependency.3" class="mod">
+            <dep>
+              <wref id="example.deep.p.2.s.1.w.3" t="bekende"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.2.s.1.w.5" t="bezoeker"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.1.dependencies.1.dependency.4" class="mod">
+            <dep>
+              <wref id="example.deep.p.2.s.1.w.4" t="westerse"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.2.s.1.w.5" t="bezoeker"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.1.dependencies.1.dependency.5" class="predc">
+            <dep>
+              <wref id="example.deep.p.2.s.1.w.5" t="bezoeker"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.2.s.1.w.6" t="was"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.1.dependencies.1.dependency.6" class="su">
+            <hd>
+              <wref id="example.deep.p.2.s.1.w.6" t="was"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.1.w.7" t="Hugh"/>
+              <wref id="example.deep.p.2.s.1.w.8" t="Willoughby"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.1.dependencies.1.dependency.7" class="mod">
+            <hd>
+              <wref id="example.deep.p.2.s.1.w.7" t="Hugh"/>
+              <wref id="example.deep.p.2.s.1.w.8" t="Willoughby"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.1.w.9" t="in"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.1.dependencies.1.dependency.8" class="obj1">
+            <hd>
+              <wref id="example.deep.p.2.s.1.w.9" t="in"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.1.w.10" t="1553"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.1.dependencies.1.dependency.9" class="punct">
+            <hd>
+              <wref id="example.deep.p.2.s.1.w.10" t="1553"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.1.w.11" t="."/>
+            </dep>
+          </dependency>
+        </dependencies>
+      </s>
+      <s xml:id="example.deep.p.2.s.2">
+        <t>Willem Barentsz en Jacob van Heemskerck voeren in 1596 rond het noordelijkste punt van de eilanden en overwinterden noodgedwongen aan de oostelijke kust, dicht bij de noordelijke top.</t>
+        <w xml:id="example.deep.p.2.s.2.w.1" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>Willem</t>
+          <pos class="SPEC(deeleigen)" confidence="1.0" datetime="2016-11-15T15:12:00" head="SPEC">
+            <feat subset="spectype" class="deeleigen"/>
+          </pos>
+          <lemma class="Willem" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.2.w.2" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>Barentsz</t>
+          <pos class="SPEC(deeleigen)" annotator="frog-mbpos-1.0" annotatortype="auto" confidence="1.0" datetime="2016-11-15T15:12:00" head="SPEC">
+            <feat subset="spectype" class="deeleigen"/>
+          </pos>
+          <lemma class="Barentsz" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.2.w.3" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>en</t>
+          <pos class="VG(neven)" confidence="0.971591" datetime="2016-11-15T15:12:00" head="VG">
+            <feat subset="conjtype" class="neven"/>
+          </pos>
+          <lemma class="en" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.2.w.4" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>Jacob</t>
+          <pos class="SPEC(deeleigen)" confidence="1.0" datetime="2016-11-15T15:12:00" head="SPEC">
+            <feat subset="spectype" class="deeleigen"/>
+          </pos>
+          <lemma class="Jacob" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.2.w.5" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>van</t>
+          <pos class="VZ(init)" confidence="0.95931" datetime="2016-11-15T15:12:00" head="VZ">
+            <feat subset="vztype" class="init"/>
+          </pos>
+          <lemma class="van" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.2.w.6" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>Heemskerck</t>
+          <pos class="SPEC(deeleigen)" confidence="1.0" datetime="2016-11-15T15:12:00" head="SPEC">
+            <feat subset="spectype" class="deeleigen"/>
+          </pos>
+          <lemma class="Heemskerck" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.2.w.7" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>voeren</t>
+          <pos class="WW(pv,tgw,mv)" confidence="0.518519" datetime="2016-11-15T15:12:00" head="WW">
+            <feat subset="wvorm" class="pv"/>
+            <feat subset="pvtijd" class="tgw"/>
+            <feat subset="pvagr" class="mv"/>
+          </pos>
+          <lemma class="voeren" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.2.w.8" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>in</t>
+          <pos class="VZ(init)" confidence="0.931125" datetime="2016-11-15T15:12:00" head="VZ">
+            <feat subset="vztype" class="init"/>
+          </pos>
+          <lemma class="in" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.2.w.9" class="NUMBER" datetime="2016-11-15T15:12:00">
+          <t>1596</t>
+          <pos class="TW(hoofd,vrij)" confidence="0.99362" datetime="2016-11-15T15:12:00" head="TW">
+            <feat subset="numtype" class="hoofd"/>
+            <feat subset="positie" class="vrij"/>
+          </pos>
+          <lemma class="1596" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.2.w.10" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>rond</t>
+          <pos class="VZ(init)" confidence="0.724027" datetime="2016-11-15T15:12:00" head="VZ">
+            <feat subset="vztype" class="init"/>
+          </pos>
+          <lemma class="rond" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.2.w.11" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>het</t>
+          <pos class="LID(bep,stan,evon)" confidence="0.702075" datetime="2016-11-15T15:12:00" head="LID">
+            <feat subset="lwtype" class="bep"/>
+            <feat subset="naamval" class="stan"/>
+            <feat subset="npagr" class="evon"/>
+          </pos>
+          <lemma class="het" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.2.w.12" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>noordelijkste</t>
+          <pos class="ADJ(prenom,sup,met-e,stan)" confidence="0.965651" datetime="2016-11-15T15:12:00" head="ADJ">
+            <feat subset="positie" class="prenom"/>
+            <feat subset="graad" class="sup"/>
+            <feat subset="buiging" class="met-e"/>
+            <feat subset="naamval" class="stan"/>
+          </pos>
+          <lemma class="noordelijk" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.2.w.13" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>punt</t>
+          <pos class="N(soort,ev,basis,onz,stan)" confidence="0.842105" datetime="2016-11-15T15:12:00" head="N">
+            <feat subset="ntype" class="soort"/>
+            <feat subset="getal" class="ev"/>
+            <feat subset="graad" class="basis"/>
+            <feat subset="genus" class="onz"/>
+            <feat subset="naamval" class="stan"/>
+          </pos>
+          <lemma class="punt" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.2.w.14" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>van</t>
+          <pos class="VZ(init)" confidence="0.999566" datetime="2016-11-15T15:12:00" head="VZ">
+            <feat subset="vztype" class="init"/>
+          </pos>
+          <lemma class="van" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.2.w.15" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>de</t>
+          <pos class="LID(bep,stan,rest)" confidence="0.999852" datetime="2016-11-15T15:12:00" head="LID">
+            <feat subset="lwtype" class="bep"/>
+            <feat subset="naamval" class="stan"/>
+            <feat subset="npagr" class="rest"/>
+          </pos>
+          <lemma class="de" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.2.w.16" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>eilanden</t>
+          <pos class="N(soort,mv,basis)" confidence="0.997993" datetime="2016-11-15T15:12:00" head="N">
+            <feat subset="ntype" class="soort"/>
+            <feat subset="getal" class="mv"/>
+            <feat subset="graad" class="basis"/>
+          </pos>
+          <lemma class="eiland" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.2.w.17" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>en</t>
+          <pos class="VG(neven)" confidence="0.999194" datetime="2016-11-15T15:12:00" head="VG">
+            <feat subset="conjtype" class="neven"/>
+          </pos>
+          <lemma class="en" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.2.w.18" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>overwinterden</t>
+          <pos class="N(soort,mv,basis)" confidence="0.897398" datetime="2016-11-15T15:12:00" head="N">
+            <feat subset="ntype" class="soort"/>
+            <feat subset="getal" class="mv"/>
+            <feat subset="graad" class="basis"/>
+          </pos>
+          <lemma class="overwinterden" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.2.w.19" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>noodgedwongen</t>
+          <pos class="ADJ(vrij,basis,zonder)" confidence="0.984218" datetime="2016-11-15T15:12:00" head="ADJ">
+            <feat subset="positie" class="vrij"/>
+            <feat subset="graad" class="basis"/>
+            <feat subset="buiging" class="zonder"/>
+          </pos>
+          <lemma class="noodgedwongen" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.2.w.20" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>aan</t>
+          <pos class="VZ(init)" confidence="0.988095" datetime="2016-11-15T15:12:00" head="VZ">
+            <feat subset="vztype" class="init"/>
+          </pos>
+          <lemma class="aan" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.2.w.21" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>de</t>
+          <pos class="LID(bep,stan,rest)" confidence="0.999805" datetime="2016-11-15T15:12:00" head="LID">
+            <feat subset="lwtype" class="bep"/>
+            <feat subset="naamval" class="stan"/>
+            <feat subset="npagr" class="rest"/>
+          </pos>
+          <lemma class="de" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.2.w.22" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>oostelijke</t>
+          <pos class="ADJ(prenom,basis,met-e,stan)" confidence="0.999763" datetime="2016-11-15T15:12:00" head="ADJ">
+            <feat subset="positie" class="prenom"/>
+            <feat subset="graad" class="basis"/>
+            <feat subset="buiging" class="met-e"/>
+            <feat subset="naamval" class="stan"/>
+          </pos>
+          <lemma class="oostelijk" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.2.w.23" class="WORD" datetime="2016-11-15T15:12:00" space="no">
+          <t>kust</t>
+          <pos class="N(soort,ev,basis,zijd,stan)" confidence="0.999633" datetime="2016-11-15T15:12:00" head="N">
+            <feat subset="ntype" class="soort"/>
+            <feat subset="getal" class="ev"/>
+            <feat subset="graad" class="basis"/>
+            <feat subset="genus" class="zijd"/>
+            <feat subset="naamval" class="stan"/>
+          </pos>
+          <lemma class="kust" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.2.w.24" class="PUNCTUATION" datetime="2016-11-15T15:12:00">
+          <t>,</t>
+          <pos class="LET()" confidence="1.0" datetime="2016-11-15T15:12:00" head="LET"/>
+          <lemma class="," datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.2.w.25" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>dicht</t>
+          <pos class="ADJ(vrij,basis,zonder)" confidence="0.99701" datetime="2016-11-15T15:12:00" head="ADJ">
+            <feat subset="positie" class="vrij"/>
+            <feat subset="graad" class="basis"/>
+            <feat subset="buiging" class="zonder"/>
+          </pos>
+          <lemma class="dicht" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.2.w.26" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>bij</t>
+          <pos class="VZ(init)" confidence="0.998628" datetime="2016-11-15T15:12:00" head="VZ">
+            <feat subset="vztype" class="init"/>
+          </pos>
+          <lemma class="bij" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.2.w.27" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>de</t>
+          <pos class="LID(bep,stan,rest)" confidence="0.999805" datetime="2016-11-15T15:12:00" head="LID">
+            <feat subset="lwtype" class="bep"/>
+            <feat subset="naamval" class="stan"/>
+            <feat subset="npagr" class="rest"/>
+          </pos>
+          <lemma class="de" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.2.w.28" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>noordelijke</t>
+          <pos class="ADJ(prenom,basis,met-e,stan)" confidence="0.999763" datetime="2016-11-15T15:12:00" head="ADJ">
+            <feat subset="positie" class="prenom"/>
+            <feat subset="graad" class="basis"/>
+            <feat subset="buiging" class="met-e"/>
+            <feat subset="naamval" class="stan"/>
+          </pos>
+          <lemma class="noordelijk" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.2.w.29" class="WORD" datetime="2016-11-15T15:12:00" space="no">
+          <t>top</t>
+          <pos class="N(soort,ev,basis,zijd,stan)" confidence="0.999705" datetime="2016-11-15T15:12:00" head="N">
+            <feat subset="ntype" class="soort"/>
+            <feat subset="getal" class="ev"/>
+            <feat subset="graad" class="basis"/>
+            <feat subset="genus" class="zijd"/>
+            <feat subset="naamval" class="stan"/>
+          </pos>
+          <lemma class="top" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.2.w.30" class="PUNCTUATION" datetime="2016-11-15T15:12:00">
+          <t>.</t>
+          <pos class="LET()" confidence="1.0" datetime="2016-11-15T15:12:00" head="LET"/>
+          <lemma class="." datetime="2016-11-15T15:12:00"/>
+        </w>
+        <chunking xml:id="example.deep.p.2.s.2.chunking.1" datetime="2016-11-15T15:12:00">
+          <chunk xml:id="example.deep.p.2.s.2.chunking.1.chunk.1" class="NP" confidence="0.995357" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.2.w.1" t="Willem"/>
+            <wref id="example.deep.p.2.s.2.w.2" t="Barentsz"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.2.chunking.1.chunk.2" class="CONJP" confidence="0.988889" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.2.w.3" t="en"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.2.chunking.1.chunk.3" class="NP" confidence="0.650144" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.2.w.4" t="Jacob"/>
+            <wref id="example.deep.p.2.s.2.w.5" t="van"/>
+            <wref id="example.deep.p.2.s.2.w.6" t="Heemskerck"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.2.chunking.1.chunk.4" class="VP" confidence="1.0" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.2.w.7" t="voeren"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.2.chunking.1.chunk.5" class="PP" confidence="0.943458" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.2.w.8" t="in"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.2.chunking.1.chunk.6" class="NP" confidence="0.998053" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.2.w.9" t="1596"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.2.chunking.1.chunk.7" class="PP" confidence="0.5" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.2.w.10" t="rond"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.2.chunking.1.chunk.8" class="NP" confidence="0.707334" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.2.w.11" t="het"/>
+            <wref id="example.deep.p.2.s.2.w.12" t="noordelijkste"/>
+            <wref id="example.deep.p.2.s.2.w.13" t="punt"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.2.chunking.1.chunk.9" class="PP" confidence="0.99914" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.2.w.14" t="van"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.2.chunking.1.chunk.10" class="NP" confidence="0.973169" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.2.w.15" t="de"/>
+            <wref id="example.deep.p.2.s.2.w.16" t="eilanden"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.2.chunking.1.chunk.11" class="CONJP" confidence="0.993665" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.2.w.17" t="en"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.2.chunking.1.chunk.12" class="NP" confidence="0.811626" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.2.w.18" t="overwinterden"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.2.chunking.1.chunk.13" class="ADVP" confidence="0.72093" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.2.w.19" t="noodgedwongen"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.2.chunking.1.chunk.14" class="PP" confidence="0.892857" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.2.w.20" t="aan"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.2.chunking.1.chunk.15" class="NP" confidence="0.848926" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.2.w.21" t="de"/>
+            <wref id="example.deep.p.2.s.2.w.22" t="oostelijke"/>
+            <wref id="example.deep.p.2.s.2.w.23" t="kust"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.2.chunking.1.chunk.16" class="ADVP" confidence="1.0" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.2.w.25" t="dicht"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.2.chunking.1.chunk.17" class="PP" confidence="0.888889" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.2.w.26" t="bij"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.2.chunking.1.chunk.18" class="NP" confidence="0.943252" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.2.w.27" t="de"/>
+            <wref id="example.deep.p.2.s.2.w.28" t="noordelijke"/>
+            <wref id="example.deep.p.2.s.2.w.29" t="top"/>
+          </chunk>
+        </chunking>
+        <entities xml:id="example.deep.p.2.s.2.entities.1">
+          <entity xml:id="example.deep.p.2.s.2.entities.1.entity.1" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-ner-nl" class="per" confidence="0.8905" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.2.w.1" t="Willem"/>
+            <wref id="example.deep.p.2.s.2.w.2" t="Barentsz"/>
+          </entity>
+          <entity xml:id="example.deep.p.2.s.2.entities.1.entity.2" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-ner-nl" class="per" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.2.w.4" t="Jacob"/>
+          </entity>
+          <entity xml:id="example.deep.p.2.s.2.entities.1.entity.3" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-ner-nl" class="per" confidence="0.521507" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.2.w.6" t="Heemskerck"/>
+          </entity>
+        </entities>
+        <entities xml:id="example.deep.p.2.s.2.entities.2">
+          <entity xml:id="example.deep.p.2.s.2.entities.2.entity.1" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mwu-nl" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.2.w.1" t="Willem"/>
+            <wref id="example.deep.p.2.s.2.w.2" t="Barentsz"/>
+          </entity>
+          <entity xml:id="example.deep.p.2.s.2.entities.2.entity.2" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mwu-nl" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.2.w.25" t="dicht"/>
+            <wref id="example.deep.p.2.s.2.w.26" t="bij"/>
+          </entity>
+        </entities>
+        <dependencies xml:id="example.deep.p.2.s.2.dependencies.1">
+          <dependency xml:id="example.deep.p.2.s.2.dependencies.1.dependency.1" class="cnj">
+            <dep>
+              <wref id="example.deep.p.2.s.2.w.1" t="Willem"/>
+              <wref id="example.deep.p.2.s.2.w.2" t="Barentsz"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.2.s.2.w.3" t="en"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.2.dependencies.1.dependency.2" class="su">
+            <dep>
+              <wref id="example.deep.p.2.s.2.w.3" t="en"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.2.s.2.w.7" t="voeren"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.2.dependencies.1.dependency.3" class="cnj">
+            <hd>
+              <wref id="example.deep.p.2.s.2.w.3" t="en"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.2.w.4" t="Jacob"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.2.dependencies.1.dependency.4" class="mod">
+            <hd>
+              <wref id="example.deep.p.2.s.2.w.4" t="Jacob"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.2.w.5" t="van"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.2.dependencies.1.dependency.5" class="obj1">
+            <hd>
+              <wref id="example.deep.p.2.s.2.w.5" t="van"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.2.w.6" t="Heemskerck"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.2.dependencies.1.dependency.6" class="mod">
+            <hd>
+              <wref id="example.deep.p.2.s.2.w.7" t="voeren"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.2.w.8" t="in"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.2.dependencies.1.dependency.7" class="obj1">
+            <hd>
+              <wref id="example.deep.p.2.s.2.w.8" t="in"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.2.w.9" t="1596"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.2.dependencies.1.dependency.8" class="mod">
+            <hd>
+              <wref id="example.deep.p.2.s.2.w.7" t="voeren"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.2.w.10" t="rond"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.2.dependencies.1.dependency.9" class="det">
+            <dep>
+              <wref id="example.deep.p.2.s.2.w.11" t="het"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.2.s.2.w.13" t="punt"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.2.dependencies.1.dependency.10" class="mod">
+            <dep>
+              <wref id="example.deep.p.2.s.2.w.12" t="noordelijkste"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.2.s.2.w.13" t="punt"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.2.dependencies.1.dependency.11" class="obj1">
+            <hd>
+              <wref id="example.deep.p.2.s.2.w.10" t="rond"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.2.w.13" t="punt"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.2.dependencies.1.dependency.12" class="mod">
+            <hd>
+              <wref id="example.deep.p.2.s.2.w.13" t="punt"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.2.w.14" t="van"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.2.dependencies.1.dependency.13" class="det">
+            <dep>
+              <wref id="example.deep.p.2.s.2.w.15" t="de"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.2.s.2.w.16" t="eilanden"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.2.dependencies.1.dependency.14" class="cnj">
+            <dep>
+              <wref id="example.deep.p.2.s.2.w.16" t="eilanden"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.2.s.2.w.17" t="en"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.2.dependencies.1.dependency.15" class="obj1">
+            <hd>
+              <wref id="example.deep.p.2.s.2.w.14" t="van"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.2.w.17" t="en"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.2.dependencies.1.dependency.16" class="cnj">
+            <hd>
+              <wref id="example.deep.p.2.s.2.w.17" t="en"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.2.w.18" t="overwinterden"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.2.dependencies.1.dependency.17" class="vc">
+            <hd>
+              <wref id="example.deep.p.2.s.2.w.7" t="voeren"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.2.w.19" t="noodgedwongen"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.2.dependencies.1.dependency.18" class="pc">
+            <hd>
+              <wref id="example.deep.p.2.s.2.w.19" t="noodgedwongen"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.2.w.20" t="aan"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.2.dependencies.1.dependency.19" class="det">
+            <dep>
+              <wref id="example.deep.p.2.s.2.w.21" t="de"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.2.s.2.w.23" t="kust"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.2.dependencies.1.dependency.20" class="mod">
+            <dep>
+              <wref id="example.deep.p.2.s.2.w.22" t="oostelijke"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.2.s.2.w.23" t="kust"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.2.dependencies.1.dependency.21" class="obj1">
+            <hd>
+              <wref id="example.deep.p.2.s.2.w.20" t="aan"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.2.w.23" t="kust"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.2.dependencies.1.dependency.22" class="punct">
+            <hd>
+              <wref id="example.deep.p.2.s.2.w.23" t="kust"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.2.w.24" t=","/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.2.dependencies.1.dependency.23" class="mod">
+            <hd>
+              <wref id="example.deep.p.2.s.2.w.23" t="kust"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.2.w.25" t="dicht"/>
+              <wref id="example.deep.p.2.s.2.w.26" t="bij"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.2.dependencies.1.dependency.24" class="det">
+            <dep>
+              <wref id="example.deep.p.2.s.2.w.27" t="de"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.2.s.2.w.29" t="top"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.2.dependencies.1.dependency.25" class="mod">
+            <dep>
+              <wref id="example.deep.p.2.s.2.w.28" t="noordelijke"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.2.s.2.w.29" t="top"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.2.dependencies.1.dependency.26" class="obj1">
+            <hd>
+              <wref id="example.deep.p.2.s.2.w.25" t="dicht"/>
+              <wref id="example.deep.p.2.s.2.w.26" t="bij"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.2.w.29" t="top"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.2.dependencies.1.dependency.27" class="punct">
+            <hd>
+              <wref id="example.deep.p.2.s.2.w.29" t="top"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.2.w.30" t="."/>
+            </dep>
+          </dependency>
+        </dependencies>
+      </s>
+      <s xml:id="example.deep.p.2.s.3">
+        <t>Hun expeditie overwinterde in een zelfgemaakt onderkomen, het Behouden Huys.</t>
+        <w xml:id="example.deep.p.2.s.3.w.1" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>Hun</t>
+          <pos class="VNW(bez,det,stan,vol,3,mv,prenom,zonder,agr)" confidence="0.928571" datetime="2016-11-15T15:12:00" head="VNW">
+            <feat subset="vwtype" class="bez"/>
+            <feat subset="pdtype" class="det"/>
+            <feat subset="naamval" class="stan"/>
+            <feat subset="status" class="vol"/>
+            <feat subset="persoon" class="3"/>
+            <feat subset="getal" class="mv"/>
+            <feat subset="positie" class="prenom"/>
+            <feat subset="buiging" class="zonder"/>
+            <feat subset="npagr" class="agr"/>
+          </pos>
+          <lemma class="hun" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.3.w.2" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>expeditie</t>
+          <pos class="N(soort,ev,basis,zijd,stan)" confidence="0.997691" datetime="2016-11-15T15:12:00" head="N">
+            <feat subset="ntype" class="soort"/>
+            <feat subset="getal" class="ev"/>
+            <feat subset="graad" class="basis"/>
+            <feat subset="genus" class="zijd"/>
+            <feat subset="naamval" class="stan"/>
+          </pos>
+          <lemma class="expeditie" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.3.w.3" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>overwinterde</t>
+          <pos class="WW(pv,verl,ev)" confidence="1.0" datetime="2016-11-15T15:12:00" head="WW">
+            <feat subset="wvorm" class="pv"/>
+            <feat subset="pvtijd" class="verl"/>
+            <feat subset="pvagr" class="ev"/>
+          </pos>
+          <lemma class="overwinteren" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.3.w.4" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>in</t>
+          <pos class="VZ(init)" confidence="0.99879" datetime="2016-11-15T15:12:00" head="VZ">
+            <feat subset="vztype" class="init"/>
+          </pos>
+          <lemma class="in" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.3.w.5" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>een</t>
+          <pos class="LID(onbep,stan,agr)" confidence="0.995147" datetime="2016-11-15T15:12:00" head="LID">
+            <feat subset="lwtype" class="onbep"/>
+            <feat subset="naamval" class="stan"/>
+            <feat subset="npagr" class="agr"/>
+          </pos>
+          <lemma class="een" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.3.w.6" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>zelfgemaakt</t>
+          <pos class="ADJ(prenom,basis,zonder)" confidence="0.405405" datetime="2016-11-15T15:12:00" head="ADJ">
+            <feat subset="positie" class="prenom"/>
+            <feat subset="graad" class="basis"/>
+            <feat subset="buiging" class="zonder"/>
+          </pos>
+          <lemma class="zelfgemaakt" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.3.w.7" class="WORD" datetime="2016-11-15T15:12:00" space="no">
+          <t>onderkomen</t>
+          <pos class="N(soort,ev,basis,onz,stan)" confidence="0.998561" datetime="2016-11-15T15:12:00" head="N">
+            <feat subset="ntype" class="soort"/>
+            <feat subset="getal" class="ev"/>
+            <feat subset="graad" class="basis"/>
+            <feat subset="genus" class="onz"/>
+            <feat subset="naamval" class="stan"/>
+          </pos>
+          <lemma class="onderkomen" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.3.w.8" class="PUNCTUATION" datetime="2016-11-15T15:12:00">
+          <t>,</t>
+          <pos class="LET()" confidence="1.0" datetime="2016-11-15T15:12:00" head="LET"/>
+          <lemma class="," datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.3.w.9" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>het</t>
+          <pos class="LID(bep,stan,evon)" confidence="1.0" datetime="2016-11-15T15:12:00" head="LID">
+            <feat subset="lwtype" class="bep"/>
+            <feat subset="naamval" class="stan"/>
+            <feat subset="npagr" class="evon"/>
+          </pos>
+          <lemma class="het" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.3.w.10" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>Behouden</t>
+          <pos class="N(soort,mv,basis)" confidence="0.985075" datetime="2016-11-15T15:12:00" head="N">
+            <feat subset="ntype" class="soort"/>
+            <feat subset="getal" class="mv"/>
+            <feat subset="graad" class="basis"/>
+          </pos>
+          <lemma class="behouden" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.3.w.11" class="WORD" datetime="2016-11-15T15:12:00" space="no">
+          <t>Huys</t>
+          <pos class="SPEC(deeleigen)" confidence="1.0" datetime="2016-11-15T15:12:00" head="SPEC">
+            <feat subset="spectype" class="deeleigen"/>
+          </pos>
+          <lemma class="Huys" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.3.w.12" class="PUNCTUATION" datetime="2016-11-15T15:12:00">
+          <t>.</t>
+          <pos class="LET()" confidence="1.0" datetime="2016-11-15T15:12:00" head="LET"/>
+          <lemma class="." datetime="2016-11-15T15:12:00"/>
+        </w>
+        <chunking xml:id="example.deep.p.2.s.3.chunking.1" datetime="2016-11-15T15:12:00">
+          <chunk xml:id="example.deep.p.2.s.3.chunking.1.chunk.1" class="NP" confidence="0.960932" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.3.w.1" t="Hun"/>
+            <wref id="example.deep.p.2.s.3.w.2" t="expeditie"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.3.chunking.1.chunk.2" class="VP" confidence="0.853111" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.3.w.3" t="overwinterde"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.3.chunking.1.chunk.3" class="PP" confidence="0.992683" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.3.w.4" t="in"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.3.chunking.1.chunk.4" class="NP" confidence="0.957331" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.3.w.5" t="een"/>
+            <wref id="example.deep.p.2.s.3.w.6" t="zelfgemaakt"/>
+            <wref id="example.deep.p.2.s.3.w.7" t="onderkomen"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.3.chunking.1.chunk.5" class="NP" confidence="0.80116" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.3.w.9" t="het"/>
+            <wref id="example.deep.p.2.s.3.w.10" t="Behouden"/>
+            <wref id="example.deep.p.2.s.3.w.11" t="Huys"/>
+          </chunk>
+        </chunking>
+        <entities xml:id="example.deep.p.2.s.3.entities.1">
+          <entity xml:id="example.deep.p.2.s.3.entities.1.entity.1" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-ner-nl" class="loc" confidence="0.5" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.3.w.10" t="Behouden"/>
+            <wref id="example.deep.p.2.s.3.w.11" t="Huys"/>
+          </entity>
+        </entities>
+        <dependencies xml:id="example.deep.p.2.s.3.dependencies.1">
+          <dependency xml:id="example.deep.p.2.s.3.dependencies.1.dependency.1" class="det">
+            <dep>
+              <wref id="example.deep.p.2.s.3.w.1" t="Hun"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.2.s.3.w.2" t="expeditie"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.3.dependencies.1.dependency.2" class="su">
+            <dep>
+              <wref id="example.deep.p.2.s.3.w.2" t="expeditie"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.2.s.3.w.3" t="overwinterde"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.3.dependencies.1.dependency.3" class="mod">
+            <hd>
+              <wref id="example.deep.p.2.s.3.w.3" t="overwinterde"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.3.w.4" t="in"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.3.dependencies.1.dependency.4" class="det">
+            <dep>
+              <wref id="example.deep.p.2.s.3.w.5" t="een"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.2.s.3.w.7" t="onderkomen"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.3.dependencies.1.dependency.5" class="mod">
+            <dep>
+              <wref id="example.deep.p.2.s.3.w.6" t="zelfgemaakt"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.2.s.3.w.7" t="onderkomen"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.3.dependencies.1.dependency.6" class="obj1">
+            <hd>
+              <wref id="example.deep.p.2.s.3.w.4" t="in"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.3.w.7" t="onderkomen"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.3.dependencies.1.dependency.7" class="punct">
+            <hd>
+              <wref id="example.deep.p.2.s.3.w.7" t="onderkomen"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.3.w.8" t=","/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.3.dependencies.1.dependency.8" class="det">
+            <dep>
+              <wref id="example.deep.p.2.s.3.w.9" t="het"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.2.s.3.w.10" t="Behouden"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.3.dependencies.1.dependency.9" class="mod">
+            <hd>
+              <wref id="example.deep.p.2.s.3.w.7" t="onderkomen"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.3.w.10" t="Behouden"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.3.dependencies.1.dependency.10" class="app">
+            <hd>
+              <wref id="example.deep.p.2.s.3.w.10" t="Behouden"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.3.w.11" t="Huys"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.3.dependencies.1.dependency.11" class="punct">
+            <hd>
+              <wref id="example.deep.p.2.s.3.w.11" t="Huys"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.3.w.12" t="."/>
+            </dep>
+          </dependency>
+        </dependencies>
+      </s>
+      <s xml:id="example.deep.p.2.s.4">
+        <t>Gedurende de reis werden de eilanden voor het eerst in kaart gebracht.</t>
+        <w xml:id="example.deep.p.2.s.4.w.1" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>Gedurende</t>
+          <pos class="VZ(init)" confidence="0.980282" datetime="2016-11-15T15:12:00" head="VZ">
+            <feat subset="vztype" class="init"/>
+          </pos>
+          <lemma class="gedurende" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.4.w.2" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>de</t>
+          <pos class="LID(bep,stan,rest)" confidence="0.999964" datetime="2016-11-15T15:12:00" head="LID">
+            <feat subset="lwtype" class="bep"/>
+            <feat subset="naamval" class="stan"/>
+            <feat subset="npagr" class="rest"/>
+          </pos>
+          <lemma class="de" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.4.w.3" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>reis</t>
+          <pos class="N(soort,ev,basis,zijd,stan)" confidence="0.998779" datetime="2016-11-15T15:12:00" head="N">
+            <feat subset="ntype" class="soort"/>
+            <feat subset="getal" class="ev"/>
+            <feat subset="graad" class="basis"/>
+            <feat subset="genus" class="zijd"/>
+            <feat subset="naamval" class="stan"/>
+          </pos>
+          <lemma class="reis" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.4.w.4" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>werden</t>
+          <pos class="WW(pv,verl,mv)" confidence="0.997831" datetime="2016-11-15T15:12:00" head="WW">
+            <feat subset="wvorm" class="pv"/>
+            <feat subset="pvtijd" class="verl"/>
+            <feat subset="pvagr" class="mv"/>
+          </pos>
+          <lemma class="worden" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.4.w.5" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>de</t>
+          <pos class="LID(bep,stan,rest)" confidence="0.999852" datetime="2016-11-15T15:12:00" head="LID">
+            <feat subset="lwtype" class="bep"/>
+            <feat subset="naamval" class="stan"/>
+            <feat subset="npagr" class="rest"/>
+          </pos>
+          <lemma class="de" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.4.w.6" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>eilanden</t>
+          <pos class="N(soort,mv,basis)" confidence="0.999404" datetime="2016-11-15T15:12:00" head="N">
+            <feat subset="ntype" class="soort"/>
+            <feat subset="getal" class="mv"/>
+            <feat subset="graad" class="basis"/>
+          </pos>
+          <lemma class="eiland" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.4.w.7" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>voor</t>
+          <pos class="VZ(init)" confidence="0.999218" datetime="2016-11-15T15:12:00" head="VZ">
+            <feat subset="vztype" class="init"/>
+          </pos>
+          <lemma class="voor" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.4.w.8" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>het</t>
+          <pos class="LID(bep,stan,evon)" confidence="0.990826" datetime="2016-11-15T15:12:00" head="LID">
+            <feat subset="lwtype" class="bep"/>
+            <feat subset="naamval" class="stan"/>
+            <feat subset="npagr" class="evon"/>
+          </pos>
+          <lemma class="het" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.4.w.9" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>eerst</t>
+          <pos class="TW(rang,nom,zonder-n)" confidence="1.0" datetime="2016-11-15T15:12:00" head="TW">
+            <feat subset="numtype" class="rang"/>
+            <feat subset="positie" class="nom"/>
+            <feat subset="getal-n" class="zonder-n"/>
+          </pos>
+          <lemma class="eerst" datetime="2016-11-15T15:12:00"/>
+          <alt xml:id="example.deep.p.2.s.4.w.9.alt-lem.1" auth="no">
+            <lemma class="één" datetime="2016-11-15T15:12:00"/>
+          </alt>
+        </w>
+        <w xml:id="example.deep.p.2.s.4.w.10" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>in</t>
+          <pos class="VZ(init)" confidence="0.997337" datetime="2016-11-15T15:12:00" head="VZ">
+            <feat subset="vztype" class="init"/>
+          </pos>
+          <lemma class="in" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.4.w.11" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>kaart</t>
+          <pos class="N(soort,ev,basis,zijd,stan)" confidence="0.999103" datetime="2016-11-15T15:12:00" head="N">
+            <feat subset="ntype" class="soort"/>
+            <feat subset="getal" class="ev"/>
+            <feat subset="graad" class="basis"/>
+            <feat subset="genus" class="zijd"/>
+            <feat subset="naamval" class="stan"/>
+          </pos>
+          <lemma class="kaart" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.4.w.12" class="WORD" datetime="2016-11-15T15:12:00" space="no">
+          <t>gebracht</t>
+          <pos class="WW(vd,vrij,zonder)" confidence="0.998549" datetime="2016-11-15T15:12:00" head="WW">
+            <feat subset="wvorm" class="vd"/>
+            <feat subset="positie" class="vrij"/>
+            <feat subset="buiging" class="zonder"/>
+          </pos>
+          <lemma class="brengen" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.4.w.13" class="PUNCTUATION" datetime="2016-11-15T15:12:00">
+          <t>.</t>
+          <pos class="LET()" confidence="1.0" datetime="2016-11-15T15:12:00" head="LET"/>
+          <lemma class="." datetime="2016-11-15T15:12:00"/>
+        </w>
+        <chunking xml:id="example.deep.p.2.s.4.chunking.1" datetime="2016-11-15T15:12:00">
+          <chunk xml:id="example.deep.p.2.s.4.chunking.1.chunk.1" class="PP" confidence="0.998134" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.4.w.1" t="Gedurende"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.4.chunking.1.chunk.2" class="NP" confidence="0.999028" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.4.w.2" t="de"/>
+            <wref id="example.deep.p.2.s.4.w.3" t="reis"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.4.chunking.1.chunk.3" class="VP" confidence="0.908265" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.4.w.4" t="werden"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.4.chunking.1.chunk.4" class="NP" confidence="0.945726" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.4.w.5" t="de"/>
+            <wref id="example.deep.p.2.s.4.w.6" t="eilanden"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.4.chunking.1.chunk.5" class="ADJP" confidence="0.229291" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.4.w.7" t="voor"/>
+            <wref id="example.deep.p.2.s.4.w.8" t="het"/>
+            <wref id="example.deep.p.2.s.4.w.9" t="eerst"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.4.chunking.1.chunk.6" class="PP" confidence="0.954545" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.4.w.10" t="in"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.4.chunking.1.chunk.7" class="NP" confidence="1.0" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.4.w.11" t="kaart"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.4.chunking.1.chunk.8" class="VP" confidence="0.833333" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.4.w.12" t="gebracht"/>
+          </chunk>
+        </chunking>
+        <entities xml:id="example.deep.p.2.s.4.entities.1">
+          <entity xml:id="example.deep.p.2.s.4.entities.1.entity.1" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mwu-nl" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.4.w.7" t="voor"/>
+            <wref id="example.deep.p.2.s.4.w.8" t="het"/>
+            <wref id="example.deep.p.2.s.4.w.9" t="eerst"/>
+          </entity>
+        </entities>
+        <dependencies xml:id="example.deep.p.2.s.4.dependencies.1">
+          <dependency xml:id="example.deep.p.2.s.4.dependencies.1.dependency.1" class="mod">
+            <dep>
+              <wref id="example.deep.p.2.s.4.w.1" t="Gedurende"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.2.s.4.w.4" t="werden"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.4.dependencies.1.dependency.2" class="det">
+            <dep>
+              <wref id="example.deep.p.2.s.4.w.2" t="de"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.2.s.4.w.3" t="reis"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.4.dependencies.1.dependency.3" class="obj1">
+            <hd>
+              <wref id="example.deep.p.2.s.4.w.1" t="Gedurende"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.4.w.3" t="reis"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.4.dependencies.1.dependency.4" class="det">
+            <dep>
+              <wref id="example.deep.p.2.s.4.w.5" t="de"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.2.s.4.w.6" t="eilanden"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.4.dependencies.1.dependency.5" class="su">
+            <hd>
+              <wref id="example.deep.p.2.s.4.w.4" t="werden"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.4.w.6" t="eilanden"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.4.dependencies.1.dependency.6" class="mod">
+            <dep>
+              <wref id="example.deep.p.2.s.4.w.7" t="voor"/>
+              <wref id="example.deep.p.2.s.4.w.8" t="het"/>
+              <wref id="example.deep.p.2.s.4.w.9" t="eerst"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.2.s.4.w.12" t="gebracht"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.4.dependencies.1.dependency.7" class="mod">
+            <hd>
+              <wref id="example.deep.p.2.s.4.w.7" t="voor"/>
+              <wref id="example.deep.p.2.s.4.w.8" t="het"/>
+              <wref id="example.deep.p.2.s.4.w.9" t="eerst"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.4.w.10" t="in"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.4.dependencies.1.dependency.8" class="obj1">
+            <hd>
+              <wref id="example.deep.p.2.s.4.w.10" t="in"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.4.w.11" t="kaart"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.4.dependencies.1.dependency.9" class="vc">
+            <hd>
+              <wref id="example.deep.p.2.s.4.w.4" t="werden"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.4.w.12" t="gebracht"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.4.dependencies.1.dependency.10" class="punct">
+            <hd>
+              <wref id="example.deep.p.2.s.4.w.12" t="gebracht"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.4.w.13" t="."/>
+            </dep>
+          </dependency>
+        </dependencies>
+      </s>
+      <s xml:id="example.deep.p.2.s.5">
+        <t>Gerrit de Veer maakte van deze tocht een reisverslag.</t>
+        <w xml:id="example.deep.p.2.s.5.w.1" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>Gerrit</t>
+          <pos class="SPEC(deeleigen)" confidence="1.0" datetime="2016-11-15T15:12:00" head="SPEC">
+            <feat subset="spectype" class="deeleigen"/>
+          </pos>
+          <lemma class="Gerrit" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.5.w.2" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>de</t>
+          <pos class="SPEC(deeleigen)" annotator="frog-mbpos-1.0" annotatortype="auto" confidence="1.0" datetime="2016-11-15T15:12:00" head="SPEC">
+            <feat subset="spectype" class="deeleigen"/>
+          </pos>
+          <lemma class="de" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.5.w.3" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>Veer</t>
+          <pos class="SPEC(deeleigen)" annotator="frog-mbpos-1.0" annotatortype="auto" confidence="1.0" datetime="2016-11-15T15:12:00" head="SPEC">
+            <feat subset="spectype" class="deeleigen"/>
+          </pos>
+          <lemma class="Veer" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.5.w.4" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>maakte</t>
+          <pos class="WW(pv,verl,ev)" confidence="0.996656" datetime="2016-11-15T15:12:00" head="WW">
+            <feat subset="wvorm" class="pv"/>
+            <feat subset="pvtijd" class="verl"/>
+            <feat subset="pvagr" class="ev"/>
+          </pos>
+          <lemma class="maken" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.5.w.5" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>van</t>
+          <pos class="VZ(init)" confidence="0.999398" datetime="2016-11-15T15:12:00" head="VZ">
+            <feat subset="vztype" class="init"/>
+          </pos>
+          <lemma class="van" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.5.w.6" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>deze</t>
+          <pos class="VNW(aanw,det,stan,prenom,met-e,rest)" confidence="0.999631" datetime="2016-11-15T15:12:00" head="VNW">
+            <feat subset="vwtype" class="aanw"/>
+            <feat subset="pdtype" class="det"/>
+            <feat subset="naamval" class="stan"/>
+            <feat subset="positie" class="prenom"/>
+            <feat subset="buiging" class="met-e"/>
+            <feat subset="npagr" class="rest"/>
+          </pos>
+          <lemma class="deze" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.5.w.7" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>tocht</t>
+          <pos class="N(soort,ev,basis,zijd,stan)" confidence="0.996536" datetime="2016-11-15T15:12:00" head="N">
+            <feat subset="ntype" class="soort"/>
+            <feat subset="getal" class="ev"/>
+            <feat subset="graad" class="basis"/>
+            <feat subset="genus" class="zijd"/>
+            <feat subset="naamval" class="stan"/>
+          </pos>
+          <lemma class="tocht" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.5.w.8" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>een</t>
+          <pos class="LID(onbep,stan,agr)" confidence="0.999528" datetime="2016-11-15T15:12:00" head="LID">
+            <feat subset="lwtype" class="onbep"/>
+            <feat subset="naamval" class="stan"/>
+            <feat subset="npagr" class="agr"/>
+          </pos>
+          <lemma class="een" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.5.w.9" class="WORD" datetime="2016-11-15T15:12:00" space="no">
+          <t>reisverslag</t>
+          <pos class="N(soort,ev,basis,onz,stan)" confidence="0.997303" datetime="2016-11-15T15:12:00" head="N">
+            <feat subset="ntype" class="soort"/>
+            <feat subset="getal" class="ev"/>
+            <feat subset="graad" class="basis"/>
+            <feat subset="genus" class="onz"/>
+            <feat subset="naamval" class="stan"/>
+          </pos>
+          <lemma class="reisverslag" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.5.w.10" class="PUNCTUATION" datetime="2016-11-15T15:12:00">
+          <t>.</t>
+          <pos class="LET()" confidence="1.0" datetime="2016-11-15T15:12:00" head="LET"/>
+          <lemma class="." datetime="2016-11-15T15:12:00"/>
+        </w>
+        <chunking xml:id="example.deep.p.2.s.5.chunking.1" datetime="2016-11-15T15:12:00">
+          <chunk xml:id="example.deep.p.2.s.5.chunking.1.chunk.1" class="NP" confidence="0.923295" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.5.w.1" t="Gerrit"/>
+            <wref id="example.deep.p.2.s.5.w.2" t="de"/>
+            <wref id="example.deep.p.2.s.5.w.3" t="Veer"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.5.chunking.1.chunk.2" class="VP" confidence="0.971698" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.5.w.4" t="maakte"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.5.chunking.1.chunk.3" class="PP" confidence="0.961005" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.5.w.5" t="van"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.5.chunking.1.chunk.4" class="NP" confidence="0.987874" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.5.w.6" t="deze"/>
+            <wref id="example.deep.p.2.s.5.w.7" t="tocht"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.5.chunking.1.chunk.5" class="NP" confidence="0.951634" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.5.w.8" t="een"/>
+            <wref id="example.deep.p.2.s.5.w.9" t="reisverslag"/>
+          </chunk>
+        </chunking>
+        <entities xml:id="example.deep.p.2.s.5.entities.1">
+          <entity xml:id="example.deep.p.2.s.5.entities.1.entity.1" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-ner-nl" class="per" confidence="0.927" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.5.w.1" t="Gerrit"/>
+            <wref id="example.deep.p.2.s.5.w.2" t="de"/>
+            <wref id="example.deep.p.2.s.5.w.3" t="Veer"/>
+          </entity>
+        </entities>
+        <entities xml:id="example.deep.p.2.s.5.entities.2">
+          <entity xml:id="example.deep.p.2.s.5.entities.2.entity.1" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mwu-nl" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.5.w.1" t="Gerrit"/>
+            <wref id="example.deep.p.2.s.5.w.2" t="de"/>
+            <wref id="example.deep.p.2.s.5.w.3" t="Veer"/>
+          </entity>
+        </entities>
+        <dependencies xml:id="example.deep.p.2.s.5.dependencies.1">
+          <dependency xml:id="example.deep.p.2.s.5.dependencies.1.dependency.1" class="obj1">
+            <dep>
+              <wref id="example.deep.p.2.s.5.w.1" t="Gerrit"/>
+              <wref id="example.deep.p.2.s.5.w.2" t="de"/>
+              <wref id="example.deep.p.2.s.5.w.3" t="Veer"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.2.s.5.w.4" t="maakte"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.5.dependencies.1.dependency.2" class="mod">
+            <hd>
+              <wref id="example.deep.p.2.s.5.w.4" t="maakte"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.5.w.5" t="van"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.5.dependencies.1.dependency.3" class="det">
+            <dep>
+              <wref id="example.deep.p.2.s.5.w.6" t="deze"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.2.s.5.w.7" t="tocht"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.5.dependencies.1.dependency.4" class="obj1">
+            <hd>
+              <wref id="example.deep.p.2.s.5.w.5" t="van"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.5.w.7" t="tocht"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.5.dependencies.1.dependency.5" class="det">
+            <dep>
+              <wref id="example.deep.p.2.s.5.w.8" t="een"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.2.s.5.w.9" t="reisverslag"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.5.dependencies.1.dependency.6" class="su">
+            <hd>
+              <wref id="example.deep.p.2.s.5.w.4" t="maakte"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.5.w.9" t="reisverslag"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.5.dependencies.1.dependency.7" class="punct">
+            <hd>
+              <wref id="example.deep.p.2.s.5.w.9" t="reisverslag"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.5.w.10" t="."/>
+            </dep>
+          </dependency>
+        </dependencies>
+      </s>
+      <s xml:id="example.deep.p.2.s.6">
+        <t>Hij beschreef op 24 januari 1597 een zonsopgang, twee weken eerder dan verwacht.</t>
+        <w xml:id="example.deep.p.2.s.6.w.1" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>Hij</t>
+          <pos class="VNW(pers,pron,nomin,vol,3,ev,masc)" confidence="0.999431" datetime="2016-11-15T15:12:00" head="VNW">
+            <feat subset="vwtype" class="pers"/>
+            <feat subset="pdtype" class="pron"/>
+            <feat subset="naamval" class="nomin"/>
+            <feat subset="status" class="vol"/>
+            <feat subset="persoon" class="3"/>
+            <feat subset="getal" class="ev"/>
+            <feat subset="genus" class="masc"/>
+          </pos>
+          <lemma class="hij" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.6.w.2" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>beschreef</t>
+          <pos class="WW(pv,verl,ev)" confidence="0.996536" datetime="2016-11-15T15:12:00" head="WW">
+            <feat subset="wvorm" class="pv"/>
+            <feat subset="pvtijd" class="verl"/>
+            <feat subset="pvagr" class="ev"/>
+          </pos>
+          <lemma class="beschrijven" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.6.w.3" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>op</t>
+          <pos class="VZ(init)" confidence="0.830347" datetime="2016-11-15T15:12:00" head="VZ">
+            <feat subset="vztype" class="init"/>
+          </pos>
+          <lemma class="op" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.6.w.4" class="NUMBER" datetime="2016-11-15T15:12:00">
+          <t>24</t>
+          <pos class="TW(hoofd,prenom,stan)" confidence="0.666667" datetime="2016-11-15T15:12:00" head="TW">
+            <feat subset="numtype" class="hoofd"/>
+            <feat subset="positie" class="prenom"/>
+            <feat subset="naamval" class="stan"/>
+          </pos>
+          <lemma class="24" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.6.w.5" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>januari</t>
+          <pos class="SPEC(deeleigen)" confidence="1.0" datetime="2016-11-15T15:12:00" head="SPEC">
+            <feat subset="spectype" class="deeleigen"/>
+          </pos>
+          <lemma class="januari" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.6.w.6" class="NUMBER" datetime="2016-11-15T15:12:00">
+          <t>1597</t>
+          <pos class="TW(hoofd,vrij)" confidence="0.993492" datetime="2016-11-15T15:12:00" head="TW">
+            <feat subset="numtype" class="hoofd"/>
+            <feat subset="positie" class="vrij"/>
+          </pos>
+          <lemma class="1597" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.6.w.7" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>een</t>
+          <pos class="LID(onbep,stan,agr)" confidence="0.99956" datetime="2016-11-15T15:12:00" head="LID">
+            <feat subset="lwtype" class="onbep"/>
+            <feat subset="naamval" class="stan"/>
+            <feat subset="npagr" class="agr"/>
+          </pos>
+          <lemma class="een" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.6.w.8" class="WORD" datetime="2016-11-15T15:12:00" space="no">
+          <t>zonsopgang</t>
+          <pos class="N(soort,ev,basis,zijd,stan)" confidence="0.999633" datetime="2016-11-15T15:12:00" head="N">
+            <feat subset="ntype" class="soort"/>
+            <feat subset="getal" class="ev"/>
+            <feat subset="graad" class="basis"/>
+            <feat subset="genus" class="zijd"/>
+            <feat subset="naamval" class="stan"/>
+          </pos>
+          <lemma class="zonsopgang" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.6.w.9" class="PUNCTUATION" datetime="2016-11-15T15:12:00">
+          <t>,</t>
+          <pos class="LET()" confidence="1.0" datetime="2016-11-15T15:12:00" head="LET"/>
+          <lemma class="," datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.6.w.10" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>twee</t>
+          <pos class="TW(hoofd,prenom,stan)" confidence="0.996116" datetime="2016-11-15T15:12:00" head="TW">
+            <feat subset="numtype" class="hoofd"/>
+            <feat subset="positie" class="prenom"/>
+            <feat subset="naamval" class="stan"/>
+          </pos>
+          <lemma class="twee" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.6.w.11" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>weken</t>
+          <pos class="N(soort,mv,basis)" confidence="0.992995" datetime="2016-11-15T15:12:00" head="N">
+            <feat subset="ntype" class="soort"/>
+            <feat subset="getal" class="mv"/>
+            <feat subset="graad" class="basis"/>
+          </pos>
+          <lemma class="week" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.6.w.12" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>eerder</t>
+          <pos class="BW()" confidence="0.8" datetime="2016-11-15T15:12:00" head="BW"/>
+          <lemma class="eerder" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.6.w.13" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>dan</t>
+          <pos class="VG(onder)" confidence="0.666667" datetime="2016-11-15T15:12:00" head="VG">
+            <feat subset="conjtype" class="onder"/>
+          </pos>
+          <lemma class="dan" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.6.w.14" class="WORD" datetime="2016-11-15T15:12:00" space="no">
+          <t>verwacht</t>
+          <pos class="WW(vd,vrij,zonder)" confidence="0.88961" datetime="2016-11-15T15:12:00" head="WW">
+            <feat subset="wvorm" class="vd"/>
+            <feat subset="positie" class="vrij"/>
+            <feat subset="buiging" class="zonder"/>
+          </pos>
+          <lemma class="verwachten" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.6.w.15" class="PUNCTUATION" datetime="2016-11-15T15:12:00">
+          <t>.</t>
+          <pos class="LET()" confidence="1.0" datetime="2016-11-15T15:12:00" head="LET"/>
+          <lemma class="." datetime="2016-11-15T15:12:00"/>
+        </w>
+        <chunking xml:id="example.deep.p.2.s.6.chunking.1" datetime="2016-11-15T15:12:00">
+          <chunk xml:id="example.deep.p.2.s.6.chunking.1.chunk.1" class="NP" confidence="0.977426" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.6.w.1" t="Hij"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.6.chunking.1.chunk.2" class="VP" confidence="0.996734" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.6.w.2" t="beschreef"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.6.chunking.1.chunk.3" class="PP" confidence="0.925319" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.6.w.3" t="op"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.6.chunking.1.chunk.4" class="NP" confidence="0.775361" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.6.w.4" t="24"/>
+            <wref id="example.deep.p.2.s.6.w.5" t="januari"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.6.chunking.1.chunk.5" class="NP" confidence="0.981651" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.6.w.6" t="1597"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.6.chunking.1.chunk.6" class="NP" confidence="0.846939" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.6.w.7" t="een"/>
+            <wref id="example.deep.p.2.s.6.w.8" t="zonsopgang"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.6.chunking.1.chunk.7" class="NP" confidence="0.660148" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.6.w.10" t="twee"/>
+            <wref id="example.deep.p.2.s.6.w.11" t="weken"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.6.chunking.1.chunk.8" class="ADVP" confidence="0.168962" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.6.w.12" t="eerder"/>
+            <wref id="example.deep.p.2.s.6.w.13" t="dan"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.6.chunking.1.chunk.9" class="VP" confidence="0.569043" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.6.w.14" t="verwacht"/>
+          </chunk>
+        </chunking>
+        <dependencies xml:id="example.deep.p.2.s.6.dependencies.1">
+          <dependency xml:id="example.deep.p.2.s.6.dependencies.1.dependency.1" class="su">
+            <dep>
+              <wref id="example.deep.p.2.s.6.w.1" t="Hij"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.2.s.6.w.2" t="beschreef"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.6.dependencies.1.dependency.2" class="mod">
+            <hd>
+              <wref id="example.deep.p.2.s.6.w.2" t="beschreef"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.6.w.3" t="op"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.6.dependencies.1.dependency.3" class="det">
+            <dep>
+              <wref id="example.deep.p.2.s.6.w.4" t="24"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.2.s.6.w.5" t="januari"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.6.dependencies.1.dependency.4" class="obj1">
+            <hd>
+              <wref id="example.deep.p.2.s.6.w.3" t="op"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.6.w.5" t="januari"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.6.dependencies.1.dependency.5" class="mod">
+            <hd>
+              <wref id="example.deep.p.2.s.6.w.5" t="januari"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.6.w.6" t="1597"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.6.dependencies.1.dependency.6" class="det">
+            <dep>
+              <wref id="example.deep.p.2.s.6.w.7" t="een"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.2.s.6.w.8" t="zonsopgang"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.6.dependencies.1.dependency.7" class="obj1">
+            <hd>
+              <wref id="example.deep.p.2.s.6.w.2" t="beschreef"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.6.w.8" t="zonsopgang"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.6.dependencies.1.dependency.8" class="punct">
+            <hd>
+              <wref id="example.deep.p.2.s.6.w.8" t="zonsopgang"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.6.w.9" t=","/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.6.dependencies.1.dependency.9" class="det">
+            <dep>
+              <wref id="example.deep.p.2.s.6.w.10" t="twee"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.2.s.6.w.11" t="weken"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.6.dependencies.1.dependency.10" class="mod">
+            <hd>
+              <wref id="example.deep.p.2.s.6.w.8" t="zonsopgang"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.6.w.11" t="weken"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.6.dependencies.1.dependency.11" class="mod">
+            <hd>
+              <wref id="example.deep.p.2.s.6.w.11" t="weken"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.6.w.12" t="eerder"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.6.dependencies.1.dependency.12" class="mod">
+            <hd>
+              <wref id="example.deep.p.2.s.6.w.2" t="beschreef"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.6.w.13" t="dan"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.6.dependencies.1.dependency.13" class="body">
+            <hd>
+              <wref id="example.deep.p.2.s.6.w.13" t="dan"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.6.w.14" t="verwacht"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.6.dependencies.1.dependency.14" class="punct">
+            <hd>
+              <wref id="example.deep.p.2.s.6.w.14" t="verwacht"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.6.w.15" t="."/>
+            </dep>
+          </dependency>
+        </dependencies>
+      </s>
+      <s xml:id="example.deep.p.2.s.7">
+        <t>Ter verklaring van dit verschijnsel werd door Johannes Kepler al lichtbreking voorgesteld.</t>
+        <w xml:id="example.deep.p.2.s.7.w.1" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>Ter</t>
+          <pos class="VZ(versm)" confidence="0.606936" datetime="2016-11-15T15:12:00" head="VZ">
+            <feat subset="vztype" class="versm"/>
+          </pos>
+          <lemma class="te" datetime="2016-11-15T15:12:00"/>
+          <alt xml:id="example.deep.p.2.s.7.w.1.alt-lem.1" auth="no">
+            <lemma class="ter" datetime="2016-11-15T15:12:00"/>
+          </alt>
+        </w>
+        <w xml:id="example.deep.p.2.s.7.w.2" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>verklaring</t>
+          <pos class="N(soort,ev,basis,zijd,stan)" confidence="0.999602" datetime="2016-11-15T15:12:00" head="N">
+            <feat subset="ntype" class="soort"/>
+            <feat subset="getal" class="ev"/>
+            <feat subset="graad" class="basis"/>
+            <feat subset="genus" class="zijd"/>
+            <feat subset="naamval" class="stan"/>
+          </pos>
+          <lemma class="verklaring" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.7.w.3" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>van</t>
+          <pos class="VZ(init)" confidence="0.999122" datetime="2016-11-15T15:12:00" head="VZ">
+            <feat subset="vztype" class="init"/>
+          </pos>
+          <lemma class="van" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.7.w.4" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>dit</t>
+          <pos class="VNW(aanw,det,stan,prenom,zonder,evon)" confidence="0.999065" datetime="2016-11-15T15:12:00" head="VNW">
+            <feat subset="vwtype" class="aanw"/>
+            <feat subset="pdtype" class="det"/>
+            <feat subset="naamval" class="stan"/>
+            <feat subset="positie" class="prenom"/>
+            <feat subset="buiging" class="zonder"/>
+            <feat subset="npagr" class="evon"/>
+          </pos>
+          <lemma class="dit" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.7.w.5" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>verschijnsel</t>
+          <pos class="N(soort,ev,basis,onz,stan)" confidence="0.998276" datetime="2016-11-15T15:12:00" head="N">
+            <feat subset="ntype" class="soort"/>
+            <feat subset="getal" class="ev"/>
+            <feat subset="graad" class="basis"/>
+            <feat subset="genus" class="onz"/>
+            <feat subset="naamval" class="stan"/>
+          </pos>
+          <lemma class="verschijnsel" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.7.w.6" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>werd</t>
+          <pos class="WW(pv,verl,ev)" confidence="0.999799" datetime="2016-11-15T15:12:00" head="WW">
+            <feat subset="wvorm" class="pv"/>
+            <feat subset="pvtijd" class="verl"/>
+            <feat subset="pvagr" class="ev"/>
+          </pos>
+          <lemma class="worden" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.7.w.7" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>door</t>
+          <pos class="VZ(init)" confidence="0.996264" datetime="2016-11-15T15:12:00" head="VZ">
+            <feat subset="vztype" class="init"/>
+          </pos>
+          <lemma class="door" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.7.w.8" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>Johannes</t>
+          <pos class="SPEC(deeleigen)" confidence="1.0" datetime="2016-11-15T15:12:00" head="SPEC">
+            <feat subset="spectype" class="deeleigen"/>
+          </pos>
+          <lemma class="Johannes" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.7.w.9" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>Kepler</t>
+          <pos class="SPEC(deeleigen)" annotator="frog-mbpos-1.0" annotatortype="auto" confidence="1.0" datetime="2016-11-15T15:12:00" head="SPEC">
+            <feat subset="spectype" class="deeleigen"/>
+          </pos>
+          <lemma class="Kepler" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.7.w.10" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>al</t>
+          <pos class="BW()" confidence="0.90383" datetime="2016-11-15T15:12:00" head="BW"/>
+          <lemma class="al" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.7.w.11" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>lichtbreking</t>
+          <pos class="N(soort,ev,basis,zijd,stan)" confidence="1.0" datetime="2016-11-15T15:12:00" head="N">
+            <feat subset="ntype" class="soort"/>
+            <feat subset="getal" class="ev"/>
+            <feat subset="graad" class="basis"/>
+            <feat subset="genus" class="zijd"/>
+            <feat subset="naamval" class="stan"/>
+          </pos>
+          <lemma class="lichtbreking" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.7.w.12" class="WORD" datetime="2016-11-15T15:12:00" space="no">
+          <t>voorgesteld</t>
+          <pos class="WW(vd,vrij,zonder)" confidence="0.998549" datetime="2016-11-15T15:12:00" head="WW">
+            <feat subset="wvorm" class="vd"/>
+            <feat subset="positie" class="vrij"/>
+            <feat subset="buiging" class="zonder"/>
+          </pos>
+          <lemma class="voorstellen" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.7.w.13" class="PUNCTUATION" datetime="2016-11-15T15:12:00">
+          <t>.</t>
+          <pos class="LET()" confidence="1.0" datetime="2016-11-15T15:12:00" head="LET"/>
+          <lemma class="." datetime="2016-11-15T15:12:00"/>
+        </w>
+        <entities xml:id="example.deep.p.2.s.7.entities.1">
+          <entity xml:id="example.deep.p.2.s.7.entities.1.entity.1" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-ner-nl" class="per" confidence="0.973951" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.7.w.8" t="Johannes"/>
+            <wref id="example.deep.p.2.s.7.w.9" t="Kepler"/>
+          </entity>
+        </entities>
+        <chunking xml:id="example.deep.p.2.s.7.chunking.1" datetime="2016-11-15T15:12:00">
+          <chunk xml:id="example.deep.p.2.s.7.chunking.1.chunk.1" class="PP" confidence="0.933333" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.7.w.1" t="Ter"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.7.chunking.1.chunk.2" class="NP" confidence="1.0" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.7.w.2" t="verklaring"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.7.chunking.1.chunk.3" class="PP" confidence="0.989708" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.7.w.3" t="van"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.7.chunking.1.chunk.4" class="NP" confidence="0.987339" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.7.w.4" t="dit"/>
+            <wref id="example.deep.p.2.s.7.w.5" t="verschijnsel"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.7.chunking.1.chunk.5" class="VP" confidence="0.928781" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.7.w.6" t="werd"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.7.chunking.1.chunk.6" class="PP" confidence="0.979787" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.7.w.7" t="door"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.7.chunking.1.chunk.7" class="NP" confidence="0.999565" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.7.w.8" t="Johannes"/>
+            <wref id="example.deep.p.2.s.7.w.9" t="Kepler"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.7.chunking.1.chunk.8" class="ADVP" confidence="0.56" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.7.w.10" t="al"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.7.chunking.1.chunk.9" class="ADVP" confidence="0.59123" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.7.w.11" t="lichtbreking"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.7.chunking.1.chunk.10" class="VP" confidence="0.995885" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.7.w.12" t="voorgesteld"/>
+          </chunk>
+        </chunking>
+        <entities xml:id="example.deep.p.2.s.7.entities.2">
+          <entity xml:id="example.deep.p.2.s.7.entities.2.entity.1" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mwu-nl" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.7.w.8" t="Johannes"/>
+            <wref id="example.deep.p.2.s.7.w.9" t="Kepler"/>
+          </entity>
+        </entities>
+        <dependencies xml:id="example.deep.p.2.s.7.dependencies.1">
+          <dependency xml:id="example.deep.p.2.s.7.dependencies.1.dependency.1" class="mod">
+            <dep>
+              <wref id="example.deep.p.2.s.7.w.1" t="Ter"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.2.s.7.w.6" t="werd"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.7.dependencies.1.dependency.2" class="obj1">
+            <hd>
+              <wref id="example.deep.p.2.s.7.w.1" t="Ter"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.7.w.2" t="verklaring"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.7.dependencies.1.dependency.3" class="mod">
+            <hd>
+              <wref id="example.deep.p.2.s.7.w.2" t="verklaring"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.7.w.3" t="van"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.7.dependencies.1.dependency.4" class="det">
+            <dep>
+              <wref id="example.deep.p.2.s.7.w.4" t="dit"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.2.s.7.w.5" t="verschijnsel"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.7.dependencies.1.dependency.5" class="obj1">
+            <hd>
+              <wref id="example.deep.p.2.s.7.w.3" t="van"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.7.w.5" t="verschijnsel"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.7.dependencies.1.dependency.6" class="mod">
+            <dep>
+              <wref id="example.deep.p.2.s.7.w.7" t="door"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.2.s.7.w.12" t="voorgesteld"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.7.dependencies.1.dependency.7" class="obj1">
+            <hd>
+              <wref id="example.deep.p.2.s.7.w.7" t="door"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.7.w.8" t="Johannes"/>
+              <wref id="example.deep.p.2.s.7.w.9" t="Kepler"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.7.dependencies.1.dependency.8" class="mod">
+            <dep>
+              <wref id="example.deep.p.2.s.7.w.10" t="al"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.2.s.7.w.12" t="voorgesteld"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.7.dependencies.1.dependency.9" class="obj1">
+            <dep>
+              <wref id="example.deep.p.2.s.7.w.11" t="lichtbreking"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.2.s.7.w.12" t="voorgesteld"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.7.dependencies.1.dependency.10" class="vc">
+            <hd>
+              <wref id="example.deep.p.2.s.7.w.6" t="werd"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.7.w.12" t="voorgesteld"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.7.dependencies.1.dependency.11" class="punct">
+            <hd>
+              <wref id="example.deep.p.2.s.7.w.12" t="voorgesteld"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.7.w.13" t="."/>
+            </dep>
+          </dependency>
+        </dependencies>
+      </s>
+      <s xml:id="example.deep.p.2.s.8">
+        <t>Tegenwoordig wordt het beschouwd als een arctische luchtspiegeling en staat het bekend als het Nova Zembla-effect.</t>
+        <w xml:id="example.deep.p.2.s.8.w.1" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>Tegenwoordig</t>
+          <pos class="ADJ(vrij,basis,zonder)" confidence="0.990099" datetime="2016-11-15T15:12:00" head="ADJ">
+            <feat subset="positie" class="vrij"/>
+            <feat subset="graad" class="basis"/>
+            <feat subset="buiging" class="zonder"/>
+          </pos>
+          <lemma class="tegenwoordig" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.8.w.2" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>wordt</t>
+          <pos class="WW(pv,tgw,met-t)" confidence="0.999676" datetime="2016-11-15T15:12:00" head="WW">
+            <feat subset="wvorm" class="pv"/>
+            <feat subset="pvtijd" class="tgw"/>
+            <feat subset="pvagr" class="met-t"/>
+          </pos>
+          <lemma class="worden" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.8.w.3" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>het</t>
+          <pos class="VNW(pers,pron,stan,red,3,ev,onz)" confidence="0.923077" datetime="2016-11-15T15:12:00" head="VNW">
+            <feat subset="vwtype" class="pers"/>
+            <feat subset="pdtype" class="pron"/>
+            <feat subset="naamval" class="stan"/>
+            <feat subset="status" class="red"/>
+            <feat subset="persoon" class="3"/>
+            <feat subset="getal" class="ev"/>
+            <feat subset="genus" class="onz"/>
+          </pos>
+          <lemma class="het" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.8.w.4" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>beschouwd</t>
+          <pos class="WW(vd,vrij,zonder)" confidence="0.992221" datetime="2016-11-15T15:12:00" head="WW">
+            <feat subset="wvorm" class="vd"/>
+            <feat subset="positie" class="vrij"/>
+            <feat subset="buiging" class="zonder"/>
+          </pos>
+          <lemma class="beschouwen" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.8.w.5" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>als</t>
+          <pos class="VZ(init)" confidence="0.827586" datetime="2016-11-15T15:12:00" head="VZ">
+            <feat subset="vztype" class="init"/>
+          </pos>
+          <lemma class="als" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.8.w.6" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>een</t>
+          <pos class="LID(onbep,stan,agr)" confidence="0.995147" datetime="2016-11-15T15:12:00" head="LID">
+            <feat subset="lwtype" class="onbep"/>
+            <feat subset="naamval" class="stan"/>
+            <feat subset="npagr" class="agr"/>
+          </pos>
+          <lemma class="een" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.8.w.7" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>arctische</t>
+          <pos class="ADJ(prenom,basis,met-e,stan)" confidence="0.999828" datetime="2016-11-15T15:12:00" head="ADJ">
+            <feat subset="positie" class="prenom"/>
+            <feat subset="graad" class="basis"/>
+            <feat subset="buiging" class="met-e"/>
+            <feat subset="naamval" class="stan"/>
+          </pos>
+          <lemma class="arctisch" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.8.w.8" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>luchtspiegeling</t>
+          <pos class="N(soort,ev,basis,zijd,stan)" confidence="0.998248" datetime="2016-11-15T15:12:00" head="N">
+            <feat subset="ntype" class="soort"/>
+            <feat subset="getal" class="ev"/>
+            <feat subset="graad" class="basis"/>
+            <feat subset="genus" class="zijd"/>
+            <feat subset="naamval" class="stan"/>
+          </pos>
+          <lemma class="luchtspiegeling" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.8.w.9" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>en</t>
+          <pos class="VG(neven)" confidence="0.999194" datetime="2016-11-15T15:12:00" head="VG">
+            <feat subset="conjtype" class="neven"/>
+          </pos>
+          <lemma class="en" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.8.w.10" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>staat</t>
+          <pos class="WW(pv,tgw,met-t)" confidence="0.909722" datetime="2016-11-15T15:12:00" head="WW">
+            <feat subset="wvorm" class="pv"/>
+            <feat subset="pvtijd" class="tgw"/>
+            <feat subset="pvagr" class="met-t"/>
+          </pos>
+          <lemma class="staan" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.8.w.11" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>het</t>
+          <pos class="VNW(pers,pron,stan,red,3,ev,onz)" confidence="0.878505" datetime="2016-11-15T15:12:00" head="VNW">
+            <feat subset="vwtype" class="pers"/>
+            <feat subset="pdtype" class="pron"/>
+            <feat subset="naamval" class="stan"/>
+            <feat subset="status" class="red"/>
+            <feat subset="persoon" class="3"/>
+            <feat subset="getal" class="ev"/>
+            <feat subset="genus" class="onz"/>
+          </pos>
+          <lemma class="het" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.8.w.12" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>bekend</t>
+          <pos class="ADJ(vrij,basis,zonder)" confidence="0.971744" datetime="2016-11-15T15:12:00" head="ADJ">
+            <feat subset="positie" class="vrij"/>
+            <feat subset="graad" class="basis"/>
+            <feat subset="buiging" class="zonder"/>
+          </pos>
+          <lemma class="bekend" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.8.w.13" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>als</t>
+          <pos class="VG(onder)" confidence="0.934783" datetime="2016-11-15T15:12:00" head="VG">
+            <feat subset="conjtype" class="onder"/>
+          </pos>
+          <lemma class="als" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.8.w.14" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>het</t>
+          <pos class="LID(bep,stan,evon)" confidence="0.6" datetime="2016-11-15T15:12:00" head="LID">
+            <feat subset="lwtype" class="bep"/>
+            <feat subset="naamval" class="stan"/>
+            <feat subset="npagr" class="evon"/>
+          </pos>
+          <lemma class="het" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.8.w.15" class="WORD" datetime="2016-11-15T15:12:00">
+          <t>Nova</t>
+          <pos class="SPEC(deeleigen)" confidence="1.0" datetime="2016-11-15T15:12:00" head="SPEC">
+            <feat subset="spectype" class="deeleigen"/>
+          </pos>
+          <lemma class="Nova" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.8.w.16" class="WORD-COMPOUND" datetime="2016-11-15T15:12:00" space="no">
+          <t>Zembla-effect</t>
+          <pos class="SPEC(deeleigen)" annotator="frog-mbpos-1.0" annotatortype="auto" confidence="1.0" datetime="2016-11-15T15:12:00" head="SPEC">
+            <feat subset="spectype" class="deeleigen"/>
+          </pos>
+          <lemma class="Zembla-effect" datetime="2016-11-15T15:12:00"/>
+        </w>
+        <w xml:id="example.deep.p.2.s.8.w.17" class="PUNCTUATION" datetime="2016-11-15T15:12:00">
+          <t>.</t>
+          <pos class="LET()" confidence="1.0" datetime="2016-11-15T15:12:00" head="LET"/>
+          <lemma class="." datetime="2016-11-15T15:12:00"/>
+        </w>
+        <chunking xml:id="example.deep.p.2.s.8.chunking.1" datetime="2016-11-15T15:12:00">
+          <chunk xml:id="example.deep.p.2.s.8.chunking.1.chunk.1" class="ADVP" confidence="0.988462" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.8.w.1" t="Tegenwoordig"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.8.chunking.1.chunk.2" class="VP" confidence="0.909121" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.8.w.2" t="wordt"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.8.chunking.1.chunk.3" class="NP" confidence="0.5" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.8.w.3" t="het"/>
+            <wref id="example.deep.p.2.s.8.w.4" t="beschouwd"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.8.chunking.1.chunk.4" class="PP" confidence="0.75" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.8.w.5" t="als"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.8.chunking.1.chunk.5" class="NP" confidence="0.965017" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.8.w.6" t="een"/>
+            <wref id="example.deep.p.2.s.8.w.7" t="arctische"/>
+            <wref id="example.deep.p.2.s.8.w.8" t="luchtspiegeling"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.8.chunking.1.chunk.6" class="CONJP" confidence="0.993665" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.8.w.9" t="en"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.8.chunking.1.chunk.7" class="VP" confidence="0.9" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.8.w.10" t="staat"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.8.chunking.1.chunk.8" class="NP" confidence="1.0" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.8.w.11" t="het"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.8.chunking.1.chunk.9" class="PP" confidence="0.666667" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.8.w.13" t="als"/>
+          </chunk>
+          <chunk xml:id="example.deep.p.2.s.8.chunking.1.chunk.10" class="NP" confidence="0.945931" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.8.w.14" t="het"/>
+            <wref id="example.deep.p.2.s.8.w.15" t="Nova"/>
+            <wref id="example.deep.p.2.s.8.w.16" t="Zembla-effect"/>
+          </chunk>
+        </chunking>
+        <entities xml:id="example.deep.p.2.s.8.entities.1">
+          <entity xml:id="example.deep.p.2.s.8.entities.1.entity.1" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-ner-nl" class="org" confidence="0.475335" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.8.w.15" t="Nova"/>
+            <wref id="example.deep.p.2.s.8.w.16" t="Zembla-effect"/>
+          </entity>
+        </entities>
+        <entities xml:id="example.deep.p.2.s.8.entities.2">
+          <entity xml:id="example.deep.p.2.s.8.entities.2.entity.1" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/frog-mwu-nl" datetime="2016-11-15T15:12:00">
+            <wref id="example.deep.p.2.s.8.w.15" t="Nova"/>
+            <wref id="example.deep.p.2.s.8.w.16" t="Zembla-effect"/>
+          </entity>
+        </entities>
+        <dependencies xml:id="example.deep.p.2.s.8.dependencies.1">
+          <dependency xml:id="example.deep.p.2.s.8.dependencies.1.dependency.1" class="cnj">
+            <dep>
+              <wref id="example.deep.p.2.s.8.w.1" t="Tegenwoordig"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.2.s.8.w.9" t="en"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.8.dependencies.1.dependency.2" class="cnj">
+            <dep>
+              <wref id="example.deep.p.2.s.8.w.2" t="wordt"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.2.s.8.w.9" t="en"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.8.dependencies.1.dependency.3" class="su">
+            <hd>
+              <wref id="example.deep.p.2.s.8.w.2" t="wordt"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.8.w.3" t="het"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.8.dependencies.1.dependency.4" class="vc">
+            <hd>
+              <wref id="example.deep.p.2.s.8.w.2" t="wordt"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.8.w.4" t="beschouwd"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.8.dependencies.1.dependency.5" class="predc">
+            <hd>
+              <wref id="example.deep.p.2.s.8.w.4" t="beschouwd"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.8.w.5" t="als"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.8.dependencies.1.dependency.6" class="det">
+            <dep>
+              <wref id="example.deep.p.2.s.8.w.6" t="een"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.2.s.8.w.8" t="luchtspiegeling"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.8.dependencies.1.dependency.7" class="mod">
+            <dep>
+              <wref id="example.deep.p.2.s.8.w.7" t="arctische"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.2.s.8.w.8" t="luchtspiegeling"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.8.dependencies.1.dependency.8" class="body">
+            <hd>
+              <wref id="example.deep.p.2.s.8.w.5" t="als"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.8.w.8" t="luchtspiegeling"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.8.dependencies.1.dependency.9" class="cnj">
+            <hd>
+              <wref id="example.deep.p.2.s.8.w.9" t="en"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.8.w.10" t="staat"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.8.dependencies.1.dependency.10" class="su">
+            <hd>
+              <wref id="example.deep.p.2.s.8.w.10" t="staat"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.8.w.11" t="het"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.8.dependencies.1.dependency.11" class="mod">
+            <hd>
+              <wref id="example.deep.p.2.s.8.w.10" t="staat"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.8.w.12" t="bekend"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.8.dependencies.1.dependency.12" class="vc">
+            <hd>
+              <wref id="example.deep.p.2.s.8.w.10" t="staat"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.8.w.13" t="als"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.8.dependencies.1.dependency.13" class="det">
+            <dep>
+              <wref id="example.deep.p.2.s.8.w.14" t="het"/>
+            </dep>
+            <hd>
+              <wref id="example.deep.p.2.s.8.w.15" t="Nova"/>
+              <wref id="example.deep.p.2.s.8.w.16" t="Zembla-effect"/>
+            </hd>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.8.dependencies.1.dependency.14" class="body">
+            <hd>
+              <wref id="example.deep.p.2.s.8.w.13" t="als"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.8.w.15" t="Nova"/>
+              <wref id="example.deep.p.2.s.8.w.16" t="Zembla-effect"/>
+            </dep>
+          </dependency>
+          <dependency xml:id="example.deep.p.2.s.8.dependencies.1.dependency.15" class="punct">
+            <hd>
+              <wref id="example.deep.p.2.s.8.w.15" t="Nova"/>
+              <wref id="example.deep.p.2.s.8.w.16" t="Zembla-effect"/>
+            </hd>
+            <dep>
+              <wref id="example.deep.p.2.s.8.w.17" t="."/>
+            </dep>
+          </dependency>
+        </dependencies>
+      </s>
+    </p>
+  </text>
+</FoLiA>
+
