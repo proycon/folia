@@ -358,6 +358,7 @@ defaultproperties:
     textdelimiter: null #Delimiter to use when dynamically gathering text
     printable: false #Is this element printable? (i.e. can the text() method be called?)
     speakable: false #Is this element phonetically representablly? (i.e. can the phon() method be called?)
+    hidden: false #Is this element hidden? (only applies to Hiddenword for now)
     xlink: false #Can the element carry xlink references?
     textcontainer: false #Does the element directly take textual content (e.g. TextContent (t) is a textcontainer)
     phoncontainer: false #Does the element directly take phonetic content (e.g. PhonContent (ph) is a phoncontainer)
@@ -692,8 +693,7 @@ elements:
                 textdelimiter: " " #may be overriden and set to "" if attribute space="no" is set on the word
                 optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, TEXTCLASS, METADATA, SPACE ]
                 wrefable: true
-                printable: false
-                speakable: false
+                hidden: true
           - class: Label
             properties:
                 accepted_data: [ Word, Hiddenword, Reference, TextContent, PhonContent, String, Relation, Metric, Alternative, Alternative, AlternativeLayers, AbstractAnnotationLayer, AbstractInlineAnnotation, Correction, Part, Linebreak, Whitespace ]
