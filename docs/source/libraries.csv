@@ -33,6 +33,10 @@ Validation,... with RDF+turtle sets,yes,no,yes
 Validation,... with legacy XML sets,yes,no,yes
 Validation,RelaxNG schema generation,yes,no,yes
 
+Serialisation,XML (canonical),yes,yes,yes
+Serialisation,JSON,yes,no,yes
+Serialisation,RDF,no,no,no
+
 Querying,FoLiA Query Language (FQL),yes,no,yes
 Querying,... CQL support,through pynlpl,no,yes
 Querying,Document findwords() method,yes,yes,yes
