@@ -375,7 +375,7 @@ elements:
           printable: false
           speakable: false
           accepted_data: [ Correction, ForeignData ]
-          optional_attribs: [ ]
+          optional_attribs: [ ID ]
           setonly: true
       elements:
           - class: ChunkingLayer
