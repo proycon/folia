@@ -213,7 +213,7 @@
           <pos class="LET()" confidence="1.0" datetime="2016-11-15T15:12:00" head="LET"/>
           <lemma class="." datetime="2016-11-15T15:12:00"/>
         </w>
-        <chunking xml:id="example.deep.p.1.s.1.chunking.1" datetime="2016-11-15T15:12:00">
+        <chunking xml:id="example.deep.p.1.s.1.chunking.1">
           <chunk xml:id="example.deep.p.1.s.1.chunking.1.chunk.1" class="NP" confidence="0.969974" datetime="2016-11-15T15:12:00">
             <wref id="example.deep.p.1.s.1.w.1" t="De"/>
             <wref id="example.deep.p.1.s.1.w.2" t="Russen"/>
@@ -606,7 +606,7 @@
           <pos class="LET()" confidence="1.0" datetime="2016-11-15T15:12:00" head="LET"/>
           <lemma class="." datetime="2016-11-15T15:12:00"/>
         </w>
-        <chunking xml:id="example.deep.p.1.s.2.chunking.1" datetime="2016-11-15T15:12:00">
+        <chunking xml:id="example.deep.p.1.s.2.chunking.1">
           <chunk xml:id="example.deep.p.1.s.2.chunking.1.chunk.1" class="NP" confidence="0.526644" datetime="2016-11-15T15:12:00">
             <wref id="example.deep.p.1.s.2.w.1" t="West-Europeanen"/>
           </chunk>
@@ -920,7 +920,7 @@
             <wref id="example.deep.p.2.s.1.w.8" t="Willoughby"/>
           </entity>
         </entities>
-        <chunking xml:id="example.deep.p.2.s.1.chunking.1" datetime="2016-11-15T15:12:00">
+        <chunking xml:id="example.deep.p.2.s.1.chunking.1">
           <chunk xml:id="example.deep.p.2.s.1.chunking.1.chunk.1" class="NP" confidence="0.818497" datetime="2016-11-15T15:12:00">
             <wref id="example.deep.p.2.s.1.w.1" t="De"/>
             <wref id="example.deep.p.2.s.1.w.2" t="eerste"/>
@@ -1273,7 +1273,7 @@
           <pos class="LET()" confidence="1.0" datetime="2016-11-15T15:12:00" head="LET"/>
           <lemma class="." datetime="2016-11-15T15:12:00"/>
         </w>
-        <chunking xml:id="example.deep.p.2.s.2.chunking.1" datetime="2016-11-15T15:12:00">
+        <chunking xml:id="example.deep.p.2.s.2.chunking.1">
           <chunk xml:id="example.deep.p.2.s.2.chunking.1.chunk.1" class="NP" confidence="0.995357" datetime="2016-11-15T15:12:00">
             <wref id="example.deep.p.2.s.2.w.1" t="Willem"/>
             <wref id="example.deep.p.2.s.2.w.2" t="Barentsz"/>
@@ -1691,7 +1691,7 @@
           <pos class="LET()" confidence="1.0" datetime="2016-11-15T15:12:00" head="LET"/>
           <lemma class="." datetime="2016-11-15T15:12:00"/>
         </w>
-        <chunking xml:id="example.deep.p.2.s.3.chunking.1" datetime="2016-11-15T15:12:00">
+        <chunking xml:id="example.deep.p.2.s.3.chunking.1">
           <chunk xml:id="example.deep.p.2.s.3.chunking.1.chunk.1" class="NP" confidence="0.960932" datetime="2016-11-15T15:12:00">
             <wref id="example.deep.p.2.s.3.w.1" t="Hun"/>
             <wref id="example.deep.p.2.s.3.w.2" t="expeditie"/>
@@ -1926,7 +1926,7 @@
           <pos class="LET()" confidence="1.0" datetime="2016-11-15T15:12:00" head="LET"/>
           <lemma class="." datetime="2016-11-15T15:12:00"/>
         </w>
-        <chunking xml:id="example.deep.p.2.s.4.chunking.1" datetime="2016-11-15T15:12:00">
+        <chunking xml:id="example.deep.p.2.s.4.chunking.1">
           <chunk xml:id="example.deep.p.2.s.4.chunking.1.chunk.1" class="PP" confidence="0.998134" datetime="2016-11-15T15:12:00">
             <wref id="example.deep.p.2.s.4.w.1" t="Gedurende"/>
           </chunk>
@@ -2137,7 +2137,7 @@
           <pos class="LET()" confidence="1.0" datetime="2016-11-15T15:12:00" head="LET"/>
           <lemma class="." datetime="2016-11-15T15:12:00"/>
         </w>
-        <chunking xml:id="example.deep.p.2.s.5.chunking.1" datetime="2016-11-15T15:12:00">
+        <chunking xml:id="example.deep.p.2.s.5.chunking.1">
           <chunk xml:id="example.deep.p.2.s.5.chunking.1.chunk.1" class="NP" confidence="0.923295" datetime="2016-11-15T15:12:00">
             <wref id="example.deep.p.2.s.5.w.1" t="Gerrit"/>
             <wref id="example.deep.p.2.s.5.w.2" t="de"/>
@@ -2357,7 +2357,7 @@
           <pos class="LET()" confidence="1.0" datetime="2016-11-15T15:12:00" head="LET"/>
           <lemma class="." datetime="2016-11-15T15:12:00"/>
         </w>
-        <chunking xml:id="example.deep.p.2.s.6.chunking.1" datetime="2016-11-15T15:12:00">
+        <chunking xml:id="example.deep.p.2.s.6.chunking.1">
           <chunk xml:id="example.deep.p.2.s.6.chunking.1.chunk.1" class="NP" confidence="0.977426" datetime="2016-11-15T15:12:00">
             <wref id="example.deep.p.2.s.6.w.1" t="Hij"/>
           </chunk>
@@ -2624,7 +2624,7 @@
             <wref id="example.deep.p.2.s.7.w.9" t="Kepler"/>
           </entity>
         </entities>
-        <chunking xml:id="example.deep.p.2.s.7.chunking.1" datetime="2016-11-15T15:12:00">
+        <chunking xml:id="example.deep.p.2.s.7.chunking.1">
           <chunk xml:id="example.deep.p.2.s.7.chunking.1.chunk.1" class="PP" confidence="0.933333" datetime="2016-11-15T15:12:00">
             <wref id="example.deep.p.2.s.7.w.1" t="Ter"/>
           </chunk>
@@ -2908,7 +2908,7 @@
           <pos class="LET()" confidence="1.0" datetime="2016-11-15T15:12:00" head="LET"/>
           <lemma class="." datetime="2016-11-15T15:12:00"/>
         </w>
-        <chunking xml:id="example.deep.p.2.s.8.chunking.1" datetime="2016-11-15T15:12:00">
+        <chunking xml:id="example.deep.p.2.s.8.chunking.1">
           <chunk xml:id="example.deep.p.2.s.8.chunking.1.chunk.1" class="ADVP" confidence="0.988462" datetime="2016-11-15T15:12:00">
             <wref id="example.deep.p.2.s.8.w.1" t="Tegenwoordig"/>
           </chunk>
