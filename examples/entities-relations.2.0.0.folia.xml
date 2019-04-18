@@ -63,7 +63,7 @@
              <entity xml:id="example.p.1.s.1.entity.1" class="per">
                  <relation class="wikipedia" xlink:href="https://en.wikipedia.org/wiki/Dalai_Lama" xlink:type="simple" format="text/html" />
                  <wref id="example.p.1.s.1.w.2" t="Dalai" />
-                 <wref id="example.p.1.s.1.w.2" t="Lama" />
+                 <wref id="example.p.1.s.1.w.3" t="Lama" />
              </entity>
              <entity xml:id="example.p.1.s.1.entity.2" class="loc.city">
                  <relation class="wikipedia" xlink:href="https://en.wikipedia.org/wiki/Dharamsala" xlink:type="simple" format="text/html" />
