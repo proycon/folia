@@ -2,13 +2,13 @@
 <FoLiA xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://ilk.uvt.nl/folia" xml:id="test" version="2.0.0" generator="foliapy-v2.0.0">
   <metadata type="native">
     <annotations>
-      <text-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/text.foliaset.ttl" processor="p0">
+      <text-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/text.foliaset.ttl">
         <annotator processor="p0"/>
       </text-annotation>
-      <token-annotation set="adhoc" processor="p0.1">
+      <token-annotation set="adhoc">
         <annotator processor="p0.1"/>
       </token-annotation>
-      <sentence-annotation set="adhoc" processor="p0.2">
+      <sentence-annotation set="adhoc">
         <annotator processor="p0.2"/>
       </sentence-annotation>
     </annotations>

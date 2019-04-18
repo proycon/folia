@@ -3,10 +3,10 @@
   <metadata type="native">
     <annotations>
       <text-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/text.foliaset.ttl"/>
-      <token-annotation set="adhoc" processor="p0.1">
+      <token-annotation set="adhoc">
         <annotator processor="p0.1"/>
       </token-annotation>
-      <sentence-annotation set="adhoc" processor="p0.2">
+      <sentence-annotation set="adhoc">
         <annotator processor="p0.2"/>
       </sentence-annotation>
     </annotations>
