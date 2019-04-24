@@ -11,72 +11,72 @@
 
 upos:Set a skos:Collection ;
     skos:notation "upos" ;
-    skos:member upos:ADJ, upos:ADP, upos:AUX, upos:CCONJ, upos:DET, upos:INTJ, upos:NOUN, upos:NUM, upos:PART, upos:PRON, upos:PROPN, upos:PUNCT, upos:SCONJ, upos:SYM, upos:VERB, upos:X ;
+    skos:member upos:ADJ, upos:ADP, upos:AUX, upos:CCONJ, upos:DET, upos:INTJ, upos:NOUN, upos:NUM, upos:PART, upos:PRON, upos:PROPN, upos:PUNCT, upos:SCONJ, upos:SYM, upos:VERB, upos:X .
 
 upos:ADJ a skos:Concept ;
     skos:notation "ADJ" ;
-    skos:prefLabel "Adjective" ;
+    skos:prefLabel "Adjective" .
 
 upos:ADP a skos:Concept ;
     skos:notation "ADP" ;
-    skos:prefLabel "Adposition" ;
+    skos:prefLabel "Adposition" .
 
 upos:ADV a skos:Concept ;
     skos:notation "ADV" ;
-    skos:prefLabel "Adverb" ;
+    skos:prefLabel "Adverb" .
 
 upos:AUX a skos:Concept ;
     skos:notation "AUX" ;
-    skos:prefLabel "Auxiliary" ;
+    skos:prefLabel "Auxiliary" .
 
 upos:CCONJ a skos:Concept ;
     skos:notation "CCONJ" ;
-    skos:prefLabel "Coordinating Conjunction" ;
+    skos:prefLabel "Coordinating Conjunction" .
 
 upos:DET a skos:Concept ;
     skos:notation "DET" ;
-    skos:prefLabel "Determiner" ;
+    skos:prefLabel "Determiner" .
 
 upos:INTJ a skos:Concept ;
     skos:notation "INTJ" ;
-    skos:prefLabel "Interjection" ;
+    skos:prefLabel "Interjection" .
 
 upos:NOUN a skos:Concept ;
     skos:notation "NOUN" ;
-    skos:prefLabel "Noun" ;
+    skos:prefLabel "Noun" .
 
 upos:NUM a skos:Concept ;
     skos:notation "NUM" ;
-    skos:prefLabel "Numeral" ;
+    skos:prefLabel "Numeral" .
 
 upos:PART a skos:Concept ;
     skos:notation "PART" ;
-    skos:prefLabel "Particle" ;
+    skos:prefLabel "Particle" .
 
 upos:PRON a skos:Concept ;
     skos:notation "PRON" ;
-    skos:prefLabel "Pronoun" ;
+    skos:prefLabel "Pronoun" .
 
 upos:PROPN a skos:Concept ;
     skos:notation "PROPN" ;
-    skos:prefLabel "Proper Noun" ;
+    skos:prefLabel "Proper Noun" .
 
 upos:PUNCT a skos:Concept ;
     skos:notation "PUNCT" ;
-    skos:prefLabel "Punctuation" ;
+    skos:prefLabel "Punctuation" .
 
 upos:SCONJ a skos:Concept ;
     skos:notation "SCONJ" ;
-    skos:prefLabel "Subordinating Conjunction" ;
+    skos:prefLabel "Subordinating Conjunction" .
 
 upos:SYM a skos:Concept ;
     skos:notation "SYM" ;
-    skos:prefLabel "Symbol" ;
+    skos:prefLabel "Symbol" .
 
 upos:VERB a skos:Concept ;
     skos:notation "VERB" ;
-    skos:prefLabel "Verb" ;
+    skos:prefLabel "Verb" .
 
 upos:X a skos:Concept ;
     skos:notation "X" ;
-    skos:prefLabel "Other" ;
+    skos:prefLabel "Other" .
