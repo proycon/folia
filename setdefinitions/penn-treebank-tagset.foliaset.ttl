@@ -1,0 +1,228 @@
+@prefix fsd: <http://folia.science.ru.nl/setdefinition#> .
+@prefix penn-treebank-tagset: <http://folia.science.ru.nl/setdefinition/penn-treebank-tagset#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+penn-treebank-tagset:Set a skos:Collection ;
+    skos:member penn-treebank-tagset:CC,
+        penn-treebank-tagset:CD,
+        penn-treebank-tagset:DT,
+        penn-treebank-tagset:EX,
+        penn-treebank-tagset:FW,
+        penn-treebank-tagset:IN,
+        penn-treebank-tagset:JJ,
+        penn-treebank-tagset:JJR,
+        penn-treebank-tagset:JJS,
+        penn-treebank-tagset:LS,
+        penn-treebank-tagset:MD,
+        penn-treebank-tagset:NN,
+        penn-treebank-tagset:NNP,
+        penn-treebank-tagset:NNPS,
+        penn-treebank-tagset:NNS,
+        penn-treebank-tagset:PDT,
+        penn-treebank-tagset:POS,
+        penn-treebank-tagset:PRP,
+        <http://folia.science.ru.nl/setdefinition/penn-treebank-tagset#PRP$>,
+        penn-treebank-tagset:RB,
+        penn-treebank-tagset:RBR,
+        penn-treebank-tagset:RBS,
+        penn-treebank-tagset:RP,
+        penn-treebank-tagset:SYM,
+        penn-treebank-tagset:TO,
+        penn-treebank-tagset:UH,
+        penn-treebank-tagset:VB,
+        penn-treebank-tagset:VBD,
+        penn-treebank-tagset:VBG,
+        penn-treebank-tagset:VBN,
+        penn-treebank-tagset:VBP,
+        penn-treebank-tagset:VBZ,
+        penn-treebank-tagset:WDT,
+        penn-treebank-tagset:WP,
+        <http://folia.science.ru.nl/setdefinition/penn-treebank-tagset#WP$>,
+        penn-treebank-tagset:WRB ;
+    skos:notation "penn-treebank-tagset" .
+
+penn-treebank-tagset:CC a skos:Concept ;
+    fsd:sequenceNumber 1 ;
+    skos:notation "CC" ;
+    skos:prefLabel "Coordinating conjunction" .
+
+penn-treebank-tagset:CD a skos:Concept ;
+    fsd:sequenceNumber 2 ;
+    skos:notation "CD" ;
+    skos:prefLabel "Cardinal number" .
+
+penn-treebank-tagset:DT a skos:Concept ;
+    fsd:sequenceNumber 3 ;
+    skos:notation "DT" ;
+    skos:prefLabel "Determiner" .
+
+penn-treebank-tagset:EX a skos:Concept ;
+    fsd:sequenceNumber 4 ;
+    skos:notation "EX" ;
+    skos:prefLabel "Existential there" .
+
+penn-treebank-tagset:FW a skos:Concept ;
+    fsd:sequenceNumber 5 ;
+    skos:notation "FW" ;
+    skos:prefLabel "Foreign word" .
+
+penn-treebank-tagset:IN a skos:Concept ;
+    fsd:sequenceNumber 6 ;
+    skos:notation "IN" ;
+    skos:prefLabel "Preposition or subordinating conjunction" .
+
+penn-treebank-tagset:JJ a skos:Concept ;
+    fsd:sequenceNumber 7 ;
+    skos:notation "JJ" ;
+    skos:prefLabel "Adjective" .
+
+penn-treebank-tagset:JJR a skos:Concept ;
+    fsd:sequenceNumber 8 ;
+    skos:notation "JJR" ;
+    skos:prefLabel "Adjective, comparative" .
+
+penn-treebank-tagset:JJS a skos:Concept ;
+    fsd:sequenceNumber 9 ;
+    skos:notation "JJS" ;
+    skos:prefLabel "Adjective, superlative" .
+
+penn-treebank-tagset:LS a skos:Concept ;
+    fsd:sequenceNumber 10 ;
+    skos:notation "LS" ;
+    skos:prefLabel "List item marker" .
+
+penn-treebank-tagset:MD a skos:Concept ;
+    fsd:sequenceNumber 11 ;
+    skos:notation "MD" ;
+    skos:prefLabel "Modal" .
+
+penn-treebank-tagset:NN a skos:Concept ;
+    fsd:sequenceNumber 12 ;
+    skos:notation "NN" ;
+    skos:prefLabel "Noun, singular or mass" .
+
+penn-treebank-tagset:NNP a skos:Concept ;
+    fsd:sequenceNumber 14 ;
+    skos:notation "NNP" ;
+    skos:prefLabel "Proper noun, singular" .
+
+penn-treebank-tagset:NNPS a skos:Concept ;
+    fsd:sequenceNumber 15 ;
+    skos:notation "NNPS" ;
+    skos:prefLabel "Proper noun, plural" .
+
+penn-treebank-tagset:NNS a skos:Concept ;
+    fsd:sequenceNumber 13 ;
+    skos:notation "NNS" ;
+    skos:prefLabel "Noun, plural" .
+
+penn-treebank-tagset:PDT a skos:Concept ;
+    fsd:sequenceNumber 16 ;
+    skos:notation "PDT" ;
+    skos:prefLabel "Predeterminer" .
+
+penn-treebank-tagset:POS a skos:Concept ;
+    fsd:sequenceNumber 17 ;
+    skos:notation "POS" ;
+    skos:prefLabel "Possessive ending" .
+
+penn-treebank-tagset:PRP a skos:Concept ;
+    fsd:sequenceNumber 18 ;
+    skos:notation "PRP" ;
+    skos:prefLabel "Personal pronoun" .
+
+<http://folia.science.ru.nl/setdefinition/penn-treebank-tagset#PRP$> a skos:Concept ;
+    fsd:sequenceNumber 19 ;
+    skos:notation "PRP$" ;
+    skos:prefLabel "Possessive pronoun" .
+
+penn-treebank-tagset:RB a skos:Concept ;
+    fsd:sequenceNumber 20 ;
+    skos:notation "RB" ;
+    skos:prefLabel "Adverb" .
+
+penn-treebank-tagset:RBR a skos:Concept ;
+    fsd:sequenceNumber 21 ;
+    skos:notation "RBR" ;
+    skos:prefLabel "Adverb, comparative" .
+
+penn-treebank-tagset:RBS a skos:Concept ;
+    fsd:sequenceNumber 22 ;
+    skos:notation "RBS" ;
+    skos:prefLabel "Adverb, superlative" .
+
+penn-treebank-tagset:RP a skos:Concept ;
+    fsd:sequenceNumber 23 ;
+    skos:notation "RP" ;
+    skos:prefLabel "Particle" .
+
+penn-treebank-tagset:SYM a skos:Concept ;
+    fsd:sequenceNumber 24 ;
+    skos:notation "SYM" ;
+    skos:prefLabel "Symbol" .
+
+penn-treebank-tagset:TO a skos:Concept ;
+    fsd:sequenceNumber 25 ;
+    skos:notation "TO" ;
+    skos:prefLabel "to" .
+
+penn-treebank-tagset:UH a skos:Concept ;
+    fsd:sequenceNumber 26 ;
+    skos:notation "UH" ;
+    skos:prefLabel "Interjection" .
+
+penn-treebank-tagset:VB a skos:Concept ;
+    fsd:sequenceNumber 27 ;
+    skos:notation "VB" ;
+    skos:prefLabel "Verb, base form" .
+
+penn-treebank-tagset:VBD a skos:Concept ;
+    fsd:sequenceNumber 28 ;
+    skos:notation "VBD" ;
+    skos:prefLabel "Verb, past tense" .
+
+penn-treebank-tagset:VBG a skos:Concept ;
+    fsd:sequenceNumber 29 ;
+    skos:notation "VBG" ;
+    skos:prefLabel "Verb, gerund or present participle" .
+
+penn-treebank-tagset:VBN a skos:Concept ;
+    fsd:sequenceNumber 30 ;
+    skos:notation "VBN" ;
+    skos:prefLabel "Verb, past participle" .
+
+penn-treebank-tagset:VBP a skos:Concept ;
+    fsd:sequenceNumber 31 ;
+    skos:notation "VBP" ;
+    skos:prefLabel "Verb, non-3rd person singular present" .
+
+penn-treebank-tagset:VBZ a skos:Concept ;
+    fsd:sequenceNumber 32 ;
+    skos:notation "VBZ" ;
+    skos:prefLabel "Verb, 3rd person singular present" .
+
+penn-treebank-tagset:WDT a skos:Concept ;
+    fsd:sequenceNumber 33 ;
+    skos:notation "WDT" ;
+    skos:prefLabel "Wh-determiner" .
+
+penn-treebank-tagset:WP a skos:Concept ;
+    fsd:sequenceNumber 34 ;
+    skos:notation "WP" ;
+    skos:prefLabel "Wh-pronoun" .
+
+<http://folia.science.ru.nl/setdefinition/penn-treebank-tagset#WP$> a skos:Concept ;
+    fsd:sequenceNumber 35 ;
+    skos:notation "WP$" ;
+    skos:prefLabel "Possessive wh-pronoun" .
+
+penn-treebank-tagset:WRB a skos:Concept ;
+    fsd:sequenceNumber 36 ;
+    skos:notation "WRB" ;
+    skos:prefLabel "Wh-adverb" .
+
+

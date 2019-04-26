@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<set xml:id="penn-treebank-tagset" type="closed" xmlns="http://ilk.uvt.nl/folia" >
+    <class xml:id="CC" label="Coordinating conjunction" />
+    <class xml:id="CD" label="Cardinal number"/>
+    <class xml:id="DT" label="Determiner" />
+    <class xml:id="EX" label="Existential there"/>
+    <class xml:id="FW" label="Foreign word"/>
+    <class xml:id="IN" label="Preposition or subordinating conjunction"/>
+    <class xml:id="JJ" label="Adjective"/>
+    <class xml:id="JJR" label="Adjective, comparative"/>
+    <class xml:id="JJS" label="Adjective, superlative"/>
+    <class xml:id="LS" label="List item marker"/>
+    <class xml:id="MD" label="Modal"/>
+    <class xml:id="NN" label="Noun, singular or mass"/>
+    <class xml:id="NNS" label="Noun, plural"/>
+    <class xml:id="NNP" label="Proper noun, singular"/>
+    <class xml:id="NNPS" label="Proper noun, plural"/>
+    <class xml:id="PDT" label="Predeterminer"/>
+    <class xml:id="POS" label="Possessive ending"/>
+    <class xml:id="PRP" label="Personal pronoun"/>
+    <class xml:id="PRP$" label="Possessive pronoun"/>
+    <class xml:id="RB" label="Adverb"/>
+    <class xml:id="RBR" label="Adverb, comparative"/>
+    <class xml:id="RBS" label="Adverb, superlative"/>
+    <class xml:id="RP" label="Particle"/>
+    <class xml:id="SYM" label="Symbol"/>
+    <class xml:id="TO" label="to"/>
+    <class xml:id="UH" label="Interjection"/>
+    <class xml:id="VB" label="Verb, base form"/>
+    <class xml:id="VBD" label="Verb, past tense"/>
+    <class xml:id="VBG" label="Verb, gerund or present participle"/>
+    <class xml:id="VBN" label="Verb, past participle"/>
+    <class xml:id="VBP" label="Verb, non-3rd person singular present"/>
+    <class xml:id="VBZ" label="Verb, 3rd person singular present"/>
+    <class xml:id="WDT" label="Wh-determiner"/>
+    <class xml:id="WP" label="Wh-pronoun"/>
+    <class xml:id="WP$" label="Possessive wh-pronoun"/>
+    <class xml:id="WRB" label="Wh-adverb"/>
+</set>
