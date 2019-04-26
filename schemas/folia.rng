@@ -5316,7 +5316,7 @@ RelaxNG schema for FoLiA XML v2.0.3
   <define name="relation" ns="http://ilk.uvt.nl/folia">
     <element name="relation">
       <a:documentation>
-    The Relation element is a form of higher-order annotation taht is used to point to an external resource.
+    The Relation element is a form of higher-order annotation that is used to point to an external resource.
 
     It concerns references as annotation rather than references which are
     explicitly part of the text, such as hyperlinks and :class:`Reference`.
@@ -5438,7 +5438,7 @@ RelaxNG schema for FoLiA XML v2.0.3
   <define name="alignment" ns="http://ilk.uvt.nl/folia">
     <element name="alignment">
       <a:documentation>
-    The Relation element is a form of higher-order annotation taht is used to point to an external resource.
+    The Relation element is a form of higher-order annotation that is used to point to an external resource.
 
     It concerns references as annotation rather than references which are
     explicitly part of the text, such as hyperlinks and :class:`Reference`.
@@ -7279,29 +7279,6 @@ RelaxNG schema for FoLiA XML v2.0.3
         </attribute>
       </optional>
       <optional>
-        <attribute name="annotator">
-          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
-        </attribute>
-      </optional>
-      <optional>
-        <attribute name="annotatortype"/>
-      </optional>
-      <optional>
-        <attribute name="processor">
-          <data type="IDREF" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
-        </attribute>
-      </optional>
-      <optional>
-        <attribute name="n">
-          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
-        </attribute>
-      </optional>
-      <optional>
-        <attribute name="datetime">
-          <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
-        </attribute>
-      </optional>
-      <optional>
         <attribute name="auth"/>
       </optional>
       <ref name="allow_foreign_attributes"/>
@@ -7370,29 +7347,6 @@ RelaxNG schema for FoLiA XML v2.0.3
       <optional>
         <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
           <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
-        </attribute>
-      </optional>
-      <optional>
-        <attribute name="annotator">
-          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
-        </attribute>
-      </optional>
-      <optional>
-        <attribute name="annotatortype"/>
-      </optional>
-      <optional>
-        <attribute name="processor">
-          <data type="IDREF" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
-        </attribute>
-      </optional>
-      <optional>
-        <attribute name="n">
-          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
-        </attribute>
-      </optional>
-      <optional>
-        <attribute name="datetime">
-          <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
       <optional>
@@ -7465,29 +7419,6 @@ RelaxNG schema for FoLiA XML v2.0.3
         </attribute>
       </optional>
       <optional>
-        <attribute name="annotator">
-          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
-        </attribute>
-      </optional>
-      <optional>
-        <attribute name="annotatortype"/>
-      </optional>
-      <optional>
-        <attribute name="processor">
-          <data type="IDREF" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
-        </attribute>
-      </optional>
-      <optional>
-        <attribute name="n">
-          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
-        </attribute>
-      </optional>
-      <optional>
-        <attribute name="datetime">
-          <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
-        </attribute>
-      </optional>
-      <optional>
         <attribute name="auth"/>
       </optional>
       <ref name="allow_foreign_attributes"/>
@@ -7557,29 +7488,6 @@ RelaxNG schema for FoLiA XML v2.0.3
         </attribute>
       </optional>
       <optional>
-        <attribute name="annotator">
-          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
-        </attribute>
-      </optional>
-      <optional>
-        <attribute name="annotatortype"/>
-      </optional>
-      <optional>
-        <attribute name="processor">
-          <data type="IDREF" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
-        </attribute>
-      </optional>
-      <optional>
-        <attribute name="n">
-          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
-        </attribute>
-      </optional>
-      <optional>
-        <attribute name="datetime">
-          <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
-        </attribute>
-      </optional>
-      <optional>
         <attribute name="auth"/>
       </optional>
       <ref name="allow_foreign_attributes"/>
@@ -7646,29 +7554,6 @@ RelaxNG schema for FoLiA XML v2.0.3
       <optional>
         <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
           <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
-        </attribute>
-      </optional>
-      <optional>
-        <attribute name="annotator">
-          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
-        </attribute>
-      </optional>
-      <optional>
-        <attribute name="annotatortype"/>
-      </optional>
-      <optional>
-        <attribute name="processor">
-          <data type="IDREF" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
-        </attribute>
-      </optional>
-      <optional>
-        <attribute name="n">
-          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
-        </attribute>
-      </optional>
-      <optional>
-        <attribute name="datetime">
-          <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
       <optional>
@@ -7866,29 +7751,6 @@ RelaxNG schema for FoLiA XML v2.0.3
       <optional>
         <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
           <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
-        </attribute>
-      </optional>
-      <optional>
-        <attribute name="annotator">
-          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
-        </attribute>
-      </optional>
-      <optional>
-        <attribute name="annotatortype"/>
-      </optional>
-      <optional>
-        <attribute name="processor">
-          <data type="IDREF" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
-        </attribute>
-      </optional>
-      <optional>
-        <attribute name="n">
-          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
-        </attribute>
-      </optional>
-      <optional>
-        <attribute name="datetime">
-          <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
       </optional>
       <optional>
