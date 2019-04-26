@@ -1,0 +1,120 @@
+@prefix fsd: <http://folia.science.ru.nl/setdefinition#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix spacy-ontonotes5-ner-tagset: <http://folia.science.ru.nl/setdefinition/spacy-ontonotes5-ner-tagset#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+spacy-ontonotes5-ner-tagset:Set a skos:Collection ;
+    skos:member spacy-ontonotes5-ner-tagset:CARDINAL,
+        spacy-ontonotes5-ner-tagset:DATE,
+        spacy-ontonotes5-ner-tagset:EVENT,
+        spacy-ontonotes5-ner-tagset:FAC,
+        spacy-ontonotes5-ner-tagset:GPE,
+        spacy-ontonotes5-ner-tagset:LANGUAGE,
+        spacy-ontonotes5-ner-tagset:LAW,
+        spacy-ontonotes5-ner-tagset:LOC,
+        spacy-ontonotes5-ner-tagset:MONEY,
+        spacy-ontonotes5-ner-tagset:NORP,
+        spacy-ontonotes5-ner-tagset:ORDINAL,
+        spacy-ontonotes5-ner-tagset:ORG,
+        spacy-ontonotes5-ner-tagset:PERCENT,
+        spacy-ontonotes5-ner-tagset:PERSON,
+        spacy-ontonotes5-ner-tagset:PRODUCT,
+        spacy-ontonotes5-ner-tagset:QUANTITY,
+        spacy-ontonotes5-ner-tagset:TIME,
+        spacy-ontonotes5-ner-tagset:WORK_OF_ART ;
+    skos:notation "spacy-ontonotes5-ner-tagset" .
+
+spacy-ontonotes5-ner-tagset:CARDINAL a skos:Concept ;
+    fsd:sequenceNumber 18 ;
+    skos:notation "CARDINAL" ;
+    skos:prefLabel "Numerals that do not fall under another type" .
+
+spacy-ontonotes5-ner-tagset:DATE a skos:Concept ;
+    fsd:sequenceNumber 12 ;
+    skos:notation "DATE" ;
+    skos:prefLabel "Absolute or relative dates or periods" .
+
+spacy-ontonotes5-ner-tagset:EVENT a skos:Concept ;
+    fsd:sequenceNumber 8 ;
+    skos:notation "EVENT" ;
+    skos:prefLabel "Named hurricanes, battles, wars, sports events" .
+
+spacy-ontonotes5-ner-tagset:FAC a skos:Concept ;
+    fsd:sequenceNumber 3 ;
+    skos:notation "FAC" ;
+    skos:prefLabel "Buildings, airports, highways, bridges, etc" .
+
+spacy-ontonotes5-ner-tagset:GPE a skos:Concept ;
+    fsd:sequenceNumber 5 ;
+    skos:notation "GPE" ;
+    skos:prefLabel "Countries, cities, states." .
+
+spacy-ontonotes5-ner-tagset:LANGUAGE a skos:Concept ;
+    fsd:sequenceNumber 11 ;
+    skos:notation "LANGUAGE" ;
+    skos:prefLabel "Any named language" .
+
+spacy-ontonotes5-ner-tagset:LAW a skos:Concept ;
+    fsd:sequenceNumber 10 ;
+    skos:notation "LAW" ;
+    skos:prefLabel "Named documents made into laws" .
+
+spacy-ontonotes5-ner-tagset:LOC a skos:Concept ;
+    fsd:sequenceNumber 6 ;
+    skos:notation "LOC" ;
+    skos:prefLabel "Non-GPE locations, mountain ranges, bodies of water" .
+
+spacy-ontonotes5-ner-tagset:MONEY a skos:Concept ;
+    fsd:sequenceNumber 15 ;
+    skos:notation "MONEY" ;
+    skos:prefLabel "Monetary values, including unit" .
+
+spacy-ontonotes5-ner-tagset:NORP a skos:Concept ;
+    fsd:sequenceNumber 2 ;
+    skos:notation "NORP" ;
+    skos:prefLabel "Nationalities or religious or political groups" .
+
+spacy-ontonotes5-ner-tagset:ORDINAL a skos:Concept ;
+    fsd:sequenceNumber 17 ;
+    skos:notation "ORDINAL" ;
+    skos:prefLabel "first, second, etc" .
+
+spacy-ontonotes5-ner-tagset:ORG a skos:Concept ;
+    fsd:sequenceNumber 4 ;
+    skos:notation "ORG" ;
+    skos:prefLabel "Companies, agencies, institutions, etc" .
+
+spacy-ontonotes5-ner-tagset:PERCENT a skos:Concept ;
+    fsd:sequenceNumber 14 ;
+    skos:notation "PERCENT" ;
+    skos:prefLabel "Percentage, including %" .
+
+spacy-ontonotes5-ner-tagset:PERSON a skos:Concept ;
+    fsd:sequenceNumber 1 ;
+    skos:notation "PERSON" ;
+    skos:prefLabel "People, including fictional" .
+
+spacy-ontonotes5-ner-tagset:PRODUCT a skos:Concept ;
+    fsd:sequenceNumber 7 ;
+    skos:notation "PRODUCT" ;
+    skos:prefLabel "Objects, vehicles, foods, etc" .
+
+spacy-ontonotes5-ner-tagset:QUANTITY a skos:Concept ;
+    fsd:sequenceNumber 16 ;
+    skos:notation "QUANTITY" ;
+    skos:prefLabel "Measurements, as of weight or distance" .
+
+spacy-ontonotes5-ner-tagset:TIME a skos:Concept ;
+    fsd:sequenceNumber 13 ;
+    skos:notation "TIME" ;
+    skos:prefLabel "Times smaller than a day" .
+
+spacy-ontonotes5-ner-tagset:WORK_OF_ART a skos:Concept ;
+    fsd:sequenceNumber 9 ;
+    skos:notation "WORK_OF_ART" ;
+    skos:prefLabel "Titles of books, songs, etc" .
+
+
