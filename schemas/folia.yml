@@ -503,7 +503,7 @@ elements:
       elements:
           - class: AbstractSpanRole
             properties:
-                optional_attribs: [ ID, ANNOTATOR, N, DATETIME ]
+                optional_attribs: [ ID ]
                 accepted_data: [ Feature, WordReference, LinkReference]
                 primaryelement: false
             elements:
