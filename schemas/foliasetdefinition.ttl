@@ -6,9 +6,9 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 # FoLiA Set Definitions use SKOS:
-# - Sets corresponds to Concept Schemes (skos:ConceptScheme)
+# - Sets corresponds to Collections (skos:Collection)
 # - Classes corresponds to Concepts (skos:Concept)
-# - IDs for both sets and classes anotation attribute is mandatory 
+# - IDs for both sets and classes anotation attribute is mandatory
 
 
 # set type (non-SKOS)
