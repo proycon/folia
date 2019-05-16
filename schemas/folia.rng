@@ -1,6 +1,6 @@
 <grammar xmlns:a="http://relaxng.org/ns/annotation/0.9" xmlns:folia="http://ilk.uvt.nl/folia" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
 <!--
-RelaxNG schema for FoLiA XML v2.0.3
+RelaxNG schema for FoLiA XML v2.0.4
     by Maarten van Gompel
     Centre for Language and Speech Technology
     Radboud University Nijmegen
@@ -3840,9 +3840,9 @@ RelaxNG schema for FoLiA XML v2.0.3
         <zeroOrMore>
           <ref name="figure"/>
         </zeroOrMore>
-        <optional>
+        <zeroOrMore>
           <ref name="head"/>
-        </optional>
+        </zeroOrMore>
         <zeroOrMore>
           <ref name="p"/>
         </zeroOrMore>
@@ -5813,9 +5813,9 @@ RelaxNG schema for FoLiA XML v2.0.3
         <zeroOrMore>
           <ref name="figure"/>
         </zeroOrMore>
-        <optional>
+        <zeroOrMore>
           <ref name="head"/>
-        </optional>
+        </zeroOrMore>
         <zeroOrMore>
           <ref name="p"/>
         </zeroOrMore>
@@ -6017,9 +6017,9 @@ RelaxNG schema for FoLiA XML v2.0.3
         <zeroOrMore>
           <ref name="figure"/>
         </zeroOrMore>
-        <optional>
+        <zeroOrMore>
           <ref name="head"/>
-        </optional>
+        </zeroOrMore>
         <zeroOrMore>
           <ref name="p"/>
         </zeroOrMore>
@@ -6222,9 +6222,9 @@ RelaxNG schema for FoLiA XML v2.0.3
         <zeroOrMore>
           <ref name="figure"/>
         </zeroOrMore>
-        <optional>
+        <zeroOrMore>
           <ref name="head"/>
-        </optional>
+        </zeroOrMore>
         <zeroOrMore>
           <ref name="p"/>
         </zeroOrMore>
@@ -6430,9 +6430,9 @@ RelaxNG schema for FoLiA XML v2.0.3
         <zeroOrMore>
           <ref name="figure"/>
         </zeroOrMore>
-        <optional>
+        <zeroOrMore>
           <ref name="head"/>
-        </optional>
+        </zeroOrMore>
         <zeroOrMore>
           <ref name="p"/>
         </zeroOrMore>
@@ -10225,9 +10225,9 @@ RelaxNG schema for FoLiA XML v2.0.3
         <zeroOrMore>
           <ref name="foreign-data"/>
         </zeroOrMore>
-        <optional>
+        <zeroOrMore>
           <ref name="head"/>
-        </optional>
+        </zeroOrMore>
         <zeroOrMore>
           <ref name="hiddenw"/>
         </zeroOrMore>
@@ -12257,9 +12257,9 @@ RelaxNG schema for FoLiA XML v2.0.3
         <zeroOrMore>
           <ref name="gap"/>
         </zeroOrMore>
-        <optional>
+        <zeroOrMore>
           <ref name="head"/>
-        </optional>
+        </zeroOrMore>
         <zeroOrMore>
           <ref name="hiddenw"/>
         </zeroOrMore>
@@ -13870,9 +13870,9 @@ RelaxNG schema for FoLiA XML v2.0.3
         <zeroOrMore>
           <ref name="gap"/>
         </zeroOrMore>
-        <optional>
+        <zeroOrMore>
           <ref name="head"/>
-        </optional>
+        </zeroOrMore>
         <zeroOrMore>
           <ref name="hiddenw"/>
         </zeroOrMore>
@@ -14085,9 +14085,9 @@ RelaxNG schema for FoLiA XML v2.0.3
         <zeroOrMore>
           <ref name="gap"/>
         </zeroOrMore>
-        <optional>
+        <zeroOrMore>
           <ref name="head"/>
-        </optional>
+        </zeroOrMore>
         <zeroOrMore>
           <ref name="hiddenw"/>
         </zeroOrMore>
@@ -14831,9 +14831,9 @@ RelaxNG schema for FoLiA XML v2.0.3
         <zeroOrMore>
           <ref name="gap"/>
         </zeroOrMore>
-        <optional>
+        <zeroOrMore>
           <ref name="head"/>
-        </optional>
+        </zeroOrMore>
         <zeroOrMore>
           <ref name="br"/>
         </zeroOrMore>
