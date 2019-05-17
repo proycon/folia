@@ -1,6 +1,6 @@
 <grammar xmlns:a="http://relaxng.org/ns/annotation/0.9" xmlns:folia="http://ilk.uvt.nl/folia" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
 <!--
-RelaxNG schema for FoLiA XML v2.0.4
+RelaxNG schema for FoLiA XML v2.1.0
     by Maarten van Gompel
     Centre for Language and Speech Technology
     Radboud University Nijmegen
@@ -3036,6 +3036,12 @@ RelaxNG schema for FoLiA XML v2.0.4
       </optional>
       <optional>
         <attribute name="auth"/>
+      </optional>
+      <optional>
+        <attribute name="type"/>
+      </optional>
+      <optional>
+        <attribute name="format"/>
       </optional>
       <optional>
         <attribute name="id"/>
