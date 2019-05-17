@@ -8,6 +8,8 @@ Reference Annotation
 .. foliaspec:annotationtype_description(reference)
 Structural annotation for referring to other annotation types. Used e.g. for referring to bibliography entries (citations) and footnotes.
 
+Not to be confused with :ref:`coreference_annotation`!
+
 Specification
 ---------------
 
@@ -182,7 +184,7 @@ internal FoLiA elements, whereas the other hyperlinking method is more of a text
 suited for external hyperlinks.
 
 
-.. literalinclude:: ../../examples/note-reference.2.0.4.folia.xml
+.. literalinclude:: ../../examples/note-reference.2.1.0.folia.xml
     :linenos:
     :language: xml
 
