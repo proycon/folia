@@ -163,7 +163,7 @@ internal FoLiA elements, whereas the other hyperlinking method is more of a text
 suited for external hyperlinks.
 
 
-.. literalinclude:: ../../examples/note-reference.2.0.0.folia.xml
+.. literalinclude:: ../../examples/note-reference.2.0.4.folia.xml
     :linenos:
     :language: xml
 
