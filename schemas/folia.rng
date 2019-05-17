@@ -2919,6 +2919,137 @@ RelaxNG schema for FoLiA XML v2.0.4
           <ref name="t-str"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="t-ref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-gap"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-correction"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-error"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-style"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="br"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-hbr"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="comment"/>
+        </zeroOrMore>
+        <optional>
+          <ref name="desc"/>
+        </optional>
+      </interleave>
+    </element>
+  </define>
+
+
+  <define name="t-ref" ns="http://ilk.uvt.nl/folia">
+    <element name="t-ref">
+      <a:documentation>Markup element placing an explicit reference to another structural element, used for instance to refer to footnotes from untokenised text. Used in text content (:class:`TextContent`)
+
+    Only consider this element for references in spans of untokenised text. The use of structural element :class:`Reference` is preferred.
+    </a:documentation>
+      <optional>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="annotatortype"/>
+      </optional>
+      <optional>
+        <attribute name="processor">
+          <data type="IDREF" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="confidence">
+          <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="datetime">
+          <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="begintime"/>
+      </optional>
+      <optional>
+        <attribute name="endtime"/>
+      </optional>
+      <optional>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="metadata"/>
+      </optional>
+      <optional>
+        <attribute name="href" ns="http://www.w3.org/1999/xlink"/>
+        <attribute name="type" ns="http://www.w3.org/1999/xlink"/>
+      </optional>
+      <optional>
+        <attribute name="role" ns="http://www.w3.org/1999/xlink"/>
+      </optional>
+      <optional>
+        <attribute name="title" ns="http://www.w3.org/1999/xlink"/>
+      </optional>
+      <optional>
+        <attribute name="label" ns="http://www.w3.org/1999/xlink"/>
+      </optional>
+      <optional>
+        <attribute name="show" ns="http://www.w3.org/1999/xlink"/>
+      </optional>
+      <optional>
+        <attribute name="auth"/>
+      </optional>
+      <optional>
+        <attribute name="id"/>
+      </optional>
+      <ref name="allow_foreign_attributes"/>
+      <interleave>
+        <text/>
+        <zeroOrMore>
+          <ref name="t-str"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-ref"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="t-gap"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -3042,6 +3173,9 @@ RelaxNG schema for FoLiA XML v2.0.4
         <text/>
         <zeroOrMore>
           <ref name="t-str"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-ref"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="t-gap"/>
@@ -3172,6 +3306,9 @@ RelaxNG schema for FoLiA XML v2.0.4
           <ref name="t-str"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="t-ref"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="t-gap"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -3297,6 +3434,9 @@ RelaxNG schema for FoLiA XML v2.0.4
           <ref name="t-str"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="t-ref"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="t-gap"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -3419,6 +3559,9 @@ RelaxNG schema for FoLiA XML v2.0.4
           <ref name="t-str"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="t-ref"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="t-gap"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -3525,6 +3668,9 @@ RelaxNG schema for FoLiA XML v2.0.4
         <text/>
         <zeroOrMore>
           <ref name="t-str"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-ref"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="t-gap"/>
@@ -4282,6 +4428,9 @@ RelaxNG schema for FoLiA XML v2.0.4
         <text/>
         <zeroOrMore>
           <ref name="t-str"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-ref"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="t-gap"/>
