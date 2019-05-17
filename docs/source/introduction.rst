@@ -5,7 +5,7 @@ Introduction
 
 .. foliaspec:version
 .. The FoLiA version
-version: 2.0.3
+version: 2.0.4
 
 FoLiA, an acronym for **Format for Linguistic Annotation**, is a data model and file format to represent digitised
 language resources enriched with linguistic annotation, e.g. linguistically enriched textual documents or transcriptions
