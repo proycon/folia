@@ -14235,6 +14235,9 @@ RelaxNG schema for FoLiA XML v2.1.0
           <ref name="feat"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="figure"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="foreign-data"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -14248,6 +14251,9 @@ RelaxNG schema for FoLiA XML v2.1.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="br"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="list"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="metric"/>
