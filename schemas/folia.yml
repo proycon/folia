@@ -742,7 +742,7 @@ elements:
           - class: Quote
             properties:
                 annotationtype: QUOTE
-                accepted_data: [Division, Gap, Paragraph, Quote, Sentence, String, TextContent, Utterance, Word, Hiddenword, Reference]
+                accepted_data: [Division, Gap, Linebreak, Paragraph, Quote, Sentence, String, TextContent, Utterance, Whitespace, Word, Hiddenword, Reference]
                 xmltag: "quote"
                 label: "Quote"
           - class: Reference
