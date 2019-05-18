@@ -11768,6 +11768,9 @@ RelaxNG schema for FoLiA XML v2.1.0
           <ref name="hiddenw"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="br"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="metric"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -11799,6 +11802,9 @@ RelaxNG schema for FoLiA XML v2.1.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="utt"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="whitespace"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="w"/>
