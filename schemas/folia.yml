@@ -2,7 +2,7 @@
 #    This is a technical specification of FoLiA, for use by FoLiA libraries
 
 #The FoLiA version
-version: "2.0.3"
+version: "2.1.0"
 
 #The FoLiA namespace
 namespace: "http://ilk.uvt.nl/folia"
@@ -680,7 +680,6 @@ elements:
             properties:
                 annotationtype: HEAD
                 textdelimiter: "\n\n"
-                occurrences: 1
                 accepted_data: [AbstractInlineAnnotation, Event, Gap, Linebreak, Paragraph, PhonContent, Reference, Sentence, String, TextContent, Whitespace, Word, Hiddenword ]
                 xmltag: "head"
                 label: "Head"
@@ -888,6 +887,11 @@ elements:
                 xmltag: "t-hbr"
                 label: "Hyphbreak"
                 textdelimiter: ""
+          - class: TextMarkupReference
+            properties:
+                annotationtype: REFERENCE
+                xmltag: "t-ref"
+                primaryelement: false
     - class: AbstractInlineAnnotation
       properties:
           required_attribs: [ CLASS ]

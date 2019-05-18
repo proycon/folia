@@ -23,7 +23,7 @@ For developers
 -----------------
 
 1. Using a high-level FoLiA programming library, if available for your programming language, is strongly recommended over parsing/writing/querying the XML yourself, as it will
-   make things a lot easier and save a lot of work.
+   make things a lot easier and save a lot of work!
 2. Always use the latest version of FoLiA and its libraries.
 3. Mind the sets you use. Actively check whether the sets uses in a document are in fact the ones your software handles,
    i.e. check the declarations (see :ref:`annotation_declarations`). For example, do not blindly assume any part-of-speech tag will be in your intended vocabulary. See
@@ -31,6 +31,12 @@ For developers
 4. Considering that FoLiA is vast, it is fine to only support a subset of a certain annotation types in your software,
    or not to support certain complexities such as :ref:`correction_annotation`. Just make sure to check the declarations
    based on which you can reject processing a document.
+5. The structure of a text as represented in FoLiA documents can differ greatly between documents, as different types of
+   documents (books,articles,papers,poetry,etc..) are structured differently. The annotation declaration in the metadata
+   tell you what structural types you can encounter, but they don't convey precisely how these structures are nested. Unless you have
+   very good reason to do so, do NOT assume your documents are neatly subdivided into e.g. only paragraphs and
+   sentences. There may be lists, figures, divisions. Generally spoken, you'll often want to descend into the deepest
+   structural nodes that have text.  The FoLiA libraries provide a high-level API for you to do this.
 
 Conventions
 -----------------------
