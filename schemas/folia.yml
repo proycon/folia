@@ -633,7 +633,7 @@ elements:
           - class: Cell
             properties:
                 textdelimiter: " | "
-                accepted_data: [AbstractInlineAnnotation, Entry, Event, Example, Gap, Head, Linebreak, Note, Paragraph, Reference, Sentence, String, TextContent, Whitespace, Word, Hiddenword ]
+                accepted_data: [AbstractInlineAnnotation, Entry, Event, Example, Figure, Gap, Head, Linebreak, List, Note, Paragraph, Reference, Sentence, String, TextContent, Whitespace, Word, Hiddenword ]
                 optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA, SPACE  ]
                 xmltag: "cell"
                 label: "Cell"
