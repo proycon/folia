@@ -626,14 +626,14 @@ elements:
           - class: Caption
             properties:
                 occurrences: 1
-                accepted_data: [AbstractInlineAnnotation, Gap, Linebreak, Paragraph, PhonContent, Reference, Sentence, String, TextContent, Whitespace]
+                accepted_data: [AbstractInlineAnnotation, Gap, Linebreak, Paragraph, PhonContent, Quote, Reference, Sentence, String, TextContent, Whitespace]
                 optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA, SPACE ]
                 xmltag: "caption"
                 label: "Caption"
           - class: Cell
             properties:
                 textdelimiter: " | "
-                accepted_data: [AbstractInlineAnnotation, Entry, Event, Example, Figure, Gap, Head, Linebreak, List, Note, Paragraph, Reference, Sentence, String, TextContent, Whitespace, Word, Hiddenword ]
+                accepted_data: [AbstractInlineAnnotation, Entry, Event, Example, Figure, Gap, Head, Linebreak, List, Note, Paragraph, Quote, Reference, Sentence, String, TextContent, Whitespace, Word, Hiddenword ]
                 optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA, SPACE  ]
                 xmltag: "cell"
                 label: "Cell"
@@ -715,7 +715,7 @@ elements:
           - class: ListItem
             properties:
                 textdelimiter: "\n"
-                accepted_data: [AbstractInlineAnnotation, Event, Gap, Label, Linebreak, List, Note, Paragraph, Part, PhonContent, Reference, Sentence, String, TextContent, Whitespace, Word, Hiddenword]
+                accepted_data: [AbstractInlineAnnotation, Event, Gap, Label, Linebreak, List, Note, Paragraph, Part, PhonContent, Quote, Reference, Sentence, String, TextContent, Whitespace, Word, Hiddenword]
                 optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
                 xmltag: "item" #was listitem in an early erroneous version of FoLiA, libraries will unfortunately need to support that too for backward compatibility
                 label: "List Item"
