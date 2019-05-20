@@ -17,14 +17,14 @@
     a owl:DataTypeProperty ;
     a rdf:Property ; #for non-OWL aware applications
     skos:definition "Open set definition. Classes may refer to anything. Otherwise, the set is closed." ;
-    rdfs:domain skos:ConceptScheme .
+    rdfs:domain skos:Collection .
     rdfs:range xsd:boolean .
 
 <#empty>
     a owl:DataTypeProperty ;
     a rdf:Property ;#for non-OWL aware applications
     skos:definition "Empty set definition. The set itself takes no classes, it may however still define subsets." ;
-    rdfs:domain skos:ConceptScheme .
+    rdfs:domain skos:Collection .
     rdfs:range xsd:boolean .
 
 #non-SKOS:
@@ -33,7 +33,7 @@
     a owl:DataTypeProperty ;
     a rdf:Property ; #for non-OWL aware applications
     skos:definition "The sequence number determines an explicit ordering of classes for presentational purposes, alphabetic ordering should be assumed if no sequence numbers are present" ;
-    rdfs:domain skos:Concept ;
+    rdfs:domain skos:Collection ;
     rdfs:target xsd:integer .
 
 #Constraints (non-SKOS)
@@ -55,9 +55,9 @@
       owl:ObjectProperty ;
     rdfs:label "A constrain relation" ;
     rdfs:domain [ rdf:type owl:Class ;
-                  owl:unionOf ( skos:Concept skos:ConceptScheme <#Constraint> ) ] ;
+                  owl:unionOf ( skos:Concept skos:Collection <#Constraint> ) ] ;
     rdfs:range [ rdf:type owl:Class ;
-                  owl:unionOf ( skos:Concept skos:ConceptScheme <#Constraint> ) ] .
+                  owl:unionOf ( skos:Concept skos:Collection <#Constraint> ) ] .
 
 
 
