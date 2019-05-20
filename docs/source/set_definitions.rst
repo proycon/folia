@@ -197,7 +197,7 @@ has been extended into more fine-grained subclasses.
 
 .. code-block:: xml
 
-    <set xml:id="namedentities" type="closed">
+    <set xml:id="namedentities" type="closed" xmlns="http://ilk.uvt.nl/folia">
       <class xml:id="per" label="Person" />
       <class xml:id="org" label="Organisation" />
       <class xml:id="loc" label="Location">
@@ -253,7 +253,7 @@ Subset can be defined in a similar fashion to sets. Consider the legacy XML form
 
 .. code-block:: xml
 
-    <set xml:id="simplepos" type="closed">
+    <set xml:id="simplepos" type="closed" xmlns="http://ilk.uvt.nl/folia">
       <class xml:id="N" label="Noun" />
       <class xml:id="V" label="Verb" />
       <class xml:id="A" label="Adjective" />
@@ -322,7 +322,7 @@ the RDF example for brevity.
 
 .. code-block:: xml
 
-    <set xml:id="simplepos" type="closed">
+    <set xml:id="simplepos" type="closed" xmlns="http://ilk.uvt.nl/folia">
        <class xml:id="N" label="Noun" />
        <subset xml:id="gender" type="closed">
          <class xml:id="masculine" label="masculine" />
@@ -346,7 +346,7 @@ referenced from multiple locations. Consider the following example, first in our
 
 .. code-block:: xml
 
-    <set xml:id="simplepos" type="closed">
+    <set xml:id="simplepos" type="closed" xmlns="http://ilk.uvt.nl/folia">
        <class xml:id="N" label="Noun" />
        <class xml:id="A" label="Adjective" />
        <class xml:id="V" label="Verb" />
