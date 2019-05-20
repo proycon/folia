@@ -291,6 +291,98 @@ carry this prefix, as it needs only be unique within the subset. This property
 always determines how it is referenced from the FoLiA document, so we would still get
 ``<feat subset="gender" class="m" />``
 
+Constraints
+------------
+
+It is possible to define constriants on which subsets can be used with which classes and which classes within subsets
+can be combined, though SKOS has no mechanism to express such constraints. We introduce our own resources and properties
+to define to define constraints, in the namespace of our extension ( ``http://folia.science.ru.nl/setdefinition#``, with
+prefix ``fsd:`` in this documentation).
+
+The core of the constraints is the ``fsd:constrain`` relation which can be made between any subset (``skos:Collection``)
+and class (``skos:Concept``). Consider the following Part-of-Speech tag example in which we constrain the subset
+*gender* to only occur with nouns:
+
+.. code-block:: turtle
+
+   <#simplepos>
+        a skos:Collection ;
+        skos:member <#N> .
+
+   example:N a skos:Concept ;
+       skos:notation "N" ;
+       skos:prefLabel "Noun" .
+
+   example:gender a skos:Collection ;
+       skos:member example:masculine, example:feminine, example:neuter ;
+       fsd:constrain example:N .
+
+The same can be expressed in our legacy format as follows. Note that we left out the definition for the three genders in
+the RDF example for brevity.
+
+.. code-block:: xml
+
+    <set xml:id="simplepos" type="closed">
+       <class xml:id="N" label="Noun" />
+       <subset xml:id="gender" type="closed">
+         <class xml:id="masculine" label="masculine" />
+         <class xml:id="feminine" label="feminine" />
+         <class xml:id="neuter" label="neuter" />
+         <constrain id="N" />
+       </subset>
+    </set>
+
+Multiple constrain relations may be specified, but one has to be aware that this then counts as a conjunction or
+intersection.  What we often see instead when multiple relations is the use of a ``fsd:Constraint`` class, which acts as
+a collection of contrain relations and can explicitly express the *type* (``fsd:constraintType``) of matching to apply to the constraints. The type be any of the following:
+
+* ``"any"`` - Only of of the constrain relations must match for the constraint to pass
+* ``"all"`` - All constrain relations must match for the constraint to pass
+* ``"none"`` - None of the constrain relations must match for the constraint to pass
+
+The
+other main purpose of the ``fsd:Constraint`` class is to avoid repetition, as it allows a complex contraint to be
+referenced from multiple locations. Consider the following example, first in our legacy format:
+
+.. code-block:: xml
+
+    <set xml:id="simplepos" type="closed">
+       <class xml:id="N" label="Noun" />
+       <class xml:id="A" label="Adjective />
+       <class xml:id="V" label="Verb />
+       <subset xml:id="gender" type="closed">
+         <class xml:id="masculine" label="masculine" />
+         <class xml:id="feminine" label="feminine" />
+         <class xml:id="neuter" label="neuter" />
+         <constrain id="constraint.1" />
+       </subset>
+       <subset xml:id="case" type="closed">
+         <class xml:id="nom" label="nominative" />
+         <class xml:id="gen" label="geninitive" />
+         <class xml:id="dat" label="dative" />
+         <class xml:id="acc" label="accusative" />
+         <constrain id="constraint.1" />
+       </subset>
+       <constraint xml:id="constraint.1" type="any">
+         <constrain id="N" />
+         <constrain id="A" />
+       </constraint>
+    </set>
+
+In RDF, the constraint would be formulated as follows:
+
+.. code-block:: turtle
+
+   example:constraint.1 a fsd:Constraint ;
+       fsd:constraintType "any" ;
+       fsd:constrain example:N ;
+       fsd:constrain example:A .
+
+A ``fsd::constrain`` relation may be used within sets (``skos:Collection``), classes (``skos:Concept``) as well as
+constraints (``fsd:Constraint``). Similary, a ``fsd:constrain`` relation may point to either of the three. All this
+combined allows for complex nesting logic.
+
+
 SKOS
 ---------
 
