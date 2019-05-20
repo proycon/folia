@@ -43,13 +43,6 @@
     a rdf:Resource ;
     rdfs:label "A named constraint, containing one or more constrain properies"  .
 
-<#constraintId>
-    a owl:DataTypeProperty ;
-    a rdf:Property ; #for non-OWL aware applications
-    rdfs:label "Identifier for the constraint" ;
-    rdfs:domain <#Constraint> ;
-    rdfs:range xsd:string .
-
 <#constraintType>
     a owl:DataTypeProperty ;
     a rdf:Property ; #for non-OWL aware applications
