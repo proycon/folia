@@ -358,7 +358,7 @@ referenced from multiple locations. Consider the following example, first in our
        </subset>
        <subset xml:id="case" type="closed">
          <class xml:id="nom" label="nominative" />
-         <class xml:id="gen" label="geninitive" />
+         <class xml:id="gen" label="genitive" />
          <class xml:id="dat" label="dative" />
          <class xml:id="acc" label="accusative" />
          <constrain id="constraint.1" />
