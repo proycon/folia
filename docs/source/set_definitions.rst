@@ -348,8 +348,8 @@ referenced from multiple locations. Consider the following example, first in our
 
     <set xml:id="simplepos" type="closed">
        <class xml:id="N" label="Noun" />
-       <class xml:id="A" label="Adjective />
-       <class xml:id="V" label="Verb />
+       <class xml:id="A" label="Adjective" />
+       <class xml:id="V" label="Verb" />
        <subset xml:id="gender" type="closed">
          <class xml:id="masculine" label="masculine" />
          <class xml:id="feminine" label="feminine" />
