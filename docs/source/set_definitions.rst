@@ -382,6 +382,17 @@ A ``fsd::constrain`` relation may be used within sets (``skos:Collection``), cla
 constraints (``fsd:Constraint``). Similary, a ``fsd:constrain`` relation may point to either of the three. All this
 combined allows for complex nesting logic.
 
+The following example shows a more complete set definition with various kinds of constraints, we show it both in legacy XML
+as well as turtle RDF:
+
+.. literalinclude:: ../../examples/setdefinitions/simplepos-constraints.xml
+    :linenos:
+    :language: xml
+
+
+.. literalinclude:: ../../examples/setdefinitions/simplepos-constraints.ttl
+    :linenos:
+    :language: turtle
 
 SKOS
 ---------
