@@ -13,9 +13,9 @@
    </class>
 
    <subset xml:id="gender" type="closed">
-     <class xml:id="masculine" label="masculine" />
-     <class xml:id="feminine" label="feminine" />
-     <class xml:id="neuter" label="neuter" />
+     <class xml:id="m" label="masculine" />
+     <class xml:id="f" label="feminine" />
+     <class xml:id="n" label="neuter" />
      <constrain id="constraint.1" />
    </subset>
 

@@ -26,9 +26,9 @@ simplepos:Subset.case a skos:Collection ;
 
 simplepos:Subset.gender a skos:Collection ;
     fsd:constrain simplepos:constraint.1 ;
-    skos:member simplepos:feminine,
-        simplepos:masculine,
-        simplepos:neuter ;
+    skos:member simplepos:f,
+        simplepos:m,
+        simplepos:n ;
     skos:notation "gender" .
 
 simplepos:Subset.number a skos:Collection ;
@@ -52,9 +52,9 @@ simplepos:dat a skos:Concept ;
     skos:notation "dat" ;
     skos:prefLabel "dative" .
 
-simplepos:feminine a skos:Concept ;
+simplepos:f a skos:Concept ;
     fsd:sequenceNumber 2 ;
-    skos:notation "feminine" ;
+    skos:notation "f" ;
     skos:prefLabel "feminine" .
 
 simplepos:gen a skos:Concept ;
@@ -62,14 +62,14 @@ simplepos:gen a skos:Concept ;
     skos:notation "gen" ;
     skos:prefLabel "genitive" .
 
-simplepos:masculine a skos:Concept ;
+simplepos:m a skos:Concept ;
     fsd:sequenceNumber 1 ;
-    skos:notation "masculine" ;
+    skos:notation "m" ;
     skos:prefLabel "masculine" .
 
-simplepos:neuter a skos:Concept ;
+simplepos:n a skos:Concept ;
     fsd:sequenceNumber 3 ;
-    skos:notation "neuter" ;
+    skos:notation "n" ;
     skos:prefLabel "neuter" .
 
 simplepos:nom a skos:Concept ;
