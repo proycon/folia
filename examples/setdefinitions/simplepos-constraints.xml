@@ -1,0 +1,53 @@
+<set xml:id="simplepos" type="closed" xmlns="http://ilk.uvt.nl/folia">
+   <class xml:id="N" label="Noun">
+     <constrain id="constraint.2" />
+   </class>
+
+   <class xml:id="A" label="Adjective">
+     <constrain id="constraint.2" />
+   </class>
+
+   <class xml:id="V" label="Verb">
+     <constrain id="tense" />
+     <constrain id="number" />
+   </class>
+
+   <subset xml:id="gender" type="closed">
+     <class xml:id="masculine" label="masculine" />
+     <class xml:id="feminine" label="feminine" />
+     <class xml:id="neuter" label="neuter" />
+     <constrain id="constraint.1" />
+   </subset>
+
+   <subset xml:id="case" type="closed">
+     <class xml:id="nom" label="nominative" />
+     <class xml:id="gen" label="genitive" />
+     <class xml:id="dat" label="dative" />
+     <class xml:id="acc" label="accusative" />
+     <constrain id="constraint.1" />
+   </subset>
+
+   <subset xml:id="number" type="closed">
+     <class xml:id="s" label="singular" />
+     <class xml:id="p" label="plural" />
+   </subset>
+
+   <subset xml:id="tense" type="closed">
+     <class xml:id="present" label="present" />
+     <class xml:id="past" label="past" />
+     <constrain id="V" />
+   </subset>
+
+   <constraint xml:id="constraint.1" type="any">
+     <!-- This is a constraint expressing which classes the subset using this constraint is valid -->
+     <constrain id="N" />
+     <constrain id="A" />
+   </constraint>
+
+   <constraint xml:id="constraint.2" type="all">
+     <!-- This is a constraint expressing which subsets are required by the class using it-->
+     <constrain id="gender" />
+     <constrain id="case" />
+     <constrain id="number" />
+   </constraint>
+</set>
