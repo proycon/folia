@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="folia.xsl"?>
+<FoLiA xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://ilk.uvt.nl/folia" xml:id="example.deep" generator="manual" version="2.1.0">
+  <metadata type="native">
+    <annotations>
+      <text-annotation>
+			 <annotator processor="p1" />
+      </text-annotation>
+      <sentence-annotation>
+			 <annotator processor="p1" />
+      </sentence-annotation>
+      <token-annotation>
+			 <annotator processor="p1" />
+      </token-annotation>
+      <pos-annotation set="https://raw.githubusercontent.com/proycon/folia/master/examples/setdefinitions/simplepos-constraints.ttl">
+			 <annotator processor="p1" />
+      </pos-annotation>
+    </annotations>
+    <provenance>
+       <processor xml:id="p1" name="proycon" type="manual" />
+    </provenance>
+    <meta id="language">deu</meta>
+  </metadata>
+  <text xml:id="example.deep.text">
+      <s xml:id="example.deep.p.1.s.1">
+        <t>Der alte Vater meines Feindes hilft meine Freundin.</t>
+        <w>
+            <t>Der</t>
+        </w>
+        <w>
+            <t>alte</t>
+            <pos class="A">
+                <feat subset="case" class="nom" />
+                <feat subset="gender" class="m" />
+                <feat subset="number" class="s" />
+            </pos>
+        </w>
+        <w>
+            <t>Vater</t>
+            <pos class="N">
+                <feat subset="case" class="nom" />
+                <feat subset="gender" class="blah" /> <!-- invalid non-existant class -->
+                <feat subset="number" class="s" />
+            </pos>
+        </w>
+        <w>
+            <t>meines</t>
+        </w>
+        <w>
+            <t>Feindes</t>
+            <pos class="N">
+                <feat subset="case" class="gen" />
+                <feat subset="gender" class="m" />
+                <feat subset="number" class="s" />
+            </pos>
+        </w>
+        <w>
+            <t>hilft</t>
+            <pos class="V">
+                <feat subset="tense" class="present" />
+                <feat subset="number" class="s" />
+            </pos>
+        </w>
+        <w>
+            <t>meine</t>
+        </w>
+        <w space="no">
+            <t>Freundin</t>
+            <pos class="N">
+                <feat subset="case" class="acc" />
+                <feat subset="gender" class="f" />
+                <feat subset="number" class="s" />
+            </pos>
+        </w>
+        <w>
+            <t>.</t>
+        </w>
+      </s>
+  </text>
+</FoLiA>
