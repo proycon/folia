@@ -1,0 +1,130 @@
+@prefix fsd: <http://folia.science.ru.nl/setdefinition#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix simplepos: <http://folia.science.ru.nl/setdefinition/simplepos#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+simplepos:Set a skos:Collection ;
+    skos:member simplepos:A,
+        simplepos:N,
+        simplepos:Subset.case,
+        simplepos:Subset.gender,
+        simplepos:Subset.number,
+        simplepos:Subset.tense,
+        simplepos:V ;
+    skos:notation "simplepos" .
+
+simplepos:Subset.case a skos:Collection ;
+    fsd:constrain simplepos:constraint.1 ;
+    skos:member simplepos:acc,
+        simplepos:dat,
+        simplepos:gen,
+        simplepos:nom ;
+    skos:notation "case" .
+
+simplepos:Subset.gender a skos:Collection ;
+    fsd:constrain simplepos:constraint.1 ;
+    skos:member simplepos:feminine,
+        simplepos:masculine,
+        simplepos:neuter ;
+    skos:notation "gender" .
+
+simplepos:Subset.number a skos:Collection ;
+    skos:member simplepos:p,
+        simplepos:s ;
+    skos:notation "number" .
+
+simplepos:Subset.tense a skos:Collection ;
+    fsd:constrain simplepos:V ;
+    skos:member simplepos:past,
+        simplepos:present ;
+    skos:notation "tense" .
+
+simplepos:acc a skos:Concept ;
+    fsd:sequenceNumber 4 ;
+    skos:notation "acc" ;
+    skos:prefLabel "accusative" .
+
+simplepos:dat a skos:Concept ;
+    fsd:sequenceNumber 3 ;
+    skos:notation "dat" ;
+    skos:prefLabel "dative" .
+
+simplepos:feminine a skos:Concept ;
+    fsd:sequenceNumber 2 ;
+    skos:notation "feminine" ;
+    skos:prefLabel "feminine" .
+
+simplepos:gen a skos:Concept ;
+    fsd:sequenceNumber 2 ;
+    skos:notation "gen" ;
+    skos:prefLabel "genitive" .
+
+simplepos:masculine a skos:Concept ;
+    fsd:sequenceNumber 1 ;
+    skos:notation "masculine" ;
+    skos:prefLabel "masculine" .
+
+simplepos:neuter a skos:Concept ;
+    fsd:sequenceNumber 3 ;
+    skos:notation "neuter" ;
+    skos:prefLabel "neuter" .
+
+simplepos:nom a skos:Concept ;
+    fsd:sequenceNumber 1 ;
+    skos:notation "nom" ;
+    skos:prefLabel "nominative" .
+
+simplepos:p a skos:Concept ;
+    fsd:sequenceNumber 2 ;
+    skos:notation "p" ;
+    skos:prefLabel "plural" .
+
+simplepos:past a skos:Concept ;
+    fsd:sequenceNumber 2 ;
+    skos:notation "past" ;
+    skos:prefLabel "past" .
+
+simplepos:present a skos:Concept ;
+    fsd:sequenceNumber 1 ;
+    skos:notation "present" ;
+    skos:prefLabel "present" .
+
+simplepos:s a skos:Concept ;
+    fsd:sequenceNumber 1 ;
+    skos:notation "s" ;
+    skos:prefLabel "singular" .
+
+simplepos:A a skos:Concept ;
+    fsd:constrain simplepos:constraint.2 ;
+    fsd:sequenceNumber 2 ;
+    skos:notation "A" ;
+    skos:prefLabel "Adjective" .
+
+simplepos:N a skos:Concept ;
+    fsd:constrain simplepos:constraint.2 ;
+    fsd:sequenceNumber 1 ;
+    skos:notation "N" ;
+    skos:prefLabel "Noun" .
+
+simplepos:V a skos:Concept ;
+    fsd:constrain simplepos:number,
+        simplepos:tense ;
+    fsd:sequenceNumber 3 ;
+    skos:notation "V" ;
+    skos:prefLabel "Verb" .
+
+simplepos:constraint.1 a fsd:Constraint ;
+    fsd:constrain simplepos:A,
+        simplepos:N ;
+    fsd:constraintType "any" .
+
+simplepos:constraint.2 a fsd:Constraint ;
+    fsd:constrain simplepos:case,
+        simplepos:gender,
+        simplepos:number ;
+    fsd:constraintType "all" .
+
+
