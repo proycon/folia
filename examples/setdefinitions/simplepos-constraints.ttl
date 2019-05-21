@@ -16,26 +16,6 @@ simplepos:Set a skos:Collection ;
         simplepos:V ;
     skos:notation "simplepos" .
 
-simplepos:Subset.case a skos:Collection ;
-    fsd:constrain simplepos:constraint.1 ;
-    skos:member simplepos:acc,
-        simplepos:dat,
-        simplepos:gen,
-        simplepos:nom ;
-    skos:notation "case" .
-
-simplepos:Subset.gender a skos:Collection ;
-    fsd:constrain simplepos:constraint.1 ;
-    skos:member simplepos:f,
-        simplepos:m,
-        simplepos:n ;
-    skos:notation "gender" .
-
-simplepos:Subset.number a skos:Collection ;
-    skos:member simplepos:p,
-        simplepos:s ;
-    skos:notation "number" .
-
 simplepos:Subset.tense a skos:Collection ;
     fsd:constrain simplepos:V ;
     skos:member simplepos:past,
@@ -109,6 +89,26 @@ simplepos:N a skos:Concept ;
     skos:notation "N" ;
     skos:prefLabel "Noun" .
 
+simplepos:Subset.case a skos:Collection ;
+    fsd:constrain simplepos:constraint.1 ;
+    skos:member simplepos:acc,
+        simplepos:dat,
+        simplepos:gen,
+        simplepos:nom ;
+    skos:notation "case" .
+
+simplepos:Subset.gender a skos:Collection ;
+    fsd:constrain simplepos:constraint.1 ;
+    skos:member simplepos:f,
+        simplepos:m,
+        simplepos:n ;
+    skos:notation "gender" .
+
+simplepos:Subset.number a skos:Collection ;
+    skos:member simplepos:p,
+        simplepos:s ;
+    skos:notation "number" .
+
 simplepos:V a skos:Concept ;
     fsd:constrain simplepos:number,
         simplepos:tense ;
@@ -122,9 +122,9 @@ simplepos:constraint.1 a fsd:Constraint ;
     fsd:constraintType "any" .
 
 simplepos:constraint.2 a fsd:Constraint ;
-    fsd:constrain simplepos:case,
-        simplepos:gender,
-        simplepos:number ;
+    fsd:constrain simplepos:Subset.case,
+        simplepos:Subset.gender,
+        simplepos:Subset.number ;
     fsd:constraintType "all" .
 
 
