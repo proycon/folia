@@ -34,7 +34,7 @@
       </p>
       <p xml:id="example.p.2">
         <s xml:id="example.p.1.s.2">
-          <t>We demonstrated this earlier.<t-ref id="example.note.1" /></t>
+          <t>We demonstrated this earlier.<t-ref id="example.note.1" type="note" /></t>
         </s>
       </p>
       <note xml:id="example.note.1" class="footnote">
