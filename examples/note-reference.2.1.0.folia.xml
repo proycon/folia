@@ -43,5 +43,8 @@
         </part>
         <ref xml:id="example.ref.2" xlink:href="https://github.io/folia" xlink:type="simple" format="text/html" />
       </note>
+      <note xml:id="example.note.2" class="footnote">
+          <t>See our website.<t-ref xlink:href="https://github.io/folia" xlink:type="simple" format="text/html" /></t>
+      </note>
   </text>
 </FoLiA>
