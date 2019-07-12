@@ -309,6 +309,7 @@ returned. This is regulated using the *RETURN* keyword:
 * ``RETURN target`` or ``RETURN inner-target``
 * ``RETURN outer-target``
 * ``RETURN ancestor-target``
+* ``RETURN alternative``
 
 The default focus mode just returns the focus. Sometimes, however, you may want
 more context and may want to return the target expression instead. In the
@@ -465,7 +466,7 @@ the AS clause::
 
     SELECT pos WHERE class = "n" (AS ALTERNATIVE WHERE confidence > 0.6) FOR w WHERE text = "fly"
 
-When you use *AS ALTERNATIVE**, you can combine with with *RETURN ALTERNATIVE* to return the entire alternative block in
+When you use *AS ALTERNATIVE**, you can combine with with *RETURN alternative* to return the entire alternative block in
 which the alternatives reside, rather than the alternative annotations themselves::
 
     SELECT pos (AS ALTERNATIVE) FOR w WHERE text = "fly" RETURN alternative
