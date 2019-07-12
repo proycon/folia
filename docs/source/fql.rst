@@ -465,6 +465,11 @@ the AS clause::
 
     SELECT pos WHERE class = "n" (AS ALTERNATIVE WHERE confidence > 0.6) FOR w WHERE text = "fly"
 
+When you use *AS ALTERNATIVE**, you can combine with with *RETURN ALTERNATIVE* to return the entire alternative block in
+which the alternatives reside, rather than the alternative annotations themselves::
+
+    SELECT pos (AS ALTERNATIVE) FOR w WHERE text = "fly" RETURN alternative
+
 Corrections by definition are authoritative, so no special syntax is needed to
 obtain them. Assuming the part of speech tag is corrected, this will
 correctly obtain it, no AS clause is necessary::
@@ -528,17 +533,6 @@ Another example in a spelling correction context::
     EDIT t (AS CORRECTION OF "some/correctionset" WITH class "spellingerror"
     SUGGESTION text "conscious" WITH confidence 0.8 SUGGESTION text "couscous" WITH confidence 0.2)
     FOR w WHERE text = "concous"
-
-A similar construction is available for alternatives as well. First we
-establish that the following two statements are identical::
-
-    EDIT pos WHERE class = "n" WITH class "v" (AS ALTERNATIVE WITH confidence 0.6) FOR w WHERE text = "fly"
-    EDIT pos WHERE class = "n" (AS ALTERNATIVE class "v" WITH confidence 0.6) FOR w WHERE text = "fly"
-
-Specifying multiple alternatives is then done by simply adding enother
-*ALTERNATIVE* clause::
-
-    EDIT pos (AS ALTERNATIVE class "v" WITH confidence 0.6 ALTERNATIVE class "n" WITH confidence 0.4 ) FOR w WHERE text = "fly"
 
 When a correction is made on an element, all annotations below it (recursively) are left
 intact, i.e. they are copied from the original element to the new correct element. The
