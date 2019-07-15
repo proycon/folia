@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FoLiA xmlns="http://ilk.uvt.nl/folia" version="2.0" xml:id="example">
+  <metadata>
+      <annotations>
+          <token-annotation set="https://raw.githubusercontent.com/LanguageMachines/uctodata/master/setdefinitions/tokconfig-eng.foliaset.ttl">
+			 <annotator processor="p1" />
+		  </token-annotation>
+          <text-annotation>
+			 <annotator processor="p1" />
+          </text-annotation>
+          <sentence-annotation>
+			 <annotator processor="p1" />
+          </sentence-annotation>
+          <paragraph-annotation>
+			 <annotator processor="p1" />
+          </paragraph-annotation>
+          <chunking-annotation set="chunkset"> <!-- an ad-hoc set -->
+			 <annotator processor="p1" />
+		  </chunking-annotation>
+          <chunking-annotation set="chunkset2"> <!-- another set -->
+			 <annotator processor="p1" />
+		  </chunking-annotation>
+      </annotations>
+      <provenance>
+         <processor xml:id="p1" name="proycon" type="manual" />
+      </provenance>
+  </metadata>
+  <text xml:id="example.text">
+    <p xml:id="example.p.1">
+        <s xml:id="example.p.1.s.1">
+          <t>The Dalai Lama greeted him.</t>
+          <w xml:id="example.p.1.s.1.w.1"><t>The</t></w>
+          <w xml:id="example.p.1.s.1.w.2"><t>Dalai</t></w>
+          <w xml:id="example.p.1.s.1.w.3"><t>Lama</t></w>
+          <w xml:id="example.p.1.s.1.w.4"><t>greeted</t></w>
+          <w xml:id="example.p.1.s.1.w.5" space="no"><t>him</t></w>
+          <w xml:id="example.p.1.s.1.w.6"><t>.</t></w>
+          <chunking>
+            <chunk xml:id="example.p.1.s.1.chunk.1"> <!-- No set specified and no default: error -->
+                <wref id="example.p.1.s.1.w.1" t="The" />
+                <wref id="example.p.1.s.1.w.2" t="Dalai" />
+                <wref id="example.p.1.s.1.w.3" t="Lama" />
+            </chunk>
+            <chunk xml:id="example.p.1.s.1.chunk.2">
+                <wref id="example.p.1.s.1.w.4" t="greeted" />
+            </chunk>
+            <chunk xml:id="example.p.1.s.1.chunk.3">
+                <wref id="example.p.1.s.1.w.5" t="him" />
+                <wref id="example.p.1.s.1.w.6" t="." />
+            </chunk>
+          </chunking>
+        </s>
+    </p>
+  </text>
+</FoLiA>
