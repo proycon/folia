@@ -1,0 +1,17 @@
+<FoLiA xmlns="http://ilk.uvt.nl/folia" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="test" version="1.5" >
+  <metadata>
+      <annotations>
+      </annotations>
+  </metadata>
+  <text xml:id="t1">
+    <p xml:id="p1">
+      <t>Een test</t>
+      <part xml:id="part1">
+        <t>Een</t>
+      </part>
+      <part xml:id="part2">
+        <t>test</t>
+      </part>
+    </p>
+  </text>
+</FoLiA>
