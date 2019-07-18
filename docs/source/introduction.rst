@@ -5,7 +5,7 @@ Introduction
 
 .. foliaspec:version
 .. The FoLiA version
-version: 2.1.0
+version: 2.2.0
 
 FoLiA, an acronym for **Format for Linguistic Annotation**, is a data model and file format to represent digitised
 language resources enriched with linguistic annotation, e.g. linguistically enriched textual documents or transcriptions
@@ -338,7 +338,7 @@ attributes per annotation type. Altogether, we distinguish the following:
 **Core Attributes:**
 
 .. foliaspec:attributes_doc(core)
-* ``xml:id`` -- The ID of the element; this has to be a unique in the entire document or collection of documents (corpus). All identifiers in FoLiA are of the `XML NCName <https://www.w3.org/TR/1999/WD-xmlschema-2-19990924/#NCName>`_ datatype, which roughly means it is a unique string that has to start with a letter (not a number or symbol), may contain numers, but may never contain colons or spaces. FoLiA does not define any naming convention for IDs.
+* ``xml:id`` -- The ID of the element; this has to be a unique in the entire document or collection of documents (corpus). All identifiers in FoLiA are of the `XML NCName <https://www.w3.org/TR/1999/WD-xmlschema-2-19990924/#NCName>`_ datatype, which roughly means it is a unique string that has to start with a letter (not a number or symbol), may contain numbers, but may never contain colons or spaces. FoLiA does not define any naming convention for IDs.
 * ``set`` -- The set of the element, ideally a URI linking to a set definition (see :ref:`set_definitions`) or otherwise a uniquely identifying string. The ``set`` must be referred to also in the :ref:`annotation_declarations` for this annotation type.
 * ``class`` -- The class of the annotation, i.e. the annotation tag in the vocabulary defined by ``set``.
 * ``id`` -- A reference to the ID of another element. This is a reference and not an assignment, unlike xml:id, so do not confuse the two! It is only supported on certain elements that are referential in nature.
