@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FoLiA xmlns="http://ilk.uvt.nl/folia" version="2.1.0" xml:id="example">
+  <metadata>
+      <annotations>
+          <token-annotation set="https://raw.githubusercontent.com/LanguageMachines/uctodata/master/setdefinitions/tokconfig-eng.foliaset.ttl">
+			 <annotator processor="p1" />
+		  </token-annotation>
+          <text-annotation>
+			 <annotator processor="p1" />
+          </text-annotation>
+          <sentence-annotation>
+			 <annotator processor="p1" />
+          </sentence-annotation>
+          <paragraph-annotation>
+			 <annotator processor="p1" />
+          </paragraph-annotation>
+          <chunking-annotation> <!-- setless -->
+			 <annotator processor="p1" />
+		  </chunking-annotation>
+          <chunking-annotation set="chunkset"> <!-- an ad-hoc set -->
+			 <annotator processor="p2" />
+		  </chunking-annotation>
+      </annotations>
+      <provenance>
+         <processor xml:id="p1" name="proycon" type="manual" />
+         <processor xml:id="p2" name="ko" type="manual" />
+      </provenance>
+  </metadata>
+  <text xml:id="example.text">
+    <p xml:id="example.p.1">
+        <s xml:id="example.p.1.s.1">
+          <t>The Dalai Lama greeted him.</t>
+          <w xml:id="example.p.1.s.1.w.1"><t>The</t></w>
+          <w xml:id="example.p.1.s.1.w.2"><t>Dalai</t></w>
+          <w xml:id="example.p.1.s.1.w.3"><t>Lama</t></w>
+          <w xml:id="example.p.1.s.1.w.4"><t>greeted</t></w>
+          <w xml:id="example.p.1.s.1.w.5" space="no"><t>him</t></w>
+          <w xml:id="example.p.1.s.1.w.6"><t>.</t></w>
+          <chunking>
+            <chunk xml:id="example.p.1.s.1.chunk.1"> <!-- these are instances the setless set -->
+                <wref id="example.p.1.s.1.w.1" t="The" />
+                <wref id="example.p.1.s.1.w.2" t="Dalai" />
+                <wref id="example.p.1.s.1.w.3" t="Lama" />
+            </chunk>
+            <chunk xml:id="example.p.1.s.1.chunk.2">
+                <wref id="example.p.1.s.1.w.4" t="greeted" />
+            </chunk>
+            <chunk xml:id="example.p.1.s.1.chunk.3">
+                <wref id="example.p.1.s.1.w.5" t="him" />
+                <wref id="example.p.1.s.1.w.6" t="." />
+            </chunk>
+          </chunking>
+          <chunking>
+            <chunk xml:id="example.p.1.s.1.chunkset.1" set="chunkset" class="np"  processor="p1">
+                <wref id="example.p.1.s.1.w.1" t="The" />
+                <wref id="example.p.1.s.1.w.2" t="Dalai" />
+                <wref id="example.p.1.s.1.w.3" t="Lama" />
+            </chunk>
+            <chunk xml:id="example.p.1.s.1.chunkset.2" set="chunkset" class="vp" processor="p1">
+                <wref id="example.p.1.s.1.w.4" t="greeted" />
+            </chunk>
+            <chunk xml:id="example.p.1.s.1.chunkset.3" set="chunkset" class="np" processor="p1">
+                <wref id="example.p.1.s.1.w.5" t="him" />
+                <wref id="example.p.1.s.1.w.6" t="." />
+            </chunk>
+          </chunking>
+        </s>
+    </p>
+  </text>
+</FoLiA>
