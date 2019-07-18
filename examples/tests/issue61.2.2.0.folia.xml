@@ -1,0 +1,37 @@
+<FoLiA xmlns="http://ilk.uvt.nl/folia" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="test" version="2.2.0" >
+  <metadata>
+      <annotations>
+          <text-annotation />
+          <paragraph-annotation>
+			 <annotator processor="p1" />
+          </paragraph-annotation>
+          <part-annotation>
+			 <annotator processor="p1" />
+          </pos-annotation>
+      </annotations>
+      <provenance>
+         <processor xml:id="p1" name="proycon" type="manual" />
+      </provenance>
+      </annotations>
+  </metadata>
+  <text xml:id="t1">
+    <p xml:id="p1">
+      <t>Een test</t>
+      <part xml:id="part1">
+        <t>Een</t>
+      </part>
+      <part xml:id="part2">
+        <t>test</t>
+      </part>
+    </p>
+    <p xml:id="p1">
+      <t>Uitstekend!</t>
+      <part xml:id="part3" space="no"> <!--Note: Using part to express morphology is a bad solution!!-->
+        <t>Uit</t>
+      </part>
+      <part xml:id="part4">
+        <t>stekend</t>
+      </part>
+    </p>
+  </text>
+</FoLiA>
