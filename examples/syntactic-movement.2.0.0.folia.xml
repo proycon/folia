@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FoLiA xmlns="http://ilk.uvt.nl/folia" version="2.0" xml:id="example">
+  <metadata>
+      <annotations>
+          <token-annotation set="https://raw.githubusercontent.com/LanguageMachines/uctodata/master/setdefinitions/tokconfig-eng.foliaset.ttl">
+			 <annotator processor="p1" />
+		  </token-annotation>
+          <text-annotation>
+			 <annotator processor="p1" />
+          </text-annotation>
+          <sentence-annotation>
+			 <annotator processor="p1" />
+          </sentence-annotation>
+          <pos-annotation set="adhoc">
+			 <annotator processor="p1" />
+          </pos-annotation>
+          <syntax-annotation set="adhoc">
+			 <annotator processor="p1" />
+          </syntax-annotation>
+          <relation-annotation set="adhoc">
+			 <annotator processor="p1" />
+          </relation-annotation>
+      </annotations>
+      <provenance>
+         <processor xml:id="p1" name="proycon" type="manual" />
+      </provenance>
+  </metadata>
+  <text xml:id="example.text">
+    <s xml:id="s1">
+        <w xml:id="w1">
+            <t>What</t>
+            <pos class="WPRO" />
+        </w>
+        <w xml:id="w2">
+            <t>is</t>
+            <pos class="BEP" />
+        </w>
+        <w xml:id="w3">
+            <t>your</t>
+            <pos class="PRO$" />
+        </w>
+        <w xml:id="w4">
+            <t>name</t>
+            <pos class="N" />
+        </w>
+        <w xml:id="w5">
+            <t>?</t>
+            <pos class="PUNC" />
+        </w>
+        <syntax>
+            <su class="CP-QUE-MAT">
+                <su xml:id="s1.WNP-1" class="WNP">
+                    <wref id="w1" />
+                </su>
+                <su class="IP-SUB">
+                    <su xml:id="s1.BEP-2" class="BEP">
+                        <wref id="w2" />
+                    </su>
+                    <su class="NP-SBJ">
+                        <su class="NP-POS">
+                            <wref id="w3" />
+                        </su>
+                        <wref id="w4" />
+                    </su>
+                    <su class="VP">
+                        <su class="BEP">
+                            <relation class="A-movement">
+                                <xref id="s1.BEP-2" type="su"/>
+                            </relation>
+                        </su>
+                        <su class="NP-PRD">
+                            <relation class="Wh-movement">
+                                <xref id="s1.WNP-1" type="su"/>
+                            </relation>
+                        </su>
+                    </su>
+                </su>
+                <su class="PUNC">
+                    <wref id="w5" />
+                </su>
+            </su>
+        </syntax>
+    </s>
+  </text>
+</FoLiA>
