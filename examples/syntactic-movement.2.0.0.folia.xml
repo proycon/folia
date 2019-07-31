@@ -48,7 +48,7 @@
             <pos class="PUNC" />
         </w>
         <syntax>
-            <su class="CP-QUE-MAT">
+            <su xml:id="s1.CP-QUE-MAT" class="CP-QUE-MAT">
                 <su xml:id="s1.WNP-1" class="WNP">
                     <wref id="w1" />
                 </su>
@@ -56,26 +56,26 @@
                     <su xml:id="s1.BEP-2" class="BEP">
                         <wref id="w2" />
                     </su>
-                    <su class="NP-SBJ">
+                    <su xml:id="s1.NP-SBJ" class="NP-SBJ">
                         <su class="NP-POS">
                             <wref id="w3" />
                         </su>
                         <wref id="w4" />
                     </su>
-                    <su class="VP">
-                        <su class="BEP">
+                    <su xml:id="s1.VP" class="VP">
+                        <su xml:id="s1.BEP-1" class="BEP">
                             <relation class="A-movement">
                                 <xref id="s1.BEP-2" type="su"/>
                             </relation>
                         </su>
-                        <su class="NP-PRD">
+                        <su xml:id="s1.NP-PRD" class="NP-PRD">
                             <relation class="Wh-movement">
                                 <xref id="s1.WNP-1" type="su"/>
                             </relation>
                         </su>
                     </su>
                 </su>
-                <su class="PUNC">
+                <su xml:id="s1.PUNC" class="PUNC">
                     <wref id="w5" />
                 </su>
             </su>
