@@ -555,7 +555,7 @@ In FQL, this is achieved through substitution, using the action *SUBSTITUTE*::
 
     SUBSTITUTE w WITH text "together" FOR SPAN w WHERE text="to" & w WHERE text="gether"
 
-Subactions are common with SUBSTITUTE, the following is equivalent to the above::
+Sub-queries are common with SUBSTITUTE, the following is equivalent to the above::
 
     SUBSTITUTE w (ADD t WITH text "together") FOR SPAN w WHERE text="to" & w WHERE text="gether"
 
@@ -653,6 +653,31 @@ we want an NP to the left of a PP::
 ... and return that whole tree rather than just the NP we were looking for::
 
     SELECT su WHERE class = "np" AND (NEXT su WHERE class = "pp") IN su WHERE class = "vp" RETURN target
+
+
+Relations
+-----------
+
+FoLiA's :ref:`relation_annotation` is a higher-order annotation type that allows linking between arbitrary annotations,
+and even between documents or to external resources.
+
+
+Internal Relations
+~~~~~~~~~~~~~~~~~~~~~~
+
+In FQL, there is a special construction using a sub-query to actively select the items you want to link to (within the
+same document), the sub-query start with the ``TO`` keyword, which behaves identical to ``SELECT``::
+
+   ADD relation WITH class "wh-movement" (TO su ID "su.moved") FOR su ID "su.1"
+
+Multiple targets may be chained chained by simply adding extra sub-queries (each in its own set of parentheses).
+
+External Relations
+~~~~~~~~~~~~~~~~~~~~~~
+
+For external relations, you usually don't need the individual references and the ``TO`` statement won't work. For those types you just set the ``href`` attribute, possibly on the relation, combined also with the ``format`` attribute. Here we add a external relationship to the relevant Wikipedia page on a named entity about the Dalai Lama::
+
+   ADD relation WITH class "wikipedia" href "https://en.wikipedia.org/wiki/Dalai_Lama" format "text/html" FOR entity ID "example.p.1.s.1.entity.1"
 
 
 .. _fql_shortcuts:
