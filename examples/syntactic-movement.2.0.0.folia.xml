@@ -20,6 +20,9 @@
           <relation-annotation set="adhoc">
 			 <annotator processor="p1" />
           </relation-annotation>
+          <hiddentoken-annotation>
+			 <annotator processor="p1" />
+		  </hiddentoken-annotation>
       </annotations>
       <provenance>
          <processor xml:id="p1" name="proycon" type="manual" />
@@ -43,6 +46,14 @@
             <t>name</t>
             <pos class="N" />
         </w>
+        <hiddenw xml:id="hw1">
+            <t>*-2</t>
+            <pos class="BEP" />
+        </hiddenw>
+        <hiddenw xml:id="hw2">
+            <t>*T*-1</t>
+            <pos class="WPRO" />
+        </hiddenw>
         <w xml:id="w5">
             <t>?</t>
             <pos class="PUNC" />
@@ -64,11 +75,13 @@
                     </su>
                     <su xml:id="s1.VP" class="VP">
                         <su xml:id="s1.BEP-1" class="BEP">
+                            <wref id="hw1" />
                             <relation class="A-movement">
                                 <xref id="s1.BEP-2" type="su"/>
                             </relation>
                         </su>
                         <su xml:id="s1.NP-PRD" class="NP-PRD">
+                            <wref id="hw2" />
                             <relation class="Wh-movement">
                                 <xref id="s1.WNP-1" type="su"/>
                             </relation>
