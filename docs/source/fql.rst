@@ -237,7 +237,7 @@ siblings.  Consider the following example that changes the part of speech tag
 to "verb", for all occurrences of words that have lemma "fly". The parentheses
 are mandatory for a *HAS* statement::
 
-    EDIT pos OF "someposset" WITH class = "v" FOR w WHERE (lemma OF "somelemmaset" HAS class "fly")
+    EDIT pos OF "someposset" WITH class = "v" FOR w WHERE (lemma OF "somelemmaset" HAS class = "fly")
 
 Target expressions can be former with either *FOR* or with *IN*, the
 difference is that *IN* is much stricter, the element has to be a direct
