@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/proycon/folia/master/logo.svg" width="200" />
+  <img src="https://raw.githubusercontent.com/proycon/folia/master/logo.png" width="200" />
 </div>
 
 # FoLiA: Format for Linguistic Annotation
