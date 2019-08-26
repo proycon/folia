@@ -1,8 +1,13 @@
-# FoLiA: Format for Linguistic Annotation'
+<div align="center">
+  <img src="https://raw.githubusercontent.com/proycon/folia/master/logo.svg" width="200" />
+</div>
 
-[![image](https://travis-ci.org/proycon/folia.svg?branch=master)](https://travis-ci.org/proycon/folia)
-[![image](http://applejack.science.ru.nl/lamabadge.php/folia)](http://applejack.science.ru.nl/languagemachines/)
-[![image](https://zenodo.org/badge/1948022.svg)](https://zenodo.org/badge/latestdoi/1948022)
+# FoLiA: Format for Linguistic Annotation
+
+[![tests](https://travis-ci.org/proycon/folia.svg?branch=master)](https://travis-ci.org/proycon/folia)
+[![documentation](http://readthedocs.org/projects/folia/badge/?version=latest)](http://foliapy.readthedocs.io/en/latest/?badge=latest)
+[![lamabadge](http://applejack.science.ru.nl/lamabadge.php/folia)](http://applejack.science.ru.nl/languagemachines/)
+[![DOI](https://zenodo.org/badge/1948022.svg)](https://zenodo.org/badge/latestdoi/1948022)
 
 *by Maarten van Gompel, Radboud University Nijmegen*
 
