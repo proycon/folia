@@ -9,6 +9,8 @@
 [![lamabadge](http://applejack.science.ru.nl/lamabadge.php/folia)](http://applejack.science.ru.nl/languagemachines/)
 [![DOI](https://zenodo.org/badge/1948022.svg)](https://zenodo.org/badge/latestdoi/1948022)
 
+[Documentation](http://foliapy.readthedocs.io/en/latest/?badge=latest) | [Examples](https://github.com/proycon/folia/tree/master/examples) | [Python Library](https://pypi.org/project/FoLiA/) | [Python Library Documentation](https://foliapy.readthedocs.io/en/latest/) | [C++ Library](https://github.com/LanguageMachines/libfolia) | [FoLiA-Tools](https://github.com/proycon/foliatools) | [FoLiA Utilities](https://github.com/LanguageMachines/foliautils) | [FLAT: Web-based Annotation environment](https://github.com/proycon/flat)
+
 *by Maarten van Gompel, Radboud University Nijmegen*
 
 <https://proycon.github.io/folia>
