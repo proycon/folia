@@ -11,7 +11,7 @@
 
 [Documentation](http://foliapy.readthedocs.io/en/latest/?badge=latest) | [Examples](https://github.com/proycon/folia/tree/master/examples) | [Python Library](https://pypi.org/project/FoLiA/) | [Python Library Documentation](https://foliapy.readthedocs.io/en/latest/) | [C++ Library](https://github.com/LanguageMachines/libfolia) | [FoLiA-Tools](https://github.com/proycon/foliatools) | [FoLiA Utilities](https://github.com/LanguageMachines/foliautils) | [FLAT: Web-based Annotation environment](https://github.com/proycon/flat)
 
-*by Maarten van Gompel, Radboud University Nijmegen*
+*https://github.com/proycon/folia/tree/master/examplesby Maarten van Gompel, Radboud University Nijmegen*
 
 <https://proycon.github.io/folia>
 
@@ -75,6 +75,13 @@ Notable features are:
 -   Used by various software projects and corpora, especially in the
     Dutch-Flemish NLP community
 
+Paradigm Schema
+===============
+
+<div align="center">
+  <img src="https://github.com/proycon/folia/blob/master/docs/folia_paradigm2.png" width="800" />
+</div>
+
 Resources
 =========
 
@@ -110,10 +117,11 @@ publications and full text links.
     Bosch (2017). **FoLiA in Practice: The Infrastructure of a
     Linguistic Annotation Format.** In: CLARIN in the Low Countries.
     Eds: Jan Odijk and Arjan van Hessen. Pp. 71-81.
+    [PDF](https://www.jstor.org/stable/j.ctv3t5qjk.13?seq=1#metadata_info_tab_contents)
 -   Maarten van Gompel & Martin Reynaert (2014). **FoLiA: A practical
     XML format for linguistic annotation - a descriptive and comparative
     study;** Computational Linguistics in the Netherlands Journal;
-    3:63-81; 2013.
+    3:63-81; 2013. [PDF](https://clinjournal.org/clinj/article/view/26/22)
 -   Maarten van Gompel (2014). **FoLiA: Format for Linguistic
     Annotation. Documentation.** Language and Speech Technology
     Technical Report Series LST-14-01. Radboud University Nijmegen.
