@@ -11,7 +11,7 @@
 
 [Documentation](http://foliapy.readthedocs.io/en/latest/?badge=latest) | [Examples](https://github.com/proycon/folia/tree/master/examples) | [Python Library](https://pypi.org/project/FoLiA/) | [Python Library Documentation](https://foliapy.readthedocs.io/en/latest/) | [C++ Library](https://github.com/LanguageMachines/libfolia) | [FoLiA-Tools](https://github.com/proycon/foliatools) | [FoLiA Utilities](https://github.com/LanguageMachines/foliautils) | [FLAT: Web-based Annotation environment](https://github.com/proycon/flat)
 
-*https://github.com/proycon/folia/tree/master/examplesby Maarten van Gompel, Radboud University Nijmegen*
+*by Maarten van Gompel, Radboud University Nijmegen*
 
 <https://proycon.github.io/folia>
 
