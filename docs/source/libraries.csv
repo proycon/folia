@@ -1,49 +1,68 @@
-Category,Name, FoLiApy, libfolia, pynlpl.formats.folia
+Category,Name, FoLiApy, libfolia,folia-rust,pynlpl.formats.folia,
 
-General,Language,Python 3.5+,C++,Python 2.7 and 3.4+
-General,Uses official specification,yes,yes,yes
-General,Maintenance Status,active,active,deprecated; superseded by FoLiApy
-General,Lead developer,Maarten van Gompel,Ko van der Sloot,Maarten van Gompel
+General,Language,Python 3.5+,C++,Rust,Python 2.7 and <=3.4
+General,Uses official specification,yes,yes,yes,yes
+General,Maintenance Status,active,active,active,deprecated; superseded by FoLiApy
+General,Maturity,stable,stable,alpha,stable
+General,Lead developer,Maarten van Gompel,Ko van der Sloot,Maarten van Gompel,Maarten van Gompel
 
-General,Supports latest version,2.0,1.5,1.5
-General,Supports earliest version,0.1,0.1,0.1
+General,Supports latest version,2.3,2.3,2.3,1.5
+General,Supports earliest version,0.1,0.1,2.0,0.1
 
-Implementation,Full in-memory representation?,default,default,default
-Implementation,Streaming parser?,optional,optional,optional
+Implementation,Full in-memory representation?,default,default,default,default
+Implementation,Streaming parser?,optional,optional,not yet,optional
+Implementation,Element representation,class hierarchy (OOP),class hierarchy (OOP),other,class hierarchy (OOP)
+Implementation,Memory-saving encoding,no,no,yes,no
 
-Supported Features,Structure annotation,yes,yes,yes
-Supported Features,Inline annotation,yes,yes,yes
-Supported Features,Span annotation,yes,yes,yes
-Supported Features,Text mark-up,yes,yes,yes
-Supported Features,Subtoken annotation (e.g. morphology),yes,yes,yes
-Supported Features,Alternatives,yes,yes,yes
-Supported Features,Corrections,yes,yes,yes
-Supported Features,Substrings,yes,yes,yes
-Supported Features,Relations,yes,yes,yes
-Supported Features,Native Metadata,yes,yes,yes
-Supported Features,Foreign Metadata,yes,yes,yes
-Supported Features,Provenance data,yes,yes,no
-Supported Features,Foreign Annotations,yes,yes,yes
+Supported Features,Structure annotation,yes,yes,yes,yes
+Supported Features,Inline annotation,yes,yes,yes,yes
+Supported Features,Span annotation,yes,yes,yes,yes
+Supported Features,Text mark-up,yes,yes,yes,yes
+Supported Features,Subtoken annotation (e.g. morphology),yes,yes,yes,yes
+Supported Features,Alternatives,yes,yes,yes,yes
+Supported Features,Corrections,yes,yes,yes,yes
+Supported Features,Substrings,yes,yes,yes,yes
+Supported Features,Relations,yes,yes,yes,yes
+Supported Features,Native Metadata,yes,yes,yes,yes
+Supported Features,Submetadata,yes,yes,no,yes
+Supported Features,Foreign Metadata,yes,yes,no,yes
+Supported Features,Provenance data,yes,yes,yes,no
+Supported Features,Foreign Annotations,yes,yes,no,yes
+Supported Features,Features,yes,yes,yes,yes
 
-Validation,Shallow Validation,yes,yes,yes
-Validation,Text Consistency Validation,yes,yes,yes
-Validation,Deep Validation,yes,no,yes
-Validation,... with RDF+XML sets,yes,no,yes
-Validation,... with RDF+turtle sets,yes,no,yes
-Validation,... with legacy XML sets,yes,no,yes
-Validation,RelaxNG schema generation,yes,no,yes
+Validation,Shallow Validation,yes,yes,no,yes
+Validation,Text Consistency Validation,yes,yes,no,yes
+Validation,Deep Validation,yes,no,no,yes
+Validation,... with RDF+XML sets,yes,no,no,yes
+Validation,... with RDF+turtle sets,yes,no,no,yes
+Validation,... with legacy XML sets,yes,no,no,yes
+Validation,RelaxNG schema generation,yes,no,no,yes
 
-Serialisation,XML (canonical),yes,yes,yes
-Serialisation,JSON,yes,no,yes
-Serialisation,RDF,no,no,no
+Serialisation,XML (canonical),yes,yes,yes,yes
+Serialisation,JSON,yes,no,no,yes
+Serialisation,RDF,no,no,no,no
 
-Querying,FoLiA Query Language (FQL),yes,no,yes
-Querying,... CQL support,through pynlpl,no,yes
-Querying,Document findwords() method,yes,yes,yes
+Querying,select() mechanism,yes,yes,yes,yes
+Querying,FoLiA Query Language (FQL),yes,no,no,yes
+Querying,... CQL support,through pynlpl,no,no,yes
+Querying,Document findwords() method,yes,yes,no,yes
+Querying,Introspection into FoLiA specification,yes,yes,yes,yes
 
-Quality Control,Integration tests,yes,yes,yes
+Quality Control,Integration tests,yes,yes,yes (limited),yes
 
-Documentation,API reference,yes,no,yes
-Documentation,Tutorial,yes,no,yes
+Documentation,API reference,yes,no,yes,yes
+Documentation,Tutorial,yes,no,no,yes
 
-Legacy,D-Coi read compatibility,no,no,yes
+Legacy,D-Coi read compatibility,no,no,no,yes
+
+Parsing Details,Predefined subsets as attributes,yes,yes,yes,yes
+Parsing Details,Default set,yes,yes,yes,yes
+Parsing Details,Set aliases,yes,yes,?,yes
+Parsing Details,Default processor,yes,yes,yes,no FoLiA v2
+Parsing Details,Default annotator (old-style),yes,yes,no,yes
+
+Serialisation Details,Predefined subsets as attributes,yes,yes,no,yes
+Serialisation Details,Default set,yes,yes,yes,yes
+Serialisation Details,Set aliases,yes,yes,?,yes
+Serialisation Details,Default processor,yes,yes,yes,no FoLiA v2
+Serialisation Details,Default annotator (old-style),yes,yes,no,yes
