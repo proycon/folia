@@ -19,10 +19,10 @@ Supported Features,Inline annotation,yes,yes,yes,yes
 Supported Features,Span annotation,yes,yes,yes,yes
 Supported Features,Text mark-up,yes,yes,yes,yes
 Supported Features,Subtoken annotation (e.g. morphology),yes,yes,yes,yes
-Supported Features,Alternatives,yes,yes,yes,yes
-Supported Features,Corrections,yes,yes,yes,yes
+Supported Features,Alternatives,yes,yes,limited,yes
+Supported Features,Corrections,yes,yes,limited,yes
 Supported Features,Substrings,yes,yes,yes,yes
-Supported Features,Relations,yes,yes,yes,yes
+Supported Features,Relations,yes,yes,limited,yes
 Supported Features,Native Metadata,yes,yes,yes,yes
 Supported Features,Submetadata,yes,yes,no,yes
 Supported Features,Foreign Metadata,yes,yes,no,yes
@@ -56,6 +56,7 @@ Documentation,Tutorial,yes,no,no,yes
 Legacy,D-Coi read compatibility,no,no,no,yes
 
 Parsing Details,Predefined subsets as attributes,yes,yes,yes,yes
+Parsing Details,Compression?,gz+bz2,gz+bz2,none,gz+bz2
 Parsing Details,Default set,yes,yes,yes,yes
 Parsing Details,Set aliases,yes,yes,?,yes
 Parsing Details,Default processor,yes,yes,yes,no FoLiA v2
