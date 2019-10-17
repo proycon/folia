@@ -10,7 +10,7 @@
 [![DOI](https://zenodo.org/badge/1948022.svg)](https://zenodo.org/badge/latestdoi/1948022)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 
-[Documentation](http://foliapy.readthedocs.io/en/latest/?badge=latest) | [Examples](https://github.com/proycon/folia/tree/master/examples) | [Python Library](https://pypi.org/project/FoLiA/) | [Python Library Documentation](https://foliapy.readthedocs.io/en/latest/) | [C++ Library](https://github.com/LanguageMachines/libfolia) | [FoLiA-Tools](https://github.com/proycon/foliatools) | [FoLiA Utilities](https://github.com/LanguageMachines/foliautils) | [FLAT: Web-based Annotation environment](https://github.com/proycon/flat)
+[Documentation](http://foliapy.readthedocs.io/en/latest/?badge=latest) | [Examples](https://github.com/proycon/folia/tree/master/examples) | [Python Library](https://pypi.org/project/FoLiA/) | [Python Library Documentation](https://foliapy.readthedocs.io/en/latest/) | [C++ Library](https://github.com/LanguageMachines/libfolia) | [Rust Library](https://crates.io/crates/folia) | [FoLiA-Tools](https://github.com/proycon/foliatools) | [FoLiA Utilities](https://github.com/LanguageMachines/foliautils) | [FLAT: Web-based Annotation environment](https://github.com/proycon/flat)
 
 *by Maarten van Gompel, Radboud University Nijmegen*
 
@@ -96,7 +96,8 @@ Resources
 -   [Examples of FoLiA documents](https://github.com/proycon/folia/tree/master/examples)
 -   [FoLiApy: FoLiA library for Python](https://github.com/proycon/foliapy) (`pip install folia`)
     -   [Library documentation](https://foliapy.readthedocs.io)
--   [libfolia: FoLiA library C++](https://github.com/LanguageMachines/libfolia)
+-   [libfolia: FoLiA library for  C++](https://github.com/LanguageMachines/libfolia)
+-   [folia-rust: FoLiA library for Rust](https://github.com/proycon/folia-rust)
 -   [FoLiA Tools: Various command-line tools for FoLiA](https://github.com/proycon/foliatools)
     (`pip install folia-tools`)
 -   [FoLiA Utilities: Various command-line tools for FoLiA](https://github.com/LanguageMachines/foliautils)
