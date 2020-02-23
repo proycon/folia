@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FoLiA xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://ilk.uvt.nl/folia" xml:id="build1" generator="libfolia-v2.4" version="2.2.1">
+  <metadata type="native">
+    <annotations>
+      <paragraph-annotation/>
+      <text-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/text.foliaset.ttl"/>
+    </annotations>
+  </metadata>
+  <speech xml:id="build1.text">
+    <p xml:id="p3">
+      <t>paragraaf 3</t>
+ WRONG   </p>
+  </speech>
+</FoLiA>
