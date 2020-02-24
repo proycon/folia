@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FoLiA xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://ilk.uvt.nl/folia" xml:id="doc" generator="libfolia-v1.11" version="2.2">
+  <metadata type="native">
+    <annotations>
+      <correction-annotation />
+      <text-annotation />
+      <sentence-annotation />
+      <string-annotation />
+    </annotations>
+  </metadata>
+  <text xml:id="bug">
+    <s xml:id="s.1">
+      <t>Dit is een test</t>
+      <str xml:id="str.1">
+        <t offset="0">Dit</t>
+      </str>
+      <str xml:id="str.2">
+        <t offset="4">is</t>
+      </str>
+      <str xml:id="str.4">
+        <t offset="11">test</t>
+      </str>
+      <!-- and below an extra string example to emphasise that strings are not tokens: this overlaps with str.1 and str.2) -->
+      <str xml:id="str.bonus">
+        <t offset="3">t is</t>
+      </str>
+    </s>
+  </text>
+</FoLiA>
