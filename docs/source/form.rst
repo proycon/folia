@@ -25,6 +25,6 @@ In explicit form, all defaults are made explicit:
 
 Certain FoLiA internals are made explicit:
 
-- All annotation elements get a ``typegroup`` attribute that makes explicit what kind of annotation element we are dealing with. Values are: *structure, inline, span, higherorder, textmarkup, content, layer*. So ``<w>`` becomes ``<w typegroup="structure">``, ``<pos>`` becomes ``<pos typegroup="inline">``. This allows for example xpath expressions like: give me the deepest structural ancestor.
+- All annotation elements get a ``typegroup`` attribute that makes explicit what kind of annotation category we are dealing with. Values are: *structure, inline, span, higherorder, textmarkup, content, layer*. So ``<w>`` becomes ``<w typegroup="structure">``, ``<pos>`` becomes ``<pos typegroup="inline">``. This allows for example xpath expressions like: give me the deepest structural ancestor.
 
 
