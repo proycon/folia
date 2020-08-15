@@ -25,6 +25,7 @@ version: 2.2.1
     annotation_types
     foreign_annotation
     querying
+    form
     implementations
     guidelines
 

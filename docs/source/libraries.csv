@@ -38,8 +38,8 @@ Validation,... with RDF+turtle sets,yes,no,no,yes
 Validation,... with legacy XML sets,yes,no,no,yes
 Validation,RelaxNG schema generation,yes,no,no,yes
 
-Serialisation,XML (canonical),yes,yes,yes,yes
-Serialisation,JSON,yes,no,no,yes
+Serialisation,XML (normal form),yes,yes,yes,yes
+Serialisation,JSON (not standarised),yes,no,no,yes
 Serialisation,RDF,no,no,no,no
 
 Querying,select() mechanism,yes,yes,yes,yes
@@ -67,3 +67,5 @@ Serialisation Details,Default set,yes,yes,yes,yes
 Serialisation Details,Set aliases,yes,yes,?,yes
 Serialisation Details,Default processor,yes,yes,yes,no FoLiA v2
 Serialisation Details,Default annotator (old-style),yes,yes,no,yes
+Serialisation Details,Read explicit form,yes,yes,yes,no
+Serialisation Details,Write explicit form,yes,no,no,no

@@ -37,6 +37,7 @@ For developers
    very good reason to do so, do NOT assume your documents are neatly subdivided into e.g. only paragraphs and
    sentences. There may be lists, figures, divisions. Generally spoken, you'll often want to descend into the deepest
    structural nodes that have text.  The FoLiA libraries provide a high-level API for you to do this.
+6. If you don't use a FoLiA library, you may want to consider accepting only FoLiA documents in so-called *explicit form* (see :`form`). Explicit form makes does not use any implicit defaults but makes everything explicit in the XML. This means the logic in your parser can be kept less complicated. You can turn any explicit form document into a normal form one and vice versa (without loss). If you get a normal form document (which is the norm), run an external tool like ``foliavalidator --explicit`` to turn it into explicit form before parsing it. It's strongly recommended not to shift this burden to the user as he/she may be confused by it.
 
 Conventions
 -----------------------
