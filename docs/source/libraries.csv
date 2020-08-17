@@ -67,5 +67,4 @@ Serialisation Details,Default set,yes,yes,yes,yes
 Serialisation Details,Set aliases,yes,yes,?,yes
 Serialisation Details,Default processor,yes,yes,yes,no FoLiA v2
 Serialisation Details,Default annotator (old-style),yes,yes,no,yes
-Serialisation Details,Read explicit form,yes,yes,yes,no
 Serialisation Details,Write explicit form,yes,no,no,no
