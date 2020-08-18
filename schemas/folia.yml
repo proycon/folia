@@ -675,7 +675,7 @@ elements:
                 label: "Figure"
                 speakable: false
                 textdelimiter: "\n\n"
-                accepted_data: [Caption, String, TextContent]
+                accepted_data: [Caption, String, TextContent, Linebreak]
           - class: Head
             properties:
                 annotationtype: HEAD
@@ -709,7 +709,7 @@ elements:
             properties:
                 annotationtype: LIST
                 textdelimiter: "\n\n"
-                accepted_data: [AbstractInlineAnnotation, Relation, Caption, Event, ListItem, Metric, Note, PhonContent, Reference, String, TextContent]
+                accepted_data: [AbstractInlineAnnotation, Relation, Caption, Event, Linebreak, ListItem, Metric, Note, PhonContent, Reference, String, TextContent]
                 xmltag: "list"
                 label: "List"
           - class: ListItem
@@ -776,7 +776,7 @@ elements:
           - class: Table
             properties:
                 annotationtype: TABLE
-                accepted_data: [AbstractInlineAnnotation, Row, TableHead]
+                accepted_data: [AbstractInlineAnnotation, Row, TableHead, Linebreak]
                 xmltag: "table"
                 label: "Table"
           - class: TableHead
