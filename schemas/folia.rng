@@ -13736,6 +13736,9 @@ RelaxNG schema for FoLiA XML v2.3.0
           <ref name="foreign-data"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="br"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="item"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -13914,6 +13917,9 @@ RelaxNG schema for FoLiA XML v2.3.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="foreign-data"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="br"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="metric"/>
@@ -15113,6 +15119,9 @@ RelaxNG schema for FoLiA XML v2.3.0
           <ref name="foreign-data"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="br"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="metric"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -15363,6 +15372,9 @@ RelaxNG schema for FoLiA XML v2.3.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="whitespace"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="w"/>
         </zeroOrMore>
       </interleave>
     </element>
