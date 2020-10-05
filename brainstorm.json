@@ -1,0 +1,107 @@
+{
+    "@context": "https://ilk.uvt.nl/folia/schemas/folia.jsonld",
+    "@type": "Document",
+    "@id": "https://somewhere/example",
+    "metadata": {
+        "provenance": [
+            {
+                "@type": "Processor",
+                "@id": "https://somewhere/example#example.proc1",
+                "name": "proycon",
+                "type": "manual"
+            }
+        ],
+        "annotations": [
+            {
+              "@type": "Declaration",
+              "annotationtype": "token",
+              "set": "https://raw.githubusercontent.com/LanguageMachines/uctodata/master/setdefinitions/tokconfig-eng.foliaset.ttl",
+              "annotators": [
+                  { "$ref": "https://somewhere/example#example.proc1" }
+              ]
+            },
+            {
+              "@type": "Declaration",
+              "annotationtype": "pos",
+              "set": "https://raw.githubusercontent.com/LanguageMachines/uctodata/master/setdefinitions/brown.foliaset.ttl",
+              "annotators": [
+                  { "$ref": "https://somewhere/example#example.proc1" }
+              ]
+            }
+        ],
+        "author": "proycon"
+    },
+    "text": [
+        {
+            "@type": "RawText",
+            "class": "current",
+            "value": "Hello world"
+        }
+    ],
+    "structure": [
+        {
+            "@id": "https://somewhere/example#example.text",
+            "@type": "Text",
+            "data": [{
+                "@id": "https://somewhere/example#example.s.1",
+                "@type": "Sentence",
+                "data": [{
+                    "@id": "https://somewhere/example#example.s.1.w.1",
+                    "@type": "Word",
+                    "set": "https://raw.githubusercontent.com/LanguageMachines/uctodata/master/setdefinitions/tokconfig-eng.foliaset.ttl",
+                    "class": "WORD",
+                    "classref": { "$ref": "https://raw.githubusercontent.com/LanguageMachines/uctodata/master/setdefinitions/tokconfig-eng.foliaset.ttl#WORD" }
+                },
+                {
+                    "@id": "https://somewhere/example#example.s.1.w.2",
+                    "@type": "Word",
+                    "set": "https://raw.githubusercontent.com/LanguageMachines/uctodata/master/setdefinitions/tokconfig-eng.foliaset.ttl",
+                    "class": "WORD",
+                    "classref": { "$ref": "https://raw.githubusercontent.com/LanguageMachines/uctodata/master/setdefinitions/tokconfig-eng.foliaset.ttl#WORD" }
+                }]
+            }]
+        }
+    ],
+    "annotations": [
+        {
+            "@type": "TextContent",
+            "value": "Hello world",
+            "class": "current",
+            "target": { "$ref": "https://somewhere/example#example.s.1" },
+            "processor": { "$ref": "https://somewhere/example#example.proc1" }
+        },
+        {
+            "@type": "TextContent",
+            "value": "Hello",
+            "class": "current",
+            "target": { "$ref": "https://somewhere/example#example.s.1.w.1" },
+            "processor": { "$ref": "https://somewhere/example#example.proc1" }
+        },
+        {
+            "@type": "TextContent",
+            "value": "world",
+            "class": "current",
+            "target": { "$ref": "https://somewhere/example#example.s.1.w.2" },
+            "processor": { "$ref": "https://somewhere/example#example.proc1" },
+            "offset": 6,
+            "textref": {
+                "begin": 6,
+                "length": 5
+            }
+        },
+        {
+            "@type": "PartOfSpeech",
+            "set": "https://raw.githubusercontent.com/LanguageMachines/uctodata/master/setdefinitions/brown.foliaset.ttl",
+            "class": "NN",
+            "classref": { "$ref": "https://raw.githubusercontent.com/LanguageMachines/uctodata/master/setdefinitions/brown.foliaset.ttl#NN"
+            },
+            "target": { "$ref": "https://somewhere/example#example.s.1.w.2" },
+            "processor": { "$ref": "https://somewhere/example#example.proc1" },
+            "textclass": "current",
+            "textref": {
+                "begin": 6,
+                "length": 5
+            }
+        }
+    ]
+}
