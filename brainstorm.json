@@ -27,6 +27,14 @@
               "annotators": [
                   { "$ref": "https://somewhere/example#example.proc1" }
               ]
+            },
+            {
+              "@type": "Declaration",
+              "annotationtype": "entity",
+              "set": "https://raw.githubusercontent.com/LanguageMachines/uctodata/master/setdefinitions/entities.foliaset.ttl",
+              "annotators": [
+                  { "$ref": "https://somewhere/example#example.proc1" }
+              ]
             }
         ],
         "author": "proycon"
@@ -86,7 +94,7 @@
             "offset": 6,
             "textref": {
                 "begin": 6,
-                "length": 5
+                "end": 11
             }
         },
         {
@@ -100,7 +108,24 @@
             "textclass": "current",
             "textref": {
                 "begin": 6,
-                "length": 5
+                "end": 11
+            }
+        },
+        {
+            "@type": "Entity",
+            "set": "https://raw.githubusercontent.com/LanguageMachines/uctodata/master/setdefinitions/entities.foliaset.ttl",
+            "class": "greeting",
+            "classref": { "$ref": "https://raw.githubusercontent.com/LanguageMachines/uctodata/master/setdefinitions/entities.foliaset.ttl#NN"
+            },
+            "target": [
+                { "$ref": "https://somewhere/example#example.s.1.w.1" },
+                { "$ref": "https://somewhere/example#example.s.1.w.2" }
+            ],
+            "processor": { "$ref": "https://somewhere/example#example.proc1" },
+            "textclass": "current",
+            "textref": {
+                "begin": 0,
+                "end": 11
             }
         }
     ]
