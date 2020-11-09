@@ -1,0 +1,21 @@
+@prefix fsd: <http://folia.science.ru.nl/setdefinition#> .
+@prefix geof: <http://folia.science.ru.nl/setdefinition/geof#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+geof:Set a skos:Collection ;
+    skos:member geof:latitude ;
+    skos:member geof:longitude ;
+    skos:notation "geo" .
+
+geof:current a skos:Concept ;
+    skos:notation "latitude" ;
+    skos:prefLabel "Latitude (signed degrees format)" .
+
+geof:current a skos:Concept ;
+    skos:notation "longitude" ;
+    skos:prefLabel "Longitude (signed degrees format)" .
+
