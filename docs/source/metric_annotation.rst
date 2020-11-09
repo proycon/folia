@@ -17,7 +17,7 @@ Specification
 :Version History: since v0.9
 :**Element**: ``<metric>``
 :API Class: ``Metric`` (`FoLiApy API Reference <https://foliapy.readthedocs.io/en/latest/_autosummary/folia.main.Metric.html>`_)
-:Required Attributes: 
+:Required Attributes:
 :Optional Attributes: * ``xml:id`` -- The ID of the element; this has to be a unique in the entire document or collection of documents (corpus). All identifiers in FoLiA are of the `XML NCName <https://www.w3.org/TR/1999/WD-xmlschema-2-19990924/#NCName>`_ datatype, which roughly means it is a unique string that has to start with a letter (not a number or symbol), may contain numbers, but may never contain colons or spaces. FoLiA does not define any naming convention for IDs.
                       * ``set`` -- The set of the element, ideally a URI linking to a set definition (see :ref:`set_definitions`) or otherwise a uniquely identifying string. The ``set`` must be referred to also in the :ref:`annotation_declarations` for this annotation type.
                       * ``class`` -- The class of the annotation, i.e. the annotation tag in the vocabulary defined by ``set``.
@@ -55,15 +55,17 @@ An example of measurements associated with a word/token:
         <metric class="frequency" value="0.00232" />
     </w>
 
-An example of measurements associated with a span annotation element:
+The next example shows measurements associated with a span annotation element, in this case to add geolocation
+information:
 
 .. code-block:: xml
 
-    <su class="np">
-        <wref id="..." />
-        <wref id="..." />
-        <metric class="length" value="2" />
-    </su>
+    <entity class="location">
+        <wref id="w3" t="New" />
+        <wref id="w4" t="York" />
+        <metric class="latitude" value="40.71274" />
+        <metric class="longitude" value="-74.005974" />
+    </entity>
 
 The next example demonstrates a full FoLiA document with metric annotation on a Figure, but it may be more appropriate to
 use :ref:`submetadata` for this instead:
