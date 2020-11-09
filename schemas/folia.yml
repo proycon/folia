@@ -2,7 +2,7 @@
 #    This is a technical specification of FoLiA, for use by FoLiA libraries
 
 #The FoLiA version
-version: "2.3.0"
+version: "2.3.1"
 
 #The FoLiA namespace
 namespace: "http://ilk.uvt.nl/folia"
@@ -82,7 +82,7 @@ attributes_doc:
 
 
 #All possible annotation types, each must be declared in the FoLiA header when used
-annotationtype: [ TEXT, TOKEN, DIVISION, PARAGRAPH, HEAD, LIST, FIGURE, WHITESPACE, LINEBREAK, SENTENCE, POS, LEMMA, DOMAIN, SENSE, SYNTAX, CHUNKING, ENTITY, CORRECTION, ERRORDETECTION, PHON, SUBJECTIVITY, MORPHOLOGICAL, EVENT, DEPENDENCY, TIMESEGMENT, GAP, QUOTE, NOTE, REFERENCE, RELATION, SPANRELATION, COREFERENCE, SEMROLE, METRIC, LANG, STRING, TABLE, STYLE, PART, UTTERANCE, ENTRY, TERM, DEFINITION, EXAMPLE, PHONOLOGICAL, PREDICATE, OBSERVATION, SENTIMENT, STATEMENT, ALTERNATIVE, RAWCONTENT, COMMENT, DESCRIPTION, HYPHENATION, HIDDENTOKEN ]
+annotationtype: [ TEXT, TOKEN, DIVISION, PARAGRAPH, HEAD, LIST, FIGURE, WHITESPACE, LINEBREAK, SENTENCE, POS, LEMMA, DOMAIN, SENSE, SYNTAX, CHUNKING, ENTITY, CORRECTION, ERRORDETECTION, PHON, SUBJECTIVITY, MORPHOLOGICAL, EVENT, DEPENDENCY, TIMESEGMENT, GAP, QUOTE, NOTE, REFERENCE, RELATION, SPANRELATION, COREFERENCE, SEMROLE, METRIC, LANG, STRING, TABLE, STYLE, PART, UTTERANCE, ENTRY, TERM, DEFINITION, EXAMPLE, PHONOLOGICAL, PREDICATE, OBSERVATION, SENTIMENT, STATEMENT, ALTERNATIVE, RAWCONTENT, COMMENT, DESCRIPTION, HYPHENATION, HIDDENTOKEN, MODALITY ]
 
 #Documentation of annotation types (reStructuredText)
 annotationtype_doc:
@@ -314,6 +314,10 @@ qualification is expressed by the class, in turn defined by a set. The precise s
         name: "Hidden Token Annotation"
         description: "This annotation type allows for a hidden token layer in the document. Hidden tokens are ignored for most intents and purposes but may serve a purpose when annotations on implicit tokens is required, for example as targets for syntactic movement annotation."
         history: "Since v2.0"
+    modality:
+        name: "Modality Annotation"
+        description: "Modality annotation is used to describe the relationship between cue word(s) and the scope it covers. It is primarily used for the annotation of negation, but also for the annotation of factuality, certainty and truthfulness:."
+        history: "Since v2.3.1"
 
 categories:
     structure:
@@ -544,6 +548,18 @@ elements:
                       label: "Target"
                       occurrences: 1
                       primaryelement: false
+                - class: Cue
+                  properties:
+                      xmltag: "cue"
+                      label: "Cue"
+                      occurrences: 1
+                      primaryelement: false
+                - class: Scope
+                  properties:
+                      xmltag: "scope"
+                      label: "Scope"
+                      occurrences: 1
+                      primaryelement: false
           - class: Chunk
             properties:
                 annotationtype: CHUNKING
@@ -557,6 +573,13 @@ elements:
                 xmltag: "coreferencechain"
                 label: "Coreference Chain"
                 required_data: [ CoreferenceLink ]
+          - class: Modality
+            properties:
+                annotationtype: MODALITY
+                accepted_data: [ Scope, Feature, Cue, Source, Target ]
+                xmltag: "modality"
+                label: "Modality"
+                required_data: [ Cue ]
           - class: Dependency
             properties:
                 annotationtype: DEPENDENCY
