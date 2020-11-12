@@ -1,28 +1,28 @@
 .. DO NOT REMOVE ANY foliaspec COMMENTS NOR EDIT THE TEXT BLOCK IMMEDIATELY FOLLOWING SUCH COMMENTS! THEY WILL BE AUTOMATICALLY UPDATED BY THE foliaspec TOOL!
 
-.. _sentiment_annotation:
+.. _modality_annotation:
 
-Sentiment Annotation
+Modality Annotation
 ==================================================================
 
-.. foliaspec:annotationtype_description(sentiment)
-Sentiment analysis marks subjective information such as sentiments or attitudes expressed in text. The sentiments/attitudes are defined by a user-defined set definition.
+.. foliaspec:annotationtype_description(modality)
+Modality is usually defined as the expression of the speaker's opinion and of his attitude towards what he is saying (Palmer,  1986). This annotation type is used for the annotation of sentiments, certainty, negation and  truthfulness. The modalities are defined by a user-defined set definition.
 
 .. note::
 
-   This annotation type is deprecated because it overlaps with modality annotation (:ref:`_modality_annotation`). Modality annotation is now
+   This annotation type has overlap with sentiment annotation (:ref:`_sentiment_annotation`). Modality annotation is now
    preferred over sentiment annotation, as it is more generic.
 
 Specification
 ---------------
 
-.. foliaspec:specification(sentiment)
+.. foliaspec:specification(modality)
 :Annotation Category: :ref:`span_annotation_category`
-:Declaration: ``<sentiment-annotation set="...">`` *(note: set is optional for this annotation type; if you declare this annotation type to be setless you can not assign classes)*
-:Version History: since v1.3
-:**Element**: ``<sentiment>``
-:API Class: ``Sentiment`` (`FoLiApy API Reference <https://foliapy.readthedocs.io/en/latest/_autosummary/folia.main.Sentiment.html>`_)
-:Layer Element: ``<sentiments>``
+:Declaration: ``<modality-annotation set="...">`` *(note: set is optional for this annotation type; if you declare this annotation type to be setless you can not assign classes)*
+:Version History: since v2.4.0
+:**Element**: ``<modality>``
+:API Class: ``modality`` (`FoLiApy API Reference <https://foliapy.readthedocs.io/en/latest/_autosummary/folia.main.modality.html>`_)
+:Layer Element: ``<modalities>``
 :Span Role Elements: ``<hd>`` (``Headspan``), ``<source>`` (``Source``), ``<target>`` (``Target``)
 :Required Attributes:
 :Optional Attributes: * ``xml:id`` -- The ID of the element; this has to be a unique in the entire document or collection of documents (corpus). All identifiers in FoLiA are of the `XML NCName <https://www.w3.org/TR/1999/WD-xmlschema-2-19990924/#NCName>`_ datatype, which roughly means it is a unique string that has to start with a letter (not a number or symbol), may contain numbers, but may never contain colons or spaces. FoLiA does not define any naming convention for IDs.
@@ -40,9 +40,9 @@ Specification
                       * ``endtime`` -- A timestamp in ``HH:MM:SS.MMM`` format, indicating the end time of the speech. If a sound clip is specified (``src``); the timestamp refers to a location in the soundclip.
                       * ``speaker`` -- A string identifying the speaker. This attribute is inheritable. Multiple speakers are not allowed, simply do not specify a speaker on a certain level if you are unable to link the speech to a specific (single) speaker.
 :Accepted Data: ``<comment>`` (:ref:`comment_annotation`), ``<desc>`` (:ref:`description_annotation`), ``<metric>`` (:ref:`metric_annotation`), ``<relation>`` (:ref:`relation_annotation`)
-:Valid Context: ``<sentiments>`` (:ref:`sentiment_annotation`)
+:Valid Context: ``<modalities>`` (:ref:`modality_annotation`)
 :Feature subsets (extra attributes): * ``polarity``
-                                   * ``strength``
+                                     * ``strength``
 
 Explanation
 -------------------------
@@ -51,15 +51,15 @@ Explanation
 
     Please first ensure you are familiar with the general principles of :ref:`span_annotation_category` to make sense of this annotation type.
 
-Sentiment analysis marks subjective information such as sentiments or attitudes
-expressed in text. The ``<sentiment>`` span annotation element is used to
-this end. It is embedded in a ``<sentiments>`` layer.
+Modality analysis marks things such as sentiments, truthfulness, negation, doubt. The ``<modality>`` span annotation element is used to
+this end. It is embedded in a ``<modalities>`` layer.
 
-The ``<sentiment>`` element takes the following span roles:
+The ``<modalities>`` element takes the following span roles:
 
-* ``<hd>`` -- (required) -- The head of the sentiment; expresses the actual sentiment, it covers word spans such as ``happy'', ``very satisfied'', ``highly dissappointed''.
-* ``<source>`` -- (optional) -- The source/holder of the sentiment, assuming it is explicitly expressed in the text.
-* ``<target>`` -- (optional) -- The target/recipient of the sentiment, assuming it is explicitly expressed in the text.
+* ``<cue>`` -- (required) -- The cue or trigger of the modality. In case of sentiments, this expresses the actual sentiment and could cover word spans such as "happy", "very satisfied", "highly dissappointed". This may also be nested inside ``<scope>``.
+* ``<scope>`` -- (optional) -- The scope of the modality. In case of negation for example, this covers the text that is negated.
+* ``<source>`` -- (optional) -- The source/holder of the modality, assuming it is explicitly expressed in the text. This may also be nested inside ``<scope>``.
+* ``<target>`` -- (optional) -- The target/recipient of the modality, assuming it is explicitly expressed in the text. This may also be nested inside ``<scope>``.
 
 The following feature subsets are predefined (see :ref:`features`), whether they are actually used depends on the set, their values (classes) are set-dependent as well:
 
@@ -71,7 +71,7 @@ Besides these predefined features, FoLiA's feature mechanism can be used to asso
 Example
 -------------------------
 
-.. literalinclude:: ../../examples/sentiments.2.0.0.folia.xml
+.. literalinclude:: ../../examples/modality-sentiments.2.4.0.folia.xml
     :linenos:
     :language: xml
 
