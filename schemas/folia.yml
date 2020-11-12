@@ -560,6 +560,7 @@ elements:
                       label: "Scope"
                       occurrences: 1
                       primaryelement: false
+                      accepted_data: [Cue, Source, Target]
           - class: Chunk
             properties:
                 annotationtype: CHUNKING
@@ -579,7 +580,7 @@ elements:
                 accepted_data: [ Scope, Feature, Cue, Source, Target ]
                 xmltag: "modality"
                 label: "Modality"
-                required_data: [ Cue ]
+                required_data: [ ]
           - class: Dependency
             properties:
                 annotationtype: DEPENDENCY
