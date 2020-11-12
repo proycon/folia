@@ -460,6 +460,12 @@ elements:
                 xmltag: "timing"
                 annotationtype: TIMESEGMENT
                 primaryelement: false
+          - class: ModalitiesLayer
+            properties:
+                accepted_data: [ Modality ]
+                xmltag: "modalities"
+                annotationtype: MODALITY
+                primaryelement: false
     - class: AbstractCorrectionChild
       properties:
           speakable: true
