@@ -586,7 +586,6 @@ elements:
                 accepted_data: [ Scope, Feature, Cue, Source, Target ]
                 xmltag: "modality"
                 label: "Modality"
-                required_data: [ ]
           - class: Dependency
             properties:
                 annotationtype: DEPENDENCY
