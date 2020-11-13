@@ -19,7 +19,7 @@ Specification
 :API Class: ``CoreferenceChain`` (`FoLiApy API Reference <https://foliapy.readthedocs.io/en/latest/_autosummary/folia.main.CoreferenceChain.html>`_)
 :Layer Element: ``<coreferences>``
 :Span Role Elements: ``<coreferencelink>`` (``CoreferenceLink``)
-:Required Attributes: 
+:Required Attributes:
 :Optional Attributes: * ``xml:id`` -- The ID of the element; this has to be a unique in the entire document or collection of documents (corpus). All identifiers in FoLiA are of the `XML NCName <https://www.w3.org/TR/1999/WD-xmlschema-2-19990924/#NCName>`_ datatype, which roughly means it is a unique string that has to start with a letter (not a number or symbol), may contain numbers, but may never contain colons or spaces. FoLiA does not define any naming convention for IDs.
                       * ``set`` -- The set of the element, ideally a URI linking to a set definition (see :ref:`set_definitions`) or otherwise a uniquely identifying string. The ``set`` must be referred to also in the :ref:`annotation_declarations` for this annotation type.
                       * ``class`` -- The class of the annotation, i.e. the annotation tag in the vocabulary defined by ``set``.
@@ -61,7 +61,7 @@ on the set used and are thus user-definable and never predefined:
 
 .. as suggested by Orphee De Clerq:
 
-* ``modality`` - A subset that can be used to indicate that there is modality or negation in this coreference link.
+* ``mod`` - A subset that can be used to indicate that there is modality or negation in this coreference link.
 * ``time``  - A subset used to indicate a time dependency. An example of a time dependency is seen in the sentence: *"Bert De Graeve, until recently CEO, will now take up a position as CFO"*. Here
 "Bert De Graeve", "CEO"  and "CFO" would all be part of the same coreference chain, and the second coreferencelink ("CEO") can be marked as being in the past using the "time" attribute.
 * ``level`` - A subset used that can indicate the level on which the coreference holds. A possible value suggestion could be ``sense``, indicating that only on sense-level there is a coreference relation, as opposed to an actual reference.
