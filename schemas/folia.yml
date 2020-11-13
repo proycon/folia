@@ -583,7 +583,7 @@ elements:
           - class: Modality
             properties:
                 annotationtype: MODALITY
-                accepted_data: [ Scope, Feature, Cue, Source, Target ]
+                accepted_data: [ Scope, Feature, Cue, Source, Target, PolarityFeature, StrengthFeature ]
                 xmltag: "modality"
                 label: "Modality"
           - class: Dependency
