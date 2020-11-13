@@ -4,7 +4,7 @@ FoLiA: Format for Linguistic Annotation -  Documentation and Reference Guide
 
 .. foliaspec:version
 .. The FoLiA version
-version: 2.2.1
+version: 2.4.0
 
 .. topic:: Abstract
 

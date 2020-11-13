@@ -6,7 +6,7 @@ Modality Annotation
 ==================================================================
 
 .. foliaspec:annotationtype_description(modality)
-Modality is usually defined as the expression of the speaker's opinion and of his attitude towards what he is saying (Palmer,  1986). This annotation type is used for the annotation of sentiments, certainty, negation and  truthfulness. The modalities are defined by a user-defined set definition.
+Modality annotation is used to describe the relationship between cue word(s) and the scope it covers. It is primarily used for the annotation of negation, but also for the annotation of factuality, certainty and truthfulness:.
 
 .. note::
 
@@ -19,12 +19,12 @@ Specification
 .. foliaspec:specification(modality)
 :Annotation Category: :ref:`span_annotation_category`
 :Declaration: ``<modality-annotation set="...">`` *(note: set is optional for this annotation type; if you declare this annotation type to be setless you can not assign classes)*
-:Version History: since v2.4.0
+:Version History: Since v2.3.1
 :**Element**: ``<modality>``
-:API Class: ``modality`` (`FoLiApy API Reference <https://foliapy.readthedocs.io/en/latest/_autosummary/folia.main.modality.html>`_)
+:API Class: ``Modality`` (`FoLiApy API Reference <https://foliapy.readthedocs.io/en/latest/_autosummary/folia.main.Modality.html>`_)
 :Layer Element: ``<modalities>``
-:Span Role Elements: ``<hd>`` (``Headspan``), ``<source>`` (``Source``), ``<target>`` (``Target``)
-:Required Attributes:
+:Span Role Elements: ``<cue>`` (``Cue``), ``<scope>`` (``Scope``), ``<source>`` (``Source``), ``<target>`` (``Target``)
+:Required Attributes: 
 :Optional Attributes: * ``xml:id`` -- The ID of the element; this has to be a unique in the entire document or collection of documents (corpus). All identifiers in FoLiA are of the `XML NCName <https://www.w3.org/TR/1999/WD-xmlschema-2-19990924/#NCName>`_ datatype, which roughly means it is a unique string that has to start with a letter (not a number or symbol), may contain numbers, but may never contain colons or spaces. FoLiA does not define any naming convention for IDs.
                       * ``set`` -- The set of the element, ideally a URI linking to a set definition (see :ref:`set_definitions`) or otherwise a uniquely identifying string. The ``set`` must be referred to also in the :ref:`annotation_declarations` for this annotation type.
                       * ``class`` -- The class of the annotation, i.e. the annotation tag in the vocabulary defined by ``set``.
@@ -42,7 +42,7 @@ Specification
 :Accepted Data: ``<comment>`` (:ref:`comment_annotation`), ``<desc>`` (:ref:`description_annotation`), ``<metric>`` (:ref:`metric_annotation`), ``<relation>`` (:ref:`relation_annotation`)
 :Valid Context: ``<modalities>`` (:ref:`modality_annotation`)
 :Feature subsets (extra attributes): * ``polarity``
-                                     * ``strength``
+                                   * ``strength``
 
 Explanation
 -------------------------

@@ -79,6 +79,7 @@ FoLiA defines the following types of span annotation:
    - :ref:`observation_annotation` -- ``<observation>`` -- Observation annotation is used to make an observation pertaining to one or more word tokens.  Observations offer a an external qualification on part of a text. The qualification is expressed by the class, in turn defined by a set. The precise semantics of the observation depends on the user-defined set.
    - :ref:`sentiment_annotation` -- ``<sentiment>`` -- Sentiment analysis marks subjective information such as sentiments or attitudes expressed in text. The sentiments/attitudes are defined by a user-defined set definition.
    - :ref:`statement_annotation` -- ``<statement>`` -- Statement annotation, sometimes also refered to as attribution, allows to decompose statements into the source of the statement, the content of the statement, and the way these relate, provided these are made explicit in the text.
+   - :ref:`modality_annotation` -- ``<modality>`` -- Modality annotation is used to describe the relationship between cue word(s) and the scope it covers. It is primarily used for the annotation of negation, but also for the annotation of factuality, certainty and truthfulness:.
 
 .. foliaspec:begin:toctree(span,hidden)
 .. toctree::
@@ -96,6 +97,7 @@ FoLiA defines the following types of span annotation:
    observation_annotation
    sentiment_annotation
    statement_annotation
+   modality_annotation
 
 .. foliaspec:end:toctree
 
