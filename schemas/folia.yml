@@ -1083,7 +1083,7 @@ elements:
               - class: ModalityFeature
                 properties:
                     xmltag: null
-                    subset: "modality"
+                    subset: "mod"
               - class: PolarityFeature
                 properties:
                     xmltag: null
