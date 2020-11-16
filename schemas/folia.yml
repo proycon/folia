@@ -82,7 +82,7 @@ attributes_doc:
 
 
 #All possible annotation types, each must be declared in the FoLiA header when used
-annotationtype: [ TEXT, TOKEN, DIVISION, PARAGRAPH, HEAD, LIST, FIGURE, WHITESPACE, LINEBREAK, SENTENCE, POS, LEMMA, DOMAIN, SENSE, SYNTAX, CHUNKING, ENTITY, CORRECTION, ERRORDETECTION, PHON, SUBJECTIVITY, MORPHOLOGICAL, EVENT, DEPENDENCY, TIMESEGMENT, GAP, QUOTE, NOTE, REFERENCE, RELATION, SPANRELATION, COREFERENCE, SEMROLE, METRIC, LANG, STRING, TABLE, STYLE, PART, UTTERANCE, ENTRY, TERM, DEFINITION, EXAMPLE, PHONOLOGICAL, PREDICATE, OBSERVATION, SENTIMENT, STATEMENT, ALTERNATIVE, RAWCONTENT, COMMENT, DESCRIPTION, HYPHENATION, HIDDENTOKEN, MODALITY ]
+annotationtype: [ TEXT, TOKEN, DIVISION, PARAGRAPH, HEAD, LIST, FIGURE, WHITESPACE, LINEBREAK, SENTENCE, POS, LEMMA, DOMAIN, SENSE, SYNTAX, CHUNKING, ENTITY, CORRECTION, ERRORDETECTION, PHON, SUBJECTIVITY, MORPHOLOGICAL, EVENT, DEPENDENCY, TIMESEGMENT, GAP, QUOTE, NOTE, REFERENCE, RELATION, SPANRELATION, COREFERENCE, SEMROLE, METRIC, LANG, STRING, TABLE, STYLE, PART, UTTERANCE, ENTRY, TERM, DEFINITION, EXAMPLE, PHONOLOGICAL, PREDICATE, OBSERVATION, SENTIMENT, STATEMENT, ALTERNATIVE, RAWCONTENT, COMMENT, DESCRIPTION, HYPHENATION, HIDDENTOKEN, MODALITY, EXTERNAL ]
 
 #Documentation of annotation types (reStructuredText)
 annotationtype_doc:
@@ -317,7 +317,11 @@ qualification is expressed by the class, in turn defined by a set. The precise s
     modality:
         name: "Modality Annotation"
         description: "Modality annotation is used to describe the relationship between cue word(s) and the scope it covers. It is primarily used for the annotation of negation, but also for the annotation of factuality, certainty and truthfulness:."
-        history: "Since v2.3.1"
+        history: "Since v2.4.0"
+    external:
+        name: "External Annotation"
+        description: "External annotation makes a reference to an external FoLiA document whose structure is inserted at the exact place the external element occurs."
+        history: "Since v2.4.0"
 
 categories:
     structure:
@@ -649,7 +653,7 @@ elements:
           textdelimiter: "\n\n"
           speakable: true
           optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA, SPACE ]
-          accepted_data: [AbstractAnnotationLayer, Relation, Alternative, AlternativeLayers, Correction, Feature, Metric, Part, ForeignData]
+          accepted_data: [AbstractAnnotationLayer, External, Relation, Alternative, AlternativeLayers, Correction, Feature, Metric, Part, ForeignData]
           auto_generate_id: true
       elements:
           - class: Caption
@@ -1043,13 +1047,13 @@ elements:
               optional_attribs: [ ID, ANNOTATOR, CONFIDENCE, DATETIME, N, METADATA ]
         - class: External
           properties:
-              speakable: false
-              optional_attribs: null
+              annotationtype: EXTERNAL
+              speakable: true
               xmltag: "external"
               label: "External"
               required_attribs: [ SRC ]
+              optional_attribs: [ ID, ANNOTATOR, CONFIDENCE, DATETIME, N, METADATA, BEGINTIME, ENDTIME ]
               accepted_data: null
-              auth: true
               printable: true
         - class: Feature
           properties:

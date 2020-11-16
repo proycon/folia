@@ -35,5 +35,6 @@ FoLiA defines the following types of higher-order annotation:
    alternative_annotation
    comment_annotation
    description_annotation
+   external_annotation
 
 .. foliaspec:end:toctree
