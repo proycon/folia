@@ -2584,6 +2584,50 @@ RelaxNG schema for FoLiA XML v2.4.0
                   </element>
                 </zeroOrMore>
               </element>
+              <element name="external-annotation">
+                <optional>
+                  <attribute name="set">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="alias">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="annotator">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="annotatortype">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="datetime">
+                    <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="format">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <zeroOrMore>
+                  <element name="annotator">
+                    <attribute name="processor">
+                      <data type="IDREF" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                    </attribute>
+                  </element>
+                </zeroOrMore>
+              </element>
             </choice>
           </zeroOrMore>
         </element>
@@ -4118,6 +4162,9 @@ RelaxNG schema for FoLiA XML v2.4.0
           <ref name="desc"/>
         </optional>
         <zeroOrMore>
+          <ref name="external"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="feat"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -4402,6 +4449,9 @@ RelaxNG schema for FoLiA XML v2.4.0
         <optional>
           <ref name="desc"/>
         </optional>
+        <zeroOrMore>
+          <ref name="external"/>
+        </zeroOrMore>
         <zeroOrMore>
           <ref name="feat"/>
         </zeroOrMore>
@@ -4699,6 +4749,9 @@ RelaxNG schema for FoLiA XML v2.4.0
           <ref name="desc"/>
         </optional>
         <zeroOrMore>
+          <ref name="external"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="feat"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -4881,6 +4934,9 @@ RelaxNG schema for FoLiA XML v2.4.0
         <optional>
           <ref name="desc"/>
         </optional>
+        <zeroOrMore>
+          <ref name="external"/>
+        </zeroOrMore>
         <zeroOrMore>
           <ref name="feat"/>
         </zeroOrMore>
@@ -5076,6 +5132,9 @@ RelaxNG schema for FoLiA XML v2.4.0
         <optional>
           <ref name="desc"/>
         </optional>
+        <zeroOrMore>
+          <ref name="external"/>
+        </zeroOrMore>
         <zeroOrMore>
           <ref name="feat"/>
         </zeroOrMore>
@@ -5499,6 +5558,9 @@ RelaxNG schema for FoLiA XML v2.4.0
         <optional>
           <ref name="desc"/>
         </optional>
+        <zeroOrMore>
+          <ref name="external"/>
+        </zeroOrMore>
         <zeroOrMore>
           <ref name="feat"/>
         </zeroOrMore>
@@ -8440,7 +8502,7 @@ RelaxNG schema for FoLiA XML v2.4.0
         <attribute name="level"/>
       </optional>
       <optional>
-        <attribute name="modality"/>
+        <attribute name="mod"/>
       </optional>
       <optional>
         <attribute name="time"/>
@@ -11030,6 +11092,9 @@ RelaxNG schema for FoLiA XML v2.4.0
           <ref name="ex"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="external"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="feat"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -11255,6 +11320,9 @@ RelaxNG schema for FoLiA XML v2.4.0
           <ref name="desc"/>
         </optional>
         <zeroOrMore>
+          <ref name="external"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="feat"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -11478,6 +11546,9 @@ RelaxNG schema for FoLiA XML v2.4.0
         </optional>
         <zeroOrMore>
           <ref name="event"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="external"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="feat"/>
@@ -11705,6 +11776,9 @@ RelaxNG schema for FoLiA XML v2.4.0
           <ref name="desc"/>
         </optional>
         <zeroOrMore>
+          <ref name="external"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="feat"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -11910,6 +11984,9 @@ RelaxNG schema for FoLiA XML v2.4.0
         </optional>
         <zeroOrMore>
           <ref name="ex"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="external"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="feat"/>
@@ -12477,6 +12554,9 @@ RelaxNG schema for FoLiA XML v2.4.0
           <ref name="div"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="external"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="feat"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -12702,6 +12782,9 @@ RelaxNG schema for FoLiA XML v2.4.0
           <ref name="ex"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="external"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="feat"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -12914,6 +12997,9 @@ RelaxNG schema for FoLiA XML v2.4.0
         <optional>
           <ref name="desc"/>
         </optional>
+        <zeroOrMore>
+          <ref name="external"/>
+        </zeroOrMore>
         <zeroOrMore>
           <ref name="feat"/>
         </zeroOrMore>
@@ -13146,6 +13232,9 @@ RelaxNG schema for FoLiA XML v2.4.0
           <ref name="ex"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="external"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="feat"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -13370,6 +13459,9 @@ RelaxNG schema for FoLiA XML v2.4.0
           <ref name="desc"/>
         </optional>
         <zeroOrMore>
+          <ref name="external"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="feat"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -13580,6 +13672,9 @@ RelaxNG schema for FoLiA XML v2.4.0
           <ref name="desc"/>
         </optional>
         <zeroOrMore>
+          <ref name="external"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="feat"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -13772,6 +13867,9 @@ RelaxNG schema for FoLiA XML v2.4.0
         </optional>
         <zeroOrMore>
           <ref name="event"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="external"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="feat"/>
@@ -13987,6 +14085,9 @@ RelaxNG schema for FoLiA XML v2.4.0
         </optional>
         <zeroOrMore>
           <ref name="event"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="external"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="feat"/>
@@ -14220,6 +14321,9 @@ RelaxNG schema for FoLiA XML v2.4.0
           <ref name="event"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="external"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="feat"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -14405,6 +14509,9 @@ RelaxNG schema for FoLiA XML v2.4.0
         <optional>
           <ref name="desc"/>
         </optional>
+        <zeroOrMore>
+          <ref name="external"/>
+        </zeroOrMore>
         <zeroOrMore>
           <ref name="feat"/>
         </zeroOrMore>
@@ -14598,6 +14705,9 @@ RelaxNG schema for FoLiA XML v2.4.0
         </optional>
         <zeroOrMore>
           <ref name="event"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="external"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="feat"/>
@@ -14822,6 +14932,9 @@ RelaxNG schema for FoLiA XML v2.4.0
           <ref name="ex"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="external"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="feat"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -15044,6 +15157,9 @@ RelaxNG schema for FoLiA XML v2.4.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="ex"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="external"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="feat"/>
@@ -15274,6 +15390,9 @@ RelaxNG schema for FoLiA XML v2.4.0
           <ref name="desc"/>
         </optional>
         <zeroOrMore>
+          <ref name="external"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="feat"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -15440,6 +15559,9 @@ RelaxNG schema for FoLiA XML v2.4.0
         <optional>
           <ref name="desc"/>
         </optional>
+        <zeroOrMore>
+          <ref name="external"/>
+        </zeroOrMore>
         <zeroOrMore>
           <ref name="feat"/>
         </zeroOrMore>
@@ -15623,6 +15745,9 @@ RelaxNG schema for FoLiA XML v2.4.0
         <optional>
           <ref name="desc"/>
         </optional>
+        <zeroOrMore>
+          <ref name="external"/>
+        </zeroOrMore>
         <zeroOrMore>
           <ref name="feat"/>
         </zeroOrMore>
@@ -15823,6 +15948,9 @@ RelaxNG schema for FoLiA XML v2.4.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="ex"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="external"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="feat"/>
