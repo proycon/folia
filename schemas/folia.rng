@@ -7264,11 +7264,6 @@ RelaxNG schema for FoLiA XML v2.4.0
       <attribute name="src">
         <text/>
       </attribute>
-      <optional>
-        <attribute name="include">
-          <text/>
-        </attribute>
-      </optional>
     </element>
   </define>
 
