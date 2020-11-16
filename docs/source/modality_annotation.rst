@@ -24,7 +24,7 @@ Specification
 :API Class: ``Modality`` (`FoLiApy API Reference <https://foliapy.readthedocs.io/en/latest/_autosummary/folia.main.Modality.html>`_)
 :Layer Element: ``<modalities>``
 :Span Role Elements: ``<cue>`` (``Cue``), ``<scope>`` (``Scope``), ``<source>`` (``Source``), ``<target>`` (``Target``)
-:Required Attributes: 
+:Required Attributes:
 :Optional Attributes: * ``xml:id`` -- The ID of the element; this has to be a unique in the entire document or collection of documents (corpus). All identifiers in FoLiA are of the `XML NCName <https://www.w3.org/TR/1999/WD-xmlschema-2-19990924/#NCName>`_ datatype, which roughly means it is a unique string that has to start with a letter (not a number or symbol), may contain numbers, but may never contain colons or spaces. FoLiA does not define any naming convention for IDs.
                       * ``set`` -- The set of the element, ideally a URI linking to a set definition (see :ref:`set_definitions`) or otherwise a uniquely identifying string. The ``set`` must be referred to also in the :ref:`annotation_declarations` for this annotation type.
                       * ``class`` -- The class of the annotation, i.e. the annotation tag in the vocabulary defined by ``set``.
@@ -71,7 +71,15 @@ Besides these predefined features, FoLiA's feature mechanism can be used to asso
 Example
 -------------------------
 
+An example of sentiment analysis:
+
 .. literalinclude:: ../../examples/modality-sentiments.2.4.0.folia.xml
+    :linenos:
+    :language: xml
+
+An example of negation annotation:
+
+.. literalinclude:: ../../examples/modality-negation.2.4.0.folia.xml
     :linenos:
     :language: xml
 
