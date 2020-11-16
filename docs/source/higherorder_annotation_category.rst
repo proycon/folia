@@ -20,6 +20,7 @@ FoLiA defines the following types of higher-order annotation:
    - :ref:`alternative_annotation` -- ``<alt>`` -- This form of higher-order annotation encapsulates alternative annotations, i.e. annotations that are posed as an alternative option rather than the authoratitive chosen annotation
    - :ref:`comment_annotation` -- ``<comment>`` -- This is a form of higher-order annotation that allows you to associate comments with almost all other annotation elements
    - :ref:`description_annotation` -- ``<desc>`` -- This is a form of higher-order annotation that allows you to associate descriptions with almost all other annotation elements
+   - :ref:`external_annotation` -- ``<external>`` -- External annotation makes a reference to an external FoLiA document whose structure is inserted at the exact place the external element occurs.
 
 .. foliaspec:begin:toctree(higherorder,hidden)
 .. toctree::

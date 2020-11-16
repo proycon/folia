@@ -19,7 +19,7 @@ Specification
 .. foliaspec:specification(modality)
 :Annotation Category: :ref:`span_annotation_category`
 :Declaration: ``<modality-annotation set="...">`` *(note: set is optional for this annotation type; if you declare this annotation type to be setless you can not assign classes)*
-:Version History: Since v2.3.1
+:Version History: Since v2.4.0
 :**Element**: ``<modality>``
 :API Class: ``Modality`` (`FoLiApy API Reference <https://foliapy.readthedocs.io/en/latest/_autosummary/folia.main.Modality.html>`_)
 :Layer Element: ``<modalities>``
