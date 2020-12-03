@@ -144,7 +144,7 @@ define the set and refer to all the classes it contains:
         a skos:Collection ;
         skos:notation	"simplepos" ;
         skos:prefLabel "A simple part of speech set" ;
-        skos:member <#N> , <#V> , <#A> ;
+        skos:member <#N> , <#V> , <#A> .
 
 Then we define the classes:
 
@@ -281,7 +281,7 @@ the same ``skos:member`` relation as is used for classes/concepts.
     <#gender.m>
         a skos:Concept ;
         skos:notation	"m" ;
-        skos:prefLabel "Location" ;
+        skos:prefLabel "Location" .
 
 Note that in this example, we prefixed the resource name for the class
 (``#gender.m`` instead of ``#m``). This is just a recommended
