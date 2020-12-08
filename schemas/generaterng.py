@@ -22,6 +22,7 @@ RelaxNG schema for FoLiA XML v%s
     by Maarten van Gompel
     Centre for Language and Speech Technology
     Radboud University Nijmegen
+    and KNAW Humanities Cluster
 
     https://proycon.github.io/folia
     https://github.com/proycon/folia
