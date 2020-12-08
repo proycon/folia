@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<FoLiA xmlns="http://ilk.uvt.nl/folia" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="OllevierGeets" version="2.4.0" generator="foliapy-v2.4.1">
+  <metadata type="native">
+    <annotations>
+      <string-annotation set="FoLiA-hocr-set">
+        <annotator processor="proc.foliacat.4e6bc4d5"/>
+      </string-annotation>
+      <paragraph-annotation>
+        <annotator processor="proc.foliacat.4e6bc4d5"/>
+      </paragraph-annotation>
+      <text-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/text.foliaset.ttl">
+        <annotator processor="proc.foliacat.4e6bc4d5"/>
+      </text-annotation>
+      <relation-annotation>
+        <annotator processor="proc.foliacat.4e6bc4d5"/>
+      </relation-annotation>
+      <correction-annotation set="Ticcl-set">
+        <annotator processor="FoLiA-correct.1"/>
+      </correction-annotation>
+    </annotations>
+    <provenance>
+      <processor xml:id="proc.foliacat.4e6bc4d5" name="foliacat" type="auto" version="2.4.2" folia_version="2.4.0" command="foliacat -i OllevierGeets -o OllevierGeets.ocr.folia.xml 1.tif.folia.xml 2.tif.folia.xml 3.tif.folia.xml 4.tif.folia.xml 5.tif.folia.xml 6.tif.folia.xml" host="mhysa.anaproy.nl" user="proycon" begindatetime="2020-12-08T11:15:06">
+        <processor xml:id="proc.foliacat.4e6bc4d5.generator" name="foliapy" type="generator" version="2.4.1" folia_version="2.4.0" src="https://github.com/proycon/foliapy"/>
+      </processor>
+      <processor xml:id="FoLiA-correct.1" name="FoLiA-correct" type="auto" version="0.16" folia_version="2.4.0" command="FoLiA-correct --inputclass=OCR --outputclass=current --nums=10 -e folia.xml -O outputdir/ --unk=corpus.wordfreqlist.tsv.unk --punct=corpus.wordfreqlist.tsv.punct --rank=corpus.wordfreqlist.tsv.clean.ldcalc.ranked.chained.ranked -t 8" host="mhysa.anaproy.nl" user="proycon" begindatetime="2020-12-08T11:15:17">
+        <processor xml:id="FoLiA-correct.1.generator" name="libfolia" type="generator" version="2.6.1" folia_version="2.4.0"/>
+      </processor>
+      <processor xml:id="proc.foliatextcontent.21ac6651" name="foliatextcontent" type="auto" version="2.4.2" folia_version="2.4.0" command="foliatextcontent -M OllevierGeets.ocr.foliacorrect.folia.xml" host="mhysa.anaproy.nl" user="proycon" begindatetime="2020-12-08T11:15:17" src="https://github.com/proycon/foliatools">
+        <processor xml:id="proc.foliatextcontent.21ac6651.generator" name="foliapy" type="generator" version="2.4.1" folia_version="2.4.0" src="https://github.com/proycon/foliapy"/>
+      </processor>
+    </provenance>
+  </metadata>
+  <text xml:id="OllevierGeets.text">
+    <p xml:id="FH-OllevierGeets-1.tif.text.par_1_21">
+      <t>
+        <t-str id="FH-OllevierGeets-1.tif.text.par_1_21.word_1_233">INTRODUCTION</t-str>
+      </t>
+      <t class="OCR">
+        <t-str id="FH-OllevierGeets-1.tif.text.par_1_21.word_1_233">INTRODUCTION</t-str>
+      </t>
+      <str xml:id="FH-OllevierGeets-1.tif.text.par_1_21.word_1_233">
+        <t offset="0">INTRODUCTION</t>
+        <t offset="0" class="OCR">INTRODUCTION</t>
+        <relation format="text/hocr+xml" xlink:href="OllevierGeets-1.hocr" xlink:type="simple">
+          <xref id="word_1_233" type="str"/>
+        </relation>
+      </str>
+    </p>
+  </text>
+</FoLiA>
