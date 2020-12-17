@@ -17,7 +17,7 @@ Specification
 :Version History: Since the beginning, revised since v0.6
 :**Element**: ``<t>``
 :API Class: ``TextContent`` (`FoLiApy API Reference <https://foliapy.readthedocs.io/en/latest/_autosummary/folia.main.TextContent.html>`_)
-:Required Attributes: 
+:Required Attributes:
 :Optional Attributes: * ``set`` -- The set of the element, ideally a URI linking to a set definition (see :ref:`set_definitions`) or otherwise a uniquely identifying string. The ``set`` must be referred to also in the :ref:`annotation_declarations` for this annotation type.
                       * ``class`` -- The class of the annotation, i.e. the annotation tag in the vocabulary defined by ``set``.
                       * ``processor`` -- This refers to the ID of a processor in the :ref:`provenance_data`. The processor in turn defines exactly who or what was the annotator of the annotation.
@@ -164,6 +164,80 @@ correspond with the text on a deeper level, as in the following *erroneous examp
 
 FoLiA validators (since version 1.5) will not accept this and produce a *text consistency error*, so this is invalid
 FoLiA and should be rejected. Similar text consistency errors occur if you specify offsets that are incorrect.
+
+Whitespace
+--------------------------
+
+Leading and trailing whitespace within a text content element is not significant (since version 2.4.1 but with backward
+effect). This applies to spaces, tabs, newlines and carriage returns, so all of the following snippets are interpreted
+like this first one and the offset for ``To`` is 0:
+
+.. code-block:: xml
+
+   <t>To be or not to be</t>
+
+   <t> To be or not to be</t>
+
+   <t>     To be or not to be</t>
+
+   <t>To be or not to be </t>
+
+   <t>
+    To be or not to be</t>
+
+Whitepace in the middle of a text content element **is** significant, including spaces, tabs and newlines. This means
+that the following text really includes a newline and some indenting spaces, i.e. ``to be\n  or not to be``:
+
+.. code-block:: xml
+
+   <t>To be
+      or not to be</t>
+
+Encoding a newline explicitly with :ref:`linebreak_annotation` is preferred.
+
+This same principle, stripping leading and trailing whitespace but not intemediate whitespace, also applies to :ref:`textmarkup_annotation_category`, the following two are semantically identical:
+
+.. code-block:: xml
+
+    <t>To <t-style class="bold">be</t-style> or not to be</t>
+
+    <t>To <t-style class="bold"> be </t-style> or not to be</t>
+
+As are these two:
+
+.. code-block:: xml
+
+    <t><t-style class="bold">hello world</t-style></t>
+
+    <t>
+        <t-style class="bold">hello world</t-style>
+    </t>
+
+But these are not:
+
+.. code-block:: xml
+
+    <t>To <t-style class="bold">be</t-style> or not to be</t>
+
+    <t>To
+        <t-style class="bold">be</t-style>
+       or not to be</t>
+
+As mentioned before, empty text is explicitly forbidden in FoLiA. Considering all of the following are identical semantically, all will
+produce an empty text error:
+
+.. code-block:: xml
+
+    <t></t>
+
+    <t/>
+
+    <t>   </t>
+
+    <t>
+    </t>
+
+The rule here is, empty text is no text at all, so you should omit the ``<t>`` element entirely in such cases.
 
 .. _textclasses:
 
