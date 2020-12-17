@@ -911,6 +911,7 @@ elements:
                 primaryelement: false
           - class: TextMarkupStyle
             properties:
+                accepted_data: [ FontFeature, SizeFeature ]
                 annotationtype: STYLE
                 xmltag: "t-style"
                 primaryelement: true
@@ -1112,6 +1113,14 @@ elements:
                 properties:
                     xmltag: null
                     subset: "value"
+              - class: FontFeature
+                properties:
+                    xmltag: null
+                    subset: "font"
+              - class: SizeFeature
+                properties:
+                    xmltag: null
+                    subset: "size"
         - class: Metric
           properties:
               annotationtype: METRIC
