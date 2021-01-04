@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<FoLiA xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://ilk.uvt.nl/folia" xml:id="example.deep" version="2.4.2" generator="foliapy-v2.0.7">
+  <metadata type="native">
+    <annotations>
+      <text-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/text.foliaset.ttl"/>
+      <paragraph-annotation/>
+    </annotations>
+    <provenance>
+      <processor xml:id="proc.example.deep.pre-upgrade.5aeb339e" name="example.deep.pre-upgrade" type="datasource" folia_version="1.3.2" src="frog-deep.1.3.2.folia.xml" format="text/folia+xml"/>
+      <processor xml:id="proc.foliaupgrade.34a32c50" name="foliaupgrade" type="auto" version="2.0.5" folia_version="2.0.2" command="foliaupgrade -n frog-deep.1.3.2.folia.xml" host="mhysa.anaproy.nl" user="proycon" begindatetime="2019-04-15T18:40:06" src="https://github.com/proycon/foliatools">
+        <processor xml:id="proc.foliaupgrade.34a32c50.generator" name="foliapy" type="generator" version="2.0.7" folia_version="2.0.2" src="https://github.com/proycon/foliapy"/>
+        <processor xml:id="proc.ucto.1ae287c9" name="ucto" type="auto" begindatetime="2016-11-15T15:12:00"/>
+        <processor xml:id="proc.frog-mbpos-1.0.55a6b965" name="frog-mbpos-1.0" type="auto" begindatetime="2016-11-15T15:12:00"/>
+        <processor xml:id="proc.frog-mblem-1.1.c420ff6a" name="frog-mblem-1.1" type="auto" begindatetime="2016-11-15T15:12:00"/>
+        <processor xml:id="proc.frog-chunker-1.0.b8052711" name="frog-chunker-1.0" type="auto" begindatetime="2016-11-15T15:12:00"/>
+        <processor xml:id="proc.frog-ner-1.0.2fc870f2" name="frog-ner-1.0" type="auto" begindatetime="2016-11-15T15:12:00"/>
+        <processor xml:id="proc.frog-mwu-1.0.1fd06aea" name="frog-mwu-1.0" type="auto" begindatetime="2016-11-15T15:12:00"/>
+        <processor xml:id="proc.frog-depparse-1.0.900638ed" name="frog-depparse-1.0" type="auto"/>
+      </processor>
+      <processor xml:id="proc.manual" name="proycon" type="manual" version="2.4.2" folia_version="2.4.2" />
+    </provenance>
+    <meta id="title">Nova Zembla</meta>
+    <meta id="language">nld</meta>
+    <foreign-data xmlns:dc="http://purl.org/DC/elements/1.0/" xmlns:dcterms="http://purl.org/DC/terms/">
+        <dc:title>Nova Zembla</dc:title>
+        <dcterms:language>nld</dcterms:language>
+    </foreign-data>
+  </metadata>
+  <text xml:id="example.deep.text">
+    <p xml:id="example.deep.p.1">
+      <t>De Russen kennen Nova Zembla sinds de 11e of 12e eeuw, toen handelaars van Novgorod het eiland al aandeden. West-Europeanen ontdekten de eilanden in de 16e eeuw tijdens de zoektocht naar een noordoostelijke doorgang naar de Stille Oceaan.</t>
+    </p>
+  </text>
+</FoLiA>
+
