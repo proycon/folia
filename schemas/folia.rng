@@ -3845,6 +3845,9 @@ RelaxNG schema for FoLiA XML v2.4.2
         <optional>
           <ref name="desc"/>
         </optional>
+        <zeroOrMore>
+          <ref name="feat"/>
+        </zeroOrMore>
       </interleave>
     </element>
   </define>
@@ -3918,6 +3921,9 @@ RelaxNG schema for FoLiA XML v2.4.2
         <optional>
           <ref name="desc"/>
         </optional>
+        <zeroOrMore>
+          <ref name="feat"/>
+        </zeroOrMore>
       </interleave>
     </element>
   </define>
