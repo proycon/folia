@@ -1159,7 +1159,7 @@ elements:
               textcontainer: true
               printable: true
               speakable: false
-              accepted_data: [ AbstractTextMarkup, Linebreak ] #Linebreak doubles as a AbstractTextMarkup and AbstractStructureAnnotation element
+              accepted_data: [ AbstractTextMarkup, Linebreak, Feature ] #Linebreak doubles as a AbstractTextMarkup and AbstractStructureAnnotation element
               xmltag: "t"
               label: "Text"
               xlink: true
@@ -1167,7 +1167,7 @@ elements:
           properties:
               annotationtype: PHON
               printable: false
-              accepted_data: null
+              accepted_data: [ Feature ]
               phoncontainer: true
               speakable: true
               xmltag: "ph"
