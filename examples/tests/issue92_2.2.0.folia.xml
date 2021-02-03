@@ -1,0 +1,1134 @@
+<?xml version='1.0' encoding='utf-8'?>
+<FoLiA xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://ilk.uvt.nl/folia" version="2.2.0" xml:id="weve002leve01_01" generator="foliapy-v2.2.1">
+  <metadata type="native">
+    <annotations>
+      <text-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/text.foliaset.ttl">
+        <annotator processor="proc.tei2folia.xsl"/>
+      </text-annotation>
+      <division-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/tei2folia/divisions.foliaset.ttl">
+        <annotator processor="proc.tei2folia.xsl"/>
+      </division-annotation>
+      <paragraph-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/tei2folia/paragraphs.foliaset.ttl">
+        <annotator processor="proc.tei2folia.xsl"/>
+      </paragraph-annotation>
+      <head-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/tei2folia/heads.foliaset.ttl">
+        <annotator processor="proc.tei2folia.xsl"/>
+      </head-annotation>
+      <list-annotation>
+        <annotator processor="proc.tei2folia.xsl"/>
+      </list-annotation>
+      <table-annotation>
+        <annotator processor="proc.tei2folia.xsl"/>
+      </table-annotation>
+      <gap-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/tei2folia/gaps.foliaset.ttl">
+        <annotator processor="proc.tei2folia.xsl"/>
+      </gap-annotation>
+      <rawcontent-annotation>
+        <annotator processor="proc.tei2folia.xsl"/>
+      </rawcontent-annotation>
+      <reference-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/tei2folia/references.foliaset.ttl">
+        <annotator processor="proc.tei2folia.xsl"/>
+      </reference-annotation>
+      <style-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/tei2folia/styles.foliaset.ttl">
+        <annotator processor="proc.tei2folia.xsl"/>
+      </style-annotation>
+      <part-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/tei2folia/parts.foliaset.ttl">
+        <annotator processor="proc.tei2folia.xsl"/>
+      </part-annotation>
+      <comment-annotation>
+        <annotator processor="proc.tei2folia.xsl"/>
+      </comment-annotation>
+      <note-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/tei2folia/notes.foliaset.ttl">
+        <annotator processor="proc.tei2folia.xsl"/>
+      </note-annotation>
+      <string-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/tei2folia/strings.foliaset.ttl">
+        <annotator processor="proc.tei2folia.xsl"/>
+      </string-annotation>
+      <linebreak-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/tei2folia/linebreaks.foliaset.ttl">
+        <annotator processor="proc.tei2folia.xsl"/>
+      </linebreak-annotation>
+      <lang-annotation set="http://raw.github.com/proycon/folia/master/setdefinitions/iso639_3.foliaset">
+        <annotator processor="colibri-lang.1"/>
+      </lang-annotation>
+      <token-annotation set="https://raw.githubusercontent.com/LanguageMachines/uctodata/master/setdefinitions/tokconfig-nld-historical.foliaset.ttl" alias="tokconfig-nld-historical">
+        <annotator processor="ucto.1"/>
+      </token-annotation>
+      <sentence-annotation>
+        <annotator processor="ucto.1"/>
+      </sentence-annotation>
+      <paragraph-annotation>
+        <annotator processor="ucto.1"/>
+      </paragraph-annotation>
+      <token-annotation annotator="ucto" set="passthru" annotatortype="auto"/>
+      <pos-annotation set="http://rdf.ivdnt.org/pos/cgn-mnl">
+        <annotator processor="tagger.1"/>
+      </pos-annotation>
+      <lemma-annotation set="http://rdf.ivdnt.org/lemma/corpus-gysseling">
+        <annotator processor="mblem.1"/>
+      </lemma-annotation>
+      <alternative-annotation/>
+      <entity-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/spotlight/dbpedia.foliaset.ttl">
+        <annotator processor="proc.wikiente.0f03f50c"/>
+      </entity-annotation>
+    </annotations>
+    <provenance>
+      <processor type="auto" folia_version="2.2.0" xml:id="proc.tei2folia" begindatetime="2019-08-18T14:19:09" command="tei2folia --traceback --dtddir /tmp weve002leve01_01.xml" user="proycon" name="tei2folia" enddatetime="2019-08-18T14:19:15" src="https://github.com/proycon/foliatools" host="mlp09.science.ru.nl" version="2.2.2">
+        <processor name="tei2folia.xsl" type="auto" xml:id="proc.tei2folia.xsl"/>
+        <processor type="auto" folia_version="2.2.0" xml:id="proc.foliavalidator.ed925131" begindatetime="2019-08-18T14:19:15" command="tei2folia --traceback --dtddir /tmp weve002leve01_01.xml" user="proycon" name="foliavalidator" src="https://github.com/proycon/foliatools" host="mlp09.science.ru.nl" version="2.2.2">
+          <meta id="valid">yes</meta>
+          <processor type="generator" folia_version="2.2.0" xml:id="proc.foliavalidator.ed925131.generator" name="foliapy" src="https://github.com/proycon/foliapy" version="2.2.1"/>
+        </processor>
+      </processor>
+      <processor type="auto" folia_version="2.2.0" xml:id="proc.addmetadata.py.e011854d" begindatetime="2019-08-18T15:41:10" command="addmetadata.py --oztfile dbnl_ozt_ids.txt -d /scratch/proycon/nederlab-linguistic-enrichment/productionruns/metadata -o weve002leve01_01.withmetadata.folia.xml weve002leve01_01.folia.xml" user="proycon" name="addmetadata.py" host="mlp09.science.ru.nl">
+        <processor type="generator" folia_version="2.2.0" xml:id="proc.addmetadata.py.e011854d.generator" name="foliapy" src="https://github.com/proycon/foliapy" version="2.2.1"/>
+        <processor type="auto" folia_version="2.2.0" xml:id="proc.foliaid.af1b0cfc" begindatetime="2019-08-18T15:41:10" command="addmetadata.py --oztfile dbnl_ozt_ids.txt -d /scratch/proycon/nederlab-linguistic-enrichment/productionruns/metadata -o weve002leve01_01.withmetadata.folia.xml weve002leve01_01.folia.xml" user="proycon" name="foliaid" src="https://github.com/proycon/foliatools" host="mlp09.science.ru.nl" version="2.2.2">
+          <processor type="generator" folia_version="2.2.0" xml:id="proc.foliaid.af1b0cfc.generator" name="foliapy" src="https://github.com/proycon/foliapy" version="2.2.1"/>
+        </processor>
+      </processor>
+      <processor type="auto" folia_version="2.2.0" xml:id="colibri-lang.1" begindatetime="2019-08-19T23:36:44" command="colibri-lang --confidence=0.33 --langs=nld,nld-vnn,dum,eng,deu,lat,swe,dan,fra,spa,ita,por,rus,tur,fas,ara --subcodes=dum:nld,nld-vnn:nld" user="proycon" name="colibri-lang" host="mlp03.science.ru.nl" version="0.1">
+        <processor name="libfolia" type="generator" xml:id="colibri-lang.1.generator" version="2.3" folia_version="2.2.0"/>
+      </processor>
+      <processor type="auto" folia_version="2.2.0" xml:id="ucto.1" begindatetime="2019-08-19T23:38:44" command="ucto -L nld-historical -X -F weve002leve01_01.lang.folia.xml weve002leve01_01.tok.folia.xml" user="proycon" name="ucto" host="mlp03.science.ru.nl" version="0.19">
+        <processor name="libfolia" type="generator" xml:id="ucto.1.generator" version="2.3" folia_version="2.2.0"/>
+        <processor name="uctodata" type="datasource" xml:id="uctodata.1" version="0.8">
+          <processor name="tokconfig-nld-historical" type="datasource" xml:id="uctodata.1.1" version="0.2"/>
+        </processor>
+      </processor>
+      <processor type="auto" folia_version="2.2.0" xml:id="frog.1" begindatetime="2019-08-19T23:43:28" command="frog -c /vol/customopt/lamachine16.dev/share/frog/dum/frog.cfg --skip=tpcma --language=nld --override=tokenizer.rulesFile=tokconfig-nld-historical -x weve002leve01_01.tok.folia.xml -X weve002leve01_01.frogoriginal.folia.xml --nostdout" user="proycon" name="frog" host="mlp03.science.ru.nl" version="0.19">
+        <processor name="libfolia" type="generator" xml:id="frog.1.generator" version="2.3" folia_version="2.2.0"/>
+        <processor name="tagger" type="auto" xml:id="tagger.1" begindatetime="2019-08-19T23:43:28" version="1.0"/>
+        <processor name="mblem" type="auto" xml:id="mblem.1" begindatetime="2019-08-19T23:43:28" version="1.0"/>
+      </processor>
+      <processor type="auto" folia_version="2.2.0" xml:id="proc.wikiente.0f03f50c" begindatetime="2019-08-20T14:45:54" command="wikiente -i -s http://127.0.0.1:2222/rest/ -l nld -c 0.75 -o weve002leve01_01.linked.folia.xml weve002leve01_01.frogoriginal.folia.xml" user="proycon" name="wikiente" host="mlp03.science.ru.nl" version="0.2.1">
+        <processor type="generator" folia_version="2.2.0" xml:id="proc.wikiente.0f03f50c.generator" name="foliapy" src="https://github.com/proycon/foliapy" version="2.2.1"/>
+      </processor>
+      <processor type="auto" folia_version="2.2.0" xml:id="proc.foliavalidator.db6372a8" begindatetime="2019-08-20T18:19:50" command="foliavalidator -o weve002leve01_01.linked.folia.xml" user="proycon" name="foliavalidator" src="https://github.com/proycon/foliatools" host="mlp03.science.ru.nl" version="2.2.2">
+        <meta id="valid">yes</meta>
+        <processor type="generator" folia_version="2.2.0" xml:id="proc.foliavalidator.db6372a8.generator" name="foliapy" src="https://github.com/proycon/foliapy" version="2.2.1"/>
+      </processor>
+    </provenance>
+  </metadata>
+  <text xml:id="weve002leve01_01.text">
+        <p xml:id="weve002leve01_01.text.div.1.div.1.p.14" set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/tei2folia/paragraphs.foliaset.ttl" class="p">
+          <t>Van dit belangrijk dichtwerk is slechts één afschrift bekend, mogelijk het
+                    oorspronkelyke, daer het geschrift tot de XIV<t-style class="sup">e</t-style> eeuw schijnt
+                    te behooren. Het is een boekdeel in papier, kl. quarto-formaet, en berust in de
+                    stadsbibliotheek te <t-str class="topo-name">Gent</t-str>. Het <t-str class="title">
+                        <t-style class="i">Leven van S. Amand</t-style>
+                    </t-str>, bevattende 12,467 verzen, staet vooraen in het boek, en neemt de 236
+                    eerste bladzyden in. Verder behelst dezelfde band nog twee opstellen door
+                    dezelfde hand geschreven: het <t-str class="title">
+                        <t-style class="i">Tondalus-Visioen</t-style>
+                    </t-str> in proza, en een <t-style class="i"><t-str class="title">Glossenlied op het
+                        Ave-Maria</t-str>;</t-style> beide deze stukken gaf ik reeds in het II.<t-style class="sup">e</t-style> Deel der <t-str class="title">
+                        <t-style class="i">Oud Vlaemsche gedichten der XII<t-style class="sup">e</t-style> en XIII<t-style class="sup">e</t-style> eeuwen</t-style>
+                    </t-str> in het licht.</t>
+          <lang confidence="0.752381" class="nld"/>
+          <s xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.1">
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.1.w.1" set="tokconfig-nld-historical" class="WORD">
+              <t>Van</t>
+              <pos confidence="0.953013" class="VZ(zonder)" head="VZ">
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="van"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.1.w.2" set="tokconfig-nld-historical" class="WORD">
+              <t>dit</t>
+              <pos confidence="0.998255" class="VNW(aanw,zonder)" head="VNW">
+                <feat subset="bwtype" class="aanw"/>
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="dit"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.1.w.3" set="tokconfig-nld-historical" class="WORD">
+              <t>belangrijk</t>
+              <pos confidence="0.583313" class="BW(alg,zonder)" head="BW">
+                <feat subset="bwtype" class="alg"/>
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="belangrijk"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.1.w.4" set="tokconfig-nld-historical" class="WORD">
+              <t>dichtwerk</t>
+              <pos confidence="0.365262" class="BW(alg,zonder)" head="BW">
+                <feat subset="bwtype" class="alg"/>
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="dichtwerk"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.1.w.5" set="tokconfig-nld-historical" class="WORD">
+              <t>is</t>
+              <pos confidence="0.829545" class="WW(hulp-of-koppel,pv,tgw,zonder)" head="WW">
+                <feat subset="wwtype" class="hulp-of-koppel"/>
+                <feat subset="wvorm" class="pv"/>
+                <feat subset="pvtijd" class="tgw"/>
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="zijn"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.1.w.6" set="tokconfig-nld-historical" class="WORD">
+              <t>slechts</t>
+              <pos confidence="0.974359" class="BW(alg,zonder)" head="BW">
+                <feat subset="bwtype" class="alg"/>
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="slechts"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.1.w.7" set="tokconfig-nld-historical" class="WORD">
+              <t>één</t>
+              <pos confidence="0.295901" class="WW(hoofd,pv,tgw,zonder)⊕VNW(onbep,zonder)" head="WW">
+                <feat subset="numtype" class="hoofd"/>
+                <feat subset="wvorm" class="pv"/>
+                <feat subset="pvtijd" class="tgw"/>
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="één"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.1.w.8" set="tokconfig-nld-historical" class="WORD">
+              <t>afschrift</t>
+              <pos confidence="0.597584" class="WW(hoofd,part,met-t)" head="WW">
+                <feat subset="numtype" class="hoofd"/>
+                <feat subset="wvorm" class="part"/>
+                <feat subset="buiging" class="met-t"/>
+              </pos>
+              <lemma class="afschrift"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.1.w.9" set="tokconfig-nld-historical" class="WORD" space="no">
+              <t>bekend</t>
+              <pos confidence="0.468564" class="ADJ(mv,zonder)" head="ADJ">
+                <feat subset="getal" class="mv"/>
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="bekend"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.1.w.10" set="tokconfig-nld-historical" class="PUNCTUATION">
+              <t>,</t>
+              <pos confidence="0.993256" class="LET()" head="LET"/>
+              <lemma class=","/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.1.w.11" set="tokconfig-nld-historical" class="WORD">
+              <t>mogelijk</t>
+              <pos confidence="0.418153" class="N(soort,ev,zonder)" head="N">
+                <feat subset="ntype" class="soort"/>
+                <feat subset="getal" class="ev"/>
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="mogelijk"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.1.w.12" set="tokconfig-nld-historical" class="WORD">
+              <t>het</t>
+              <pos confidence="0.936709" class="VNW(pers,3,ev)" head="VNW">
+                <feat subset="vwtype" class="pers"/>
+                <feat subset="persoon" class="3"/>
+                <feat subset="getal" class="ev"/>
+              </pos>
+              <lemma class="het"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.1.w.13" set="tokconfig-nld-historical" class="WORD" space="no">
+              <t>oorspronkelyke</t>
+              <pos confidence="0.417103" class="BW(alg,met-e)" head="BW">
+                <feat subset="bwtype" class="alg"/>
+                <feat subset="buiging" class="met-e"/>
+              </pos>
+              <lemma class="oorspronkelyke"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.1.w.14" set="tokconfig-nld-historical" class="PUNCTUATION">
+              <t>,</t>
+              <pos confidence="0.990291" class="LET()" head="LET"/>
+              <lemma class=","/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.1.w.15" set="tokconfig-nld-historical" class="WORD">
+              <t>daer</t>
+              <pos confidence="0.814815" class="BW(adv-pron,betr,met-r-of-re,hoofddeel-bw)" head="BW">
+                <feat subset="pdtype" class="adv-pron"/>
+                <feat subset="bwtype" class="betr"/>
+                <feat subset="buiging" class="met-r-of-re"/>
+                <feat subset="deel" class="hoofddeel-bw"/>
+              </pos>
+              <lemma class="daar"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.1.w.16" set="tokconfig-nld-historical" class="WORD">
+              <t>het</t>
+              <pos confidence="0.959825" class="VNW(pers,3,ev)" head="VNW">
+                <feat subset="vwtype" class="pers"/>
+                <feat subset="persoon" class="3"/>
+                <feat subset="getal" class="ev"/>
+              </pos>
+              <lemma class="het"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.1.w.17" set="tokconfig-nld-historical" class="WORD">
+              <t>geschrift</t>
+              <pos confidence="0.583952" class="WW(hoofd,part,met-t)" head="WW">
+                <feat subset="numtype" class="hoofd"/>
+                <feat subset="wvorm" class="part"/>
+                <feat subset="buiging" class="met-t"/>
+              </pos>
+              <lemma class="geschrift"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.1.w.18" set="tokconfig-nld-historical" class="WORD">
+              <t>tot</t>
+              <pos confidence="0.979167" class="VZ(zonder)" head="VZ">
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="te"/>
+              <alt xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.1.w.18.alt-lem.1" auth="no">
+                <lemma class="tot"/>
+              </alt>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.1.w.19" set="tokconfig-nld-historical" class="WORD">
+              <t>de</t>
+              <pos confidence="0.994155" class="LID(bep,met-e)" head="LID">
+                <feat subset="lwtype" class="bep"/>
+                <feat subset="buiging" class="met-e"/>
+              </pos>
+              <lemma class="dat"/>
+              <alt xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.1.w.19.alt-lem.1" auth="no">
+                <lemma class="de"/>
+              </alt>
+              <alt xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.1.w.19.alt-lem.2" auth="no">
+                <lemma class="die"/>
+              </alt>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.1.w.20" set="tokconfig-nld-historical" class="WORD">
+              <t>XIVe</t>
+              <pos confidence="0.679915" class="N(soort,ev,met-e)" head="N">
+                <feat subset="ntype" class="soort"/>
+                <feat subset="getal" class="ev"/>
+                <feat subset="buiging" class="met-e"/>
+              </pos>
+              <lemma class="xive"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.1.w.21" set="tokconfig-nld-historical" class="WORD">
+              <t>eeuw</t>
+              <pos confidence="1.0" class="SPEC(overig)" head="SPEC">
+                <feat subset="buiging" class="overig"/>
+              </pos>
+              <lemma class="eeuw"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.1.w.22" set="tokconfig-nld-historical" class="WORD">
+              <t>schijnt</t>
+              <pos confidence="1.0" class="SPEC(overig)" head="SPEC">
+                <feat subset="buiging" class="overig"/>
+              </pos>
+              <lemma class="schijnt"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.1.w.23" set="tokconfig-nld-historical" class="WORD">
+              <t>te</t>
+              <pos confidence="0.73494" class="VZ(zonder)" head="VZ">
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="te"/>
+              <alt xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.1.w.23.alt-lem.1" auth="no">
+                <lemma class="tot"/>
+              </alt>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.1.w.24" set="tokconfig-nld-historical" class="WORD" space="no">
+              <t>behooren</t>
+              <pos confidence="0.918122" class="N(eigen,met-n)" head="N">
+                <feat subset="ntype" class="eigen"/>
+                <feat subset="buiging" class="met-n"/>
+              </pos>
+              <lemma class="behooren"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.1.w.25" set="tokconfig-nld-historical" class="PUNCTUATION">
+              <t>.</t>
+              <pos confidence="0.991085" class="LET()" head="LET"/>
+              <lemma class="."/>
+            </w>
+          </s>
+          <s xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.2">
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.2.w.1" set="tokconfig-nld-historical" class="WORD">
+              <t>Het</t>
+              <pos confidence="0.99701" class="VNW(pers,3,ev)" head="VNW">
+                <feat subset="vwtype" class="pers"/>
+                <feat subset="persoon" class="3"/>
+                <feat subset="getal" class="ev"/>
+              </pos>
+              <lemma class="het"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.2.w.2" set="tokconfig-nld-historical" class="WORD">
+              <t>is</t>
+              <pos confidence="0.918033" class="WW(hulp-of-koppel,pv,tgw,zonder)" head="WW">
+                <feat subset="wwtype" class="hulp-of-koppel"/>
+                <feat subset="wvorm" class="pv"/>
+                <feat subset="pvtijd" class="tgw"/>
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="zijn"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.2.w.3" set="tokconfig-nld-historical" class="WORD">
+              <t>een</t>
+              <pos confidence="0.916667" class="LID(onbep,zonder)" head="LID">
+                <feat subset="bwtype" class="onbep"/>
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="een"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.2.w.4" set="tokconfig-nld-historical" class="WORD">
+              <t>boekdeel</t>
+              <pos confidence="1.0" class="N(soort,ev,zonder)" head="N">
+                <feat subset="ntype" class="soort"/>
+                <feat subset="getal" class="ev"/>
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="boekdeel"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.2.w.5" set="tokconfig-nld-historical" class="WORD">
+              <t>in</t>
+              <pos confidence="0.916151" class="VZ(zonder)" head="VZ">
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="in"/>
+              <alt xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.2.w.5.alt-lem.1" auth="no">
+                <lemma class="inwaart"/>
+              </alt>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.2.w.6" set="tokconfig-nld-historical" class="WORD" space="no">
+              <t>papier</t>
+              <pos confidence="0.952862" class="N(soort,ev,zonder)" head="N">
+                <feat subset="ntype" class="soort"/>
+                <feat subset="getal" class="ev"/>
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="papier"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.2.w.7" set="tokconfig-nld-historical" class="PUNCTUATION">
+              <t>,</t>
+              <pos confidence="0.982401" class="LET()" head="LET"/>
+              <lemma class=","/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.2.w.8" set="tokconfig-nld-historical" class="ABBREVIATION-KNOWN">
+              <t>kl.</t>
+              <pos confidence="0.222858" class="N(eigen,zonder)" head="N">
+                <feat subset="ntype" class="eigen"/>
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="kl."/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.2.w.9" set="tokconfig-nld-historical" class="WORD-COMPOUND" space="no">
+              <t>quarto-formaet</t>
+              <pos confidence="1.0" class="N(eigen,zonder)" head="N">
+                <feat subset="ntype" class="eigen"/>
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="quarto-formaet"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.2.w.10" set="tokconfig-nld-historical" class="PUNCTUATION">
+              <t>,</t>
+              <pos confidence="0.98317" class="LET()" head="LET"/>
+              <lemma class=","/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.2.w.11" set="tokconfig-nld-historical" class="WORD">
+              <t>en</t>
+              <pos confidence="0.423529" class="BW(neg,zonder)" head="BW">
+                <feat subset="bwtype" class="neg"/>
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="en"/>
+              <alt xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.2.w.11.alt-lem.1" auth="no">
+                <lemma class="ne"/>
+              </alt>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.2.w.12" set="tokconfig-nld-historical" class="WORD">
+              <t>berust</t>
+              <pos confidence="0.367367" class="WW(hoofd,pv,tgw,met-t)" head="WW">
+                <feat subset="numtype" class="hoofd"/>
+                <feat subset="wvorm" class="pv"/>
+                <feat subset="pvtijd" class="tgw"/>
+                <feat subset="buiging" class="met-t"/>
+              </pos>
+              <lemma class="berust"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.2.w.13" set="tokconfig-nld-historical" class="WORD">
+              <t>in</t>
+              <pos confidence="0.972222" class="VZ(zonder)" head="VZ">
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="in"/>
+              <alt xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.2.w.13.alt-lem.1" auth="no">
+                <lemma class="inwaart"/>
+              </alt>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.2.w.14" set="tokconfig-nld-historical" class="WORD">
+              <t>de</t>
+              <pos confidence="0.994155" class="LID(bep,met-e)" head="LID">
+                <feat subset="lwtype" class="bep"/>
+                <feat subset="buiging" class="met-e"/>
+              </pos>
+              <lemma class="dat"/>
+              <alt xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.2.w.14.alt-lem.1" auth="no">
+                <lemma class="de"/>
+              </alt>
+              <alt xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.2.w.14.alt-lem.2" auth="no">
+                <lemma class="die"/>
+              </alt>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.2.w.15" set="tokconfig-nld-historical" class="WORD">
+              <t>stadsbibliotheek</t>
+              <pos confidence="0.566223" class="N(soort,ev,zonder)" head="N">
+                <feat subset="ntype" class="soort"/>
+                <feat subset="getal" class="ev"/>
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="stadsbibliotheek"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.2.w.16" set="tokconfig-nld-historical" class="WORD">
+              <t>te</t>
+              <pos confidence="0.5" class="VZ(zonder)" head="VZ">
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="te"/>
+              <alt xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.2.w.16.alt-lem.1" auth="no">
+                <lemma class="tot"/>
+              </alt>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.2.w.17" set="tokconfig-nld-historical" class="WORD" space="no">
+              <t>Gent</t>
+              <pos confidence="0.982824" class="N(eigen,zonder)" head="N">
+                <feat subset="ntype" class="eigen"/>
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="gent"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.2.w.18" set="tokconfig-nld-historical" class="PUNCTUATION">
+              <t>.</t>
+              <pos confidence="0.896907" class="LET()" head="LET"/>
+              <lemma class="."/>
+            </w>
+            <entities>
+              <entity class="http://nl.dbpedia.org/resource/Gent">
+                <wref t="Gent" id="weve002leve01_01.text.div.1.div.1.p.14.s.2.w.17"/>
+              </entity>
+            </entities>
+          </s>
+          <s xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.3">
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.3.w.1" set="tokconfig-nld-historical" class="WORD">
+              <t>Het</t>
+              <pos confidence="0.99701" class="VNW(pers,3,ev)" head="VNW">
+                <feat subset="vwtype" class="pers"/>
+                <feat subset="persoon" class="3"/>
+                <feat subset="getal" class="ev"/>
+              </pos>
+              <lemma class="het"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.3.w.2" set="tokconfig-nld-historical" class="WORD">
+              <t>Leven</t>
+              <pos confidence="0.369262" class="N(eigen,met-n)" head="N">
+                <feat subset="ntype" class="eigen"/>
+                <feat subset="buiging" class="met-n"/>
+              </pos>
+              <lemma class="leven"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.3.w.3" set="tokconfig-nld-historical" class="WORD">
+              <t>van</t>
+              <pos confidence="0.999352" class="VZ(zonder)" head="VZ">
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="van"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.3.w.4" set="tokconfig-nld-historical" class="INITIAL">
+              <t>S.</t>
+              <pos confidence="0.868622" class="LET()" head="LET"/>
+              <lemma class="s."/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.3.w.5" set="tokconfig-nld-historical" class="WORD">
+              <t>Amand</t>
+              <pos confidence="0.996792" class="N(eigen,zonder)" head="N">
+                <feat subset="ntype" class="eigen"/>
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="amand"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.3.w.6" set="tokconfig-nld-historical" class="PUNCTUATION">
+              <t>,</t>
+              <pos confidence="0.98317" class="LET()" head="LET"/>
+              <lemma class=","/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.3.w.7" set="tokconfig-nld-historical" class="WORD">
+              <t>bevattende</t>
+              <pos confidence="0.43711" class="N(soort,ev,met-e)" head="N">
+                <feat subset="ntype" class="soort"/>
+                <feat subset="getal" class="ev"/>
+                <feat subset="buiging" class="met-e"/>
+              </pos>
+              <lemma class="bevattende"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.3.w.8" set="tokconfig-nld-historical" class="NUMBER">
+              <t>12,467</t>
+              <pos confidence="1.0" class="SPEC(overig)" head="SPEC">
+                <feat subset="buiging" class="overig"/>
+              </pos>
+              <lemma class="12,467"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.3.w.9" set="tokconfig-nld-historical" class="WORD" space="no">
+              <t>verzen</t>
+              <pos confidence="1.0" class="SPEC(overig)" head="SPEC">
+                <feat subset="buiging" class="overig"/>
+              </pos>
+              <lemma class="verzen"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.3.w.10" set="tokconfig-nld-historical" class="PUNCTUATION">
+              <t>,</t>
+              <pos confidence="0.983425" class="LET()" head="LET"/>
+              <lemma class=","/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.3.w.11" set="tokconfig-nld-historical" class="WORD">
+              <t>staet</t>
+              <pos confidence="0.5" class="WW(hoofd,pv,tgw,met-t)" head="WW">
+                <feat subset="numtype" class="hoofd"/>
+                <feat subset="wvorm" class="pv"/>
+                <feat subset="pvtijd" class="tgw"/>
+                <feat subset="buiging" class="met-t"/>
+              </pos>
+              <lemma class="staan"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.3.w.12" set="tokconfig-nld-historical" class="WORD">
+              <t>vooraen</t>
+              <pos confidence="0.495964" class="WW(hoofd,inf,zonder)" head="WW">
+                <feat subset="numtype" class="hoofd"/>
+                <feat subset="wvorm" class="inf"/>
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="vooraen"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.3.w.13" set="tokconfig-nld-historical" class="WORD">
+              <t>in</t>
+              <pos confidence="0.983836" class="VZ(zonder)" head="VZ">
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="in"/>
+              <alt xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.3.w.13.alt-lem.1" auth="no">
+                <lemma class="inwaart"/>
+              </alt>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.3.w.14" set="tokconfig-nld-historical" class="WORD">
+              <t>het</t>
+              <pos confidence="1.0" class="LID(bep,zonder)" head="LID">
+                <feat subset="lwtype" class="bep"/>
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="dat"/>
+              <alt xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.3.w.14.alt-lem.1" auth="no">
+                <lemma class="het"/>
+              </alt>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.3.w.15" set="tokconfig-nld-historical" class="WORD" space="no">
+              <t>boek</t>
+              <pos confidence="0.714286" class="N(soort,ev,zonder)" head="N">
+                <feat subset="ntype" class="soort"/>
+                <feat subset="getal" class="ev"/>
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="boek"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.3.w.16" set="tokconfig-nld-historical" class="PUNCTUATION">
+              <t>,</t>
+              <pos confidence="0.982401" class="LET()" head="LET"/>
+              <lemma class=","/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.3.w.17" set="tokconfig-nld-historical" class="WORD">
+              <t>en</t>
+              <pos confidence="0.423529" class="BW(neg,zonder)" head="BW">
+                <feat subset="bwtype" class="neg"/>
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="en"/>
+              <alt xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.3.w.17.alt-lem.1" auth="no">
+                <lemma class="ne"/>
+              </alt>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.3.w.18" set="tokconfig-nld-historical" class="WORD">
+              <t>neemt</t>
+              <pos confidence="0.986517" class="WW(hoofd,pv,tgw,met-t)" head="WW">
+                <feat subset="numtype" class="hoofd"/>
+                <feat subset="wvorm" class="pv"/>
+                <feat subset="pvtijd" class="tgw"/>
+                <feat subset="buiging" class="met-t"/>
+              </pos>
+              <lemma class="nemen"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.3.w.19" set="tokconfig-nld-historical" class="WORD">
+              <t>de</t>
+              <pos confidence="0.969697" class="LID(bep,met-e)" head="LID">
+                <feat subset="lwtype" class="bep"/>
+                <feat subset="buiging" class="met-e"/>
+              </pos>
+              <lemma class="dat"/>
+              <alt xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.3.w.19.alt-lem.1" auth="no">
+                <lemma class="de"/>
+              </alt>
+              <alt xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.3.w.19.alt-lem.2" auth="no">
+                <lemma class="die"/>
+              </alt>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.3.w.20" set="tokconfig-nld-historical" class="NUMBER">
+              <t>236</t>
+              <pos confidence="1.0" class="SPEC(overig)" head="SPEC">
+                <feat subset="buiging" class="overig"/>
+              </pos>
+              <lemma class="236"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.3.w.21" set="tokconfig-nld-historical" class="WORD">
+              <t>eerste</t>
+              <pos confidence="1.0" class="SPEC(overig)" head="SPEC">
+                <feat subset="buiging" class="overig"/>
+              </pos>
+              <lemma class="eerste"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.3.w.22" set="tokconfig-nld-historical" class="WORD">
+              <t>bladzyden</t>
+              <pos confidence="0.277836" class="WW(hoofd,part,met-n)" head="WW">
+                <feat subset="numtype" class="hoofd"/>
+                <feat subset="wvorm" class="part"/>
+                <feat subset="buiging" class="met-n"/>
+              </pos>
+              <lemma class="bladzyden"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.3.w.23" set="tokconfig-nld-historical" class="WORD" space="no">
+              <t>in</t>
+              <pos confidence="0.993216" class="VZ(zonder)" head="VZ">
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="in"/>
+              <alt xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.3.w.23.alt-lem.1" auth="no">
+                <lemma class="inwaart"/>
+              </alt>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.3.w.24" set="tokconfig-nld-historical" class="PUNCTUATION">
+              <t>.</t>
+              <pos confidence="0.999523" class="LET()" head="LET"/>
+              <lemma class="."/>
+            </w>
+          </s>
+          <s xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4">
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.1" set="tokconfig-nld-historical" class="WORD">
+              <t>Verder</t>
+              <pos confidence="0.707886" class="N(eigen,zonder)" head="N">
+                <feat subset="ntype" class="eigen"/>
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="verder"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.2" set="tokconfig-nld-historical" class="WORD">
+              <t>behelst</t>
+              <pos confidence="0.592937" class="N(eigen,zonder)" head="N">
+                <feat subset="ntype" class="eigen"/>
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="behelst"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.3" set="tokconfig-nld-historical" class="WORD">
+              <t>dezelfde</t>
+              <pos confidence="1.0" class="SPEC(overig)" head="SPEC">
+                <feat subset="buiging" class="overig"/>
+              </pos>
+              <lemma class="dezelfde"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.4" set="tokconfig-nld-historical" class="WORD">
+              <t>band</t>
+              <pos confidence="0.909091" class="WW(hoofd,pv,verl,zonder)" head="WW">
+                <feat subset="numtype" class="hoofd"/>
+                <feat subset="wvorm" class="pv"/>
+                <feat subset="pvtijd" class="verl"/>
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="binden"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.5" set="tokconfig-nld-historical" class="WORD">
+              <t>nog</t>
+              <pos confidence="0.815603" class="VG(neven,zonder)" head="VG">
+                <feat subset="conjtype" class="neven"/>
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="noch"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.6" set="tokconfig-nld-historical" class="WORD">
+              <t>twee</t>
+              <pos confidence="0.924528" class="TW(hoofd,met-e)" head="TW">
+                <feat subset="numtype" class="hoofd"/>
+                <feat subset="buiging" class="met-e"/>
+              </pos>
+              <lemma class="twee"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.7" set="tokconfig-nld-historical" class="WORD">
+              <t>opstellen</t>
+              <pos confidence="1.0" class="N(soort,mv,met-n)" head="N">
+                <feat subset="ntype" class="soort"/>
+                <feat subset="getal" class="mv"/>
+                <feat subset="buiging" class="met-n"/>
+              </pos>
+              <lemma class="opstellen"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.8" set="tokconfig-nld-historical" class="WORD">
+              <t>door</t>
+              <pos confidence="1.0" class="SPEC(overig)" head="SPEC">
+                <feat subset="buiging" class="overig"/>
+              </pos>
+              <lemma class="door"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.9" set="tokconfig-nld-historical" class="WORD">
+              <t>dezelfde</t>
+              <pos confidence="1.0" class="SPEC(overig)" head="SPEC">
+                <feat subset="buiging" class="overig"/>
+              </pos>
+              <lemma class="dezelfde"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.10" set="tokconfig-nld-historical" class="WORD">
+              <t>hand</t>
+              <pos confidence="1.0" class="SPEC(overig)" head="SPEC">
+                <feat subset="buiging" class="overig"/>
+              </pos>
+              <lemma class="hand"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.11" set="tokconfig-nld-historical" class="WORD" space="no">
+              <t>geschreven</t>
+              <pos confidence="1.0" class="SPEC(overig)" head="SPEC">
+                <feat subset="buiging" class="overig"/>
+              </pos>
+              <lemma class="geschreven"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.12" set="tokconfig-nld-historical" class="PUNCTUATION">
+              <t>:</t>
+              <pos confidence="0.875" class="LET()" head="LET"/>
+              <lemma class=":"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.13" set="tokconfig-nld-historical" class="WORD">
+              <t>het</t>
+              <pos confidence="0.959825" class="VNW(pers,3,ev)" head="VNW">
+                <feat subset="vwtype" class="pers"/>
+                <feat subset="persoon" class="3"/>
+                <feat subset="getal" class="ev"/>
+              </pos>
+              <lemma class="het"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.14" set="tokconfig-nld-historical" class="WORD-COMPOUND">
+              <t>Tondalus-Visioen</t>
+              <pos confidence="0.526305" class="WW(hoofd,inf,zonder)" head="WW">
+                <feat subset="numtype" class="hoofd"/>
+                <feat subset="wvorm" class="inf"/>
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="tondalus-visioen"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.15" set="tokconfig-nld-historical" class="WORD">
+              <t>in</t>
+              <pos confidence="0.983836" class="VZ(zonder)" head="VZ">
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="in"/>
+              <alt xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.15.alt-lem.1" auth="no">
+                <lemma class="inwaart"/>
+              </alt>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.16" set="tokconfig-nld-historical" class="WORD" space="no">
+              <t>proza</t>
+              <pos confidence="0.505292" class="N(eigen,zonder,deel-b)" head="N">
+                <feat subset="ntype" class="eigen"/>
+                <feat subset="buiging" class="zonder"/>
+                <feat subset="deel" class="deel-b"/>
+              </pos>
+              <lemma class="proza"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.17" set="tokconfig-nld-historical" class="PUNCTUATION">
+              <t>,</t>
+              <pos confidence="0.993256" class="LET()" head="LET"/>
+              <lemma class=","/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.18" set="tokconfig-nld-historical" class="WORD">
+              <t>en</t>
+              <pos confidence="0.423529" class="BW(neg,zonder)" head="BW">
+                <feat subset="bwtype" class="neg"/>
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="en"/>
+              <alt xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.18.alt-lem.1" auth="no">
+                <lemma class="ne"/>
+              </alt>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.19" set="tokconfig-nld-historical" class="WORD">
+              <t>een</t>
+              <pos confidence="0.8" class="LID(onbep,zonder)" head="LID">
+                <feat subset="bwtype" class="onbep"/>
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="een"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.20" set="tokconfig-nld-historical" class="WORD">
+              <t>Glossenlied</t>
+              <pos confidence="1.0" class="N(soort,ev,zonder)" head="N">
+                <feat subset="ntype" class="soort"/>
+                <feat subset="getal" class="ev"/>
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="glossenlied"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.21" set="tokconfig-nld-historical" class="WORD">
+              <t>op</t>
+              <pos confidence="0.757299" class="VZ(zonder)" head="VZ">
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="op"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.22" set="tokconfig-nld-historical" class="WORD">
+              <t>het</t>
+              <pos confidence="1.0" class="LID(bep,zonder)" head="LID">
+                <feat subset="lwtype" class="bep"/>
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="dat"/>
+              <alt xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.22.alt-lem.1" auth="no">
+                <lemma class="het"/>
+              </alt>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.23" set="tokconfig-nld-historical" class="WORD-COMPOUND" space="no">
+              <t>Ave-Maria</t>
+              <pos confidence="1.0" class="SPEC(overig)" head="SPEC">
+                <feat subset="buiging" class="overig"/>
+              </pos>
+              <lemma class="ave-maria"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.24" set="tokconfig-nld-historical" class="PUNCTUATION">
+              <t>;</t>
+              <pos confidence="0.975758" class="LET()" head="LET"/>
+              <lemma class=";"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.25" set="tokconfig-nld-historical" class="WORD">
+              <t>beide</t>
+              <pos confidence="0.909091" class="VNW(onbep,met-e)" head="VNW">
+                <feat subset="bwtype" class="onbep"/>
+                <feat subset="buiging" class="met-e"/>
+              </pos>
+              <lemma class="beide"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.26" set="tokconfig-nld-historical" class="WORD">
+              <t>deze</t>
+              <pos confidence="0.978576" class="VNW(aanw,met-e)" head="VNW">
+                <feat subset="bwtype" class="aanw"/>
+                <feat subset="buiging" class="met-e"/>
+              </pos>
+              <lemma class="deze"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.27" set="tokconfig-nld-historical" class="WORD">
+              <t>stukken</t>
+              <pos confidence="0.991379" class="N(soort,mv,met-n)" head="N">
+                <feat subset="ntype" class="soort"/>
+                <feat subset="getal" class="mv"/>
+                <feat subset="buiging" class="met-n"/>
+              </pos>
+              <lemma class="stuk"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.28" set="tokconfig-nld-historical" class="WORD">
+              <t>gaf</t>
+              <pos confidence="0.888889" class="WW(hoofd,pv,verl,zonder)" head="WW">
+                <feat subset="numtype" class="hoofd"/>
+                <feat subset="wvorm" class="pv"/>
+                <feat subset="pvtijd" class="verl"/>
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="geven"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.29" set="tokconfig-nld-historical" class="WORD">
+              <t>ik</t>
+              <pos confidence="0.995848" class="VNW(pers,1,ev)" head="VNW">
+                <feat subset="vwtype" class="pers"/>
+                <feat subset="persoon" class="1"/>
+                <feat subset="getal" class="ev"/>
+              </pos>
+              <lemma class="ik"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.30" set="tokconfig-nld-historical" class="WORD">
+              <t>reeds</t>
+              <pos confidence="0.385681" class="WW(hoofd,pv,tgw,met-t)⊕VNW(pers,3,ev)" head="WW">
+                <feat subset="numtype" class="hoofd"/>
+                <feat subset="wvorm" class="pv"/>
+                <feat subset="pvtijd" class="tgw"/>
+                <feat subset="buiging" class="met-t"/>
+              </pos>
+              <lemma class="reeds"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.31" set="tokconfig-nld-historical" class="WORD">
+              <t>in</t>
+              <pos confidence="0.916598" class="VZ(zonder)" head="VZ">
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="in"/>
+              <alt xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.31.alt-lem.1" auth="no">
+                <lemma class="inwaart"/>
+              </alt>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.32" set="tokconfig-nld-historical" class="WORD">
+              <t>het</t>
+              <pos confidence="1.0" class="LID(bep,zonder)" head="LID">
+                <feat subset="lwtype" class="bep"/>
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="dat"/>
+              <alt xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.32.alt-lem.1" auth="no">
+                <lemma class="het"/>
+              </alt>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.33" set="tokconfig-nld-historical" class="ABBREVIATION">
+              <t>II.e</t>
+              <pos confidence="0.449052" class="ADJ(ev,met-e)" head="ADJ">
+                <feat subset="getal" class="ev"/>
+                <feat subset="buiging" class="met-e"/>
+              </pos>
+              <lemma class="ii.e"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.34" set="tokconfig-nld-historical" class="WORD">
+              <t>Deel</t>
+              <pos confidence="0.993243" class="N(soort,ev,zonder)" head="N">
+                <feat subset="ntype" class="soort"/>
+                <feat subset="getal" class="ev"/>
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="dedeel"/>
+              <alt xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.34.alt-lem.1" auth="no">
+                <lemma class="deel"/>
+              </alt>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.35" set="tokconfig-nld-historical" class="WORD">
+              <t>der</t>
+              <pos confidence="0.865546" class="LID(bep,met-r-of-re)" head="LID">
+                <feat subset="lwtype" class="bep"/>
+                <feat subset="buiging" class="met-r-of-re"/>
+              </pos>
+              <lemma class="dat"/>
+              <alt xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.35.alt-lem.1" auth="no">
+                <lemma class="de"/>
+              </alt>
+              <alt xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.35.alt-lem.2" auth="no">
+                <lemma class="de/het"/>
+              </alt>
+              <alt xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.35.alt-lem.3" auth="no">
+                <lemma class="der"/>
+              </alt>
+              <alt xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.35.alt-lem.4" auth="no">
+                <lemma class="het"/>
+              </alt>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.36" set="tokconfig-nld-historical" class="WORD">
+              <t>Oud</t>
+              <pos confidence="0.989255" class="ADJ(ev,zonder)" head="ADJ">
+                <feat subset="getal" class="ev"/>
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="houd"/>
+              <alt xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.36.alt-lem.1" auth="no">
+                <lemma class="oud"/>
+              </alt>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.37" set="tokconfig-nld-historical" class="WORD">
+              <t>Vlaemsche</t>
+              <pos confidence="0.982143" class="ADJ(ev,met-e)" head="ADJ">
+                <feat subset="getal" class="ev"/>
+                <feat subset="buiging" class="met-e"/>
+              </pos>
+              <lemma class="vlaams"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.38" set="tokconfig-nld-historical" class="WORD">
+              <t>gedichten</t>
+              <pos confidence="0.833333" class="WW(hoofd,inf,zonder)" head="WW">
+                <feat subset="numtype" class="hoofd"/>
+                <feat subset="wvorm" class="inf"/>
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="gedichten"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.39" set="tokconfig-nld-historical" class="WORD">
+              <t>der</t>
+              <pos confidence="0.794118" class="LID(bep,met-r-of-re)" head="LID">
+                <feat subset="lwtype" class="bep"/>
+                <feat subset="buiging" class="met-r-of-re"/>
+              </pos>
+              <lemma class="dat"/>
+              <alt xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.39.alt-lem.1" auth="no">
+                <lemma class="de"/>
+              </alt>
+              <alt xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.39.alt-lem.2" auth="no">
+                <lemma class="de/het"/>
+              </alt>
+              <alt xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.39.alt-lem.3" auth="no">
+                <lemma class="der"/>
+              </alt>
+              <alt xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.39.alt-lem.4" auth="no">
+                <lemma class="het"/>
+              </alt>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.40" set="tokconfig-nld-historical" class="WORD">
+              <t>XIIe</t>
+              <pos confidence="0.509403" class="N(soort,mv,met-e)" head="N">
+                <feat subset="ntype" class="soort"/>
+                <feat subset="getal" class="mv"/>
+                <feat subset="buiging" class="met-e"/>
+              </pos>
+              <lemma class="xiie"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.41" set="tokconfig-nld-historical" class="WORD">
+              <t>en</t>
+              <pos confidence="0.7" class="BW(neg,zonder)" head="BW">
+                <feat subset="bwtype" class="neg"/>
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="en"/>
+              <alt xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.41.alt-lem.1" auth="no">
+                <lemma class="ne"/>
+              </alt>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.42" set="tokconfig-nld-historical" class="WORD">
+              <t>XIIIe</t>
+              <pos confidence="0.331873" class="WW(hoofd,pv,verl,met-e)⊕VNW(pers,3,ev)" head="WW">
+                <feat subset="numtype" class="hoofd"/>
+                <feat subset="wvorm" class="pv"/>
+                <feat subset="pvtijd" class="verl"/>
+                <feat subset="buiging" class="met-e"/>
+              </pos>
+              <lemma class="xiiie"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.43" set="tokconfig-nld-historical" class="WORD">
+              <t>eeuwen</t>
+              <pos confidence="0.378007" class="N(eigen,met-n)" head="N">
+                <feat subset="ntype" class="eigen"/>
+                <feat subset="buiging" class="met-n"/>
+              </pos>
+              <lemma class="eeuwen"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.44" set="tokconfig-nld-historical" class="WORD">
+              <t>in</t>
+              <pos confidence="0.990506" class="VZ(zonder)" head="VZ">
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="in"/>
+              <alt xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.44.alt-lem.1" auth="no">
+                <lemma class="inwaart"/>
+              </alt>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.45" set="tokconfig-nld-historical" class="WORD">
+              <t>het</t>
+              <pos confidence="1.0" class="LID(bep,zonder)" head="LID">
+                <feat subset="lwtype" class="bep"/>
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="dat"/>
+              <alt xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.45.alt-lem.1" auth="no">
+                <lemma class="het"/>
+              </alt>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.46" set="tokconfig-nld-historical" class="WORD" space="no">
+              <t>licht</t>
+              <pos confidence="0.356522" class="N(soort,ev,zonder)" head="N">
+                <feat subset="ntype" class="soort"/>
+                <feat subset="getal" class="ev"/>
+                <feat subset="buiging" class="zonder"/>
+              </pos>
+              <lemma class="licht"/>
+            </w>
+            <w xml:id="weve002leve01_01.text.div.1.div.1.p.14.s.4.w.47" set="tokconfig-nld-historical" class="PUNCTUATION">
+              <t>.</t>
+              <pos confidence="0.988235" class="LET()" head="LET"/>
+              <lemma class="."/>
+            </w>
+          </s>
+        </p>
+    </text>
+</FoLiA>
