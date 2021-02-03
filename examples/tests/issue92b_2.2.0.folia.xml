@@ -1,0 +1,241 @@
+<?xml version='1.0' encoding='utf-8'?>
+<FoLiA xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://ilk.uvt.nl/folia" xml:id="_nie190nieu04_01" version="2.2.0" generator="foliapy-v2.2.1">
+  <metadata type="native">
+    <annotations>
+      <text-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/text.foliaset.ttl">
+        <annotator processor="proc.tei2folia.xsl"/>
+      </text-annotation>
+      <division-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/tei2folia/divisions.foliaset.ttl">
+        <annotator processor="proc.tei2folia.xsl"/>
+      </division-annotation>
+      <paragraph-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/tei2folia/paragraphs.foliaset.ttl">
+        <annotator processor="proc.tei2folia.xsl"/>
+      </paragraph-annotation>
+      <head-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/tei2folia/heads.foliaset.ttl">
+        <annotator processor="proc.tei2folia.xsl"/>
+      </head-annotation>
+      <figure-annotation>
+        <annotator processor="proc.tei2folia.xsl"/>
+      </figure-annotation>
+      <style-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/tei2folia/styles.foliaset.ttl">
+        <annotator processor="proc.tei2folia.xsl"/>
+      </style-annotation>
+      <part-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/tei2folia/parts.foliaset.ttl">
+        <annotator processor="proc.tei2folia.xsl"/>
+      </part-annotation>
+      <comment-annotation>
+        <annotator processor="proc.tei2folia.xsl"/>
+      </comment-annotation>
+      <string-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/tei2folia/strings.foliaset.ttl">
+        <annotator processor="proc.tei2folia.xsl"/>
+      </string-annotation>
+      <linebreak-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/tei2folia/linebreaks.foliaset.ttl">
+        <annotator processor="proc.tei2folia.xsl"/>
+      </linebreak-annotation>
+      <lang-annotation set="http://raw.github.com/proycon/folia/master/setdefinitions/iso639_3.foliaset">
+        <annotator processor="colibri-lang.1"/>
+      </lang-annotation>
+      <token-annotation set="https://raw.githubusercontent.com/LanguageMachines/uctodata/master/setdefinitions/tokconfig-nld-historical.foliaset.ttl" alias="tokconfig-nld-historical">
+        <annotator processor="ucto.1"/>
+      </token-annotation>
+      <sentence-annotation>
+        <annotator processor="ucto.1"/>
+      </sentence-annotation>
+      <paragraph-annotation>
+        <annotator processor="ucto.1"/>
+      </paragraph-annotation>
+      <token-annotation annotator="ucto" annotatortype="auto" set="passthru"/>
+      <pos-annotation set="http://rdf.ivdnt.org/pos/cgn-bab">
+        <annotator processor="tagger.1"/>
+      </pos-annotation>
+      <lemma-annotation set="http://rdf.ivdnt.org/lemma/corpus-brieven-als-buit">
+        <annotator processor="mblem.1"/>
+      </lemma-annotation>
+      <alternative-annotation/>
+      <entity-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/spotlight/dbpedia.foliaset.ttl">
+        <annotator processor="proc.wikiente.abfaadb7"/>
+      </entity-annotation>
+    </annotations>
+    <provenance>
+      <processor src="https://github.com/proycon/foliatools" folia_version="2.2.0" xml:id="proc.tei2folia" user="proycon" name="tei2folia" enddatetime="2019-08-18T12:25:21" host="mlp09.science.ru.nl" command="tei2folia --traceback --dtddir /tmp _nie190nieu04_01.xml" version="2.2.2" begindatetime="2019-08-18T12:25:20" type="auto">
+        <processor xml:id="proc.tei2folia.xsl" type="auto" name="tei2folia.xsl"/>
+        <processor src="https://github.com/proycon/foliatools" folia_version="2.2.0" xml:id="proc.foliavalidator.400ea52e" user="proycon" name="foliavalidator" host="mlp09.science.ru.nl" command="tei2folia --traceback --dtddir /tmp _nie190nieu04_01.xml" version="2.2.2" begindatetime="2019-08-18T12:25:21" type="auto">
+          <meta id="valid">yes</meta>
+          <processor src="https://github.com/proycon/foliapy" folia_version="2.2.0" xml:id="proc.foliavalidator.400ea52e.generator" name="foliapy" version="2.2.1" type="generator"/>
+        </processor>
+      </processor>
+      <processor folia_version="2.2.0" xml:id="proc.addmetadata.py.ab39e6cd" user="proycon" name="addmetadata.py" host="mlp09.science.ru.nl" command="addmetadata.py --oztfile dbnl_ozt_ids.txt -d /scratch/proycon/nederlab-linguistic-enrichment/productionruns/metadata -o _nie190nieu04_01.withmetadata.folia.xml _nie190nieu04_01.folia.xml" begindatetime="2019-08-18T14:02:30" type="auto">
+        <processor src="https://github.com/proycon/foliapy" folia_version="2.2.0" xml:id="proc.addmetadata.py.ab39e6cd.generator" name="foliapy" version="2.2.1" type="generator"/>
+        <processor src="https://github.com/proycon/foliatools" folia_version="2.2.0" xml:id="proc.foliaid.f0f46ba0" user="proycon" name="foliaid" host="mlp09.science.ru.nl" command="addmetadata.py --oztfile dbnl_ozt_ids.txt -d /scratch/proycon/nederlab-linguistic-enrichment/productionruns/metadata -o _nie190nieu04_01.withmetadata.folia.xml _nie190nieu04_01.folia.xml" version="2.2.2" begindatetime="2019-08-18T14:02:30" type="auto">
+          <processor src="https://github.com/proycon/foliapy" folia_version="2.2.0" xml:id="proc.foliaid.f0f46ba0.generator" name="foliapy" version="2.2.1" type="generator"/>
+        </processor>
+      </processor>
+      <processor folia_version="2.2.0" xml:id="colibri-lang.1" user="proycon" name="colibri-lang" host="mlp09.science.ru.nl" command="colibri-lang --confidence=0.33 --langs=nld,nld-vnn,dum,eng,deu,lat,swe,dan,fra,spa,ita,por,rus,tur,fas,ara --subcodes=dum:nld,nld-vnn:nld" version="0.1" begindatetime="2019-08-19T22:54:19" type="auto">
+        <processor xml:id="colibri-lang.1.generator" folia_version="2.2.0" name="libfolia" version="2.3" type="generator"/>
+      </processor>
+      <processor folia_version="2.2.0" xml:id="ucto.1" user="proycon" name="ucto" host="mlp09.science.ru.nl" command="ucto -L nld-historical -X -F _nie190nieu04_01.lang.folia.xml _nie190nieu04_01.tok.folia.xml" version="0.19" begindatetime="2019-08-19T22:57:28" type="auto">
+        <processor xml:id="ucto.1.generator" folia_version="2.2.0" name="libfolia" version="2.3" type="generator"/>
+        <processor xml:id="uctodata.1" type="datasource" name="uctodata" version="0.8">
+          <processor xml:id="uctodata.1.1" type="datasource" name="tokconfig-nld-historical" version="0.2"/>
+        </processor>
+      </processor>
+      <processor folia_version="2.2.0" xml:id="frog.1" user="proycon" name="frog" host="mlp09.science.ru.nl" command="frog -c /vol/customopt/lamachine16.dev/share/frog/nld-vnn/frog.cfg --skip=tpcma --language=nld --override=tokenizer.rulesFile=tokconfig-nld-historical -x _nie190nieu04_01.tok.folia.xml -X _nie190nieu04_01.frogoriginal.folia.xml --nostdout" version="0.19" begindatetime="2019-08-19T23:48:44" type="auto">
+        <processor xml:id="frog.1.generator" folia_version="2.2.0" name="libfolia" version="2.3" type="generator"/>
+        <processor xml:id="tagger.1" type="auto" name="tagger" version="1.0" begindatetime="2019-08-19T23:48:44"/>
+        <processor xml:id="mblem.1" type="auto" name="mblem" version="1.0" begindatetime="2019-08-19T23:48:44"/>
+      </processor>
+      <processor folia_version="2.2.0" xml:id="proc.wikiente.abfaadb7" user="proycon" name="wikiente" host="mlp09.science.ru.nl" command="wikiente -i -s http://127.0.0.1:2222/rest/ -l nld -c 0.75 -o _nie190nieu04_01.linked.folia.xml _nie190nieu04_01.frogoriginal.folia.xml" version="0.2.1" begindatetime="2019-08-20T11:25:29" type="auto">
+        <processor src="https://github.com/proycon/foliapy" folia_version="2.2.0" xml:id="proc.wikiente.abfaadb7.generator" name="foliapy" version="2.2.1" type="generator"/>
+      </processor>
+      <processor src="https://github.com/proycon/foliatools" folia_version="2.2.0" xml:id="proc.foliavalidator.980a3200" user="proycon" name="foliavalidator" host="mlp09.science.ru.nl" command="foliavalidator -o _nie190nieu04_01.linked.folia.xml" version="2.2.2" begindatetime="2019-08-20T13:59:17" type="auto">
+        <meta id="valid">yes</meta>
+        <processor src="https://github.com/proycon/foliapy" folia_version="2.2.0" xml:id="proc.foliavalidator.980a3200.generator" name="foliapy" version="2.2.1" type="generator"/>
+      </processor>
+    </provenance>
+  </metadata>
+  <text xml:id="_nie190nieu04_01.text">
+    <div xml:id="_nie190nieu04_01.text.div.1.div.2.div.1" class="section">
+      <head xml:id="_nie190nieu04_01.text.div.1.div.2.div.1.head.1" class="h4">
+        <t>op de wyse: <t-style class="i">Pharaos VVimpelen ontdaan, en sietmen niet meer svvieren. </t-style>Oft, <t-style class="i">Nu singt, nu springt, &amp;c.</t-style></t>
+        <lang confidence="0.705882" class="nld">
+          <feat subset="variant" class="nld-vnn"/>
+        </lang>
+        <p xml:id="_nie190nieu04_01.text.div.1.div.2.div.1.head.1.p.1">
+          <s xml:id="_nie190nieu04_01.text.div.1.div.2.div.1.head.1.p.1.s.1">
+            <w xml:id="_nie190nieu04_01.text.div.1.div.2.div.1.head.1.p.1.s.1.w.1" set="tokconfig-nld-historical" class="WORD">
+              <t>op</t>
+              <pos class="VZ()" confidence="0.673617" head="VZ"/>
+              <lemma class="op"/>
+            </w>
+            <w xml:id="_nie190nieu04_01.text.div.1.div.2.div.1.head.1.p.1.s.1.w.2" set="tokconfig-nld-historical" class="WORD">
+              <t>de</t>
+              <pos class="LID()" confidence="0.996923" head="LID"/>
+              <lemma class="de"/>
+            </w>
+            <w class="WORD" xml:id="_nie190nieu04_01.text.div.1.div.2.div.1.head.1.p.1.s.1.w.3" space="no" set="tokconfig-nld-historical">
+              <t>wyse</t>
+              <pos class="ADJ()" confidence="0.998484" head="ADJ"/>
+              <lemma class="wijs"/>
+            </w>
+            <w xml:id="_nie190nieu04_01.text.div.1.div.2.div.1.head.1.p.1.s.1.w.4" set="tokconfig-nld-historical" class="PUNCTUATION">
+              <t>:</t>
+              <pos class="LET()" confidence="0.999955" head="LET"/>
+              <lemma class=":"/>
+            </w>
+            <w xml:id="_nie190nieu04_01.text.div.1.div.2.div.1.head.1.p.1.s.1.w.5" set="tokconfig-nld-historical" class="WORD">
+              <t>Pharaos</t>
+              <pos class="N(eigen,per)" confidence="0.890272" head="N">
+                <feat subset="ntype" class="eigen"/>
+                <feat subset="eigentype" class="per"/>
+              </pos>
+              <lemma class="pharaos"/>
+            </w>
+            <w xml:id="_nie190nieu04_01.text.div.1.div.2.div.1.head.1.p.1.s.1.w.6" set="tokconfig-nld-historical" class="WORD">
+              <t>VVimpelen</t>
+              <pos class="N(eigen,per)" confidence="0.639013" head="N">
+                <feat subset="ntype" class="eigen"/>
+                <feat subset="eigentype" class="per"/>
+              </pos>
+              <lemma class="vvimpelen"/>
+            </w>
+            <w class="WORD" xml:id="_nie190nieu04_01.text.div.1.div.2.div.1.head.1.p.1.s.1.w.7" space="no" set="tokconfig-nld-historical">
+              <t>ontdaan</t>
+              <pos class="N(soort)" confidence="0.746604" head="N">
+                <feat subset="ntype" class="soort"/>
+              </pos>
+              <lemma class="ontdaan"/>
+            </w>
+            <w xml:id="_nie190nieu04_01.text.div.1.div.2.div.1.head.1.p.1.s.1.w.8" set="tokconfig-nld-historical" class="PUNCTUATION">
+              <t>,</t>
+              <pos class="LET()" confidence="0.999955" head="LET"/>
+              <lemma class=","/>
+            </w>
+            <w xml:id="_nie190nieu04_01.text.div.1.div.2.div.1.head.1.p.1.s.1.w.9" set="tokconfig-nld-historical" class="WORD">
+              <t>en</t>
+              <pos class="VG()" confidence="0.997729" head="VG"/>
+              <lemma class="en"/>
+            </w>
+            <w xml:id="_nie190nieu04_01.text.div.1.div.2.div.1.head.1.p.1.s.1.w.10" set="tokconfig-nld-historical" class="WORD">
+              <t>sietmen</t>
+              <pos class="N(soort)" confidence="0.493677" head="N">
+                <feat subset="ntype" class="soort"/>
+              </pos>
+              <lemma class="sietmen"/>
+            </w>
+            <w xml:id="_nie190nieu04_01.text.div.1.div.2.div.1.head.1.p.1.s.1.w.11" set="tokconfig-nld-historical" class="WORD">
+              <t>niet</t>
+              <pos class="BW()" confidence="0.888889" head="BW"/>
+              <lemma class="niet"/>
+            </w>
+            <w xml:id="_nie190nieu04_01.text.div.1.div.2.div.1.head.1.p.1.s.1.w.12" set="tokconfig-nld-historical" class="WORD">
+              <t>meer</t>
+              <pos class="BW()" confidence="0.922006" head="BW"/>
+              <lemma class="meer"/>
+            </w>
+            <w class="WORD" xml:id="_nie190nieu04_01.text.div.1.div.2.div.1.head.1.p.1.s.1.w.13" space="no" set="tokconfig-nld-historical">
+              <t>svvieren</t>
+              <pos class="WW()" confidence="0.669342" head="WW"/>
+              <lemma class="svvieren"/>
+            </w>
+            <w xml:id="_nie190nieu04_01.text.div.1.div.2.div.1.head.1.p.1.s.1.w.14" set="tokconfig-nld-historical" class="PUNCTUATION">
+              <t>.</t>
+              <pos class="LET()" confidence="0.999955" head="LET"/>
+              <lemma class="."/>
+            </w>
+          </s>
+          <s xml:id="_nie190nieu04_01.text.div.1.div.2.div.1.head.1.p.1.s.2">
+            <w class="WORD" xml:id="_nie190nieu04_01.text.div.1.div.2.div.1.head.1.p.1.s.2.w.1" space="no" set="tokconfig-nld-historical">
+              <t>Oft</t>
+              <pos class="WW()" confidence="0.324654" head="WW"/>
+              <lemma class="oft"/>
+            </w>
+            <w xml:id="_nie190nieu04_01.text.div.1.div.2.div.1.head.1.p.1.s.2.w.2" set="tokconfig-nld-historical" class="PUNCTUATION">
+              <t>,</t>
+              <pos class="LET()" confidence="0.999955" head="LET"/>
+              <lemma class=","/>
+            </w>
+            <w xml:id="_nie190nieu04_01.text.div.1.div.2.div.1.head.1.p.1.s.2.w.3" set="tokconfig-nld-historical" class="WORD">
+              <t>Nu</t>
+              <pos class="BW()" confidence="0.99911" head="BW"/>
+              <lemma class="nu"/>
+            </w>
+            <w class="WORD" xml:id="_nie190nieu04_01.text.div.1.div.2.div.1.head.1.p.1.s.2.w.4" space="no" set="tokconfig-nld-historical">
+              <t>singt</t>
+              <pos class="WW()" confidence="0.709609" head="WW"/>
+              <lemma class="singt"/>
+            </w>
+            <w xml:id="_nie190nieu04_01.text.div.1.div.2.div.1.head.1.p.1.s.2.w.5" set="tokconfig-nld-historical" class="PUNCTUATION">
+              <t>,</t>
+              <pos class="LET()" confidence="0.999955" head="LET"/>
+              <lemma class=","/>
+            </w>
+            <w xml:id="_nie190nieu04_01.text.div.1.div.2.div.1.head.1.p.1.s.2.w.6" set="tokconfig-nld-historical" class="WORD">
+              <t>nu</t>
+              <pos class="BW()" confidence="0.757576" head="BW"/>
+              <lemma class="nu"/>
+            </w>
+            <w class="WORD" xml:id="_nie190nieu04_01.text.div.1.div.2.div.1.head.1.p.1.s.2.w.7" space="no" set="tokconfig-nld-historical">
+              <t>springt</t>
+              <pos class="WW()" confidence="0.959513" head="WW"/>
+              <lemma class="springt"/>
+            </w>
+            <w xml:id="_nie190nieu04_01.text.div.1.div.2.div.1.head.1.p.1.s.2.w.8" set="tokconfig-nld-historical" class="PUNCTUATION">
+              <t>,</t>
+              <pos class="LET()" confidence="0.999955" head="LET"/>
+              <lemma class=","/>
+            </w>
+            <w xml:id="_nie190nieu04_01.text.div.1.div.2.div.1.head.1.p.1.s.2.w.9" set="tokconfig-nld-historical" class="ABBREVIATION-KNOWN">
+              <t>&amp;c.</t>
+              <pos class="N(eigen,per)" confidence="0.493983" head="N">
+                <feat subset="ntype" class="eigen"/>
+                <feat subset="eigentype" class="per"/>
+              </pos>
+              <lemma class="&amp;c."/>
+            </w>
+          </s>
+        </p>
+       </head>
+      </div>
+  </text>
+</FoLiA>
+
