@@ -26,6 +26,6 @@ text:ocr a skos:Concept ;
     skos:notation "ocr" ;
     skos:prefLabel "Optical Character Recognition output" .
 
-text:ocr a skos:Concept ;
+text:translated a skos:Concept ;
     skos:notation "translated" ;
     skos:prefLabel "Translated text" .
