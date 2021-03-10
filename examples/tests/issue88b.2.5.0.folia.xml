@@ -20,7 +20,7 @@
     </provenance>
   </metadata>
   <text xml:id="test.text">
-     <comment>p1, p2, p3 and p4 should all have the very same text rendition in FoLiA >= v2.5</comment>
+     <comment>p1, p2, p3, p4 and p5 should all have the very same text rendition in FoLiA >= v2.5</comment>
 
      <p xml:id="test.p.1">
        <t>
@@ -54,18 +54,33 @@
     </p>
      <p xml:id="test.p.5">
        <t>
+          <t-style>  deel  </t-style> <t-style>   woord </t-style> <t-str>      extra</t-str>
+      </t>
+      <comment>all leading/trailing spacing is removed (functionally identical to p.4)</comment>
+    </p>
+     <p xml:id="test.p.6">
+       <t>
+          <t-style>deel</t-style>  <t-style>woord</t-style>  <t-str>extra</t-str>
+      </t>
+      <comment>There are DOUBLE spaces between the three words</comment>
+    </p>
+     <p xml:id="test.p.7">
+       <t>
           <t-style>deel</t-style><t-style>woord</t-style> <t-str>extra</t-str>
       </t>
+      <comment>deelwoord is one word, extra is another</comment>
     </p>
-    <p xml:id="test.p.6">
+    <p xml:id="test.p.8">
          <t>I <t-style>Buiten- en binnenlandse hoogleraren, lectoren en
                              oud-docenten in de neerlandistiek, sprekers, bestuurs- en stafleden van
                              de IVN</t-style>.</t>
+         <comment>There must be no space space prior to the final period here</comment>
     </p>
-    <p xml:id="test.p.7">
+    <p xml:id="test.p.9">
          <t>I <t-style>Buiten- en binnenlandse hoogleraren, lectoren en
                              oud-docenten in de neerlandistiek, sprekers, bestuurs- en stafleden van
                              de IVN</t-style> .</t>
+         <comment>The space prior to the final period must be preserved</comment>
     </p>
   </text>
 </FoLiA>
