@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='utf-8'?>
+<FoLiA xmlns="http://ilk.uvt.nl/folia" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="test" version="2.5.0" generator="foliapy-v2.4.1">
+  <metadata type="native">
+    <annotations>
+      <string-annotation>
+        <annotator processor="p1"/>
+      </string-annotation>
+      <style-annotation>
+        <annotator processor="p1"/>
+      </style-annotation>
+      <paragraph-annotation>
+        <annotator processor="p1"/>
+      </paragraph-annotation>
+      <text-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/text.foliaset.ttl">
+        <annotator processor="p1"/>
+      </text-annotation>
+    </annotations>
+    <provenance>
+         <processor xml:id="p1" name="proycon" type="manual" />
+    </provenance>
+  </metadata>
+  <text xml:id="test.text">
+     <comment>p1, p2, p3 and p4 should all have the very same text rendition in FoLiA >= v2.5</comment>
+
+     <p xml:id="test.p.1">
+       <t>
+        <t-str>
+          <t-style>deel</t-style>
+        </t-str>
+        <t-str>
+          <t-style>woord</t-style>
+        </t-str>
+        <t-str>extra</t-str>
+      </t>
+    </p>
+     <p xml:id="test.p.2">
+       <t>
+          <t-style>deel</t-style>
+          <t-style>woord</t-style>
+          <t-str>extra</t-str>
+      </t>
+    </p>
+     <p xml:id="test.p.3">
+       <t>
+           deel
+           woord
+           extra
+      </t>
+    </p>
+     <p xml:id="test.p.4">
+       <t>
+          <t-style>deel</t-style> <t-style>woord</t-style> <t-str>extra</t-str>
+      </t>
+    </p>
+     <p xml:id="test.p.5">
+       <t>
+          <t-style>deel</t-style><t-style>woord</t-style> <t-str>extra</t-str>
+      </t>
+    </p>
+    <p xml:id="test.p.6">
+         <t>I <t-style>Buiten- en binnenlandse hoogleraren, lectoren en
+                             oud-docenten in de neerlandistiek, sprekers, bestuurs- en stafleden van
+                             de IVN</t-style>.</t>
+    </p>
+    <p xml:id="test.p.7">
+         <t>I <t-style>Buiten- en binnenlandse hoogleraren, lectoren en
+                             oud-docenten in de neerlandistiek, sprekers, bestuurs- en stafleden van
+                             de IVN</t-style> .</t>
+    </p>
+  </text>
+</FoLiA>
