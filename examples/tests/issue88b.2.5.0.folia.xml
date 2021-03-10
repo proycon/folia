@@ -14,6 +14,9 @@
       <text-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/text.foliaset.ttl">
         <annotator processor="p1"/>
       </text-annotation>
+      <comment-annotation>
+        <annotator processor="p1"/>
+      </comment-annotation>
     </annotations>
     <provenance>
          <processor xml:id="p1" name="proycon" type="manual" />
