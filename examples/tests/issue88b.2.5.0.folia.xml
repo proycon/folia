@@ -81,19 +81,27 @@
       </t>
       <comment>deelwoord is one word, extra is another</comment>
     </p>
-    <p xml:id="test.p.10">
+     <p xml:id="test.p.10">
+       <t>
+           deel<br/>
+           woord<br/>
+           extra<br/>
+      </t>
+      <comment>Each word is on its own line</comment>
+    </p>
+    <p xml:id="test.p.11">
          <t>I <t-style>Buiten- en binnenlandse hoogleraren, lectoren en
                              oud-docenten in de neerlandistiek, sprekers, bestuurs- en stafleden van
                              de IVN</t-style>.</t>
          <comment>There must be no space space prior to the final period here</comment>
     </p>
-    <p xml:id="test.p.11">
+    <p xml:id="test.p.12">
          <t>I <t-style>Buiten- en binnenlandse hoogleraren, lectoren en
                              oud-docenten in de neerlandistiek, sprekers, bestuurs- en stafleden van
                              de IVN</t-style> .</t>
          <comment>The space prior to the final period must be preserved</comment>
     </p>
-    <p xml:id="test.p.12">
+    <p xml:id="test.p.13">
       <t>
        <t-str>
         <t-style><feat class="Times New Roman" subset="font_family"/><feat class="15." subset="font_size"/><feat class="{3C19F4A8-2234-4EE8-9373-EBFA03C5A2A4}" subset="font_style"/>Es entspricht einerseits nicht den Erwartungen der<t-hbr/></t-style></t-str><t-str><t-style><feat class="Times New Roman" subset="font_family"/><feat class="15." subset="font_size"/><feat class="{3C19F4A8-2234-4EE8-9373-EBFA03C5A2A4}" subset="font_style"/>jenigen, welche in betreff der Lage der Landarbeiter nur solche</t-style>
