@@ -109,7 +109,7 @@ attribute:
 .. note::
 
     Offsets in FoLiA are always zero indexed (i.e, the first offset is zero, not one) and count unicode codepoints (as opposed to bytes).
-    Take special care with combining diacritical marks versus codepoints that directly integrate the diacritical mark.
+    Offsets always refer to a specific `normalized form <http://www.unicode.org/reports/tr15/`_ of the text:  Unicode Normal Form Composed (NFC). This affects how certain characters (notably those with diacritics) are encoded. FoLiA libraries should take care of this for you automatically.
 
 
 Offsets can be used to refer back from deeper text-content elements. This does imply
@@ -169,8 +169,7 @@ Whitespace
 --------------------------
 
 Leading and trailing whitespace within a text content element is not significant (since version 2.4.1 but with backward
-effect). This applies to spaces, tabs, newlines and carriage returns, so all of the following snippets are interpreted
-like this first one and the offset for ``To`` is 0:
+effect). And double whitespace is collapsed to single. As whitespace we consider spaces, tabs, newlines and carriage returns, so all of the following snippets have the identical text ``to be or not to be`` and the offset for ``To`` is 0:
 
 .. code-block:: xml
 
@@ -185,17 +184,28 @@ like this first one and the offset for ``To`` is 0:
    <t>
     To be or not to be</t>
 
-Whitepace in the middle of a text content element **is** significant, including spaces, tabs and newlines. This means
-that the following text really includes a newline and some indenting spaces, i.e. ``to be\n  or not to be``:
-
-.. code-block:: xml
+   <t>
+    To be     or not to be</t>
 
    <t>To be
       or not to be</t>
 
-Encoding a newline explicitly with :ref:`linebreak_annotation` is preferred.
+   <t>
+    To
+    be
+    or
+    not
+    to
+    be</t>
 
-This same principle, stripping leading and trailing whitespace but not intemediate whitespace, also applies to :ref:`textmarkup_annotation_category`, the following two are semantically identical:
+If you want to encode linebreaks, you need to explicitly use :ref:`linebreak_annotation` (``<br/>``), as otherwise it will not be significant:
+
+.. code-block:: xml
+
+   <t>To be<br/>
+      or not to be</t>
+
+This same principle applies to :ref:`textmarkup_annotation_category`, the following three are semantically identical:
 
 .. code-block:: xml
 
@@ -203,27 +213,13 @@ This same principle, stripping leading and trailing whitespace but not intemedia
 
     <t>To <t-style class="bold"> be </t-style> or not to be</t>
 
-As are these two:
-
-.. code-block:: xml
-
-    <t><t-style class="bold">hello world</t-style></t>
-
     <t>
-        <t-style class="bold">hello world</t-style>
+       To
+       <t-style class="bold">be</t-style>
+       or not to be
     </t>
 
-But these are not:
-
-.. code-block:: xml
-
-    <t>To <t-style class="bold">be</t-style> or not to be</t>
-
-    <t>To
-        <t-style class="bold">be</t-style>
-       or not to be</t>
-
-As mentioned before, empty text is explicitly forbidden in FoLiA. Considering all of the following are identical semantically, all will
+As mentioned before, empty text is explicitly forbidden in FoLiA. All of the following are identical semantically, and all will
 produce an empty text error:
 
 .. code-block:: xml
@@ -239,11 +235,49 @@ produce an empty text error:
 
 The rule here is, empty text is no text at all, so you should omit the ``<t>`` element entirely in such cases.
 
+
+.. note::
+
+    The rules regarding whitespace prior to FoLiA v2.5 and v2.4.1 were different and not as well-defined yet.
+
+    * prior to FoLiA v2.4.1 all whitespace and linebreaks were interpreted as significant
+    * since FoLiA v2.4.1 leading and trailing whitespace was stripped, but not all whitespace was collapsed yet.
+
+    FoLiA validators will be forgiving when checking the text consistency and offsets in older FoLiA documents. The new
+    rules will be applied first, but fallbacks wil test again older rules in such cases, retaining backward
+    compatibility.
+
+.. note::
+
+    FoLiA (since v2.5) and TEI are comparable in the way they treat XML whitespace. TEI has an `elaborate article <https://wiki.tei-c.org/index.php/XML_Whitespace>`_ on the subject that may provide further insight.
+
+Preserving whitespace (advanced)
+-------------------------------------
+
+What if you **DO** explicitly want to encode a double space, an initial space or a trailing space? Though generally not
+recommended, this may be needed if you want to stay true to the untokenised original in a very strict sense. The
+You can set the ``xml:space="preserve"`` attribute on any text content or text markup element to indicate that you want
+to preserve the spaces as-is. Consider the following distinct examples:
+
+.. code-block:: xml
+
+   <t>To be or not to be</t>
+
+   <t xml:space="preserve">To be     or not to be</t>
+
+Without ``xml:space="preserve"``, the texts would be identical. This attribute is automatically inherited by child elements, you will need to set ``xml:space="default"`` if you want to revert to the normal behaviour when nesting text markup.
+
+Note that even when preserving spaces, FoLiA does not accept empty (whitespace-only) text nodes.
+
+.. note::
+
+    FoLiA does not accept XML CDATA in text content or text markup elements. It will be treated as it if were normal
+    text. CDATA only makes sense when used with :ref:`gap_annotation`.
+
 .. _textclasses:
 
 Text classes (advanced)
 --------------------------
-
 
 It is possible to associate **multiple text content elements** with the same
 structural element, and thus associating multiple texts with the same element. You may
