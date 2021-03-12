@@ -2,7 +2,7 @@
 #    This is a technical specification of FoLiA, for use by FoLiA libraries
 
 #The FoLiA version
-version: "2.4.2"
+version: "2.5.0"
 
 #The FoLiA namespace
 namespace: "http://ilk.uvt.nl/folia"
