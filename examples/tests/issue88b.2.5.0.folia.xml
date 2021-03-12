@@ -23,7 +23,7 @@
     </provenance>
   </metadata>
   <text xml:id="test.text">
-     <comment>p1, p2, p3, p4 and p5 should all have the very same text rendition in FoLiA >= v2.5</comment>
+     <comment>p1, p2, p3, p4, p5 and p6 should all have the very same text rendition in FoLiA >= v2.5. In earlier FoLiAs most of them go wrong.</comment>
 
      <p xml:id="test.p.1">
        <t>
@@ -62,28 +62,44 @@
       <comment>all leading/trailing spacing is removed (functionally identical to p.4)</comment>
     </p>
      <p xml:id="test.p.6">
-       <t>
-          <t-style>deel</t-style>  <t-style>woord</t-style>  <t-str>extra</t-str>
-      </t>
-      <comment>There are DOUBLE spaces between the three words</comment>
+      <t><t-style>deel</t-style>  <t-style>woord</t-style>  <t-str>extra</t-str></t>
+      <comment>There are DOUBLE spaces between the three words, but they are normalized away</comment>
     </p>
      <p xml:id="test.p.7">
+      <t xml:space="preserve"><t-style>deel</t-style>  <t-style>woord</t-style>  <t-str>extra</t-str></t>
+      <comment>There are DOUBLE spaces between the three words which are preserved only because of the explicit xml:space attribute</comment>
+    </p>
+     <p xml:id="test.p.8">
+       <t xml:space="preserve">
+          <t-style>  deel  </t-style> <t-style>   woord </t-style> <t-str>      extra</t-str>
+       </t>
+      <comment>all leading/trailing spacing is preserved</comment>
+    </p>
+     <p xml:id="test.p.9">
        <t>
           <t-style>deel</t-style><t-style>woord</t-style> <t-str>extra</t-str>
       </t>
       <comment>deelwoord is one word, extra is another</comment>
     </p>
-    <p xml:id="test.p.8">
+    <p xml:id="test.p.10">
          <t>I <t-style>Buiten- en binnenlandse hoogleraren, lectoren en
                              oud-docenten in de neerlandistiek, sprekers, bestuurs- en stafleden van
                              de IVN</t-style>.</t>
          <comment>There must be no space space prior to the final period here</comment>
     </p>
-    <p xml:id="test.p.9">
+    <p xml:id="test.p.11">
          <t>I <t-style>Buiten- en binnenlandse hoogleraren, lectoren en
                              oud-docenten in de neerlandistiek, sprekers, bestuurs- en stafleden van
                              de IVN</t-style> .</t>
          <comment>The space prior to the final period must be preserved</comment>
+    </p>
+    <p xml:id="test.p.12">
+      <t>
+       <t-str>
+        <t-style><feat class="Times New Roman" subset="font_family"/><feat class="15." subset="font_size"/><feat class="{3C19F4A8-2234-4EE8-9373-EBFA03C5A2A4}" subset="font_style"/>Es entspricht einerseits nicht den Erwartungen der<t-hbr/></t-style></t-str><t-str><t-style><feat class="Times New Roman" subset="font_family"/><feat class="15." subset="font_size"/><feat class="{3C19F4A8-2234-4EE8-9373-EBFA03C5A2A4}" subset="font_style"/>jenigen, welche in betreff der Lage der Landarbeiter nur solche</t-style>
+        </t-str>
+         <comment>This adds some elaborate nesting and features. There should be NO space in the word derjenigen</comment>
+      </t>
     </p>
   </text>
 </FoLiA>
