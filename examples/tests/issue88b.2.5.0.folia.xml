@@ -8,6 +8,12 @@
       <style-annotation>
         <annotator processor="p1"/>
       </style-annotation>
+      <linebreak-annotation>
+        <annotator processor="p1"/>
+      </linebreak-annotation>
+      <hyphenation-annotation>
+        <annotator processor="p1"/>
+      </hyphenation-annotation>
       <paragraph-annotation>
         <annotator processor="p1"/>
       </paragraph-annotation>
