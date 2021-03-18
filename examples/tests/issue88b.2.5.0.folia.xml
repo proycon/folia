@@ -76,7 +76,7 @@
       <comment>There are DOUBLE spaces between the three words which are preserved only because of the explicit xml:space attribute</comment>
     </p>
      <p xml:id="test.p.8">
-       <t xml:space="preserve"><t-style>  deel  </t-style> <t-style>   woord </t-style> <t-str>      extra</t-str></t>
+       <t xml:space="preserve"><t-style xml:space="preserve">  deel  </t-style> <t-style>   woord </t-style> <t-str>      extra</t-str></t>
        <comment>all leading/trailing spacing is preserved</comment>
     </p>
      <p xml:id="test.p.9">
