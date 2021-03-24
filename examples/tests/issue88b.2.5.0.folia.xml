@@ -113,5 +113,14 @@
       </t>
       <comment>This adds some elaborate nesting and features. There should be NO space in the word derjenigen</comment>
     </p>
+    <p xml:id="test.p.14">
+        <t>Terwijl hij den gemiddelden prijs
+         van een karaat geslepen op
+         <t-style class="italic">£</t-style> 8 stelde, den prijs
+		     van een steen van 2 karaat op 2<t-style class="super">2</t-style>
+                 X 8 = <t-style class="italic">£</t-style> 3<t-style class="super">2</t-style>
+        </t>
+        <comment>There should be a space after 2 and before X 8</comment>
+    </p>
   </text>
 </FoLiA>
