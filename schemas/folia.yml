@@ -82,7 +82,7 @@ attributes_doc:
 
 
 #All possible annotation types, each must be declared in the FoLiA header when used
-annotationtype: [ TEXT, TOKEN, DIVISION, PARAGRAPH, HEAD, LIST, FIGURE, WHITESPACE, LINEBREAK, SENTENCE, POS, LEMMA, DOMAIN, SENSE, SYNTAX, CHUNKING, ENTITY, CORRECTION, ERRORDETECTION, PHON, SUBJECTIVITY, MORPHOLOGICAL, EVENT, DEPENDENCY, TIMESEGMENT, GAP, QUOTE, NOTE, REFERENCE, RELATION, SPANRELATION, COREFERENCE, SEMROLE, METRIC, LANG, STRING, TABLE, STYLE, PART, UTTERANCE, ENTRY, TERM, DEFINITION, EXAMPLE, PHONOLOGICAL, PREDICATE, OBSERVATION, SENTIMENT, STATEMENT, ALTERNATIVE, RAWCONTENT, COMMENT, DESCRIPTION, HYPHENATION, HIDDENTOKEN, MODALITY, EXTERNAL ]
+annotationtype: [ TEXT, TOKEN, DIVISION, PARAGRAPH, HEAD, LIST, FIGURE, WHITESPACE, LINEBREAK, SENTENCE, POS, LEMMA, DOMAIN, SENSE, SYNTAX, CHUNKING, ENTITY, CORRECTION, ERRORDETECTION, PHON, SUBJECTIVITY, MORPHOLOGICAL, EVENT, DEPENDENCY, TIMESEGMENT, GAP, QUOTE, NOTE, REFERENCE, RELATION, SPANRELATION, COREFERENCE, SEMROLE, METRIC, LANG, STRING, TABLE, STYLE, PART, UTTERANCE, ENTRY, TERM, DEFINITION, EXAMPLE, PHONOLOGICAL, PREDICATE, OBSERVATION, SENTIMENT, STATEMENT, ALTERNATIVE, RAWCONTENT, COMMENT, DESCRIPTION, HYPHENATION, HIDDENTOKEN, MODALITY, EXTERNAL, HSPACE ]
 
 #Documentation of annotation types (reStructuredText)
 annotationtype_doc:
@@ -115,9 +115,13 @@ annotationtype_doc:
         description: "Structure annotation for including pictures, optionally captioned, in documents."
         history: "Since the beginning"
     whitespace:
-        name: "Whitespace"
+        name: "Vertical Whitespace"
         description: "Structure annotation introducing vertical whitespace"
         history: "Since the beginning"
+    hspace:
+        name: "Horizontal Whitespace"
+        description: "Markup annotation introducing horizontal whitespace"
+        history: "Since the v2.5.0"
     linebreak:
         name: "Linebreak"
         description: "Structure annotation representing a single linebreak and with special facilities to denote pagebreaks."
@@ -926,6 +930,17 @@ elements:
                 annotationtype: REFERENCE
                 xmltag: "t-ref"
                 primaryelement: false
+          - class: TextMarkupWhitespace
+            properties:
+                annotationtype: WHITESPACE
+                xmltag: "t-whitespace"
+                textdelimiter: ""
+                primaryelement: false
+          - class: TextMarkupSpace
+            properties:
+                annotationtype: HSPACE
+                xmltag: "t-hspace"
+                textdelimiter: " "
     - class: AbstractInlineAnnotation
       properties:
           required_attribs: [ CLASS ]

@@ -251,6 +251,8 @@ The rule here is, empty text is no text at all, so you should omit the ``<t>`` e
 
     FoLiA (since v2.5) and TEI are comparable in the way they treat XML whitespace. TEI has an `elaborate article <https://wiki.tei-c.org/index.php/XML_Whitespace>`_ on the subject that may provide further insight.
 
+.. _preserving_whitespace:
+
 Preserving whitespace (advanced)
 -------------------------------------
 
@@ -268,6 +270,13 @@ to preserve the spaces as-is. Consider the following distinct examples:
 Without ``xml:space="preserve"``, the texts would be identical. This attribute is automatically inherited by child elements, you will need to set ``xml:space="default"`` if you want to revert to the normal behaviour when nesting text markup.
 
 Note that even when preserving spaces, FoLiA does not accept empty (whitespace-only) text nodes.
+
+Instead of using ``xml:space="preserve"``, you are encouraged to use the more explicit :ref:`hspace_annotation` using
+the ``<t-hspace/>`` element:
+
+.. code-block:: xml
+
+   <t>To be<t-hspace class="long" />or not to be</t>
 
 .. note::
 
