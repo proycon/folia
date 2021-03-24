@@ -936,7 +936,7 @@ elements:
                 xmltag: "t-whitespace"
                 textdelimiter: ""
                 primaryelement: false
-          - class: TextMarkupSpace
+          - class: TextMarkupHSpace
             properties:
                 annotationtype: HSPACE
                 xmltag: "t-hspace"

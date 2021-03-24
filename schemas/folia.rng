@@ -2629,6 +2629,50 @@ RelaxNG schema for FoLiA XML v2.5.0
                   </element>
                 </zeroOrMore>
               </element>
+              <element name="hspace-annotation">
+                <optional>
+                  <attribute name="set">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="alias">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="annotator">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="annotatortype">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="datetime">
+                    <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="groupannotations">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <optional>
+                  <attribute name="format">
+                    <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                  </attribute>
+                </optional>
+                <zeroOrMore>
+                  <element name="annotator">
+                    <attribute name="processor">
+                      <data type="IDREF" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+                    </attribute>
+                  </element>
+                </zeroOrMore>
+              </element>
             </choice>
           </zeroOrMore>
         </element>
@@ -3050,6 +3094,12 @@ RelaxNG schema for FoLiA XML v2.5.0
           <ref name="t-style"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="t-whitespace"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-hspace"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="br"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -3195,6 +3245,12 @@ RelaxNG schema for FoLiA XML v2.5.0
           <ref name="t-style"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="t-whitespace"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-hspace"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="br"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -3332,6 +3388,12 @@ RelaxNG schema for FoLiA XML v2.5.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="t-style"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-whitespace"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-hspace"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="br"/>
@@ -3476,6 +3538,12 @@ RelaxNG schema for FoLiA XML v2.5.0
           <ref name="t-style"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="t-whitespace"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-hspace"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="br"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -3613,6 +3681,12 @@ RelaxNG schema for FoLiA XML v2.5.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="t-style"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-whitespace"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-hspace"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="br"/>
@@ -3757,6 +3831,296 @@ RelaxNG schema for FoLiA XML v2.5.0
           <ref name="t-style"/>
         </zeroOrMore>
         <zeroOrMore>
+          <ref name="t-whitespace"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-hspace"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="br"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-hbr"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="comment"/>
+        </zeroOrMore>
+        <optional>
+          <ref name="desc"/>
+        </optional>
+        <zeroOrMore>
+          <ref name="feat"/>
+        </zeroOrMore>
+      </interleave>
+    </element>
+  </define>
+
+
+  <define name="t-whitespace" ns="http://ilk.uvt.nl/folia">
+    <element name="t-whitespace">
+      <a:documentation>Whitespace element, signals a vertical whitespace</a:documentation>
+      <optional>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="annotatortype"/>
+      </optional>
+      <optional>
+        <attribute name="processor">
+          <data type="IDREF" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="confidence">
+          <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="datetime">
+          <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="begintime"/>
+      </optional>
+      <optional>
+        <attribute name="endtime"/>
+      </optional>
+      <optional>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="metadata"/>
+      </optional>
+      <optional>
+        <attribute name="typegroup"/>
+      </optional>
+      <optional>
+        <attribute name="space" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="href" ns="http://www.w3.org/1999/xlink"/>
+        <attribute name="type" ns="http://www.w3.org/1999/xlink"/>
+      </optional>
+      <optional>
+        <attribute name="role" ns="http://www.w3.org/1999/xlink"/>
+      </optional>
+      <optional>
+        <attribute name="title" ns="http://www.w3.org/1999/xlink"/>
+      </optional>
+      <optional>
+        <attribute name="label" ns="http://www.w3.org/1999/xlink"/>
+      </optional>
+      <optional>
+        <attribute name="show" ns="http://www.w3.org/1999/xlink"/>
+      </optional>
+      <optional>
+        <attribute name="auth"/>
+      </optional>
+      <optional>
+        <attribute name="id"/>
+      </optional>
+      <ref name="allow_foreign_attributes"/>
+      <interleave>
+        <text/>
+        <zeroOrMore>
+          <ref name="t-str"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-ref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-gap"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-correction"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-error"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-style"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-whitespace"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-hspace"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="br"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-hbr"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="comment"/>
+        </zeroOrMore>
+        <optional>
+          <ref name="desc"/>
+        </optional>
+        <zeroOrMore>
+          <ref name="feat"/>
+        </zeroOrMore>
+      </interleave>
+    </element>
+  </define>
+
+
+  <define name="t-hspace" ns="http://ilk.uvt.nl/folia">
+    <element name="t-hspace">
+      <a:documentation>Whitespace element, signals a horizontal whitespace</a:documentation>
+      <optional>
+        <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="class">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="set">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="annotator">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="annotatortype"/>
+      </optional>
+      <optional>
+        <attribute name="processor">
+          <data type="IDREF" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="confidence">
+          <data type="double" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="n">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="datetime">
+          <data type="dateTime" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="begintime"/>
+      </optional>
+      <optional>
+        <attribute name="endtime"/>
+      </optional>
+      <optional>
+        <attribute name="src">
+          <data type="anyURI" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="speaker">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="metadata"/>
+      </optional>
+      <optional>
+        <attribute name="typegroup"/>
+      </optional>
+      <optional>
+        <attribute name="space" ns="http://www.w3.org/XML/1998/namespace">
+          <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
+        </attribute>
+      </optional>
+      <optional>
+        <attribute name="href" ns="http://www.w3.org/1999/xlink"/>
+        <attribute name="type" ns="http://www.w3.org/1999/xlink"/>
+      </optional>
+      <optional>
+        <attribute name="role" ns="http://www.w3.org/1999/xlink"/>
+      </optional>
+      <optional>
+        <attribute name="title" ns="http://www.w3.org/1999/xlink"/>
+      </optional>
+      <optional>
+        <attribute name="label" ns="http://www.w3.org/1999/xlink"/>
+      </optional>
+      <optional>
+        <attribute name="show" ns="http://www.w3.org/1999/xlink"/>
+      </optional>
+      <optional>
+        <attribute name="auth"/>
+      </optional>
+      <optional>
+        <attribute name="id"/>
+      </optional>
+      <ref name="allow_foreign_attributes"/>
+      <interleave>
+        <text/>
+        <zeroOrMore>
+          <ref name="t-str"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-ref"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-gap"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-correction"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-error"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-style"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-whitespace"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-hspace"/>
+        </zeroOrMore>
+        <zeroOrMore>
           <ref name="br"/>
         </zeroOrMore>
         <zeroOrMore>
@@ -3877,6 +4241,12 @@ RelaxNG schema for FoLiA XML v2.5.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="t-style"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-whitespace"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-hspace"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="br"/>
@@ -4695,6 +5065,12 @@ RelaxNG schema for FoLiA XML v2.5.0
         </zeroOrMore>
         <zeroOrMore>
           <ref name="t-style"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-whitespace"/>
+        </zeroOrMore>
+        <zeroOrMore>
+          <ref name="t-hspace"/>
         </zeroOrMore>
         <zeroOrMore>
           <ref name="br"/>
