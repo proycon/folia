@@ -5,7 +5,7 @@ Introduction
 
 .. foliaspec:version
 .. The FoLiA version
-version: 2.4.0
+version: 2.5.0
 
 FoLiA, an acronym for **Format for Linguistic Annotation**, is a data model and file format to represent digitised
 language resources enriched with linguistic annotation, e.g. linguistically enriched textual documents or transcriptions
@@ -133,6 +133,7 @@ finish this introductory chapter first):
   The text content element (``<t>``) allows within its scope elements of a this category; these are **Text Markup** elements, they always contain textual content and apply a certain markup to certain spans of the text. One of it's common uses is for styling (emphasis, underlines, etc.). Text markup elements may be nested.
    - :ref:`style_annotation` -- ``<t-style>`` -- This is a text markup annotation type for applying styling to text. The actual styling is defined by the user-defined set definition and can for example included classes such as italics, bold, underline
    - :ref:`hyphenation_annotation` -- ``<t-hbr>`` -- This is a text-markup annotation form that indicates where in the original text a linebreak was inserted and a word was hyphenised.
+   - :ref:`hspace_annotation` -- ``<t-hspace>`` -- Markup annotation introducing horizontal whitespace
 * :ref:`higherorder_annotation_category` --
   Higher-order Annotation groups a very diverse set of annotation types that are considered *annotations on annotations*
    - :ref:`correction_annotation` -- ``<correction>`` -- Corrections are one of the most complex annotation types in FoLiA. Corrections can be applied not just over text, but over any type of structure annotation, inline annotation or span annotation. Corrections explicitly preserve the original, and recursively so if corrections are done over other corrections.
