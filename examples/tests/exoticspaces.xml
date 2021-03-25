@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FoLiA xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://ilk.uvt.nl/folia" xml:id="spaces" generator="libfolia-v2.1" version="2.4.0">
+  <metadata type="native">
+    <annotations>
+      <text-annotation set="https://raw.githubusercontent.com/proycon/folia/master/setdefinitions/text.foliaset.ttl"/>
+      <token-annotation set="tokconfig-nld"/>
+      <sentence-annotation set="tokconfig-nld"/>
+      <paragraph-annotation set="tokconfig-nld"/>
+      <style-annotation set="style"/>
+    </annotations>
+  </metadata>
+  <text xml:id="spaces.text">
+    <p xml:id="spaces.text.p.2">
+      <s xml:id="spaces.text.p.2.s.1">
+	<!-- two words with U+2004 spaces (THREE-PER-EM SPACE) e2 80 84 -->
+	<t>zij de ha ren</t>
+        <w xml:id="spaces.text.p.2.s.1.w.1" class="WORD" set="tokconfig-nld">
+          <t>zij de</t>
+        </w>
+        <w xml:id="spaces.text.p.2.s.1.w.2" class="WORD" set="tokconfig-nld">
+          <t><t-style class="bold">ha</t-style> ren</t>
+        </w>
+      </s>
+    </p>
+  </text>
+</FoLiA>
