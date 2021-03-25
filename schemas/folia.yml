@@ -934,13 +934,13 @@ elements:
             properties:
                 annotationtype: WHITESPACE
                 xmltag: "t-whitespace"
-                textdelimiter: ""
+                textdelimiter: "" #no delimiter, the element outputs linebreaks itself
                 primaryelement: false
           - class: TextMarkupHSpace
             properties:
                 annotationtype: HSPACE
                 xmltag: "t-hspace"
-                textdelimiter: " "
+                textdelimiter: "" #no delimiter, the element outputs a space itself
     - class: AbstractInlineAnnotation
       properties:
           required_attribs: [ CLASS ]
