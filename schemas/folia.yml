@@ -941,6 +941,11 @@ elements:
                 annotationtype: HSPACE
                 xmltag: "t-hspace"
                 textdelimiter: "" #no delimiter, the element outputs a space itself
+          - class: TextMarkupLanguage
+            properties:
+                annotationtype: LANG
+                xmltag: "t-lang"
+                primaryelement: false
     - class: AbstractInlineAnnotation
       properties:
           required_attribs: [ CLASS ]
