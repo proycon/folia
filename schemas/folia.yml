@@ -12,7 +12,7 @@ setdefinitionnamespace: "http://folia.science.ru.nl/setdefinition"
 
 #all possible common FoLiA attributes
 #(@annotatortype and @processor are subsumed under ANNOTATOR)
-attributes: [ ID, CLASS, ANNOTATOR, CONFIDENCE, N, DATETIME, BEGINTIME, ENDTIME, SRC, SPEAKER, TEXTCLASS, METADATA, IDREF, SPACE ]
+attributes: [ ID, CLASS, ANNOTATOR, CONFIDENCE, N, DATETIME, BEGINTIME, ENDTIME, SRC, SPEAKER, TEXTCLASS, METADATA, IDREF, SPACE, TAG ]
 
 attributes_doc:
     id:
@@ -79,6 +79,9 @@ attributes_doc:
         name: "id"
         description: "A reference to the ID of another element. This is a reference and not an assignment, unlike xml:id, so do not confuse the two! It is only supported on certain elements that are referential in nature."
         group: core
+    tag:
+        name: "tag"
+        description: "Contains a space separated list of processing tags associated with the element. A processing tag carries arbitrary user-defined information that may aid in processing a document. It may carry cues on how a specific tool should treat a specific element. The tag vocabulary is specific to the tool that processes the document. Tags carry no instrinsic meaning for the data representation and should not be used except to inform/aid processors in their task. Processors are encouraged to clean up the tags they use. Ideally, published FoLiA documents at the end of a processing pipeline carry no further tags."
 
 
 #All possible annotation types, each must be declared in the FoLiA header when used
@@ -387,7 +390,7 @@ elements:
           printable: false
           speakable: false
           accepted_data: [ Correction, ForeignData ]
-          optional_attribs: [ ID ]
+          optional_attribs: [ ID, TAG ]
           setonly: true
       elements:
           - class: ChunkingLayer
@@ -477,7 +480,7 @@ elements:
     - class: AbstractCorrectionChild
       properties:
           speakable: true
-          optional_attribs: [ ID, ANNOTATOR, CONFIDENCE, DATETIME, N ]
+          optional_attribs: [ ID, ANNOTATOR, CONFIDENCE, DATETIME, N, TAG ]
           printable: true
           textdelimiter: null
           accepted_data: [ AbstractInlineAnnotation, AbstractSpanAnnotation, AbstractStructureElement, Correction, Metric, PhonContent, String, TextContent, ForeignData]
@@ -485,21 +488,21 @@ elements:
           - class: Current
             properties:
                 annotationtype: CORRECTION
-                optional_attribs: null
+                optional_attribs: [ TAG ]
                 xmltag: "current"
                 occurrences: 1
                 primaryelement: false
           - class: New
             properties:
                 annotationtype: CORRECTION
-                optional_attribs: null
+                optional_attribs: [ TAG ]
                 xmltag: "new"
                 occurrences: 1
                 primaryelement: false
           - class: Original
             properties:
                 annotationtype: CORRECTION
-                optional_attribs: null
+                optional_attribs: [ TAG ]
                 xmltag: "original"
                 occurrences: 1
                 auth: false
@@ -507,7 +510,7 @@ elements:
           - class: Suggestion
             properties:
                 annotationtype: CORRECTION
-                optional_attribs: [ CONFIDENCE, N ]
+                optional_attribs: [ CONFIDENCE, N, TAG ]
                 xmltag: "suggestion"
                 occurrences: 0
                 auth: false
@@ -516,12 +519,12 @@ elements:
       properties:
           printable: true
           speakable: true
-          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, TEXTCLASS, METADATA ]
+          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, TEXTCLASS, METADATA, TAG ]
           accepted_data: [ Metric, Relation, ForeignData, LinkReference, AbstractInlineAnnotation ]
       elements:
           - class: AbstractSpanRole
             properties:
-                optional_attribs: [ ID ]
+                optional_attribs: [ ID, TAG ]
                 accepted_data: [ Feature, WordReference, LinkReference]
                 primaryelement: false
             elements:
@@ -656,7 +659,7 @@ elements:
           required_attribs: null
           textdelimiter: "\n\n"
           speakable: true
-          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA, SPACE ]
+          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA, SPACE, TAG ]
           accepted_data: [AbstractAnnotationLayer, External, Relation, Alternative, AlternativeLayers, Correction, Feature, Metric, Part, ForeignData]
           auto_generate_id: true
       elements:
@@ -664,14 +667,14 @@ elements:
             properties:
                 occurrences: 1
                 accepted_data: [AbstractInlineAnnotation, Gap, Linebreak, Paragraph, PhonContent, Quote, Reference, Sentence, String, TextContent, Whitespace]
-                optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA, SPACE ]
+                optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA, SPACE, TAG ]
                 xmltag: "caption"
                 label: "Caption"
           - class: Cell
             properties:
                 textdelimiter: " | "
                 accepted_data: [AbstractInlineAnnotation, Entry, Event, Example, Figure, Gap, Head, Linebreak, List, Note, Paragraph, Quote, Reference, Sentence, String, TextContent, Whitespace, Word, Hiddenword ]
-                optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA, SPACE  ]
+                optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA, SPACE, TAG  ]
                 xmltag: "cell"
                 label: "Cell"
           - class: Definition
@@ -727,7 +730,7 @@ elements:
                 xmltag: "hiddenw"
                 label: "Hidden Word/Token"
                 textdelimiter: " " #may be overriden and set to "" if attribute space="no" is set on the word
-                optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, TEXTCLASS, METADATA, SPACE ]
+                optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, TEXTCLASS, METADATA, SPACE, TAG ]
                 wrefable: true
                 hidden: true
           - class: Label
@@ -753,7 +756,7 @@ elements:
             properties:
                 textdelimiter: "\n"
                 accepted_data: [AbstractInlineAnnotation, Event, Gap, Label, Linebreak, List, Note, Paragraph, Part, PhonContent, Quote, Reference, Sentence, String, TextContent, Whitespace, Word, Hiddenword]
-                optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
+                optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA, TAG ]
                 xmltag: "item" #was listitem in an early erroneous version of FoLiA, libraries will unfortunately need to support that too for backward compatibility
                 label: "List Item"
           - class: Note
@@ -809,7 +812,7 @@ elements:
                 label: "Speech Body"
                 textdelimiter: "\n\n\n"
                 accepted_data: [AbstractInlineAnnotation, Division, Entry, Event, Example, External, Gap, List, Note, Paragraph, PhonContent, Quote, Reference, Sentence, String, TextContent, Utterance, Word, Hiddenword]
-                optional_attribs: [ ID, ANNOTATOR, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA, SPACE ]
+                optional_attribs: [ ID, ANNOTATOR, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA, SPACE, TAG ]
           - class: Table
             properties:
                 annotationtype: TABLE
@@ -819,7 +822,7 @@ elements:
           - class: TableHead
             properties:
                 accepted_data: [AbstractInlineAnnotation, Row]
-                optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
+                optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA, TAG ]
                 xmltag: "tablehead"
                 label: "Table Header"
           - class: Term
@@ -834,7 +837,7 @@ elements:
                 label: "Text Body"
                 textdelimiter: "\n\n\n"
                 accepted_data: [AbstractInlineAnnotation, Division, Entry, Event, Example, External, Figure, Gap, List, Note, Paragraph, PhonContent, Quote, Reference, Sentence, String, Table, TextContent, Word, Hiddenword, Linebreak, Whitespace]
-                optional_attribs: [ ID, ANNOTATOR, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA, SPACE ]
+                optional_attribs: [ ID, ANNOTATOR, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA, SPACE, TAG ]
           - class: Utterance
             properties:
                 annotationtype: UTTERANCE
@@ -855,7 +858,7 @@ elements:
                 xmltag: "w"
                 label: "Word/Token"
                 textdelimiter: " " #may be overriden and set to "" if attribute space="no" is set on the word
-                optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, TEXTCLASS, METADATA, SPACE ]
+                optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, TEXTCLASS, METADATA, SPACE, TAG ]
                 wrefable: true
     - class: AbstractSubtokenAnnotation
       properties:
@@ -863,7 +866,7 @@ elements:
           required_attribs: null
           textdelimiter: "\n\n"
           speakable: true
-          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
+          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA, TAG ]
           accepted_data: [AbstractAnnotationLayer, Relation, Alternative, AlternativeLayers, Correction, Feature, Metric, Part, ForeignData]
           auto_generate_id: true
       elements:
@@ -889,7 +892,7 @@ elements:
           printable: true
           accepted_data: [ AbstractTextMarkup, Linebreak, Feature ]  #we add linebreak explicitly as it is both a structure element and a markup element
           textdelimiter: ""
-          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
+          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA, TAG ]
           xlink: true
           primaryelement: false
       elements:
@@ -949,7 +952,7 @@ elements:
     - class: AbstractInlineAnnotation
       properties:
           required_attribs: [ CLASS ]
-          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, TEXTCLASS, METADATA ]
+          optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, TEXTCLASS, METADATA, TAG ]
           accepted_data: [ Feature , Metric, ForeignData ]
           occurrences_per_set: 1 #How often can a particular element+set combination occur under the parent (0 = unlimited)
       elements:
@@ -1002,7 +1005,7 @@ elements:
           properties:
               annotationtype: RELATION
               speakable: false
-              optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
+              optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA, TAG ]
               printable: false
               required_attribs: null
               xlink: true
@@ -1014,7 +1017,7 @@ elements:
               annotationtype: ALTERNATIVE
               required_attribs: null
               speakable: false
-              optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
+              optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA, TAG ]
               printable: false
               accepted_data: [ AbstractInlineAnnotation, Correction, ForeignData,  MorphologyLayer, PhonologyLayer ]
               auth: false
@@ -1026,7 +1029,7 @@ elements:
               primaryelement: false
               required_attribs: null
               speakable: false
-              optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
+              optional_attribs: [ ID, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA, TAG ]
               printable: false
               accepted_data: [ AbstractAnnotationLayer, ForeignData ]
               auth: false
@@ -1036,7 +1039,7 @@ elements:
           properties:
               annotationtype: SPANRELATION
               speakable: false
-              optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
+              optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA, TAG ]
               printable: false
               required_attribs: null
               accepted_data: [ Relation, Metric, Feature, ForeignData ]
@@ -1048,7 +1051,7 @@ elements:
               printable: true
               accepted_data: [ New, Original, Current, Suggestion, ErrorDetection, Metric, Feature, ForeignData ]
               speakable: true
-              optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
+              optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA, TAG ]
               xmltag: "correction"
               label: "Correction"
               textdelimiter: null
@@ -1057,7 +1060,7 @@ elements:
               annotationtype: COMMENT
               xmltag: "comment"
               label: "Comment"
-              optional_attribs: [ ID, ANNOTATOR, CONFIDENCE, DATETIME, N, METADATA ]
+              optional_attribs: [ ID, ANNOTATOR, CONFIDENCE, DATETIME, N, METADATA, TAG ]
               printable: false
         - class: Description
           properties:
@@ -1065,7 +1068,7 @@ elements:
               occurrences: 1
               xmltag: "desc"
               label: "Description"
-              optional_attribs: [ ID, ANNOTATOR, CONFIDENCE, DATETIME, N, METADATA ]
+              optional_attribs: [ ID, ANNOTATOR, CONFIDENCE, DATETIME, N, METADATA, TAG ]
         - class: External
           properties:
               annotationtype: EXTERNAL
@@ -1073,7 +1076,7 @@ elements:
               xmltag: "external"
               label: "External"
               required_attribs: [ SRC ]
-              optional_attribs: [ ID, ANNOTATOR, CONFIDENCE, DATETIME, N, METADATA, BEGINTIME, ENDTIME ]
+              optional_attribs: [ ID, ANNOTATOR, CONFIDENCE, DATETIME, N, METADATA, BEGINTIME, ENDTIME, TAG ]
               accepted_data: null
               printable: true
         - class: Feature
@@ -1144,14 +1147,14 @@ elements:
         - class: Metric
           properties:
               annotationtype: METRIC
-              optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA ]
+              optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA, TAG ]
               xmltag: "metric"
               label: "Metric"
               accepted_data: [ Feature, ValueFeature, ForeignData ]
         - class: String
           properties:
               annotationtype: STRING
-              optional_attribs: [ ID, CLASS, ANNOTATOR, CONFIDENCE, DATETIME, N, SRC, BEGINTIME, ENDTIME, METADATA ]
+              optional_attribs: [ ID, CLASS, ANNOTATOR, CONFIDENCE, DATETIME, N, SRC, BEGINTIME, ENDTIME, METADATA, TAG ]
               occurrences: 0
               printable: true
               accepted_data: [AbstractInlineAnnotation, Relation, Correction, Feature, ForeignData, Metric, PhonContent, TextContent]
@@ -1163,14 +1166,14 @@ elements:
         - class: Gap
           properties:
               annotationtype: GAP
-              optional_attribs: [ ID, CLASS, ANNOTATOR, N,  DATETIME, SRC, BEGINTIME, ENDTIME, METADATA ]
+              optional_attribs: [ ID, CLASS, ANNOTATOR, N,  DATETIME, SRC, BEGINTIME, ENDTIME, METADATA, TAG ]
               xmltag: "gap"
               label: "Gap"
               accepted_data: [Content, Feature, Metric, Part, ForeignData]
     - class: AbstractContentAnnotation
       properties:
           required_attribs: null
-          optional_attribs: [ CLASS, ANNOTATOR, CONFIDENCE, DATETIME, METADATA ]
+          optional_attribs: [ CLASS, ANNOTATOR, CONFIDENCE, DATETIME, METADATA, TAG ]
           occurrences: 0
       elements:
         - class: TextContent
@@ -1201,11 +1204,11 @@ elements:
               label: "Raw Content"
     - class: WordReference
       properties:
-          optional_attribs: [ IDREF ]
+          optional_attribs: [ IDREF, TAG ]
           xmltag: "wref"
     - class: LinkReference #used to be AlignReference in FoLiA < 2
       properties:
-          optional_attribs: [ IDREF ]
+          optional_attribs: [ IDREF, TAG ]
           xmltag: "xref"
 
 #List of elements that can be a target of wref in span anntation
