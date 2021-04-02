@@ -34,7 +34,13 @@ Specification
                       * ``endtime`` -- A timestamp in ``HH:MM:SS.MMM`` format, indicating the end time of the speech. If a sound clip is specified (``src``); the timestamp refers to a location in the soundclip.
                       * ``speaker`` -- A string identifying the speaker. This attribute is inheritable. Multiple speakers are not allowed, simply do not specify a speaker on a certain level if you are unable to link the speech to a specific (single) speaker.
 :Accepted Data: ``<comment>`` (:ref:`comment_annotation`), ``<desc>`` (:ref:`description_annotation`), ``<metric>`` (:ref:`metric_annotation`)
-:Valid Context: 
+:Valid Context:
+
+Text markup Element
+~~~~~~~~~~~~~~~~~~~
+
+.. foliaspec:specification_element(TextMarkupLanguage)
+XXX
 
 Explanation
 -------------------------
@@ -42,6 +48,8 @@ Explanation
 Language identification is used to identify a certain structural element as being in a
 certain language, so it can be applied to the text as a whole or smaller elements within it.
 The language vocabulary is determined by the set definition.
+
+The text markup variant (``<t-lang>``), can be used in non-tokenised contexts.
 
 Example
 -------------------------
