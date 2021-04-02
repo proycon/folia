@@ -14,18 +14,18 @@
   </metadata>
   <text xml:id="example.text">
       <list xml:id="example.list.1">
-          <item n="1">
-             <w xml:id="example.list.1.item.1">
+          <item xml:id="example.list.1.item.1" n="1">
+             <w xml:id="example.list.1.item.1.w.1">
                 <t>Hello</t>
              </w>
           </item>
-          <item n="2" tag="remove">
-             <w xml:id="example.list.1.item.2">
+          <item xml:id="example.list.1.item.2" n="2" tag="remove">
+             <w xml:id="example.list.1.item.2.w.2">
                 <t>Bonjour</t>
              </w>
           </item>
-          <item n="3">
-             <w xml:id="example.list.1.item.3">
+          <item xml:id="example.list.1.item.3" n="3" tag="highlight translate">
+             <w xml:id="example.list.1.item.3.w.3">
                 <t>Hola</t>
              </w>
           </item>
