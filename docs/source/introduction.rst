@@ -364,7 +364,7 @@ attributes per annotation type. Altogether, we distinguish the following:
 * ``datetime`` -- The date and time when this annotation was recorded, the format is ``YYYY-MM-DDThh:mm:ss`` (note the literal T in the middle to separate date from time), as per the XSD Datetime data type.
 * ``n`` -- A number in a sequence, corresponding to a number in the original document, for example chapter numbers, section numbers, list item numbers. This this not have to be an actual number but other sequence identifiers are also possible (think alphanumeric characters or roman numerals).
 * ``textclass`` -- Refers to the text class this annotation is based on. This is an advanced attribute, if not specified, it defaults to ``current``. See :ref:`textclass_attribute`.
-* ``space`` -- This attribute indicates whether spacing should be inserted after this element (it's default value is always ``yes``, so it does not need to be specified in that case), but if tokens or other structural elements are glued together then the value should be set to ``no``. This allows for reconstruction of the detokenised original text. 
+* ``space`` -- This attribute indicates whether spacing should be inserted after this element (it's default value is always ``yes``, so it does not need to be specified in that case), but if tokens or other structural elements are glued together then the value should be set to ``no``. This allows for reconstruction of the detokenised original text.
 
 **Speech attributes**, the following attributes apply mostly in a speech context (please read :ref:`speech` for more):
 
@@ -379,6 +379,10 @@ details.
 
 * ``xlink:href`` -- Creates a hyperlink on a text to the specified URL
 * ``xlink:type`` -- Specifies the type of the hyperlink. (should be set to ``simple`` in almost all cases)
+
+**Processing tags**; These tags can be used by FoLiA tools to help their processing. We're essentially encoding some extra cue in the FoLiA to help another tool do its job, and such a cue may be needed because the information is not present in the FoLiA yet, or is too complexly encoded for the other tool to unravel.
+
+* ``tag`` -- Contains a space separated list of processing tags associated with the element. A processing tag carries arbitrary user-defined information that may aid in processing a document. It may carry cues on how a specific tool should treat a specific element. The tag vocabulary is specific to the tool that processes the document. Tags carry no instrinsic meaning for the data representation and should not be used except to inform/aid processors in their task. Processors are encouraged to clean up the tags they use. Ideally, published FoLiA documents at the end of a processing pipeline carry no further tags. For encoding actual data, use ``class`` and optionally features instead.
 
 .. _identifiers:
 
