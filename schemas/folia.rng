@@ -2890,6 +2890,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -2952,6 +2955,9 @@ RelaxNG schema for FoLiA XML v2.5.0
       </optional>
       <optional>
         <attribute name="metadata"/>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -3041,6 +3047,9 @@ RelaxNG schema for FoLiA XML v2.5.0
       </optional>
       <optional>
         <attribute name="metadata"/>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -3189,6 +3198,9 @@ RelaxNG schema for FoLiA XML v2.5.0
       </optional>
       <optional>
         <attribute name="metadata"/>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -3345,6 +3357,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -3491,6 +3506,9 @@ RelaxNG schema for FoLiA XML v2.5.0
       </optional>
       <optional>
         <attribute name="metadata"/>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -3644,6 +3662,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -3787,6 +3808,9 @@ RelaxNG schema for FoLiA XML v2.5.0
       </optional>
       <optional>
         <attribute name="metadata"/>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -3940,6 +3964,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -4083,6 +4110,9 @@ RelaxNG schema for FoLiA XML v2.5.0
       </optional>
       <optional>
         <attribute name="metadata"/>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -4230,6 +4260,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -4356,6 +4389,9 @@ RelaxNG schema for FoLiA XML v2.5.0
       </optional>
       <optional>
         <attribute name="metadata"/>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -4488,6 +4524,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -4598,6 +4637,9 @@ RelaxNG schema for FoLiA XML v2.5.0
       </optional>
       <optional>
         <attribute name="space"/>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -4876,6 +4918,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -4984,6 +5029,9 @@ RelaxNG schema for FoLiA XML v2.5.0
       </optional>
       <optional>
         <attribute name="space"/>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -5179,6 +5227,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -5334,6 +5385,9 @@ RelaxNG schema for FoLiA XML v2.5.0
       </optional>
       <optional>
         <attribute name="space"/>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -5504,6 +5558,9 @@ RelaxNG schema for FoLiA XML v2.5.0
       </optional>
       <optional>
         <attribute name="space"/>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -5707,6 +5764,9 @@ RelaxNG schema for FoLiA XML v2.5.0
       </optional>
       <optional>
         <attribute name="space"/>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -5916,6 +5976,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -6007,6 +6070,9 @@ RelaxNG schema for FoLiA XML v2.5.0
       </optional>
       <optional>
         <attribute name="metadata"/>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -6144,6 +6210,9 @@ RelaxNG schema for FoLiA XML v2.5.0
       </optional>
       <optional>
         <attribute name="space"/>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -6413,6 +6482,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -6543,6 +6615,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -6667,6 +6742,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -6711,6 +6789,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="n">
           <data type="string" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -6940,6 +7021,9 @@ RelaxNG schema for FoLiA XML v2.5.0
   <define name="new" ns="http://ilk.uvt.nl/folia">
     <element name="new">
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -7161,6 +7245,9 @@ RelaxNG schema for FoLiA XML v2.5.0
   <define name="original" ns="http://ilk.uvt.nl/folia">
     <element name="original">
       <a:documentation>Used in the context of :class:`Correction` to encapsulate the original annotations *prior* to correction.</a:documentation>
+      <optional>
+        <attribute name="tag"/>
+      </optional>
       <optional>
         <attribute name="typegroup"/>
       </optional>
@@ -7386,6 +7473,9 @@ RelaxNG schema for FoLiA XML v2.5.0
 
     Needed only when suggestions for correction are proposed (:class:`Suggestion`) for structural elements.
     </a:documentation>
+      <optional>
+        <attribute name="tag"/>
+      </optional>
       <optional>
         <attribute name="typegroup"/>
       </optional>
@@ -7687,6 +7777,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -7805,6 +7898,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -7918,6 +8014,9 @@ RelaxNG schema for FoLiA XML v2.5.0
       </optional>
       <optional>
         <attribute name="metadata"/>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -8043,6 +8142,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -8147,6 +8249,9 @@ RelaxNG schema for FoLiA XML v2.5.0
       </optional>
       <optional>
         <attribute name="metadata"/>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -8289,6 +8394,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -8426,6 +8534,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -8507,6 +8618,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         </attribute>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -8586,6 +8700,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         </attribute>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -8661,6 +8778,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
           <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -8740,6 +8860,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         </attribute>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -8815,6 +8938,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
           <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -8903,6 +9029,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         </attribute>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -8978,6 +9107,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
           <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -9117,6 +9249,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -9253,6 +9388,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -9343,6 +9481,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
           <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -9494,6 +9635,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -9627,6 +9771,9 @@ RelaxNG schema for FoLiA XML v2.5.0
       </optional>
       <optional>
         <attribute name="metadata"/>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -9769,6 +9916,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -9907,6 +10057,9 @@ RelaxNG schema for FoLiA XML v2.5.0
       </optional>
       <optional>
         <attribute name="metadata"/>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -10061,6 +10214,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -10207,6 +10363,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -10341,6 +10500,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -10445,6 +10607,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -10547,6 +10712,9 @@ RelaxNG schema for FoLiA XML v2.5.0
       </optional>
       <optional>
         <attribute name="metadata"/>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -10746,6 +10914,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -10886,6 +11057,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         </attribute>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -10930,6 +11104,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
           <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -10978,6 +11155,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         </attribute>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -11022,6 +11202,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
           <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -11070,6 +11253,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         </attribute>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -11114,6 +11300,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
           <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -11162,6 +11351,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         </attribute>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -11208,6 +11400,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         </attribute>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -11252,6 +11447,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
           <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -11303,6 +11501,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         </attribute>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -11347,6 +11548,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
           <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -11395,6 +11599,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         </attribute>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -11439,6 +11646,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
           <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -11488,6 +11698,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
           <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -11597,6 +11810,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -11699,6 +11915,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -11796,6 +12015,9 @@ RelaxNG schema for FoLiA XML v2.5.0
       </optional>
       <optional>
         <attribute name="metadata"/>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -11897,6 +12119,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -11996,6 +12221,9 @@ RelaxNG schema for FoLiA XML v2.5.0
       </optional>
       <optional>
         <attribute name="space"/>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -12234,6 +12462,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="space"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -12462,6 +12693,9 @@ RelaxNG schema for FoLiA XML v2.5.0
       </optional>
       <optional>
         <attribute name="space"/>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -12700,6 +12934,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="space"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -12930,6 +13167,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="space"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -13112,6 +13352,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -13196,6 +13439,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="id" ns="http://www.w3.org/XML/1998/namespace">
           <data type="ID" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"/>
         </attribute>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -13302,6 +13548,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -13404,6 +13653,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="metadata"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -13503,6 +13755,9 @@ RelaxNG schema for FoLiA XML v2.5.0
       </optional>
       <optional>
         <attribute name="space"/>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -13730,6 +13985,9 @@ RelaxNG schema for FoLiA XML v2.5.0
       </optional>
       <optional>
         <attribute name="space"/>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -13962,6 +14220,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="space"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -14178,6 +14439,9 @@ RelaxNG schema for FoLiA XML v2.5.0
       </optional>
       <optional>
         <attribute name="space"/>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -14433,6 +14697,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="space"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -14651,6 +14918,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="space"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -14848,6 +15118,9 @@ RelaxNG schema for FoLiA XML v2.5.0
       </optional>
       <optional>
         <attribute name="metadata"/>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -15071,6 +15344,9 @@ RelaxNG schema for FoLiA XML v2.5.0
       </optional>
       <optional>
         <attribute name="metadata"/>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -15309,6 +15585,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="space"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -15527,6 +15806,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="space"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -15706,6 +15988,9 @@ RelaxNG schema for FoLiA XML v2.5.0
       </optional>
       <optional>
         <attribute name="space"/>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -15930,6 +16215,9 @@ RelaxNG schema for FoLiA XML v2.5.0
       </optional>
       <optional>
         <attribute name="space"/>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -16162,6 +16450,9 @@ RelaxNG schema for FoLiA XML v2.5.0
       </optional>
       <optional>
         <attribute name="space"/>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -16406,6 +16697,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="space"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -16582,6 +16876,9 @@ RelaxNG schema for FoLiA XML v2.5.0
       </optional>
       <optional>
         <attribute name="metadata"/>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -16773,6 +17070,9 @@ RelaxNG schema for FoLiA XML v2.5.0
       </optional>
       <optional>
         <attribute name="space"/>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -16970,6 +17270,9 @@ RelaxNG schema for FoLiA XML v2.5.0
       </optional>
       <optional>
         <attribute name="space"/>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
@@ -17200,6 +17503,9 @@ RelaxNG schema for FoLiA XML v2.5.0
         <attribute name="space"/>
       </optional>
       <optional>
+        <attribute name="tag"/>
+      </optional>
+      <optional>
         <attribute name="typegroup"/>
       </optional>
       <optional>
@@ -17417,6 +17723,9 @@ RelaxNG schema for FoLiA XML v2.5.0
       </optional>
       <optional>
         <attribute name="space"/>
+      </optional>
+      <optional>
+        <attribute name="tag"/>
       </optional>
       <optional>
         <attribute name="typegroup"/>
