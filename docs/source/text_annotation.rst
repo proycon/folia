@@ -220,7 +220,7 @@ If you want to encode linebreaks, you need to explicitly use :ref:`linebreak_ann
    <t>To be<br/>
       or not to be</t>
 
-Whitespace before explicit linebreaks is irrelevant and stripped (since FoLiA v2.5.1), so the following two examples are identical to the one above:
+Whitespace before explicit linebreaks is insignificant (since FoLiA v2.5.1), so the following two examples are identical to the one above:
 
 .. code-block:: xml
 
