@@ -85,12 +85,41 @@
       </t>
       <comment>deelwoord is one word, extra is another</comment>
     </p>
-     <p xml:id="test.p.10">
+    <p xml:id="test.p.10">
        <t>
            deel<br/>
            woord<br/>
            extra<br/>
       </t>
+      <str xml:id="test.str.10.1">
+          <t offset="0">deel</t>
+      </str>
+      <str xml:id="test.str.10.2">
+          <t offset="5">woord</t>
+      </str>
+      <str xml:id="test.str.10.3">
+          <t offset="11">extra</t>
+      </str>
+      <comment>Each word is on its own line</comment>
+    </p>
+    <p xml:id="test.p.10b">
+       <t>
+           <t-str>deel</t-str>
+           <br/>
+           <t-str>woord</t-str>
+           <br/>
+           <t-str>extra</t-str>
+           <br/>
+      </t>
+      <str xml:id="test.str.10b.1">
+          <t offset="0">deel</t>
+      </str>
+      <str xml:id="test.str.10b.2">
+          <t offset="5">woord</t>
+      </str>
+      <str xml:id="test.str.10b.3">
+          <t offset="11">extra</t>
+      </str>
       <comment>Each word is on its own line</comment>
     </p>
     <p xml:id="test.p.11">
