@@ -17,7 +17,7 @@ Specification
 :Version History: Since the beginning, revised since v0.6
 :**Element**: ``<t>``
 :API Class: ``TextContent`` (`FoLiApy API Reference <https://foliapy.readthedocs.io/en/latest/_autosummary/folia.main.TextContent.html>`_)
-:Required Attributes: 
+:Required Attributes:
 :Optional Attributes: * ``set`` -- The set of the element, ideally a URI linking to a set definition (see :ref:`set_definitions`) or otherwise a uniquely identifying string. The ``set`` must be referred to also in the :ref:`annotation_declarations` for this annotation type.
                       * ``class`` -- The class of the annotation, i.e. the annotation tag in the vocabulary defined by ``set``.
                       * ``processor`` -- This refers to the ID of a processor in the :ref:`provenance_data`. The processor in turn defines exactly who or what was the annotator of the annotation.
@@ -170,7 +170,7 @@ Whitespace
 --------------------------
 
 Leading and trailing whitespace within a text content element is not significant (since version 2.4.1 but with backward
-effect). And double whitespace is collapsed to single. As whitespace we consider spaces, tabs, newlines and carriage returns, so all of the following snippets have the identical text ``to be or not to be`` and the offset for ``To`` is 0:
+effect). Double whitespace is collapsed to a single. As whitespace we consider spaces, tabs, newlines and carriage returns, so all of the following snippets have the identical text ``to be or not to be`` and the offset for ``To`` is 0:
 
 .. code-block:: xml
 
@@ -205,6 +205,21 @@ If you want to encode linebreaks, you need to explicitly use :ref:`linebreak_ann
 
    <t>To be<br/>
       or not to be</t>
+
+Whitespace before explicit linebreaks is irrelevant and stripped (since FoLiA v2.5.1), so the following two examples are identical to the one above:
+
+.. code-block:: xml
+
+   <t>To be  <br/>
+      or not to be</t>
+
+.. code-block:: xml
+
+   <t>
+      To be
+      <br/>
+      or not to be
+   </t>
 
 This same principle applies to :ref:`textmarkup_annotation_category`, the following three are semantically identical:
 
