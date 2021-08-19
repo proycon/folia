@@ -199,6 +199,20 @@ effect). Double whitespace is collapsed to a single. As whitespace we consider s
     to
     be</t>
 
+This same principle applies to :ref:`textmarkup_annotation_category`, the following three are semantically identical:
+
+.. code-block:: xml
+
+    <t>To <t-style class="bold">be</t-style> or not to be</t>
+
+    <t>To <t-style class="bold"> be </t-style> or not to be</t>
+
+    <t>
+       To
+       <t-style class="bold">be</t-style>
+       or not to be
+    </t>
+
 If you want to encode linebreaks, you need to explicitly use :ref:`linebreak_annotation` (``<br/>``), as otherwise it will not be significant:
 
 .. code-block:: xml
@@ -221,19 +235,6 @@ Whitespace before explicit linebreaks is irrelevant and stripped (since FoLiA v2
       or not to be
    </t>
 
-This same principle applies to :ref:`textmarkup_annotation_category`, the following three are semantically identical:
-
-.. code-block:: xml
-
-    <t>To <t-style class="bold">be</t-style> or not to be</t>
-
-    <t>To <t-style class="bold"> be </t-style> or not to be</t>
-
-    <t>
-       To
-       <t-style class="bold">be</t-style>
-       or not to be
-    </t>
 
 As mentioned before, empty text is explicitly forbidden in FoLiA. All of the following are identical semantically, and all will
 produce an empty text error:
