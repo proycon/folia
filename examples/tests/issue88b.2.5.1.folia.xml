@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<FoLiA xmlns="http://ilk.uvt.nl/folia" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="test" version="2.5.0" generator="foliapy-v2.4.1">
+<FoLiA xmlns="http://ilk.uvt.nl/folia" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="test" version="2.5.1" generator="foliapy-v2.4.1">
   <metadata type="native">
     <annotations>
       <string-annotation>
