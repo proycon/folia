@@ -1,0 +1,2437 @@
+@prefix folia: <http://ilk.uvt.nl/folia/v2#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xs: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/#> .
+
+##### FoLiA version v2.5.1 Specification #######
+
+### Concept Schemes ###
+
+folia:AnnotationTypes a skos:ConceptScheme ;
+                      dc:title "FoLiA Annotation Types" ;
+                      dc:description "Defines the annotation types of FoLiA, this includes linguistic, structural and markup annotation types" .
+folia:AnnotationType a rdfs:Class .
+
+folia:Attributes a skos:ConceptScheme ;
+                 dc:title "FoLiA Attributes" ;
+                 dc:description "Defines common attributes on FoLiA elements." .
+folia:Attribute a rdfs:Class .
+
+folia:Elements a skos:ConceptScheme ;
+                 dc:title "FoLiA Elements" ;
+                 dc:description "Defines FoLiA elements. These correspond to element in FoLiA XML" .
+folia:Element  a rdfs:Class .
+
+### Element Properties ###
+
+folia:xmltag a rdf::Property ;
+             rdfs:domain folia:Element ;
+             rdfs:range xs:NCName .
+folia:annotationtype a rdf::Property ;
+                      rdfs:domain folia:Element ;
+                      rdfs:range folia:AnnotationType .
+folia:occurrences a rdf:Property ;
+                    rdfs:domain folia:element ;
+                    rdfs:range xs:integer .
+folia:occurrences_per_set a rdf:Property ;
+                          rdfs:domain folia:element ;
+                          rdfs:range xs:integer .
+folia:subset a rdf:Property ;
+               rdfs:domain folia:Element .
+folia:textdelimiter a rdf:Property ;
+                    rdfs:domain folia:Element ;
+                    rdfs:range xs:string .
+folia:requireAttribute a rdf::Property ;
+                       rdfs:domain folia:Element ;
+                       rdfs:range folia:Attribute .
+folia:optionalAttribute a rdf::Property ;
+                       rdfs:domain folia:Element ;
+                       rdfs:range folia:Attribute .
+folia:acceptedElement a rdf:Property ;
+                      rdfs:domain folia:Element ;
+                      rdfs:range folia:Element .
+
+
+
+folia:printable a rdf:Property ;
+     rdfs:domain folia:Element ;
+     rdfs:range xs:bool .
+
+folia:speakable a rdf:Property ;
+     rdfs:domain folia:Element ;
+     rdfs:range xs:bool .
+
+folia:hidden a rdf:Property ;
+     rdfs:domain folia:Element ;
+     rdfs:range xs:bool .
+
+folia:xlink a rdf:Property ;
+     rdfs:domain folia:Element ;
+     rdfs:range xs:bool .
+
+folia:textcontainer a rdf:Property ;
+     rdfs:domain folia:Element ;
+     rdfs:range xs:bool .
+
+folia:phoncontainer a rdf:Property ;
+     rdfs:domain folia:Element ;
+     rdfs:range xs:bool .
+
+folia:implicitspace a rdf:Property ;
+     rdfs:domain folia:Element ;
+     rdfs:range xs:bool .
+
+folia:auth a rdf:Property ;
+     rdfs:domain folia:Element ;
+     rdfs:range xs:bool .
+
+folia:primaryelement a rdf:Property ;
+     rdfs:domain folia:Element ;
+     rdfs:range xs:bool .
+
+folia:auto_generate_id a rdf:Property ;
+     rdfs:domain folia:Element ;
+     rdfs:range xs:bool .
+
+folia:setonly a rdf:Property ;
+     rdfs:domain folia:Element ;
+     rdfs:range xs:bool .
+
+folia:wrefable a rdf:Property ;
+     rdfs:domain folia:Element ;
+     rdfs:range xs:bool .
+
+### Annotation Types ###
+
+
+folia:TextAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Text Annotation" ;
+        skos:definition "Text annotation associates actual textual content with structural elements, without it a document would be textless. FoLiA treats it as an annotation like any other." ;
+        skos:historyNote "Since the beginning, revised since v0.6" .
+
+folia:TokenAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Token Annotation" ;
+        skos:definition "This annotation type introduces a tokenisation layer for the document. The terms **token** and **word** are used interchangeably in FoLiA as FoLiA itself does not commit to a specific tokenisation paradigm. Tokenisation is a prerequisite for the majority of linguistic annotation types offered by FoLiA and it is one of the most fundamental types of Structure Annotation. The words/tokens are typically embedded in other types of structure elements, such as sentences or paragraphs." ;
+        skos:historyNote "Since the beginning" .
+
+folia:DivisionAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Division Annotation" ;
+        skos:definition "Structure annotation representing some kind of division, typically used for chapters, sections, subsections (up to the set definition). Divisions may be nested at will, and may include almost all kinds of other structure elements." ;
+        skos:historyNote "Since the beginning" .
+
+folia:ParagraphAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Paragraph Annotation" ;
+        skos:definition "Represents a paragraph and holds further structure annotation such as sentences." ;
+        skos:historyNote "Since the beginning" .
+
+folia:HeadAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Head Annotation" ;
+        skos:definition "The ``head`` element is used to provide a header or title for the structure element in which it is embedded, usually a division (``<div>``)" ;
+        skos:historyNote "Since the beginning" .
+
+folia:ListAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "List Annotation" ;
+        skos:definition "Structure annotation for enumeration/itemisation, e.g. bulleted lists." ;
+        skos:historyNote "Since the beginning" .
+
+folia:FigureAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Figure Annotation" ;
+        skos:definition "Structure annotation for including pictures, optionally captioned, in documents." ;
+        skos:historyNote "Since the beginning" .
+
+folia:WhitespaceAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Vertical Whitespace" ;
+        skos:definition "Structure annotation introducing vertical whitespace" ;
+        skos:historyNote "Since the beginning" .
+
+folia:LinebreakAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Linebreak" ;
+        skos:definition "Structure annotation representing a single linebreak and with special facilities to denote pagebreaks." ;
+        skos:historyNote "Since the beginning" .
+
+folia:SentenceAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Sentence Annotation" ;
+        skos:definition "Structure annotation representing a sentence. Sentence detection is a common stage in NLP alongside tokenisation." ;
+        skos:historyNote "Since the beginning" .
+
+folia:PosAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Part-of-Speech Annotation" ;
+        skos:definition "Part-of-Speech Annotation, one of the most common types of linguistic annotation. Assigns a lexical class to words." ;
+        skos:historyNote "Since the beginning" .
+
+folia:LemmaAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Lemmatisation" ;
+        skos:definition "Lemma Annotation, one of the most common types of linguistic annotation. Represents the canonical form of a word." ;
+        skos:historyNote "Since the beginning" .
+
+folia:DomainAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Domain/topic Annotation" ;
+        skos:definition "Domain/topic Annotation. A form of inline annotation used to assign a certain domain or topic to a structure element." ;
+        skos:historyNote "Since the beginning" .
+
+folia:SenseAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Sense Annotation" ;
+        skos:definition "Sense Annotation allows to assign a lexical semantic sense to a word." ;
+        skos:historyNote "Since the beginning" .
+
+folia:SyntaxAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Syntactic Annotation" ;
+        skos:definition "Assign grammatical categories to spans of words. Syntactic units are nestable and allow representation of complete syntax trees that are usually the result of consistuency parsing." ;
+        skos:historyNote "Since the beginning" .
+
+folia:ChunkingAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Chunking" ;
+        skos:definition "Assigns shallow grammatical categories to spans of words. Unlike syntax annotation, chunks are not nestable. They are often produced by a process called Shallow Parsing, or alternatively, chunking." ;
+        skos:historyNote "Since the beginning" .
+
+folia:EntityAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Entity Annotation" ;
+        skos:definition "Entity annotation is a broad and common category in FoLiA. It is used for specifying all kinds of multi-word expressions, including but not limited to named entities. The set definition used determines the vocabulary and therefore the precise nature of the entity annotation." ;
+        skos:historyNote "Since the beginning" .
+
+folia:CorrectionAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Correction Annotation" ;
+        skos:definition "Corrections are one of the most complex annotation types in FoLiA. Corrections can be applied not just over text, but over any type of structure annotation, inline annotation or span annotation. Corrections explicitly preserve the original, and recursively so if corrections are done over other corrections." ;
+        skos:historyNote "Since v0.4" .
+
+folia:ErrordetectionAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Error Detection" ;
+        skos:definition "This annotation type is deprecated in favour of `Observation Annotation` and only exists for backward compatibility." ;
+        skos:historyNote "Deprecated since v2.0.0" .
+
+folia:PhonAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Phonetic Annotation" ;
+        skos:definition "This is the phonetic analogy to text content (``<t>``) and allows associating a phonetic transcription with any structural element, it is often used in a speech context. Note that for actual segmentation into phonemes, FoLiA has another related type: ``Phonological Annotation``" ;
+        skos:historyNote "Since v0.12" .
+
+folia:SubjectivityAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Subjectivity Annotation" ;
+        skos:definition "This annotation type is deprecated in favour of `Sentiment Annotation` and only exists for backward compatibility." ;
+        skos:historyNote "Deprecated since v1.5" .
+
+folia:MorphologicalAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Morphological Annotation" ;
+        skos:definition "Morphological Annotation allows splitting a word/token into morphemes, morphemes itself may be nested. It is embedded within a layer ``morphology`` which can be embedded within word/tokens." ;
+        skos:historyNote "Heavily revised since v0.9" .
+
+folia:EventAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Event Annotation" ;
+        skos:definition "Structural annotation type representing events, often used in new media contexts for things such as tweets, chat messages and forum posts (as defined by a user-defined set definition). Note that a more linguistic kind of event annotation can be accomplished with `Entity Annotation` or even `Time Segmentation` rather than this one." ;
+        skos:historyNote "since v0.7" .
+
+folia:DependencyAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Dependency Annotation" ;
+        skos:definition "Dependency relations are syntactic relations between spans of tokens. A dependency relation takes a particular class and consists of a single head component and a single dependent component." ;
+        skos:historyNote "Slightly revised since v0.8 (no ``su`` attribute on ``hd``/``dep``)" .
+
+folia:TimesegmentAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Time Segmentation" ;
+        skos:definition "FoLiA supports time segmentation to allow for more fine-grained control of timing information by associating spans of words/tokens with exact timestamps. It can provide a more linguistic alternative to `Event Annotation`." ;
+        skos:historyNote "Since v0.8 but renamed since v0.9" .
+
+folia:GapAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Gap Annotation" ;
+        skos:definition "Sometimes there are parts of a document you want to skip and not annotate at all, but include as is. This is where gap annotation comes in, the user-defined set may indicate the kind of gap. Common omissions in books are for example front-matter and back-matter, i.e. the cover." ;
+        skos:historyNote "Since the beginning" .
+
+folia:QuoteAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Quote Annotation" ;
+        skos:definition "Structural annotation used to explicitly mark quoted speech, i.e. that what is reported to be said and appears in the text in some form of quotation marks." ;
+        skos:historyNote "Since v0.11" .
+
+folia:NoteAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Note Annotation" ;
+        skos:definition "Structural annotation used for notes, such as footnotes or warnings or notice blocks." ;
+        skos:historyNote "Since v0.11" .
+
+folia:ReferenceAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Reference Annotation" ;
+        skos:definition "Structural annotation for referring to other annotation types. Used e.g. for referring to bibliography entries (citations) and footnotes." ;
+        skos:historyNote "Since v0.11, external references since v1.2" .
+
+folia:RelationAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Relation Annotation" ;
+        skos:definition "FoLiA provides a facility to relate arbitrary parts of your document with other parts of your document, or even with parts of other FoLiA documents or external resources, even in other formats. It thus allows linking resources together. Within this context, the ``xref`` element is used to refer to the linked FoLiA elements." ;
+        skos:historyNote "Revised since v0.8, renamed from alignment in v2.0" .
+
+folia:SpanrelationAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Span Relation Annotation" ;
+        skos:definition "Span relations are a stand-off extension of relation annotation that allows for more complex relations, such as word alignments that include many-to-one, one-to-many or many-to-many alignments. One of its uses is in the alignment of multiple translations of (parts) of a text." ;
+        skos:historyNote "since v0.8, renamed from complexalignment in v2.0" .
+
+folia:CoreferenceAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Coreference Annotation" ;
+        skos:definition "Relations between words that refer to the same referent (anaphora) are expressed in FoLiA using Coreference Annotation. The co-reference relations are expressed by specifying the entire chain in which all links are coreferent." ;
+        skos:historyNote "since v0.9" .
+
+folia:SemroleAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Semantic Role Annotation" ;
+        skos:definition "This span annotation type allows for the expression of semantic roles, or thematic roles. It is often used together with `Predicate Annotation`" ;
+        skos:historyNote "since v0.9, revised since v1.3 (added predicates)" .
+
+folia:MetricAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Metric Annotation" ;
+        skos:definition "Metric Annotation is a form of higher-order annotation that allows annotation of some kind of measurement. The type of measurement is defined by the class, which in turn is defined by the set as always. The metric element has a ``value`` attribute that stores the actual measurement, the value is often numeric but this needs not be the case." ;
+        skos:historyNote "since v0.9" .
+
+folia:LangAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Language Annotation" ;
+        skos:definition "Language Annotation simply identifies the language a part of the text is in. Though this information is often part of the metadata, this form is considered an actual annotation." ;
+        skos:historyNote "since v0.8.1" .
+
+folia:StringAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "String Annotation" ;
+        skos:definition "This is a form of higher-order annotation for selecting an arbitrary substring of a text, even untokenised, and allows further forms of higher-order annotation on the substring. It is also tied to a form of text markup annotation." ;
+        skos:historyNote "since v0.9.1" .
+
+folia:TableAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Table Annotation" ;
+        skos:definition "Structural annotation type for creating a simple tabular environment, i.e. a table with rows, columns and cells and an optional header." ;
+        skos:historyNote "since v0.9.2" .
+
+folia:StyleAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Style Annotation" ;
+        skos:definition "This is a text markup annotation type for applying styling to text. The actual styling is defined by the user-defined set definition and can for example included classes such as italics, bold, underline" ;
+        skos:historyNote "since v0.10" .
+
+folia:PartAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Part Annotation" ;
+        skos:definition "The structure element ``part`` is a fairly abstract structure element that should only be used when a more specific structure element is not available. Most notably, the part element should never be used for representation of morphemes or phonemes! Part can be used to divide a larger structure element, such as a division, or a paragraph into arbitrary subparts." ;
+        skos:historyNote "since v0.11.2" .
+
+folia:UtteranceAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Utterance Annotation" ;
+        skos:definition "An utterance is a structure element that may consist of words or sentences, which in turn may contain words. The opposite is also true, a sentence may consist of multiple utterances. Utterances are often used in the absence of sentences in a speech context, where neat grammatical sentences can not always be distinguished." ;
+        skos:historyNote "since v0.12" .
+
+folia:EntryAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Entry Annotation" ;
+        skos:definition "FoLiA has a set of structure elements that can be used to represent collections such as glossaries, dictionaries, thesauri, and wordnets. `Entry annotation` defines the entries in such collections, `Term annotation` defines the terms, and `Definition Annotation` provides the definitions." ;
+        skos:historyNote "since v0.12" .
+
+folia:TermAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Term Annotation" ;
+        skos:definition "FoLiA has a set of structure elements that can be used to represent collections such as glossaries, dictionaries, thesauri, and wordnets. `Entry annotation` defines the entries in such collections, `Term annotation` defines the terms, and `Definition Annotation` provides the definitions." ;
+        skos:historyNote "since v0.12" .
+
+folia:DefinitionAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Definition Annotation" ;
+        skos:definition "FoLiA has a set of structure elements that can be used to represent collections such as glossaries, dictionaries, thesauri, and wordnets. `Entry annotation` defines the entries in such collections, `Term annotation` defines the terms, and `Definition Annotation` provides the definitions." ;
+        skos:historyNote "since v0.12" .
+
+folia:ExampleAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Example Annotation" ;
+        skos:definition "FoLiA has a set of structure elements that can be used to represent collections such as glossaries, dictionaries, thesauri, and wordnets. `Examples annotation` defines examples in such collections." ;
+        skos:historyNote "since v0.12" .
+
+folia:PhonologicalAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Phonological Annotation" ;
+        skos:definition "The smallest unit of annotatable speech in FoLiA is the phoneme level. The phoneme element is a form of structure annotation used for phonemes.  Alike to morphology, it is embedded within a layer ``phonology`` which can be embedded within word/tokens." ;
+        skos:historyNote "since v0.12" .
+
+folia:PredicateAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Predicate Annotation" ;
+        skos:definition "Allows annotation of predicates, this annotation type is usually used together with Semantic Role Annotation. The types of predicates are defined by a user-defined set definition." ;
+        skos:historyNote "since v1.3" .
+
+folia:ObservationAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Observation Annotation" ;
+        skos:definition "Observation annotation is used to make an observation pertaining to one or more word tokens.  Observations offer a an external qualification on part of a text. The qualification is expressed by the class, in turn defined by a set. The precise semantics of the observation depends on the user-defined set." ;
+        skos:historyNote "since v1.3" .
+
+folia:SentimentAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Sentiment Annotation" ;
+        skos:definition "Sentiment analysis marks subjective information such as sentiments or attitudes expressed in text. The sentiments/attitudes are defined by a user-defined set definition." ;
+        skos:historyNote "since v1.3" .
+
+folia:StatementAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Statement Annotation" ;
+        skos:definition "Statement annotation, sometimes also refered to as attribution, allows to decompose statements into the source of the statement, the content of the statement, and the way these relate, provided these are made explicit in the text." ;
+        skos:historyNote "since v1.3" .
+
+folia:AlternativeAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Alternative Annotation" ;
+        skos:definition "This form of higher-order annotation encapsulates alternative annotations, i.e. annotations that are posed as an alternative option rather than the authoratitive chosen annotation" ;
+        skos:historyNote "Since the beginning, may carry set and classes since v2.0" .
+
+folia:RawcontentAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Raw Content" ;
+        skos:definition "This associates raw text content which can not carry any further annotation. It is used in the context of :ref:`gap_annotation`" ;
+        skos:historyNote "Since the beginning, but revised and made a proper annotation type in v2.0" .
+
+folia:CommentAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Comment Annotation" ;
+        skos:definition "This is a form of higher-order annotation that allows you to associate comments with almost all other annotation elements" ;
+        skos:historyNote "Since v1.3" .
+
+folia:DescriptionAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Description Annotation" ;
+        skos:definition "This is a form of higher-order annotation that allows you to associate descriptions with almost all other annotation elements" ;
+        skos:historyNote "Since the beginning" .
+
+folia:HyphenationAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Hyphenation Annotation" ;
+        skos:definition "This is a text-markup annotation form that indicates where in the original text a linebreak was inserted and a word was hyphenised." ;
+        skos:historyNote "Since v2.0" .
+
+folia:HiddentokenAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Hidden Token Annotation" ;
+        skos:definition "This annotation type allows for a hidden token layer in the document. Hidden tokens are ignored for most intents and purposes but may serve a purpose when annotations on implicit tokens is required, for example as targets for syntactic movement annotation." ;
+        skos:historyNote "Since v2.0" .
+
+folia:ModalityAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Modality Annotation" ;
+        skos:definition "Modality annotation is used to describe the relationship between cue word(s) and the scope it covers. It is primarily used for the annotation of negation, but also for the annotation of factuality, certainty and truthfulness:." ;
+        skos:historyNote "Since v2.4.0" .
+
+folia:ExternalAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "External Annotation" ;
+        skos:definition "External annotation makes a reference to an external FoLiA document whose structure is inserted at the exact place the external element occurs." ;
+        skos:historyNote "Since v2.4.0" .
+
+folia:HspaceAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Horizontal Whitespace" ;
+        skos:definition "Markup annotation introducing horizontal whitespace" ;
+        skos:historyNote "Since the v2.5.0" .
+
+### Attributes ###
+
+
+folia:IdAttribute a skos:Concept, folia:Attribute ;
+        skos:inScheme folia:Attributes ;
+        skos:prefLabel "xml:id" ;
+        skos:definition "The ID of the element; this has to be a unique in the entire document or collection of documents (corpus). All identifiers in FoLiA are of the `XML NCName <https://www.w3.org/TR/1999/WD-xmlschema-2-19990924/#NCName>`_ datatype, which roughly means it is a unique string that has to start with a letter (not a number or symbol), may contain numbers, but may never contain colons or spaces. FoLiA does not define any naming convention for IDs." .
+
+folia:ClassAttribute a skos:Concept, folia:Attribute ;
+        skos:inScheme folia:Attributes ;
+        skos:prefLabel "class" ;
+        skos:definition "The class of the annotation, i.e. the annotation tag in the vocabulary defined by ``set``." .
+
+folia:AnnotatorAttribute a skos:Concept, folia:Attribute ;
+        skos:inScheme folia:Attributes ;
+        skos:prefLabel "annotator" ;
+        skos:definition "This is an older alternative to the ``processor`` attribute, without support for full provenance. The annotator attribute simply refers to the name o ID of the system or human annotator that made the annotation." .
+
+folia:ConfidenceAttribute a skos:Concept, folia:Attribute ;
+        skos:inScheme folia:Attributes ;
+        skos:prefLabel "confidence" ;
+        skos:definition "A floating point value between zero and one; expresses the confidence the annotator places in his annotation." .
+
+folia:NAttribute a skos:Concept, folia:Attribute ;
+        skos:inScheme folia:Attributes ;
+        skos:prefLabel "n" ;
+        skos:definition "A number in a sequence, corresponding to a number in the original document, for example chapter numbers, section numbers, list item numbers. This this not have to be an actual number but other sequence identifiers are also possible (think alphanumeric characters or roman numerals)." .
+
+folia:DatetimeAttribute a skos:Concept, folia:Attribute ;
+        skos:inScheme folia:Attributes ;
+        skos:prefLabel "datetime" ;
+        skos:definition "The date and time when this annotation was recorded, the format is ``YYYY-MM-DDThh:mm:ss`` (note the literal T in the middle to separate date from time), as per the XSD Datetime data type." .
+
+folia:BegintimeAttribute a skos:Concept, folia:Attribute ;
+        skos:inScheme folia:Attributes ;
+        skos:prefLabel "begintime" ;
+        skos:definition "A timestamp in ``HH:MM:SS.MMM`` format, indicating the begin time of the speech. If a sound clip is specified (``src``); the timestamp refers to a location in the soundclip." .
+
+folia:EndtimeAttribute a skos:Concept, folia:Attribute ;
+        skos:inScheme folia:Attributes ;
+        skos:prefLabel "endtime" ;
+        skos:definition "A timestamp in ``HH:MM:SS.MMM`` format, indicating the end time of the speech. If a sound clip is specified (``src``); the timestamp refers to a location in the soundclip." .
+
+folia:SrcAttribute a skos:Concept, folia:Attribute ;
+        skos:inScheme folia:Attributes ;
+        skos:prefLabel "src" ;
+        skos:definition "Points to a file or full URL of a sound or video file. This attribute is inheritable." .
+
+folia:SpeakerAttribute a skos:Concept, folia:Attribute ;
+        skos:inScheme folia:Attributes ;
+        skos:prefLabel "speaker" ;
+        skos:definition "A string identifying the speaker. This attribute is inheritable. Multiple speakers are not allowed, simply do not specify a speaker on a certain level if you are unable to link the speech to a specific (single) speaker." .
+
+folia:TextclassAttribute a skos:Concept, folia:Attribute ;
+        skos:inScheme folia:Attributes ;
+        skos:prefLabel "textclass" ;
+        skos:definition "Refers to the text class this annotation is based on. This is an advanced attribute, if not specified, it defaults to ``current``. See :ref:`textclass_attribute`." .
+
+folia:MetadataAttribute a skos:Concept, folia:Attribute ;
+        skos:inScheme folia:Attributes .
+
+folia:IdrefAttribute a skos:Concept, folia:Attribute ;
+        skos:inScheme folia:Attributes ;
+        skos:prefLabel "id" ;
+        skos:definition "A reference to the ID of another element. This is a reference and not an assignment, unlike xml:id, so do not confuse the two! It is only supported on certain elements that are referential in nature." .
+
+folia:SpaceAttribute a skos:Concept, folia:Attribute ;
+        skos:inScheme folia:Attributes ;
+        skos:prefLabel "space" ;
+        skos:definition "This attribute indicates whether spacing should be inserted after this element (it's default value is always ``yes``, so it does not need to be specified in that case), but if tokens or other structural elements are glued together then the value should be set to ``no``. This allows for reconstruction of the detokenised original text. " .
+
+folia:TagAttribute a skos:Concept, folia:Attribute ;
+        skos:inScheme folia:Attributes ;
+        skos:prefLabel "tag" ;
+        skos:definition "Contains a space separated list of processing tags associated with the element. A processing tag carries arbitrary user-defined information that may aid in processing a document. It may carry cues on how a specific tool should treat a specific element. The tag vocabulary is specific to the tool that processes the document. Tags carry no instrinsic meaning for the data representation and should not be used except to inform/aid processors in their task. Processors are encouraged to clean up the tags they use. Ideally, published FoLiA documents at the end of a processing pipeline carry no further tags. For encoding actual data, use ``class`` and optionally features instead." .
+
+### Elements ###
+
+
+
+folia:AbstractAnnotationLayer a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        folia:printable "false" ;
+        folia:speakable "false" ;
+        folia:acceptedElement folia:Correction ;
+        folia:acceptedElement folia:ForeignData ;
+        folia:optionalAttribute folia:IdAttribute ;
+        folia:optionalAttribute folia:TagAttribute ;
+        folia:setonly "true" .
+
+folia:AbstractContentAnnotation a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        folia:optionalAttribute folia:ClassAttribute ;
+        folia:optionalAttribute folia:AnnotatorAttribute ;
+        folia:optionalAttribute folia:ConfidenceAttribute ;
+        folia:optionalAttribute folia:DatetimeAttribute ;
+        folia:optionalAttribute folia:MetadataAttribute ;
+        folia:optionalAttribute folia:TagAttribute .
+
+folia:AbstractCorrectionChild a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        folia:speakable "true" ;
+        folia:optionalAttribute folia:IdAttribute ;
+        folia:optionalAttribute folia:AnnotatorAttribute ;
+        folia:optionalAttribute folia:ConfidenceAttribute ;
+        folia:optionalAttribute folia:DatetimeAttribute ;
+        folia:optionalAttribute folia:NAttribute ;
+        folia:optionalAttribute folia:TagAttribute ;
+        folia:printable "true" ;
+        folia:textdelimiter "" ;
+        folia:acceptedElement folia:AbstractInlineAnnotation ;
+        folia:acceptedElement folia:AbstractSpanAnnotation ;
+        folia:acceptedElement folia:AbstractStructureElement ;
+        folia:acceptedElement folia:Correction ;
+        folia:acceptedElement folia:Metric ;
+        folia:acceptedElement folia:PhonContent ;
+        folia:acceptedElement folia:String ;
+        folia:acceptedElement folia:TextContent ;
+        folia:acceptedElement folia:ForeignData .
+
+folia:AbstractHigherOrderAnnotation a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements .
+
+folia:AbstractInlineAnnotation a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        folia:requireAttribute folia:ClassAttribute ;
+        folia:optionalAttribute folia:IdAttribute ;
+        folia:optionalAttribute folia:ClassAttribute ;
+        folia:optionalAttribute folia:AnnotatorAttribute ;
+        folia:optionalAttribute folia:NAttribute ;
+        folia:optionalAttribute folia:ConfidenceAttribute ;
+        folia:optionalAttribute folia:DatetimeAttribute ;
+        folia:optionalAttribute folia:SrcAttribute ;
+        folia:optionalAttribute folia:BegintimeAttribute ;
+        folia:optionalAttribute folia:EndtimeAttribute ;
+        folia:optionalAttribute folia:SpeakerAttribute ;
+        folia:optionalAttribute folia:TextclassAttribute ;
+        folia:optionalAttribute folia:MetadataAttribute ;
+        folia:optionalAttribute folia:TagAttribute ;
+        folia:acceptedElement folia:Feature ;
+        folia:acceptedElement folia:Metric ;
+        folia:acceptedElement folia:ForeignData .
+
+folia:AbstractSpanAnnotation a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        folia:printable "true" ;
+        folia:speakable "true" ;
+        folia:optionalAttribute folia:IdAttribute ;
+        folia:optionalAttribute folia:ClassAttribute ;
+        folia:optionalAttribute folia:AnnotatorAttribute ;
+        folia:optionalAttribute folia:NAttribute ;
+        folia:optionalAttribute folia:ConfidenceAttribute ;
+        folia:optionalAttribute folia:DatetimeAttribute ;
+        folia:optionalAttribute folia:SrcAttribute ;
+        folia:optionalAttribute folia:BegintimeAttribute ;
+        folia:optionalAttribute folia:EndtimeAttribute ;
+        folia:optionalAttribute folia:SpeakerAttribute ;
+        folia:optionalAttribute folia:TextclassAttribute ;
+        folia:optionalAttribute folia:MetadataAttribute ;
+        folia:optionalAttribute folia:TagAttribute ;
+        folia:acceptedElement folia:Metric ;
+        folia:acceptedElement folia:Relation ;
+        folia:acceptedElement folia:ForeignData ;
+        folia:acceptedElement folia:LinkReference ;
+        folia:acceptedElement folia:AbstractInlineAnnotation .
+
+folia:AbstractSpanRole a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractSpanAnnotation ;
+        skos:broader folia:AbstractSpanAnnotation ;
+        folia:optionalAttribute folia:IdAttribute ;
+        folia:optionalAttribute folia:TagAttribute ;
+        folia:acceptedElement folia:Feature ;
+        folia:acceptedElement folia:WordReference ;
+        folia:acceptedElement folia:LinkReference ;
+        folia:primaryelement "false" .
+
+folia:AbstractStructureElement a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        folia:printable "true" ;
+        folia:textdelimiter "\n\n" ;
+        folia:speakable "true" ;
+        folia:optionalAttribute folia:IdAttribute ;
+        folia:optionalAttribute folia:ClassAttribute ;
+        folia:optionalAttribute folia:AnnotatorAttribute ;
+        folia:optionalAttribute folia:NAttribute ;
+        folia:optionalAttribute folia:ConfidenceAttribute ;
+        folia:optionalAttribute folia:DatetimeAttribute ;
+        folia:optionalAttribute folia:SrcAttribute ;
+        folia:optionalAttribute folia:BegintimeAttribute ;
+        folia:optionalAttribute folia:EndtimeAttribute ;
+        folia:optionalAttribute folia:SpeakerAttribute ;
+        folia:optionalAttribute folia:MetadataAttribute ;
+        folia:optionalAttribute folia:SpaceAttribute ;
+        folia:optionalAttribute folia:TagAttribute ;
+        folia:acceptedElement folia:AbstractAnnotationLayer ;
+        folia:acceptedElement folia:External ;
+        folia:acceptedElement folia:Relation ;
+        folia:acceptedElement folia:Alternative ;
+        folia:acceptedElement folia:AlternativeLayers ;
+        folia:acceptedElement folia:Correction ;
+        folia:acceptedElement folia:Feature ;
+        folia:acceptedElement folia:Metric ;
+        folia:acceptedElement folia:Part ;
+        folia:acceptedElement folia:ForeignData ;
+        folia:auto_generate_id "true" .
+
+folia:AbstractSubtokenAnnotation a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        folia:printable "true" ;
+        folia:textdelimiter "\n\n" ;
+        folia:speakable "true" ;
+        folia:optionalAttribute folia:IdAttribute ;
+        folia:optionalAttribute folia:ClassAttribute ;
+        folia:optionalAttribute folia:AnnotatorAttribute ;
+        folia:optionalAttribute folia:NAttribute ;
+        folia:optionalAttribute folia:ConfidenceAttribute ;
+        folia:optionalAttribute folia:DatetimeAttribute ;
+        folia:optionalAttribute folia:SrcAttribute ;
+        folia:optionalAttribute folia:BegintimeAttribute ;
+        folia:optionalAttribute folia:EndtimeAttribute ;
+        folia:optionalAttribute folia:SpeakerAttribute ;
+        folia:optionalAttribute folia:MetadataAttribute ;
+        folia:optionalAttribute folia:TagAttribute ;
+        folia:acceptedElement folia:AbstractAnnotationLayer ;
+        folia:acceptedElement folia:Relation ;
+        folia:acceptedElement folia:Alternative ;
+        folia:acceptedElement folia:AlternativeLayers ;
+        folia:acceptedElement folia:Correction ;
+        folia:acceptedElement folia:Feature ;
+        folia:acceptedElement folia:Metric ;
+        folia:acceptedElement folia:Part ;
+        folia:acceptedElement folia:ForeignData ;
+        folia:auto_generate_id "true" .
+
+folia:AbstractTextMarkup a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        folia:textcontainer "true" ;
+        folia:printable "true" ;
+        folia:acceptedElement folia:AbstractTextMarkup ;
+        folia:acceptedElement folia:Linebreak ;
+        folia:acceptedElement folia:Feature ;
+        folia:textdelimiter "" ;
+        folia:optionalAttribute folia:IdAttribute ;
+        folia:optionalAttribute folia:ClassAttribute ;
+        folia:optionalAttribute folia:AnnotatorAttribute ;
+        folia:optionalAttribute folia:NAttribute ;
+        folia:optionalAttribute folia:ConfidenceAttribute ;
+        folia:optionalAttribute folia:DatetimeAttribute ;
+        folia:optionalAttribute folia:SrcAttribute ;
+        folia:optionalAttribute folia:BegintimeAttribute ;
+        folia:optionalAttribute folia:EndtimeAttribute ;
+        folia:optionalAttribute folia:SpeakerAttribute ;
+        folia:optionalAttribute folia:MetadataAttribute ;
+        folia:optionalAttribute folia:TagAttribute ;
+        folia:xlink "true" ;
+        folia:primaryelement "false" .
+
+folia:ActorFeature a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:Feature ;
+        skos:broader folia:Feature ;
+        rdfs:subClassOf folia:AbstractHigherOrderAnnotation ;
+        skos:broader folia:AbstractHigherOrderAnnotation ;
+        folia:subset "actor" .
+
+folia:Alternative a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractHigherOrderAnnotation ;
+        skos:broader folia:AbstractHigherOrderAnnotation ;
+        folia:speakable "false" ;
+        folia:optionalAttribute folia:IdAttribute ;
+        folia:optionalAttribute folia:AnnotatorAttribute ;
+        folia:optionalAttribute folia:NAttribute ;
+        folia:optionalAttribute folia:ConfidenceAttribute ;
+        folia:optionalAttribute folia:DatetimeAttribute ;
+        folia:optionalAttribute folia:SrcAttribute ;
+        folia:optionalAttribute folia:BegintimeAttribute ;
+        folia:optionalAttribute folia:EndtimeAttribute ;
+        folia:optionalAttribute folia:SpeakerAttribute ;
+        folia:optionalAttribute folia:MetadataAttribute ;
+        folia:optionalAttribute folia:TagAttribute ;
+        folia:printable "false" ;
+        folia:acceptedElement folia:AbstractInlineAnnotation ;
+        folia:acceptedElement folia:Correction ;
+        folia:acceptedElement folia:ForeignData ;
+        folia:acceptedElement folia:MorphologyLayer ;
+        folia:acceptedElement folia:PhonologyLayer ;
+        folia:auth "false" ;
+        folia:xmltag "alt" ;
+        skos:altLabel "alt" ;
+        skos:prefLabel "Alternative" .
+
+folia:AlternativeLayers a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractHigherOrderAnnotation ;
+        skos:broader folia:AbstractHigherOrderAnnotation ;
+        folia:primaryelement "false" ;
+        folia:speakable "false" ;
+        folia:optionalAttribute folia:IdAttribute ;
+        folia:optionalAttribute folia:AnnotatorAttribute ;
+        folia:optionalAttribute folia:NAttribute ;
+        folia:optionalAttribute folia:ConfidenceAttribute ;
+        folia:optionalAttribute folia:DatetimeAttribute ;
+        folia:optionalAttribute folia:SrcAttribute ;
+        folia:optionalAttribute folia:BegintimeAttribute ;
+        folia:optionalAttribute folia:EndtimeAttribute ;
+        folia:optionalAttribute folia:SpeakerAttribute ;
+        folia:optionalAttribute folia:MetadataAttribute ;
+        folia:optionalAttribute folia:TagAttribute ;
+        folia:printable "false" ;
+        folia:acceptedElement folia:AbstractAnnotationLayer ;
+        folia:acceptedElement folia:ForeignData ;
+        folia:auth "false" ;
+        folia:xmltag "altlayers" ;
+        skos:altLabel "altlayers" ;
+        skos:prefLabel "Alternative Layers" .
+
+folia:BegindatetimeFeature a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:Feature ;
+        skos:broader folia:Feature ;
+        rdfs:subClassOf folia:AbstractHigherOrderAnnotation ;
+        skos:broader folia:AbstractHigherOrderAnnotation ;
+        folia:subset "begindatetime" .
+
+folia:Caption a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractStructureElement ;
+        skos:broader folia:AbstractStructureElement ;
+        folia:acceptedElement folia:AbstractInlineAnnotation ;
+        folia:acceptedElement folia:Gap ;
+        folia:acceptedElement folia:Linebreak ;
+        folia:acceptedElement folia:Paragraph ;
+        folia:acceptedElement folia:PhonContent ;
+        folia:acceptedElement folia:Quote ;
+        folia:acceptedElement folia:Reference ;
+        folia:acceptedElement folia:Sentence ;
+        folia:acceptedElement folia:String ;
+        folia:acceptedElement folia:TextContent ;
+        folia:acceptedElement folia:Whitespace ;
+        folia:optionalAttribute folia:IdAttribute ;
+        folia:optionalAttribute folia:AnnotatorAttribute ;
+        folia:optionalAttribute folia:NAttribute ;
+        folia:optionalAttribute folia:ConfidenceAttribute ;
+        folia:optionalAttribute folia:DatetimeAttribute ;
+        folia:optionalAttribute folia:SrcAttribute ;
+        folia:optionalAttribute folia:BegintimeAttribute ;
+        folia:optionalAttribute folia:EndtimeAttribute ;
+        folia:optionalAttribute folia:SpeakerAttribute ;
+        folia:optionalAttribute folia:MetadataAttribute ;
+        folia:optionalAttribute folia:SpaceAttribute ;
+        folia:optionalAttribute folia:TagAttribute ;
+        folia:xmltag "caption" ;
+        skos:altLabel "caption" ;
+        skos:prefLabel "Caption" .
+
+folia:Cell a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractStructureElement ;
+        skos:broader folia:AbstractStructureElement ;
+        folia:textdelimiter " | " ;
+        folia:acceptedElement folia:AbstractInlineAnnotation ;
+        folia:acceptedElement folia:Entry ;
+        folia:acceptedElement folia:Event ;
+        folia:acceptedElement folia:Example ;
+        folia:acceptedElement folia:Figure ;
+        folia:acceptedElement folia:Gap ;
+        folia:acceptedElement folia:Head ;
+        folia:acceptedElement folia:Linebreak ;
+        folia:acceptedElement folia:List ;
+        folia:acceptedElement folia:Note ;
+        folia:acceptedElement folia:Paragraph ;
+        folia:acceptedElement folia:Quote ;
+        folia:acceptedElement folia:Reference ;
+        folia:acceptedElement folia:Sentence ;
+        folia:acceptedElement folia:String ;
+        folia:acceptedElement folia:TextContent ;
+        folia:acceptedElement folia:Whitespace ;
+        folia:acceptedElement folia:Word ;
+        folia:acceptedElement folia:Hiddenword ;
+        folia:optionalAttribute folia:IdAttribute ;
+        folia:optionalAttribute folia:AnnotatorAttribute ;
+        folia:optionalAttribute folia:NAttribute ;
+        folia:optionalAttribute folia:ConfidenceAttribute ;
+        folia:optionalAttribute folia:DatetimeAttribute ;
+        folia:optionalAttribute folia:SrcAttribute ;
+        folia:optionalAttribute folia:BegintimeAttribute ;
+        folia:optionalAttribute folia:EndtimeAttribute ;
+        folia:optionalAttribute folia:SpeakerAttribute ;
+        folia:optionalAttribute folia:MetadataAttribute ;
+        folia:optionalAttribute folia:SpaceAttribute ;
+        folia:optionalAttribute folia:TagAttribute ;
+        folia:xmltag "cell" ;
+        skos:altLabel "cell" ;
+        skos:prefLabel "Cell" .
+
+folia:Chunk a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractSpanAnnotation ;
+        skos:broader folia:AbstractSpanAnnotation ;
+        folia:acceptedElement folia:Feature ;
+        folia:acceptedElement folia:WordReference ;
+        folia:xmltag "chunk" ;
+        skos:altLabel "chunk" ;
+        skos:prefLabel "Chunk" .
+
+folia:ChunkingLayer a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractAnnotationLayer ;
+        skos:broader folia:AbstractAnnotationLayer ;
+        folia:acceptedElement folia:Chunk ;
+        folia:xmltag "chunking" ;
+        skos:altLabel "chunking" ;
+        folia:primaryelement "false" .
+
+folia:Comment a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractHigherOrderAnnotation ;
+        skos:broader folia:AbstractHigherOrderAnnotation ;
+        folia:xmltag "comment" ;
+        skos:altLabel "comment" ;
+        skos:prefLabel "Comment" ;
+        folia:optionalAttribute folia:IdAttribute ;
+        folia:optionalAttribute folia:AnnotatorAttribute ;
+        folia:optionalAttribute folia:ConfidenceAttribute ;
+        folia:optionalAttribute folia:DatetimeAttribute ;
+        folia:optionalAttribute folia:NAttribute ;
+        folia:optionalAttribute folia:MetadataAttribute ;
+        folia:optionalAttribute folia:TagAttribute ;
+        folia:printable "false" .
+
+folia:Content a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractContentAnnotation ;
+        skos:broader folia:AbstractContentAnnotation ;
+        folia:printable "true" ;
+        folia:xmltag "content" ;
+        skos:altLabel "content" ;
+        skos:prefLabel "Raw Content" .
+
+folia:CoreferenceChain a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractSpanAnnotation ;
+        skos:broader folia:AbstractSpanAnnotation ;
+        folia:acceptedElement folia:Feature ;
+        folia:acceptedElement folia:CoreferenceLink ;
+        folia:xmltag "coreferencechain" ;
+        skos:altLabel "coreferencechain" ;
+        skos:prefLabel "Coreference Chain" .
+
+folia:CoreferenceLayer a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractAnnotationLayer ;
+        skos:broader folia:AbstractAnnotationLayer ;
+        folia:acceptedElement folia:CoreferenceChain ;
+        folia:xmltag "coreferences" ;
+        skos:altLabel "coreferences" ;
+        folia:primaryelement "false" .
+
+folia:CoreferenceLink a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractSpanRole ;
+        skos:broader folia:AbstractSpanRole ;
+        rdfs:subClassOf folia:AbstractSpanAnnotation ;
+        skos:broader folia:AbstractSpanAnnotation ;
+        folia:xmltag "coreferencelink" ;
+        skos:altLabel "coreferencelink" ;
+        skos:prefLabel "Coreference Link" ;
+        folia:acceptedElement folia:Headspan ;
+        folia:acceptedElement folia:LevelFeature ;
+        folia:acceptedElement folia:ModalityFeature ;
+        folia:acceptedElement folia:TimeFeature ;
+        folia:primaryelement "false" .
+
+folia:Correction a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractHigherOrderAnnotation ;
+        skos:broader folia:AbstractHigherOrderAnnotation ;
+        folia:printable "true" ;
+        folia:acceptedElement folia:New ;
+        folia:acceptedElement folia:Original ;
+        folia:acceptedElement folia:Current ;
+        folia:acceptedElement folia:Suggestion ;
+        folia:acceptedElement folia:ErrorDetection ;
+        folia:acceptedElement folia:Metric ;
+        folia:acceptedElement folia:Feature ;
+        folia:acceptedElement folia:ForeignData ;
+        folia:speakable "true" ;
+        folia:optionalAttribute folia:IdAttribute ;
+        folia:optionalAttribute folia:ClassAttribute ;
+        folia:optionalAttribute folia:AnnotatorAttribute ;
+        folia:optionalAttribute folia:NAttribute ;
+        folia:optionalAttribute folia:ConfidenceAttribute ;
+        folia:optionalAttribute folia:DatetimeAttribute ;
+        folia:optionalAttribute folia:SrcAttribute ;
+        folia:optionalAttribute folia:BegintimeAttribute ;
+        folia:optionalAttribute folia:EndtimeAttribute ;
+        folia:optionalAttribute folia:SpeakerAttribute ;
+        folia:optionalAttribute folia:MetadataAttribute ;
+        folia:optionalAttribute folia:TagAttribute ;
+        folia:xmltag "correction" ;
+        skos:altLabel "correction" ;
+        skos:prefLabel "Correction" ;
+        folia:textdelimiter "" .
+
+folia:Cue a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractSpanRole ;
+        skos:broader folia:AbstractSpanRole ;
+        rdfs:subClassOf folia:AbstractSpanAnnotation ;
+        skos:broader folia:AbstractSpanAnnotation ;
+        folia:xmltag "cue" ;
+        skos:altLabel "cue" ;
+        skos:prefLabel "Cue" ;
+        folia:primaryelement "false" .
+
+folia:Current a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractCorrectionChild ;
+        skos:broader folia:AbstractCorrectionChild ;
+        folia:optionalAttribute folia:TagAttribute ;
+        folia:xmltag "current" ;
+        skos:altLabel "current" ;
+        folia:primaryelement "false" .
+
+folia:Definition a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractStructureElement ;
+        skos:broader folia:AbstractStructureElement ;
+        folia:acceptedElement folia:AbstractInlineAnnotation ;
+        folia:acceptedElement folia:Figure ;
+        folia:acceptedElement folia:List ;
+        folia:acceptedElement folia:Metric ;
+        folia:acceptedElement folia:Paragraph ;
+        folia:acceptedElement folia:PhonContent ;
+        folia:acceptedElement folia:Reference ;
+        folia:acceptedElement folia:Sentence ;
+        folia:acceptedElement folia:String ;
+        folia:acceptedElement folia:Table ;
+        folia:acceptedElement folia:TextContent ;
+        folia:acceptedElement folia:Utterance ;
+        folia:acceptedElement folia:Word ;
+        folia:acceptedElement folia:Hiddenword ;
+        folia:acceptedElement folia:Linebreak ;
+        folia:acceptedElement folia:Whitespace ;
+        folia:xmltag "def" ;
+        skos:altLabel "def" ;
+        skos:prefLabel "Definition" .
+
+folia:DependenciesLayer a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractAnnotationLayer ;
+        skos:broader folia:AbstractAnnotationLayer ;
+        folia:acceptedElement folia:Dependency ;
+        folia:xmltag "dependencies" ;
+        skos:altLabel "dependencies" ;
+        folia:primaryelement "false" .
+
+folia:Dependency a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractSpanAnnotation ;
+        skos:broader folia:AbstractSpanAnnotation ;
+        folia:acceptedElement folia:DependencyDependent ;
+        folia:acceptedElement folia:Feature ;
+        folia:acceptedElement folia:Headspan ;
+        folia:xmltag "dependency" ;
+        skos:altLabel "dependency" ;
+        skos:prefLabel "Dependency" .
+
+folia:DependencyDependent a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractSpanRole ;
+        skos:broader folia:AbstractSpanRole ;
+        rdfs:subClassOf folia:AbstractSpanAnnotation ;
+        skos:broader folia:AbstractSpanAnnotation ;
+        folia:xmltag "dep" ;
+        skos:altLabel "dep" ;
+        skos:prefLabel "Dependent" ;
+        folia:primaryelement "false" .
+
+folia:Description a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractHigherOrderAnnotation ;
+        skos:broader folia:AbstractHigherOrderAnnotation ;
+        folia:xmltag "desc" ;
+        skos:altLabel "desc" ;
+        skos:prefLabel "Description" ;
+        folia:optionalAttribute folia:IdAttribute ;
+        folia:optionalAttribute folia:AnnotatorAttribute ;
+        folia:optionalAttribute folia:ConfidenceAttribute ;
+        folia:optionalAttribute folia:DatetimeAttribute ;
+        folia:optionalAttribute folia:NAttribute ;
+        folia:optionalAttribute folia:MetadataAttribute ;
+        folia:optionalAttribute folia:TagAttribute .
+
+folia:Division a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractStructureElement ;
+        skos:broader folia:AbstractStructureElement ;
+        folia:xmltag "div" ;
+        skos:altLabel "div" ;
+        skos:prefLabel "Division" ;
+        folia:textdelimiter "\n\n\n" ;
+        folia:acceptedElement folia:AbstractInlineAnnotation ;
+        folia:acceptedElement folia:Division ;
+        folia:acceptedElement folia:Entry ;
+        folia:acceptedElement folia:Event ;
+        folia:acceptedElement folia:Example ;
+        folia:acceptedElement folia:Figure ;
+        folia:acceptedElement folia:Gap ;
+        folia:acceptedElement folia:Head ;
+        folia:acceptedElement folia:Linebreak ;
+        folia:acceptedElement folia:List ;
+        folia:acceptedElement folia:Note ;
+        folia:acceptedElement folia:Paragraph ;
+        folia:acceptedElement folia:Part ;
+        folia:acceptedElement folia:PhonContent ;
+        folia:acceptedElement folia:Quote ;
+        folia:acceptedElement folia:Reference ;
+        folia:acceptedElement folia:Sentence ;
+        folia:acceptedElement folia:Table ;
+        folia:acceptedElement folia:TextContent ;
+        folia:acceptedElement folia:Utterance ;
+        folia:acceptedElement folia:Whitespace ;
+        folia:acceptedElement folia:Word .
+
+folia:DomainAnnotation a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractInlineAnnotation ;
+        skos:broader folia:AbstractInlineAnnotation ;
+        folia:xmltag "domain" ;
+        skos:altLabel "domain" ;
+        skos:prefLabel "Domain" .
+
+folia:EnddatetimeFeature a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:Feature ;
+        skos:broader folia:Feature ;
+        rdfs:subClassOf folia:AbstractHigherOrderAnnotation ;
+        skos:broader folia:AbstractHigherOrderAnnotation ;
+        folia:subset "enddatetime" .
+
+folia:EntitiesLayer a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractAnnotationLayer ;
+        skos:broader folia:AbstractAnnotationLayer ;
+        folia:acceptedElement folia:Entity ;
+        folia:xmltag "entities" ;
+        skos:altLabel "entities" ;
+        folia:primaryelement "false" .
+
+folia:Entity a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractSpanAnnotation ;
+        skos:broader folia:AbstractSpanAnnotation ;
+        folia:acceptedElement folia:Feature ;
+        folia:acceptedElement folia:WordReference ;
+        folia:xmltag "entity" ;
+        skos:altLabel "entity" ;
+        skos:prefLabel "Entity" .
+
+folia:Entry a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractStructureElement ;
+        skos:broader folia:AbstractStructureElement ;
+        folia:acceptedElement folia:Definition ;
+        folia:acceptedElement folia:Example ;
+        folia:acceptedElement folia:Term ;
+        folia:acceptedElement folia:TextContent ;
+        folia:acceptedElement folia:String ;
+        folia:xmltag "entry" ;
+        skos:altLabel "entry" ;
+        skos:prefLabel "Entry" .
+
+folia:ErrorDetection a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractInlineAnnotation ;
+        skos:broader folia:AbstractInlineAnnotation ;
+        folia:xmltag "errordetection" ;
+        skos:altLabel "errordetection" ;
+        skos:prefLabel "Error Detection" .
+
+folia:Event a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractStructureElement ;
+        skos:broader folia:AbstractStructureElement ;
+        folia:acceptedElement folia:AbstractInlineAnnotation ;
+        folia:acceptedElement folia:ActorFeature ;
+        folia:acceptedElement folia:BegindatetimeFeature ;
+        folia:acceptedElement folia:Division ;
+        folia:acceptedElement folia:EnddatetimeFeature ;
+        folia:acceptedElement folia:Entry ;
+        folia:acceptedElement folia:Event ;
+        folia:acceptedElement folia:Example ;
+        folia:acceptedElement folia:Figure ;
+        folia:acceptedElement folia:Gap ;
+        folia:acceptedElement folia:Head ;
+        folia:acceptedElement folia:Linebreak ;
+        folia:acceptedElement folia:List ;
+        folia:acceptedElement folia:Note ;
+        folia:acceptedElement folia:Paragraph ;
+        folia:acceptedElement folia:Part ;
+        folia:acceptedElement folia:PhonContent ;
+        folia:acceptedElement folia:Quote ;
+        folia:acceptedElement folia:Reference ;
+        folia:acceptedElement folia:Sentence ;
+        folia:acceptedElement folia:String ;
+        folia:acceptedElement folia:Table ;
+        folia:acceptedElement folia:TextContent ;
+        folia:acceptedElement folia:Utterance ;
+        folia:acceptedElement folia:Whitespace ;
+        folia:acceptedElement folia:Word ;
+        folia:acceptedElement folia:Hiddenword ;
+        folia:xmltag "event" ;
+        skos:altLabel "event" ;
+        skos:prefLabel "Event" .
+
+folia:Example a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractStructureElement ;
+        skos:broader folia:AbstractStructureElement ;
+        folia:acceptedElement folia:AbstractInlineAnnotation ;
+        folia:acceptedElement folia:Figure ;
+        folia:acceptedElement folia:Linebreak ;
+        folia:acceptedElement folia:List ;
+        folia:acceptedElement folia:Paragraph ;
+        folia:acceptedElement folia:PhonContent ;
+        folia:acceptedElement folia:Reference ;
+        folia:acceptedElement folia:Sentence ;
+        folia:acceptedElement folia:String ;
+        folia:acceptedElement folia:Table ;
+        folia:acceptedElement folia:TextContent ;
+        folia:acceptedElement folia:Utterance ;
+        folia:acceptedElement folia:Word ;
+        folia:acceptedElement folia:Hiddenword ;
+        folia:acceptedElement folia:Whitespace ;
+        folia:xmltag "ex" ;
+        skos:altLabel "ex" ;
+        skos:prefLabel "Example" .
+
+folia:External a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractHigherOrderAnnotation ;
+        skos:broader folia:AbstractHigherOrderAnnotation ;
+        folia:speakable "true" ;
+        folia:xmltag "external" ;
+        skos:altLabel "external" ;
+        skos:prefLabel "External" ;
+        folia:requireAttribute folia:SrcAttribute ;
+        folia:optionalAttribute folia:IdAttribute ;
+        folia:optionalAttribute folia:AnnotatorAttribute ;
+        folia:optionalAttribute folia:ConfidenceAttribute ;
+        folia:optionalAttribute folia:DatetimeAttribute ;
+        folia:optionalAttribute folia:NAttribute ;
+        folia:optionalAttribute folia:MetadataAttribute ;
+        folia:optionalAttribute folia:BegintimeAttribute ;
+        folia:optionalAttribute folia:EndtimeAttribute ;
+        folia:optionalAttribute folia:TagAttribute ;
+        folia:printable "true" .
+
+folia:Feature a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractHigherOrderAnnotation ;
+        skos:broader folia:AbstractHigherOrderAnnotation ;
+        folia:xmltag "feat" ;
+        skos:altLabel "feat" ;
+        skos:prefLabel "Feature" .
+
+folia:Figure a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractStructureElement ;
+        skos:broader folia:AbstractStructureElement ;
+        folia:xmltag "figure" ;
+        skos:altLabel "figure" ;
+        skos:prefLabel "Figure" ;
+        folia:speakable "false" ;
+        folia:textdelimiter "\n\n" ;
+        folia:acceptedElement folia:Caption ;
+        folia:acceptedElement folia:String ;
+        folia:acceptedElement folia:TextContent ;
+        folia:acceptedElement folia:Linebreak .
+
+folia:FontFeature a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:Feature ;
+        skos:broader folia:Feature ;
+        rdfs:subClassOf folia:AbstractHigherOrderAnnotation ;
+        skos:broader folia:AbstractHigherOrderAnnotation ;
+        folia:subset "font" .
+
+folia:ForeignData a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractHigherOrderAnnotation ;
+        skos:broader folia:AbstractHigherOrderAnnotation ;
+        folia:xmltag "foreign-data" ;
+        skos:altLabel "foreign-data" .
+
+folia:FunctionFeature a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:Feature ;
+        skos:broader folia:Feature ;
+        rdfs:subClassOf folia:AbstractHigherOrderAnnotation ;
+        skos:broader folia:AbstractHigherOrderAnnotation ;
+        folia:subset "function" .
+
+folia:Gap a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractHigherOrderAnnotation ;
+        skos:broader folia:AbstractHigherOrderAnnotation ;
+        folia:optionalAttribute folia:IdAttribute ;
+        folia:optionalAttribute folia:ClassAttribute ;
+        folia:optionalAttribute folia:AnnotatorAttribute ;
+        folia:optionalAttribute folia:NAttribute ;
+        folia:optionalAttribute folia:DatetimeAttribute ;
+        folia:optionalAttribute folia:SrcAttribute ;
+        folia:optionalAttribute folia:BegintimeAttribute ;
+        folia:optionalAttribute folia:EndtimeAttribute ;
+        folia:optionalAttribute folia:MetadataAttribute ;
+        folia:optionalAttribute folia:TagAttribute ;
+        folia:xmltag "gap" ;
+        skos:altLabel "gap" ;
+        skos:prefLabel "Gap" ;
+        folia:acceptedElement folia:Content ;
+        folia:acceptedElement folia:Feature ;
+        folia:acceptedElement folia:Metric ;
+        folia:acceptedElement folia:Part ;
+        folia:acceptedElement folia:ForeignData .
+
+folia:Head a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractStructureElement ;
+        skos:broader folia:AbstractStructureElement ;
+        folia:textdelimiter "\n\n" ;
+        folia:acceptedElement folia:AbstractInlineAnnotation ;
+        folia:acceptedElement folia:Event ;
+        folia:acceptedElement folia:Gap ;
+        folia:acceptedElement folia:Linebreak ;
+        folia:acceptedElement folia:Paragraph ;
+        folia:acceptedElement folia:PhonContent ;
+        folia:acceptedElement folia:Reference ;
+        folia:acceptedElement folia:Sentence ;
+        folia:acceptedElement folia:String ;
+        folia:acceptedElement folia:TextContent ;
+        folia:acceptedElement folia:Whitespace ;
+        folia:acceptedElement folia:Word ;
+        folia:acceptedElement folia:Hiddenword ;
+        folia:xmltag "head" ;
+        skos:altLabel "head" ;
+        skos:prefLabel "Head" .
+
+folia:HeadFeature a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:Feature ;
+        skos:broader folia:Feature ;
+        rdfs:subClassOf folia:AbstractHigherOrderAnnotation ;
+        skos:broader folia:AbstractHigherOrderAnnotation ;
+        folia:subset "head" .
+
+folia:Headspan a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractSpanRole ;
+        skos:broader folia:AbstractSpanRole ;
+        rdfs:subClassOf folia:AbstractSpanAnnotation ;
+        skos:broader folia:AbstractSpanAnnotation ;
+        folia:xmltag "hd" ;
+        skos:altLabel "hd" ;
+        skos:prefLabel "Head" ;
+        folia:primaryelement "false" .
+
+folia:Hiddenword a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractStructureElement ;
+        skos:broader folia:AbstractStructureElement ;
+        folia:acceptedElement folia:AbstractInlineAnnotation ;
+        folia:acceptedElement folia:PhonContent ;
+        folia:acceptedElement folia:Reference ;
+        folia:acceptedElement folia:String ;
+        folia:acceptedElement folia:TextContent ;
+        folia:xmltag "hiddenw" ;
+        skos:altLabel "hiddenw" ;
+        skos:prefLabel "Hidden Word/Token" ;
+        folia:textdelimiter " " ;
+        folia:optionalAttribute folia:IdAttribute ;
+        folia:optionalAttribute folia:ClassAttribute ;
+        folia:optionalAttribute folia:AnnotatorAttribute ;
+        folia:optionalAttribute folia:NAttribute ;
+        folia:optionalAttribute folia:ConfidenceAttribute ;
+        folia:optionalAttribute folia:DatetimeAttribute ;
+        folia:optionalAttribute folia:SrcAttribute ;
+        folia:optionalAttribute folia:BegintimeAttribute ;
+        folia:optionalAttribute folia:EndtimeAttribute ;
+        folia:optionalAttribute folia:SpeakerAttribute ;
+        folia:optionalAttribute folia:TextclassAttribute ;
+        folia:optionalAttribute folia:MetadataAttribute ;
+        folia:optionalAttribute folia:SpaceAttribute ;
+        folia:optionalAttribute folia:TagAttribute ;
+        folia:wrefable "true" ;
+        folia:hidden "true" .
+
+folia:Hyphbreak a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractTextMarkup ;
+        skos:broader folia:AbstractTextMarkup ;
+        folia:xmltag "t-hbr" ;
+        skos:altLabel "t-hbr" ;
+        skos:prefLabel "Hyphbreak" ;
+        folia:textdelimiter "" ;
+        folia:implicitspace "true" .
+
+folia:Label a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractStructureElement ;
+        skos:broader folia:AbstractStructureElement ;
+        folia:acceptedElement folia:Word ;
+        folia:acceptedElement folia:Hiddenword ;
+        folia:acceptedElement folia:Reference ;
+        folia:acceptedElement folia:TextContent ;
+        folia:acceptedElement folia:PhonContent ;
+        folia:acceptedElement folia:String ;
+        folia:acceptedElement folia:Relation ;
+        folia:acceptedElement folia:Metric ;
+        folia:acceptedElement folia:Alternative ;
+        folia:acceptedElement folia:Alternative ;
+        folia:acceptedElement folia:AlternativeLayers ;
+        folia:acceptedElement folia:AbstractAnnotationLayer ;
+        folia:acceptedElement folia:AbstractInlineAnnotation ;
+        folia:acceptedElement folia:Correction ;
+        folia:acceptedElement folia:Part ;
+        folia:acceptedElement folia:Linebreak ;
+        folia:acceptedElement folia:Whitespace ;
+        folia:xmltag "label" ;
+        skos:altLabel "label" ;
+        skos:prefLabel "Label" .
+
+folia:LangAnnotation a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractInlineAnnotation ;
+        skos:broader folia:AbstractInlineAnnotation ;
+        folia:xmltag "lang" ;
+        skos:altLabel "lang" ;
+        skos:prefLabel "Language" .
+
+folia:LemmaAnnotation a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractInlineAnnotation ;
+        skos:broader folia:AbstractInlineAnnotation ;
+        folia:xmltag "lemma" ;
+        skos:altLabel "lemma" ;
+        skos:prefLabel "Lemma" .
+
+folia:LevelFeature a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:Feature ;
+        skos:broader folia:Feature ;
+        rdfs:subClassOf folia:AbstractHigherOrderAnnotation ;
+        skos:broader folia:AbstractHigherOrderAnnotation ;
+        folia:subset "level" .
+
+folia:Linebreak a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractStructureElement ;
+        skos:broader folia:AbstractStructureElement ;
+        folia:xmltag "br" ;
+        skos:altLabel "br" ;
+        skos:prefLabel "Linebreak" ;
+        folia:textdelimiter "" ;
+        folia:implicitspace "true" ;
+        folia:xlink "true" .
+
+folia:LinkReference a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        folia:optionalAttribute folia:IdrefAttribute ;
+        folia:optionalAttribute folia:TagAttribute ;
+        folia:xmltag "xref" ;
+        skos:altLabel "xref" .
+
+folia:List a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractStructureElement ;
+        skos:broader folia:AbstractStructureElement ;
+        folia:textdelimiter "\n\n" ;
+        folia:acceptedElement folia:AbstractInlineAnnotation ;
+        folia:acceptedElement folia:Relation ;
+        folia:acceptedElement folia:Caption ;
+        folia:acceptedElement folia:Event ;
+        folia:acceptedElement folia:Linebreak ;
+        folia:acceptedElement folia:ListItem ;
+        folia:acceptedElement folia:Metric ;
+        folia:acceptedElement folia:Note ;
+        folia:acceptedElement folia:PhonContent ;
+        folia:acceptedElement folia:Reference ;
+        folia:acceptedElement folia:String ;
+        folia:acceptedElement folia:TextContent ;
+        folia:xmltag "list" ;
+        skos:altLabel "list" ;
+        skos:prefLabel "List" .
+
+folia:ListItem a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractStructureElement ;
+        skos:broader folia:AbstractStructureElement ;
+        folia:textdelimiter "\n" ;
+        folia:acceptedElement folia:AbstractInlineAnnotation ;
+        folia:acceptedElement folia:Event ;
+        folia:acceptedElement folia:Gap ;
+        folia:acceptedElement folia:Label ;
+        folia:acceptedElement folia:Linebreak ;
+        folia:acceptedElement folia:List ;
+        folia:acceptedElement folia:Note ;
+        folia:acceptedElement folia:Paragraph ;
+        folia:acceptedElement folia:Part ;
+        folia:acceptedElement folia:PhonContent ;
+        folia:acceptedElement folia:Quote ;
+        folia:acceptedElement folia:Reference ;
+        folia:acceptedElement folia:Sentence ;
+        folia:acceptedElement folia:String ;
+        folia:acceptedElement folia:TextContent ;
+        folia:acceptedElement folia:Whitespace ;
+        folia:acceptedElement folia:Word ;
+        folia:acceptedElement folia:Hiddenword ;
+        folia:optionalAttribute folia:IdAttribute ;
+        folia:optionalAttribute folia:AnnotatorAttribute ;
+        folia:optionalAttribute folia:NAttribute ;
+        folia:optionalAttribute folia:ConfidenceAttribute ;
+        folia:optionalAttribute folia:DatetimeAttribute ;
+        folia:optionalAttribute folia:SrcAttribute ;
+        folia:optionalAttribute folia:BegintimeAttribute ;
+        folia:optionalAttribute folia:EndtimeAttribute ;
+        folia:optionalAttribute folia:SpeakerAttribute ;
+        folia:optionalAttribute folia:MetadataAttribute ;
+        folia:optionalAttribute folia:TagAttribute ;
+        folia:xmltag "item" ;
+        skos:altLabel "item" ;
+        skos:prefLabel "List Item" .
+
+folia:Metric a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractHigherOrderAnnotation ;
+        skos:broader folia:AbstractHigherOrderAnnotation ;
+        folia:optionalAttribute folia:IdAttribute ;
+        folia:optionalAttribute folia:ClassAttribute ;
+        folia:optionalAttribute folia:AnnotatorAttribute ;
+        folia:optionalAttribute folia:NAttribute ;
+        folia:optionalAttribute folia:ConfidenceAttribute ;
+        folia:optionalAttribute folia:DatetimeAttribute ;
+        folia:optionalAttribute folia:SrcAttribute ;
+        folia:optionalAttribute folia:BegintimeAttribute ;
+        folia:optionalAttribute folia:EndtimeAttribute ;
+        folia:optionalAttribute folia:SpeakerAttribute ;
+        folia:optionalAttribute folia:MetadataAttribute ;
+        folia:optionalAttribute folia:TagAttribute ;
+        folia:xmltag "metric" ;
+        skos:altLabel "metric" ;
+        skos:prefLabel "Metric" ;
+        folia:acceptedElement folia:Feature ;
+        folia:acceptedElement folia:ValueFeature ;
+        folia:acceptedElement folia:ForeignData .
+
+folia:ModalitiesLayer a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractAnnotationLayer ;
+        skos:broader folia:AbstractAnnotationLayer ;
+        folia:acceptedElement folia:Modality ;
+        folia:xmltag "modalities" ;
+        skos:altLabel "modalities" ;
+        folia:primaryelement "false" .
+
+folia:Modality a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractSpanAnnotation ;
+        skos:broader folia:AbstractSpanAnnotation ;
+        folia:acceptedElement folia:Scope ;
+        folia:acceptedElement folia:Feature ;
+        folia:acceptedElement folia:Cue ;
+        folia:acceptedElement folia:Source ;
+        folia:acceptedElement folia:Target ;
+        folia:acceptedElement folia:PolarityFeature ;
+        folia:acceptedElement folia:StrengthFeature ;
+        folia:xmltag "modality" ;
+        skos:altLabel "modality" ;
+        skos:prefLabel "Modality" .
+
+folia:ModalityFeature a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:Feature ;
+        skos:broader folia:Feature ;
+        rdfs:subClassOf folia:AbstractHigherOrderAnnotation ;
+        skos:broader folia:AbstractHigherOrderAnnotation ;
+        folia:subset "mod" .
+
+folia:Morpheme a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractSubtokenAnnotation ;
+        skos:broader folia:AbstractSubtokenAnnotation ;
+        folia:xmltag "morpheme" ;
+        skos:altLabel "morpheme" ;
+        skos:prefLabel "Morpheme" ;
+        folia:textdelimiter "" ;
+        folia:acceptedElement folia:AbstractInlineAnnotation ;
+        folia:acceptedElement folia:FunctionFeature ;
+        folia:acceptedElement folia:Morpheme ;
+        folia:acceptedElement folia:PhonContent ;
+        folia:acceptedElement folia:String ;
+        folia:acceptedElement folia:TextContent ;
+        folia:wrefable "true" .
+
+folia:MorphologyLayer a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractAnnotationLayer ;
+        skos:broader folia:AbstractAnnotationLayer ;
+        folia:acceptedElement folia:Morpheme ;
+        folia:xmltag "morphology" ;
+        skos:altLabel "morphology" ;
+        folia:primaryelement "false" .
+
+folia:New a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractCorrectionChild ;
+        skos:broader folia:AbstractCorrectionChild ;
+        folia:optionalAttribute folia:TagAttribute ;
+        folia:xmltag "new" ;
+        skos:altLabel "new" ;
+        folia:primaryelement "false" .
+
+folia:Note a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractStructureElement ;
+        skos:broader folia:AbstractStructureElement ;
+        folia:acceptedElement folia:AbstractInlineAnnotation ;
+        folia:acceptedElement folia:Example ;
+        folia:acceptedElement folia:Figure ;
+        folia:acceptedElement folia:Head ;
+        folia:acceptedElement folia:Linebreak ;
+        folia:acceptedElement folia:List ;
+        folia:acceptedElement folia:Paragraph ;
+        folia:acceptedElement folia:PhonContent ;
+        folia:acceptedElement folia:Reference ;
+        folia:acceptedElement folia:Sentence ;
+        folia:acceptedElement folia:String ;
+        folia:acceptedElement folia:Table ;
+        folia:acceptedElement folia:TextContent ;
+        folia:acceptedElement folia:Utterance ;
+        folia:acceptedElement folia:Whitespace ;
+        folia:acceptedElement folia:Word ;
+        folia:acceptedElement folia:Hiddenword ;
+        folia:xmltag "note" ;
+        skos:altLabel "note" ;
+        skos:prefLabel "Note" .
+
+folia:Observation a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractSpanAnnotation ;
+        skos:broader folia:AbstractSpanAnnotation ;
+        folia:acceptedElement folia:Feature ;
+        folia:acceptedElement folia:WordReference ;
+        folia:xmltag "observation" ;
+        skos:altLabel "observation" ;
+        skos:prefLabel "Observation" .
+
+folia:ObservationLayer a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractAnnotationLayer ;
+        skos:broader folia:AbstractAnnotationLayer ;
+        folia:acceptedElement folia:Observation ;
+        folia:xmltag "observations" ;
+        skos:altLabel "observations" ;
+        folia:primaryelement "false" .
+
+folia:Original a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractCorrectionChild ;
+        skos:broader folia:AbstractCorrectionChild ;
+        folia:optionalAttribute folia:TagAttribute ;
+        folia:xmltag "original" ;
+        skos:altLabel "original" ;
+        folia:auth "false" ;
+        folia:primaryelement "false" .
+
+folia:Paragraph a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractStructureElement ;
+        skos:broader folia:AbstractStructureElement ;
+        folia:textdelimiter "\n\n" ;
+        folia:acceptedElement folia:AbstractInlineAnnotation ;
+        folia:acceptedElement folia:Entry ;
+        folia:acceptedElement folia:Event ;
+        folia:acceptedElement folia:Example ;
+        folia:acceptedElement folia:Figure ;
+        folia:acceptedElement folia:Gap ;
+        folia:acceptedElement folia:Head ;
+        folia:acceptedElement folia:Linebreak ;
+        folia:acceptedElement folia:List ;
+        folia:acceptedElement folia:Note ;
+        folia:acceptedElement folia:PhonContent ;
+        folia:acceptedElement folia:Quote ;
+        folia:acceptedElement folia:Reference ;
+        folia:acceptedElement folia:Sentence ;
+        folia:acceptedElement folia:String ;
+        folia:acceptedElement folia:TextContent ;
+        folia:acceptedElement folia:Whitespace ;
+        folia:acceptedElement folia:Word ;
+        folia:acceptedElement folia:Hiddenword ;
+        folia:xmltag "p" ;
+        skos:altLabel "p" ;
+        skos:prefLabel "Paragraph" .
+
+folia:Part a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractStructureElement ;
+        skos:broader folia:AbstractStructureElement ;
+        folia:textdelimiter " " ;
+        folia:acceptedElement folia:AbstractStructureElement ;
+        folia:acceptedElement folia:AbstractInlineAnnotation ;
+        folia:acceptedElement folia:TextContent ;
+        folia:acceptedElement folia:PhonContent ;
+        folia:xmltag "part" ;
+        skos:altLabel "part" ;
+        skos:prefLabel "Part" .
+
+folia:PhonContent a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractContentAnnotation ;
+        skos:broader folia:AbstractContentAnnotation ;
+        folia:printable "false" ;
+        folia:acceptedElement folia:Feature ;
+        folia:phoncontainer "true" ;
+        folia:speakable "true" ;
+        folia:xmltag "ph" ;
+        skos:altLabel "ph" ;
+        skos:prefLabel "Phonetic Content" .
+
+folia:Phoneme a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractSubtokenAnnotation ;
+        skos:broader folia:AbstractSubtokenAnnotation ;
+        folia:xmltag "phoneme" ;
+        skos:altLabel "phoneme" ;
+        skos:prefLabel "Phoneme" ;
+        folia:textdelimiter "" ;
+        folia:acceptedElement folia:AbstractInlineAnnotation ;
+        folia:acceptedElement folia:FunctionFeature ;
+        folia:acceptedElement folia:PhonContent ;
+        folia:acceptedElement folia:Phoneme ;
+        folia:acceptedElement folia:String ;
+        folia:acceptedElement folia:TextContent ;
+        folia:wrefable "true" .
+
+folia:PhonologyLayer a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractAnnotationLayer ;
+        skos:broader folia:AbstractAnnotationLayer ;
+        folia:acceptedElement folia:Phoneme ;
+        folia:xmltag "phonology" ;
+        skos:altLabel "phonology" ;
+        folia:primaryelement "false" .
+
+folia:PolarityFeature a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:Feature ;
+        skos:broader folia:Feature ;
+        rdfs:subClassOf folia:AbstractHigherOrderAnnotation ;
+        skos:broader folia:AbstractHigherOrderAnnotation ;
+        folia:subset "polarity" .
+
+folia:PosAnnotation a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractInlineAnnotation ;
+        skos:broader folia:AbstractInlineAnnotation ;
+        folia:acceptedElement folia:HeadFeature ;
+        folia:xmltag "pos" ;
+        skos:altLabel "pos" ;
+        skos:prefLabel "Part-of-Speech" .
+
+folia:Predicate a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractSpanAnnotation ;
+        skos:broader folia:AbstractSpanAnnotation ;
+        folia:acceptedElement folia:Feature ;
+        folia:acceptedElement folia:SemanticRole ;
+        folia:acceptedElement folia:WordReference ;
+        folia:xmltag "predicate" ;
+        skos:altLabel "predicate" ;
+        skos:prefLabel "Predicate" .
+
+folia:Quote a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractStructureElement ;
+        skos:broader folia:AbstractStructureElement ;
+        folia:acceptedElement folia:AbstractInlineAnnotation ;
+        folia:acceptedElement folia:Division ;
+        folia:acceptedElement folia:Gap ;
+        folia:acceptedElement folia:Linebreak ;
+        folia:acceptedElement folia:Paragraph ;
+        folia:acceptedElement folia:Quote ;
+        folia:acceptedElement folia:Sentence ;
+        folia:acceptedElement folia:String ;
+        folia:acceptedElement folia:TextContent ;
+        folia:acceptedElement folia:Utterance ;
+        folia:acceptedElement folia:Whitespace ;
+        folia:acceptedElement folia:Word ;
+        folia:acceptedElement folia:Hiddenword ;
+        folia:acceptedElement folia:Reference ;
+        folia:xmltag "quote" ;
+        skos:altLabel "quote" ;
+        skos:prefLabel "Quote" .
+
+folia:Reference a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractStructureElement ;
+        skos:broader folia:AbstractStructureElement ;
+        folia:textdelimiter " " ;
+        folia:xmltag "ref" ;
+        skos:altLabel "ref" ;
+        skos:prefLabel "Reference" ;
+        folia:acceptedElement folia:PhonContent ;
+        folia:acceptedElement folia:Paragraph ;
+        folia:acceptedElement folia:Quote ;
+        folia:acceptedElement folia:Sentence ;
+        folia:acceptedElement folia:String ;
+        folia:acceptedElement folia:TextContent ;
+        folia:acceptedElement folia:Utterance ;
+        folia:acceptedElement folia:Word ;
+        folia:acceptedElement folia:Hiddenword ;
+        folia:acceptedElement folia:Linebreak ;
+        folia:acceptedElement folia:Whitespace ;
+        folia:xlink "true" .
+
+folia:Relation a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractHigherOrderAnnotation ;
+        skos:broader folia:AbstractHigherOrderAnnotation ;
+        folia:speakable "false" ;
+        folia:optionalAttribute folia:IdAttribute ;
+        folia:optionalAttribute folia:ClassAttribute ;
+        folia:optionalAttribute folia:AnnotatorAttribute ;
+        folia:optionalAttribute folia:NAttribute ;
+        folia:optionalAttribute folia:ConfidenceAttribute ;
+        folia:optionalAttribute folia:DatetimeAttribute ;
+        folia:optionalAttribute folia:SrcAttribute ;
+        folia:optionalAttribute folia:BegintimeAttribute ;
+        folia:optionalAttribute folia:EndtimeAttribute ;
+        folia:optionalAttribute folia:SpeakerAttribute ;
+        folia:optionalAttribute folia:MetadataAttribute ;
+        folia:optionalAttribute folia:TagAttribute ;
+        folia:printable "false" ;
+        folia:xlink "true" ;
+        folia:acceptedElement folia:LinkReference ;
+        folia:acceptedElement folia:Metric ;
+        folia:acceptedElement folia:Feature ;
+        folia:acceptedElement folia:ForeignData ;
+        folia:xmltag "relation" ;
+        skos:altLabel "relation" ;
+        skos:prefLabel "Relation" .
+
+folia:Row a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractStructureElement ;
+        skos:broader folia:AbstractStructureElement ;
+        folia:textdelimiter "\n" ;
+        folia:acceptedElement folia:Cell ;
+        folia:acceptedElement folia:AbstractInlineAnnotation ;
+        folia:xmltag "row" ;
+        skos:altLabel "row" ;
+        skos:prefLabel "Table Row" .
+
+folia:Scope a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractSpanRole ;
+        skos:broader folia:AbstractSpanRole ;
+        rdfs:subClassOf folia:AbstractSpanAnnotation ;
+        skos:broader folia:AbstractSpanAnnotation ;
+        folia:xmltag "scope" ;
+        skos:altLabel "scope" ;
+        skos:prefLabel "Scope" ;
+        folia:primaryelement "false" ;
+        folia:acceptedElement folia:Cue ;
+        folia:acceptedElement folia:Source ;
+        folia:acceptedElement folia:Target .
+
+folia:SemanticRole a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractSpanAnnotation ;
+        skos:broader folia:AbstractSpanAnnotation ;
+        folia:requireAttribute folia:ClassAttribute ;
+        folia:acceptedElement folia:Feature ;
+        folia:acceptedElement folia:Headspan ;
+        folia:acceptedElement folia:WordReference ;
+        folia:xmltag "semrole" ;
+        skos:altLabel "semrole" ;
+        skos:prefLabel "Semantic Role" .
+
+folia:SemanticRolesLayer a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractAnnotationLayer ;
+        skos:broader folia:AbstractAnnotationLayer ;
+        folia:acceptedElement folia:SemanticRole ;
+        folia:acceptedElement folia:Predicate ;
+        folia:xmltag "semroles" ;
+        skos:altLabel "semroles" ;
+        folia:primaryelement "false" .
+
+folia:SenseAnnotation a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractInlineAnnotation ;
+        skos:broader folia:AbstractInlineAnnotation ;
+        folia:acceptedElement folia:SynsetFeature ;
+        folia:xmltag "sense" ;
+        skos:altLabel "sense" ;
+        skos:prefLabel "Semantic Sense" .
+
+folia:Sentence a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractStructureElement ;
+        skos:broader folia:AbstractStructureElement ;
+        folia:acceptedElement folia:AbstractInlineAnnotation ;
+        folia:acceptedElement folia:Entry ;
+        folia:acceptedElement folia:Event ;
+        folia:acceptedElement folia:Example ;
+        folia:acceptedElement folia:Gap ;
+        folia:acceptedElement folia:Linebreak ;
+        folia:acceptedElement folia:Note ;
+        folia:acceptedElement folia:PhonContent ;
+        folia:acceptedElement folia:Quote ;
+        folia:acceptedElement folia:Reference ;
+        folia:acceptedElement folia:String ;
+        folia:acceptedElement folia:TextContent ;
+        folia:acceptedElement folia:Whitespace ;
+        folia:acceptedElement folia:Word ;
+        folia:acceptedElement folia:Hiddenword ;
+        folia:xmltag "s" ;
+        skos:altLabel "s" ;
+        skos:prefLabel "Sentence" ;
+        folia:textdelimiter " " .
+
+folia:Sentiment a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractSpanAnnotation ;
+        skos:broader folia:AbstractSpanAnnotation ;
+        folia:acceptedElement folia:Feature ;
+        folia:acceptedElement folia:Headspan ;
+        folia:acceptedElement folia:PolarityFeature ;
+        folia:acceptedElement folia:StrengthFeature ;
+        folia:acceptedElement folia:Source ;
+        folia:acceptedElement folia:Target ;
+        folia:acceptedElement folia:WordReference ;
+        folia:xmltag "sentiment" ;
+        skos:altLabel "sentiment" ;
+        skos:prefLabel "Sentiment" .
+
+folia:SentimentLayer a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractAnnotationLayer ;
+        skos:broader folia:AbstractAnnotationLayer ;
+        folia:acceptedElement folia:Sentiment ;
+        folia:xmltag "sentiments" ;
+        skos:altLabel "sentiments" ;
+        folia:primaryelement "false" .
+
+folia:SizeFeature a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:Feature ;
+        skos:broader folia:Feature ;
+        rdfs:subClassOf folia:AbstractHigherOrderAnnotation ;
+        skos:broader folia:AbstractHigherOrderAnnotation ;
+        folia:subset "size" .
+
+folia:Source a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractSpanRole ;
+        skos:broader folia:AbstractSpanRole ;
+        rdfs:subClassOf folia:AbstractSpanAnnotation ;
+        skos:broader folia:AbstractSpanAnnotation ;
+        folia:xmltag "source" ;
+        skos:altLabel "source" ;
+        skos:prefLabel "Source" ;
+        folia:primaryelement "false" .
+
+folia:SpanRelation a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractHigherOrderAnnotation ;
+        skos:broader folia:AbstractHigherOrderAnnotation ;
+        folia:speakable "false" ;
+        folia:optionalAttribute folia:IdAttribute ;
+        folia:optionalAttribute folia:ClassAttribute ;
+        folia:optionalAttribute folia:AnnotatorAttribute ;
+        folia:optionalAttribute folia:NAttribute ;
+        folia:optionalAttribute folia:ConfidenceAttribute ;
+        folia:optionalAttribute folia:DatetimeAttribute ;
+        folia:optionalAttribute folia:SrcAttribute ;
+        folia:optionalAttribute folia:BegintimeAttribute ;
+        folia:optionalAttribute folia:EndtimeAttribute ;
+        folia:optionalAttribute folia:SpeakerAttribute ;
+        folia:optionalAttribute folia:MetadataAttribute ;
+        folia:optionalAttribute folia:TagAttribute ;
+        folia:printable "false" ;
+        folia:acceptedElement folia:Relation ;
+        folia:acceptedElement folia:Metric ;
+        folia:acceptedElement folia:Feature ;
+        folia:acceptedElement folia:ForeignData ;
+        folia:xmltag "spanrelation" ;
+        skos:altLabel "spanrelation" ;
+        skos:prefLabel "Span Relation" .
+
+folia:SpanRelationLayer a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractAnnotationLayer ;
+        skos:broader folia:AbstractAnnotationLayer ;
+        folia:acceptedElement folia:SpanRelation ;
+        folia:xmltag "spanrelations" ;
+        skos:altLabel "spanrelations" ;
+        folia:primaryelement "false" .
+
+folia:Speech a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractStructureElement ;
+        skos:broader folia:AbstractStructureElement ;
+        folia:xmltag "speech" ;
+        skos:altLabel "speech" ;
+        skos:prefLabel "Speech Body" ;
+        folia:textdelimiter "\n\n\n" ;
+        folia:acceptedElement folia:AbstractInlineAnnotation ;
+        folia:acceptedElement folia:Division ;
+        folia:acceptedElement folia:Entry ;
+        folia:acceptedElement folia:Event ;
+        folia:acceptedElement folia:Example ;
+        folia:acceptedElement folia:External ;
+        folia:acceptedElement folia:Gap ;
+        folia:acceptedElement folia:List ;
+        folia:acceptedElement folia:Note ;
+        folia:acceptedElement folia:Paragraph ;
+        folia:acceptedElement folia:PhonContent ;
+        folia:acceptedElement folia:Quote ;
+        folia:acceptedElement folia:Reference ;
+        folia:acceptedElement folia:Sentence ;
+        folia:acceptedElement folia:String ;
+        folia:acceptedElement folia:TextContent ;
+        folia:acceptedElement folia:Utterance ;
+        folia:acceptedElement folia:Word ;
+        folia:acceptedElement folia:Hiddenword ;
+        folia:optionalAttribute folia:IdAttribute ;
+        folia:optionalAttribute folia:AnnotatorAttribute ;
+        folia:optionalAttribute folia:DatetimeAttribute ;
+        folia:optionalAttribute folia:SrcAttribute ;
+        folia:optionalAttribute folia:BegintimeAttribute ;
+        folia:optionalAttribute folia:EndtimeAttribute ;
+        folia:optionalAttribute folia:SpeakerAttribute ;
+        folia:optionalAttribute folia:MetadataAttribute ;
+        folia:optionalAttribute folia:SpaceAttribute ;
+        folia:optionalAttribute folia:TagAttribute .
+
+folia:Statement a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractSpanAnnotation ;
+        skos:broader folia:AbstractSpanAnnotation ;
+        folia:acceptedElement folia:Feature ;
+        folia:acceptedElement folia:Headspan ;
+        folia:acceptedElement folia:StatementRelation ;
+        folia:acceptedElement folia:Source ;
+        folia:acceptedElement folia:WordReference ;
+        folia:xmltag "statement" ;
+        skos:altLabel "statement" ;
+        skos:prefLabel "Statement" .
+
+folia:StatementLayer a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractAnnotationLayer ;
+        skos:broader folia:AbstractAnnotationLayer ;
+        folia:acceptedElement folia:Statement ;
+        folia:xmltag "statements" ;
+        skos:altLabel "statements" ;
+        folia:primaryelement "false" .
+
+folia:StatementRelation a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractSpanRole ;
+        skos:broader folia:AbstractSpanRole ;
+        rdfs:subClassOf folia:AbstractSpanAnnotation ;
+        skos:broader folia:AbstractSpanAnnotation ;
+        folia:xmltag "rel" ;
+        skos:altLabel "rel" ;
+        skos:prefLabel "Relation" ;
+        folia:primaryelement "false" .
+
+folia:StrengthFeature a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:Feature ;
+        skos:broader folia:Feature ;
+        rdfs:subClassOf folia:AbstractHigherOrderAnnotation ;
+        skos:broader folia:AbstractHigherOrderAnnotation ;
+        folia:subset "strength" .
+
+folia:String a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractHigherOrderAnnotation ;
+        skos:broader folia:AbstractHigherOrderAnnotation ;
+        folia:optionalAttribute folia:IdAttribute ;
+        folia:optionalAttribute folia:ClassAttribute ;
+        folia:optionalAttribute folia:AnnotatorAttribute ;
+        folia:optionalAttribute folia:ConfidenceAttribute ;
+        folia:optionalAttribute folia:DatetimeAttribute ;
+        folia:optionalAttribute folia:NAttribute ;
+        folia:optionalAttribute folia:SrcAttribute ;
+        folia:optionalAttribute folia:BegintimeAttribute ;
+        folia:optionalAttribute folia:EndtimeAttribute ;
+        folia:optionalAttribute folia:MetadataAttribute ;
+        folia:optionalAttribute folia:TagAttribute ;
+        folia:printable "true" ;
+        folia:acceptedElement folia:AbstractInlineAnnotation ;
+        folia:acceptedElement folia:Relation ;
+        folia:acceptedElement folia:Correction ;
+        folia:acceptedElement folia:Feature ;
+        folia:acceptedElement folia:ForeignData ;
+        folia:acceptedElement folia:Metric ;
+        folia:acceptedElement folia:PhonContent ;
+        folia:acceptedElement folia:TextContent ;
+        folia:xmltag "str" ;
+        skos:altLabel "str" ;
+        skos:prefLabel "String" .
+
+folia:StyleFeature a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:Feature ;
+        skos:broader folia:Feature ;
+        rdfs:subClassOf folia:AbstractHigherOrderAnnotation ;
+        skos:broader folia:AbstractHigherOrderAnnotation ;
+        folia:subset "style" .
+
+folia:SubjectivityAnnotation a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractInlineAnnotation ;
+        skos:broader folia:AbstractInlineAnnotation ;
+        folia:xmltag "subjectivity" ;
+        skos:altLabel "subjectivity" ;
+        skos:prefLabel "Subjectivity/Sentiment" .
+
+folia:Suggestion a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractCorrectionChild ;
+        skos:broader folia:AbstractCorrectionChild ;
+        folia:optionalAttribute folia:ConfidenceAttribute ;
+        folia:optionalAttribute folia:NAttribute ;
+        folia:optionalAttribute folia:TagAttribute ;
+        folia:xmltag "suggestion" ;
+        skos:altLabel "suggestion" ;
+        folia:auth "false" ;
+        folia:primaryelement "false" .
+
+folia:SynsetFeature a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:Feature ;
+        skos:broader folia:Feature ;
+        rdfs:subClassOf folia:AbstractHigherOrderAnnotation ;
+        skos:broader folia:AbstractHigherOrderAnnotation ;
+        folia:subset "synset" .
+
+folia:SyntacticUnit a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractSpanAnnotation ;
+        skos:broader folia:AbstractSpanAnnotation ;
+        folia:acceptedElement folia:Feature ;
+        folia:acceptedElement folia:SyntacticUnit ;
+        folia:acceptedElement folia:WordReference ;
+        folia:xmltag "su" ;
+        skos:altLabel "su" ;
+        skos:prefLabel "Syntactic Unit" .
+
+folia:SyntaxLayer a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractAnnotationLayer ;
+        skos:broader folia:AbstractAnnotationLayer ;
+        folia:acceptedElement folia:SyntacticUnit ;
+        folia:xmltag "syntax" ;
+        skos:altLabel "syntax" ;
+        folia:primaryelement "false" .
+
+folia:Table a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractStructureElement ;
+        skos:broader folia:AbstractStructureElement ;
+        folia:acceptedElement folia:AbstractInlineAnnotation ;
+        folia:acceptedElement folia:Row ;
+        folia:acceptedElement folia:TableHead ;
+        folia:acceptedElement folia:Linebreak ;
+        folia:xmltag "table" ;
+        skos:altLabel "table" ;
+        skos:prefLabel "Table" .
+
+folia:TableHead a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractStructureElement ;
+        skos:broader folia:AbstractStructureElement ;
+        folia:acceptedElement folia:AbstractInlineAnnotation ;
+        folia:acceptedElement folia:Row ;
+        folia:optionalAttribute folia:IdAttribute ;
+        folia:optionalAttribute folia:AnnotatorAttribute ;
+        folia:optionalAttribute folia:NAttribute ;
+        folia:optionalAttribute folia:ConfidenceAttribute ;
+        folia:optionalAttribute folia:DatetimeAttribute ;
+        folia:optionalAttribute folia:SrcAttribute ;
+        folia:optionalAttribute folia:BegintimeAttribute ;
+        folia:optionalAttribute folia:EndtimeAttribute ;
+        folia:optionalAttribute folia:SpeakerAttribute ;
+        folia:optionalAttribute folia:MetadataAttribute ;
+        folia:optionalAttribute folia:TagAttribute ;
+        folia:xmltag "tablehead" ;
+        skos:altLabel "tablehead" ;
+        skos:prefLabel "Table Header" .
+
+folia:Target a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractSpanRole ;
+        skos:broader folia:AbstractSpanRole ;
+        rdfs:subClassOf folia:AbstractSpanAnnotation ;
+        skos:broader folia:AbstractSpanAnnotation ;
+        folia:xmltag "target" ;
+        skos:altLabel "target" ;
+        skos:prefLabel "Target" ;
+        folia:primaryelement "false" .
+
+folia:Term a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractStructureElement ;
+        skos:broader folia:AbstractStructureElement ;
+        folia:acceptedElement folia:AbstractInlineAnnotation ;
+        folia:acceptedElement folia:Event ;
+        folia:acceptedElement folia:Figure ;
+        folia:acceptedElement folia:Gap ;
+        folia:acceptedElement folia:List ;
+        folia:acceptedElement folia:Paragraph ;
+        folia:acceptedElement folia:PhonContent ;
+        folia:acceptedElement folia:Reference ;
+        folia:acceptedElement folia:Sentence ;
+        folia:acceptedElement folia:String ;
+        folia:acceptedElement folia:Table ;
+        folia:acceptedElement folia:TextContent ;
+        folia:acceptedElement folia:Utterance ;
+        folia:acceptedElement folia:Word ;
+        folia:acceptedElement folia:Hiddenword ;
+        folia:acceptedElement folia:Linebreak ;
+        folia:acceptedElement folia:Whitespace ;
+        folia:xmltag "term" ;
+        skos:altLabel "term" ;
+        skos:prefLabel "Term" .
+
+folia:Text a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractStructureElement ;
+        skos:broader folia:AbstractStructureElement ;
+        folia:xmltag "text" ;
+        skos:altLabel "text" ;
+        skos:prefLabel "Text Body" ;
+        folia:textdelimiter "\n\n\n" ;
+        folia:acceptedElement folia:AbstractInlineAnnotation ;
+        folia:acceptedElement folia:Division ;
+        folia:acceptedElement folia:Entry ;
+        folia:acceptedElement folia:Event ;
+        folia:acceptedElement folia:Example ;
+        folia:acceptedElement folia:External ;
+        folia:acceptedElement folia:Figure ;
+        folia:acceptedElement folia:Gap ;
+        folia:acceptedElement folia:List ;
+        folia:acceptedElement folia:Note ;
+        folia:acceptedElement folia:Paragraph ;
+        folia:acceptedElement folia:PhonContent ;
+        folia:acceptedElement folia:Quote ;
+        folia:acceptedElement folia:Reference ;
+        folia:acceptedElement folia:Sentence ;
+        folia:acceptedElement folia:String ;
+        folia:acceptedElement folia:Table ;
+        folia:acceptedElement folia:TextContent ;
+        folia:acceptedElement folia:Word ;
+        folia:acceptedElement folia:Hiddenword ;
+        folia:acceptedElement folia:Linebreak ;
+        folia:acceptedElement folia:Whitespace ;
+        folia:optionalAttribute folia:IdAttribute ;
+        folia:optionalAttribute folia:AnnotatorAttribute ;
+        folia:optionalAttribute folia:DatetimeAttribute ;
+        folia:optionalAttribute folia:SrcAttribute ;
+        folia:optionalAttribute folia:BegintimeAttribute ;
+        folia:optionalAttribute folia:EndtimeAttribute ;
+        folia:optionalAttribute folia:SpeakerAttribute ;
+        folia:optionalAttribute folia:MetadataAttribute ;
+        folia:optionalAttribute folia:SpaceAttribute ;
+        folia:optionalAttribute folia:TagAttribute .
+
+folia:TextContent a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractContentAnnotation ;
+        skos:broader folia:AbstractContentAnnotation ;
+        folia:textcontainer "true" ;
+        folia:printable "true" ;
+        folia:speakable "false" ;
+        folia:acceptedElement folia:AbstractTextMarkup ;
+        folia:acceptedElement folia:Linebreak ;
+        folia:acceptedElement folia:Feature ;
+        folia:xmltag "t" ;
+        skos:altLabel "t" ;
+        skos:prefLabel "Text" ;
+        folia:xlink "true" .
+
+folia:TextMarkupCorrection a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractTextMarkup ;
+        skos:broader folia:AbstractTextMarkup ;
+        folia:xmltag "t-correction" ;
+        skos:altLabel "t-correction" ;
+        folia:primaryelement "false" .
+
+folia:TextMarkupError a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractTextMarkup ;
+        skos:broader folia:AbstractTextMarkup ;
+        folia:xmltag "t-error" ;
+        skos:altLabel "t-error" ;
+        folia:primaryelement "false" .
+
+folia:TextMarkupGap a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractTextMarkup ;
+        skos:broader folia:AbstractTextMarkup ;
+        folia:xmltag "t-gap" ;
+        skos:altLabel "t-gap" ;
+        folia:primaryelement "false" .
+
+folia:TextMarkupHSpace a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractTextMarkup ;
+        skos:broader folia:AbstractTextMarkup ;
+        folia:xmltag "t-hspace" ;
+        skos:altLabel "t-hspace" ;
+        folia:textdelimiter "" ;
+        folia:implicitspace "true" .
+
+folia:TextMarkupLanguage a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractTextMarkup ;
+        skos:broader folia:AbstractTextMarkup ;
+        folia:xmltag "t-lang" ;
+        skos:altLabel "t-lang" ;
+        folia:primaryelement "false" .
+
+folia:TextMarkupReference a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractTextMarkup ;
+        skos:broader folia:AbstractTextMarkup ;
+        folia:xmltag "t-ref" ;
+        skos:altLabel "t-ref" ;
+        folia:primaryelement "false" .
+
+folia:TextMarkupString a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractTextMarkup ;
+        skos:broader folia:AbstractTextMarkup ;
+        folia:xmltag "t-str" ;
+        skos:altLabel "t-str" ;
+        folia:primaryelement "false" .
+
+folia:TextMarkupStyle a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractTextMarkup ;
+        skos:broader folia:AbstractTextMarkup ;
+        folia:acceptedElement folia:FontFeature ;
+        folia:acceptedElement folia:SizeFeature ;
+        folia:xmltag "t-style" ;
+        skos:altLabel "t-style" ;
+        folia:primaryelement "true" .
+
+folia:TextMarkupWhitespace a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractTextMarkup ;
+        skos:broader folia:AbstractTextMarkup ;
+        folia:xmltag "t-whitespace" ;
+        skos:altLabel "t-whitespace" ;
+        folia:textdelimiter "" ;
+        folia:primaryelement "false" ;
+        folia:implicitspace "true" .
+
+folia:TimeFeature a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:Feature ;
+        skos:broader folia:Feature ;
+        rdfs:subClassOf folia:AbstractHigherOrderAnnotation ;
+        skos:broader folia:AbstractHigherOrderAnnotation ;
+        folia:subset "time" .
+
+folia:TimeSegment a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractSpanAnnotation ;
+        skos:broader folia:AbstractSpanAnnotation ;
+        folia:acceptedElement folia:ActorFeature ;
+        folia:acceptedElement folia:BegindatetimeFeature ;
+        folia:acceptedElement folia:EnddatetimeFeature ;
+        folia:acceptedElement folia:Feature ;
+        folia:acceptedElement folia:WordReference ;
+        folia:xmltag "timesegment" ;
+        skos:altLabel "timesegment" ;
+        skos:prefLabel "Time Segment" .
+
+folia:TimingLayer a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractAnnotationLayer ;
+        skos:broader folia:AbstractAnnotationLayer ;
+        folia:acceptedElement folia:TimeSegment ;
+        folia:xmltag "timing" ;
+        skos:altLabel "timing" ;
+        folia:primaryelement "false" .
+
+folia:Utterance a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractStructureElement ;
+        skos:broader folia:AbstractStructureElement ;
+        folia:textdelimiter " " ;
+        folia:acceptedElement folia:AbstractInlineAnnotation ;
+        folia:acceptedElement folia:Gap ;
+        folia:acceptedElement folia:Note ;
+        folia:acceptedElement folia:PhonContent ;
+        folia:acceptedElement folia:Quote ;
+        folia:acceptedElement folia:Reference ;
+        folia:acceptedElement folia:Sentence ;
+        folia:acceptedElement folia:String ;
+        folia:acceptedElement folia:TextContent ;
+        folia:acceptedElement folia:Word ;
+        folia:acceptedElement folia:Hiddenword ;
+        folia:xmltag "utt" ;
+        skos:altLabel "utt" ;
+        skos:prefLabel "Utterance" .
+
+folia:ValueFeature a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:Feature ;
+        skos:broader folia:Feature ;
+        rdfs:subClassOf folia:AbstractHigherOrderAnnotation ;
+        skos:broader folia:AbstractHigherOrderAnnotation ;
+        folia:subset "value" .
+
+folia:Whitespace a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractStructureElement ;
+        skos:broader folia:AbstractStructureElement ;
+        folia:xmltag "whitespace" ;
+        skos:altLabel "whitespace" ;
+        skos:prefLabel "Whitespace" ;
+        folia:implicitspace "true" ;
+        folia:textdelimiter "" .
+
+folia:Word a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractStructureElement ;
+        skos:broader folia:AbstractStructureElement ;
+        folia:acceptedElement folia:AbstractInlineAnnotation ;
+        folia:acceptedElement folia:PhonContent ;
+        folia:acceptedElement folia:Reference ;
+        folia:acceptedElement folia:String ;
+        folia:acceptedElement folia:TextContent ;
+        folia:xmltag "w" ;
+        skos:altLabel "w" ;
+        skos:prefLabel "Word/Token" ;
+        folia:textdelimiter " " ;
+        folia:optionalAttribute folia:IdAttribute ;
+        folia:optionalAttribute folia:ClassAttribute ;
+        folia:optionalAttribute folia:AnnotatorAttribute ;
+        folia:optionalAttribute folia:NAttribute ;
+        folia:optionalAttribute folia:ConfidenceAttribute ;
+        folia:optionalAttribute folia:DatetimeAttribute ;
+        folia:optionalAttribute folia:SrcAttribute ;
+        folia:optionalAttribute folia:BegintimeAttribute ;
+        folia:optionalAttribute folia:EndtimeAttribute ;
+        folia:optionalAttribute folia:SpeakerAttribute ;
+        folia:optionalAttribute folia:TextclassAttribute ;
+        folia:optionalAttribute folia:MetadataAttribute ;
+        folia:optionalAttribute folia:SpaceAttribute ;
+        folia:optionalAttribute folia:TagAttribute ;
+        folia:wrefable "true" .
+
+folia:WordReference a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        folia:optionalAttribute folia:IdrefAttribute ;
+        folia:optionalAttribute folia:TagAttribute ;
+        folia:xmltag "wref" ;
+        skos:altLabel "wref" .
