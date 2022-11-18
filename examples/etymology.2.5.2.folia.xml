@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FoLiA xmlns="http://ilk.uvt.nl/folia" version="2.5.2" xml:id="example">
+  <metadata>
+      <annotations>
+          <token-annotation set="https://raw.githubusercontent.com/LanguageMachines/uctodata/master/setdefinitions/tokconfig-eng.foliaset.ttl">
+			 <annotator processor="p1" />
+		  </token-annotation>
+          <text-annotation>
+			 <annotator processor="p1" />
+          </text-annotation>
+          <sentence-annotation>
+			 <annotator processor="p1" />
+          </sentence-annotation>
+          <paragraph-annotation>
+			 <annotator processor="p1" />
+          </paragraph-annotation>
+          <etymology-annotation set="old-english"> <!-- an ad-hoc set -->
+			 <annotator processor="p1" />
+		  </etymology-annotation>
+          <etymology-annotation set="proto-germanic"> <!-- an ad-hoc set -->
+			 <annotator processor="p1" />
+		  </etymology-annotation>
+          <etymology-annotation set="proto-indo-european"> <!-- an ad-hoc set -->
+			 <annotator processor="p1" />
+		  </etymology-annotation>
+          <description-annotation>
+			 <annotator processor="p1" />
+		  </description-annotation>
+      </annotations>
+      <provenance>
+         <processor xml:id="p1" name="proycon" type="manual" />
+      </provenance>
+  </metadata>
+  <text xml:id="example.text">
+    <p xml:id="example.p.1">
+      <s xml:id="example.p.1.s.2">
+         <t>I went home.</t>
+         <w xml:id="example.p.1.s.2.w.1" class="WORD">
+            <t>I</t>
+         </w>
+         <w xml:id="example.p.1.s.2.w.2" class="WORD">
+            <t>went</t>
+            <etymology class="wendan" set="old-english">
+				<desc>Originally the simple past and past participle of wend, but now the past of go due to suppletion. (Wiktionary)</desc>
+            </etymology>
+         </w>
+         <w xml:id="example.p.1.s.2.w.3" class="WORD">
+            <t>home</t>
+            <etymology class="hām" set="old-english">
+                <desc>village, hamlet, manor, estate, home, dwelling, house, region, country</desc>
+            </etymology>
+            <etymology class="hāimaz" set="proto-germanic">
+                <desc>home, village</desc>
+            </etymology>
+            <etymology class="*tḱóymos" set="proto-indo-european">
+                <desc>village, home</desc>
+            </etymology>
+         </w>
+      </s>
+    </p>
+  </text>
+</FoLiA>
