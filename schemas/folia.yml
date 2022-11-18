@@ -2,7 +2,7 @@
 #    This is a technical specification of FoLiA, for use by FoLiA libraries
 
 #The FoLiA version
-version: "2.5.1"
+version: "2.5.2"
 
 #The FoLiA namespace
 namespace: "http://ilk.uvt.nl/folia"
@@ -195,9 +195,7 @@ annotationtype_doc:
         history: "Since v0.8 but renamed since v0.9"
     gap:
         name: "Gap Annotation"
-        description: "Sometimes there are parts of a document you want to skip and not annotate at all, but
-include as is. This is where gap annotation comes in, the user-defined set may indicate the kind of gap. Common omissions
-in books are for example front-matter and back-matter, i.e. the cover."
+        description: "Sometimes there are parts of a document you want to skip and not annotate at all, but include as is. This is where gap annotation comes in, the user-defined set may indicate the kind of gap. Common omissions in books are for example front-matter and back-matter, i.e. the cover."
         history: "Since the beginning"
     quote:
         name: "Quote Annotation"
@@ -213,13 +211,11 @@ in books are for example front-matter and back-matter, i.e. the cover."
         history: "Since v0.11, external references since v1.2"
     relation: #used to be alignment in FoLiA < 2
         name: "Relation Annotation"
-        description: "FoLiA provides a facility to relate arbitrary parts of your document with other parts of your document, or even with parts of other FoLiA documents or external
-resources, even in other formats. It thus allows linking resources together. Within this context, the ``xref`` element is used to refer to the linked FoLiA elements."
+        description: "FoLiA provides a facility to relate arbitrary parts of your document with other parts of your document, or even with parts of other FoLiA documents or external resources, even in other formats. It thus allows linking resources together. Within this context, the ``xref`` element is used to refer to the linked FoLiA elements."
         history: "Revised since v0.8, renamed from alignment in v2.0"
     spanrelation: #used to be complexalignment
         name: "Span Relation Annotation"
-        description: "Span relations are a stand-off extension of relation annotation that allows for more complex relations, such as word alignments that include
-many-to-one, one-to-many or many-to-many alignments. One of its uses is in the alignment of multiple translations of (parts) of a text."
+        description: "Span relations are a stand-off extension of relation annotation that allows for more complex relations, such as word alignments that include many-to-one, one-to-many or many-to-many alignments. One of its uses is in the alignment of multiple translations of (parts) of a text."
         history: "since v0.8, renamed from complexalignment in v2.0"
     coreference:
         name: "Coreference Annotation"
@@ -251,14 +247,11 @@ many-to-one, one-to-many or many-to-many alignments. One of its uses is in the a
         history: "since v0.10"
     part:
         name: "Part Annotation"
-        description: "The structure element ``part`` is a fairly abstract structure element that should only be used when a more specific structure element is not available. Most
-notably, the part element should never be used for representation of morphemes or phonemes! Part can be used to divide a larger structure element, such as a division, or a
-paragraph into arbitrary subparts."
+        description: "The structure element ``part`` is a fairly abstract structure element that should only be used when a more specific structure element is not available. Most notably, the part element should never be used for representation of morphemes or phonemes! Part can be used to divide a larger structure element, such as a division, or a paragraph into arbitrary subparts."
         history: "since v0.11.2"
     utterance:
         name: "Utterance Annotation"
-        description: "An utterance is a structure element that may consist of words or sentences, which in turn may contain words. The opposite is also true, a sentence may consist of multiple
-utterances. Utterances are often used in the absence of sentences in a speech context, where neat grammatical sentences can not always be distinguished."
+        description: "An utterance is a structure element that may consist of words or sentences, which in turn may contain words. The opposite is also true, a sentence may consist of multiple utterances. Utterances are often used in the absence of sentences in a speech context, where neat grammatical sentences can not always be distinguished."
         history: "since v0.12"
     entry:
         name: "Entry Annotation"
@@ -286,8 +279,7 @@ utterances. Utterances are often used in the absence of sentences in a speech co
         history: "since v1.3"
     observation:
         name: "Observation Annotation"
-        description: "Observation annotation is used to make an observation pertaining to one or more word tokens.  Observations offer a an external qualification on part of a text. The
-qualification is expressed by the class, in turn defined by a set. The precise semantics of the observation depends on the user-defined set."
+        description: "Observation annotation is used to make an observation pertaining to one or more word tokens.  Observations offer a an external qualification on part of a text. The qualification is expressed by the class, in turn defined by a set. The precise semantics of the observation depends on the user-defined set."
         history: "since v1.3"
     sentiment:
         name: "Sentiment Annotation"
