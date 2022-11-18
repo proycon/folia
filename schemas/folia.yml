@@ -321,6 +321,10 @@ annotationtype_doc:
         name: "External Annotation"
         description: "External annotation makes a reference to an external FoLiA document whose structure is inserted at the exact place the external element occurs."
         history: "Since v2.4.0"
+    etymology:
+        name: "Etymology Annotation"
+        description: "Etymology Annotation allows to relate a word/morpheme to its historic origin (often in some kind of etymological database)"
+        history: "since v2.5.2"
 
 categories:
     structure:
@@ -994,6 +998,11 @@ elements:
                 annotationtype: SUBJECTIVITY
                 xmltag: "subjectivity"
                 label: "Subjectivity/Sentiment"
+          - class: EtymologyAnnotation
+            properties:
+                annotationtype: ETYMOLOGY
+                xmltag: "etymology"
+                label: "Etymology"
     - class: AbstractHigherOrderAnnotation
       properties:
           required_attribs: null
