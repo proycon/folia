@@ -2,7 +2,7 @@
 #    This is a technical specification of FoLiA, for use by FoLiA libraries
 
 #The FoLiA version
-version: "2.5.3"
+version: "2.5.4"
 
 #The FoLiA namespace
 namespace: "http://ilk.uvt.nl/folia"
@@ -522,7 +522,7 @@ elements:
           - class: AbstractSpanRole
             properties:
                 optional_attribs: [ ID, TAG ]
-                accepted_data: [ Feature, WordReference, LinkReference]
+                accepted_data: [ AbstractFeature, WordReference, LinkReference]
                 primaryelement: false
             elements:
                 - class: CoreferenceLink
@@ -578,76 +578,76 @@ elements:
           - class: Chunk
             properties:
                 annotationtype: CHUNKING
-                accepted_data: [ Feature, WordReference ]
+                accepted_data: [ AbstractFeature, WordReference ]
                 xmltag: "chunk"
                 label: "Chunk"
           - class: CoreferenceChain
             properties:
                 annotationtype: COREFERENCE
-                accepted_data: [ Feature, CoreferenceLink ]
+                accepted_data: [ AbstractFeature, CoreferenceLink ]
                 xmltag: "coreferencechain"
                 label: "Coreference Chain"
                 required_data: [ CoreferenceLink ]
           - class: Modality
             properties:
                 annotationtype: MODALITY
-                accepted_data: [ Scope, Feature, Cue, Source, Target, PolarityFeature, StrengthFeature ]
+                accepted_data: [ Scope, AbstractFeature, Cue, Source, Target, PolarityFeature, StrengthFeature ]
                 xmltag: "modality"
                 label: "Modality"
           - class: Dependency
             properties:
                 annotationtype: DEPENDENCY
-                accepted_data: [ DependencyDependent, Feature, Headspan ]
+                accepted_data: [ DependencyDependent, AbstractFeature, Headspan ]
                 xmltag: "dependency"
                 label: "Dependency"
                 required_data: [ DependencyDependent, Headspan ]
           - class: Entity
             properties:
                 annotationtype: ENTITY
-                accepted_data: [ Feature, WordReference ]
+                accepted_data: [ AbstractFeature, WordReference ]
                 xmltag: "entity"
                 label: "Entity"
           - class: Observation
             properties:
                 annotationtype: OBSERVATION
-                accepted_data: [ Feature, WordReference ]
+                accepted_data: [ AbstractFeature, WordReference ]
                 xmltag: "observation"
                 label: "Observation"
           - class: Predicate
             properties:
                 annotationtype: PREDICATE
-                accepted_data: [ Feature, SemanticRole, WordReference ]
+                accepted_data: [ AbstractFeature, SemanticRole, WordReference ]
                 xmltag: "predicate"
                 label: "Predicate"
           - class: SemanticRole
             properties:
                 annotationtype: SEMROLE
                 required_attribs: [ CLASS ]
-                accepted_data: [ Feature, Headspan, WordReference ]
+                accepted_data: [ AbstractFeature, Headspan, WordReference ]
                 xmltag: "semrole"
                 label: "Semantic Role"
           - class: Sentiment
             properties:
                 annotationtype: SENTIMENT
-                accepted_data: [ Feature, Headspan, PolarityFeature, StrengthFeature, Source, Target, WordReference ]
+                accepted_data: [ AbstractFeature, Headspan, PolarityFeature, StrengthFeature, Source, Target, WordReference ]
                 xmltag: "sentiment"
                 label: "Sentiment"
           - class: Statement
             properties:
                 annotationtype: STATEMENT
-                accepted_data: [ Feature, Headspan, StatementRelation, Source, WordReference ]
+                accepted_data: [ AbstractFeature, Headspan, StatementRelation, Source, WordReference ]
                 xmltag: "statement"
                 label: "Statement"
           - class: SyntacticUnit
             properties:
                 annotationtype: SYNTAX
-                accepted_data: [Feature, SyntacticUnit, WordReference]
+                accepted_data: [AbstractFeature, SyntacticUnit, WordReference]
                 xmltag: "su"
                 label: "Syntactic Unit"
           - class: TimeSegment
             properties:
                 annotationtype: TIMESEGMENT
-                accepted_data: [ActorFeature, BegindatetimeFeature, EnddatetimeFeature, Feature, WordReference]
+                accepted_data: [ActorFeature, BegindatetimeFeature, EnddatetimeFeature, AbstractFeature, WordReference]
                 xmltag: "timesegment"
                 label: "Time Segment"
     - class: AbstractStructureElement
@@ -657,7 +657,7 @@ elements:
           textdelimiter: "\n\n"
           speakable: true
           optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA, SPACE, TAG ]
-          accepted_data: [AbstractAnnotationLayer, External, Relation, Alternative, AlternativeLayers, Correction, Feature, Metric, Part, ForeignData]
+          accepted_data: [AbstractAnnotationLayer, External, Relation, Alternative, AlternativeLayers, Correction, AbstractFeature, Metric, Part, ForeignData]
           auto_generate_id: true
       elements:
           - class: Caption
@@ -866,7 +866,7 @@ elements:
           textdelimiter: "\n\n"
           speakable: true
           optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA, TAG ]
-          accepted_data: [AbstractAnnotationLayer, Relation, Alternative, AlternativeLayers, Correction, Feature, Metric, Part, ForeignData]
+          accepted_data: [AbstractAnnotationLayer, Relation, Alternative, AlternativeLayers, Correction, AbstractFeature, Metric, Part, ForeignData]
           auto_generate_id: true
       elements:
           - class: Morpheme
@@ -889,7 +889,7 @@ elements:
       properties:
           textcontainer: true
           printable: true
-          accepted_data: [ AbstractTextMarkup, Linebreak, Feature ]  #we add linebreak explicitly as it is both a structure element and a markup element
+          accepted_data: [ AbstractTextMarkup, Linebreak, AbstractFeature ]  #we add linebreak explicitly as it is both a structure element and a markup element
           textdelimiter: ""
           optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA, TAG ]
           xlink: true
@@ -955,7 +955,7 @@ elements:
       properties:
           required_attribs: [ CLASS ]
           optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, TEXTCLASS, METADATA, TAG ]
-          accepted_data: [ Feature , Metric, ForeignData ]
+          accepted_data: [ AbstractFeature , Metric, ForeignData ]
           occurrences_per_set: 1 #How often can a particular element+set combination occur under the parent (0 = unlimited)
       elements:
           - class: DomainAnnotation
@@ -1016,7 +1016,7 @@ elements:
               printable: false
               required_attribs: null
               xlink: true
-              accepted_data: [ LinkReference, Metric, Feature, ForeignData ]
+              accepted_data: [ LinkReference, Metric, AbstractFeature, ForeignData ]
               xmltag: "relation"
               label: "Relation"
         - class: Alternative
@@ -1049,14 +1049,14 @@ elements:
               optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA, TAG ]
               printable: false
               required_attribs: null
-              accepted_data: [ Relation, Metric, Feature, ForeignData ]
+              accepted_data: [ Relation, Metric, AbstractFeature, ForeignData ]
               xmltag: "spanrelation"
               label: "Span Relation"
         - class: Correction
           properties:
               annotationtype: CORRECTION
               printable: true
-              accepted_data: [ New, Original, Current, Suggestion, ErrorDetection, Metric, Feature, ForeignData ]
+              accepted_data: [ New, Original, Current, Suggestion, ErrorDetection, Metric, AbstractFeature, ForeignData ]
               speakable: true
               optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA, TAG ]
               xmltag: "correction"
@@ -1086,85 +1086,88 @@ elements:
               optional_attribs: [ ID, ANNOTATOR, CONFIDENCE, DATETIME, N, METADATA, BEGINTIME, ENDTIME, TAG ]
               accepted_data: null
               printable: true
-        - class: Feature
+        - class: AbstractFeature
           properties:
-              xmltag: "feat"
-              label: "Feature"
+              label: "AbstractFeature"
           elements:
-              - class: ActorFeature
-                properties:
-                    xmltag: null
-                    subset: "actor"
-              - class: BegindatetimeFeature
-                properties:
-                    xmltag: null
-                    subset: "begindatetime"
-              - class: EnddatetimeFeature
-                properties:
-                    xmltag: null
-                    subset: "enddatetime"
-              - class: FunctionFeature
-                properties:
-                    xmltag: null
-                    subset: "function"
-              - class: HeadFeature
-                properties:
-                    xmltag: null
-                    subset: "head"
-              - class: LevelFeature
-                properties:
-                    xmltag: null
-                    subset: "level"
-              - class: ModalityFeature
-                properties:
-                    xmltag: null
-                    subset: "mod"
-              - class: PolarityFeature
-                properties:
-                    xmltag: null
-                    subset: "polarity"
-              - class: StrengthFeature
-                properties:
-                    xmltag: null
-                    subset: "strength"
-              - class: StyleFeature
-                properties:
-                    xmltag: null
-                    subset: "style"
-              - class: SynsetFeature
-                properties:
-                    xmltag: null
-                    subset: "synset"
-              - class: TimeFeature
-                properties:
-                    xmltag: null
-                    subset: "time"
-              - class: ValueFeature
-                properties:
-                    xmltag: null
-                    subset: "value"
-              - class: FontFeature
-                properties:
-                    xmltag: null
-                    subset: "font"
-              - class: SizeFeature
-                properties:
-                    xmltag: null
-                    subset: "size"
+            - class: Feature
+              properties:
+                xmltag: "feat"
+                label: "Feature"
+            - class: ActorFeature
+              properties:
+                  xmltag: "actor"
+                  subset: "actor"
+            - class: BegindatetimeFeature
+              properties:
+                  xmltag: "begindatetime"
+                  subset: "begindatetime"
+            - class: EnddatetimeFeature
+              properties:
+                  xmltag: "enddatetime"
+                  subset: "enddatetime"
+            - class: FunctionFeature
+              properties:
+                  xmltag: "function"
+                  subset: "function"
+            - class: HeadFeature
+              properties:
+                  xmltag: "headfeature"
+                  subset: "head"
+            - class: LevelFeature
+              properties:
+                  xmltag: "level"
+                  subset: "level"
+            - class: ModalityFeature
+              properties:
+                  xmltag: "mod"
+                  subset: "mod"
+            - class: PolarityFeature
+              properties:
+                  xmltag: "polarity"
+                  subset: "polarity"
+            - class: StrengthFeature
+              properties:
+                  xmltag: "strength"
+                  subset: "strength"
+            - class: StyleFeature
+              properties:
+                  xmltag: "style"
+                  subset: "style"
+            - class: SynsetFeature
+              properties:
+                  xmltag: "synset"
+                  subset: "synset"
+            - class: TimeFeature
+              properties:
+                  xmltag: "time"
+                  subset: "time"
+            - class: ValueFeature
+              properties:
+                  xmltag: "value"
+                  subset: "value"
+            - class: FontFeature
+              properties:
+                  xmltag: "font"
+                  subset: "font"
+            - class: SizeFeature
+              properties:
+                  xmltag: "size"
+                  subset: "size"
         - class: Metric
           properties:
               annotationtype: METRIC
               optional_attribs: [ ID, CLASS, ANNOTATOR, N, CONFIDENCE, DATETIME, SRC, BEGINTIME, ENDTIME, SPEAKER, METADATA, TAG ]
               xmltag: "metric"
               label: "Metric"
-              accepted_data: [ Feature, ValueFeature, ForeignData ]
+              accepted_data: [ AbstractFeature, ValueFeature, ForeignData ]
         - class: String
           properties:
               annotationtype: STRING
               optional_attribs: [ ID, CLASS, ANNOTATOR, CONFIDENCE, DATETIME, N, SRC, BEGINTIME, ENDTIME, METADATA, TAG ]
               occurrences: 0
               printable: true
-              accepted_data: [AbstractInlineAnnotation, Relation, Correction, Feature, ForeignData, Metric, PhonContent, TextContent]
+              accepted_data: [AbstractInlineAnnotation, Relation, Correction, AbstractFeature, ForeignData, Metric, PhonContent, TextContent]
               xmltag: "str"
               label: "String"
         - class: ForeignData
@@ -1176,7 +1179,7 @@ elements:
               optional_attribs: [ ID, CLASS, ANNOTATOR, N,  DATETIME, SRC, BEGINTIME, ENDTIME, METADATA, TAG ]
               xmltag: "gap"
               label: "Gap"
-              accepted_data: [Content, Feature, Metric, Part, ForeignData]
+              accepted_data: [Content, AbstractFeature, Metric, Part, ForeignData]
     - class: AbstractContentAnnotation
       properties:
           required_attribs: null
@@ -1189,7 +1192,7 @@ elements:
               textcontainer: true
               printable: true
               speakable: false
-              accepted_data: [ AbstractTextMarkup, Linebreak, Feature ] #Linebreak doubles as a AbstractTextMarkup and AbstractStructureAnnotation element
+              accepted_data: [ AbstractTextMarkup, Linebreak, AbstractFeature ] #Linebreak doubles as a AbstractTextMarkup and AbstractStructureAnnotation element
               xmltag: "t"
               label: "Text"
               xlink: true
@@ -1197,7 +1200,7 @@ elements:
           properties:
               annotationtype: PHON
               printable: false
-              accepted_data: [ Feature ]
+              accepted_data: [ AbstractFeature ]
               phoncontainer: true
               speakable: true
               xmltag: "ph"
