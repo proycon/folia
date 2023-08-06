@@ -1092,67 +1092,67 @@ elements:
           elements:
             - class: Feature
               properties:
-                xmltag: "feat"
-                label: "Feature"
+                  xmltag: null
+                  subset: "feat"
             - class: ActorFeature
               properties:
-                  xmltag: "actor"
+                  xmltag: null
                   subset: "actor"
             - class: BegindatetimeFeature
               properties:
-                  xmltag: "begindatetime"
+                  xmltag: null
                   subset: "begindatetime"
             - class: EnddatetimeFeature
               properties:
-                  xmltag: "enddatetime"
+                  xmltag: null
                   subset: "enddatetime"
             - class: FunctionFeature
               properties:
-                  xmltag: "function"
+                  xmltag: null
                   subset: "function"
             - class: HeadFeature
               properties:
-                  xmltag: "headfeature"
+                  xmltag: null
                   subset: "head"
             - class: LevelFeature
               properties:
-                  xmltag: "level"
+                  xmltag: null
                   subset: "level"
             - class: ModalityFeature
               properties:
-                  xmltag: "mod"
+                  xmltag: null
                   subset: "mod"
             - class: PolarityFeature
               properties:
-                  xmltag: "polarity"
+                  xmltag: null
                   subset: "polarity"
             - class: StrengthFeature
               properties:
-                  xmltag: "strength"
+                  xmltag: null
                   subset: "strength"
             - class: StyleFeature
               properties:
-                  xmltag: "style"
+                  xmltag: null
                   subset: "style"
             - class: SynsetFeature
               properties:
-                  xmltag: "synset"
+                  xmltag: null
                   subset: "synset"
             - class: TimeFeature
               properties:
-                  xmltag: "time"
+                  xmltag: null
                   subset: "time"
             - class: ValueFeature
               properties:
-                  xmltag: "value"
+                  xmltag: null
                   subset: "value"
             - class: FontFeature
               properties:
-                  xmltag: "font"
+                  xmltag: null
                   subset: "font"
             - class: SizeFeature
               properties:
-                  xmltag: "size"
+                  xmltag: null
                   subset: "size"
         - class: Metric
           properties:
