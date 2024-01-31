@@ -1,11 +1,11 @@
-@prefix folia: <http://ilk.uvt.nl/folia/v2#> .
+@prefix folia: <https://w3id.org/folia/v2/> .
 @prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xs: <http://www.w3.org/2001/XMLSchema#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/#> .
 
-##### FoLiA version v2.5.1 Specification #######
+##### FoLiA version v2.5.3 Specification #######
 
 ### Concept Schemes ###
 
@@ -21,7 +21,7 @@ folia:Attribute a rdfs:Class .
 
 folia:Elements a skos:ConceptScheme ;
                  dc:title "FoLiA Elements" ;
-                 dc:description "Defines FoLiA elements. These correspond to element in FoLiA XML" .
+                 dc:description "Defines FoLiA elements. These correspond to elements in FoLiA XML" .
 folia:Element  a rdfs:Class .
 
 ### Element Properties ###
@@ -52,6 +52,12 @@ folia:optionalAttribute a rdf::Property ;
 folia:acceptedElement a rdf:Property ;
                       rdfs:domain folia:Element ;
                       rdfs:range folia:Element .
+
+folia:processortype a rdf:Property ;
+                     rdfs:range folia:ProcessorType .
+
+folia:AutoProcessorType a folia:ProcessorType .
+folia:ManualProcessorType a folia:ProcessorType .
 
 
 
@@ -453,6 +459,12 @@ folia:HspaceAnnotationType a skos:Concept, folia:AnnotationType ;
         skos:prefLabel "Horizontal Whitespace" ;
         skos:definition "Markup annotation introducing horizontal whitespace" ;
         skos:historyNote "Since the v2.5.0" .
+
+folia:EtymologyAnnotationType a skos:Concept, folia:AnnotationType ;
+        skos:inScheme folia:AnnotationTypes ;
+        skos:prefLabel "Etymology Annotation" ;
+        skos:definition "Etymology Annotation allows to relate a word/morpheme to its historic origin (often in some kind of etymological database)" ;
+        skos:historyNote "since v2.5.2" .
 
 ### Attributes ###
 
@@ -1136,6 +1148,14 @@ folia:ErrorDetection a skos:Concept, folia:Element ;
         folia:xmltag "errordetection" ;
         skos:altLabel "errordetection" ;
         skos:prefLabel "Error Detection" .
+
+folia:EtymologyAnnotation a skos:Concept, folia:Element ;
+        skos:inScheme folia:Elements ;
+        rdfs:subClassOf folia:AbstractInlineAnnotation ;
+        skos:broader folia:AbstractInlineAnnotation ;
+        folia:xmltag "etymology" ;
+        skos:altLabel "etymology" ;
+        skos:prefLabel "Etymology" .
 
 folia:Event a skos:Concept, folia:Element ;
         skos:inScheme folia:Elements ;
