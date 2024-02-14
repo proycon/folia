@@ -34,7 +34,7 @@
   <text xml:id="example.text">
     <p xml:id="example.p.1">
       <s xml:id="example.p.1.s.2">
-         <t>I went home.</t>
+         <t>I went home</t>
          <w xml:id="example.p.1.s.2.w.1" class="WORD">
             <t>I</t>
          </w>
