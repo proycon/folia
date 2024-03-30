@@ -22,6 +22,7 @@
       </str>
       <!-- and below an extra string example to emphasise that strings are not tokens: this overlaps with str.1 and str.2) -->
       <str xml:id="str.bonus">
+	<!-- This offset is WRONG!. Should be 2! -->
         <t offset="3">t is</t>
       </str>
     </s>
