@@ -55,7 +55,7 @@
                     <wref id="example.p.1.s.1.w.2" t="Dalai" />
                 </chunk>
                 <chunk xml:id="example.p.1.s.1.alt.1.chunk.2" confidence="0.001">
-                    <wref id="example.p.1.s.1.w.2" t="Lama" />
+                    <wref id="example.p.1.s.1.w.3" t="Lama" />
                     <wref id="example.p.1.s.1.w.4" t="greeted" />
                 </chunk>
                 <chunk xml:id="example.p.1.s.1.alt.1.chunk.3" confidence="0.001">
